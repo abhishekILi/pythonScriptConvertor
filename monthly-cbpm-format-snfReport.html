@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+      <title>vizag-SNF-return-cbpm</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+      </head>
+     <body>
+         <div class="wrapper">
+            <div style="float:right">
+                <p>Report Generated on: {{ history.approved_date_time }}</p>
+                </div>
+        <section class="body-card form-style1 trial-form">      
+                <div class="container-fluid">
+                    <div class="row mt-1">
+                        <div class="col-md-12">
+                            <div class="panel-right">
+                            
+                                <div class="panel-row">
+                                    <div class="heading-style2 text-center">
+                                        <img width="100px" alt="Logo"
+                                        style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                        src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg">
+                                        <h2 style="text-align: center;">GTTT VIZAG</h2>
+                                        <h2><u class="font-weight-bold">OVERALL VIBRATION LEVELS FOR THE MONTH OF MAY 24</u></h2>
+                                        
+                                    </div>
+                                    <h4><u>Gas Turbine</u></h4>
+
+                                    <table class="table table-bordered tabletd-color">
+                                        <tr>
+                                           <td>SHIP</td>                       
+                                           <td>{{ship}}</td>
+                                        </tr>
+                                        <tr>
+                                           <td>RETURN FOR THE PERIOD</td>
+                                           <td>{{users.return_for_the_period}}</td>
+                                        </tr>
+                                     </table>
+
+                                    <table class="table table-bordered tabletd-color">
+                                        <tr>
+                                            <th>Point No</th>
+                                            <th>GT1</th>
+                                            <th>GT2</th>
+                                            <th>GT3</th>
+                                            <th>GT4</th>
+                                            </tr>
+        
+                                            <tr>
+                                                <td>Date</td>
+                                                <td>{{users.gas_turbine_date_gt1}}</td>
+                                                <td>{{users.gas_turbine_date_gt2}}</td>
+                                                <td>{{users.gas_turbine_date_gt3}}</td>
+                                                <td>{{users.gas_turbine_date_gt4}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td>HPC RPM</td>
+                                                <td>{{users.gas_turbine_hpc_rpm_gt1}}</td>
+                                                <td>{{users.gas_turbine_hpc_rpm_gt2}}</td>
+                                                <td>{{users.gas_turbine_hpc_rpm_gt3}}</td>
+                                                <td>{{users.gas_turbine_hpc_rpm_gt4}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td>LPC Fwd </td>
+                                                <td>{{users.gas_turbine_lpc_fwd_gt1}}</td>
+                                                <td>{{users.gas_turbine_lpc_fwd_gt2}}</td>
+                                                <td>{{users.gas_turbine_lpc_fwd_gt3}}</td>
+                                                <td>{{users.gas_turbine_lpc_fwd_gt4}}</td>
+                                            </tr>
+        
+        
+                                            <tr>
+                                                <td>LPC Aft</td>
+                                                <td>{{users.gas_turbine_lpc_aft_gt1}}</td>
+                                                <td>{{users.gas_turbine_lpc_aft_gt2}}</td>
+                                                <td>{{users.gas_turbine_lpc_aft_gt3}}</td>
+                                                <td>{{users.gas_turbine_lpc_aft_gt4}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>HPC Fwd</td>
+                                                <td>{{users.gas_turbinehpc_fwd_gt1}}</td>
+                                                <td>{{users.gas_turbinehpc_fwd_gt2}}</td>
+                                                <td>{{users.gas_turbinehpc_fwd_gt3}}</td>
+                                                <td>{{users.gas_turbinehpc_fwd_gt4}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>HPC Aft</td>
+                                                <td>{{users.gas_turbine_hpc_aft_gt1}}</td>
+                                                <td>{{users.gas_turbine_hpc_aft_gt2}}</td>
+                                                <td>{{users.gas_turbine_hpc_aft_gt3}}</td>
+                                                <td>{{users.gas_turbine_hpc_aft_gt4}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>RG Fwd</td>
+                                                <td>{{users.gas_turbine_rg_fwd_gt1}}</td>
+                                                <td>{{users.gas_turbine_rg_fwd_gt2}}</td>
+                                                <td>{{users.gas_turbine_rg_fwd_gt3}}</td>
+                                                <td>{{users.gas_turbine_rg_fwd_gt4}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>RG Aft</td>
+                                                <td>{{users.gas_turbine_rg_aft_gt1}}</td>
+                                                <td>{{users.gas_turbine_rg_aft_gt2}}</td>
+                                                <td>{{users.gas_turbine_rg_aft_gt3}}</td>
+                                                <td>{{users.gas_turbine_rg_aft_gt4}}</td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td>Hyd Coupling</td>
+                                                <td>{{users.gas_turbine_hyd_coupling_gt1}}</td>
+                                                <td>{{users.gas_turbine_hyd_coupling_gt2}}</td>
+                                                <td>{{users.gas_turbine_hyd_coupling_gt3}}</td>
+                                                <td>{{users.gas_turbine_hyd_coupling_gt4}}</td>
+                                            </tr>
+                                      
+                                    </table>
+        
+        
+        
+                                    <h4><u class="font-weight-bold">Gas Turbine Generator</u></h4>
+                                    <table class="table table-bordered tabletd-color">
+                                        <tr>
+                                            <th>Point No</th>
+                                            <th>GTG 1 at 450 kW</th>
+                                            <th>GTG 2 at450 kW</th>
+                                           
+                                            </tr>
+        
+                                            <tr>
+                                                <td>Date</td>
+                                                <td>{{users.gas_turbine_generator_date_gtg1}}</td>
+                                                <td>{{users.gas_turbine_generator_date_gtg2}}</td>
+                                               
+                                            </tr>
+        
+                                            <tr>
+                                                <td>Generator FWD</td>
+                                                <td>{{users.gas_turbine_generator_generator_fwd_gtg1}}</td>
+                                                <td>{{users.gas_turbine_generator_generator_fwd_gtg2}}</td>
+                                              
+                                            </tr>
+        
+                                            <tr>
+                                                <td>Generator AFT</td>
+                                                <td>{{users.gas_turbine_generator_aft_gtg1}}</td>
+                                                <td>{{users.gas_turbine_generator_aft_gtg2}}</td>
+                                              
+                                            </tr>
+        
+        
+                                            <tr>
+                                                <td>RG FWD</td>
+                                                <td>{{users.gas_turbine_generator_rg_fwd_gtg1}}</td>
+                                                <td>{{users.gas_turbine_generator_rg_fwd_gtg2}}</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>RG AFT</td>
+                                                <td>{{users.gas_turbinehpc_rg_aft_gtg1}}</td>
+                                                <td>{{users.gas_turbinehpc_rg_aft_gtg2}}</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>Compressor bearing</td>
+                                                <td>{{users.gas_turbine_generator_compressor_bearing_gtg1}}</td>
+                                                <td>{{users.gas_turbine_generator_compressor_bearing_gtg2}}</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td>Compressor body</td>
+                                                <td>{{users.gas_turbine_generator_compressor_body_gtg1}}</td>
+                                                <td>{{users.gas_turbine_generator_compressor_body_gtg2}}</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td>Turbine bearing (Axial)</td>
+                                                <td>{{users.gas_turbine_generator_turbine_bearing_gtg1}}</td>
+                                                <td>{{users.gas_turbine_generator_turbine_bearing_gtg2}}</td>
+                                              
+                                            </tr>                               
+                                      
+                                    </table>
+        
+                                    <h4><u class="font-weight-bold">Details of Running Hours</u></h4>
+                                    <table class="table table-bordered tabletd-color">
+                                        <tr>
+                                            <th>Equipment</th>
+                                            <th>RHs during the month</th>
+                                            <th>RHs since installation</th>
+                                          
+                                            </tr>
+        
+                                            <tr>
+                                                <td>GT 1</td>
+                                                <td>{{users.running_hrs_month_gt1}}</td>
+                                                <td>{{users.running_hrs_install_gt1}}</td>
+                                              
+                                            </tr>
+        
+                                            <tr>
+                                                <td>GT 2</td>
+                                                <td>{{users.running_hrs_month_gt2}}</td>
+                                                <td>{{users.running_hrs_install_gt2}}</td>
+                                               
+                                            </tr>
+        
+                                            <tr>
+                                                <td>GT 3</td>
+                                                <td>{{users.running_hrs_month_gt3}}</td>
+                                                <td>{{users.running_hrs_install_gt3}}</td>
+                                               
+                                            </tr>
+        
+        
+                                            <tr>
+                                                <td>GT 4</td>
+                                                <td>{{users.running_hrs_month_gt4}}</td>
+                                                <td>{{users.running_hrs_install_gt4}}</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td>RG 1</td>
+                                                <td>{{users.running_hrs_month_rg1}}</td>
+                                                <td>{{users.running_hrs_install_rg1}}</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>RG 2</td>
+                                                <td>{{users.running_hrs_month_rg2}}</td>
+                                                <td>{{users.running_hrs_install_rg2}}</td>
+                                              
+                                            </tr>
+                                            <tr>
+                                                <td>GTG 1 (TC)</td>
+                                                <td>{{users.running_hrs_month_gtg1_tc}}</td>
+                                                <td>{{users.running_hrs_install_gtg1_tc}}</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>GTG 1 (RG)</td>
+                                                <td>{{users.running_hrs_month_gtg1_rg}}</td>
+                                                <td>{{users.running_hrs_install_gtg1_rg}}</td>
+                                              
+                                            </tr>
+        
+                                            <tr>
+                                                <td>GTG 2 (TC)</td>
+                                                
+                                                <td>{{users.running_hrs_month_gtg2_tc}}</td>
+                                                <td>{{users.running_hrs_install_gtg2_tc}}</td>
+                                               
+                                            </tr>
+        
+                                            <tr>
+                                                <td>GTG 2 (RG)</td>
+                                                <td>{{users.running_hrs_month_gtg2_rg}}</td>
+                                                <td>{{users.running_hrs_install_gtg2_rg}}</td>
+                                              
+                                            </tr>
+                                      
+                                    </table>
+        
+        
+        
+        
+        
+                                    
+        
+        
+                                    <h4><u  class="font-weight-bold">Hours Exploited Above 400°C of Exhaust Gas Temp During the Month</u></h4>
+                                    <table class="table table-bordered tabletd-color">
+                                        <tr>
+                                            <th>Equipment</th>
+                                            <th>Duration in Hrs</th>
+                                          
+                                            </tr>
+        
+                                        <tr>
+                                            <td>GTG 1</td>
+                                            <td>{{users.exhaust_gas_temp_gtg1}}</td>
+        
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td>GTG 2</td>
+                                            <td>{{users.exhaust_gas_temp_gtg2}}</td>
+        
+                                        </tr>
+                                    </table>
+        
+        
+        
+                                    <div class="heading-style2 text-center">
+                                        <h2><u class="font-weight-bold">REMARKS</u></h2>
+                                    </div>
+                        
+                        
+                        
+                                    <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                                        <tr>
+                                          <td>
+                                        
+                                            <div class="form-floating" style="text-align: left;">
+                                              {{users.snf_monthly_cbpm_remarks | safe}}
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                </div>
+        
+                               
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+        </section>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+    </table>
+    </div>
+    </body>
+</html>

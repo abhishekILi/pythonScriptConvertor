@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+     <body>
+        <section class="body-card form-style1 trial-form wrapper">
+         
+                <!-- <a href="javascript:void(0);" class="btn btn-danger btn-lg float-left" (click)="back(trialDet)">BACK</a> -->
+        
+                <div class="container-fluid">
+                    <div class="row mt-1">
+                        <div class="col-md-12">
+                            <div class="panel-right">
+                              
+
+                                <div style="float:right">
+                                    <p>Report Generated on: {{ history.approved_date_time }}</p>
+                                  </div>
+                                   <div class="heading-style2 heading-style3 text-center">
+                                    <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 42%;" src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg" class="ng-star-inserted">
+                                    <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">GTTT VIZAG</h2>       
+                                      <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">PERFORMANCE AUDIT OF GTG</h2>              
+                                   </div>
+
+
+                                <div class="panel-row">
+                                    
+                                    <table class="table table-bordered  tabletd-color">
+                                        <tr>
+                                            <td width="15%">1.<b> Name of Ship :</b></td>
+                                            <td>{{users.ship}}</td>
+                                        </tr>
+                                     </table>
+        
+                                   
+                                    <table class="table table-bordered tabletd-color">
+        
+                                        <tr>
+                                            <th>S No.</th>
+                                            <th colspan="5">Designation</th>
+                                            <th colspan="7">Information/ Data</th>
+                                          
+        
+                                        </tr>
+        
+                                       
+        
+        
+                                        <tr>
+                                            <td>2.</td>
+                                            <td colspan="5">Machinery / Equipment</td>
+                                            <td colspan="7">{{users.delhi_gtg_inf_data_machn_eqp}}</td>
+                                        </tr>
+                                        
+        
+                                        <tr>
+                                            <td rowspan="3">3.</td>
+                                            <td  colspan="2" rowspan="3">Running Hours since New</td>
+                                          
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="2">TC</td>
+                                            <td  colspan="8">{{users.delhi_gtg_inf_data_run_hrs_SN_tc}}</td>
+                                        </tr>
+        
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="2">RG</td>
+                                            <td  colspan="8">{{users.delhi_gtg_inf_data_run_hrs_SN_rg}}</td>
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td>4.</td>
+                                            <td  colspan="5">Reason for Trial</td>
+                                            <td  colspan="7">{{users.delhi_gtg_inf_data_reason_for_trial}}</td>
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td>5.</td>
+                                            <td  colspan="5">Proposed Date</td>
+                                            <td colspan="7"><input type="date" class="form-control"
+                                                    value={{users.delhi_gtg_inf_data_proposed_date}}></td>
+                                        </tr>
+        
+                                        <tr>
+                                            <td>6.</td>
+                                            <td  colspan="5">Date of Last cold/control checks undertaken</td>
+                                            <td colspan="7"><input type="date" class="form-control"
+                                                    value={{users.delhi_gtg_inf_data_cold_control_check}}></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7.</td>
+                                            <td  colspan="5">Date of Last Battery start (cold/hot start)
+                                            </td>
+                                            <td  colspan="7"><input type="date" class="form-control"
+                                                    value={{users.delhi_gtg_inf_data_ship_batt_start}}></td>
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td>8.</td>
+                                            <td  colspan="5">Date of Last Vibration Trial</td>
+                                            <td  colspan="7"><input type="date" class="form-control"
+                                                    value={{users.delhi_gtg_inf_data_ship_vib_trial}}></td>
+                                        </tr>
+        
+        
+        
+                                        <tr>
+                                            <td>9.</td>
+                                            <td  colspan="5">Date of fuel flushing and steam washing</td>
+                                            <td  colspan="7"><input type="date" class="form-control"
+                                                    value={{users.delhi_gtg_inf_data_ship_steam_wash}}></td>
+                                        </tr>
+        
+        
+        
+                                        <tr>
+                                            <td rowspan="3">10.</td>
+                                            <td colspan="12" class="text-center font-weight-bold"><u  class="font-weight-bold">Vibration parameters and thermal parameters of GTG at 450 kW</u></td>
+                                        </tr>
+        
+                                        <tr>
+                                            <td colspan="2" class="text-dark">Point No.</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                         
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td colspan="2">Vibration reading</td>
+                                            <td>{{users.delhi_gtg_vib_read_pt_1}}</td>
+                                            <td>{{users.delhi_gtg_vib_read_pt_2}}</td>
+                                            <td>{{users.delhi_gtg_vib_read_pt_3}}</td>
+                                            <td>{{users.delhi_gtg_vib_read_pt_4}}</td>
+                                            <td>{{users.delhi_gtg_vib_read_pt_5}}</td>
+                                            <td>{{users.delhi_gtg_vib_read_pt_6}}</td>
+                                            <td>{{users.delhi_gtg_vib_read_pt_7}}</td>
+                                           
+        
+                                        </tr>
+                                        </table>
+        
+                                        <table class="table table-bordered  tabletd-color">
+        
+                                        <tr rowspan="2">
+                                            <td>11.</td>
+                                            <td colspan="12" class="text-center font-weight-bold"><u  class="font-weight-bold">List of critical spare/outstanding demand</u></td>
+        
+                                        </tr>
+                                        </table>
+        
+                                        <table class="table table-bordered tabletd-color" style="margin-top:10px;">
+        
+                                            <tr>
+                                                <th width="1%">Ser</th>                                       
+                                                <th width="15%">Item Description</th>
+                                                <th width="6%">Item Code</th> 
+                                                <th width="8%">Outstanding Demand</th> 
+                                                <th width="12%">Remarks</th>   
+                                              
+                
+                                               
+            
+                                            </tr>
+            
+                                       
+            
+                                       
+                                         
+
+                                    {% for i in dynamic %}
+                                    <tr>
+                                       <td width="3%"> {{forloop.counter}}</td>
+                                       <td style="font-size:14px; color: #222;">{{i.list_of_critical_spare_delhi_desc}}</td>
+                                       <td style="font-size:14px; color: #222;">{{i.list_of_critical_spare_delhi_code}}</td>
+                                       <td style="font-size:14px; color: #222;">{{i.list_of_critical_spare_delhi_demand}}</td>
+                                       <td style="font-size:14px; color: #222;">{{i.list_of_critical_spare_delhi_remarks}}</td>                                                                                                               
+                                    </tr>
+                                    {% endfor %}    
+                                    
+            
+                                    </table>
+                                        <table class="table table-bordered  tabletd-color" style="margin-top:10px;">
+                                        <tr>
+                                            <td>12.</td>
+                                            <td colspan="12" class="text-center font-weight-bold"><u  class="font-weight-bold">Status of Observations of Last vibration trials. As tabulated below along with Unique Identification Number (UNI):</u></td>
+                                        </tr>
+        
+                                        </table>
+                                        <table class="table table-bordered  tabletd-color" style="margin-top:10px;">
+        
+                                        <tr>
+                                            <td>13.</td>
+                                            <td colspan="12" class="text-center font-weight-bold"><u  class="font-weight-bold">State of Machinery: -</u></td>
+        
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <th>Ser</th>
+                                            <th>Description</th>
+                                            <th width="12%">TC</th>
+                                            <th width="12%">RG</th>
+                                            <th colspan="5" width="35%">Remarks</th>
+                                        </tr>
+        
+        
+                                        <tr>
+        
+                                            <td>(a)</td>
+                                            <td>Hours run since installation</td>
+                                            <td>{{users.delhi_gtg_som_TC_a}}</td>
+                                            <td>{{users.delhi_gtg_som_RG_a}}</td>
+                                            <td colspan="6" width="25%">{{users.delhi_gtg_som_RG_remarks_a}}</td>
+        
+        
+                                        </tr>
+        
+                                        <tr>
+        
+                                            <td>(b)</td>
+                                            <td>Hours run since last trials</td>
+                                            <td >{{users.delhi_gtg_som_TC_b}}</td>
+                                            <td >{{users.delhi_gtg_som_RG_b}}</td>
+                                                    <td colspan="6">{{users.delhi_gtg_som_RG_remarks_b}}</td>
+        
+        
+                                        </tr>
+        
+                                        <tr>
+        
+                                            <td>(c)</td>
+                                            <td>Last routine carried out</td>
+                                            <td>{{users.delhi_gtg_som_TC_c}}</td>
+                                            <td>{{users.delhi_gtg_som_RG_c}}</td>
+                                                    <td colspan="6">{{users.delhi_gtg_som_RG_remarks_c}}</td>
+        
+        
+                                        </tr>
+        
+        
+                                        <tr>
+        
+                                            <td>(d)</td>
+                                            <td>Next routine falling due</td>
+                                            <td>{{users.delhi_gtg_som_TC_d}}</td>
+                                            <td>{{users.delhi_gtg_som_RG_d}}</td>
+                                                    <td colspan="6">{{users.delhi_gtg_som_RG_remarks_d}}</td>
+        
+                                        </tr>
+        
+                                        <tr>
+        
+                                            <td>(e)</td>
+                                            <td>Hours balance for 7K and 14K Routine</td>
+                                            <td>{{users.delhi_gtg_som_TC_e}}</td>
+                                            <td>{{users.delhi_gtg_som_RG_e}}</td>
+                                                    <td colspan="6">{{users.delhi_gtg_som_RG_remarks_e}}</td>
+        
+                                        </tr>
+        
+                                        <tr>
+                                            <td>14.</td>
+                                            <td colspan="3">Details of replacement of Major Component
+                                                Sub- assemblies TC & RG</td>
+                                            <td colspan="9">{{users.delhi_gtg_maj_com_TC_RG}}</td>
+                                        </tr>
+        
+                                        <tr>
+                                            <td>15.</td>
+                                            <td colspan="3">Major defect encountered since last Major routine TC & RG</td>
+                                            <td colspan="9">{{users.delhi_gtg_maj_def_TC_RG}}</td>
+                                        </tr>
+        
+        
+        
+        
+        
+        
+                                    </table>
+        
+                                    <div class="heading-style2 heading-style3 text-center" style="margin-top:10px;">
+                                        <h2><u  class="font-weight-bold">Remarks</u></h2>
+                                    </div>
+        
+                                   
+        
+                                      
+                                   <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                                    <tr>
+                                      <td>
+                                    
+                                        <div class="form-floating">
+                                         {{users.delhi_accep_ehm_gtg_remarks | safe}}
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </table>
+        
+                                </div>
+                              
+            
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+      
+        <table cellspacing="0" cellpadding="5"   width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center">
+            <tr>
+                <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+                <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+          </table>
+        </section>
+     </body>
+</html>
+

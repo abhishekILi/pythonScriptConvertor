@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CBIU</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+        <meta name="pdfkit-page-size" content="Legal"/>
+        <meta name="pdfkit-orientation" content="Portrait"/>
+		<style type="text/css">
+            body{margin:50px 50px; size:landscape;font-size: 14px;font-family: Arial, Helvetica, sans-serif;}
+            .wrapper{width: 100%;border-style: double; padding: 8px;}
+                table{border-collapse: collapse;}
+                .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+                .star{color: red;}
+             strong{font-weight: 600;}
+           body{font-family: Arial;} 
+            body{margin:50px;background: #FFF !important;}
+
+            table{
+            border: 1px solid lightgray;
+            
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width:100%;
+        }
+        table tr{
+            margin: 0px!important;
+        }
+        table tr th{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+
+        table tr td{
+         background-color: #80808054;
+         padding: 0px;
+         margin: 0px;
+         border: 1px solid black;
+         text-align: left;
+         padding: 2px 2px 2px 2px;
+     }
+
+     textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+                border: 1px solid #80808054;
+                margin: 10px;
+            }
+        h2{
+            text-align: center;
+        }
+        input{
+            border: none;
+        }
+
+        button{
+            display: none;
+        }
+
+        .btn{
+            display: none;
+        }
+
+        @media print{
+            button, input[type="button"], input[type="submit"], input[type="reset"]{
+                display: none !important;
+            }
+        }
+		</style>		   
+	</head>
+	<body>
+	
+    <div class="wrapper">
+      <div style="float:right">
+          <p>Report Generated on: {{ history.approved_date_time }}</p>
+      </div>
+          
+              <div class="container-fluid">
+                <div class="row mt-1">
+                  <div class="col-md-12">
+                    <div class="panel-right">
+                      
+                 
+                        <div class="panel-row">
+                          <div class="heading-style2 text-center">
+                              <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+                              src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+                              <h2><u>BLOWING ARC OF SOOT BLOWERS (Y-160 BOILERS) - {{users.ship}} MONTH : {{users.boiler_arc_stbd_btw_month}}</u></h2>                            
+                          </div>
+                      
+                        <table class="table table-bordered table-bordered tabletd-color text-center">
+                         
+                          <tr class="trblue">
+                            <td class="thblue">Soot Blower Number</td>
+                            <td class="thblue">Measured at Position</td>
+                            <td class="thblue">Specified Values in Degrees</td>
+                            <td class="thblue">Actual Reading in Degrees</td>
+                            <td class="thblue">Error</td>
+                            <td class="thblue">Remarks Highlighting Defects Observed</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="4">S1</td>
+                          </tr>
+                          <tr>
+                            <td>VSO</td>
+                            <!-- <td>-5°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_sp_VSO_minus_5_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VSO_minus_5_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VSO_minus_5_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VSO_minus_5_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFO</td>
+                            <!-- <td>-36°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_sp_VFO_minus_36_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VFO_minus_36_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VFO_minus_36_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VFO_minus_36_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFC</td>
+                            <!-- <td>+25°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_sp_VFC_plus_25_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VFC_plus_25_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VFC_plus_25_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S1_VFC_plus_25_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="3">S2</td>
+                            <td class="td-bluelight">VSO</td>
+                            <!-- <td class="td-bluelight">-80°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_sp_VSO_minus_80_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VSO_minus_80_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VSO_minus_80_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VSO_minus_80_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFO</td>
+                            <!-- <td>-111°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_sp_VFO_minus_111_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VFO_minus_111_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VFO_minus_111_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VFO_minus_111_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFC</td>
+                            <!-- <td>-50°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_sp_VFC_minus_50_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VFC_minus_50_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VFC_minus_50_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S2_VFC_minus_50_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="3">S3</td>
+                            <td class="td-bluelight">VSO</td>
+                            <!-- <td class="td-bluelight">+30°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_sp_VSO_plus_30_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VSO_plus_30_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VSO_plus_30_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VSO_plus_30_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFO</td>
+                            <!-- <td>-1°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_sp_VFO_minus_1_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VFO_minus_1_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VFO_minus_1_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VFO_minus_1_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFC</td>
+                            <!-- <td>-150°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_sp_VFC_minus_150_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VFC_minus_150_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VFC_minus_150_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S3_VFC_minus_150_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="3">S4</td>
+                            <td class="td-bluelight">VSO</td>
+                            <!-- <td class="td-bluelight">+40°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_sp_VSO_plus_40_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VSO_plus_40_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VSO_plus_40_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VSO_plus_40_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFO</td>
+                            <!-- <td>+9°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_sp_VFO_plus_9_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VFO_plus_9_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VFO_plus_9_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VFO_plus_9_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFC</td>
+                            <!-- <td>-150°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_sp_VFC_minus_150_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VFC_minus_150_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VFC_minus_150_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S4_VFC_minus_150_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="3">S5</td>
+                            <td class="td-bluelight">VSO</td>
+                            <!-- <td class="td-bluelight">+85°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_sp_VSO_plus_85_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VSO_plus_85_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VSO_plus_85_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VSO_plus_85_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFO</td>
+                            <!-- <td>+116°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_sp_VFO_plus_116_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VFO_plus_116_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VFO_plus_116_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VFO_plus_116_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFC</td>
+                            <!-- <td>-120°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_sp_VFC_minus_120_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VFC_minus_120_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VFC_minus_120_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S5_VFC_minus_120_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="3">S6</td>
+                            <td class="td-bluelight">VSO</td>
+                            <!-- <td class="td-bluelight">-85°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_sp_VSO_minus_85_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VSO_minus_85_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VSO_minus_85_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VSO_minus_85_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFO</td>
+                            <!-- <td>-116°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_sp_VFO_minus_116_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VFO_minus_116_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VFO_minus_116_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VFO_minus_116_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFC</td>
+                            <!-- <td>+120°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_sp_VFC_plus_120_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VFC_plus_120_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VFC_plus_120_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S6_VFC_plus_120_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="3">S7</td>
+                            <td class="td-bluelight">VSO</td>
+                            <!-- <td class="td-bluelight">+155°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_sp_VSO_plus_155_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VSO_plus_155_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VSO_plus_155_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VSO_plus_155_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFO</td>
+                            <!-- <td>+124°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_sp_VFO_plus_124_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VFO_plus_124_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VFO_plus_124_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VFO_plus_124_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>VFC</td>
+                            <!-- <td>-175°</td> -->
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_sp_VFC_minus_175_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VFC_minus_175_degrees}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VFC_minus_175_degrees_error}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                  <input matInput placeholder="" value="{{users.S7_VFC_minus_175_remarks}}">
+                                </mat-form-field>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <div class="note-card">
+                          <strong><u>Note:</u></strong>
+                          <ol type="1">
+                            <li>Direction of rotation of all soot blowers except S5 is anti-clockwise.
+                            S5 soot blower rotates in the clockwise direction.</li>
+                            <li>VSO - Valve starts opening.</li>
+                            <li>VFO - Valve fully Opened.</li>
+                            <li>VEC - Valve fully closed.</li>
+                            </ol>
+                        </div>
+
+                        <table class="table table-bordered tabletd-color table-form-color1" >
+         
+                          <tr>
+                            <td width="15%"><strong>Engineer Officer</strong></td>
+                            <td>
+                                <p style="font-size:9px">Comment: {{esignature.engg_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.engg_information.first_name}} {{esignature.engg_information.last_name}} ({{esignature.engg_information.loginname}})
+                                <br>
+                                {{esignature.engg_information.designation}}
+                                <br>
+                                On {{esignature.engg_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.engg_sign_path}}"/></td>
+
+                            <td class="td-bluelight" width="15%"><strong>Commanding Officer</strong></td>
+                            <td>
+                                <p style="font-size:9px">Comment: {{esignature.comm_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.comm_information.first_name}} {{esignature.comm_information.last_name}} ({{esignature.comm_information.loginname}})
+                                <br>
+                                {{esignature.comm_information.designation}}
+                                <br>
+                                On {{esignature.comm_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.comm_sign_path}}"/></td>
+
+                          </tr>
+                         
+                        </table></br>
+            
+            
+                        <table class="table table-bordered table-form-color1">
+                          <th class="td-bluelight">General Remark by Ship</th>
+                          <tr>
+                            <td  class="form-control textarea" rows="8" value="{{users.general_remark_by_ship_boiler_stbd | safe}}" ></td>
+                          </tr>
+            
+                        </table>
+
+
+
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 8px;">
+              <tr>
+                  <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                  <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+              </tr>
+          </table>
+
+          <table cellspacing="0" cellpadding="5"   width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+         </table>
+
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+	</body>
+</html>	

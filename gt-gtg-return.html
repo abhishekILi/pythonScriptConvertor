@@ -1,0 +1,2183 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>gt-gtg-return</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="keywords" content="" />
+   <meta name="pdfkit-page-size" content="Legal" />
+   <meta name="pdfkit-orientation" content="Landscape" />
+   <style type="text/css">
+      body{margin:50px 50px; size:landscape;}
+      .wrapper{width: 100%;border-style: double; padding: 8px;}
+          table{border-collapse: collapse;}
+          .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+          .star{color: red;}
+          strong{font-weight: 600;}
+          body{margin:50px;background: #FFF !important;}
+
+          .table{
+              border: 1px solid lightgray;
+              font-size: 12px;
+              padding: 0px;
+              margin: 0px;
+              border-collapse: collapse;
+              width: 100%;
+          }
+          .table tr{
+              margin: 0px!important;
+          }
+          .table tr th{
+              background-color: #80808054;
+              padding: 0px;
+              margin: 0px;
+              border: 1px solid black;
+              text-align: center;
+              padding: 2px 2px 2px 2px;
+          }
+          .table tr td{
+          background-color: #80808054;
+          padding: 0px;
+          margin: 0px;
+          border: 1px solid black;
+          text-align: center;
+          padding: 2px 2px 2px 2px;
+      }
+          textarea{
+              width: 100%;
+              min-height: 10px;
+              /* padding: 10px; */
+              font-size: 12px;
+              resize: none;
+              overflow-y: hidden;
+          }
+          h2{
+              text-align: center;
+          }
+          input{
+              border: none;
+          }
+          button{
+              display: none;
+          }
+          .btn{
+              display: none;
+          }
+
+          @media print{
+              button, input[type="button"], input[type="submit"], input[type="reset"]{
+                  display: none !important;
+              }
+          }
+  </style>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div style="float:right">
+         <p>Report Generated on: {{ history.approved_date_time }}</p>
+     </div>
+      <div class="heading-style2 text-center">
+         <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 47%;"
+            src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+         <h2 style="text-align: center;">GTTT MUMBAI</h2>
+         <h2><U>RETURN ON GAS TURBINE INSTALLATIONS - KOLKATA CLASS</U></h2>
+         <h2><U>SECTION-I: MAIN PROPULSION GAS TURBINE</U></h2>
+      </div>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <td width="6%"><strong>Date:</strong></td>
+
+            <td style="font-size:14px; color: #222;">{{datesset | date:'d/m/Y'}}</td>
+            <td width="25%" class="td-bluelight"><strong>Date of Commission:</strong></td>
+            <td style="font-size:14px; color: #222;">{{users.date_of_comm |date:'d/m/Y'}}</td>
+         </tr>
+         <tr>
+            <td><strong>Place:</strong></td>
+            <td style="font-size:14px; color: #222;">{{users.place}}</td>
+            <td class="td-bluelight"><strong>Return for quarter ending:</strong></td>
+            <td style="font-size:14px; color: #222;">{{users.date |date:'d/m/Y'}}</td>
+         </tr>
+      </table>
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">SECTION-I: GAS TURBINE GENERATOR</h2>
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-I: GENERAL</h2>
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">(To be filled.in only in case of replacement of GT/RG)</h2>
+      </div>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th rowspan="2">Unit</th>
+            <th rowspan="2">Old GT/RG S.NO.</th>
+            <th colspan="4">Details of New GT/ RG </th>
+            <th colspan="2">Remarks</th>
+         </tr>
+         <tr>
+            <th>S.NO</th>
+            <th>Ex-Ship / Contract</th>
+            <th>DOM</th>
+            <th>DOI</th>
+            <th>
+               <ul type="i">
+                  <li>Reason of replacement</li>
+                  <li>Hours run (old GT/ RG)</li>
+               </ul>
+            </th>
+         </tr>
+
+         <tr>
+            <td>{{users.Unit}}</td>
+
+            <td style="font-size:14px; color: #222;">{{users.old_S_No}}</td>
+            <td style="font-size:14px; color: #222;">{{users.S_No}}</td>
+            <td style="font-size:14px; color: #222;">{{users.ExShip_Contract |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users.PBGT_DOM_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users.DOI}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Remarks}}</td>
+
+
+         </tr>
+
+      </table>
+      <div class="note-card">
+         <p><strong>Note:</strong>DOM-Date of Manufacturing; DOI-Date of Installation onboard.</p>
+      </div>
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-II: OPERATIONS</h2>
+      </div>
+      <h4>(A) Gas Turbine Exploitation.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th colspan="3" rowspan="2">Operations</th>
+            <th colspan="3">GT1</th>
+            <th colspan="3">GT2</th>
+            <th colspan="3">GT3</th>
+            <th colspan="3">GT4</th>
+         </tr>
+         <tr>
+            <th>QTR</th>
+            <th>Sl</th>
+            <th>SN</th>
+            <th>QTR </th>
+            <th>Sl</th>
+            <th>SN</th>
+            <th>QTR</th>
+            <th>Sl</th>
+            <th>SN</th>
+            <th>QTR</th>
+            <th>Sl</th>
+            <th>SN</th>
+         </tr>
+
+         <tr>
+            <td colspan="3">No of Hot Starts</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT1_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT1_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT1_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT2_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT2_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT2_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT3_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT3_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT3_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT4_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT4_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Hot_Starts_GT4_SN}}</td>
+         </tr>
+
+         <tr>
+            <td rowspan="5">Running Hours</td>
+            <td class="td-bluelight" rowspan="4">GT</td>
+         </tr>
+
+         <tr>
+            <td>1.0N</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT1_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT1_S1}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT1_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT2_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT2_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT2_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT3_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT3_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT3_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT4_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT4_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_1_0N_GT4_SN}}</td>
+         </tr>
+
+
+         <tr>
+            <td>0.8N</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT1_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT1_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT1_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT2_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT2_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT2_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT3_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT3_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT3_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT4_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT4_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_8N_GT4_SN}}</td>
+         </tr>
+
+
+         <tr>
+            <td>0.7N & Below</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT1_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT1_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT1_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT2_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT2_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT2_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT3_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT3_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT3_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT4_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT4_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_0_7N_GT4_SN}}</td>
+         </tr>
+
+
+         <tr>
+            <td colspan="2">Total</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_SCGT_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_SCGT_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_SCGT_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_PCGT_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_PCGT_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_PCGT_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_SBGT_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_SBGT_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_SBGT_SN}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_PBGT_QTR}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_PBGT_Sl}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Total_PBGT_SN }}</td>
+         </tr>
+
+         <tr>
+            <td colspan="3">R/O R/H</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_SCGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_SCGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_SCGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_PCGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_PCGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_PCGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_SBGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_SBGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_SBGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_PBGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_PBGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.RORH_PBGT_SN }}</td>
+         </tr>
+
+         <tr>
+            <td colspan="3">NO Of Astern Engagements</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SCGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SCGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SCGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PCGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PCGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PCGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SBGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SBGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SBGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PBGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PBGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PBGT_SN }}</td>
+         </tr>
+
+
+         <tr>
+            <td colspan="3">NO Of Prop Stop Orders</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SCGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SCGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SCGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PCGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PCGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PCGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SBGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SBGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SBGT_SN }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PBGT_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PBGT_Sl }}</td>
+            <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PBGT_SN }}</td>
+         </tr>
+
+      </table>
+      <div class="note-card">
+         <p><strong><u><b>Note:</b></u></strong></p>
+         <ol type="1">
+            <li>&nbsp;&nbsp;Running Hour is to be rounded off to nearest hour</li>
+            <li>&nbsp;&nbsp;<b>SI:</b> Since Installation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <b>SN:</b>Since New
+            </li>
+            <li>&nbsp;&nbsp;Since new details of "Number of Astern Engagements" and Number of Prop Stop orders not
+               available in old service log of GT1 & GT2</li>
+         </ol>
+      </div>
+
+      <h4>(B)Reduction Gear Exploitation.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th rowspan="2">&nbsp;</th>
+            <th colspan="4">RG1</th>
+            <th colspan="4">RG2</th>
+         </tr>
+         <tr>
+            <th colspan="2">QTR</th>
+            <th colspan="2">SI</th>
+            <th colspan="2">QTR</th>
+            <th colspan="2">SI</th>
+         </tr>
+
+         <tr>
+            <td class="td-bluelight">Running Hours (excluding Trailing Hours)</td>
+            <td colspan="2">{{users.QTR_SCRG_JO}}</td>
+            <td colspan="2">{{users.QTR_SCRG_IO}}</td>
+            <td colspan="2">{{users.QTR_SCRG_LS}}</td>
+            <td colspan="2">{{users.QTR_SCRG_TOTAL}}</td>
+         </tr>
+
+         <tr>
+            <td class="td-bluelight">Total Service Life</td>
+            <td colspan="2">{{users.installation_SCRG_JO}}</td>
+            <td colspan="2">{{users.installation_SCRG_IO}}</td>
+            <td colspan="2">{{users.installation_SCRG_LS}}</td>
+            <td colspan="2">{{users.installation_SCRG_TOTAL}}</td>
+
+         </tr>
+         <tr>
+            <td rowspan="4">No. of RG Engagements</td>
+         </tr>
+         <tr>
+            <th colspan="2">GT1</th>
+            <th colspan="2">GT2</th>
+            <th colspan="2">GT3</th>
+            <th colspan="2">GT4</th>
+         </tr>
+
+         <tr>
+            <th>QTR</th>
+            <th>SI</th>
+            <th>QTR</th>
+            <th>SI</th>
+            <th>QTR</th>
+            <th>SI</th>
+            <th>QTR</th>
+            <th>SI</th>
+         </tr>
+
+         <tr>
+            <td>{{users.New_SCRG_JO}}</td>
+            <td>{{users.New_SCRG_IO}}</td>
+            <td>{{users.New_SCRG_LS}}</td>
+            <td>{{users.New_SCRG_TOTAL}}</td>
+
+            <td>{{users.New_PCRG_JO}}</td>
+            <td>{{users.New_PCRG_IO}}</td>
+            <td>{{users.New_PCRG_LS}}</td>
+            <td>{{users.New_PCRG_TOTAL}}</td>
+         </tr>
+
+      </table>
+      <!-- --------------------------------------------END OF PAGE 1 -->
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-lll: INSPECTION/
+            TRIALS/ROUTINES</h2>
+      </div>
+      <h4>(A) Maintenance Routines Due and Undertaken.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Ser</th>
+            <th>Equipment</th>
+            <th>Description</th>
+            <th>MainTop Routine Number</th>
+         </tr>
+
+         {% for al in dynamic1%}
+         <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{al.Due_Undertaken_Equipment}}</td>
+            <td>{{al.Due_Undertaken_Description}}</td>
+            <td>{{al.Due_Undertaken_Maintop_Routine_No}}</td>
+         </tr>
+         {% endfor %}
+
+      </table>
+      <div class="note-card">
+         <p><strong>Note:</strong> All routines of periodicity three monthly and above.</p>
+      </div>
+      <h4>(B). Maintenance Routines Due But Not Undertaken.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Ser</th>
+            <th>Equipment</th>
+            <th>Description</th>
+            <th>MainTop Routine Number</th>
+            <th>Reason</th>
+         </tr>
+
+         {% for al in dynamic2%}
+         <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{al.Due_Not_Undertaken_Equipment}}</td>
+            <td>{{al.Due_Not_Undertaken_Description}}</td>
+            <td>{{al.Due_Not_Undertaken_Maintop_Routine_No}}</td>
+            <td>{{al.Due_Not_Undertaken_Reason}}</td>
+
+         </tr>
+         {% endfor %}
+
+      </table>
+      <h4>(C) Inspection/ Trials/ Routines.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Date Of</th>
+            <th>GT 1</th>
+            <th>GT 2</th>
+            <th>GT 3</th>
+            <th>GT 4</th>
+         </tr>
+
+         <tr>
+            <td>Last EHM Trials</td>
+            <td style="font-size:14px; color: #222;">{{users1.EHM_Trials_GT1_RG_Date | date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.EHM_Trials_GT2_RG_Date | date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.EHM_Trials_GT3_IRG_Date| date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.EHM_Trials_GT4_RG_Date | date:'d/m/Y'}}</td>
+
+         </tr>
+
+         <tr>
+            <td>Last Full Power Trials</td>
+            <td style="font-size:14px; color: #222;">{{users1.FullPower_Trials_GT1_RG_Date | date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.FullPower_Trials_GT2_RG_Date | date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.FullPower_Trials_GT3_IRG_Date | date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.FullPower_Trials_GT4_RG_Date | date:'d/m/Y'}}</td>
+
+         </tr>
+
+
+         <tr>
+            <td>Last Annual Routines</td>
+            <td style="font-size:14px; color: #222;">{{users1.Annual_Routines_GT1_RG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.Annual_Routines_GT2_RG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.Annual_Routines_GT3_IRG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.Annual_Routines_GT4_RG_Date |date:'d/m/Y'}}</td>
+         </tr>
+
+
+         <tr>
+            <td>Last Lub Oil Spectro-metric Analysis</td>
+            <td style="font-size:14px; color: #222;">{{users1.LubOil_GT1_RG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.LubOil_GT2_RG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.LubOil_GT3_IRG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.LubOil_GT4_RG_Date |date:'d/m/Y'}}</td>
+
+         </tr>
+
+
+         <tr>
+            <td>Last Chemical Cleaning</td>
+            <td style="font-size:14px; color: #222;">{{users1.Chemical_Cleaning_GT1_RG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.Chemical_Cleaning_GT2_RG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.Chemical_Cleaning_GT3_IRG_Date |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users1.Chemical_Cleaning_GT4_RG_Date |date:'d/m/Y'}}</td>
+         </tr>
+
+      </table>
+      <h4>(D) Replacement of Units/ Sub Units.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th colspan="7">Main Propulsion Plant (MPP)</th>
+         </tr>
+         <tr>
+            <th width="10%">Date</th>
+            <th width="15%">Unit/Sub Unit</th>
+            <th width="15%">Old S.No</th>
+            <th width="15%">New S.No</th>
+            <th width="25%">Reason for Replacment </th>
+            <th width="20%">Remarks</th>
+         </tr>
+
+         {% for al in dynamic3 %}
+         <tr>
+            <td>{{al.MPP_Date}}</td>
+            <td>{{al.MPP_Unit}}</td>
+            <td>{{al.MPP_Old_S_No}}</td>
+            <td>{{al.MPP_Nes_S_No}}</td>
+            <td>{{al.MPP_Reason}}</td>
+            <td>{{al.MPP_Remarks}}</td>
+         </tr>
+         {% endfor %}
+
+         <tr>
+            <th colspan="7">Control System</th>
+         </tr>
+         <tr>
+            <th>Ser</th>
+            <th>Date</th>
+            <th>Unit/Sub Unit</th>
+            <th>Old S.No</th>
+            <th>New S.No</th>
+            <th>Reason for Replacment </th>
+            <th>Remarks</th>
+         </tr>
+
+         {% for al in dynamic4 %}
+         <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{al.CS_date |date:'d/m/Y'}}</td>
+            <td>{{al.CS_Unit }}</td>
+            <td>{{al.CS_Old_S_No }}</td>
+            <td>{{al.CS_Nes_S_No }}</td>
+            <td>{{al.CS_Reason }}</td>
+            <td>{{al.CS_Remarks }}</td>
+         </tr>
+         {% endfor %}
+      </table>
+
+      <h4>(E) DEMANDS OUTSTANDING (Demands more than 01-yr old).</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th width="5%">S No.</th>
+            <th width="10%">Main Equipment</th>
+            <th width="10%">System / Sub System</th>
+            <th width="12%">Defective Control Unit / Instrument</th>
+            <th width="10%">DART Ref</th>
+            <th width="10%">Part No.</th>
+            <th width="10%">Demand Outstanding</th>
+            <th width="12%">Alternate Readout available</th>
+            <th width="10%">Authorised in SPTA</th>
+            <th width="12%">Remarks (Impact on system performance)</th>
+         </tr>
+         {% for al in dynamic5 %}
+         <tr>
+            <td>{{al.Demand_Main_eqp}}</td>
+            <td>{{al.Demand_sys}}</td>
+            <td>{{al.Demand_CU}}</td>
+            <td>{{al.Demand_DART}}</td>
+            <td>{{al.Demand_Part}}</td>
+            <td>{{al.Demand_outstand}}</td>
+            <td>{{al.Demand_readout}}</td>
+            <td>{{al.Demand_SPTA}}</td>
+            <td>{{al.Demand_remarks}}</td>
+         </tr>
+         {% endfor %}
+
+      </table>
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-IV: DEFECTS</h2>
+      </div>
+      <h4>(A)Defects Observed on MPP during Quarter.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Date</th>
+            <th>Dart No</th>
+            <th>Equipment</th>
+            <th>Description</th>
+            <th>Remedial Action</th>
+         </tr>
+
+         {% for al in dynamic6 %}
+         <tr>
+            <td>{{al.Date_Observed_MPP_durin_Quarter}}</td>
+            <td>{{al.DartNo_MPP_durin_Quarter}}</td>
+            <td>{{al.Equip_Observed_MPP_durin_Quarter}}</td>
+            <td>{{al.Desc_Observed_MPP_durin_Quarter}}</td>
+            <td>{{al.Remedial_Observed_MPP_durin_Quarter}}</td>
+
+         </tr>
+         {% endfor %}
+
+      </table>
+      <h4>(B) Defects Observed on Control System during Quarter.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Date</th>
+            <th>Dart No</th>
+            <th>Equipment</th>
+            <th>Description</th>
+            <th>Remedial Action</th>
+         </tr>
+
+         {% for al in dynamic7 %}
+         <tr>
+            <td>{{al.Date_Observed_MPP_CS_durin_Quarter}}</td>
+            <td>{{al.DartNo_MPP_CS_durin_Quarter}}</td>
+            <td>{{al.Equip_Observed_MPP_CS_durin_Quarter}}</td>
+            <td>{{al.Desc_Observed_MPP_CS_durin_Quarter}}</td>
+            <td>{{al.Remedial_Observed_MPP_CS_durin_Quarter}}</td>
+
+         </tr>
+         {% endfor %}
+      </table>
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART - V: PARAMETERS</h2>
+      </div>
+      <h4>(A) GT and RG parameters (To be recorded at 0.66 N)</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th colspan="2">PARAMETERS</th>
+            <th>GT NO 1</th>
+            <th>GT NO 2</th>
+            <th>GT NO 3</th>
+            <th>GT NO 4</th>
+         </tr>
+
+         <tr>
+            <td colspan="2">Date:</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_date_SCGT |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_date_PCGT |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_date_SBGT |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_date_PBGT |date:'d/m/Y'}}</td>
+         </tr>
+
+
+         <tr>
+            <td colspan="2">Ambient Air Temperature( &deg;C)</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_Air_Temp_GT1 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_Air_Temp_GT2 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_Air_Temp_GT3 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_Air_Temp_GT4 }}</td>
+         </tr>
+
+         <tr>
+            <td colspan="2">HPC (RPM)</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_HPC_GT1 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_HPC_GT2 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_HPC_GT3 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_HPC_GT4 }}</td>
+         </tr>
+
+         <tr>
+            <td colspan="2">LPC (RPM)</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_RG_Params_LPC_GT1 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_RG_Params_LPC_GT2 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_RG_Params_LPC_GT3 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_RG_Params_LPC_GT4 }}</td>
+         </tr>
+
+         <tr>
+            <td colspan="2">PT (RPM)</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_RG_Params_PT_GT1 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_RG_Params_PT_GT2 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_RG_Params_PT_GT3 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_RG_Params_PT_GT4 }}</td>
+         </tr>
+
+         <tr>
+            <td colspan="2">Shaft (RPM)</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_Shaft_GT1 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_Shaft_GT2 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_Shaft_GT3 }}</td>
+            <td style="font-size:14px; color: #222;">{{users.GT_Params_Shaft_GT4 }}</td>
+         </tr>
+
+         <tr>
+            <td colspan="2">Exhaust Gas Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Params_Gas_Temp_GT1}}</td>
+            <td>{{users2.GT_Params_Gas_Temp_GT2}}</td>
+            <td>{{users2.GT_Params_Gas_Temp_GT3}}</td>
+            <td>{{users2.GT_Params_Gas_Temp_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Off Take / Framework Temperature( &deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Params_Off_Temp_GT1}}</td>
+            <td>{{users2.GT_Params_Off_Temp_GT2}}</td>
+            <td>{{users2.GT_Params_Off_Temp_GT3}}</td>
+            <td>{{users2.GT_Params_Off_Temp_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Main Fuel Pressure (kgf/cm²)</td>
+            <td class="table-form-color2">{{users2.GT_Params_Fuel_pressure_GT1}}</td>
+            <td>{{users2.GT_Params_Fuel_pressure_GT2}}</td>
+            <td>{{users2.GT_Params_Fuel_pressure_GT3}}</td>
+            <td>{{users2.GT_Params_Fuel_pressure_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Engine Lub Oil Pressure (kgf/cm²)</td>
+            <td class="table-form-color2">{{users2.GT_Params_Lub_oil_pressure_GT1}}</td>
+            <td>{{users2.GT_Params_Lub_oil_pressure_GT2}}
+            </td>
+            <td>{{users2.GT_Params_Lub_oil_pressure_GT3}}
+            </td>
+            <td>{{users2.GT_Params_Lub_oil_pressure_GT4}}
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">RG lub oil Pressure (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_RG_Lub_Pressure_GT1}}</td>
+            <td>{{users2.GT_RG_Lub_Pressure_GT2}}</td>
+            <td>{{users2.GT_RG_Lub_Pressure_GT3}}</td>
+            <td>{{users2.GT_RG_Lub_Pressure_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Engine Inlet Lub Oil Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Params_Inlet_LO_Temp_GT1}}</td>
+            <td>{{users2.GT_Params_Inlet_LO_Temp_GT2}}
+            </td>
+            <td>{{users2.GT_Params_Inlet_LO_Temp_GT3}}
+            </td>
+            <td>{{users2.GT_Params_Inlet_LO_Temp_GT4}}
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">Engine Outlet Lub Oil Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Params_Outlet_LO_Temp_GT1}}</td>
+            <td>{{users2.GT_Params_Outlet_LO_Temp_GT2}}
+            </td>
+            <td>{{users2.GT_Params_Outlet_LO_Temp_GT3}}
+            </td>
+            <td>{{users2.GT_Params_Outlet_LO_Temp_GT4}}
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">LPC Front Support Outlet Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Params_LPC_Outlet_GT1}}</td>
+            <td>{{users2.GT_Params_LPC_Outlet_GT2}}</td>
+            <td>{{users2.GT_Params_LPC_Outlet_GT3}}</td>
+            <td>{{users2.GT_Params_LPC_Outlet_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Adaptor Outlet Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Adaptor_Outlet_GT1}}</td>
+            <td>{{users2.GT_Adaptor_Outlet_GT2}}</td>
+            <td>{{users2.GT_Adaptor_Outlet_GT3}}</td>
+            <td>{{users2.GT_Adaptor_Outlet_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">HPT Bearing Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Params_HPT_Bear_Temp_GT1}}</td>
+            <td>{{users2.GT_Params_HPT_Bear_Temp_GT2}}</td>
+            <td>{{users2.GT_Params_HPT_Bear_Temp_GT3}}</td>
+            <td>{{users2.GT_Params_HPT_Bear_Temp_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">LPT Bearing Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Params_LPT_Bear_Temp_GT1}}</td>
+            <td>{{users2.GT_Params_LPT_Bear_Temp_GT2}}</td>
+            <td>{{users2.GT_Params_LPT_Bear_Temp_GT3}}</td>
+            <td>{{users2.GT_Params_LPT_Bear_Temp_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">PT Bearing Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users2.GT_Params_PT_Bear_GT1}}</td>
+            <td>{{users2.GT_Params_PT_Bear_GT2}}
+            </td>
+            <td>{{users2.GT_Params_PT_Bear_GT3}}
+            </td>
+            <td>{{users2.GT_Params_PT_Bear_GT4}}
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">HPC Balance Chamber Pressure (kgf/cm²)</td>
+            <td class="table-form-color2">{{users2.GT_Params_HPC_Balance_GT1}}</td>
+            <td>{{users2.GT_Params_HPC_Balance_GT2}}
+            </td>
+            <td>{{users2.GT_Params_HPC_Balance_GT3}}
+            </td>
+            <td>{{users2.GT_Params_HPC_Balance_GT4}}
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2">HPC Down Stream Pressure (kgf/cm²) </td>
+            <td class="table-form-color2">{{users2.GT_Params_HPC_Down_GT1}}</td>
+            <td>{{users2.GT_Params_HPC_Down_GT2}}</td>
+            <td>{{users2.GT_Params_HPC_Down_GT3}}</td>
+            <td>{{users2.GT_Params_HPC_Down_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">PT Balance Chamber Pressure (kgf/cm²)</td>
+            <td class="table-form-color2">{{users2.GT_Params_PT_Balance_GT1}}</td>
+            <td>{{users2.GT_Params_PT_Balance_GT2}}</td>
+            <td>{{users2.GT_Params_PT_Balance_GT3}}</td>
+            <td>{{users2.GT_Params_PT_Balance_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Relative Power Rating (N)</td>
+            <td class="table-form-color2">{{users2.GT_Params_Power_rate_GT1}}</td>
+            <td>{{users2.GT_Params_Power_rate_GT2}}</td>
+            <td>{{users2.GT_Params_Power_rate_GT3}}</td>
+            <td>{{users2.GT_Params_Power_rate_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Max &nabla;<sub>n</sub> During the Quarter Slip (RPM)</td>
+            <td class="table-form-color2">{{users2.GT_Params_Qtr_Slip_GT1}}</td>
+            <td>{{users2.GT_Params_Qtr_Slip_GT2}}</td>
+            <td>{{users2.GT_Params_Qtr_Slip_GT3}}</td>
+            <td>{{users2.GT_Params_Qtr_Slip_GT4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Max &nabla;<sub>t04</sub> During Quarter (&deg;C) </td>
+            <td class="table-form-color2">{{users2.GT_Params_Durin_Qtr_GT1}}</td>
+            <td>{{users2.GT_Params_Durin_Qtr_GT2}}</td>
+            <td>{{users2.GT_Params_Durin_Qtr_GT3}}</td>
+            <td>{{users2.GT_Params_Durin_Qtr_GT4}}</td>
+         </tr>
+
+         <tr>
+            <td colspan="2">Avg Lub Oil Consumption During Qtr (kg/hr)</td>
+            <td>{{users2.GT_Params_LO_Qtr_GT1_HPC}}</td>
+            <td>{{users2.GT_Params_LO_Qtr_GT2_HPC}}</td>
+            <td>{{users2.GT_Params_LO_Qtr_GT3_HPC}}</td>
+            <td>{{users2.GT_Params_LO_Qtr_GT4_HPC}}</td>
+         </tr>
+
+         <tr>
+            <td rowspan="2">Minimum Run down Time (sec)</td>
+            <td class="td-bluelight">LPC</td>
+            <td>{{users2.GT_Params_Min_Run_Down_Time_GT1_LPC}}</td>
+            <td>{{users2.GT_Params_Min_Run_Down_Time_GT2_LPC}}</td>
+            <td>{{users2.GT_Params_Min_Run_Down_Time_GT3_LPC}}</td>
+            <td>{{users2.GT_Params_Min_Run_Down_Time_GT4_LPC}}</td>
+         </tr>
+         <tr>
+            <td class="td-bluelight">HPC</td>
+            <td>{{users2.GT_Params_Min_Run_Down_Time_GT1_HPC}}</td>
+            <td>{{users2.GT_Params_Min_Run_Down_Time_GT2_HPC}}</td>
+            <td>{{users2.GT_Params_Min_Run_Down_Time_GT3_HPC}}</td>
+            <td>{{users2.GT_Params_Min_Run_Down_Time_GT4_HPC}}</td>
+         </tr>
+
+      </table>
+      <div class="note-card">
+         <p><strong>Notes:</strong> 1. Run Down Time of LP & HP spool — From 1500 to 500 RPM.</p>
+      </div>
+      <h4>(B) Balance Chamber Pressures.</h4>
+
+
+      <table class="table table-bordered table-form-color1">
+         <tr>
+            <th colspan="2">Parameters</th>
+            <th>GT No 1</th>
+            <th>GT No 2</th>
+            <th>GT No 3</th>
+            <th>GT No 4</th>
+         </tr>
+         <tr>
+            <td rowspan="2">HPC Balance Chamber</td>
+            <td>Pressure (kgf/cm²)</td>
+            <td>{{users2.HPC_Pressure_GT1}}</td>
+            <td>{{users2.HPC_Pressure_GT2}}</td>
+            <td>{{users2.HPC_Pressure_GT3}}</td>
+            <td>{{users2.HPC_Pressure_GT4}}</td>
+         </tr>
+         <tr>
+            <td>Date Last Adjusted</td>
+            <td>{{users2.HPC_Date_GT1}}</td>
+            <td>{{users2.HPC_Date_GT2}}</td>
+            <td>{{users2.HPC_Date_GT3}}</td>
+            <td>{{users2.HPC_Date_GT4}}</td>
+         </tr>
+
+         <tr>
+            <td rowspan="2">PT Balance Chamber</td>
+            <td>Pressure (kgf/cm²)</td>
+            <td>{{users2.PT_Pressure_GT1}}</td>
+            <td>{{users2.PT_Pressure_GT2}}</td>
+            <td>{{users2.PT_Pressure_GT3}}</td>
+            <td>{{users2.PT_Pressure_GT4}}</td>
+         </tr>
+
+         <tr>
+            <td>Date Last Adjusted</td>
+            <td>{{users2.PT_Date_GT1}}</td>
+            <td>{{users2.PT_Date_GT2}}</td>
+            <td>{{users2.PT_Date_GT3}}</td>
+            <td>{{users2.PT_Date_GT4}}</td>
+         </tr>
+
+         <tr>
+            <td rowspan="2">PT Astern Balance Chamber</td>
+            <td>Pressure (kgf/cm²)</td>
+            <td>{{users2.PT_Astern_GT1}}</td>
+            <td>{{users2.PT_Astern_GT2}}</td>
+            <td>{{users2.PT_Astern_GT3}}</td>
+            <td>{{users2.PT_Astern_GT4}}</td>
+         </tr>
+         <tr>
+            <td>Date Last Adjusted</td>
+            <td>{{users2.PT_Astern_date_GT1}}</td>
+            <td>{{users2.PT_Astern_date_GT2}}</td>
+            <td>{{users2.PT_Astern_date_GT3}}</td>
+            <td>{{users2.PT_Astern_date_GT4}}</td>
+         </tr>
+      </table>
+      <h4>(C)Engine Field Temperatures.</h4>
+      <table class="table table-bordered table-form-color1">
+         <tr>
+            <th rowspan="2">Point</th>
+            <th colspan="2">GT No 1</th>
+            <th colspan="2">GT No 2</th>
+            <th colspan="2">GT No 3</th>
+            <th colspan="2">GT No 4</th>
+         </tr>
+         <tr>
+            <th>Temp (&deg;C)</th>
+            <th>∆T (&deg;C)</th>
+            <th>Temp (&deg;C)</th>
+            <th>∆T (&deg;C)</th>
+            <th>Temp (&deg;C)</th>
+            <th>∆T (&deg;C)</th>
+            <th>Temp (&deg;C)</th>
+            <th>∆T (&deg;C)</th>
+         </tr>
+         <tr>
+            <td>1.</td>
+            <td>{{users2.Eng_1_SCGT_TempC}}</td>
+            <td>{{users2.Eng_1_SCGT_Tc}}</td>
+            <td>{{users2.Eng_1_PCGT_TempC}}</td>
+            <td>{{users2.Eng_1_PCGT_Tc}}</td>
+            <td>{{users2.Eng_1_SBGT_TempC}}></td>
+            <td>{{users2.Eng_1_SBGT_Tc}}</td>
+            <td>{{users2.Eng_1_PBGT_TempC}}</td>
+            <td>{{users2.Eng_1_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>2.</td>
+            <td>{{users2.Eng_2_SCGT_TempC}}</td>
+            <td>{{users2.Eng_2_SCGT_Tc}}</td>
+            <td>{{users2.Eng_2_PCGT_TempC}}</td>
+            <td>{{users2.Eng_2_PCGT_Tc}}</td>
+            <td>{{users2.Eng_2_SBGT_TempC}}</td>
+            <td>{{users2.Eng_2_SBGT_Tc}}</td>
+            <td>{{users2.Eng_2_PBGT_TempC}}</td>
+            <td>{{users2.Eng_2_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>3.</td>
+            <td>{{users2.Eng_3_SCGT_TempC}}</td>
+            <td>{{users2.Eng_3_SCGT_Tc}}</td>
+            <td>{{users2.Eng_3_PCGT_TempC}}</td>
+            <td>{{users2.Eng_3_PCGT_Tc}}</td>
+            <td>{{users2.Eng_3_SBGT_TempC}}</td>
+            <td>{{users2.Eng_3_SBGT_Tc}}</td>
+            <td>{{users2.Eng_3_PBGT_TempC}}</td>
+            <td>{{users2.Eng_3_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>4.</td>
+            <td>{{users2.Eng_4_SCGT_TempC}}</td>
+            <td>{{users2.Eng_4_SCGT_Tc}}</td>
+            <td>{{users2.Eng_4_PCGT_TempC}}</td>
+            <td>{{users2.Eng_4_PCGT_Tc}}</td>
+            <td>{{users2.Eng_4_SBGT_TempC}}</td>
+            <td>{{users2.Eng_4_SBGT_Tc}}</td>
+            <td>{{users2.Eng_4_PBGT_TempC}}</td>
+            <td>{{users2.Eng_4_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>5.</td>
+            <td>{{users2.Eng_5_SCGT_Temp}}</td>
+            <td>{{users2.Eng_5_SCGT_Tc}}</td>
+            <td>{{users2.Eng_5_PCGT_TempC}}</td>
+            <td>{{users2.Eng_5_PCGT_Tc}}</td>
+            <td>{{users2.Eng_5_SBGT_TempC}}</td>
+            <td>{{users2.Eng_5_SBGT_Tc}}</td>
+            <td>{{users2.Eng_5_PBGT_TempC}}</td>
+            <td>{{users2.Eng_5_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>6.</td>
+            <td>{{users2.Eng_6_SCGT_TempC}}</td>
+            <td>{{users2.Eng_6_SCGT_Tc}}</td>
+            <td>{{users2.Eng_6_PCGT_TempC}}</td>
+            <td>{{users2.Eng_6_PCGT_Tc}}</td>
+            <td>{{users2.Eng_6_SBGT_TempC}}</td>
+            <td>{{users2.Eng_6_SBGT_Tc}}</td>
+            <td>{{users2.Eng_6_PBGT_TempC}}</td>
+            <td>{{users2.Eng_6_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>7.</td>
+            <td>{{users2.Eng_7_SCGT_TempC}}</td>
+            <td>{{users2.Eng_7_SCGT_Tc}}</td>
+            <td>{{users2.Eng_7_PCGT_TempC}}</td>
+            <td>{{users2.Eng_7_PCGT_Tc}}</td>
+            <td>{{users2.Eng_7_SBGT_TempC}}</td>
+            <td>{{users2.Eng_7_SBGT_Tc}}</td>
+            <td>{{users2.Eng_7_PBGT_TempC}}</td>
+            <td>{{users2.Eng_7_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>8.</td>
+            <td>{{users2.Eng_8_SCGT_TempC}}</td>
+            <td>{{users2.Eng_8_SCGT_Tc}}</td>
+            <td>{{users2.Eng_8_PCGT_TempC}}</td>
+            <td>{{users2.Eng_8_PCGT_Tc}}</td>
+            <td>{{users2.Eng_8_SBGT_TempC}}</td>
+            <td>{{users2.Eng_8_SBGT_Tc}}</td>
+            <td>{{users2.Eng_8_PBGT_TempC}}</td>
+            <td>{{users2.Eng_8_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>9.</td>
+            <td>{{users2.Eng_9_SCGT_TempC}}</td>
+            <td>{{users2.Eng_9_SCGT_Tc}}</td>
+            <td>{{users2.Eng_9_PCGT_TempC}}</td>
+            <td>{{users2.Eng_9_PCGT_Tc}}</td>
+            <td>{{users2.Eng_9_SBGT_TempC}}</td>
+            <td>{{users2.Eng_9_SBGT_Tc}}</td>
+            <td>{{users2.Eng_9_PBGT_TempC}}</td>
+            <td>{{users2.Eng_9_PBGT_Tc}}</td>
+         </tr>
+         <tr>
+            <td>10.</td>
+            <td>{{users2.Eng_10_SCGT_TempC}}
+            </td>
+            <td>{{users2.Eng_10_SCGT_Tc}}</td>
+            <td>{{users2.Eng_10_PCGT_TempC}}
+            </td>
+            <td>{{users2.Eng_10_PCGT_Tc}}</td>
+            <td>{{users2.Eng_10_SBGT_TempC}}
+            </td>
+            <td>{{users2.Eng_10_SBGT_Tc}}</td>
+            <td>{{users2.Eng_10_PBGT_TempC}}
+            </td>
+            <td>{{users2.Eng_10_PBGT_Tc}}</td>
+         </tr>
+
+         <tr>
+            <td>T Average : (T avg)</td>
+            <td>{{users2.Eng_T_Avg_SCGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_Avg_SCGT_Tc}}
+            </td>
+            <td>{{users2.Eng_T_Avg_PCGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_Avg_PCGT_Tc}}
+            </td>
+            <td>{{users2.Eng_T_Avg_SBGT_TempC}}</td>
+            <td>{{users2.Eng_T_Avg_SBGT_Tc}}</td>
+            <td>{{users2.Eng_T_Avg_PBGT_TempC}}</td>
+            <td>{{users2.Eng_T_Avg_PBGT_Tc}}
+            </td>
+         </tr>
+         <tr>
+            <td>T-High (Point)</td>
+            <td>{{users2.Eng_T_High_SCGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_High_SCGT_Tc}}
+            </td>
+            <td>{{users2.Eng_T_High_PCGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_High_PCGT_Tc}}
+            </td>
+            <td>{{users2.Eng_T_High_SBGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_High_SBGT_Tc}}
+            </td>
+            <td>{{users2.Eng_T_High_PBGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_High_PBGT_Tc}}
+            </td>
+         </tr>
+         <tr>
+            <td>T Low (Point)</td>
+            <td>{{users2.Eng_T_Low_SCGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_Low_SCGT_Tc}}
+            </td>
+            <td>{{users2.Eng_T_Low_PCGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_Low_PCGT_Tc}}
+            </td>
+            <td>{{users2.Eng_T_Low_SBGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_Low_SBGT_Tc}}
+            </td>
+            <td>{{users2.Eng_T_Low_PBGT_TempC}}
+            </td>
+            <td>{{users2.Eng_T_Low_PBGT_Tc}}
+            </td>
+         </tr>
+      </table>
+      <div class="note-card">
+         <p><strong><b><u>Notes:</u></b></strong>&nbsp;&nbsp;&Delta;T = Tavg-Temp at a point; Negative &Delta;T
+            corresponds to &Delta;T High;
+            Positive &Delta;T
+            corresponds to &Delta;T
+            Low</p>
+      </div>
+
+      <h4>(D) Reduction Gear Bearing Oil Temperatures.</h4>
+
+      <table class="table table-bordered table-form-color1 tabletd-color">
+         <tr>
+            <th colspan="7">RG 1 Lub Oil Inlet-Temp: 36&deg;C</th>
+            <th colspan="6">RG 1 Lub Oil Outlet-Temp: 40&deg;C</th>
+         </tr>
+
+         <tbody>
+            <tr>
+
+               <td>Point</td>
+               <td>1</td>
+               <td>2</td>
+               <td>3</td>
+               <td>4</td>
+               <td>5</td>
+               <td>6</td>
+               <td>7</td>
+               <td>8</td>
+               <td>9</td>
+               <td>10</td>
+               <td>11</td>
+               <td>12</td>
+            </tr>
+            <tr>
+               <td>Temperature(&deg;C)</td>
+
+               <td>{{users2.RG1_point_1_temp}}</td>
+               <td>{{users2.RG1_point_2_temp}}</td>
+               <td>{{users2.RG1_point_3_temp}}</td>
+               <td>{{users2.RG1_point_4_temp}}</td>
+               <td>{{users2.RG1_point_5_temp}}</td>
+               <td>{{users2.RG1_point_6_temp}}</td>
+
+               <td>{{users2.RG1_point_7_temp}}</td>
+               <td>{{users2.RG1_point_8_temp}}</td>
+               <td>{{users2.RG1_point_9_temp}}</td>
+               <td>{{users2.RG1_point_10_temp}}</td>
+               <td>{{users2.RG1_point_11_temp}}</td>
+               <td>{{users2.RG1_point_12_temp}}</td>
+
+
+            </tr>
+            <tr>
+               <td>Point</td>
+
+
+               <td>13</td>
+               <td>14</td>
+               <td>15</td>
+               <td>16</td>
+               <td>17</td>
+               <td>18</td>
+               <td>19</td>
+               <td>20</td>
+               <td>21</td>
+               <td>22</td>
+               <td>23</td>
+               <td>24</td>
+
+            </tr>
+
+            <tr>
+               <td>Temperature(&deg;C)</td>
+
+
+               <td>{{users2.RG1_point_13_temp}}</td>
+               <td>{{users2.RG1_point_14_temp}}</td>
+               <td>{{users2.RG1_point_15_temp}}</td>
+               <td>{{users2.RG1_point_16_temp}}</td>
+
+               <td>{{users2.RG1_point_17_temp}}</td>
+               <td>{{users2.RG1_point_18_temp}}</td>
+               <td>{{users2.RG1_point_19_temp}}</td>
+               <td>{{users2.RG1_point_20_temp}}</td>
+               <td>{{users2.RG1_point_21_temp}}</td>
+               <td>{{users2.RG1_point_22_temp}}</td>
+               <td>{{users2.RG1_point_23_temp}}</td>
+               <td>{{users2.RG1_point_24_temp}}</td>
+
+            </tr>
+
+         </tbody>
+      </table>
+
+
+
+
+      <table class="table table-bordered table-form-color1 tabletd-color">
+         <tr>
+            <th colspan="7">RG 2 Lub Oil Inlet-Temp: {{users2.RG2_Lub_Oil_Inlet_Temp}}&deg;C</th>
+            <th colspan="6">RG 2 Lub Oil Outlet-Temp:{{users2.RG2_Lub_Oil_Outlet_Temp}}&deg;C</th>
+         </tr>
+
+         <tbody>
+            <tr>
+
+               <td>Point</td>
+               <td>1</td>
+               <td>2</td>
+               <td>3</td>
+               <td>4</td>
+               <td>5</td>
+               <td>6</td>
+               <td>7</td>
+               <td>8</td>
+               <td>9</td>
+               <td>10</td>
+               <td>11</td>
+               <td>12</td>
+            </tr>
+            <tr>
+               <td>Temperature(&deg;C)</td>
+
+               <td>{{users2.RG2_point_1_temp}}</td>
+               <td>{{users2.RG2_point_2_temp}}</td>
+               <td>{{users2.RG2_point_3_temp}}</td>
+               <td>{{users2.RG2_point_4_temp}}</td>
+               <td>{{users2.RG2_point_5_temp}}</td>
+               <td>{{users2.RG2_point_6_temp}}</td>
+
+               <td>{{users2.RG2_point_7_temp}}</td>
+               <td>{{users2.RG2_point_8_temp}}</td>
+               <td>{{users2.RG2_point_9_temp}}</td>
+               <td>{{users2.RG2_point_10_temp}}</td>
+               <td>{{users2.RG2_point_11_temp}}</td>
+               <td>{{users2.RG2_point_12_temp}}</td>
+
+
+            </tr>
+            <tr>
+               <td>Point</td>
+
+
+               <td>13</td>
+               <td>14</td>
+               <td>15</td>
+               <td>16</td>
+               <td>17</td>
+               <td>18</td>
+               <td>19</td>
+               <td>20</td>
+               <td>21</td>
+               <td>22</td>
+               <td>23</td>
+               <td>24</td>
+
+            </tr>
+
+            <tr>
+               <td>Temperature</td>
+
+
+               <td>{{users2.RG2_point_13_temp}}</td>
+               <td>{{users2.RG2_point_14_temp}}</td>
+               <td>{{users2.RG2_point_15_temp}}</td>
+               <td>{{users2.RG2_point_16_temp}}</td>
+
+               <td>{{users2.RG2_point_17_temp}}</td>
+               <td>{{users2.RG2_point_18_temp}}</td>
+               <td>{{users2.RG2_point_19_temp}}</td>
+               <td>{{users2.RG2_point_20_temp}}</td>
+               <td>{{users2.RG2_point_21_temp}}</td>
+               <td>{{users2.RG2_point_22_temp}}</td>
+               <td>{{users2.RG2_point_23_temp}}</td>
+               <td>{{users2.RG2_point_24_temp}}</td>
+
+            </tr>
+
+         </tbody>
+      </table>
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART - VI</h2>
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">RECORDING OF RUNNING HOURS AND
+            CALIBRATION/ REPAIRS DATA HP FUEL PUMPS OF MAIN PROPULSION GAS TURBINE</h2>
+      </div>
+      <h4>(A) Pump Fitted on Engine.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th rowspan="2">Pump Position</th>
+            <th rowspan="2">Pump S.No </th>
+            <th rowspan="2">Date of Installation</th>
+            <th colspan="2">Total R/H</th>
+            <th rowspan="2">Remarks</th>
+         </tr>
+         <tr>
+            <th>R/H QTR</th>
+            <th>R/H Total</th>
+         </tr>
+
+         <tr>
+            <td>GT No 1</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT1_Pumps_No }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT1_Date_Installation |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT1_Total_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT1_Total_Total }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT1_Remarks }}</td>
+         </tr>
+
+
+         <tr>
+            <td>GT No 2</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT2_Pumps_No }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT2_Date_Installation |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT2_Total_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT2_Total_Total }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT2_Remarks }}</td>
+         </tr>
+
+
+         <tr>
+            <td>GT No 3</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT3_Pumps_No }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT3_Date_Installation |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT3_Total_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT3_Total_Total }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT3_Remarks }}</td>
+         </tr>
+
+
+         <tr>
+            <td>GT NO 4</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT4_Pumps_No }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT4_Date_Installation |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT4_Total_QTR }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT4_Total_Total }}</td>
+            <td style="font-size:14px; color: #222;">{{users3.Pump_Pos_GT4_Remarks }}</td>
+         </tr>
+
+      </table>
+      <h4>(B)Pumps in SPTA</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Pump Ser</th>
+            <th>Last Calibrated On</th>
+            <th>Total R/H </th>
+            <th>Remarks</th>
+         </tr>
+
+         {% for al in dynamic8 %}
+         <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{al.Pump_SPTA_SNo}}</td>
+            <td>{{al.Pump_SPTA_Calibrated}}</td>
+            <td>{{al.Pump_SPTA_Total}}</td>
+            <td>{{al.Pump_SPTA_Remarks}}</td>
+         </tr>
+         {% endfor %}
+      </table>
+      <h4>(C) Pumps Surveyed in Quarter.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th width="15%">Pump SNO</th>
+            <th width="20%">Survey on</th>
+            <th width="15%">Survey reference</th>
+            <th width="20%">Total R/H</th>
+            <th width="30%">Reason for Survey Survey (viz BLR/BER/Excess Lump SNO Surveyed On Reference |
+               TOR |
+               Stock/Non-compatible
+               etc)</th>
+         </tr>
+
+
+         {% for al in dynamic9 %}
+         <tr>
+            <td>{{al.Pumps_Surve_S_No}}</td>
+            <td>{{al.Pumps_Surve_Survey_on_date}}</td>
+            <td>{{al.Pumps_Surve_Survey_ref}}</td>
+            <td>{{al.Pumps_Surve_Total}}</td>
+            <td>{{al.Pumps_Surve_Reason}}</td>
+
+         </tr>
+         {% endfor %}
+      </table>
+      <h4>(c)Pumps Received in Quarter</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Pump SNO</th>
+            <th>Received On</th>
+            <th>Against Survey Reference</th>
+            <th>Remarks</th>
+         </tr>
+
+         {% for al in dynamic10 %}
+         <tr>
+            <td>{{al.Pumps_Received_S_No}}</td>
+            <td>{{al.Pumps_Received_on_date}}</td>
+            <td>{{al.Pumps_Received_Against_Survey_Ref}}</td>
+            <td>{{al.Pumps_Received_Remarks}}</td>
+         </tr>
+         {% endfor %}
+
+      </table>
+
+
+      <div class="heading-style2 text-center">
+         <h2>Part VII Remarks</h2>
+      </div>
+      <div class="form-floating">
+         {{users3.VII_Remarks | safe}}
+      </div>
+
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">SECTION-II: GAS TURBINE
+            GENERATOR</h2>
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-I: GENERAL</h2>
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">(To be filled.in only in case
+            of replacement of GT/RG)</h2>
+      </div>
+      <table class="table table-bordered">
+         <tr>
+            <th rowspan="2">Unit</th>
+            <th rowspan="2">Old SNO.</th>
+            <th colspan="4">Details of New TC/ RG</th>
+            <th colspan="2">Remarks</th>
+         </tr>
+         <tr>
+            <th>SNO</th>
+            <th>Ex-Ship / Contract</th>
+            <th>DOM</th>
+            <th>DOI</th>
+            <th></th>
+
+         </tr>
+         <tr>
+            <td>{{users4.GN_Unit}}</td>
+            <td>{{users4.GN_old_SNo}}</td>
+            <td>{{users4.GN_New_GT_RG}}</td>
+            <td>{{users4.Remarks}}</td>
+            <td>{{users4.GN_DOM}}</td>
+            <td>{{users4.GN_DOI}}</td>
+            <td>{{users4.GN_Remarks}}</td>
+         </tr>
+
+      </table>
+      <div class="note-card">
+         <p>DOM-Date of Manufacturing; DOI-Date of Installation onboard.</p>
+      </div>
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-II: OPERATIONS</h2>
+      </div>
+      <h4>(A) Gas Turbine Generators Exploitation.</h4>
+      <table class="table table-bordered">
+         <tr>
+            <th colspan="3" rowspan="2">Operations</th>
+            <th colspan="3">GTG J1</th>
+            <th colspan="3">GTG J3</th>
+            <th colspan="3">GTG M2</th>
+            <th colspan="3">GTG M4</th>
+         </tr>
+         <tr>
+            <th>QTR</th>
+            <th>Sl</th>
+            <th>SN</th>
+            <th>QTR </th>
+            <th>Sl</th>
+            <th>SN</th>
+            <th>QTR</th>
+            <th>Sl</th>
+            <th>SN</th>
+            <th>QTR</th>
+            <th>Sl</th>
+            <th>SN</th>
+         </tr>
+         <tr>
+            <td colspan="3">No of Hot Starts</td>
+            <td>{{users4.Hot_Starts_GTG_J1_QTR}}</td>
+            <td>{{users4.Hot_Starts_GTG_J1_SI}}</td>
+            <td>{{users4.Hot_Starts_GTG_J1_SN}}</td>
+            <td>{{users4.Hot_Starts_GTG_J3_QTR}}</td>
+            <td>{{users4.Hot_Starts_GTG_J3_SI}}</td>
+            <td>{{users4.Hot_Starts_GTG_J3_SN}}</td>
+            <td>{{users4.Hot_Starts_GTG_M2_QTR}}</td>
+            <td>{{users4.Hot_Starts_GTG_M2_SI}}</td>
+            <td>{{users4.Hot_Starts_GTG_M2_SN}}</td>
+            <td>{{users4.Hot_Starts_GTG_M4_QTR}}</td>
+            <td>{{users4.Hot_Starts_GTG_M4_SI}}</td>
+            <td>{{users4.Hot_Starts_GTG_M4_SN}}</td>
+         </tr>
+
+         <tr>
+            <td colspan="3">No of Cold Starts</td>
+            <td>{{users4.Cold_Starts_GTG_J1_QTR}}</td>
+            <td>{{users4.Cold_Starts_GTG_J1_SI}}</td>
+            <td>{{users4.Cold_Starts_GTG_J1_SN}}</td>
+            <td>{{users4.Cold_Starts_GTG_J3_QTR}}</td>
+            <td>{{users4.Cold_Starts_GTG_J3_SI}}</td>
+            <td>{{users4.Cold_Starts_GTG_J3_SN}}</td>
+            <td>{{users4.Cold_Starts_GTG_M2_QTR}}</td>
+            <td>{{users4.Cold_Starts_GTG_M2_SI}}</td>
+            <td>{{users4.Cold_Starts_GTG_M2_SN}}</td>
+            <td>{{users4.Cold_Starts_GTG_M4_QTR}}</td>
+            <td>{{users4.Cold_Starts_GTG_M4_SI}}</td>
+            <td>{{users4.Cold_Starts_GTG_M4_SN}}</td>
+         </tr>
+
+
+         <tr>
+            <td colspan="3">TC Running Hours</td>
+            <td>{{users4.TC_Starts_GTG_J1_QTR}}</td>
+            <td>{{users4.TC_Starts_GTG_J1_SI}}</td>
+            <td>{{users4.TC_Starts_GTG_J1_SN}}</td>
+            <td>{{users4.TC_Starts_GTG_J3_QTR}}</td>
+            <td>{{users4.TC_Starts_GTG_J3_SI}}</td>
+            <td>{{users4.TC_Starts_GTG_J3_SN}}</td>
+            <td>{{users4.TC_Starts_GTG_M2_QTR}}</td>
+            <td>{{users4.TC_Starts_GTG_M2_SI}}</td>
+            <td>{{users4.TC_Starts_GTG_M2_SN}}</td>
+            <td>{{users4.TC_Starts_GTG_M4_QTR}}</td>
+            <td>{{users4.TC_Starts_GTG_M4_SI}}</td>
+            <td>{{users4.TC_Starts_GTG_M4_SN}}</td>
+         </tr>
+
+         <tr>
+            <td colspan="3">TG Running Hours</td>
+            <td>{{users4.TG_Starts_GTG_J1_QTR}}</td>
+            <td>{{users4.TG_Starts_GTG_J1_SI}}</td>
+            <td>{{users4.TG_Starts_GTG_J1_SN}}</td>
+            <td>{{users4.TG_Starts_GTG_J3_QTR}}</td>
+            <td>{{users4.TG_Starts_GTG_J3_SI}}</td>
+            <td>{{users4.TG_Starts_GTG_J3_SN}}</td>
+            <td>{{users4.TG_Starts_GTG_M2_QTR}}</td>
+            <td>{{users4.TG_Starts_GTG_M2_SI}}</td>
+            <td>{{users4.TG_Starts_GTG_M2_SN}}</td>
+            <td>{{users4.TG_Starts_GTG_M4_QTR}}</td>
+            <td>{{users4.TG_Starts_GTG_M4_SI}}</td>
+            <td>{{users4.TG_Starts_GTG_M4_SN}}</td>
+         </tr>
+         <tr>
+            <td rowspan="4">No. of Battery Starts In Quarter</td>
+            <td rowspan="2">Cold</td>
+         </tr>
+
+         <tr>
+            <td colspan="4">{{users4.Cold_Starts_GTG_J1}}</td>
+            <td colspan="3">{{users4.Cold_Starts_GTG_J3}}</td>
+            <td colspan="3">{{users4.Cold_Starts_GTG_M2}}</td>
+            <td colspan="3">{{users4.Cold_Starts_GTG_M4}}</td>
+         </tr>
+
+         <tr>
+            <td rowspan="2">Hot</td>
+         </tr>
+
+         <tr>
+            <td colspan="4">{{users4.Hot_Starts_GTG_J1}}</td>
+            <td colspan="3">{{users4.Hot_Starts_GTG_J3}}</td>
+            <td colspan="3">{{users4.Hot_Starts_GTG_M2}}</td>
+            <td colspan="3">{{users4.Hot_Starts_GTG_M4}}</td>
+         </tr>
+
+
+      </table>
+
+      <table class="table table-bordered">
+         <tr>
+            <th rowspan="2">GTG</th>
+            <th colspan="2" class="subheader">Last 7K</th>
+
+            <th rowspan="2">Balance Hours For next 7K</th>
+            <th colspan="2" class="subheader">Last 14K</th>
+
+            <th rowspan="2">Balance Hours For next 14K</th>
+         </tr>
+
+         <tr>
+            <th>Date Undertaken</th>
+            <th>At Running Hours</th>
+
+            <th>Date Undertaken</th>
+            <th>At Running Hours</th>
+         </tr>
+
+
+         <tr>
+            <td>J1</td>
+            <td>{{users4.date_undertaken_7k_J1}}</td>
+            <td>{{users4.running_hours_7k_J1}}</td>
+            <td>{{users4.balance_hours_7k_J1}}</td>
+            <td>{{users4.date_undertaken_14k_J1}}</td>
+            <td>{{users4.running_hours_14k_J1}}</td>
+            <td>{{users4.balance_hours_14k_J1}}</td>
+
+         </tr>
+
+         <tr>
+            <td>J3</td>
+            <td>{{users4.date_undertaken_7k_J3}}</td>
+            <td>{{users4.running_hours_7k_J3}}</td>
+            <td>{{users4.balance_hours_7k_J3}}</td>
+            <td>{{users4.date_undertaken_14k_J3}}</td>
+            <td>{{users4.running_hours_14k_J3}} </td>
+            <td>{{users4.balance_hours_14k_J3}}</td>
+
+         </tr>
+
+         <tr>
+            <td>M2</td>
+            <td>{{users4.date_undertaken_7k_M2}}</td>
+            <td>{{users4.running_hours_7k_M2}}</td>
+            <td>{{users4.balance_hours_7k_M2}}</td>
+            <td>{{users4.date_undertaken_14k_M2}}</td>
+            <td>{{users4.running_hours_14k_M2}}</td>
+            <td>{{users4.balance_hours_14k_M2}}</td>
+
+         </tr>
+
+         <tr>
+            <td>M4</td>
+            <td>{{users4.date_undertaken_7k_M4}}</td>
+            <td>{{users4.running_hours_7k_M4}}</td>
+            <td>{{users4.balance_hours_7k_M4}}</td>
+            <td>{{users4.date_undertaken_14k_M4}}</td>
+            <td>{{users4.running_hours_14k_M4}} </td>
+            <td>{{users4.balance_hours_14k_M4}}</td>
+
+         </tr>
+
+      </table>
+
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-III: INSPECTION/ TRIALS/
+            ROUTINES</h2>
+      </div>
+      <h4>(A)Maintenance Routines Due and Undertaken.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Ser</th>
+            <th>Equipment</th>
+            <th>Description</th>
+            <th>Maintop Routine Number</th>
+         </tr>
+
+         {% for al in dynamic11 %}
+         <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{al.Due_Undertaken_Equipment}}</td>
+            <td>{{al.Due_Undertaken_Description}}</td>
+            <td>{{al.Due_Undertaken_MainTop_No}}</td>
+         </tr>
+         {% endfor %}
+
+
+      </table>
+      <h4>(B) Maintenance Routines Due But Not Undertaken.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Ser</th>
+            <th>Equipment</th>
+            <th>Description</th>
+            <th>Maintop Routine Number</th>
+            <th>Reason</th>
+         </tr>
+
+         {% for al in dynamic12 %}
+         <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{al.Due_Not_Undertaken_Equipment}}</td>
+            <td>{{al.Due_Not_Undertaken_Description}}</td>
+            <td>{{al.Due_Not_Undertaken_MainTop_No}}</td>
+            <td>{{al.Due_Not_Undertaken_Reason}}</td>
+         </tr>
+         {% endfor %}
+      </table>
+
+      <h4>(C) Inspection/ Trials/ Routines.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Date Of</th>
+            <th>GTG J1</th>
+            <th>GTG J3</th>
+            <th>GTG M2</th>
+            <th>GTG M4</th>
+         </tr>
+
+         <tr>
+            <td>Last Vibration Trials</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_J1_Vibration_Trial |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_J3_Vibration_Trial |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_M2_Vibration_Trial |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_M4_Vibration_Trial |date:'d/m/Y'}}</td>
+         </tr>
+
+
+         <tr>
+            <td>Last Lub Oil Spectro-metric Analysis </td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_J1_spectrometric_analysis |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_J3_spectrometric_analysis |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_M2_spectrometric_analysis |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_M4_spectrometric_analysis |date:'d/m/Y'}}</td>
+
+         </tr>
+
+
+         <tr>
+            <td>Last Safety Cut-out Interlock Check </td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_J1_safety_cut |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_J3_safety_cut |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_M2_safety_cut |date:'d/m/Y'}}</td>
+            <td style="font-size:14px; color: #222;">{{users5.GTG_M4_safety_cut |date:'d/m/Y'}}</td>
+         </tr>
+
+      </table>
+      <h4>(D) Replacement of Units/ Sub Units.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th colspan="6">Gas Turbine Generators</th>
+         </tr>
+         <tr>
+            <th>Date</th>
+            <th>Unit Sub/unit</th>
+            <th>Old Ser</th>
+            <th>New Ser</th>
+            <th>Reason for Replacement</th>
+            <th>Remarks</th>
+         </tr>
+         {% for al in dynamic13 %}
+         <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{al.replacement_of_units_date}}</td>
+            <td>{{al.replacement_of_units_unit_subunit}}</td>
+            <td>{{al.replacement_of_units_old_sno}}</td>
+            <td>{{al.replacement_of_units_new_sno}}</td>
+            <td>{{al.replacement_of_units_Reason_For_Replacment}}</td>
+            <td>{{al.replacement_of_units_remarks}}</td>
+
+         </tr>
+         {% endfor %}
+      </table>
+
+
+      <table class="table table-bordered table-form-color tabletd-color">
+
+         <!-- dynamic forms  -->
+         <tr>
+            <th colspan="6" class="text-center">Control System</th>
+         </tr>
+         <tr>
+            <th style="width:1%">Ser</th>
+            <th style="width:10%">Date</th>
+            <th style="width:10%">Unit/ Sub Unit</th>
+            <th style="width:10%">Old SNO</th>
+            <th style="width:10%">New SNO</th>
+            <th style="width:14%">Reason for Replacement</th>
+            <th style="width:14%">Remarks</th>
+            <th style="width:1%">Action</th>
+         </tr>
+
+
+
+         {% for al in dynamic14 %}
+         <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{al.control_system_date}}</td>
+            <td>{{al.control_system_unit_subunit}}</td>
+            <td>{{al.control_system_old_sno}}</td>
+            <td>{{al.control_system_new_sno}}</td>
+            <td>{{al.control_system_Reason_For_Replacement}}</td>
+            <td>{{al.control_system_remarks}}</td>
+
+         </tr>
+         {% endfor %}
+
+      </table>
+
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART - IV: DEFECTS</h2>
+      </div>
+      <h4>(B) Defects Observed on GTGs During Quarter.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Date</th>
+            <th>Dart No</th>
+            <th>Equipment</th>
+            <th>Description</th>
+            <th>Remedial Action</th>
+         </tr>
+
+         {% for al in dynamic15 %}
+         <tr>
+
+            <td>{{forloop.counter}}</td>
+            <td>{{al.defects_on_GTGs_during_quarter_date}}</td>
+            <td>{{al.defects_on_GTGs_during_quarter_dart_no}}</td>
+            <td>{{al.defects_on_GTGs_during_quarter_equipment}}</td>
+            <td>{{al.defects_on_GTGs_during_quarter_description}}</td>
+            <td>{{al.defects_on_GTGs_during_quarter_remedial_action}}</td>
+
+         </tr>
+         {% endfor %}
+
+      </table>
+      <h4>(C) Defects Observed on Control System During Quarter.</h4>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th>Date</th>
+            <th>Dart No</th>
+            <th>Equipment</th>
+            <th>Description</th>
+            <th>Remedial Action</th>
+         </tr>
+
+
+         {% for al in dynamic16 %}
+         <tr>
+
+            <td>{{forloop.counter}}</td>
+            <td>{{al.defects_on_control_system_during_quarter_date}}</td>
+            <td>{{al.defects_on_control_system_during_quarter_dart_no}}</td>
+            <td>{{al.defects_on_control_system_during_quarter_equipment}}</td>
+            <td>{{al.defects_on_control_system_during_quarter_description}}</td>
+            <td>{{al.defects_on_control_system_during_quarter_remedial_action}}</td>
+
+         </tr>
+         {% endfor %}
+      </table>
+
+      <div class="heading-style2 text-center">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-V: PARAMETERS</h2>
+      </div>
+      <h4>(A) GTG Parameters at 450KW - 500KW during Quarter.</h4>
+
+      <table class="table table-bordered tabletd-color">
+         <tr>
+            <th colspan="2">PARAMETERS</th>
+            <th>GTG J1</th>
+            <th>GTG J3</th>
+            <th>GTG M2</th>
+            <th>GTG M4</th>
+         </tr>
+         <tr>
+            <td colspan="2">Date Of Parameter Recording:</td>
+            <td>{{users6.GT_RG_Params_date_GTG_J1}}</td>
+            <td>{{users6.GT_RG_Params_date_GTG_J3}}</td>
+            <td>{{users6.GT_RG_Params_date_GTG_M2}}</td>
+            <td>{{users6.GT_RG_Params_date_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Turbo Compressor (RPM) </td>
+            <td class="table-form-color2">{{users6.turbo_compressor_GTG_J1}}</td>
+            <td>{{users6.turbo_compressor_GTG_J3}}</td>
+            <td>{{users6.turbo_compressor_GTG_M2}}</td>
+            <td>{{users6.turbo_compressor_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Ambient Air Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users6.ambient_air_temp_GTG_J1}}</td>
+            <td>{{users6.ambient_air_temp_GTG_J3}}</td>
+            <td>{{users6.ambient_air_temp_GTG_M2}}</td>
+            <td>{{users6.ambient_air_temp_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Sea Water Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users6.sea_water_temp_GTG_J1}}</td>
+            <td>{{users6.sea_water_temp_GTG_J3}}</td>
+            <td>{{users6.sea_water_temp_GTG_M2}}</td>
+            <td>{{users6.sea_water_temp_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Load (kW)</td>
+            <td class="table-form-color2">{{users6.load_GTG_J1}}</td>
+            <td>{{users6.load_GTG_J3}}</td>
+            <td>{{users6.load_GTG_M2}}</td>
+            <td>{{users6.load_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Compressor Bearing Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users6.compression_bearing_temp_GTG_J1}}</td>
+            <td>{{users6.compression_bearing_temp_GTG_J3}}</td>
+            <td>{{users6.compression_bearing_temp_GTG_M2}}</td>
+            <td>{{users6.compression_bearing_temp_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Turbine Bearing Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users6.turbine_bearing_temp_GTG_J1}}</td>
+            <td>{{users6.turbine_bearing_temp_GTG_J3}}</td>
+            <td>{{users6.turbine_bearing_temp_GTG_M2}}</td>
+            <td>{{users6.turbine_bearing_temp_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Oil Cooler Outlet Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users6.oil_cooler_outlet_temp_GTG_J1}}</td>
+            <td>{{users6.oil_cooler_outlet_temp_GTG_J3}}</td>
+            <td>{{users6.oil_cooler_outlet_temp_GTG_M2}}</td>
+            <td>{{users6.oil_cooler_outlet_temp_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Generator Air Temperature After Cooler (&deg;C)</td>
+            <td class="table-form-color2">{{users6.generator_air_temp_GTG_J1}}</td>
+            <td>{{users6.generator_air_temp_GTG_J3}}</td>
+            <td>{{users6.generator_air_temp_GTG_M2}}</td>
+            <td>{{users6.generator_air_temp_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Exhaust Gas Temperature (&deg;C)</td>
+            <td class="table-form-color2">{{users6.exhaust_gas_temp_GTG_J1}}</td>
+            <td>{{users6.exhaust_gas_temp_GTG_J3}}</td>
+            <td>{{users6.exhaust_gas_temp_GTG_M2}}</td>
+            <td>{{users6.exhaust_gas_temp_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Lub Oil Pressure In System (kgf/cm²)</td>
+            <td class="table-form-color2">{{users6.lub_oil_pressure_in_system_GTG_J1}}</td>
+            <td>{{users6.lub_oil_pressure_in_system_GTG_J3}}</td>
+            <td>{{users6.lub_oil_pressure_in_system_GTG_M2}}</td>
+            <td>{{users6.lub_oil_pressure_in_system_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Lub Oil Pressure In Control System (kgf/cm²)</td>
+            <td class="table-form-color2">{{users6.lub_oil_pressure_in_control_system_GTG_J1}}</td>
+            <td>{{users6.lub_oil_pressure_in_control_system_GTG_J3}}</td>
+            <td>{{users6.lub_oil_pressure_in_control_system_GTG_M2}}</td>
+            <td>{{users6.lub_oil_pressure_in_control_system_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Burner Inlet Fuel Pressure (kgf/cm²)</td>
+            <td class="table-form-color2">{{users6.burner_inlet_fuel_pressure_GTG_J1}}</td>
+            <td>{{users6.burner_inlet_fuel_pressure_GTG_J3}}</td>
+            <td>{{users6.burner_inlet_fuel_pressure_GTG_M2}}</td>
+            <td>{{users6.burner_inlet_fuel_pressure_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Spill Fuel Pressure (Kgf/cm²)</td>
+            <td class="table-form-color2">{{users6.spill_fuel_pressure_GTG_J1}}</td>
+            <td>{{users6.spill_fuel_pressure_GTG_J3}}</td>
+            <td>{{users6.spill_fuel_pressure_GTG_M2}}</td>
+            <td>{{users6.spill_fuel_pressure_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Compressor Outlet Air Pressure (Kgf/cm²)</td>
+            <td class="table-form-color2">{{users6.compressor_outlet_air_pressure_GTG_J1}}</td>
+            <td>{{users6.compressor_outlet_air_pressure_GTG_J3}}</td>
+            <td>{{users6.compressor_outlet_air_pressure_GTG_M2}}</td>
+            <td>{{users6.compressor_outlet_air_pressure_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Vaccum At Inlet To Compressor (mm H2O)</td>
+            <td class="table-form-color2">{{users6.vaccum_at_inlet_compressor_GTG_J1}}</td>
+            <td>{{users6.vaccum_at_inlet_compressor_GTG_J3}}</td>
+            <td>{{users6.vaccum_at_inlet_compressor_GTG_M2}}</td>
+            <td>{{users6.vaccum_at_inlet_compressor_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td colspan="2">Slip (&deg;C)</td>
+            <td class="table-form-color2">{{users6.slip_GTG_J1}}</td>
+            <td>{{users6.slip_GTG_J3}}</td>
+            <td>{{users6.slip_GTG_M2}}</td>
+            <td>{{users6.slip_GTG_M4}}</td>
+         </tr>
+
+
+
+         <tr>
+            <td rowspan="2">Minimum Run Down Time (sec)</td>
+            <td class="td-bluelight">Cold Start</td>
+            <td class="table-form-color2">{{users6.minimum_cold_start_GTG_J1}}</td>
+            <td>{{users6.minimum_cold_start_GTG_J3}}</td>
+            <td>{{users6.minimum_cold_start_GTG_M2}}</td>
+            <td>{{users6.minimum_cold_start_GTG_M4}}</td>
+         </tr>
+         <tr>
+            <td>Hot Start</td>
+            <td class="table-form-color2">{{users6.minimum_hot_start_GTG_J1}}</td>
+            <td>{{users6.minimum_hot_start_GTG_J3}}</td>
+            <td>{{users6.minimum_hot_start_GTG_M2}}</td>
+            <td>{{users6.minimum_hot_start_GTG_M4}}</td>
+         </tr>
+
+
+         <tr>
+            <td colspan="2">Highest Slip in Quarter (&deg;C)</td>
+            <td class="table-form-color2">{{users6.highest_slip_in_quarter_GTG_J1}}</td>
+            <td>{{users6.highest_slip_in_quarter_GTG_J3}}</td>
+            <td>{{users6.highest_slip_in_quarter_GTG_M2}}</td>
+            <td>{{users6.highest_slip_in_quarter_GTG_M4}}</td>
+         </tr>
+      </table>
+      <div class="note-card">
+         <p><b>Note:</b> Minimum rundown time of GTG to be Measured as follows.</p>
+         <p>1. Cold: From RPM 3500-4000 to rotor stand - still in cold start after rotors are cut - off [Art 10.1.3(6)
+            of Operating Instructions refers].</p>
+         <p>2. Hot: From instant "stop" button presses to rotor stand- still (Art 4.3.19 / 5.6.7 refers).</p>
+      </div>
+
+      <h4 class="text-center">PART - VI: GUF</h4>
+      <div class="note-card">
+
+         <p>GUF(Sea) for the quarter is <b>1.91</b> and GUF(Harbour) for the quarter is <b>0.67</b>. Detailed breakdown
+            as per format ias tabulated below:-</p>
+
+      </div>
+
+      <table class="table table-bordered">
+         <tr>
+            <th>Equipment</th>
+            <th>RH at Sea</th>
+            <th>RH in Harbour (Alongside or Anchorage)</th>
+            <th>Total RH in the Quarter</th>
+         </tr>
+         <tr>
+
+            <td>{{users6.GUF_GTG_J1}}</td>
+            <td>{{users6.GTG_J1_RH_At_Sea}}</td>
+            <td>{{users6.GTG_J1_RH_In_Harbour}}</td>
+            <td>{{users6.GTG_J1_Total_RH}}</td>
+         </tr>
+
+         <tr>
+            <td>{{users6.GUF_GTG_J3}}</td>
+            <td>{{users6.GTG_J3_RH_At_Sea}}</td>
+            <td>{{users6.GTG_J3_RH_In_Harbour}}</td>
+            <td>{{users6.GTG_J3_Total_RH}}</td>
+
+         </tr>
+
+
+         <tr>
+
+            <td>{{users6.GUF_GTG_M2}}</td>
+            <td>{{users6.GTG_M2_RH_At_Sea}}</td>
+            <td>{{users6.GTG_M2_RH_In_Harbour}}</td>
+            <td>{{users6.GTG_M2_Total_RH}}</td>
+
+         </tr>
+
+
+         <tr>
+
+            <td>{{users6.GUF_GTG_M4}}</td>
+            <td>{{users6.GTG_M4_RH_At_Sea}}</td>
+            <td>{{users6.GTG_M4_RH_In_Harbour}}</td>
+            <td>{{users6.GTG_M4_Total_RH}}</td>
+
+         </tr>
+
+         <tr>
+
+            <td>{{users6.GUF_GTG_Total}}</td>
+            <td>{{users6.Total_RH_At_Sea}}</td>
+            <td>{{users6.Total_RH_In_Harbour}}</td>
+            <td>{{users6.Total_RH_In_Quarter}}</td>
+
+         </tr>
+
+
+         <tr>
+
+            <td>{{users6.GUF_GTG_DA}}</td>
+            <td>{{users6.DA_RH_At_Sea}}</td>
+            <td>{{users6.DA_RH_In_Harbour}}</td>
+            <td>{{users6.DA_RH_In_Quarter}}</td>
+
+         </tr>
+
+
+      </table>
+
+      <table class="table table-bordered">
+         <tr colspan="2">
+            <td>Hours Underway</td>
+            <td colspan="2">{{users6.Hours_Underway}}</td>
+         </tr>
+
+         <tr colspan="2">
+            <td>Hours at Harbour</td>
+            <td>{{users6.Hours_Underway}}</td>
+            <td style="display:flex;">Alongside:&nbsp;{{users6.Hours_Alongside}}</td>
+            <td style="display:flex;">Anchorage:&nbsp;{{users6.Hours_Anchorage}}</td>
+         </tr>
+
+         <tr colspan="2">
+            <td>Hours shore supply available when alongside</td>
+            <td colspan="3">{{users6.Hours_Shore}}</td>
+         </tr>
+
+         <tr colspan="2">
+            <td>Comments wrt non-availability of shore supply in harbour ecessitating operation of GTGs, if applicable,
+               with berthing position and date.</td>
+            <td colspan="2">
+               <table>
+                  <tr>
+                     <th>Ser</th>
+                     <th>Date</th>
+                     <th>Berthing Position</th>
+                     <th>Remarks</th>
+                  </tr>
+
+                  <tr>
+                     <td>(a)</td>
+                     <td>{{users6.comments_date_a}}</td>
+                     <td>{{users6.comments_berthing_pos_a}}</td>
+                     <td rowspan="4">{{users6.comments_remarks}}</td>
+                  </tr>
+
+                  <tr>
+                     <td>(b)</td>
+                     <td>{{users6.comments_date_b}}</td>
+                     <td rowspan="3">{{users6.comments_berthing_pos_b}}</td>
+                  </tr>
+
+                  <tr>
+                     <td>(c)</td>
+                     <td>{{users6.comments_date_c}}</td>
+                  </tr>
+
+                  <tr>
+                     <td>(d)</td>
+                     <td>{{users6.comments_date_d}}</td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+
+      <h2 class="text-left"><u>REMARKS</u></h2>
+
+      <table class="table table-bordered table-style-color table-form-color tabletd-color">
+         <tr>
+            <td>
+
+               <div class="form-floating">
+                  {{users6.remarks | safe}}
+               </div>
+            </td>
+         </tr>
+      </table>
+
+      <table cellspacing="0" cellpadding="5" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+         <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">
+               Electronically Signed By: <br> {{history.first_name}} {{history.last_name}},
+               {{history.login_name}} <br> {{history.designation}} <br> On {{
+               history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%" style="margin-left:50px"> <img style="width:130px;height:130px;align-items:right"
+                  src="http://159.12.45.106:8000/{{qr}}" /></td>
+         </tr>
+      </table>
+
+      <table cellspacing="0" cellpadding="5" width="100%"
+         style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+         <tr style="border: 0; border-style:None;">
+            <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report
+               Generated Through ITTTM</td>
+            <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;"
+                  src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+         </tr>
+      </table>
+   </div>
+</body>
+
+</html>

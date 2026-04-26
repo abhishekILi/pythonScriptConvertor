@@ -1,0 +1,197 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>ehmgtg-paships</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+      </style>
+   </head>
+   <body>
+          <div class="wrapper">
+            <div class="heading-style2 heading-mat-sm">
+              <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>REQUISTION FOR 
+                <span>EHM</span>
+                 </strong>EXTENSION TRIALS - GTG</h2></div>
+                 <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                  {% if users%}
+                  <tr>
+                  <td width="3%">1</td>
+                  <td width="23%"><p style="font-size: 14px; margin:0;">Name of Ship</p></td>
+                  <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Name_Ship}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                  <td>2</td>
+                  <td><p style="font-size: 14px; margin:0;">Machinery / Equipment</p></td>
+                  <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Machinery_Equipment}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                  <td>3</td>
+                  <td><p style="font-size: 14px; margin:0;">Reason for trial</p></td>
+                  <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Reason_trial}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                  <td>4</td>
+                  <td><p style="font-size: 14px; margin:0;">Proposed Date for harbour trial</p></td>
+                  <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Proposed_Date_harbour_trial |date:'d/m/Y'}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                  <td>5</td>
+                  <td><p style="font-size: 14px; margin:0;">Proposed Date for Sea trial</p></td>
+                  <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Proposed_Date_Sea_trial |date:'d/m/Y'}}</td>
+              </tr>
+              {% endif%}
+            </table>  
+
+            <h4>6. State of Machinery</h4>
+            <div class="form-inline-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="{{users.EHM_GTG_M4}}" id="defaultCheck1" {% if users.EHM_GTG_M4 == '1' %} checked {% endif %}>
+                <label class="form-check-label" for="defaultCheck1">
+                  M4
+                </label>
+              </div>
+            </div>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+              <tr>
+                <th width="35%">Type</th>
+                <th>M4</th>
+              </tr>
+              {% if users%}
+              <tr>
+                <td>(a) S.No of GTG(Only one GTGT at a time</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_S_No_GTA_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(b) Running Hours Since Installation</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Running_Hrs_Instal_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(c) Running Hours Since New</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Running_Hrs_New_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(d) Hrs run since last trials</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Hrs_run_l_trials_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(e) Hours Run Since Last 6K/12K</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Hours_Run_Last_6K_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(f) Date of last Trial</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Date_last_Trial_M4 |date:'d/m/Y'}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(g) Last Major Routine Carried Out</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_L_Major_Routine_Carried_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(h) Hours Run Since Last Major Routine</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Hrs_L_Major_Routine_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(i) Details of replacement of Major Components/Sub-assemblies</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_rep_Major_Comp_M4}}</td>                  
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(j) Major Defect encountered Since last routine</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Major_Defect_encountered_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(k) Outstanding defects/routine</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Outstd_defects_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(l) Next routine falling due</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Nxt_routine_falling_due_M4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td>(m) Details of Replacement of Major component</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Details_Rep_Major_comp_M4}}</td>
+              </tr>
+              {% endif%}
+              </table>
+
+            <h4>7. Any other relevant information</h4>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+              {% if users%}
+              <tr>
+                <td class="td-bluelight">File No :</td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_File_No}}</td>
+                <td class="td-bluelight">Date : </td>
+                <td style="font-size:14px; color: #222;">{{users.EHM_GTG_Date |date:'d/m/Y'}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td colspan="4" style="text-align: center;">Approved by Engineer Officer<span>{{users.EHM_GTG_Approved_Eng_Officer}}</span></td>
+              </tr>
+              {% endif%}
+              {% if users%}
+              <tr>
+                <td colspan="4" style="text-align: center;">This is system generated document and does not require any stamp or signature<span>{{users.EHM_GTG_stamp_sign}}</span></td>
+              </tr>
+              {% endif%}
+            </table>
+            <h4>Recommendations. Following recommended:</h4>
+            {%  with "service/approvals.html" as template %}   
+                  {% include template %}
+                  
+            {% endwith %}
+            <div class="clear"></div>
+      
+          </div>
+          <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+        </body>
+        </html>
+          

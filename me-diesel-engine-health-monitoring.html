@@ -1,0 +1,1353 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>me-diesel-engine-health-monitoring</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+        .textarea{
+          width: 100%;
+          min-height: 80px;
+          /* padding: 10px; */
+          font-size: 12px;
+          resize: none;
+          overflow-y: hidden;
+      }
+    
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+   <body>
+     <section class="wrapper">
+            <div class="panel-row">
+            
+
+              <div style="float:right">
+                <p>Report Generated on: {{ history.approved_date_time }}</p>
+              </div>
+               <div class="heading-style2 heading-style3 text-center">
+                <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT.png" class="ng-star-inserted">
+                <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT MUMBAI</h2>       
+                  <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">ME DEHMI – REQUISITION PERFORMA FOR MAIN ENGINES</h2>              
+               </div>
+
+
+
+              <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                  <td width="18%"><strong>Ship :</strong></td>
+                  <td>{{users.Ship}}</td>
+                  <td class="td-bluelight" width="15%"><strong>EQUIPMENT :</strong></td>
+                  <td>{{users.EQUIPMENT}}</td>
+                </tr>
+                <tr>
+                  <td width="18%"><strong>Model :</strong></td>
+                  <td>{{users.Model}}</td>
+                  <td class="td-bluelight" width="15%"><strong>Equipment Serial Number :</strong></td>
+                  <td>{{users.EQUIPMENT_serial_number}}</td>
+                </tr>
+                <tr>
+                  <td><strong>ENGINE MAKE</strong></td>
+                  <td>{{users.ENGINE_MAKE}}</td>
+                  <td class="td-bluelight" width="10%"><strong>DATE OF TRIAL :</strong></td>
+                  <td>
+                        {{users.DATE_OF_TRIAL}}"
+                  </td>
+                </tr>
+              </table>
+              <div class="heading-style2">
+                <h4>(A)STATUS OF DOCUMENTS AND ENGINE DATA</h4>
+              </div>
+              <table class="table table-bordered table-form-color2 tabletd-color">
+                <tr>
+                  <th>SER</th>
+                  <th>CHECK</th>
+                  <th>ME 1</th>
+                  <th>ME 2</th>
+                  <th>ME 3</th>
+                  <th>ME 4</th>
+                  <!-- <th>ME 5</th>
+                  <th>ME 6</th> -->
+                  <th>REMARKS</th>
+                  <th>Observation</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>DIESEL SERVICE LOG BOOK</td>
+                  <td>
+                    <div class="form-group-radio">
+                      {{users.DIESEL_SERVICE_ME_1}}
+                  </td>
+                  <td>
+                    <div class="form-group-radio">
+                      {{users.DIESEL_SERVICE_ME_2}}
+                  </td>
+                  <td>
+                    <div class="form-group-radio">
+                      {{users.DIESEL_SERVICE_ME_3}}
+                  </td>
+                  <td>
+                    <div class="form-group-radio">
+                      {{users.DIESEL_SERVICE_ME_4}}
+                  </td>
+                  <td>{{users.DIESEL_SERVICE_REMARKS}}</td>
+                  <td>
+                    {{users.DIESEL_SERVICE_FILLING_INS}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>EMAPS/KALAMAZOO</td>
+                  <td>{{users.EMAPS_KALAMAZOO_ME_1}}
+                  </td>
+                  <td>{{users.EMAPS_KALAMAZOO_ME_2}}
+                  </td>
+                  <td>{{users.EMAPS_KALAMAZOO_ME_3}}
+                  </td>
+                  <td>{{users.EMAPS_KALAMAZOO_ME_4}}
+                  </td>
+                  <td>{{users.EMAPS_KALAMAZOO_REMARKS}}</td>
+                  <td>
+                    {{users.EMAPS_KALAMAZOO_FILLING_INS}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>RUNNING LOG BOOK</td>
+                  <td>{{users.RUNNING_LOG_BOOK_ME_1}}
+                  </td>
+                  <td>{{users.RUNNING_LOG_BOOK_ME_2}}
+                  </td>
+                  <td>{{users.RUNNING_LOG_BOOK_ME_3}}
+                  </td>
+                  <td>{{users.RUNNING_LOG_BOOK_ME_4}}
+                  </td>
+                  <td>{{users.RUNNING_LOG_BOOK_REMARKS}}</td>
+                  <td>
+                    {{users.RUNNING_LOG_BOOK_FILLING_INS}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>ENGINE SERIAL NO</td>
+                  <td>{{users.ENGINE_SERIAL_NO_ME_1}}</td>
+                  <td>{{users.ENGINE_SERIAL_NO_ME_2}}</td>
+                  <td>{{users.ENGINE_SERIAL_NO_ME_3}}</td>
+                  <td>{{users.ENGINE_SERIAL_NO_ME_4}}</td>
+                  <!-- <td>{{users.ENGINE_SERIAL_NO_ME_5}}</td>
+                  <td>{{users.ENGINE_SERIAL_NO_ME_6}}</td> -->
+                  <td>{{users.ENGINE_SERIAL_NO_REMARKS}}</td>
+                  <td>
+                    {{users.ENGINE_SERIAL_NO_FILLING_INS}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>RUNNING HOURS SINCE INSTALLATION</td>
+                  <td>{{users.RUNNING_HOURS_INSTALL_ME_1}}</td>
+                  <td>{{users.RUNNING_HOURS_INSTALL_ME_2}}</td>
+                  <td>{{users.RUNNING_HOURS_INSTALL_ME_3}}</td>
+                  <td>{{users.RUNNING_HOURS_INSTALL_ME_4}}</td>
+                  <!-- <td>{{users.RUNNING_HOURS_INSTALL_ME_5}}</td>
+                  <td>{{users.RUNNING_HOURS_INSTALL_ME_6}}</td> -->
+                  <td>{{users.RUNNING_HOURS_INSTALL_REMARKS}}</td>
+                  <td>
+                    {{users.RUNNING_HOURS_INSTALL_FILLING_INS}}
+                  </td>
+                </tr>
+              </table>
+              
+                 <div class="heading-style2">
+                    <h4>(B)EXTERNAL STATE OF ENGINE</h4>
+                 </div>
+                 <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                       <th>SER</th>
+                       <th>CHECK</th>
+                       <th>ME 1</th>
+                       <th>ME 2</th>
+                       <th>ME 3</th>
+                       <th>ME 4</th>
+                       <th>REMARKS</th>
+                       <th>Observation</th>
+                    </tr>
+                    <tr>
+                       <td>1</td>
+                       <td>CONDITION OF  DURITES/ COMPENSATORS</td>
+                       <td>{{users.CONDITION_DURITES_ME_1_ME_2}}</td>
+                       <td>{{users.CONDITION_DURITES_ME_2_ME_3}}</td>
+                       <td>{{users.CONDITION_DURITES_ME_3_ME_4}}</td>
+                       <td>{{users.CONDITION_DURITES_ME_4_ME_5}}</td>
+                       <td>{{users.CONDITION_DURITES_REMARKS}}</td>
+                       <td>
+                        {{users.CONDITION_DURITES_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>2</td>
+                       <td>CONDITION  OF SV MOUNTS & APPLICATION OF NECOL LACQUER</td>
+                       <td>{{users.CONDITION_SV_MOUNTS_ME_1_ME_2}}</td>
+                       <td>{{users.CONDITION_SV_MOUNTS_ME_2_ME_3}}</td>
+                       <td>{{users.CONDITION_SV_MOUNTS_ME_3_ME_4}}</td>
+                       <td>{{users.CONDITION_SV_MOUNTS_ME_4_ME_5}}</td>
+                       <td>{{users.CONDITION_SV_MOUNTS_REMARKS}}</td>
+                       <td>
+                        {{users.CONDITION_SV_MOUNTS_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>3</td>
+                       <td>SYSTEM PIPELINES WELL SUPPORTED AND FREE OF LEAKS</td>
+                       <td>{{users.SYS_PIPE_WELL_SUP_ME_1_ME_2}}</td>
+                       <td>{{users.SYS_PIPE_WELL_SUP_ME_2_ME_3}}</td>
+                       <td>{{users.SYS_PIPE_WELL_SUP_ME_3_ME_4}}</td>
+                       <td>{{users.SYS_PIPE_WELL_SUP_ME_4_ME_5}}</td>
+                       <td>{{users.SYS_PIPE_WELL_SUP_REMARKS}}</td>
+                       <td>
+                          {{users.SYS_PIPE_WELL_SUP_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>4</td>
+                       <td>FILTER DRAINS CLEAR</td>
+                       <td>{{users.FILTER_DRAINS_CLEAR_ME_1_ME_2}}</td>
+                       <td>{{users.FILTER_DRAINS_CLEAR_ME_2_ME_3}}</td>
+                       <td>{{users.FILTER_DRAINS_CLEAR_ME_3_ME_4}}</td>
+                       <td>{{users.FILTER_DRAINS_CLEAR_ME_4_ME_5}}</td>
+                       <td>{{users.FILTER_DRAINS_CLEAR_REMARKS}}</td>
+                       <td>
+                          {{users.FILTER_DRAINS_CLEAR_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>5</td>
+                       <td>STATUS OF BILGE PLATFORM IN THE IMMEDIATE VICINITY OF ENGINE</td>
+                       <td>{{users.STATUS_OF_BILGE_ME_1_ME_2}}</td>
+                       <td>{{users.STATUS_OF_BILGE_ME_2_ME_3}}</td>
+                       <td>{{users.STATUS_OF_BILGE_ME_3_ME_4}}</td>
+                       <td>{{users.STATUS_OF_BILGE_ME_4_ME_5}}</td>
+                       <td>{{users.STATUS_OF_BILGE_REMARKS}}</td>
+                       <td>
+                          {{users.STATUS_OF_BILGE_FILLING_INS}}
+                       </td>
+                    </tr>
+                 </table>
+                 <div class="heading-style2">
+                    <h4>(C)STATUS OF AIR INTAKE</h4>
+                 </div>
+                 <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                       <th>SER</th>
+                       <th>CHECK</th>
+                       <th>ME 1</th>
+                       <th>ME 2</th>
+                       <th>ME 3</th>
+                       <th>ME 4</th>
+                       <th>REMARKS</th>
+                       <th width="15%">Observation</th>
+                    </tr>
+                    <tr>
+                       <td>1</td>
+                       <td>CLEANING OF AIR INTAKE FILTER</td>
+                       <td>{{users.CLEANING_AIR_INTAKE_ME_1}}</td>
+                       <td>{{users.CLEANING_AIR_INTAKE_ME_2}}</td>
+                       <td>{{users.CLEANING_AIR_INTAKE_ME_3}}</td>
+                       <td>{{users.CLEANING_AIR_INTAKE_ME_4}}</td>
+                       <td>{{users.CLEANING_AIR_INTAKE_REMARKS}}</td>
+                       <td>
+                          {{users.CLEANING_AIR_INTAKE_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>2</td>
+                       <td>CLEANLINESS OF AIR INTAKE TRUNKING</td>
+                       <td>{{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_1}}</td>
+                       <td>{{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_2}}</td>
+                       <td>{{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_3}}</td>
+                       <td>{{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_4}}</td>
+                       <td>{{users.CLEANLINESS_AIR_INTAKE_TRUNKING_REMARKS}}</td>
+                       <td>
+                        {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>3</td>
+                       <td>INTAKE DRAIN CLEAR</td>
+                       <td> {{users.INTAKE_DRAIN_CLEAR_ME_1}}</td>
+                       <td> {{users.INTAKE_DRAIN_CLEAR_ME_2}}</td>
+                       <td> {{users.INTAKE_DRAIN_CLEAR_ME_3}}</td>
+                       <td> {{users.INTAKE_DRAIN_CLEAR_ME_4}}</td>
+                       <td>{{users.INTAKE_DRAIN_CLEAR_REMARKS}}</td>
+                       <td>
+                        {{users.INTAKE_DRAIN_CLEAR_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>4</td>
+                       <td>PERFORATED SHEET FOR CORROSION AND INTACTNESS OF SECURING (WHERE APPLICABLE)</td>
+                       <td>{{users.PERFORATED_SHEET_CORROSION_ME_1}}</td>
+                       <td>{{users.PERFORATED_SHEET_CORROSION_ME_2}}</td>
+                       <td>{{users.PERFORATED_SHEET_CORROSION_ME_3}}</td>
+                       <td>{{users.PERFORATED_SHEET_CORROSION_ME_4}}</td>
+                       <td>{{users.PERFORATED_SHEET_CORROSION_REMARKS}}</td>
+                       <td>{{users.PERFORATED_SHEET_CORROSION_FILLING_INS}}</td>
+                    </tr>
+                    <tr>
+                       <td>5</td>
+                       <td>AIR INTAKE RESTRICTION MEASURING INSTRUMENT</td>
+                       <td>{{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_1}}</td>
+                       <td>{{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_2}}</td>
+                       <td>{{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_3}}</td>
+                       <td>{{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_4}}</td>
+                       <td>{{users.AIR_INTAKE_RESTRICTION_MEASURING_REMARKS}}</td>
+                       <td>
+                          {{users.AIR_INTAKE_RESTRICTION_MEASURING_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>6</td>
+                       <td>STATUS OF VACUUM INDICATORS</td>
+                       <td>{{users.STATUS_OF_VACUUM_ME_1}}</td>
+                       <td>{{users.STATUS_OF_VACUUM_ME_2}}</td>
+                       <td>{{users.STATUS_OF_VACUUM_ME_3}}</td>
+                       <td>{{users.STATUS_OF_VACUUM_ME_4}}</td>
+                       <td>{{users.STATUS_OF_VACUUM_REMARKS}}</td>
+                       <td>
+                          {{users.STATUS_OF_VACUUM_FILLING_INS}}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>7</td>
+                       <td>STATUS OF DURITES/ COMPENSATORS</td>
+                       <td>{{users.STATUS_OF_DURITES_ME_1}}</td>
+                       <td>{{users.STATUS_OF_DURITES_ME_2}}</td>
+                       <td>{{users.STATUS_OF_DURITES_ME_3}}</td>
+                       <td>{{users.STATUS_OF_DURITES_ME_4}}</td>
+                       <td>{{users.STATUS_OF_DURITES_REMARKS}}</td>
+                       <td>
+                        {{users.STATUS_OF_DURITES_FILLING_INS}}
+                       </td>
+                    </tr>
+                 </table>
+                 <div class="heading-style2">
+                    <h4>(D)STATUS OF EXHAUST SYSTEM</h4>
+                  </div>
+                    <table class="table table-bordered table-form-color2 tabletd-color">
+                       <tr>
+                          <th>SER</th>
+                          <th>CHECK</th>
+                          <th>ME 1</th>
+                          <th>ME 2</th>
+                          <th>ME 3</th>
+                          <th>ME 4</th>
+                          <th>REMARKS</th>
+                          <th>Observation</th>
+                       </tr>
+                       <tr>
+                          <td>1</td>
+                          <td>SECURING OF EXHAUST TRUNKING SUPPORTS AND LOAD HANGERS</td>
+                          <td>{{users.SECURING_OF_EXHAUST_TRUNKING_ME_1}}</td>
+                          <td>{{users.SECURING_OF_EXHAUST_TRUNKING_ME_2}}</td>
+                          <td>{{users.SECURING_OF_EXHAUST_TRUNKING_ME_3}}</td>
+                          <td>{{users.SECURING_OF_EXHAUST_TRUNKING_ME_4}}</td>
+                          <td>{{users.SECURING_OF_EXHAUST_TRUNKING_REMARKS}}</td>
+                          <td>
+                            {{users.SECURING_OF_EXHAUST_TRUNKING_FILLING_INS}}
+
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>2</td>
+                          <td>INTACTNESS OF HOT LAGGING</td>
+                          <td> {{users.INTACTNESS_OF_HOT_LAGGING_ME_1}}</td>
+                          <td> {{users.INTACTNESS_OF_HOT_LAGGING_ME_2}}</td>
+                          <td> {{users.INTACTNESS_OF_HOT_LAGGING_ME_3}}</td>
+                          <td> {{users.INTACTNESS_OF_HOT_LAGGING_ME_4}}</td>
+                          <td>{{users.INTACTNESS_OF_HOT_LAGGING_REMARKS}}</td>
+                          <td>
+                            {{users.INTACTNESS_OF_HOT_LAGGING_FILLING_INS}}
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>3</td>
+                          <td>STATUS OF CORROSION ON EXHAUST FUNNEL/FLAP/BALL VALVE</td>
+                          <td>{{users.STATUS_CORROSION_ON_EXHAUST_ME_1}}</td>
+                          <td>{{users.STATUS_CORROSION_ON_EXHAUST_ME_2}}</td>
+                          <td>{{users.STATUS_CORROSION_ON_EXHAUST_ME_3}}</td>
+                          <td>{{users.STATUS_CORROSION_ON_EXHAUST_ME_4}}</td>
+                          <td>{{users.STATUS_CORROSION_ON_EXHAUST_REMARKS}}</td>
+                          <td>
+                            {{users.STATUS_CORROSION_ON_EXHAUST_FILLING_INS}}
+
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>4</td>
+                          <td>CONDITION OF  EXHAUST DRAIN PIPELINE</td>
+                          <td>{{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_1}}</td>
+                          <td>{{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_2}}</td>
+                          <td>{{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_3}}</td>
+                          <td>{{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_4}}</td>
+                          <td>{{users.CONDITION_EXHAUST_DRAIN_PIPELINE_REMARKS}}</td>
+                          <td>
+                            {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_FILLING_INS}}
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>5</td>
+                          <td>INTACTNESS OF EXHAUST TRUNKING</td>
+                          <td>{{users.INTACTNESS_EXH_TRUNKING_ME_1}}</td>
+                          <td>{{users.INTACTNESS_EXH_TRUNKING_ME_2}}</td>
+                          <td>{{users.INTACTNESS_EXH_TRUNKING_ME_3}}</td>
+                          <td>{{users.INTACTNESS_EXH_TRUNKING_ME_4}}</td>
+                          <td>{{users.INTACTNESS_EXH_TRUNKING_REMARKS}}</td>
+                          <td>
+                            {{users.INTACTNESS_EXH_TRUNKING_FILLING_INS}}
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>6</td>
+                          <td>EXHAUST BACK PRESSURE MEASURING POINT ACCESSIBLE</td>
+                          <td>{{users.EXHAUST_BACK_P_MEASURING_POINT_ME_1}}</td>
+                          <td>{{users.EXHAUST_BACK_P_MEASURING_POINT_ME_2}}</td>
+                          <td>{{users.EXHAUST_BACK_P_MEASURING_POINT_ME_3}}</td>
+                          <td>{{users.EXHAUST_BACK_P_MEASURING_POINT_ME_4}}</td>
+                          <td>{{users.EXHAUST_BACK_P_MEASURING_POINT_REMARKS}}</td>
+                          <td>
+                            {{users.EXHAUST_BACK_P_MEASURING_POINT_FILLING_INS}}
+
+                          </td>
+                       </tr>
+                    </table>
+                    <div class="heading-style2">
+                       <h4>(E)STARTING AIR SYSTEM</h4>
+                    </div>
+                    <table class="table table-bordered table-form-color2 tabletd-color">
+                       <tr>
+                          <th>SER</th>
+                          <th>CHECK</th>
+                          <th>ME 1</th>
+                          <th>ME 2</th>
+                          <th>ME 3</th>
+                          <th>ME 4</th>
+                          <th>REMARKS</th>
+                          <th>Observation</th>
+                       </tr>
+                       <tr>
+                          <td>1</td>
+                          <td>CONDITION OF DURITES/ BRAIDED HOSES</td>
+                          <td>{{users.CONDITION_DURITES_BRAIDED_HOSES_ME_1}}</td>
+                          <td>{{users.CONDITION_DURITES_BRAIDED_HOSES_ME_2}}</td>
+                          <td>{{users.CONDITION_DURITES_BRAIDED_HOSES_ME_3}}</td>
+                          <td>{{users.CONDITION_DURITES_BRAIDED_HOSES_ME_4}}</td>
+                          <td>{{users.CONDITION_DURITES_BRAIDED_HOSES_REMARKS}}</td>
+                          <td>
+                            {{users.CONDITION_DURITES_BRAIDED_HOSES_FILLING_INS}}
+
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>2</td>
+                          <td>STATUS OF AIR STARTING VALVE</td>
+                          <td>{{users.STATUS_OF_AIR_STARTING_VALVE_ME_1}}</td>
+                          <td>{{users.STATUS_OF_AIR_STARTING_VALVE_ME_2}}</td>
+                          <td>{{users.STATUS_OF_AIR_STARTING_VALVE_ME_3}}</td>
+                          <td>{{users.STATUS_OF_AIR_STARTING_VALVE_REMARKS}}</td>
+                          <td>
+                            {{users.STATUS_OF_AIR_STARTING_VALVE_FILLING_INS}}
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>3</td>
+                          <td>WORKING OF AUTO/ MANUAL DRAIN VALVE OF AIR COMPRESSOR</td>
+                          <td>{{users.WORKING_AUTO_MANUAL_ME_1}}</td>
+                          <td>{{users.WORKING_AUTO_MANUAL_ME_2}}</td>
+                          <td>{{users.WORKING_AUTO_MANUAL_ME_3}}</td>
+                          <td>{{users.WORKING_AUTO_MANUAL_ME_4}}</td>
+                          <td>{{users.WORKING_AUTO_MANUAL_REMARKS}}</td>
+                          <td>
+                            {{users.WORKING_AUTO_MANUAL_FILLING_INS}}
+                          </td>
+                       </tr>
+                    </table>
+                    <div class="heading-style2">
+                       <h4>(F)FUEL SYSTEM</h4>
+                    </div>
+                    <table class="table table-bordered table-form-color2 tabletd-color">
+                       <tr>
+                          <th>SER</th>
+                          <th>CHECK</th>
+                          <th>ME 1</th>
+                          <th>ME 2</th>
+                          <th>ME 3</th>
+                          <th>ME 4</th>
+                          <th>REMARKS</th>
+                          <th>Observation</th>
+                       </tr>
+                       <tr>
+                          <td>1</td>
+                          <td>CONDITION OF FUEL FILTERS</td>
+                          <td>{{users.CONDITION_FUEL_FILTERS_ME_1}}</td>
+                          <td>{{users.CONDITION_FUEL_FILTERS_ME_2}}</td>
+                          <td>{{users.CONDITION_FUEL_FILTERS_ME_3}}</td>
+                          <td>{{users.CONDITION_FUEL_FILTERS_ME_4}}</td>
+                          <td>{{users.CONDITION_FUEL_FILTERS_REMARKS}}</td>
+                          <td>
+                            {{users.CONDITION_FUEL_FILTERS_FILLING_INS}}
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>2</td>
+                          <td>STATUS OF FUEL CENTRIFUGE</td>
+                          <td>{{users.STATUS_OF_FUEL_CENTRIFUGE_ME_1}}</td>
+                          <td>{{users.STATUS_OF_FUEL_CENTRIFUGE_ME_2}}</td>
+                          <td>{{users.STATUS_OF_FUEL_CENTRIFUGE_ME_3}}</td>
+                          <td>{{users.STATUS_OF_FUEL_CENTRIFUGE_ME_4}}</td>
+                          <td>{{users.STATUS_OF_FUEL_CENTRIFUGE_REMARKS}}</td>
+                          <td>
+                            {{users.STATUS_OF_FUEL_CENTRIFUGE_FILLING_INS}}
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>3</td>
+                          <td>FUEL LEAKAGES</td>
+                          <td>{{users.FUEL_LEAKAGES_ME_1}}</td>
+                          <td>{{users.FUEL_LEAKAGES_ME_2}}</td>
+                          <td>{{users.FUEL_LEAKAGES_ME_3}}</td>
+                          <td>{{users.FUEL_LEAKAGES_ME_4}}</td>
+                          <td>{{users.FUEL_LEAKAGES_REMARKS}}</td>
+                          <td>
+                            {{users.FUEL_LEAKAGES_FILLING_INS}}
+
+                          </td>
+                       </tr>
+                       <tr>
+                          <td>4</td>
+                          <td>CONDITION OF WIRE-BRAIDED HOSES</td>
+                          <td>{{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_1}}</td>
+                          <td>{{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_2}}</td>
+                          <td>{{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_3}}</td>
+                          <td>{{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_4}}</td>
+                          <td>{{users.CONDITION_OF_WIR_BRAIDED_HOSES_REMARKS}}</td>
+                          <td>
+                            {{users.CONDITION_OF_WIR_BRAIDED_HOSES_FILLING_INS}}
+                          </td>
+                       </tr>
+                    </table>
+                 </div>
+                  
+
+                 
+                  <div class="heading-style2">
+                    <h4>(G)LUB OIL SYSTEM</h4>
+                  </div>
+                  <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                      <th>SER</th>
+                      <th>CHECK</th>
+                      <th>ME 1</th>
+                      <th>ME 2</th>
+                      <th>ME 3</th>
+                      <th>ME 4</th>
+                      <!-- <th>ME 5</th>
+                      <th>ME 6</th> -->
+                      <th>REMARKS</th>
+                      <th>Observation</th>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">1</td>
+                      <td colspan="6">OUTCOME OF LAST LUB OIL ANALYSIS</td>
+                      
+                    </tr>
+                    <tr>
+                      <td style="background:white !important;color:black !important;">BASIC</td>
+                      <td class="table-form-color2">
+                        {{usersOne.BASIC_ME_1}}
+                      </td>
+                      <td>
+                        {{usersOne.BASIC_ME_2}}
+                      </td>
+                      <td>
+                        {{usersOne.BASIC_ME_3}}
+                      </td>
+                      <td>
+                        {{usersOne.BASIC_ME_4}}
+                      </td>
+                      <td>{{usersOne.BASIC_REMARKS}}</td>
+                      <td>
+                        {{usersOne.BASIC_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="background:white !important;color:black !important;">ADVANCED</td>
+                      <td class="table-form-color2">
+                        {{usersOne.ADVANCED_ME_1}}
+    
+                      </td>
+                      <td>
+                        {{usersOne.ADVANCED_ME_2}}
+                      </td>
+                      <td>
+                        {{usersOne.ADVANCED_ME_3}}
+                      </td>
+                      <td>
+                        {{usersOne.ADVANCED_ME_4}}
+                      </td>
+                      <!-- <td>
+                        {{usersOne.ADVANCED_ME_5}}
+                      </td>
+                      <td>
+                        {{usersOne.ADVANCED_ME_6}}
+                      </td> -->
+                      <td>{{usersOne.ADVANCED_REMARKS}}</td>
+                      <td>
+                        {{usersOne.ADVANCED_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>STATUS OF LUB OIL CENTRIFUGE</td>
+                      <td>{{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_1}}
+                      </td>
+                      <td>{{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_2}}
+                      </td>
+                      <td>{{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_3}}
+                      </td>
+                      <td>{{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_4}}
+                      </td>
+                      <td>{{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_REMARKS}}
+                      </td>
+                      <td>
+                        {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>OIL LEAKAGES</td>
+                      <td>{{usersOne.OIL_LEAKAGES_ME_1}}</td>
+                      <td>{{usersOne.OIL_LEAKAGES_ME_2}}</td>
+                      <td>{{usersOne.OIL_LEAKAGES_ME_3}}</td>
+                      <td>{{usersOne.OIL_LEAKAGES_ME_4}}</td>
+                      <td>{{usersOne.OIL_LEAKAGES_REMARKS}}
+                      </td>
+                      <td>
+                        {{usersOne.OIL_LEAKAGES_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>DATE OF LAST COOLER CLEANING</td>
+                      <td> {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_1}}     
+                      </td>
+                      <td> {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_2}}
+                      </td>
+                      <td> {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_3}}
+                      </td>
+                      <td> {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_4}} 
+                      </td>
+                      <td>{{usersOne.DATE_OF_LAST_COOLER_CLEANING_REMARKS}}
+                      </td>
+                      <td>
+                        {{usersOne.DATE_OF_LAST_COOLER_CLEANING_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>STATUS OF DURITES/ COMPENSATORS</td>
+                      <td>{{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_1}}</td>
+                      <td>{{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_2}}</td>
+                      <td>{{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_3}}</td>
+                      <td>{{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_4}}</td>
+                      <td>{{usersOne.STATUS_OF_DURITES_COMPENSATORS_REMARKS}}
+                      </td>
+                      <td>{{usersOne.STATUS_OF_DURITES_COMPENSATORS_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>LUB OIL TEST KIT STATUS</td>
+                      <td>{{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_1}}</td>
+                      <td>{{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_2}}</td>
+                      <td>{{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_3}}</td>
+                      <td>{{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_4}}</td>
+                      <td>{{usersOne.LUB_OIL_TEST_KIT_STATUS_REMARKS}}</td>
+                      <td>{{usersOne.LUB_OIL_TEST_KIT_STATUS_FILLING_INS}}
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="heading-style2">
+                    <h4>(H)COOLANT/ FRESH WATER SYSTEM</h4>
+                  </div>
+                  <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                      <th>SER</th>
+                      <th>CHECK</th>
+                      <th>ME 1</th>
+                      <th>ME 2</th>
+                      <th>ME 3</th>
+                      <th>ME 4</th>
+                      <th>REMARKS</th>
+                      <th>Observation</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>OUTCOME OF LAST COOLANT ANALYSIS</td>
+                      <td>{{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_1}}
+                      </td>
+                      <td>{{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_2}}
+                      </td>
+                      <td>{{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_3}}
+                      </td>
+                      <td>{{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_4}}
+                      </td>
+                      <td>{{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_REMARKS}}</td>
+                      <td>{{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>CONDITION OF GAUGE GLASS OF EXPANSION TANK</td>
+                      <td>{{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_1}}</td>
+                      <td>{{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_2}}</td>
+                      <td>{{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_3}}</td>
+                      <td>{{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_4}}</td>
+                      <td>{{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_REMARKS}}</td>
+                      <td>
+                        {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>STATUS OF COOLANT SYSTEM </td>
+                      <td>{{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_1}}</td>
+                      <td>{{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_2}}</td>
+                      <td>{{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_3}}</td>
+                      <td>{{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_4}}</td>
+                      <td>{{usersOne.STATUS_OF_COOLANT_SYSTEM_REMARKS}}</td>
+                      <td>
+                        {{usersOne.STATUS_OF_COOLANT_SYSTEM_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>DATE OF LAST COOLER CLEANING</td>
+                      <td>{{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_1}}     
+                      </td>
+                      <td>{{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_2}}    
+                      </td>
+                      <td>{{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_3}}    
+                      </td>
+                      <td>{{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_4}}  
+                      </td>
+                      <td>{{usersOne.DATE_OF_LAST_COOL_CLEAN_REMARKS}}</td>
+                      <td>
+                        {{usersOne.DATE_OF_LAST_COOL_CLEAN_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>COOLANT TEST KIT STATUS</td>
+                      <td>{{usersOne.COOLANT_TEST_KIT_STATUS_ME_1}}</td>
+                      <td>{{usersOne.COOLANT_TEST_KIT_STATUS_ME_2}}</td>
+                      <td>{{usersOne.COOLANT_TEST_KIT_STATUS_ME_3}}</td>
+                      <td>{{usersOne.COOLANT_TEST_KIT_STATUS_ME_4}}</td>
+                      <td>{{usersOne.COOLANT_TEST_KIT_STATUS_REMARKS}}</td>
+                      <td>
+                        {{usersOne.COOLANT_TEST_KIT_STATUS_FILLING_INS}}
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="heading-style2">
+                    <h4>(J)SEA WATER SYSTEM</h4>
+                  </div>
+                  <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                      <th>SER</th>
+                      <th>CHECK</th>
+                      <th>ME 1</th>
+                      <th>ME 2</th>
+                      <th>ME 3</th>
+                      <th>ME 4</th>
+                      <!-- <th>ME 5</th>
+                      <th>ME 6</th> -->
+                      <th>REMARKS</th>
+                      <th>Observation</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>STATUS OF S/W SYSTEM</td>
+                      <td>{{usersOne.STATUS_OF_SW_SYSTEM_ME_1}}</td>
+                      <td>{{usersOne.STATUS_OF_SW_SYSTEM_ME_2}}</td>
+                      <td>{{usersOne.STATUS_OF_SW_SYSTEM_ME_3}}</td>
+                      <td>{{usersOne.STATUS_OF_SW_SYSTEM_ME_4}}</td>
+                      <td>{{usersOne.STATUS_OF_SW_SYSTEM_REMARKS}}</td>
+                      <td>
+                        {{usersOne.STATUS_OF_SW_SYSTEM_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>CONDITION OF DURITES/ COMPENSATOR</td>
+                      <td>{{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_1}}</td>
+                      <td>{{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_2}}</td>
+                      <td>{{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_3}}</td>
+                      <td>{{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_4}}</td>
+                      <td>{{usersOne.CONDITION_OF_DURITES_COMPENSATOR_REMARKS}}</td>
+                      <td>
+                        {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>STATUS OF SUCTION STRAINER</td>
+                      <td>{{usersOne.STATUS_OF_SUCTION_STRAINER_ME_1}}</td>
+                      <td>{{usersOne.STATUS_OF_SUCTION_STRAINER_ME_2}}</td>
+                      <td>{{usersOne.STATUS_OF_SUCTION_STRAINER_ME_3}}</td>
+                      <td>{{usersOne.STATUS_OF_SUCTION_STRAINER_ME_4}}</td>
+                      <td>{{usersOne.STATUS_OF_SUCTION_STRAINER_REMARKS}}
+                      </td>
+                      <td>
+                        {{usersOne.STATUS_OF_SUCTION_STRAINER_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>STATUS OF ZINC PLUGS</td>
+                      <td>{{usersOne.STATUS_OF_ZINC_PLUGS_ME_1}}</td>
+                      <td>{{usersOne.STATUS_OF_ZINC_PLUGS_ME_2}}</td>
+                      <td>{{usersOne.STATUS_OF_ZINC_PLUGS_ME_3}}</td>
+                      <td>{{usersOne.STATUS_OF_ZINC_PLUGS_ME_4}}</td>
+                      <td>{{usersOne.STATUS_OF_ZINC_PLUGS_REMARKS}}</td>
+                      <td>
+                        {{usersOne.STATUS_OF_ZINC_PLUGS_FILLING_INS}}
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="heading-style2">
+                    <h4>(K)CLEARANCES CHECK</h4>
+                  </div>
+                  <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                      <th>SER</th>
+                      <th>CHECK</th>
+                      <th>ME 1</th>
+                      <th>ME 2</th>
+                      <th>ME 3</th>
+                      <th>ME 4</th>
+                      <!-- <th>ME 5</th>
+                      <th>ME 6</th> -->
+                      <th>REMARKS</th>
+                      <th>Observation</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>TAPPET CLEARANCE</td>
+                      <td>{{usersOne.TAPPET_CLEARANCE_ME_1}}
+                      </td>
+                      <td>{{usersOne.TAPPET_CLEARANCE_ME_2}}
+                      </td>
+                      <td>{{usersOne.TAPPET_CLEARANCE_ME_3}}
+                      </td>
+                      <td>{{usersOne.TAPPET_CLEARANCE_ME_4}}
+                      </td>
+                      <td>{{usersOne.TAPPET_CLEARANCE_REMARKS}}</td>
+                      <td>
+                        {{usersOne.TAPPET_CLEARANCE_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>INTAKE VALVE (LIMIT - 0.254 MM)</td>
+                      <td>{{usersOne.INTAKE_VALVE_ME_1}}
+                      </td>
+                      <td>{{usersOne.INTAKE_VALVE_ME_2}}
+                      </td>
+                      <td>{{usersOne.INTAKE_VALVE_ME_3}}
+                      </td>
+                      <td>{{usersOne.INTAKE_VALVE_ME_4}}
+                      </td>
+                      <td>{{usersOne.INTAKE_VALVE_REMARKS}}
+                      </td>
+                      <td>
+                        {{usersOne.INTAKE_VALVE_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>EXHAUST VALVE (LIMIT- 0.508 MM)</td>
+                      <td>{{usersOne.EXHAUST_VALVE_ME_1}}
+                      </td>
+                      <td>{{usersOne.EXHAUST_VALVE_ME_2}}
+                      </td>
+                      <td>{{usersOne.EXHAUST_VALVE_ME_3}}
+                      </td>
+                      <td>{{usersOne.EXHAUST_VALVE_ME_4}}
+                      </td>
+                      <td>{{usersOne.EXHAUST_VALVE_REMARKS}}
+                      </td>
+                      <td>
+                        {{usersOne.EXHAUST_VALVE_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="heading-style2">
+                    <h4>(L)INSTRUMENTATION & CONTROL CHECKS</h4>
+                  </div>
+                  <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                      <th>SER</th>
+                      <th>CHECK</th>
+                      <th>ME 1</th>
+                      <th>ME 2</th>
+                      <th>ME 3</th>
+                      <th>ME 4</th>
+                      <!-- <th>ME 5</th>
+                      <th>ME 6</th> -->
+                      <th>REMARKS</th>
+                      <th>Observation</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>INSULATION OF CONTROL SYSTEM PANELS</td>
+                      <td>
+                        {{usersOne.INSULATION_OF_CONTROL_ME_1}}</td>
+                      <td>{{usersOne.INSULATION_OF_CONTROL_ME_2}}</td>
+                      <td>{{usersOne.INSULATION_OF_CONTROL_ME_3}}</td>
+                      <td>{{usersOne.INSULATION_OF_CONTROL_ME_4}}</td>
+                      <td>{{usersOne.INSULATION_OF_CONTROL_REMARKS}}</td>
+                      <td>
+                        {{usersOne.INSULATION_OF_CONTROL_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>STATUS OF CALIBRATION OF INSTRUMENTATION</td>
+                      <td>{{usersOne.STATUS_CALIB_OF_INSTRU_ME_1}}</td>
+                      <td>{{usersOne.STATUS_CALIB_OF_INSTRU_ME_2}}</td>
+                      <td>{{usersOne.STATUS_CALIB_OF_INSTRU_ME_3}}</td>
+                      <td>{{usersOne.STATUS_CALIB_OF_INSTRU_ME_4}}</td>
+                      <td>{{usersOne.STATUS_CALIB_OF_INSTRU_REMARKS}}</td>
+                      <td>
+                        {{usersOne.STATUS_CALIB_OF_INSTRU_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>STATUS OF THERMOMETER/ THERMOCOUPLES/ PRESSURE SENSORS</td>
+                      <td>{{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_1}}
+                      </td>
+                      <td>{{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_2}}
+                      </td>
+                      <td>{{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_3}}
+                      </td>
+                      <td>{{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_4}}
+                      </td>
+                      <td>{{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_REMARKS}}</td>
+                      <td>
+                        {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>THERMOMETER- TOTAL NON-OPS</td>
+                      <td>{{usersOne.THERMOMETER_TOTAL_ME_1}}</td>
+                      <td>{{usersOne.THERMOMETER_TOTAL_ME_2}}</td>
+                      <td>{{usersOne.THERMOMETER_TOTAL_ME_3}}</td>
+                      <td>{{usersOne.THERMOMETER_TOTAL_ME_4}}</td>
+                      <td>{{usersOne.THERMOMETER_TOTAL_REMARKS}}</td>
+                      <td>
+                        {{usersOne.THERMOMETER_TOTAL_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>THERMOCOUPLES TOTAL NON-OPS</td>
+                      <td>{{usersOne.THERMOCOUPLES_TOTAL_ME_1}}</td>
+                      <td>{{usersOne.THERMOCOUPLES_TOTAL_ME_2}}</td>
+                      <td>{{usersOne.THERMOCOUPLES_TOTAL_ME_3}}</td>
+                      <td>{{usersOne.THERMOCOUPLES_TOTAL_ME_4}}</td>
+                      <td>{{usersOne.THERMOCOUPLES_TOTAL_REMARKS}}</td>
+                      <td>
+                        {{usersOne.THERMOCOUPLES_TOTAL_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>PRESSURE GAUGE - TOTAL NON-OPS</td>
+                      <td>{{usersOne.PRESSURE_GAUGE_TOTAL_ME_1}}</td>
+                      <td>{{usersOne.PRESSURE_GAUGE_TOTAL_ME_2}}</td>
+                      <td>{{usersOne.PRESSURE_GAUGE_TOTAL_ME_3}}</td>
+                      <td>{{usersOne.PRESSURE_GAUGE_TOTAL_ME_4}}</td>
+                      <td>{{usersOne.PRESSURE_GAUGE_TOTAL_REMARKS}}</td>
+                      <td>
+                        {{usersOne.PRESSURE_GAUGE_TOTAL_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>NO OF FAULTY ALARMS/RELAYS</td>
+                      <td>{{usersOne.NO_OF_FAULTY_ALARMS_ME_1}}</td>
+                      <td>{{usersOne.NO_OF_FAULTY_ALARMS_ME_2}}</td>
+                      <td>{{usersOne.NO_OF_FAULTY_ALARMS_ME_3}}</td>
+                      <td>{{usersOne.NO_OF_FAULTY_ALARMS_ME_4}}</td>
+                      <td>{{usersOne.NO_OF_FAULTY_ALARMS_REMARKS}}</td>
+                      <td>
+                        {{usersOne.NO_OF_FAULTY_ALARMS_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>BLOWBY MEASUREMENT TOOL/ PROVISION</td>
+                      <td>
+                        {{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_1}}</td>
+                      <td>{{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_2}}</td>
+                      <td>{{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_3}}</td>
+                      <td>{{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_4}}</td>
+                      <td>{{usersOne.BLOWBY_MEASUREMENT_TOOL_REMARKS}}</td>
+                      <td>
+                        {{usersOne.BLOWBY_MEASUREMENT_TOOL_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="heading-style2">
+                    <h4>(M)VENTILATION STATUS</h4>
+                  </div>
+                  <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                      <th>SER</th>
+                      <th>CHECK</th>
+                      <th>ME 1</th>
+                      <th>ME 2</th>
+                      <th>ME 3</th>
+                      <th>ME 4</th>
+                      <!-- <th>ME 5</th>
+                      <th>ME 6</th> -->
+                      <th>REMARKS</th>
+                      <th width="12%">Observation</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>STATUS OF COMPARTMENT VENTILATION</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_1}}</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_2}}</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_3}}</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_4}}</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_5}}
+                      </td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_VENTILATION_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>AVERAGE COMPARTMENT TEMPERATURE AT FOUR CORNERS/ AMBIENT AIR TEMPERATURE</td>
+                      <td>{{usersOne.AVG_COMPARTMENT_TEMP_ME_1}}</td>
+                      <td>{{usersOne.AVG_COMPARTMENT_TEMP_ME_2}}</td>
+                      <td>{{usersOne.AVG_COMPARTMENT_TEMP_ME_3}}</td>
+                      <td>{{usersOne.AVG_COMPARTMENT_TEMP_ME_4}}</td>
+                      <td>{{usersOne.AVG_COMPARTMENT_TEMP_REMARKS}}</td>
+                      <td>
+                        {{usersOne.AVG_COMPARTMENT_TEMP_FILLING_INS}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>STATUS OF COMPARTMENT/ BILGE COOLERS</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_BILGE_ME_1}}</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_BILGE_ME_2}}</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_BILGE_ME_3}}</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_BILGE_ME_4}}</td>
+                      <td>{{usersOne.STATUS_COMPARTMENT_BILGE_REMARKS}}</td>
+                      <td>
+                        {{usersOne.STATUS_COMPARTMENT_BILGE_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">4</td>
+                      <td colspan="6">STATUS OF LAST COOLER CLEANING</td>
+                    </tr>
+                    <tr>
+                      <td style="background:white !important;color:black !important;">&nbsp;&nbsp;&nbsp;(i) COMPARTMENT COOLER</td>
+                      <td class="table-form-color2">
+                        {{usersOne.BASIC_ME_11}}
+    
+                      </td>
+                      <td>
+                        {{usersOne.BASIC_ME_22}}
+                      </td>
+                      <td>
+                        {{usersOne.BASIC_ME_33}}
+                      </td>
+                      <td>
+                        {{usersOne.BASIC_ME_44}}
+                      </td>
+                      <td>{{usersOne.BASIC_REMARKS11}}</td>
+                      <td>
+                        {{usersOne.BASIC_FILLING_INS11}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="background:white !important;color:black !important;">&nbsp;&nbsp;&nbsp;(ii) BILGE COOLER</td>
+                      <td class="table-form-color2">
+                        {{usersOne.ADVANCED_ME_11}}
+    
+                      </td>
+                      <td>
+                        {{usersOne.ADVANCED_ME_22}}
+                      </td>
+                      <td>
+                        {{usersOne.ADVANCED_ME_33}}
+                      </td>
+                      <td>
+                        {{usersOne.ADVANCED_ME_44}}
+                      </td>
+                      <td>{{usersOne.ADVANCED_REMARKS11}}</td>
+                      <td>
+                        {{usersOne.ADVANCED_FILLING_INS22}}
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="heading-style2">
+                    <h4>(N) FIRE FIGHTING SYSTEM</h4>
+                  </div>
+                  <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                      <th>SER</th>
+                      <th>CHECK</th>
+                      <th>ME 1</th>
+                      <th>ME 2</th>
+                      <th>ME 3</th>
+                      <th>ME 4</th>
+                      <th>REMARKS</th>
+                      <th>Observation</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>STATUS OF MACHINERY COMPARTMENT FIRE FIGHTING SYSTEM</td>
+                      <td>{{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_1}}</td>
+                      <td>{{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_2}}</td>
+                      <td>{{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_3}}</td>
+                      <td>{{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_4}}</td>
+                      <td>{{usersOne.STATUS_MACHINERY_COMPARTMENT_REMARKS}}
+                      </td>
+                      <td>
+                        {{usersOne.STATUS_MACHINERY_COMPARTMENT_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                  </table>
+                  
+                  <div class="heading-style2">
+                    <h4>(P)Performance Trials Details</h4>
+                  </div>
+                  <table class="table table-bordered table-form-color2 tabletd-color">
+                    <tr>
+                      <th>SER</th>
+                      <th width="20%">CHECK</th>
+                      <th>ME 1</th>
+                      <th>ME 2</th>
+                      <th>ME 3</th>
+                      <th>ME 4</th>
+                      <th>REMARKS</th>
+                      <th>Observation</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Max ERPM achieved during CST</td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_CST_ME_1}}
+                      </td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_CST_ME_2}}
+                      </td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_CST_ME_3}}
+                      </td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_CST_ME_4}}
+                      </td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_CST_REMARKS}}
+                      </td>
+                      <td>
+                        {{usersOne.Max_ERPM_achieved_during_CST_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Max ship's speed achieved during CST</td>
+                      <td>{{usersOne.Max_ship_speed_achieved_during_CST_ME_1}}
+                      </td>
+                      <td>{{usersOne.Max_ship_speed_achieved_during_CST_ME_2}}
+                      </td>
+                      <td>{{usersOne.Max_ship_speed_achieved_during_CST_ME_3}}
+                      </td>
+                      <td>{{usersOne.Max_ship_speed_achieved_during_CST_ME_4}}
+                      </td>
+                      <td>{{usersOne.Max_ship_speed_achieved_during_CST_REMARKS}}</td>
+                      <td>
+                        {{usersOne.Max_ship_speed_achieved_during_CST_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Max ERPM achieved during last FPT</td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_last_trial_ME_1}}</td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_last_trial_ME_2}}</td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_last_trial_ME_3}}</td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_last_trial_ME_4}}</td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_last_trial_REMARKS}}</td>
+                      <td>{{usersOne.Max_ERPM_achieved_during_last_trial_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Max ship's speed achieved during last FPT</td>
+                      <td>{{usersOne.Max_ship_spd_achieved_during_last_trial_ME_1}}</td>
+                      <td>{{usersOne.Max_ship_spd_achieved_during_last_trial_ME_2}}</td>
+                      <td>{{usersOne.Max_ship_spd_achieved_during_last_trial_ME_3}}</td>
+                      <td>{{usersOne.Max_ship_spd_achieved_during_last_trial_ME_4}}</td>
+                      <td>{{usersOne.Max_ship_spd_achieved_during_last_trial_REMARKS}}</td>
+                      <td>{{usersOne.Max_ship_spd_achieved_during_last_trial_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Max torsion meter readings</td>
+                      <td>{{usersOne.Max_torsion_meter_readings_ME_1}}</td>
+                      <td>{{usersOne.Max_torsion_meter_readings_ME_2}}</td>
+                      <td>{{usersOne.Max_torsion_meter_readings_ME_3}}</td>
+                      <td>{{usersOne.Max_torsion_meter_readings_ME_4}}</td>
+                      <td>{{usersOne.Max_torsion_meter_readings_REMARKS}}
+                      </td>
+                      <td>{{usersOne.Max_torsion_meter_readings_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Present status of torsion meter</td>
+                      <td>{{usersOne.Present_status_of_torsion_meter_ME_1}}</td>
+                      <td>{{usersOne.Present_status_of_torsion_meter_ME_2}}</td>
+                      <td>{{usersOne.Present_status_of_torsion_meter_ME_3}}</td>
+                      <td>{{usersOne.Present_status_of_torsion_meter_ME_4}}</td>
+                      <td>{{usersOne.Present_status_of_torsion_meter_REMARKS}}
+                      </td>
+                      <td>{{Present_status_of_torsion_meter_FILLING_INS}}
+    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Date of last SDC</td>
+                      <td>{{usersOne.Date_last_SDC_ME_1}}</td>
+                      <td>{{usersOne.Date_last_SDC_ME_2}}</td>
+                      <td>{{usersOne.Date_last_SDC_ME_3}}</td>
+                      <td>{{usersOne.Date_last_SDC_ME_4}}</td>
+                      
+                      <td>{{usersOne.Date_last_SDC_REMARKS}}
+                      </td>
+                      <td>{{usersOne.Date_last_SDC_FILLING_INS}}
+                      </td>
+                    </tr><br />
+                    <tr>
+                      <td>Final Observation</td>
+                      <td colspan="10">{{usersOne.MeDiesel_FINAL_OBSERVATION | safe}}</td>
+                  </tr>
+                  </table>
+
+                  <h4 style="margin-top:14px;"><u>Final Assessment and Recommendations</u></h4>
+                  <table class="table table-bordered table-form-color1">
+                      
+                          <textarea rowspan="10" class="textarea">{{usersOne.MeDiesel_FINAL_OBSERVATION | safe}} </textarea>
+                  </table></br>
+               
+                    <table cellspacing="0" cellpadding="5"   width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+                        <tr>
+                            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                            <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+                        </tr>
+                    </table>
+
+                    <table cellspacing="0" cellpadding="5"   width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center">
+                      <tr>
+                          <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+                          <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+                      </tr>
+                    </table>
+                 
+
+          </section>
+       
+                </body>
+                </html>

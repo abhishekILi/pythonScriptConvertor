@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+      <title>vizag-SNF-return-EEF</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+      </head>
+     <body>
+        <div class="wrapper">
+            <div style="float:right">
+                <p>Report Generated on: {{ history.approved_date_time }}</p>
+                </div>
+        <section class="body-card form-style1 trial-form">
+            <!-- <form [formGroup]="form" autocomplete="off"> -->
+                <!-- <a href="javascript:void(0);" class="btn btn-danger btn-lg float-left" (click)="back(trialDet)">BACK</a> -->
+        
+                <div class="container-fluid">
+                    <div class="row mt-1">
+                        <div class="col-md-12">
+                            <div class="panel-right">
+                              
+                                <div class="panel-row">
+                                    <div class="heading-style2 text-center">
+                                        <img width="100px" alt="Logo"
+                                    style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                    src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg">
+                                <h2 style="text-align: center;">GTTT VIZAG</h2>
+                                        <h2>ENGINE EXPLOITATION FACTOR (EEF) </h2>
+                                        <h3 style="text-align: center;">The EEF for the month of May 24 is as follows: -
+                                        </h3>
+                                    </div>
+                                    <table class="table table-bordered tabletd-color">
+
+                                        <tr>
+                                            <td width="15%"><b>Ship :</b></td>
+                                            <td>{{ship}}</td>
+        
+                                            <td class="td-bluelight" width="15%"><b>Date of Commission:</b></td>
+                                            <td>{{users.eef_monthly_format_date}}</td>
+
+                                            </tr>
+                                        
+                                    </table>
+                                    <!-- dynamic table form  -->
+                                   
+                                    <table class="table table-bordered tabletd-color">
+                                       
+        
+                                        <tr>
+                                           
+                                            <th width="8%">Month</th>
+                                            <th width="8%">No’s of Main Engine Fitted</th>
+                                            <th width="8%">GT1</th>
+                                            <th width="8%">GT2</th>
+        
+                                            <th width="8%">GT3</th>
+                                            <th width="8%">GT4</th>
+                                            <th width="9%">Total RH</th>
+                                            <th width="8%">Hours Underway</th>
+                                            <th width="9%">EEF</th>
+                                          
+                                        </tr>
+        
+        
+                                            <tr>
+                                                
+                                                  
+                                              
+                                                <td style="width: 2.7%;">{{users.eef_monthly_format_snf_month}}</td>
+                                                <td style="width: 2.8%;">{{users.eef_monthly_format_snf_no_of_engine_fitted}}</td>
+                                                <td style="width: 2.1%;">{{users.eef_monthly_format_snf_gt_1}}</td>
+                                                <td style="width: 3.6%;">{{users.eef_monthly_format_snf_gt_2}}</td>
+                                                <td style="width: 2.4%;">{{users.eef_monthly_format_snf_gt_3}}</td>
+                                                <td style="width: 2.4%;">{{users.eef_monthly_format_snf_gt_4}}</td>
+                                                <td style="width: 3.1%;">{{users.eef_monthly_format_snf_total_RH}}</td>
+                                                <td style="width: 2.4%;">{{users.eef_monthly_format_snf_hours_underway}}</td>
+                                                <td style="width: 3.1%;">{{users.eef_monthly_format_snf_EEF}}</td>
+                    
+                                            </tr>
+                               
+        
+        
+                                      
+                                    </table>
+        
+        
+                                    <div class="heading-style2 text-center">
+                                        <h2><u>REMARKS</u></h2>
+                                    </div>
+                        
+                        
+                        
+                                    <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                                        <tr>
+                                          <td>
+                                        
+                                            <div class="form-floating" style="text-align: left;">
+                                              {{users.snf_eef_monthly_remarks | safe}}
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </form> -->
+        </section>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+    </table>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,4123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Load Trial Proforma GTG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="pdfkit-page-size" content="Legal" />
+  <meta name="pdfkit-orientation" content="Landscape"/>
+  <style type="text/css">
+    body{
+      margin:50px 50px;
+      size:landscape;
+      font-family: Arial, Helvetica, sans-serif;
+      }
+    .wrapper{width: 100%;border-style: double; padding: 8px;}
+        table{border-collapse: collapse;}
+        .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+        .star{color: red;}
+        strong{font-weight: 600;}
+        body{margin:50px;
+          font-weight: 100;
+          background: #FFF !important;}
+
+        .table{
+            border: 1px solid lightgray;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .table tr{
+            margin: 0px!important;
+        }
+        .table tr th{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+        .table tr td{
+        background-color: #80808054;
+        padding: 0px;
+        margin: 0px;
+        border: 1px solid black;
+        /* text-align: center; */
+        padding: 2px 2px 2px 2px;
+    }
+        textarea{
+            width: 100%;
+            min-height: 10px;
+            /* padding: 10px; */
+            font-size: 12px;
+            resize: none;
+            overflow-y: hidden;
+        }
+        h2{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        input{
+            border: none;
+        }
+        button{
+            display: none;
+        }
+        .btn{
+            display: none;
+        }
+
+        @media print{
+            button, input[type="button"], input[type="submit"], input[type="reset"]{
+                display: none !important;
+            }
+        }
+</style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div style="float:right">
+        <p>Report Generated on: {{ history.approved_date_time }}</p>
+    </div>
+      <!-- <a href="javascript:void(0);" class="btn btn-danger btn-lg float-left" (click)="back(trialDet)">BACK</a> -->
+
+      <div class="container-fluid panel-right">
+        <div class="heading-style2">
+          <img width="100px" alt="Logo"
+                style="height: 150px; width: 160px; position: relative; left: 45%;"
+                src="{{satellite_unit_icon}}">
+          <h3 class="text-center mb-4">
+            <strong>LOAD TRIALS – GTG OCCASION OF TRIALS –
+              {{users.occation_of_trial}}
+              TRIALS DATE - <u>{{users.trial_date}}</u>
+          </h3>
+          <h3 class="text-center mt-3 heading-style2">
+            <strong>GAS TURBINE GENERATOR LOAD TRIAL REPORT –
+              <u>{{users.trial_report_no}}</u>
+              <br />
+              GTG -
+              <span>(<u>{{users.equipment_KW}}
+                KW</u></span>) SHIP –
+              {{users.shipID}}</strong>
+          </h3>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <div class="panel-right">
+              <div class="panel-row">
+                <h4>1. Trial Details</h4>
+                <table class="table table-bordered">
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td>
+                      Presented by
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td width="70%">
+                      <div class="matt-group">
+                        {{ users.Presented_by }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>
+                      Trial date
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td> {{users.trials_date}} </td>
+                  </tr>
+
+                  <tr>
+                    <td>(c)</td>
+                    <td>Trials Undertaken by:</td>
+                    <td>{{users.trials_undertaken_by}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>(c)</td>
+                    <td>
+                      Occasion of current trial
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.occationOfCurrTrial}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>
+                      Date of last trial carried out on
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>{{users.lastTrialDate}}
+                  </tr>
+                  <tr>
+                    <td>(e)</td>
+                    <td>
+                      Proposal reference
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.referanceTrialID}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(f)</td>
+                    <td>
+                      File reference
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.referanceFileID}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(g)</td>
+                    <td>Reference document for trial</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.referanceDocID}}
+                      </div>
+                      <!-- <strong>Def Stan 08-142, EED-Q-242(R2) and GTG Technical Manual</strong> -->
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="panel-row">
+                <table class="table">
+                  <tr>
+                    <td class="matt-group-td">
+                        2. Test Equipment Used.
+                        <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.testEquipmentUsed}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="panel-row">
+                <h4>3. Equipment Details</h4>
+                <table class="table table-bordered">
+                  <tr>
+                    <th colspan="3">Engine</th>
+                  </tr>
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td width="17%">
+                      Make
+                      <span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.engn_equipmentID}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>
+                      Model & serial no.
+                      <span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.engn_equipmentSrNo}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>
+                      RPM<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.engn_rpm_val}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="table table-bordered">
+                  <tr>
+                    <th colspan="3">Governor</th>
+                  </tr>
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td width="17%">
+                      Make
+                      <span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govnr_equipmentID}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>
+                      Model & serial no.
+                      <span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govnr_equipmentSrNo}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>
+                      Type<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govnr_type}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="table table-bordered">
+                  <tr>
+                    <th colspan="3">Alternator</th>
+                  </tr>
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td width="17%">
+                      Make and rating<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.altnr_equipmentID}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>
+                      Model & serial no.<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.altnr_equipmentSrNo}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>
+                      Rated voltage<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.altnr_RatedVoltage}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>
+                      Rated frequency<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.altnr_RatedFrequency}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(e)</td>
+                    <td>
+                      Rated kVA/ kW<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.altnr_RatedVal}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(f)</td>
+                    <td>
+                      Rated current<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.altnr_RatedCurrentVal}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(g)</td>
+                    <td>
+                      Bearing number<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.altnr_BearingNo}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="table table-bordered">
+                  <tr>
+                    <th colspan="3">AVR</th>
+                  </tr>
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td width="17%">
+                      Make and type<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td width="50%">
+                      <div class="matt-group">
+                        {{users.avr_equipmentID}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>
+                      Serial no.<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.avr_equipmentSrNo}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="table table-bordered">
+                  <tr>
+                    <th colspan="3">Supply Breaker</th>
+                  </tr>
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td width="17%">
+                      Make<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td width="50%">
+                      <div class="matt-group">
+                        {{users.spplyBrkr_equipmentID}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>
+                      Model & Serial no.<span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.spplyBrkr_equipmentSrNo}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>
+                      Rated capacity (Amps)*
+                      <span class="star"><span class="star">*</span><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.spplyBrkr_RatedCpcty}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <h4>
+                  4. Insulation Resistance (i.a.w. NES 511(Issue 2) and NES 502
+                  Issue 4).
+                </h4>
+                <table class="table table-bordered">
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td width="17%">
+                      Generator hot (>1MW)* <span class="star">*</span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.ir_gnrtr_hot}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>Generator cold (>1MW) <span class="star">*</span></td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.ir_gnrtr_cold}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>Switchboard (>2MW) <span class="star">*</span></td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.ir_swtchbrd}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>
+                      Generator to switchboard cable (>20MW)
+                      <span class="star">*</span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.ir_gnrtr_cbl}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(e)</td>
+                    <td>
+                      Insulation of breaker (>10MW) <span class="star">*</span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.ir_insltn_brkr}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <h4>5. Protection Checks.</h4>
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Ser</th>
+                    <th>Protection</th>
+                    <th>Calibration Date<span class="star">*</span></th>
+                    <th>
+                      Calibration Certificate Provided (Yes/No)<span class="star">*</span>
+                    </th>
+                    <th>Tripping Value<span class="star">*</span></th>
+                    <th>Observed Value<span class="star">*</span></th>
+                    <th>(Sat/ Unsat)<span class="star">*</span></th>
+                    <th>Remarks</th>
+                  </tr>
+                  <tr>
+                    <th colspan="8">Breaker Protection</th>
+                  </tr>
+                  <tr>
+                    <td>(a)</td>
+                    <td>Over voltage</td>
+                    <td>{{users.proChck_BP_OV_CDate}}</td>
+                    <td>{{users.proChck_BP_OV_CertSts}}</td>
+                    <td>110% of rated voltage</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_BP_OV_ObsVal}}
+                      </div>
+                    </td>
+                    <td>{{users.proChck_BP_OV_Sts}}</td>
+                    <td> <div class="matt-group"> {{users.proChck_BP_OV_Remarks}}</div></td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>Under voltage</td>
+                    <td>
+                      {{users.proChck_BP_UV_CDate}}</td>
+                    <td>
+                      {{users.proChck_BP_UV_CertSts}}
+                    </td>
+                    <td>85% of rated voltage</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_BP_UV_ObsVal}}
+                      </div>
+                    </td>
+                    <td>
+                      {{users.proChck_BP_UV_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_BP_UV_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>Overload</td>
+                    <td> {{users.proChck_BP_OVLD_CDate}}</td>
+                    <td>{{users.proChck_BP_OVLD_CertSts}}</td>
+                    <td>NA</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_BP_OVLD_ObsVal}}
+                      </div>
+                    </td>
+                    <td>{{users.proChck_BP_OVLD_Sts}}</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_BP_OVLD_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th colspan="8">Generator/ Switchboard Protection</th>
+                  </tr>
+                  <tr>
+                    <td>(a)</td>
+                    <td>Over voltage trip</td>
+                    <td> {{users.proChck_GSP_OVT_CDate}}
+                    </td>
+                    <td>
+
+                      {{users.proChck_GSP_OVT_CertSts}}
+                    </td>
+                    <td>110% of rated voltage</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_GSP_OVT_ObsVal}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.proChck_GSP_OVT_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_GSP_OVT_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>Under voltage trip</td>
+                    <td>{{users.proChck_GSP_UVT_CDate}}</td>
+                    <td>
+
+                      {{users.proChck_GSP_UVT_CertSts}}
+                    </td>
+                    <td>85% of rated voltage</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_GSP_UVT_ObsVal}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.proChck_GSP_UVT_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_GSP_UVT_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>Reverse power relay</td>
+                    <td> {{users.proChck_GSP_RPR_CDate}}
+                    </td>
+                    <td>
+
+                      {{users.proChck_GSP_RPR_CertSts}}
+                    </td>
+                    <td>NA</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_GSP_RPR_ObsVal}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.proChck_GSP_RPR_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_GSP_RPR_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>Winding temp alarm</td>
+                    <td> {{users.proChck_GSP_WTA_CDate}}
+                    </td>
+                    <td>
+
+                      {{users.proChck_GSP_WTA_CertSts}}
+                    </td>
+                    <td>NA</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_GSP_WTA_ObsVal}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.proChck_GSP_WTA_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.proChck_GSP_WTA_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <h4>6. Instrumentation.</h4>
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Ser</th>
+                    <th>Meter</th>
+                    <th>Ops/ Non Ops<span class="star">*</span></th>
+                    <th>Calibration Date<span class="star">*</span></th>
+                    <th>
+                      Calibration Certificate Provided (Yes/ No)<span class="star">*</span>
+                    </th>
+                    <th>Status (Sat/ Unsat)<span class="star">*</span></th>
+                    <th>Remarks</th>
+                  </tr>
+                  <tr>
+                    <td>(a)</td>
+                    <td>KW meter</td>
+                    <td>
+
+                      {{users.instrmtn_KWM_ops}}
+                    </td>
+                    <td> {{users.instrmtn_KWM_CDate}}
+
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_KWM_CCertSts}}
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_KWM_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.instrmtn_KWM_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>Voltmeter</td>
+                    <td>
+
+                      {{users.instrmtn_VM_ops}}
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_VM_CDate}}
+
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_VM_CCertSts}}
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_VM_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.instrmtn_VM_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>Ammeter</td>
+                    <td>
+
+                      {{users.instrmtn_AMM_ops}}
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_AMM_CDate}}
+
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_AMM_CCertSts}}
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_AMM_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.instrmtn_AMM_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>Frequency meter</td>
+                    <td>
+
+                      {{users.instrmtn_FM_ops}}
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_FM_CDate}}
+
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_FM_CCertSts}}
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_FM_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.instrmtn_FM_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(e)</td>
+                    <td>Power factor meter</td>
+                    <td>
+
+                      {{users.instrmtn_PFM_ops}}
+                    </td>
+                    <td> {{users.instrmtn_PFM_CDate}}
+
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_PFM_CCertSts}}
+                    </td>
+                    <td>
+
+                      {{users.instrmtn_PFM_Sts}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.instrmtn_PFM_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <h4>7. DA Control Panel Checks.</h4>
+                <table class="table table-bordered">
+
+                  <tr>
+                    <td>(a)</td>
+                    <td>Condition of cables (Sat/Unsat)</td>
+                    <td>{{users.instrumentation_cables}}</td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>Cleanliness (Sat/Unsat)</td>
+                    <td>{{users.instrumentation_cleanliness}}</td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>Instrumentation (Date of callibration and certificate available- Yes/No)</td>
+                    <td>{{users.instrumentation_calibration}}
+                    </td>
+
+                  </tr>
+                </table>
+                <h4>8. Miscellaneous Checks.</h4>
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Ser</th>
+                    <th>Observations</th>
+                    <th>Details</th>
+                    <th>Remarks</th>
+                  </tr>
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td width="40%">
+                      Main stator resistance checks<span class="star">***</span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.misc_main_stator}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_main_stator_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>
+                      Main rotor resistance checks<span class="star">***</span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.misc_main_rotor}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_main_rotor_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>
+                      Exciter stator resistance checks<span class="star">***</span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.misc_exciter_stator}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_exciter_stator_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>
+                      Exciter rotor resistance checks<span class="star">***</span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.misc_exciter_rotor}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_exciter_rotor_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(e)</td>
+                    <td>Check condition of slip ring (Sat/ Unsat)</td>
+                    <td>
+
+                      {{users.misc_condition_slip}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_condition_slip_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(f)</td>
+                    <td>
+                      Check condition of zinc plugs (Sat/ Unsat)<span class="star">**</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_condition_zinc}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_condition_zinc_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(g)</td>
+                    <td>
+                      Anti-condensation heater (Ops /Non ops)<span class="star">*</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_condensation}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_condensation_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(h)</td>
+                    <td>
+                      GTTT trial status (Sat/ Unsat)<span class="star">**</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_GTTT}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_GTTT_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(j)</td>
+                    <td>
+                      Internal communication (Sat/ Unsat)<span class="star">*</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_communication}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_communication_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(k)</td>
+                    <td>
+                      Lighting of compartment (Sat/ Unsat)<span class="star">*</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_lighting}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_lighting_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(l)</td>
+                    <td>
+                      Ventilation of compartment (Sat/ Unsat)<span class="star">*</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_ventilation}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_ventilation_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(m)</td>
+                    <td>
+                      Generator terminal box and top cover nuts and bolts cover
+                      are secured (Sat/ Unsat)<span class="star">*</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_generator}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_generator_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(n)</td>
+                    <td>
+                      Loose cables / wires of various Instrumentation secured (Sat/
+                      Unsat)<span class="star">*</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_loose}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_loose_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(p)</td>
+                    <td>
+                      Generator/ Swbd is earthed (Sat/ Unsat)<span class="star">*</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_generatr_Swbd}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_generatr_Swbd_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(q)</td>
+                    <td>
+                      Generator supply breaker operates electrically (Sat/
+                      Unsat)<span class="star">*</span>
+                    </td>
+                    <td>
+
+                      {{users.misc_generatr_supply_brkr}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_generatr_supply_brkr_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(r)</td>
+                    <td>
+                      Ambient temperature at start<span class="star">**</span>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.misc_ambient_temperature}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        <mat-form-field appearance="fill">
+                          <input matInput placeholder="" value="{{users.misc_ambient_temperature_remarks}}" />
+                        </mat-form-field>
+                      </div>
+                    </td>
+                  </tr>
+
+                </table>
+                <div class="note-card">
+                  <p>
+                    <strong>Note: </strong> For Para 1 to 7, following to be
+                    followed while filling the details mentioned in sub serials:-
+                  </p>
+                  <ul type="i">
+                    <li>
+                      <span class="star">“*”</span> - To be
+                      checked/filled/measured by ETMA trial member.
+                    </li>
+                    <li>
+                      <span class="star">“**”</span> - To be provided by SS.
+                    </li>
+                    <li>
+                      <span class="star">“***”</span> - To be checked/ provided by
+                      Yard.
+                    </li>
+                  </ul>
+                </div>
+                <h4>9. Speed Control Test.</h4>
+                <p><strong>(a) Steady State Test.</strong></p>
+                <p><strong>WITH PЧM (RChM) ‘ON’.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Load (% of Rated Capacity)</th>
+                    <th>Initial Speed(Hz)</th>
+                    <th>Final Speed(Hz)</th>
+                    <th>Permissible Limit</th>
+                    <th>
+                      Frequency Modulation (Less than + 0.25% of Rated Frequency)
+                    </th>
+                    <th>Remarks</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_0_final_speed}}
+                      </div>
+                    </td>
+                    <td rowspan="5">50+ 0.1 Hz</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_0_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_remark1}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>25</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_25_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_25_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_25_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_remark2}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>50</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_50_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_50_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_50_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_remark3}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>75</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_75_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_75_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_75_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_remark4}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>110</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_110_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_110_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmON_110_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_remark5}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>WITH PЧM (RChM) ‘OFF’.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Load (% of Rated Capacity)</th>
+                    <th>Initial Speed (Hz)</th>
+                    <th>Final Speed(Hz)</th>
+                    <th>Governor Droop (at 100% Load Change)</th>
+                    <th>Permissible limits</th>
+                    <th>
+                      Frequency Modulation(Less than + 0.25% of Rated Frequency)
+                    </th>
+                    <th>Remarks</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_0_final_speed}}
+                      </div>
+                    </td>
+                    <td rowspan="5">NA</td>
+                    <td rowspan="5">3% + 0.2% of rated frequency</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_0_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_remark1}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>25</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_25_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_25_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_25_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_remark2}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>50</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_50_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_50_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_50_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_remark3}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>75</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_75_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_75_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_75_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_remark4}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>110</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_110_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_110_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_110_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_remark5}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>100 – 0(Governor Droop)</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_100to0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_100to0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <!-- <div class="matt-group">
+       
+                                 <input class="form-control" placeholder="" value="{{users.sst_PhmOFF_100to0_governor_droop}}">
+       
+                             </div> -->
+                      <span>%</span>
+                    </td>
+                    <td>
+                      Between 2 to 4%(No load freq. - Full load freq.)
+                      <span class="star">*</span> 100 Nominal freq.
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_100to0_freq_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.sst_PhmOFF_remark6}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="note-card">
+                  <p><strong>Note:</strong></p>
+                  <ul type="i">
+                    <li>
+                      The load to be gradually reduced in say quarter load steps
+                      from full load to no load and increased in the same manner
+                      up to full load. When the speed has stabilised after each
+                      load change the steady state frequency to be recorded. (Set
+                      frequency to rated value when at 50% load).
+                    </li>
+                    <li>
+                      Governor Droop - (No load frequency - Full load frequency)
+                      *100 Nominal frequency Nominal frequency – (No load
+                      frequency + Full load frequency) 2
+                    </li>
+                    <li>
+                      Frequency Modulation. Frequency Modulation is the periodic
+                      variation in frequency. The periodicity of Frequency
+                      modulation should be considered to be longer than 1 cycle
+                      time at nominal frequency and less than 10 seconds.
+                      Frequency Modulation(Percent) = 100 x (Fmax – Fmin) (2 x
+                      Fnominal)
+                    </li>
+                  </ul>
+                </div>
+                <p><strong>(b) Transient Test.</strong></p>
+                <p><strong>PЧM (RChM) ‘ON’.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th colspan="2">Load %</th>
+                    <th rowspan="2">Initial Speed (Hz)</th>
+                    <th rowspan="2">Momentary Speed(Hz)</th>
+                    <th rowspan="2">Final Speed (Hz)</th>
+                    <th colspan="2">% Peak</th>
+                    <th colspan="2">
+                      Time of Recovery to within + 0.5% of Rated Value
+                    </th>
+                    <th colspan="2">Remarks</th>
+                  </tr>
+                  <tr>
+                    <th>Initial</th>
+                    <th>To</th>
+                    <th>Observed</th>
+                    <th>Permissible Limit</th>
+                    <th>Observed(Sec)</th>
+                    <th>Permissible Limit(Sec)</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>25</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x25_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x25_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x25_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x25_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <!--trnsntTstPhmON_0x25_recov_Obs-->
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x25_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_remark1}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>25</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_25x0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_25x0_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_25x0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_25x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_25x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_remark2}}
+                      </div>
+                    </td>
+                    <!--trnsntTstPhmON_25x0_recov_Obs -->
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>50</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x50_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x50_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x50_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x50_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">± 1%</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x50_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">3</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_remark3}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>50</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_50x0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_50x0_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_50x0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_50x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_50x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_remark4}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>75</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x75_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x75_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x75_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x75_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x75_recov_Obs}}
+                      </div>
+                    </td>
+                    <!--trnsntTstPhmON_0x75_recov_Obs-->
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_remark5}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>75</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_75x0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_75x0_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_75x0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_75x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_75x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_remark6}}
+                      </div>
+                    </td>
+                    <!--trnsntTstPhmON_75x0_recov_Obs-->
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>100</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x100_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x100_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x100_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x100_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">± 2%</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_0x100_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">5</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_remark7}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_100x0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_100x0_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_100x0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_100x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_100x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmON_remark8}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>PЧM (RChM) ‘OFF’.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th colspan="2">Load %</th>
+                    <th rowspan="2">Initial Speed (Hz)</th>
+                    <th rowspan="2">Momentary Speed(Hz)</th>
+                    <th rowspan="2">Final Speed (Hz)</th>
+                    <th colspan="2">% Peak</th>
+                    <th colspan="2">
+                      Time of Recovery to within  0.5% of Final Value
+                    </th>
+                    <th rowspan="2">Remarks</th>
+                  </tr>
+                  <tr>
+                    <th>Initial</th>
+                    <th>To</th>
+                    <th>Observed</th>
+                    <th>Permissible Limits</th>
+                    <th>Observed(Sec)</th>
+                    <th>Permissible Limits(Sec)</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>25</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x25_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x25_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x25_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x25_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x25_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="6">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhm_remark1}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>25</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_25x0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_25x0_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_25x0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_25x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_25x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhm_remark2}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>50</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x50_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x50_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x50_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x50_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">± 5%</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x50_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhm_remark3}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>50</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_50x0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_50x0_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_50x0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_50x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_50x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhm_remark4}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>75</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x75_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x75_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x75_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x75_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x75_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhm_remark5}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>75</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_75x0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_75x0_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_75x0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_75x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_75x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhm_remark6}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>100</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x100_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x100_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x100_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x100_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">± 5%</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_0x100_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">15</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhm_remark7}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_100x0_init_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_100x0_mtry_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_100x0_final_speed}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_100x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhmOFF_100x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.trnsntTstPhm_remark8}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="note-card">
+                  <p><strong>Note:</strong></p>
+                  <ul type="i">
+                    <li>
+                      (i) Frequency deviation in the event of instantaneous load
+                      shedding and surge of 50% and 100% of rated active load
+                      should be recorded.
+                    </li>
+                    <li>
+                      (ii) Formula for % peak – (Initial frequency – Momentary
+                      frequency) <span class="star">*</span> 100 Nominal
+                    </li>
+                  </ul>
+                </div>
+                <p><strong>(c) Governor Range.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th>Load %</th>
+                    <th>Measured Frequency (Hz)</th>
+                    <th>Remark</th>
+                    <th>Observation</th>
+                    <th>Remarks</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_range_0_measured}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.govrnr_range_0_remark}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_range_0_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_remark1}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_range_100_measured}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.govrnr_range_100_remark}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_range_100_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_remark2}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="note-card">
+                  <p><strong>Note:</strong></p>
+                  <ul type="i">
+                    <li>
+                      Permitted limits for frequencies measured at 0% and 100%
+                      loads should not be less than ± 3% (as per def stan) and ±
+                      1%of Nominal for mechanical governors and electronic
+                      governors respectively
+                    </li>
+                    <li>
+                      This test is undertaken by varying the frequency using the
+                      frequency control knob/ lever provided for the alternator on
+                      the switchboards
+                    </li>
+                  </ul>
+                </div>
+                <p><strong>(d) Rate Affected by Governor Motor. </strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th rowspan="2">Load %</th>
+                    <th colspan="2">Rate (Hz/Sec)</th>
+                    <th rowspan="2">Permissible Limit</th>
+                    <th rowspan="2">Remarks</th>
+                  </tr>
+                  <tr>
+                    <th>Up</th>
+                    <th>Down</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_motor_0_up}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_motor_0_down}}
+                      </div>
+                    </td>
+                    <td rowspan="2">0.15 to 0.25Hz/ Sec</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_motor_remark1}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_motor_100_up}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_motor_100_down}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.govrnr_motor_remark2}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="note-card">
+                  <p><strong>Note:</strong></p>
+                  <ul type="i">
+                    <li>
+                      Permitted limits for frequencies measured at 0% and 100%
+                      loads should not be less than ± 3% and ± 1% of Nominal for
+                      mechanical governors and electronic governors respectively.
+                    </li>
+                    <li>
+                      This test is undertaken by holding the lever for frequency
+                      change in Up position or Down position for durations
+                      sufficient to record the graphs.
+                    </li>
+                  </ul>
+                </div>
+                <div class="panel-row">
+                  <h4>10. Voltage Control Test.</h4>
+                </div>
+
+                <p><strong>(a) Steady State Test.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th rowspan="2">Load %</th>
+                    <th rowspan="2">kW</th>
+                    <th colspan="2">Volts</th>
+                    <th rowspan="2">P.F.</th>
+                    <th rowspan="2">
+                      Voltage Modulation (Less than 2% of Rated Voltage)
+                    </th>
+                    <th rowspan="2">Remarks</th>
+                  </tr>
+                  <tr>
+                    <th>Observed</th>
+                    <th>Permissible Limit</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_0_val}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_0_ObsVolt}}
+                      </div>
+                    </td>
+                    <td rowspan="5"></td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_0_PF}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_0_Volt_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_remark1}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>25</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_25_val}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_25_ObsVolt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_25_PF}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_25_Volt_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_remark2}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>50</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_50_val}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_50_ObsVolt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_50_PF}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_50_Volt_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_remark3}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>75</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_75_val}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_75_ObsVolt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_75_PF}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_75_Volt_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_remark4}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>110</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_100_val}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_100_ObsVolt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_100_PF}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_100_Volt_Modln}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vsst_remark5}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="note-card">
+                  <p><strong>Note:</strong></p>
+                  <ul type="i">
+                    <li>
+                      Permitted limits of voltage ± 1% (as per def stan) of rated
+                      voltage or as per technical manuals for already commissioned
+                      ships.
+                    </li>
+                    <li>
+                      The load to be gradually reduced in say quarter load steps
+                      from full load to no load and when the voltage has
+                      stabilised after each load change the steady state voltage
+                      to be recorded. (Set voltage to Nominal value at 50% load).
+                    </li>
+                    <li>
+                      (iii) Voltage Modulation. Voltage Modulation is the periodic
+                      voltage variation of single line to line user voltage. The
+                      periodicity of voltage modulation should be considered to be
+                      longer than 1 cycle time at nominal frequency and less than
+                      10 seconds. Voltage used in the below mentioned equation is
+                      RMS voltage. Voltage Modulation(Percent) = 100 x (Vmax –
+                      Vmin) (2 x Vnominal)
+                    </li>
+                  </ul>
+                </div>
+                <p><strong>(b) Transient Test.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th colspan="2">Load %</th>
+                    <th rowspan="2">Initial Voltage(V)</th>
+                    <th rowspan="2">Momentary Voltage(V)</th>
+                    <th rowspan="2">Final Voltage(V)</th>
+                    <th colspan="2">% Peak</th>
+                    <th colspan="2">
+                      Time of Recovery to Within  1% of Final Value
+                    </th>
+                    <th rowspan="2">Remarks</th>
+                  </tr>
+                  <tr>
+                    <th>Initial</th>
+                    <th>To</th>
+                    <th>Observed</th>
+                    <th>Permissible Limits</th>
+                    <th>Observed(Sec)</th>
+                    <th>Permissible Limits(Sec)</th>
+                  </tr>
+                  <tr>
+                    <td colspan="1">0</td>
+                    <td>25</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x25_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x25_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x25_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x25_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x25_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark1}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">25</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25x0_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25x0_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25x0_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark2}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">0</td>
+                    <td>50</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x50_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x50_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x50_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x50_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">+ 13% to - 10%</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x50_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">0.5</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark3}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">50</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50x0_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50x0_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50x0_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark4}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">0</td>
+                    <td>75</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x75_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x75_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x75_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x75_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x75_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">Not specified</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark5}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">75</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75x0_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75x0_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75x0_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark6}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">0</td>
+                    <td>100</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x100_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x100_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x100_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x100_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">+ 22% to - 20%</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0x100_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="2">0.8</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark7}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="1">100</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_100x0_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_100x0_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_100x0_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_100x0_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_100x0_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark8}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">0+M</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0M_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0M_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0M_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0M_peak_obs}}
+                      </div>
+                    </td>
+                    <td rowspan="5">15%</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_0M_recov_Obs}}
+                      </div>
+                    </td>
+                    <td rowspan="5">1</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark9}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">25+M</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25M_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25M_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25M_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25M_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_25M_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark10}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">50+M</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50M_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50M_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50M_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50M_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_50M_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark11}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">75+M</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75M_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75M_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75M_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75M_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_75M_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark12}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">85+M</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_85M_init_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_85M_memtry_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_85M_final_volt}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_85M_peak_obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_85M_recov_Obs}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.vtrt_remark13}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="note-card">
+                  <p><strong>Note:</strong></p>
+                  <ul type="i">
+                    <li>
+                      M-Load equals application of an additional load equal to 50%
+                      rated kVA at zero to 0.4 PF lagging. Towards this starting
+                      of an induction motor could be undertaken if M-Load is not
+                      available. The motor chosen should be such that its kVA
+                      calculated based on its starting current and voltage input
+                      is equal to 50% of rated kVA of the alternator. The motor
+                      should have Direct-on-Line (DOL) starter.
+                    </li>
+                    <li>
+                      Formula for % peak – (Initial voltage – Momentary voltage)
+                      <span class="star">*</span> 100 Nominal voltage. Nominal
+                      voltage – (No load voltage + Full load voltage)2
+                    </li>
+                  </ul>
+                </div>
+                <p><strong>(c) Voltage Balance.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th rowspan="2">Load %</th>
+                    <th colspan="3">Line Voltages</th>
+                    <th rowspan="2">
+                      Difference(Between Max & Min of Three Values)
+                    </th>
+                    <th rowspan="2">
+                      Permissible Limit (1% of the Average of Three Line Voltages)
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>R-Y</th>
+                    <th>Y-B</th>
+                    <th>B-R</th>
+                  </tr>
+                  <tr>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltBalTst_0_RY}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltBalTst_0_YB}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltBalTst_0_BR}}
+                      </div>
+                    </td>
+                    <td>V</td>
+                    <td>V</td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltBalTst_100_RY}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltBalTst_100_YB}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltBalTst_100_BR}}
+                      </div>
+                    </td>
+                    <td>V</td>
+                    <td>V</td>
+                  </tr>
+                </table>
+                <p><strong>(d) Voltage Range.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <th rowspan="2"></th>
+                    <th rowspan="2">Load %</th>
+                    <th colspan="2">Voltage Measured on Switchboard (Volts)</th>
+                    <th rowspan="2">Permissible Limit(5% of Rated Voltage)</th>
+                    <th rowspan="2">Status (Sat/ Unsat)</th>
+                    <th rowspan="2">Remarks</th>
+                  </tr>
+                  <tr>
+                    <th>At Lowest Limit of Trimmer</th>
+                    <th>At Highest Limit of Trimmer</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">A.V.R. Control</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeAVR_0_swtchbrd_lowest_limit}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeAVR_0_swtchbrd_highest_limit}}
+                      </div>
+                    </td>
+                    <td rowspan="4">V</td>
+                    <td>
+
+                      {{users.voltRangeAVR_0_status}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeAVR_0_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeAVR_100_swtchbrd_lowest_limit}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeAVR_100_swtchbrd_highest_limit}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.voltRangeAVR_100_status}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeAVR_100_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td rowspan="2">Hand Control</td>
+                    <td>0</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeHC_0_swtchbrd_lowest_limit}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeHC_0_swtchbrd_highest_limit}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.voltRangeHC_0_status}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeHC_0_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>100</td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeHC_100_swtchbrd_lowest_limit}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeHC_100_swtchbrd_highest_limit}}
+                      </div>
+                    </td>
+                    <td>
+
+                      {{users.voltRangeHC_100_status}}
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltRangeHC_100_Remarks}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <div class="note-card">
+                  <p>
+                    <strong>Note:</strong> This test is undertaken by varying the
+                    voltage trimmer (Hand/ Auto as applicable) from lowest limit
+                    to the highest limit.
+                  </p>
+                </div>
+                <p><strong>(e) Voltage Waveform Harmonic Content.</strong></p>
+                <table class="table table-bordered">
+                  <tr>
+                    <td>
+                      Maximum total harmonic content of waveform at no load (not
+                      to exceed 2 % of the amplitude of fundamental)
+                    </td>
+                    <td>
+                      <div class="matt-group">
+                        {{users.voltwavHorCont_max}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <h4>11. Paralleling Trials.</h4>
+                <p>
+                  <U>(a) Attended Paralleling.</U> Test to be carried out for machines
+                  not designed for unattended parallel operation. For machines
+                  designed for unattended paralleling, this test should be
+                  conducted in Non-APMS mode/ switching off modules facilitating
+                  continuous parallel operation.
+                </p>
+                <!-- <h4>12. <strong>Recommendations.</strong> Following recommended:-</h4> -->
+                <!-- <table class="table table-bordered">
+                  <tr>
+                    <td width="15%"><strong>Trial Team Memeber</strong></td>
+
+                    <div class="signature-2"></div>
+                    <td>{{users.Gen_r_ship_Engineer_Officer | safe}}
+                    </td>
+                    <td class="td-bluelight" width="15%"><strong>Electrical officer INS </strong></td>
+
+                    <div class="signature-2"></div>
+                    <td>{{users.Gen_r_ship_Commanding_Officer | safe}}</td>
+                  </tr>
+                </table>
+                <div class="text-end group-btn mt-4">
+                  <a href="javascript:void(0);" class="btn btn-danger btn-lg float-left"
+                    (click)="back(trialDet)">Cancel</a>
+                  <a href="javascript:void(0);" class="btn btn-success btn-lg float-right" *ngIf="
+                           trialDet.type != 'view' && trialDet.approved_level != '-1'
+                         " (click)="save()">Save</a> -->
+
+
+                  <!--<ng-container>
+                         <ng-container *ngIf="api.userid.process_id == 1">
+                           <a
+                             href="javascript:void(0);"
+                             *ngIf="
+                               (permission.recommend == true &&
+                                 !trialDet.ship_recommendation) ||
+                               (permission.recommend == true &&
+                                 trialDet.approved_level == 2)
+                             "
+                             title="Ship Recommendation"
+                             class="btn btn-success btn-lg float-right"
+                             (click)="openApprovalForm(trialDet, 1)"
+                             >SHIP RECOMMENDATION</a
+                           >
+       
+                           &nbsp;&nbsp;
+                           <a
+                             href="javascript:void(0);"
+                             *ngIf="
+                               (permission.recommend == true &&
+                                 !trialDet.trial_recommendation) ||
+                               (permission.recommend == true &&
+                                 trialDet.approved_level == 5)
+                             "
+                             title="Trial Recommendation"
+                             class="btn btn-success btn-lg float-right"
+                             (click)="openApprovalForm(trialDet, 1)"
+                             >TRIAL RECOMMENDATION</a
+                           >
+                         </ng-container>
+                         <ng-container *ngIf="api.userid.process_id == 2">
+                           <a
+                             href="javascript:void(0);"
+                             *ngIf="
+                               (permission.recommend == true &&
+                                 !trialDet.ship_recommendation) ||
+                               (permission.recommend == true &&
+                                 trialDet.approved_level == 2)
+                             "
+                             title="Ship Recommendation"
+                             class="btn btn-success btn-lg float-right"
+                             (click)="openApprovalForm(trialDet, 1)"
+                             >SHIP RECOMMENDATION</a
+                           >
+                         </ng-container>
+                         <ng-container *ngIf="api.userid.process_id == 3">
+                           <a
+                             href="javascript:void(0);"
+                             *ngIf="
+                               (permission.recommend == true &&
+                                 !trialDet.trial_recommendation) ||
+                               (permission.recommend == true &&
+                                 trialDet.approved_level == 5)
+                             "
+                             title="Trial Recommendation"
+                             class="btn btn-success btn-lg float-right"
+                             (click)="openApprovalForm(trialDet, 1)"
+                             >TRIAL RECOMMENDATION</a
+                           >
+                         </ng-container>
+                       </ng-container>
+       
+                       <ng-container>
+                         <ng-container *ngIf="api.userid.process_id == 1">
+                           <a
+                             href="javascript:void(0);"
+                             *ngIf="
+                               (permission.approve == true &&
+                                 !trialDet.ship_approver) ||
+                               (permission.approve == true &&
+                                 trialDet.approved_level == 3)
+                             "
+                             title="Ship Recommendation"
+                             class="btn btn-success btn-lg float-right"
+                             (click)="openApprovalForm(trialDet, 2)"
+                             >SHIP APPROVAL</a
+                           >
+       
+                           &nbsp;&nbsp;
+                           <a
+                             href="javascript:void(0);"
+                             *ngIf="
+                               (permission.approve == true &&
+                                 !trialDet.trial_approver) ||
+                               (permission.approve == true &&
+                                 trialDet.approved_level == 6)
+                             "
+                             title="Trial Recommendation"
+                             class="btn btn-success btn-lg float-right"
+                             (click)="openApprovalForm(trialDet, 2)"
+                             >TRIAL APPROVAL</a
+                           >
+                         </ng-container>
+                         <ng-container *ngIf="api.userid.process_id == 2">
+                           <a
+                             href="javascript:void(0);"
+                             *ngIf="
+                               (permission.approve == true &&
+                                 !trialDet.ship_approver) ||
+                               (permission.approve == true &&
+                                 trialDet.approved_level == 3)
+                             "
+                             title="Ship Recommendation"
+                             class="btn btn-success btn-lg float-right"
+                             (click)="openApprovalForm(trialDet, 2)"
+                             >SHIP APPROVAL</a
+                           >
+                         </ng-container>
+                         <ng-container *ngIf="api.userid.process_id == 3">
+                           <a
+                             href="javascript:void(0);"
+                             *ngIf="
+                               (permission.approve == true &&
+                                 !trialDet.trial_approver) ||
+                               (permission.approve == true &&
+                                 trialDet.approved_level == 6)
+                             "
+                             title="Trial Recommendation"
+                             class="btn btn-success btn-lg float-right"
+                             (click)="openApprovalForm(trialDet, 2)"
+                             >TRIAL APPROVAL</a
+                           >
+                         </ng-container>
+                       </ng-container>
+       
+                       <div
+                         class="modal fade master-modal-style"
+                         id="approval-modal"
+                         data-keyboard="false"
+                         data-backdrop="static"
+                         tabindex="-1"
+                         aria-labelledby="exampleModalLabel"
+                         aria-hidden="true"
+                       >
+                         <div class="modal-dialog modal-sm">
+                           <div class="modal-content">
+                             <div class="modal-header">
+                               <h5 class="modal-title" id="exampleModalLabel">
+                                 {{ approvalType }} Approval
+                               </h5>
+                               <button
+                                 type="button"
+                                 class="close"
+                                 title="Close"
+                                 data-dismiss="modal"
+                                 aria-label="Close"
+                               >
+                                 <span aria-hidden="true">&times;</span>
+                               </button>
+                             </div>
+                             <div
+                               class="modal-body form-style-md form-style-font linux"
+                             >
+                               <form
+                                 [formGroup]="this.approvalForm"
+                                 id="approvalForm"
+                                 (ngSubmit)="onApprovalSubmit()"
+                               >
+                                 <div class="form-row">
+                                   <div class="col-md-12 matt-group">
+                                     <a
+                                       href="javascript:void(0);"
+                                       (click)="onViewTemp()"
+                                       ><mat-label>View Trial Details</mat-label></a
+                                     >
+                                   </div>
+                                   <div class="col-md-12">
+                                     <div class="matt-group">
+                                       <mat-label
+                                         >Comments <b class="star">*</b></mat-label
+                                       >
+                                       <mat-form-field
+                                         class="example-full-width"
+                                         appearance="fill"
+                                       >
+                                         <textarea
+                                           matInput
+                                           rows="8"
+                                           value="{{users.comments}}"
+                                         ></textarea>
+                                         <mat-error
+                                           *ngIf="
+                                             ErrorApproval('comments', 'required')
+                                           "
+                                           >Enter comments</mat-error
+                                         >
+                                       </mat-form-field>
+                                     </div>
+                                   </div>
+                                 </div>
+                                 <div
+                                   class="form-row button-group-lg button-auto mt-2"
+                                 >
+                                   <div class="col-md-6 col-6">
+                                     <button type="submit" id="approvalSubmit" hidden>
+                                       SUBMIT
+                                     </button>
+                                     <button
+                                       type="button"
+                                       class="btn btn-success"
+                                       (click)="onApproval()"
+                                     >
+                                       <span class="material-icons-outlined"
+                                         >thumb_up</span
+                                       >
+                                     </button>
+                                   </div>
+                                   <div class="col-md-6 col-6 text-left">
+                                     <button
+                                       type="button"
+                                       class="btn btn-danger backbtn"
+                                       (click)="onReject()"
+                                     >
+                                       <span class="material-icons-outlined"
+                                         >thumb_down</span
+                                       >
+                                     </button>
+                                   </div>
+                                 </div>
+                               </form>
+                             </div>
+                           </div>
+                         </div>
+                       </div> -->
+
+                  {% for i in dyanamic_data %}
+                  <div>
+                    <div>
+                      <div>
+                        <div [formGroupName]="i">
+                          <div class="table-responsive">
+                            <div style="align-items: center; display: flex;flex-direction: column;">
+                              <div style="display: flex;">
+                                <div style="font-weight: 700;text-align: center;">Gen 1 / Machine 1: <input
+                                    class="form-control" placeholder="_____________________________"
+                                    value="{{i.paralleling_trial_machine_1}}" /></div>
+
+                              </div>
+                              <div style="display: flex;">
+                                <div style="font-weight: 700;text-align: center;">Gen 2 / Machine 2: <input
+                                    class="form-control" placeholder="_____________________________"
+                                    value="{{i.paralleling_trial_machine_2}}" /></div>
+
+                              </div>
+                              <div>Unattended Paralleling Trial</div>
+                            </div>
+
+
+
+                            <table class="table table-bordered">
+                              <tr>
+                                <th rowspan="2">
+                                  Combined Load (% of Combined Rated Capacities of
+                                  Alternators)
+                                </th>
+                                <th colspan="5">kW</th>
+                                <th colspan="5">
+                                  kVA (To be Calculated from Currents, Power Factor and
+                                  Generator Voltages)
+                                </th>
+                                <th rowspan="2">
+                                  10% of Mean of kW Ratings of Machines A and B
+                                </th>
+                                <th rowspan="2">
+                                  10% of Mean of kVA Ratings of Machines A and B
+                                </th>
+                                <th rowspan="2">Remarks(Sat/ Unsat)</th>
+                                <th rowspan="2">Observation</th>
+                              </tr>
+                              <tr>
+                                <th>Combined Value</th>
+                                <th>Proportionate Share</th>
+                                <th>Machine A (Actual Share)</th>
+                                <th>Machine B (Actual Share)</th>
+                                <th>
+                                  Difference Between Proportionate Share and Actual Shares
+                                  of Machines A or B
+                                </th>
+                                <th>Combined Value</th>
+                                <th>Proportionate Share</th>
+                                <th>Machine A (Actual Share)</th>
+                                <th>Machine B (Actual Share)</th>
+                                <th>
+                                  Difference Between Proportionate Share and Actual Shares
+                                  of Machines A or B
+                                </th>
+                              </tr>
+                              <tr>
+                                <td rowspan="5">Increasing Loads</td>
+                                <td>20</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KW_combined_val}}" name=>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_20_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_incrs_20_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_incrs_20_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>30</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_30_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_incrs_30_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_incrs_30_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>45</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_45_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_incrs_45_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_incrs_45_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>60</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_60_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_incrs_60_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_incrs_60_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td rowspan="2">75</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_incrs_75_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_incrs_75_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_incrs_75_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td rowspan="5">Decreasing Loads</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_75_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_decrs_75_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_decrs_75_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>60</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_60_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_decrs_60_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_decrs_60_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>45</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_45_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_decrs_45_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_decrs_45_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>30</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_30_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_decrs_30_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_decrs_30_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>20</td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KW_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KW_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KW_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KW_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KW_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KVA_combined_val}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KVA_proportionate}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KVA_machineA}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KVA_machineB}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KVA_differences}}" name="" />
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control"
+                                    value="{{i.unttnddprllng_decrs_20_KVA_ratings}}" name="" />
+                                </td>
+                                <td>
+                                  <div class="form-group-radio">
+
+                                    {{i.unttnddprllng_decrs_20_remarks}}
+
+
+                                  </div>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" value="{{i.unttnddprllng_decrs_20_observe}}"
+                                    name="" />
+                                </td>
+                              </tr>
+                            </table>
+
+                            <div>
+
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br></br>
+                  <br></br>
+                  {% endfor %}
+
+                  <h4>12. <strong>Recommendations</strong> Following recommended:-</h4>
+                  <table class="table table-bordered">
+                    <tr>
+                      <td width="15%"><strong>Trial Team Memeber</strong></td>
+
+                      <div class="signature-2"></div>
+                      <td>{{users.Gen_r_ship_Engineer_Officer | safe}}
+                      </td>
+                      <td class="td-bluelight" width="15%"><strong>Electrical officer INS </strong></td>
+
+                      <div class="signature-2"></div>
+                      <td>{{users.Gen_r_ship_Commanding_Officer | safe}}
+                      </td>
+                    </tr>
+                  </table>
+
+                  <h6>13. Final Status (Select final status)</h6>
+                  <div class="container" style="display: flex;flex-direction: column;" value="{{users.final_status}}">
+                    <!-- <div class="col-md-2"></div> -->
+                    <div class="color-div green">
+
+                      Cleared for Normal Exploitation
+
+                    </div>
+                    <div class="color-div  yellow">
+
+                      Cleared for exploitation in stand alone mode and Paralleling trials to be re offered
+
+                    </div>
+                    <div class="color-div  yellow">
+
+                      Cleared for exploitation in stand alone mode and Paralleling trials with
+
+                    </div>
+                    <div class="color-div red ">
+
+                      UNSAT
+
+                    </div>
+
+                  </div>
+                  <section class="body-card-diff">
+                    <div>
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="card">
+                              <div class="card-header">
+                                <div class="row">
+                                  <h3 style="text-align:center;width: 100%;">Observations and Remarks (Re-Offer Trial)</h3>
+                                </div>
+                              </div>
+                  
+                              <table class="table table-bordered table-striped" style="margin-bottom: 0px;">
+                                <thead class="thead-dark">
+                                  <tr style="text-align: center;">
+                                    <th scope="col" style="width:5%">Ser</th>
+                                    <th scope="col" style="width:25%">Observation</th>
+                                    <th scope="col" style="width:10%">Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {% for i in observationSerializer %}
+                                      <tr>
+                                          <td>{{forloop.counter}}</td>
+                                          <td>{{i.re_offer_observation|safe}}</td>
+                                          <td>{{i.re_offer_status}}</td>
+                                      </tr>
+                                  {% endfor %}
+                            </tbody>
+                            </table>
+                  
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </section>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  {% if history %}
+            <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+                <tr>
+                    <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                    <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+                </tr>
+            </table>
+        {% endif %}
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+          <tr style="border: 0; border-style:None;">
+              <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+              <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+          </tr>
+      </table>
+
+</div>
+</body>
+
+</html>

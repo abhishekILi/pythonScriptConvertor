@@ -1,0 +1,287 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>pre-ranging-appendix-f</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+   <body>
+<div class="wrapper">
+    <div style="float:right">
+        <p>Report Generated on: {{ history.approved_date_time }}</p>
+    </div>
+    <section class="body-card form-style1 trial-form">
+        <form>
+            <div class="container-fluid">
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        <div class="panel-right">
+                            <div class="panel-row">
+                                <div class="heading-style2 heading-mat-sm text-center">
+                                    <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-top: 14px; position: relative; left: 41%;" src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+                                    <h2>GTTT MUMBAI</h2>
+                                    <h2 class="text-center mt-1 heading-style2"><strong>REQUISITION FOR
+                                            <span>{{users.form_Name}}</span>
+                                        </strong> Trials</h2>
+                                </div>
+                                <table class="table table-bordered table-requistion mt-3">
+                                    <tr>
+                                        <td width="3%">1.</td>
+                                        <td width="35%">
+                                            <p style="font-size: 14px; margin:0;">Name of Ship</p>
+                                        </td>
+                                        <td width="25%">{{ship}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.</td>
+                                        <td>
+                                            <p style="font-size: 14px; margin:0;">Machinery / Equipment</p>
+                                        </td>
+                                        <td>{{users.Req_EHM_Machinery_Equipment}}</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>3.</td>
+                                        <td>
+                                            <p style="font-size: 14px; margin:0;">Proposed Date Of Vibration trial</p>
+                                        </td>
+                                        <td>
+                                           {{users.Req_EHM_Proposed_Date_vibration_trial}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4.</td>
+                                        <td>
+                                            <p style="font-size: 14px; margin:0;">Reason for trial</p>
+                                        </td>
+                                        <td>{{users.Req_EHM_Reason_trial}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="3%">5.</td>
+                                        <td width="35%">
+                                            <p style="font-size: 14px; margin:0;">Status Of Machinery</p>
+                                        </td>
+                                        <td width="25%">{{users.Req_EHM_status_machinery}}</td>
+                                    </tr>
+    
+                                </table>
+    
+                                <table class="table table-bordered table-style-color tabletd-color">
+                                    <tr>
+                                        <th width="23%">Type</th>
+                                        <th>PCGT</th>
+                                        <th>PCRG</th>
+                                        <th>SCGT</th>
+                                        <th>SCRG</th>
+                                        <th>PBGT</th>
+                                        <th>PBRG</th>
+                                        <th>SBGT</th>
+                                        <th>SBRG</th>
+                                    </tr>
+                                    <tr>
+                                        <td>(a) Hours Run Since New</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Since_New_PCGT}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Since_New_PCRG}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Since_New_SCGT}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Since_New_SCRG}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Since_New_PBGT}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Since_New_PBRG}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Since_New_SBGT}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Since_New_SBRG}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>(b) Date of last Trial</td>
+                                        <td>{{users.Req_EHM_Date_last_Trial_PCGT}}</td>
+                                        <td>{{users.Req_EHM_Date_last_Trial_PCRG}}</td>
+                                        <td>{{users.Req_EHM_Date_last_Trial_SCGT}}</td>
+                                        <td>{{users.Req_EHM_Date_last_Trial_SCRG}}</td>
+                                        <td>{{users.Req_EHM_Date_last_Trial_PBGT}}</td>
+                                        <td>{{users.Req_EHM_Date_last_Trial_PBRG}}</td>
+                                        <td>{{users.Req_EHM_Date_last_Trial_SBGT}}</td>
+                                        <td>{{users.Req_EHM_Date_last_Trial_SBRG}}</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>(c) Hours Run Since Last Trials</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Trails_PCGT}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Trails_PCRG}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Trails_SCGT}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Trails_SCRG}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Trails_PBGT}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Trails_PBRG}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Trails_SBGT}}</td>
+                                        <td>{{users.Req_EHM_Hours_Run_Trails_SBRG}}</td>
+                                    </tr>
+    
+    
+                                </table>
+    
+                                <table class="table table-bordered table-style-color tabletd-color table-requistion mt-1">
+                                    <tr>
+                                        <th width="23%"></th>
+                                        <th>BGT</th>
+                                        <th>CGT</th>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">(d)Last Major Routine Carried Out</td>
+                                    </tr>
+    
+                                    <tr>
+                                      <td>{{users.Req_EHM_Annual_Routines_Carried_BGT}}</td>
+                                        <td>{{users.Req_EHM_Annual_Routines_Carried_CGT}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{users.Req_EHM_CT_500_Changed_BGT}}</td>
+                                        <td>{{users.Req_EHM_CT_500_Changed_CGT}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{users.Req_EHM_GT_Alignment_Carried_BGT}}</td>
+                                        <td>{{users.Req_EHM_GT_Alignment_Carried_CGT}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{users.Req_EHM_Six_Monthly_Routines_BGT}}</td>
+                                        <td>{{users.Req_EHM_Six_Monthly_Routines_CGT}}</td>
+                                    </tr>
+    
+                                </table>
+    
+    
+                                <table class="table table-bordered table-style-color tabletd-color table-requistion mt-1">
+                                    <tr>
+                                        <th width="23%"></th>
+                                        <th>BGT</th>
+                                        <th>CGT</th>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">(e)&nbsp;&nbsp;Details Of Replacement</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{users.Req_EHM_HP_Fuel_Pump_BGTS_BGT}}</td>
+                                        <td>{{users.Req_EHM_HP_Fuel_Pump_BGTS_CGT}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{users.Req_EHM_PBGT_Burners_Changed_BGT}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{users.Req_EHM_Fuel_Equipment_Changed_BGT}}</td>
+                                    </tr>
+                                </table>
+    
+                                <table class="table table-bordered table-style-color tabletd-color table-requistion mt-1">
+    
+                                    <tr>
+                                        <th width="23%"></th>
+                                        <th>BGT</th>
+                                        <th>CGT</th>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">(f)&nbsp;&nbsp;Major Defects Encountered
+                                        </td>
+                                    </tr>
+                                    <tr>
+    
+                                        <td>{{users.Req_EHM_PBGT_Not_Clutched_In_BGT}}</td>
+                                        <td>{{users.Req_EHM_PBGT_Not_Clutched_In_CGT}}</td>
+                                    </tr>
+                                    <tr>
+    
+                                        <td>{{users.Req_EHM_SBGT_Not_Searting_In_BGT}}</td>
+                                        <td>{{users.Req_EHM_SBGT_Not_Searting_In_CGT}}</td>
+                                    </tr>
+                                    <tr>
+    
+                                        <td>{{users.Req_EHM_SBGT_Not_Clutched_In_BGT}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+        </tr>
+    </table>
+    <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+        <tr style="border: 0; border-style:None;">
+            <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+            <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+        </tr>
+</table>
+</div>
+</body>
+</html>

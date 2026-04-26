@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body {
+            margin: 50px 50px;
+            size: landscape;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            width: 100%;
+            border-style: double;
+            padding: 8px;
+        }
+
+        .clear {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            clear: both;
+        }
+
+        .star {
+            color: red;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        tr,
+        th {
+            text-align: start;
+        }
+
+        tr,
+        th {
+            font-size: 14px;
+        }
+
+        table {
+            border: 1px solid lightgray;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table tr {
+            margin: 0px !important;
+        }
+
+        table tr th {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align: left;
+        }
+
+        table tr td {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align: left;
+        }
+
+        .textarea {
+            width: 100%;
+            min-height: 10px;
+            /* padding: 10px; */
+            font-size: 12px;
+            resize: none;
+            overflow-y: hidden;
+            border: 1px solid #80808054;
+            margin: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            display: none;
+        }
+
+        .btn {
+            display: none;
+        }
+
+        @media print {
+
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="panel-right">
+
+                        <div class="panel-row">
+                            <div class="heading-style2 text-center">
+                                <img width="100px" alt="Logo"
+                                    style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                    src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+                                <h2 style="text-align:center">I.N.-586(a)</h2>
+                                <h2 style="text-align:center">S – 353 D </h2>
+                            </div>
+
+
+
+
+                            <table class="table table-bordered table-form-color1">
+                                <tr>
+                                    <td width="10%"><strong>ShipName: </strong></td>
+                                    <td>{{users.Ex_Examination_ShipName}}
+                                    </td>
+
+                                    <td width="15%" style="background:#efedff"><strong>Report Ref No: </strong></td>
+                                    <td>{{users.Ex_Examination_Report_No}}</td>
+
+                                    <td width="10%" style="background:#efedff"><strong>Date:</strong></td>
+                                    <td>
+                                        {{users.Ex_Examination_Date}}
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="heading-style2 heading-style3 text-center">
+                                <h2 style="text-decoration: underline;"> REPORT ON EXTERNAL EXAMINATION OF BOILER
+                                    {{users.REP_EX_EXAMINATION_BOILER_No}}</h2>
+                            </div>
+                            <p><strong>(Examination to be undertaken in accordance with Chapter 221 of NSTM
+                                    S9086-GY-STM-010,
+                                    Article 1252, INBR 3000 and Article 0304 of BR 2000 (25) (1). Report is to be
+                                    rendered, in
+                                    quadruplicate to
+                                    CBIU soon after completion of post-external cleaning examination).</strong></p>
+
+                            <div class="heading-style2 text-center">
+                                <h2><U>PART - I</U></h2>
+                            </div>
+                            <table class="table table-bordered table-form-color1">
+                                <tr style="width:100%">
+                                    <td style="width:50%"> 1.&nbsp;&nbsp;<b>Completion date of last external cleaning/
+                                            examination and number of
+                                            hours steamed since last external examination.</b></td>
+                                    <td style="width:50%">
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(a)</b>&nbsp;&nbsp;Last cleaned</td>
+                                    <td> {{users.Comp_date_last_external_By_Ship}}</td>
+                                </tr>
+                                <tr>
+                                    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b>&nbsp;&nbsp;Steaming hours since
+                                        last external examination</td>
+                                    <td> {{users.Comp_date_last_external_By_CBIU}}</td>
+                                </tr>
+                                </td>
+                                </tr>
+                                <tr style="width:100%">
+                                    <td style="width:50%">2.&nbsp;&nbsp;<b>Completion date of present external cleaning/
+                                            drying out/ examination.</b>
+                                    </td>
+                                    <td style="width:50%">
+                                <tr>
+                                    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(a)</b>&nbsp;&nbsp;Present examined</td>
+                                    <td>{{users.Comp_date_present_external_By_CBIU}}</td>
+                                </tr>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td>3.&nbsp;&nbsp;<b>Authority for deferment of present external
+                                            cleaning/examination, if applicable.</b></td>
+                                    <td>{{users.Auth_present_external_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4.&nbsp;&nbsp;<b>Nature and extent of deposits observed on following before
+                                            present cleaning:-</b></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(a)</b> Combustion equipments.</td>
+                                    <td>{{users.Combustion_equip_By_Ship}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> Tubes including super heater
+                                        tubes.</td>
+                                    <td>{{users.Tube_inc_super_heater_tube_By_Ship}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b> Economiser tube elements
+                                        including tube bends.</td>
+                                    <td>{{users.Economiser_tube_bends_By_Ship}}
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(d)</b>Uptake and funnel</td>
+                                    <td>{{users.Funnel_Uptake_mixing_chamb_By_Ship}}</td>
+
+                                </tr>
+
+                            </table>
+                            <div class="heading-style2 text-center">
+                                <h2><U>PART - II</U></h2>
+                            </div>
+                            <p><strong>(Brief details of observations made during post-external cleaning examination and
+                                    repairs/remedial actions taken be highlighted against each serial in this part.
+                                    Defects/deficiencies remaining outstanding since last examination be also indicated
+                                    against
+                                    relevant serials).</strong></p>
+                            <table class="table table-bordered table-form-color1">
+
+                                <tr>
+                                    <td width="50%">5.&nbsp;&nbsp;<b>Steam/Water Drums, Super Heaters/ Economiser
+                                            Headers
+                                            Including Inside and Outside Gas
+                                            Casing.</b> (for deposits, traces of boiler compound around
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;man hole doors, wastage,
+                                        burning,
+                                        preservation, and external corrosion, particularly at the interface of water
+                                        drum and gas
+                                        casing).</td>
+                                    <td width="50%">{{users.Steam_Water_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6.&nbsp;&nbsp;<b>All Accessible Tubes Including Super Heater Tubes throughout
+                                            their
+                                            Lengths. </b>(for
+                                        evidence of deposits, corrosion, overheating, deformation, fouling
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and indentation/dent
+                                        marks)</td>
+                                    <td>{{users.Tubes_Lengths_By_Ship}}</td>
+                                </tr>
+                                <tr>
+                                    <td>7.&nbsp;&nbsp;<b>Tube Roots including those of Super Heater Tubes. </b>(for
+                                        nature and
+                                        extent of deposits,
+                                        signs of any leakage and external corrosion / wastage).</td>
+                                    <td>{{users.Tubes_Super_Heater_By_Ship}}
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>8.&nbsp;&nbsp;<b>Accessible superheater tube supports and clamps</b> (for
+                                        damage,
+                                        wear/ tear. Securing of fastening and adequacy of support to tubes)</td>
+                                    <td>{{users.External_clamps_By_Ship}}
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>9.&nbsp;&nbsp;<b>Economiser Elements.</b> (for corrosion, fire damage, wear/tear
+                                        and
+                                        accumulation of
+                                        deposits, particularly at tube bends).</td>
+                                    <td>
+                                        {{users.Economiser_Elements_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                    <td>
+                                        10.&nbsp;<b>(a) Boiler Mountings.</b> (for soundness of accessible fasteners and
+                                        ease of operation from local/remote positions, as applicable).
+                                    </td>
+                                    <td>
+                                        {{users.Boiler_Mountings_By_Ship}}<br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b><b> Direct Reading Water Level
+                                            Indicators.</b>
+                                    </td>
+                                    <td>
+                                        {{users.external_direct_reading}}<br />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b><b> Safety Valves.</b> (for
+                                        completeness of hand easing gear, drain pipes, locking arrangement, seals and
+                                        tally).
+                                    </td>
+
+
+                                    <td>
+                                        {{users.external_safety_valves}}
+                                    </td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <td>11.
+                                        <b>(a)</b>&nbsp;&nbsp;<b>Blow Down Valves/ cocks</b> (for correctness of
+                                        operating key interlocks and ease of operation).
+
+
+                                    </td>
+                                    <td>
+                                        {{users.Safety_Valves_By_Ship}}
+
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>(b)</b>&nbsp;&nbsp;<b>Blow Down and Super
+                                            Heater Drain System Pipes.</b> (for corrosion, preservation and state of
+                                        insulation).
+                                    </td>
+                                    <td>
+
+
+                                        {{users.Surface_Bottom_Blow_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>12.
+                                        <b>(a)</b>&nbsp;&nbsp;<b>Combustion Registers. </b>(for cleanliness of air, fuel
+                                        and
+                                        atomising steam handling
+                                        components including sighting ports, damages, loose fit, ease of
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operation and
+                                        alignment).
+
+                                    </td>
+                                    <td>
+                                        {{users.Combustion_Reg_By_Ship}}<br />
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b>&nbsp;&nbsp;<b>Alignment of burner/
+                                                atomiser swirler/ quarl </b>(final alignment
+                                            readings recorded after correction of misalignment, if any be attached with
+                                            this
+                                            report).</p>
+                                    </td>
+                                    <td>
+
+                                        {{users.Blow_Super_Heater_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>13.
+                                        <b>(a)</b>&nbsp;&nbsp;<b>Soot Blowers.</b> (for ease of operation, greasing,
+                                        serviceability
+                                        of air purging arrangement/ rod gearing, direction of rotation, wear/ tear
+                                        security of
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fasteners and completeness).
+
+                                    </td>
+                                    <td>
+                                        {{users.Burner_Assem_By_Ship}}<br />
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>(b)</b>&nbsp;&nbsp;<b>Soot blower nozzle
+                                            pipe elements </b>( for securing of pipe coupling
+                                        and ball joint/ supporting brackts/ apertures in centre division wall, fouling
+                                        and
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wear/tear)
+
+                                    </td>
+                                    <td>
+
+                                        {{users.external_soot_nozzle}}<br />
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>(c)</b>&nbsp;&nbsp;<b>Alignment of
+                                            nozzles (jets) of pipe elements and pointer fitted on
+                                            soot blower valve assembly.</b>
+
+                                    </td>
+                                    <td>
+
+                                        {{users.external_alignment_nozzle}}<br />
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>(d)</b>&nbsp;&nbsp;<b>Correctness of
+                                            blowing arc (sweep angle) </b>(final blowing arc
+                                        reading recorded after necessary adjustments be attached with this report).
+                                    </td>
+                                    <td>
+
+                                        {{users.external_correctness_of_blowing_arc}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>14.&nbsp;&nbsp;<b>Water Drum and side water wall header supporting stools and
+                                            sliding
+                                            feet</b> (for security, expansion clearances, serviceability of expansion
+                                        indicators/
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;greasing arrangement and corrosion/ damage/
+                                        preservation).
+                                    </td>
+                                    <td>{{users.Water_Drum_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>15.
+                                        <b>(a)</b>&nbsp;&nbsp;<b>FD fan inlet gratings and trunking/air space. </b> (for
+                                        security,
+                                        obstruction and serviceability of drainage arrangement).
+
+                                    </td>
+                                    <td>
+                                        {{users.Tbu_Inlet_By_Ship}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b>&nbsp;&nbsp;<b>Combustion air
+                                            supply trunking</b>.(for leakage, lagging, wear/tear,
+                                        security of supports and obstruction).
+
+                                    </td>
+                                    <td>
+
+                                        {{users.external_combustion_air_trunking}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b>&nbsp;&nbsp;<b>Self-closing
+                                            shutters.</b>(for cleanliness: and ease of operation
+                                        from
+                                        both local and remote positions).
+
+                                    </td>
+                                    <td>
+
+                                        {{users.external_self_closing}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(d)</b>&nbsp;&nbsp;<b>Lighting up fan
+                                            flap and louvers of boiler room ventilation air
+                                            supply
+                                            trunking. </b>(for wear/tear and serviceability).
+                                    </td>
+                                    <td>
+
+                                        {{users.external_lightning_up_fane}}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>16.
+                                        <b>(a)</b>&nbsp;&nbsp;<b>Air and Gas Casings.</b> (for corrosion, signs of
+                                        overheating,
+                                        distortion, crack, preservation, leakage, serviceability of jointing, security
+                                        of tie
+                                        bars/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stiffeners and possible accumulation
+                                        of deposits, oil and water).
+
+                                    <td>
+                                        {{users.Air_G_Casings_Joints_By_Ship}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b>&nbsp;&nbsp;<b>Pumping out
+                                            arrangement of boiler air casing space. </b>.(for
+                                        wear/tear and serviceability).
+
+                                    <td>
+
+                                        {{users.external_pumping_out}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b>&nbsp;&nbsp;<b>Boiler air casing
+                                            space firefighting arrangements. </b>(for wear/tear
+                                        and serviceability).
+
+                                    <td>
+
+                                        {{users.external_boiler_air_chasing}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(d)</b>&nbsp;&nbsp;<b>Brick pan
+                                            underside. </b>(for corrosion, overheating, deformation,
+                                        security of tie bars/ stiffeners and preservation).
+                                    <td>
+
+                                        {{users.external_brick_pan}}
+                                    </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td>17.
+                                        <b>(a)</b>&nbsp;&nbsp;<b>Uptake and Inner/Outer Funnel Plating, Gratings,
+                                            Ladders and
+                                            Access Doors. </b>(for deterioration, damage, deposits, preservation and
+                                        signs of
+                                        high &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperatures).
+
+                                    </td>
+                                    <td>
+                                        {{users.Funnel_Plating_Gratings_Ladders_By_Ship}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b>&nbsp;&nbsp;<b>Expansion
+                                            joints</b>. (for freedom of movement and gas tightness)
+                                    </td>
+                                    <td>
+
+                                        {{users.external_expansion_joints}}
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>18.&nbsp;&nbsp;<b>Rain Catchment Troughs, Pipe System and Strainers.</b> (for
+                                        wear/tear
+                                        and freedom from
+                                        chokage).</td>
+                                    <td>{{users.Rain_Catchment_By_Ship}}</td>
+                                </tr>
+                                <tr>
+                                    <td>19.&nbsp;&nbsp;<b>Funnel Cover.</b> (for condition and serviceability of
+                                        securing
+                                        arrangement).</td>
+                                    <td>{{users.Funnel_Cover_By_Ship}}</td>
+                                </tr>
+                                <tr>
+                                    <td>20.&nbsp;<b>(a)&nbsp;&nbsp;Furnace brickwork, refractory, plastic chrome ore
+                                            walls, upper and
+                                            lower screens, superheater support protection screen, header cappings,
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;corner
+                                            fillets,
+                                            register quarls etc.</b> (for deterioration, damage, crack, spalling and
+                                        lagging).
+
+
+                                    </td>
+                                    <td>
+                                        {{users.Furnace_Acc_Door_By_Ship}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)&nbsp;&nbsp;Front and rear insulating
+                                            cladding panels.</b> (for wear/tear and
+                                        damage).
+
+                                    </td>
+                                    <td>
+
+                                        {{users.external_front_rear}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)&nbsp;&nbsp;Economiser cladding
+                                            panels</b>. (for wear/tear and damage).
+
+                                    </td>
+                                    <td>
+
+                                        {{users.external_economiser_cladding}}<br />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(d)&nbsp;&nbsp;Downcomers and uprisers
+                                        </b>(for state of insulation).
+                                    </td>
+                                    <td>
+
+                                        {{users.external_downcomers}}
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td>21.&nbsp;&nbsp;<b>Furnace Floor Drain System.</b> (for wear/ tear and freedom
+                                        from
+                                        chokage).</td>
+                                    <td>{{users.Furnace_Floor_Drain_Sys_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>22.&nbsp;&nbsp;<b>Furnace Observation Windows and Operating Mechanism.</b> (for
+                                        ease of
+                                        operation,
+                                        cleanliness of glasses and leakage).</td>
+                                    <td>{{users.Furnace_Obs_Windows_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>23.&nbsp;&nbsp;<b>Boiler Water Sampling System. </b>(for corrosion, preservation
+                                        and
+                                        serviceability).</td>
+                                    <td>{{users.Boiler_Sampling_Sys_By_Ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>24.&nbsp;&nbsp;<b>Boiler Dosing System.</b> (for corrosion, preservation and
+                                        serviceability).</td>
+                                    <td>{{users.Boiler_Dosing_Sys_By_Ship}}</td>
+                                </tr>
+                                <tr>
+                                    <td>25.&nbsp;&nbsp;<b>(a) Smoke observation periscope </b> ( for cleanliness of
+                                        glass/ port
+                                        and serviceability).</td>
+                                    <td>{{users.Radiovisor_Funnel_By_Ship}}</td>
+                                </tr>
+                                <tr>
+                                    <td>26.&nbsp;&nbsp;<b>Torch Igniters. </b>(for cleanliness of connector and
+                                        serviceability
+                                        /stowage arrangement).</td>
+                                    <td>{{users.Torch_Igniters_By_Ship}}</td>
+                                </tr>
+                                <tr>
+                                    <td>27.&nbsp;&nbsp;<b>Boiler Instrumentation.</b> (Pressure/ temperature gauges and
+                                        manometers, fitted on/near boiler front and on
+                                        boiler control panels for completeness and
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serviceability. Attach details on separate
+                                        sheet, if available space is inadequate).</td>
+                                    <td>{{users.Boiler_Instrumentation_By_Ship}}
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="8"><b><u>Note:-</u> Reasons are to be state against relevant serials,
+                                            if any part of the boiler
+                                            is not
+                                            examined.</b>
+                                    </td>
+                                </tr>
+                            </table></br>
+                            <div class="heading-style2 text-center">
+                                <h2><u>PART - III</u></h2>
+                            </div>
+                            <h4>28.&nbsp;&nbsp;<u>General remarks by ship.</u></h4>
+                            <p>(To include any other information in addition to
+                                that given earlier which may be
+                                considered necessary to enable a more complete estimate to be formed of the state of the
+                                boiler
+                                e.g., improper combustion,
+                                flame characteristics, frequent fouling of burner filters, incidents of boiler
+                                pulsation,
+                                performance of gauge glasses/Igema
+                                and feed regulator, limitation in maintaining superheated steam temperature, abnormal
+                                air/flue
+                                gas leaks, accessibility for
+                                ease of operation and maintenance, long outstanding defects/deficiencies, recurring
+                                defects/erratic performance, if any and
+                                any other abnormality being experienced etc).</p>
+                            <table class="table table-bordered table-form-color1">
+
+                                <td class="textarea">{{users.General_Remark_By_ship | safe}}</td>
+
+                            </table></br>
+
+                            <table class="table table-bordered tabletd-color table-form-color1">
+                                <tr>
+                                    <td width="15%"><strong>Engineer Officer</strong></td>
+
+                                    <div class="signature-2"></div>
+                                    <td>
+                                <p style="font-size:9px">Comment: {{esignature.engg_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.engg_information.first_name}} {{esignature.engg_information.last_name}} ({{esignature.engg_information.loginname}})
+                                <br>
+                                {{esignature.engg_information.designation}}
+                                <br>
+                                On {{esignature.engg_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.engg_sign_path}}"/></td>
+
+                                    <td class="td-bluelight" width="15%"><strong>Commanding Officer</strong></td>
+<td>
+                                <p style="font-size:9px">Comment: {{esignature.comm_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.comm_information.first_name}} {{esignature.comm_information.last_name}} ({{esignature.comm_information.loginname}})
+                                <br>
+                                {{esignature.comm_information.designation}}
+                                <br>
+                                On {{esignature.comm_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.comm_sign_path}}"/></td>
+
+                                </tr>
+                            </table></br>
+                            <div class="heading-style2 text-center">
+                                <h2><u>PART – IV</u></h2>
+                            </div>
+                            <h4>29.&nbsp;&nbsp;<u>Remarks by CBIU</u></h4>
+
+
+
+                            <table class="table table-bordered table-form-color1">
+
+                                <td>
+                                <td>{{users.General_Remark_By_CBIU_WPT | safe}} </td>
+                                </td>
+
+                            </table>
+                            <table class="table table-bordered tabletd-color table-form-color1">
+                                <tr>
+                                    <td width="15%"><strong>Officer-In-Charge</strong></td>
+
+                                    <div class="signature-2"></div>
+                                    <td class="textarea">{{users.Remarks_CBIU_Engineer_Officer}}
+                                    </td>
+                                </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="5" class="table grid-tab" width="100%"
+                                style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+                                <tr>
+                                    <td width="80%"
+                                        style="margin-left:90px;text-align:right;font-family:Times New Roman;">
+                                        Electronically Signed By: <br> {{history.first_name}} {{history.last_name}},
+                                        {{history.login_name}} <br> {{history.designation}} <br> On {{
+                                        history.approved_date_time }} <br> Using login ID authentication through ITTTM
+                                    </td>
+                                    <td width="50%" style="margin-left:50px"> <img
+                                            style="width:130px;height:130px;align-item:right"
+                                            src="http://127.0.0.1:8000/{{qr}}" /></td>
+                                </tr>
+                            </table>
+
+                            <table cellspacing="0" cellpadding="5" width="100%"
+                                style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+                                <tr style="border: 0; border-style:None;">
+                                    <td width="55%"
+                                        style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">
+                                        Report Generated Through ITTTM</td>
+                                    <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55"
+                                            style="align-items:left;"
+                                            src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0"
+                                            style="cursor: pointer;"></td>
+                                </tr>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>

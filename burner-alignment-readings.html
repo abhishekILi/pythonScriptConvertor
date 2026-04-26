@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CBIU</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+        <meta name="pdfkit-page-size" content="Legal"/>
+        <meta name="pdfkit-orientation" content="Portrait"/>
+
+		<style type="text/css">
+            body{margin:50px 50px; size:landscape;font-size: 14px;}
+            .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+             strong{font-weight: 600;}
+           body{font-family: Arial, Helvetica, sans-serif;} 
+            body{margin:50px;background: #FFF !important;}
+
+            table{
+                border: 1px solid lightgray;
+                
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            table tr{
+                margin: 0px!important;
+            }
+            table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: left;
+                padding: 2px 2px 2px 2px;
+            }
+            table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: left;
+            padding: 2px 2px 2px 2px;
+        }
+        .textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+                border: 1px solid #80808054;
+                margin: 10px;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+		</style>		   
+	</head>
+
+	<body>
+		<section class="body-card form-style1 trial-form">
+            <div class="wrapper">
+                <!-- <a href="javascript:void(0);" class="btn btn-danger btn-lg float-left" (click)="back(trialDet)">BACK</a> -->
+
+                <div class="container-fluid panel-right">
+                    <div class="row mt-1">
+                      <div class="col-md-12">
+                        <div class="panel-right">
+                          <app-forms-back-button [passData]="trialDet" style="position: fixed;z-index: 99;"></app-forms-back-button>
+                          <div class="panel-row">
+                            <div class="heading-style2 text-center">
+                              <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+                              src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+                              <span style="display: flex;justify-content: center;"><h2>BURNER ALIGNMENT READINGS (Y-160 BOILER) - {{shipName}} Month : </h2>
+                                <input style="text-align:center;"  class="form-control"  placeholder = "__________________"type="text" value="{{users.burner_alignment_reading_btw_month}}">
+                              </span>
+                            </div>
+              
+              
+                            <!-- <div class="row"> -->
+                              <div class="col-md-2" style="padding: 25px 0 30px 0px;">
+                                      <mat-label>Boiler<b class="star">*</b></mat-label>
+                                      <mat-form-field appearance="legacy"
+                                      style="border: 1px solid lightgrey;border-radius: 3px; padding: 5px;">
+                                      <mat-select value="{{users.boiler_name}}" (selectionChange)="selectShip($event.value)"
+                                        placeholder="Select Boiler">
+                                        <mat-option disabled>None</mat-option>
+                                        <mat-option value="Port">Port</mat-option>
+                                        <mat-option value="Stbd">Stbd</mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                              </div>
+                            <!-- </div> -->
+              
+              
+                            <table class="table table-bordered table-style-color tabletd-color">
+                              <tr>
+                                <td width="15.4%">DATE:</td>
+                                <td>
+                                  <input type="date" class="form-control" value="{{users.date}}">
+                                </td>
+                                <!-- <td class="td-bluelight"><strong>BOILER NAME/LOCATION:</strong></td>
+                                <td>
+                                  <span>{{boiler}}</span>&nbsp;/&nbsp;<span>{{location}}</span>
+                                </td> -->
+                                
+                                <!-- <span>{{boiler}}</span>&nbsp;/&nbsp;<span>{{location}}</span> -->
+                                  <!--
+                                  <mat-form-field appearance="fill">
+              
+                                      <input matInput placeholder="" value="{{users.boiler_name}}">
+                                  </mat-form-field> -->
+                              </tr>
+                            </table>
+                            <table class="table table-bordered tabletd-color">
+                              <tr>
+                                <th colspan="5">
+                                  (a) Coplanarity of the innermost face of the atomiser and the inner circumferential edge
+                                  of air exit swirler shroud. (Feeler gauge reading = Zero +/- 1/64")
+                                </th>
+                              </tr>
+                              <tr class="text-center">
+                                <td rowspan="2" class="thblue" width="15.4%">Measured</td>
+                                <td colspan="3" class="thblue">Feeler gauge readings recorder at atomiser/swirler shroud of burner
+                                </td>
+                                <td rowspan="2" class="thblue">Remarks</td>
+                              </tr>
+                              <tr class="text-center">
+                                <td class="thblue">1</td>
+                                <td class="thblue">2</td>
+                                <td class="thblue">3</td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">V-Axis</td>
+                                <td class="tdwhite">
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.v_axis_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.v_axis_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.v_axis_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.v_axis_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">H-Axis</td>
+                                <td class="tdwhite">
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.h_axis_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.h_axis_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.h_axis_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.h_axis_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">V-Axis</td>
+                                <td class="tdwhite">
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.v_axis_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.v_axis_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.v_axis_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.v_axis_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">H-Axis</td>
+                                <td class="tdwhite">
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.h_axis_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.h_axis_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.h_axis_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.h_axis_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                            <div class="note-card">
+                              <strong><u>Note:-</u></strong>
+                              <p>Feeler gauge readings recorded at atomiser are to be shown with +ve sign and the same at swiler
+                                shroud with -ve sign.</p>
+                            </div>
+                            <table class="table table-bordered table-style-color tabletd-color">
+                              <tr>
+                                <th colspan="5" r>
+                                  (b) Distance between inner circumferential edge (leading edge) of air exit swirler shroud and the
+                                  outer perimeter
+                                  of quarl with atomiser swirler assembly in fully advanced position in the quarl. (Burner travel = 4
+                                  1/2
+                                  +/- 1/8")
+                                </th>
+                              </tr>
+                              <tr class="text-center">
+                                <td rowspan="2" class="thblue">Measured at positions</td>
+                                <td colspan="3" class="thblue">Burner Number</td>
+                                <td rowspan="2" class="thblue">Remarks</td>
+                              </tr>
+                              <tr class="text-center">
+                                <td class="thblue">1</td>
+                                <td class="thblue">2</td>
+                                <td class="thblue">3</td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">12 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_12_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_12_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_12_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_12_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">6 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_6_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_6_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_6_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_6_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">3 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_3_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_3_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_3_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_3_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">9 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_9_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_9_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_9_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.burn_trvl_9_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                            <table class="table table-bordered table-style-color tabletd-color">
+                              <tr>
+                                <th colspan="5">
+                                  (c) Concentricity of atomiser with respect to air exit swirler shroud. (r = 4 15/16)
+                                  <!-- quarl, (R=7 21/32 + 118") -->
+                                </th>
+                              </tr>
+                              <tr class="text-center">
+                                <td rowspan="2" class="thblue" width="15.4%">Measured at positions</td>
+                                <td colspan="3" class="thblue">Redial distance (r) between atomiser centre and swirler shroud of
+                                  burner</td>
+                                <td rowspan="2" class="thblue">Remarks</td>
+                              </tr>
+                              <tr class="text-center">
+                                <td class="thblue">1</td>
+                                <td class="thblue">2</td>
+                                <td class="thblue">3</td>
+                              </tr>
+                              <!-- <tr class="trblue">
+                                <td>Measured at positions</td>
+                                <td class="thblue">Burner1</td>
+                                <td class="thblue">Burner2</td>
+                                <td class="thblue">Burner3</td>
+                                <td class="thblue">Remarks</td>
+                              </tr> -->
+                              <tr>
+                                <td class="text-center">12 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_12_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_12_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_12_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_12_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">6 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_6_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_6_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_6_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_6_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">3 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_3_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_3_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_3_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_3_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">9 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_9_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_9_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_9_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_quarl_9_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                            <table class="table table-bordered table-style-color tabletd-color">
+                              <tr>
+                                <th colspan="5">
+                                  (d) Concentricity of atomiser with respect to quarl. (R= 7 21/32" +/- 1/18")
+                                </th>
+                              </tr>
+                              <tr class="text-center">
+                                <td rowspan="2" class="thblue">Measured at positions</td>
+                                <td colspan="3" class="thblue">Redial distance (R) between atomiser centre and quarl of burner</td>
+                                <td rowspan="2" class="thblue">Remarks</td>
+                              </tr>
+                              <tr class="text-center">
+                                <td class="thblue">1</td>
+                                <td class="thblue">2</td>
+                                <td class="thblue">3</td>
+                              </tr>
+                              <!-- <tr class="trblue">
+                                <td>Measured at positions</td>
+                                <td class="thblue">Burner1</td>
+                                <td>Burner2</td>
+                                <td>Burner3</td>
+                                <td>Remarks</td>
+                              </tr> -->
+                              <tr>
+                                <td class="text-center">12 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_12_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_12_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_12_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_12_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">6 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_6_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_6_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_6_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_6_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">3 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_3_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_3_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_3_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_3_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">9 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_9_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_9_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_9_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.atom_to_swirler_9_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                            <table class="table table-bordered table-style-color tabletd-color">
+                              <tr>
+                                <th colspan="5">
+                                  (e) Quarl dimensions
+                                </th>
+                              </tr>
+                              <tr>
+                                <th colspan="5">
+                                  (i) Quarl diameter at inner (D) and outer (d) perimeter (D = 16 1/4", d = 14 1/4")
+                                </th>
+                              </tr>
+                              <tr class="text-center">
+                                <td rowspan="2" class="thblue">Measured along</td>
+                                <td colspan="3" class="thblue">Burner Number</td>
+                                <td rowspan="2" class="thblue">Remarks</td>
+                              </tr>
+                              <tr class="text-center">
+                                <td class="thblue">1</td>
+                                <td class="thblue">2</td>
+                                <td class="thblue">3</td>
+                              </tr>
+                              <!-- <tr class="trblue">
+                                <td>Measured along</td>
+                                <td class="thblue">Burner1</td>
+                                <td class="thblue">Burner2</td>
+                                <td class="thblue">Burner3</td>
+                                <td class="thblue">Remarks</td>
+                              </tr> -->
+              
+                              <tr>
+                                <td class="text-center">V-Axis</td>
+                                <td>
+                                  <div class="matt-group" style="display: flex;">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_D_burner1}}">
+                                    </mat-form-field>&nbsp;
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_D_burner1_a}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group"  style="display: flex;">
+                                    <mat-form-field appearance="fill" >
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_D_burner2}}">
+                                    </mat-form-field>&nbsp;
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_D_burner2_a}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group"  style="display: flex;">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_D_burner3}}">
+                                    </mat-form-field>&nbsp;
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_D_burner3_a}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group" >
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_D_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">H-Axis</td>
+                                <td>
+                                  <div class="matt-group" style="display: flex;">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_d_burner1}}">
+                                    </mat-form-field>&nbsp;
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_d_burner1_a}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group" style="display: flex;">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_d_burner2}}">
+                                    </mat-form-field>&nbsp;
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_d_burner2_a}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group" style="display: flex;">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_d_burner3}}">
+                                    </mat-form-field>&nbsp;
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_d_burner3_a}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_V_axis_d_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <!-- <tr>
+                                <td>H-Axis (D)</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_H_axis_D_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_H_axis_D_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_H_axis_D_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_H_axis_D_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>H-Axis (d)</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_H_axis_d_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_H_axis_d_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_H_axis_d_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.quarl_DIM_H_axis_d_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr> -->
+                              <!-- </table> -->
+                              <!-- <table class="table table-bordered table-style-color tabletd-color"> -->
+                              <tr>
+                                <th colspan="5">
+                                  (ii) Thickness (t) of the monolithic wall in way of quarl. (t = 6 3/4")
+                                </th>
+                              </tr>
+                              <tr class="text-center">
+                                <td rowspan="2" class="thblue">Measured at positions</td>
+                                <td colspan="3" class="thblue">Burner Number</td>
+                                <td rowspan="2" class="thblue">Remarks</td>
+                              </tr>
+                              <tr class="text-center">
+                                <td class="thblue">1</td>
+                                <td class="thblue">2</td>
+                                <td class="thblue">3</td>
+                              </tr>
+                              <!-- <tr class="trblue">
+                                <td>Measured at positions</td>
+                                <td class="thblue">Burner1</td>
+                                <td class="thblue">Burner2</td>
+                                <td class="thblue">Burner3</td>
+                                <td class="thblue">Remarks</td>
+                              </tr> -->
+                              <tr>
+                                <td class="text-center">12 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_12_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_12_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_12_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_12_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">6 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_6_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_6_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_6_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_6_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">3 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_3_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_3_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_3_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_3_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td class="text-center">9 '0' Clock</td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_9_clock_burner1}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_9_clock_burner2}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_9_clock_burner3}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="matt-group">
+                                    <mat-form-field appearance="fill">
+                                      <input matInput placeholder="" value="{{users.thickness_quarl_9_clock_remarks}}">
+                                    </mat-form-field>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table></br>
+                            <table class="table table-bordered tabletd-color table-form-color1" >
+                       
+                              <tr>
+                                <td width="15%"><strong>Engineer Officer</strong></td>
+                                <td>
+                                <p style="font-size:9px">Comment: {{esignature.engg_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.engg_information.first_name}} {{esignature.engg_information.last_name}} ({{esignature.engg_information.loginname}})
+                                <br>
+                                {{esignature.engg_information.designation}}
+                                <br>
+                                On {{esignature.engg_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.engg_sign_path}}"/></td>
+
+                                <td class="td-bluelight" width="15%"><strong>Commanding Officer</strong></td>
+                                <td>
+                                <p style="font-size:9px">Comment: {{esignature.comm_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.comm_information.first_name}} {{esignature.comm_information.last_name}} ({{esignature.comm_information.loginname}})
+                                <br>
+                                {{esignature.comm_information.designation}}
+                                <br>
+                                On {{esignature.comm_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.comm_sign_path}}"/></td>
+
+                              </tr>
+                             
+                            </table></br>
+              
+                            <table class="table table-bordered table-form-color1">
+                              <th class="td-bluelight"><u>FINAL REMARKS AND RECOMMENDATION</u></th>
+                              <tr>
+                                <td  class="form-control" rows="8" value="{{users.final_rem_burner_align_read | safe}}" ></td>
+                              </tr>
+                
+                            </table> 
+                          </div>
+              
+                       
+                          <div class=" group-btn mt-4">
+                       
+                            <a href="javascript:void(0);" *ngIf="trialDet.type!='view' && trialDet.approved_level!='-1'"
+                              class="btn btn-success btn-lg float-right" (click)="save()">Save</a>
+                            <!-- <ng-container>
+                                <ng-container *ngIf="api.userid.process_id==1">
+                                    <a href="javascript:void(0);" *ngIf="(permission.recommend==true && !trialDet.ship_recommendation)  || (permission.recommend==true && trialDet.approved_level==2)" title="Ship Recommendation"  class="btn btn-success btn-lg float-right" (click)="openApprovalForm(trialDet,1)">SHIP RECOMMENDATION</a>
+                      
+                                    &nbsp;&nbsp;
+                                    <a href="javascript:void(0);" *ngIf="(permission.recommend==true && !trialDet.trial_recommendation)  || (permission.recommend==true && trialDet.approved_level==5)" title="Trial Recommendation" class="btn btn-success btn-lg float-right" (click)="openApprovalForm(trialDet,1)">TRIAL RECOMMENDATION</a>
+                                  
+                                </ng-container>
+                                <ng-container *ngIf="api.userid.process_id==2">
+                                  <a href="javascript:void(0);"  *ngIf="(permission.recommend==true && !trialDet.ship_recommendation) || (permission.recommend==true && trialDet.approved_level==2)" title="Ship Recommendation"  class="btn btn-success btn-lg float-right" (click)="openApprovalForm(trialDet,1)">SHIP RECOMMENDATION</a>
+                      
+                                </ng-container>
+                                <ng-container *ngIf="api.userid.process_id==3">
+                                  <a href="javascript:void(0);" *ngIf="(permission.recommend==true && !trialDet.trial_recommendation) || (permission.recommend==true && trialDet.approved_level==5)" title="Trial Recommendation"  class="btn btn-success btn-lg float-right" (click)="openApprovalForm(trialDet,1)">TRIAL RECOMMENDATION</a>
+                                  
+                                </ng-container>
+                              </ng-container>
+                      
+                              <ng-container>
+                                <ng-container *ngIf="api.userid.process_id==1">
+                                    <a href="javascript:void(0);" *ngIf="(permission.approve==true && !trialDet.ship_approver) || (permission.approve==true && trialDet.approved_level==3)" title="Ship Recommendation"  class="btn btn-success btn-lg float-right" (click)="openApprovalForm(trialDet,2)">SHIP APPROVAL</a>
+                      
+                                    &nbsp;&nbsp;
+                                    <a href="javascript:void(0);" *ngIf="(permission.approve==true && !trialDet.trial_approver) || (permission.approve==true && trialDet.approved_level==6)" title="Trial Recommendation" class="btn btn-success btn-lg float-right" (click)="openApprovalForm(trialDet,2)">TRIAL APPROVAL</a>
+                                  
+                                </ng-container>
+                                <ng-container *ngIf="api.userid.process_id==2">
+                                  <a href="javascript:void(0);"  *ngIf="(permission.approve==true && !trialDet.ship_approver) || (permission.approve==true && trialDet.approved_level==3)" title="Ship Recommendation"  class="btn btn-success btn-lg float-right" (click)="openApprovalForm(trialDet,2)">SHIP APPROVAL</a>
+                      
+                                </ng-container>
+                                <ng-container *ngIf="api.userid.process_id==3">
+                                  <a href="javascript:void(0);" *ngIf="(permission.approve==true && !trialDet.trial_approver) || (permission.approve==true && trialDet.approved_level==6)" title="Trial Recommendation"  class="btn btn-success btn-lg float-right" (click)="openApprovalForm(trialDet,2)">TRIAL APPROVAL</a>
+                                  
+                                </ng-container>
+                              </ng-container>
+                      
+                              <div class="modal fade master-modal-style" id="approval-modal" data-keyboard="false" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                
+                                   <div class="modal-content">
+                                    <div class="modal-header">
+                                     <h5 class="modal-title" id="exampleModalLabel">{{approvalType}} Approval</h5>
+                                     <button type="button" class="close" title="Close" data-dismiss="modal" aria-label="Close">
+                                     <span aria-hidden="true">&times;</span>
+                                     </button>
+                                    </div>
+                                    <div class="modal-body form-style-md form-style-font linux">
+                                     <form [formGroup]="this.approvalForm" id="approvalForm" (ngSubmit)="onApprovalSubmit()" >
+                                     <div class="form-row">
+                                      <div class="col-md-12 matt-group"><a href="javascript:void(0);" (click)="onViewTemp()"><mat-label>View Trial Details</mat-label></a></div>
+                                         <div class="col-md-12">
+                                          <div class="matt-group">
+                                            <mat-label>Comments <b class="star">*</b></mat-label>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                               <textarea matInput rows="8" value="{{users.comments}}"></textarea>
+                                               <mat-error *ngIf="ErrorApproval('comments','required')">Enter comments</mat-error>
+                                             </mat-form-field>
+                                          </div>
+                                         </div>
+                                     </div>
+                                     <div class="form-row button-group-lg button-auto mt-2">
+                                      <div class="col-md-6 col-6">
+                                         <button type="submit" id="approvalSubmit" hidden>SUBMIT</button>
+                                         <button type="button" class="btn btn-success " (click)="onApproval()" ><span class="material-icons-outlined">thumb_up</span> </button>
+                                      </div>
+                                      <div class="col-md-6 col-6 text-left">
+                      
+                                         <button type="button" class="btn btn-danger backbtn" (click)="onReject()" ><span class="material-icons-outlined">thumb_down</span></button>
+                                      </div>
+                                     </div>
+                                     </form>
+                                    </div>
+                                   </div>
+                                </div>
+                                </div> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </section>
+        <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+          <tr>
+              <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+              <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+          </tr>
+      </table>
+
+      <table cellspacing="0" cellpadding="5"   width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+        <tr style="border: 0; border-style:None;">
+            <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+            <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+        </tr>
+      </table>
+	</body>
+	 
+</html>	

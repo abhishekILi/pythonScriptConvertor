@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>P-17 Quarterly GT Returns</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+
+<body>
+<div class="wrapper">
+    <div style="float:right">
+        <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+
+    <div class="panel-row">
+        <div class="heading-style2 text-center">
+            <img width="100px" alt="Logo"
+                                    style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                    src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg">
+                                <h2 style="text-align: center;">GTTT VIZAG</h2>
+            <h2><u> QUARTERLY GT RETURNS</u></h2>
+            <h2><u>LUB OIL QUARTERLY RETURNS (ADVANCED/SOAP) FOR QE</u></h2>
+            <h4><u>SOAP Analysis:- Atomic Method(Particle Quantity in PPM)</u></h4>
+        </div>
+        <table class="table table-bordered tabletd-color">
+
+
+            <tr>
+
+                <th>S No</th>
+                <th>Equipment</th>
+                <th>Type of oil</th>
+                <th colspan="2">Al</th>
+                <th colspan="2">Cr</th>
+                <th colspan="2">Cu</th>
+                <th colspan="2">Fe</th>
+                <th colspan="2">Pb</th>
+                <th colspan="2">Sn</th>
+                <th colspan="2">Ni</th>
+
+            </tr>
+
+
+            <tr>
+                <td>1</td>
+                <td>PGT</td>
+                <td>Turbonyc Oil 600</td>
+                <td>0-1</td>
+                <td>{{users.p17_0_1_Al_PGT}}</td>
+                <td>0-4</td>
+                <td>{{users.p17_0_4_Cr_PGT}}</td>
+                <td>0-5</td>
+                <td>{{users.p17_0_5_Cu_PGT}}</td>
+                <td>0-3</td>
+                <td>{{users.p17_0_3_Fe_PGT}}</td>
+                <td>0-3</td>
+                <td>{{users.p17_0_3_Pb_PGT}}</td>
+                <td>0-15</td>
+                <td>{{users.p17_0_15_Sn_PGT}}</td>
+                <td>0-3</td>
+                <td>{{users.p17_0_3_Ni_PGT}}</td>
+            </tr>
+
+
+            <tr>
+                <td>2</td>
+                <td>SGT</td>
+                <td>Turbonyc Oil 600</td>
+                <td>0-1</td>
+                <td>{{users.p17_0_1_Al_SGT}}</td>
+                <td>0-4</td>
+                <td>{{users.p17_0_4_Cr_SGT}}</td>
+                <td>0-5</td>
+                <td>{{users.p17_0_5_Cu_SGT}}</td>
+                <td>0-3</td>
+                <td>{{users.p17_0_3_Fe_SGT}}</td>
+                <td>0-3</td>
+                <td>{{users.p17_0_3_Pb_SGT}}</td>
+                <td>0-15</td>
+                <td>{{users.p17_0_15_Sn_SGT}}</td>
+                <td>0-3</td>
+                <td>{{users.p17_0_3_Ni_SGT}}</td>
+            </tr>
+
+        </table>
+
+        <!-- part-1-general-start -->
+
+        <div class="heading-style2 heading-style3 text-center">
+            <h2><u>PART - I: GENERAL</u></h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <td width="15%"><b>Ship :</b></td>
+                <td>{{ship}}</td>
+
+                <td class="td-bluelight" width="15%"><b>Date of Commission:</b></td>
+                <td>{{users.p17_date_comm}}</td>
+            </tr>
+            <tr>
+
+                <td width="15%"><b>Place :</b></td>
+                <td>{{users.p17_Place}}</td>
+                <td width="15%" class="td-bluelight"><b>Return for Quarter Ending :</b>
+                </td>
+                <td>{{users.p17_Return_quarter}}</td>
+
+            </tr>
+
+
+        </table>
+        <div>
+            <table class="table table-bordered table-form-color1 tabletd-color">
+                <thead>
+
+                    <tr>
+                        <th colspan="4">DETAILS OF REMOVED UNIT</th>
+                        <th colspan="4">DETAILS OF NEW UNIT</th>
+                        <th>REMARKS</th>
+
+                    </tr>
+
+                    <tr>
+                        <th>Unit</th>
+                        <th>Old UNIT SER NO</th>
+                        <th>DATE OF REMOVAL</th>
+                        <th>HOURS RUN</th>
+                        <th>NEW UNIT SER NO</th>
+                        <th>EX-SHIP/CONTRACT</th>
+                        <th>DOM</th>
+                        <th>DOI</th>
+                        <th>REASON OF REPLACEMENT</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>{{users.p17_gen_unit_1}}</td>
+                        <td>{{users.p17_gen_unit_ser_no_1}}</td>
+                        <td>{{users.p17_gen_date_of_rem_1}}</td>
+                        <td>{{users.p17_gen_hrs_run_1}}</td>
+                        <td>{{users.p17_gen_new_unit_1}}</td>
+                        <td>{{users.p17_gen_ex_ship_1}}</td>
+                        <td>{{users.p17_gen_DOM_1}}</td>
+                        <td>{{users.p17_gen_DOI_1}}</td>
+                        <td>{{users.p17_gen_reas_of_rep_1}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>{{users.p17_gen_unit_2}}</td>
+                        <td>{{users.p17_gen_unit_ser_no_2}}</td>
+                        <td>{{users.p17_gen_date_of_rem_2}}</td>
+                        <td>{{users.p17_gen_hrs_run_2}}</td>
+                        <td>{{users.p17_gen_new_unit_2}}</td>
+                        <td>{{users.p17_gen_ex_ship_2}}</td>
+                        <td>{{users.p17_gen_DOM_2}}</td>
+                        <td>{{users.p17_gen_DOI_2}}</td>
+                        <td>{{users.p17_gen_reas_of_rep_2}}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>{{users.p17_gen_unit_3}}</td>
+                        <td>{{users.p17_gen_unit_ser_no_3}}</td>
+                        <td>{{users.p17_gen_date_of_rem_3}}</td>
+                        <td>{{users.p17_gen_hrs_run_3}}</td>
+                        <td>{{users.p17_gen_new_unit_3}}</td>
+                        <td>{{users.p17_gen_ex_ship_3}}</td>
+                        <td>{{users.p17_gen_DOM_3}}</td>
+                        <td>{{users.p17_gen_DOI_3}}</td>
+                        <td>{{users.p17_gen_reas_of_rep_3}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- part-1-general-end -->
+
+
+
+        <div class="heading-style2 text-center">
+            <h2><u>PART-II GAS TURBINE EXPLOITATION</u></h2>
+        </div>
+
+        <h4 class="text-left"><u>(a) GT RH Table:-</u></h4>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th rowspan="2">OPERATION</th>
+                <th colspan="3">PGT</th>
+                <th colspan="3">SGT</th>
+
+            </tr>
+
+
+            <tr>
+                <th>QTR</th>
+                <th>SI</th>
+                <th>SN</th>
+                <th>QTR</th>
+                <th>SI</th>
+                <th>SN</th>
+            </tr>
+
+            <tr>
+                <td>GT RUNNING HOURS</td>
+                <td>{{users.p17_GT_runn_hrs_QTR_PGT}}</td>
+                <td>{{users.p17_GT_runn_hrs_SI_PGT}}</td>
+                <td>{{users.p17_GT_runn_hrs_SN_PGT}}</td>
+                <td>{{users.p17_GT_runn_hrs_QTR_SGT}}</td>
+                <td>{{users.p17_GT_runn_hrs_SI_SGT}}</td>
+                <td>{{users.p17_GT_runn_hrs_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>NO OF HOT STARTS</td>
+                <td>{{users.p17_no_of_hot_start_QTR_PGT}}</td>
+                <td>{{users.p17_no_of_hot_start_SI_PGT}}</td>
+                <td>{{users.p17_no_of_hot_start_SN_PGT}}</td>
+                <td>{{users.p17_no_of_hot_start_QTR_SGT}}</td>
+                <td>{{users.p17_no_of_hot_start_SI_SGT}}</td>
+                <td>{{users.p17_no_of_hot_start_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>NO OF MOTORING</td>
+                <td>{{users.p17_no_of_motoring_QTR_PGT}}</td>
+                <td>{{users.p17_no_of_motoring_SI_PGT}}</td>
+                <td>{{users.p17_no_of_motoring_SN_PGT}}</td>
+                <td>{{users.p17_no_of_motoring_QTR_SGT}}</td>
+                <td>{{users.p17_no_of_motoring_SI_SGT}}</td>
+                <td>{{users.p17_no_of_motoring_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>TOTALIZERS RS24</td>
+                <td>{{users.p17_totalizer_QTR_PGT}}</td>
+                <td>{{users.p17_totalizer_SI_PGT}}</td>
+                <td>{{users.p17_totalizer_SN_PGT}}</td>
+                <td>{{users.p17_totalizer_QTR_SGT}}</td>
+                <td>{{users.p17_totalizer_SI_SGT}}</td>
+                <td>{{users.p17_totalizer_SN_SGT}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td>RS25</td>
+                <td>{{users.p17_RS25_QTR_PGT}}</td>
+                <td>{{users.p17_RS25_SI_PGT}}</td>
+                <td>{{users.p17_RS25_SN_PGT}}</td>
+                <td>{{users.p17_RS25_QTR_SGT}}</td>
+                <td>{{users.p17_RS25_SI_SGT}}</td>
+                <td>{{users.p17_RS25_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>RS26</td>
+                <td>{{users.p17_RS26_QTR_PGT}}</td>
+                <td>{{users.p17_RS26_SI_PGT}}</td>
+                <td>{{users.p17_RS26_SN_PGT}}</td>
+                <td>{{users.p17_RS26_QTR_SGT}}</td>
+                <td>{{users.p17_RS26_SI_SGT}}</td>
+                <td>{{users.p17_RS26_SN_SGT}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td>RS27</td>
+                <td>{{users.p17_RS27_QTR_PGT}}</td>
+                <td>{{users.p17_RS27_SI_PGT}}</td>
+                <td>{{users.p17_RS27_SN_PGT}}</td>
+                <td>{{users.p17_RS27_QTR_SGT}}</td>
+                <td>{{users.p17_RS27_SI_SGT}}</td>
+                <td>{{users.p17_RS27_SN_SGT}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>RS28</td>
+                <td>{{users.p17_RS28_QTR_PGT}}</td>
+                <td>{{users.p17_RS28_SI_PGT}}</td>
+                <td>{{users.p17_RS28_SN_PGT}}</td>
+                <td>{{users.p17_RS28_QTR_SGT}}</td>
+                <td>{{users.p17_RS28_SI_SGT}}</td>
+                <td>{{users.p17_RS28_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>RS29</td>
+                <td>{{users.p17_RS29_QTR_PGT}}</td>
+                <td>{{users.p17_RS29_SI_PGT}}</td>
+                <td>{{users.p17_RS29_SN_PGT}}</td>
+                <td>{{users.p17_RS29_QTR_SGT}}</td>
+                <td>{{users.p17_RS29_SI_SGT}}</td>
+                <td>{{users.p17_RS29_SN_SGT}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td>RS30</td>
+                <td>{{users.p17_RS30_QTR_PGT}}</td>
+                <td>{{users.p17_RS30_SI_PGT}}</td>
+                <td>{{users.p17_RS30_SN_PGT}}</td>
+                <td>{{users.p17_RS30_QTR_SGT}}</td>
+                <td>{{users.p17_RS30_SI_SGT}}</td>
+                <td>{{users.p17_RS30_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>RS31</td>
+                <td>{{users.p17_RS31_QTR_PGT}}</td>
+                <td>{{users.p17_RS31_SI_PGT}}</td>
+                <td>{{users.p17_RS31_SN_PGT}}</td>
+                <td>{{users.p17_RS31_QTR_SGT}}</td>
+                <td>{{users.p17_RS31_SI_SGT}}</td>
+                <td>{{users.p17_RS31_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>RS32</td>
+                <td>{{users.p17_RS32_QTR_PGT}}</td>
+                <td>{{users.p17_RS32_SI_PGT}}</td>
+                <td>{{users.p17_RS32_SN_PGT}}</td>
+                <td>{{users.p17_RS32_QTR_SGT}}</td>
+                <td>{{users.p17_RS32_SI_SGT}}</td>
+                <td>{{users.p17_RS32_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>RS33</td>
+                <td>{{users.p17_RS33_QTR_PGT}}</td>
+                <td>{{users.p17_RS33_SI_PGT}}</td>
+                <td>{{users.p17_RS33_SN_PGT}}</td>
+                <td>{{users.p17_RS33_QTR_SGT}}</td>
+                <td>{{users.p17_RS33_SI_SGT}}</td>
+                <td>{{users.p17_RS33_SN_SGT}}</td>
+
+
+            </tr>
+
+            <tr>
+                <td>RS34</td>
+                <td>{{users.p17_RS34_QTR_PGT}}</td>
+                <td>{{users.p17_RS34_SI_PGT}}</td>
+                <td>{{users.p17_RS34_SN_PGT}}</td>
+
+
+                <td>{{users.p17_RS34_QTR_SGT}}</td>
+                <td>{{users.p17_RS34_SI_SGT}}</td>
+                <td>{{users.p17_RS34_SN_SGT}}</td>
+
+
+            </tr>
+
+            <tr>
+                <td>RS35</td>
+                <td>{{users.p17_RS35_QTR_PGT}}</td>
+                <td>{{users.p17_RS35_SI_PGT}}</td>
+                <td>{{users.p17_RS35_SN_PGT}}</td>
+
+
+                <td>{{users.p17_RS35_QTR_SGT}}</td>
+                <td>{{users.p17_RS35_SI_SGT}}</td>
+                <td>{{users.p17_RS35_SN_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>RS36</td>
+                <td>{{users.p17_RS36_QTR_PGT}}</td>
+                <td>{{users.p17_RS36_SI_PGT}}</td>
+                <td>{{users.p17_RS36_SN_PGT}}</td>
+
+
+                <td>{{users.p17_RS36_QTR_SGT}}</td>
+                <td>{{users.p17_RS36_SI_SGT}}</td>
+                <td>{{users.p17_RS36_SN_SGT}}</td>
+
+
+            </tr>
+
+
+
+            <tr>
+                <td>RS37</td>
+                <td>{{users.p17_RS37_QTR_PGT}}</td>
+                <td>{{users.p17_RS37_SI_PGT}}</td>
+                <td>{{users.p17_RS37_SN_PGT}}</td>
+
+
+                <td>{{users.p17_RS37_QTR_SGT}}</td>
+                <td>{{users.p17_RS37_SI_SGT}}</td>
+                <td>{{users.p17_RS37_SN_SGT}}</td>
+
+            </tr>
+
+
+
+            <tr>
+                <td>RS38</td>
+                <td>{{users.p17_RS38_QTR_PGT}}</td>
+                <td>{{users.p17_RS38_SI_PGT}}</td>
+                <td>{{users.p17_RS38_SN_PGT}}</td>
+
+
+                <td>{{users.p17_RS38_QTR_SGT}}</td>
+                <td>{{users.p17_RS38_SI_SGT}}</td>
+                <td>{{users.p17_RS38_SN_SGT}}</td>
+
+
+            </tr>
+
+
+        </table>
+
+
+        <div class="heading-style2 text-center">
+            <h4><u>(b) ENGINE EXPLOITATION FACTOR (EEF)</u></h4>
+        </div>
+
+        <table class="table table-bordered tabletd-color">
+            <tr>
+                <th>MONTH</th>
+                <th>CUMULATIVE RHs OF all 04 GTs DURING THE MONTH (a)</th>
+                <th>Total Hours Underway During The Month (b)</th>
+                <th>Calculated EEF - (a)/(b)</th>
+                <th>Remarks</th>
+            </tr>
+
+
+            <tr>
+                <td>{{users.p17_EEF_mon_1}}</td>
+                <td>{{users.p17_EEF_cumu_hrs_a_1}}</td>
+                <td>{{users.p17_EEF_total_hrs_b_1}}</td>
+                <td>{{users.p17_EEF_calculated_1}}</td>
+                <td>{{users.p17_EEF_remarks_1}}</td>
+            </tr>
+
+
+            <tr>
+                <td>{{users.p17_EEF_mon_2}}</td>
+                <td>{{users.p17_EEF_cumu_hrs_a_2}}</td>
+                <td>{{users.p17_EEF_total_hrs_b_2}}</td>
+                <td>{{users.p17_EEF_calculated_2}}</td>
+                <td>{{users.p17_EEF_remarks_2}}</td>
+            </tr>
+
+
+            <tr>
+                <td>{{users.p17_EEF_mon_3}}</td>
+                <td>{{users.p17_EEF_cumu_hrs_a_3}}</td>
+                <td>{{users.p17_EEF_total_hrs_b_3}}</td>
+                <td>{{users.p17_EEF_calculated_3}}</td>
+                <td>{{users.p17_EEF_remarks_3}}</td>
+            </tr>
+
+
+            <tr>
+                <td>{{users.p17_EEF_mon_4}}</td>
+                <td>{{users.p17_EEF_cumu_hrs_a_4}}</td>
+                <td>{{users.p17_EEF_total_hrs_b_4}}</td>
+                <td>{{users.p17_EEF_calculated_4}}</td>
+                <td>{{users.p17_EEF_remarks_4}}</td>
+            </tr>
+
+
+        </table>
+
+
+
+
+
+        <div class="heading-style2 text-center">
+            <h2><u>PART-III</u></h2>
+            <h2><u>DETAILS OF MAINTENANCE/ROUTINES/TRIAL/INSPECTIONS</u></h2>
+        </div>
+
+        <table class="table table-bordered tabletd-color">
+
+            <tr>
+                <th colspan="4">(a) INSPECTION/TRIALS</th>
+            </tr>
+
+            <tr>
+                <th width="1%">SER</th>
+                <th>EQUIPMENT</th>
+                <th>PGT</th>
+                <th>SGT</th>
+
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>TYPE OF TRIAL</td>
+                <td>{{users.p17_ins_type_of_trial_PGT}}</td>
+                <td>{{users.p17_ins_type_of_trial_SGT}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td>2</td>
+                <td>DATE OF LAST EHM TRIAL</td>
+                <td>{{users.p17_ins_last_EHM_trial_PGT}}</td>
+                <td>{{users.p17_ins_last_EHM_trial_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>DATE OF LAST VIBRATION TRIAL</td>
+                <td>{{users.p17_ins_last_vib_trial_PGT}}</td>
+                <td>{{users.p17_ins_last_vib_trial_SGT}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td>4</td>
+                <td>DATE OF LAST BORESCOPIC INSPECTION/Reason</td>
+                <td>{{users.p17_ins_borescopic_PGT}}</td>
+                <td>{{users.p17_ins_borescopic_SGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>DATE OF LAST FULL POWER TRIAL (PARAMETERS TO BE FORWADED SEPARATELY IF UNDERTAKEN IN QUARTER)</td>
+                <td>{{users.p17_ins_full_power_trial_PGT}}</td>
+                <td>{{users.p17_ins_full_power_trial_SGT}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td>6</td>
+                <td>DATE OF LAST lub oil SOAP analysis (turbonyc Oil 600/Servo System HLP 46)</td>
+                <td>{{users.p17_ins_soap_analysis_PGT}}</td>
+                <td>{{users.p17_ins_soap_analysis_SGT}}</td>
+
+            </tr>
+
+
+
+        </table>
+
+
+        <h4 class="text-left"><u>(b) MAINTENANCE ROUTINE</u></h4>
+
+
+        <table class="table table-bordered tabletd-color">
+
+            <tr>
+                <th colspan="5">ROUTINE DUE BUT NOT UNDERTAKEN</th>
+            </tr>
+
+            <tr>
+                <th width="1%">SER</th>
+                <th>EQUIPMENT</th>
+                <th>Description</th>
+                <th>Maintop Routine Number</th>
+                <th>REMARKS/FUSS Details</th>
+            </tr>
+
+
+            <tr>
+                <td>1</td>
+                <td>PGT</td>
+
+                <td>{{users.p17_main_not_under_desc_PGT}}</td>
+                <td>{{users.p17_main_not_under_routNo_PGT}}</td>
+                <td>{{users.p17_main_not_under_rem_PGT}}</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>SGT</td>
+
+                <td>{{users.p17_main_not_under_desc_SGT}}</td>
+                <td>{{users.p17_main_not_under_routNo_SGT}}</td>
+                <td>{{users.p17_main_not_under_rem_SGT}}</td>
+            </tr>
+
+
+
+
+
+        </table>
+
+
+        <h4 class="text-left"><u>(c) MAINTENANCE ROUTINE UNDERTAKEN FOR THE QUARTER</u></h4>
+
+
+        <table class="table table-bordered tabletd-color">
+
+
+
+            <tr>
+                <th>S.No.</th>
+                <th>EQUIPMENT</th>
+                <th>Schedule No</th>
+                <th>Job_undertaken</th>
+                <th>REMARKS</th>
+            </tr>
+
+
+            <tr>
+                <td>(i)</td>
+                <td>PGT</td>
+                <td>{{users.p17_main_sch_no_PGT}}</td>
+                <td>{{users.p17_main_job_under_desc_PGT}}</td>
+                <td>{{users.p17_main_rem_PGT}}</td>
+
+            </tr>
+
+            <tr>
+                <td>(ii)</td>
+                <td>SGT</td>
+                <td>{{users.p17_main_sch_no_SGT}}</td>
+                <td>{{users.p17_main_job_under_desc_SGT}}</td>
+                <td>{{users.p17_main_rem_SGT}}</td>
+
+            </tr>
+
+
+
+
+
+        </table>
+
+
+
+
+        <h4 class="text-left"><u>(d) Record of Cleaning of GT Fuel Service Tanks </u></h4>
+
+
+        <table class="table table-bordered tabletd-color">
+
+
+
+            <tr>
+                <th>Tank No.</th>
+                <th>Date of Cleaning </th>
+                <th>Next Due on</th>
+                <th>REMARKS</th>
+            </tr>
+
+
+            <tr>
+                <td>Service Tank 1</td>
+                <td>{{users.p17_date_of_clean_M1}}</td>
+                <td>{{users.p17_next_due_on_M1}}</td>
+                <td>{{users.p17_fuel_tanks_rem_M1}}</td>
+            </tr>
+
+            <tr>
+                <td>Service Tank 2</td>
+                <td>{{users.p17_date_of_clean_M2}}</td>
+                <td>{{users.p17_next_due_on_M2}}</td>
+                <td>{{users.p17_fuel_tanks_rem_M2}}</td>
+            </tr>
+
+
+
+
+        </table>
+
+
+
+
+        <h4 class="text-left"><u>(e) RH of GT Fuel Equipment</u></h4>
+
+
+        <table class="table table-bordered tabletd-color">
+
+
+
+            <tr>
+                <th colspan="6">GT Fuel Equipment Details</th>
+
+            </tr>
+
+            <tr>
+
+                <th>Equipment/Position</th>
+                <th>Serial No</th>
+                <th>Date of Calibration</th>
+                <th>Date of Installation</th>
+                <th>RH</th>
+                <th>Reason for Replacement</th>
+            </tr>
+
+
+            <tr>
+                <td>{{users.p17_RH_GT_fuel_eqp}}</td>
+                <td>{{users.p17_RH_GT_fuel_sr_no}}</td>
+                <td>{{users.p17_RH_GT_fuel_date_of_calib}}</td>
+                <td>{{users.p17_RH_GT_fuel_date_of_inst}}</td>
+                <td>{{users.p17_RH_GT_fuel_RH}}</td>
+                <td>{{users.p17_RH_GT_fuel_reas_for_rep}}</td>
+
+
+            </tr>
+
+        </table>
+
+
+        <h4 class="text-left"><u>(f) Replacement of Major Units /Sub Units</u></h4>
+
+
+        <table class="table table-bordered tabletd-color">
+
+
+
+            <tr>
+                <th colspan="6">Gas Turbine Components</th>
+
+            </tr>
+
+            <tr>
+
+                <th>Date</th>
+                <th>Unit/Sub Unit</th>
+                <th>Old SI. No.</th>
+                <th>New SI. No.</th>
+                <th>Reason for Replacement</th>
+                <th>Remarks</th>
+            </tr>
+
+
+            <tr>
+                <td>{{users.p17_gas_turb_comp_date}}</td>
+                <td>{{users.p17_gas_turb_comp_sub_unit}}</td>
+                <td>{{users.p17_gas_turb_comp_old_SI_No}}</td>
+                <td>{{users.p17_gas_turb_comp_new_SI_No}}</td>
+                <td>{{users.p17_gas_turb_comp_reas_for_rep}}</td>
+                <td>{{users.p17_gas_turb_comp_remarks}}</td>
+            </tr>
+
+            <tr>
+                <td>{{users.p17_gas_turb_comp_date_1}}</td>
+                <td>{{users.p17_gas_turb_comp_sub_unit_1}}</td>
+                <td>{{users.p17_gas_turb_comp_old_SI_No_1}}</td>
+                <td>{{users.p17_gas_turb_comp_new_SI_No_1}}</td>
+                <td>{{users.p17_gas_turb_comp_reas_for_rep_1}}</td>
+                <td>{{users.p17_gas_turb_comp_remarks_1}}</td>
+            </tr>
+
+        </table>
+
+
+
+
+        <table class="table table-bordered tabletd-color">
+
+
+
+            <tr>
+                <th colspan="6">GT IEC Units/Cards</th>
+
+            </tr>
+
+            <tr>
+
+                <th>Date</th>
+                <th>Unit/Sub Unit</th>
+                <th>Old SI. No.</th>
+                <th>New SI. No.</th>
+                <th>Reason for Replacement</th>
+                <th>Remarks</th>
+            </tr>
+
+
+            <tr>
+                <td>{{users.p17_GT_IEC_units_date}}</td>
+                <td>{{users.p17_GT_IEC_units_sub_unit}}</td>
+                <td>{{users.p17_GT_IEC_units_old_SI_No}}</td>
+                <td>{{users.p17_GT_IEC_units_new_SI_No}}</td>
+                <td>{{users.p17_GT_IEC_units_reas_for_rep}}</td>
+                <td>{{users.p17_GT_IEC_units_remarks}}</td>
+            </tr>
+
+        </table>
+        <!-- End of Page 1 ********************************************************************************* -->
+
+
+
+
+        <h4>(B)&nbsp;&nbsp;Pumps in SPTA</h4>
+        <table class="table table-bordered table-form-color">
+            <tr>
+                <th width="5%">SNo.</th>
+                <th width="22%">Pump SNO</th>
+                <th width="22%">Last Calibrated On</th>
+                <th width="22%">Total R/H</th>
+                <th width="24%">Remarks</th>
+            </tr>
+
+
+
+            {% for al in dynamic1%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.SPTA_Pump_SNO}}</td>
+                        <td>{{al.SPTA_Last_Calibrated_Date}}</td>
+                        <td>{{al.SPTA_Total}}</td>
+                        <td>{{al.SPTA_Remarks}}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+        <h4>(C)&nbsp;&nbsp;Pumps Surveyed in Quarter</h4>
+        <table class="table table-bordered table-form-color">
+            <tr>
+                <th width="4%">SNo.</th>
+                <th width="10%">Pump SNO</th>
+                <th with="12%">Surveyed on</th>
+                <th width="20%">Survey Reference</th>
+                <th width="30%">Remarks</th>
+            </tr>
+
+            {% for al in dynamic2 %}
+            <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{al.Pumps_Surve_S_No}}</td>
+                    <td>{{al.Pumps_Surve_Survey_on_date}}</td>
+                    <td>{{al.Pumps_Surve_Survey_ref}}</td>
+                    <td>{{al.Pumps_Surve_Reason}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <h4>(D)&nbsp;&nbsp;Pumps Received in Quarter</h4>
+        <table class="table table-bordered table-form-color">
+            <tr>
+                <th width="5%">SNo.</th>
+                <th width="15%">Pump SNO</th>
+                <th width="14%">Received On</th>
+                <th width="20%">Against Survey Reference</th>
+                <th width="15%">Total Running Hours</th>
+                <th width="25%">Remarks</th>
+            </tr>
+
+            {% for al in dynamic3 %}
+            <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{al.Pumps_Received_S_No}}</td>
+                    <td>{{al.Pumps_Received_on_date}}</td>
+                    <td>{{al.Pumps_Received_Against_Survey_Ref}}</td>
+                    <td>{{al.Pumps_Received_total_RH}}</td>
+                    <td>{{al.Pumps_Received_Remarks}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        <div class="heading-style2 text-center">
+            <h2><u>PART-IV: DEFECTS</u></h2>
+        </div>
+
+        <table class="table table-bordered tabletd-color">
+
+            <tr>
+                <th colspan="6" class="text-center">(a) Defect observed on GTs during Quarter</th>
+            </tr>
+
+            <tr>
+                <th width="1%">SER</th>
+                <th width="6%">DATE</th>
+                <th width="7%">DART NO.</th>
+                <th width="9%">Equipment</th>
+                <th width="10%">Description</th>
+                <th width="12%">Remedial Action</th>
+            </tr>
+
+            {% for al in dynamic4 %}
+            <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{al.p17_def_date}}</td>
+                    <td>{{al.p17_def_dart_no}}</td>
+                    <td>{{al.p17_def_eqp}}</td>
+                    <td>{{al.p17_def_desc}}</td>
+                    <td>{{al.p17_def_rem_act}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <table class="table table-bordered tabletd-color">
+
+            <tr>
+                <th colspan="6" class="text-center">(b) Defect observed on GT IEC and Main Propulsion Control during
+                    Quarter</th>
+            </tr>
+
+            <tr>
+                <th width="1%">SER</th>
+                <th width="6%">DATE</th>
+                <th width="7%">DART NO.</th>
+                <th width="9%">Equipment</th>
+                <th width="10%">Description</th>
+                <th width="12%">Remedial Action</th>
+            </tr>
+
+            {% for al in dynamic5 %}
+            <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{al.p17_def_on_GT_IEC_date}}</td>
+                    <td>{{al.p17_def_on_GT_IEC_dart_no}}</td>
+                    <td>{{al.p17_def_on_GT_IEC_eqp}}</td>
+                    <td>{{al.p17_def_on_GT_IEC_desc}}</td>
+                    <td>{{al.p17_def_on_GT_IEC_rem_act}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        <div class="heading-style2 text-center" style="margin-top: 5em;">
+            <h2><u>PART-V: PARAMETERS</u></h2>
+        </div>
+
+        <table class="table table-bordered tabletd-color">
+            <tr>
+
+                <td class="subheader" colspan="2">MODE</td>
+                <td>{{users1.p17_gt_para_9000_mode}}</td>
+                <td class="subheader">GT PARAMETERS AT 9000 GG RPM</td>
+                <td class="subheader" colspan="6">DATE</td>
+                <td colspan="4">{{users1.p17_gt_para_9000_date}}</td>
+            </tr>
+        </table>
+
+        <table class="table table-bordered tabletd-color">
+
+
+            <tr>
+                <th>SER</th>
+                <th>PARAMETER DESCRIPTION</th>
+                <th>OPERATING RANGE</th>
+                <th>GT1</th>
+                <th>GT2</th>
+                <th>GT3</th>
+                <th>GT4</th>
+            </tr>
+
+
+            <tr>
+                <td>1.</td>
+                <td>GT POWER</td>
+                <td>≤ 22.37 MW</td>
+                <td>{{users1.p17_mon_para_GT_power_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_power_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_power_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_power_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>2.</td>
+                <td>GT TORQUE</td>
+                <td>≤62 KNm</td>
+                <td>{{users1.p17_mon_para_GT_Torque_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_Torque_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_Torque_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_Torque_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>3.</td>
+                <td>GG SPEED</td>
+                <td>4900-10050</td>
+                <td>{{users1.p17_mon_para_GG_Speed_GT1}}</td>
+                <td>{{users1.p17_mon_para_GG_Speed_GT2}}</td>
+                <td>{{users1.p17_mon_para_GG_Speed_GT3}}</td>
+                <td>{{users1.p17_mon_para_GG_Speed_GT4}}</td>
+            </tr>
+
+
+
+
+            <tr>
+                <td>4.</td>
+                <td>PT SPEED</td>
+                <td>1600-3600</td>
+                <td>{{users1.p17_mon_para_PT_Speed_GT1}}</td>
+                <td>{{users1.p17_mon_para_PT_Speed_GT2}}</td>
+                <td>{{users1.p17_mon_para_PT_Speed_GT3}}</td>
+                <td>{{users1.p17_mon_para_PT_Speed_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>5.</td>
+                <td>AVERAGE INLET AIR TEMP (T2)</td>
+                <td> ° C</td>
+                <td>{{users1.p17_mon_para_avg_inlet_GT1}}</td>
+                <td>{{users1.p17_mon_para_avg_inlet_GT2}}</td>
+                <td>{{users1.p17_mon_para_avg_inlet_GT3}}</td>
+                <td>{{users1.p17_mon_para_avg_inlet_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>6.</td>
+                <td>INLET AIR TOTAL PRESSURE (PT2)</td>
+                <td>BAR</td>
+                <td>{{users1.p17_mon_para_inlet_airPT2_GT1}}</td>
+                <td>{{users1.p17_mon_para_inlet_airPT2_GT2}}</td>
+                <td>{{users1.p17_mon_para_inlet_airPT2_GT3}}</td>
+                <td>{{users1.p17_mon_para_inlet_airPT2_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>7.</td>
+                <td>PT INLET GAS TEMP (T5.4)</td>
+                <td>538-904 ° C</td>
+                <td>{{users1.p17_mon_para_PT_inlet_T5_GT1}}</td>
+                <td>{{users1.p17_mon_para_PT_inlet_T5_GT2}}</td>
+                <td>{{users1.p17_mon_para_PT_inlet_T5_GT3}}</td>
+                <td>{{users1.p17_mon_para_PT_inlet_T5_GT4}}</td>
+            </tr>
+
+
+
+
+            <tr>
+                <td>8.</td>
+                <td>COMP DISC STATIC PRESSURE(PS3)</td>
+                <td>≤ 17.93 BAR MAX</td>
+                <td>{{users1.p17_mon_para_comp_discPS3_GT1}}</td>
+                <td>{{users1.p17_mon_para_comp_discPS3_GT2}}</td>
+                <td>{{users1.p17_mon_para_comp_discPS3_GT3}}</td>
+                <td>{{users1.p17_mon_para_comp_discPS3_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>9.</td>
+                <td>PT INLET GAS TOTAL PRESSURE (PT 5.4)</td>
+                <td>≤ 5.17 BAR</td>
+                <td>{{users1.p17_mon_para_PT_inlet_gas_GT1}}</td>
+                <td>{{users1.p17_mon_para_PT_inlet_gas_GT2}}</td>
+                <td>{{users1.p17_mon_para_PT_inlet_gas_GT3}}</td>
+                <td>{{users1.p17_mon_para_PT_inlet_gas_GT4}}</td>
+            </tr>
+
+
+
+
+            <tr>
+                <td>10.</td>
+                <td>GT FUEL MANIFOLD PRESSURE</td>
+                <td>15.86 - 24.14 BAR AT IDLE</td>
+                <td>{{users1.p17_mon_para_GT_fuel_manifold_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_manifold_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_manifold_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_manifold_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>11.</td>
+                <td>FMV POSITION (%)</td>
+                <td> -10 - 100%</td>
+                <td>{{users1.p17_mon_para_FMV_pos_GT1}}</td>
+                <td>{{users1.p17_mon_para_FMV_pos_GT2}}</td>
+                <td>{{users1.p17_mon_para_FMV_pos_GT3}}</td>
+                <td>{{users1.p17_mon_para_FMV_pos_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>12.</td>
+                <td>VSV POSITION (%)</td>
+                <td>≤62 KNm</td>
+                <td>{{users1.p17_mon_para_VSV_pos_GT1}}</td>
+                <td>{{users1.p17_mon_para_VSV_pos_GT2}}</td>
+                <td>{{users1.p17_mon_para_VSV_pos_GT3}}</td>
+                <td>{{users1.p17_mon_para_VSV_pos_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>13.</td>
+                <td>TIC INPUT TO CONTROLLER</td>
+                <td>≤ 95</td>
+                <td>{{users1.p17_mon_para_TIC_input_GT1}}</td>
+                <td>{{users1.p17_mon_para_TIC_input_GT2}}</td>
+                <td>{{users1.p17_mon_para_TIC_input_GT3}}</td>
+                <td>{{users1.p17_mon_para_TIC_input_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>14.</td>
+                <td>TIC FEEDBACK</td>
+                <td>≤ 95</td>
+                <td>{{users1.p17_mon_para_TIC_feedb_GT1}}</td>
+                <td>{{users1.p17_mon_para_TIC_feedb_GT2}}</td>
+                <td>{{users1.p17_mon_para_TIC_feedb_GT3}}</td>
+                <td>{{users1.p17_mon_para_TIC_feedb_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>15.</td>
+                <td>GT LUB OIL PRESSURE</td>
+                <td>1.0 – 6.89 BAR</td>
+                <td>{{users1.p17_mon_para_GT_lub_oil_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_lub_oil_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_lub_oil_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_lub_oil_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>16.</td>
+                <td>GT LUB OIL DIFFERENTIAL PRESSURE</td>
+                <td>0 - 1.38 BAR</td>
+                <td>{{users1.p17_mon_para_GT_diff_press_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_diff_press_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_diff_press_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_diff_press_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>17.</td>
+                <td>GT FUEL INLET PRESSURE</td>
+                <td>0.34 - 3.45 BAR</td>
+                <td>{{users1.p17_mon_para_GT_fuel_inlet_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_inlet_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_inlet_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_inlet_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>18.</td>
+                <td>GT FUEL DIFF PRESSURE/td>
+                <td>0 - 1.86 BAR</td>
+                <td>{{users1.p17_mon_para_GT_fuel_diff_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_diff_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_diff_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_diff_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>19.</td>
+                <td>GT FUEL SUPPLY TEMPERATURE</td>
+                <td>5 - 65° C</td>
+                <td>{{users1.p17_mon_para_GT_fuel_supp_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_supp_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_supp_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_fuel_supp_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>20.</td>
+                <td>FUEL DUPLEX FILTER DIFF PRESSURE</td>
+                <td>≤ 1.4 BAR</td>
+                <td>{{users1.p17_mon_para_fuel_duplex_GT1}}</td>
+                <td>{{users1.p17_mon_para_fuel_duplex_GT2}}</td>
+                <td>{{users1.p17_mon_para_fuel_duplex_GT3}}</td>
+                <td>{{users1.p17_mon_para_fuel_duplex_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>21.</td>
+                <td>TEMPERATURE BEFORE IRSS</td>
+                <td>≤ 520° C</td>
+                <td>{{users1.p17_mon_para_temp_IRSS_GT1}}</td>
+                <td>{{users1.p17_mon_para_temp_IRSS_GT2}}</td>
+                <td>{{users1.p17_mon_para_temp_IRSS_GT3}}</td>
+                <td>{{users1.p17_mon_para_temp_IRSS_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>22.</td>
+                <td>GT LUB OIL INLET TEMPERATURE</td>
+                <td>≤ 520° C</td>
+                <td>{{users1.p17_mon_para_GT_lub_1_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_lub_1_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_lub_1_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_lub_1_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>23.</td>
+                <td>GT SCAV TEMP SUMP - A</td>
+                <td>≤ 520° C</td>
+                <td>{{users1.p17_mon_para_GT_scav_A_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_A_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_A_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_A_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>24.</td>
+                <td>GT SCAV TEMP SUMP - B</td>
+                <td>93° C - 149° C</td>
+                <td>{{users1.p17_mon_para_GT_scav_B_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_B_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_B_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_B_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>25.</td>
+                <td>GT SCAV TEMP SUMP - C</td>
+                <td>93° C - 149° C</td>
+                <td>{{users1.p17_mon_para_GT_scav_C_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_C_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_C_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_C_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>26.</td>
+                <td>GT SCAV TEMP SUMP - D</td>
+                <td>93° C - 149° C</td>
+                <td>{{users1.p17_mon_para_GT_scav_D_GT1}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_D_GT2}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_D_GT3}}</td>
+                <td>{{users1.p17_mon_para_GT_scav_D_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>27.</td>
+                <td>ACCESSORY GEAR BOX</td>
+                <td>93° C - 149° C</td>
+                <td>{{users1.p17_mon_para_acc_gearBox_GT1}}</td>
+                <td>{{users1.p17_mon_para_acc_gearBox_GT2}}</td>
+                <td>{{users1.p17_mon_para_acc_gearBox_GT3}}</td>
+                <td>{{users1.p17_mon_para_acc_gearBox_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>28.</td>
+                <td>COOL AIR DISCHARGE TEMP</td>
+                <td>
+                    < 200° C</td>
+                <td>{{users1.p17_mon_para_cool_air_disc_GT1}}</td>
+                <td>{{users1.p17_mon_para_cool_air_disc_GT2}}</td>
+                <td>{{users1.p17_mon_para_cool_air_disc_GT3}}</td>
+                <td>{{users1.p17_mon_para_cool_air_disc_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>29.</td>
+                <td>DEMAND SHAFT SPEED</td>
+                <td> ≤ 214 RPM </td>
+                <td>{{users1.p17_mon_para_dem_shaft_speed_GT1}}</td>
+                <td>{{users1.p17_mon_para_dem_shaft_speed_GT2}}</td>
+                <td>{{users1.p17_mon_para_dem_shaft_speed_GT3}}</td>
+                <td>{{users1.p17_mon_para_dem_shaft_speed_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>30.</td>
+                <td>ACHIEVED SHAFT SPEED</td>
+                <td>≤ 214 RPM</td>
+                <td>{{users1.p17_mon_para_ach_shaft_speed_GT1}}</td>
+                <td>{{users1.p17_mon_para_ach_shaft_speed_GT2}}</td>
+                <td>{{users1.p17_mon_para_ach_shaft_speed_GT3}}</td>
+                <td>{{users1.p17_mon_para_ach_shaft_speed_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>31.</td>
+                <td>DEMAND PITCH</td>
+                <td>≤ 37.1o</td>
+                <td>{{users1.p17_mon_para_dem_pitch_GT1}}</td>
+                <td>{{users1.p17_mon_para_dem_pitch_GT2}}</td>
+                <td>{{users1.p17_mon_para_dem_pitch_GT3}}</td>
+                <td>{{users1.p17_mon_para_dem_pitch_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>32.</td>
+                <td>ACHIEVED PITCH</td>
+                <td>≤ 37.1o</td>
+                <td>{{users1.p17_mon_para_ach_pitch_GT1}}</td>
+                <td>{{users1.p17_mon_para_ach_pitch_GT2}}</td>
+                <td>{{users1.p17_mon_para_ach_pitch_GT3}}</td>
+                <td>{{users1.p17_mon_para_ach_pitch_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>33.</td>
+                <td>DP 1</td>
+                <td>≤ 10 inches of WC</td>
+                <td>{{users1.p17_mon_para_DP_1_GT1}}</td>
+                <td>{{users1.p17_mon_para_DP_1_GT2}}</td>
+                <td>{{users1.p17_mon_para_DP_1_GT3}}</td>
+                <td>{{users1.p17_mon_para_DP_1_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>34.</td>
+                <td>DP 2</td>
+                <td>≤ 10 inches of WC</td>
+                <td>{{users1.p17_mon_para_DP_2_GT1}}</td>
+                <td>{{users1.p17_mon_para_DP_2_GT2}}</td>
+                <td>{{users1.p17_mon_para_DP_2_GT3}}</td>
+                <td>{{users1.p17_mon_para_DP_2_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>35.</td>
+                <td>DP 3</td>
+                <td>≤ 10 inches of WC</td>
+                <td>{{users1.p17_mon_para_DP_3_GT1}}</td>
+                <td>{{users1.p17_mon_para_DP_3_GT2}}</td>
+                <td>{{users1.p17_mon_para_DP_3_GT3}}</td>
+                <td>{{users1.p17_mon_para_DP_3_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>36.</td>
+                <td>DP 4</td>
+                <td>≤ 10 inches of WC</td>
+                <td>{{users1.p17_mon_para_DP_4_GT1}}</td>
+                <td>{{users1.p17_mon_para_DP_4_GT2}}</td>
+                <td>{{users1.p17_mon_para_DP_4_GT3}}</td>
+                <td>{{users1.p17_mon_para_DP_4_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>37.</td>
+                <td>GG VIB</td>
+                <td>
+                    < 4.0 MILS </td>
+                <td>{{users1.p17_mon_para_GG_VIB_GT1}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_GT2}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_GT3}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>38.</td>
+                <td>GG VIB DUE TO GG</td>
+                <td>
+                    < 4.0 MILS </td>
+                <td>{{users1.p17_mon_para_GG_VIB_GG_GT1}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_GG_GT2}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_GG_GT3}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_GG_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>39.</td>
+                <td>GG VIB DUE TO PT</td>
+                <td>
+                    < 4.0 MILS </td>
+                <td>{{users1.p17_mon_para_GG_VIB_PT_GT1}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_PT_GT2}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_PT_GT3}}</td>
+                <td>{{users1.p17_mon_para_GG_VIB_PT_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>40.</td>
+                <td>PT VIB</td>
+                <td>
+                    < 7.0 MILS </td>
+                <td>{{users1.p17_mon_para_PT_VIB_GT1}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_GT2}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_GT3}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>41.</td>
+                <td>PT VIB DUE TO PT</td>
+                <td>
+                    < 7.0 MILS </td>
+                <td>{{users1.p17_mon_para_PT_VIB_PT_GT1}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_PT_GT2}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_PT_GT3}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_PT_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>42.</td>
+                <td>PT VIB DUE TO GG</td>
+                <td>
+                    < 7.0 MILS </td>
+                <td>{{users1.p17_mon_para_PT_VIB_GG_GT1}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_GG_GT2}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_GG_GT3}}</td>
+                <td>{{users1.p17_mon_para_PT_VIB_GG_GT4}}</td>
+            </tr>
+
+
+            <tr>
+                <td>43.</td>
+                <td>SHAFT</td>
+                <td> ≤ 214 RPM </td>
+                <td>{{users1.p17_mon_para_shaft_GT1}}</td>
+                <td>{{users1.p17_mon_para_shaft_GT2}}</td>
+                <td>{{users1.p17_mon_para_shaft_GT3}}</td>
+                <td>{{users1.p17_mon_para_shaft_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td>44.</td>
+                <td>SHAFT TORQUE</td>
+                <td> NA </td>
+                <td>{{users1.p17_mon_para_shaft_torque_GT1}}</td>
+                <td>{{users1.p17_mon_para_shaft_torque_GT2}}</td>
+                <td>{{users1.p17_mon_para_shaft_torque_GT3}}</td>
+                <td>{{users1.p17_mon_para_shaft_torque_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>45.</td>
+                <td>RUNNING HOURS WHILE RECORDING PARAMETERS </td>
+                <td> </td>
+                <td>{{users1.p17_mon_para_rec_para_GT1}}</td>
+                <td>{{users1.p17_mon_para_rec_para_GT2}}</td>
+                <td>{{users1.p17_mon_para_rec_para_GT3}}</td>
+                <td>{{users1.p17_mon_para_rec_para_GT4}}</td>
+            </tr>
+
+
+        </table>
+
+
+        <div class="heading-style2 text-center">
+            <h2><u>PART-VI REMARKS</u></h2>
+        </div>
+
+
+
+        <table class="table table-bordered table-style-color table-form-color tabletd-color">
+            <tr>
+                <td>
+
+                    <div class="form-floating">
+                       {{users1.p17_quarterly_gt_return_remarks}}
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="table table-bordered tabletd-color">
+
+
+            <tr>
+                <th>DATE CHECKED</th>
+                <th>BY WHOM</th>
+                <th>DATE OF DATA ENTRY</th>
+                <th>BY WHOM</th>
+            </tr>
+
+
+            <tr>
+                <td>{{users1.p17_rem_date_check}}</td>
+                <td>{{users1.p17_rem_by_whom}}</td>
+                <td>{{users1.p17_rem_date_check_1}}</td>
+                <td>{{users1.p17_rem_by_whom_1}}</td>
+            </tr>
+
+        </table>
+
+        </div>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+    </table>
+    </div>
+</body>
+
+</html>

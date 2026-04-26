@@ -1,0 +1,133 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Refit-trials-status</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         .table-line{vertical-align: top;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+    <div class="wrapper">
+        <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">Refit Trials Monitoring Dashboard</h2>
+        </div>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            {% if users%}
+            <tr>
+                <td><strong>Ship :</strong></td>
+                <td colspan="2" style="font-size:14px; color: #222;">{{users.Refit_Ship}}</td>
+                <td class="td-bluelight" width="20%"><strong>Class:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Refit_Class}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td><strong>Refit Type:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Refit_Type}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Refit_Type_date}}</td>
+                <td class="td-bluelight" width="10%"><strong>Clasification  of Trial:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Refit_Clasification_Trial}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td><strong>CMMS Code</strong></td>
+                <td colspan="2" style="font-size:14px; color: #222;">{{users.Refit_CMMS_Code}}</td>
+                <td class="td-bluelight"><strong>Name</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Refit_Name}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td width="10%"><strong>Date :</strong></td>
+                <td colspan="2" style="font-size:14px; color: #222;">{{users.Refit_Date |date:'d/m/Y'}}</td>
+                <td class="td-bluelight"><strong>Trials taken by :</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Refit_Trials_taken_by}}</td>
+            </tr>
+            {% endif%}
+        </table>
+        <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">Trial Status</h2>
+        </div>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            {% if users%}
+            <tr>
+                <td width="20%"><strong>Final Status</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Refit_Final_Status}}</td>
+            </tr>
+            {% endif%}
+        </table>
+        <h4>Remarks</h4>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            {% if users%}
+            <tr>
+                <td style="font-size:14px; color: #222;">{{users.Refit_Remarks}}</td>
+            </tr>
+            {% endif%}
+        </table>
+        <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">SEARCH TAB</h2>
+        </div>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+                <th>Ship</th>
+                <th>Refit</th>
+                <th>Year</th>
+                <th>Trials</th>
+                <th>Date from</th>
+                <th>Date To</th>
+                <th>SDC</th>
+                <th>Performance</th>
+                <th>Vibration</th>
+                <th>attenuation</th>
+                <th>Status</th>
+                <th>Remarks</th>
+            </tr>
+            {% if users%}
+            <tr>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Ship}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Refit}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Year}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Trials}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Date_from}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Date_To}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_SDC}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Performance}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Vibration}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_attenuation}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Status}}</td>
+                <td style="font-size:14px; color: #222;">{{users.SEARCH_TAB_Remarks}}</td>
+            </tr>
+            {% endif%}
+        </table>
+        <h4>Recommendations. Following recommended:</h4>
+        {%  with "service/approvals.html" as template %}   
+              {% include template %}
+              
+        {% endwith %}
+        <div class="clear"></div>   
+         </div>
+         <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+        </body>
+    </html>
+        

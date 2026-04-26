@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quarterly GT Return SNF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Landscape" />
+
+    <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div style="float:right">
+        <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+<section class="body-card form-style1 trial-form">
+    <div class="panel-row">
+        <div class="heading-style2 text-center">
+            <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg">
+            <h2 style="text-align: center;">GTTT VIZAG</h2>
+            <h2><u class="font-weight-bold">RETURN ON GAS TURBINE INSTALLATIONS – SNF CLASS</u></h2>
+
+        </div>
+        <h2 class="text-center font-weight-bold"><u>PART – I GENERAL</u></h2>
+        <table class="table table-bordered tabletd-color">
+            <tr>
+                <th>Ser</th>
+                <th>Unit</th>
+                <th width="12%">Serial Number</th>
+                <th>DOM</th>
+                <th>DOI</th>
+                <th width="30%">Remarks</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td class="td-bluelight">GT NO 1</td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_gt1}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_gt1}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_gt1}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_gt1}}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td class="td-bluelight">GT NO 2</td>
+             
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_gt2}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_gt2}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_gt2}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_gt2}}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td class="td-bluelight">GT NO 3</td>
+            
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_gt3}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_gt3}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_gt3}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_gt3}}">
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="td-bluelight">GT NO 4</td>
+              
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_gt4}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_gt4}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_gt4}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_gt4}}">
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="td-bluelight">GTG NO 1 TC</td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_gtg1_tc}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_gtg1_tc}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_gtg1_tc}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_gtg1_tc}}">
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td class="td-bluelight">GTG NO 2 TC</td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_gtg2_tc}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_gtg2_tc}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_gtg2_tc}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_gtg2_tc}}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td class="td-bluelight">RG 1</td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_rg_1}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_rg_1}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_rg_1}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_rg_1}}">
+                </td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td class="td-bluelight">RG 2</td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_rg_2}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_rg_2}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_rg_2}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_rg_2}}">
+                </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td class="td-bluelight">GTG 1 RG</td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_gtg1_rg}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_gtg1_rg}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_gtg1_rg}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_gtg1_rg}}">
+                </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td class="td-bluelight">GTG 2 RG</td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_sr_num_gtg2_rg}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOM_gtg2_rg}}">
+                </td>
+                <td><input type="date" class="form-control" value="{{users.snf_gen_DOI_gtg2_rg}}">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.snf_gen_remarks_gtg2_rg}}">
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="note-card">
+            <p><b>Note:</b></p>
+            <ul type="">
+                <li>1. DOM - Date of Manufacturing</li>
+                <li>2. DOI – Date of Installation onboard</li>
+                <li>3. Running hours in Part II rounded off to nearest hours.</li>
+                <li>4. In Part III B, all routines of periodicity 03 monthly for GTs and 500 Hrly and
+                    above for GTGs to be reflected.</li>
+
+            </ul>
+        </div>
+
+        
+        <h2 class="text-center" style="margin-top: 10em;"><u class="font-weight-bold">PART – II OPERATIONS</u></h2>
+        <h4 class="text-left"><u class="font-weight-bold">Main Gas Turbines</u></h4>
+        <table class="table table-bordered">
+            <tr>
+                <th colspan="3" rowspan="2"></th>
+                <th colspan="3">GT NO. 1</th>
+                <th colspan="3">GT NO. 2</th>
+                <th colspan="3">GT NO. 3</th>
+                <th colspan="3">GT NO. 4</th>
+
+
+            </tr>
+            <tr>
+                <th>QTR</th>
+                <th>Sl</th>
+                <th>SN</th>
+                <th>QTR </th>
+                <th>Sl</th>
+                <th>SN</th>
+                <th>QTR</th>
+                <th>Sl</th>
+                <th>SN</th>
+                <th>QTR</th>
+                <th>Sl</th>
+                <th>SN</th>
+
+            </tr>
+
+
+            <tr>
+                <td colspan="3">Cold Starts</td>
+                <td>{{users.snf_QTR_run_hrs_cold_starts_GT1}}</td>
+                <td>{{users.snf_SI_run_hrs_cold_starts_GT1}}</td>
+                <td>{{users.snf_SN_run_hrs_cold_starts_GT1}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_cold_starts_GT2}}</td>
+                <td>{{users.snf_SI_run_hrs_cold_starts_GT2}}</td>
+                <td>{{users.snf_SN_run_hrs_cold_starts_GT2}}</td>
+
+                            
+                <td>{{users.snf_QTR_run_hrs_cold_starts_GT3}}</td>
+                <td>{{users.snf_SI_run_hrs_cold_starts_GT3}}</td>
+                <td>{{users.snf_SN_run_hrs_cold_starts_GT3}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_cold_starts_GT4}}</td>
+                <td>{{users.snf_SI_run_hrs_cold_starts_GT4}}</td>
+                <td>{{users.snf_SN_run_hrs_cold_starts_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Hot Starts</td>
+                <td>{{users.snf_QTR_run_hrs_hot_starts_GT1}}</td>
+                <td>{{users.snf_SI_run_hrs_hot_starts_GT1}}</td>
+                <td>{{users.snf_SN_run_hrs_hot_starts_GT1}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_hot_starts_GT2}}</td>
+                <td>{{users.snf_SI_run_hrs_hot_starts_GT2}}</td>
+                <td>{{users.snf_SN_run_hrs_hot_starts_GT2}}</td>
+
+                            
+                <td>{{users.snf_QTR_run_hrs_hot_starts_GT3}}</td>
+                <td>{{users.snf_SI_run_hrs_hot_starts_GT3}}</td>
+                <td>{{users.snf_SN_run_hrs_hot_starts_GT3}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_hot_starts_GT4}}</td>
+                <td>{{users.snf_SI_run_hrs_hot_starts_GT4}}</td>
+                <td>{{users.snf_SN_run_hrs_hot_starts_GT4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td colspan="3">False Starts</td>
+                <td>{{users.snf_QTR_run_hrs_false_starts_GT1}}</td>
+                <td>{{users.snf_SI_run_hrs_false_starts_GT1}}</td>
+                <td>{{users.snf_SN_run_hrs_false_starts_GT1}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_false_starts_GT2}}</td>
+                <td>{{users.snf_SI_run_hrs_false_starts_GT2}}</td>
+                <td>{{users.snf_SN_run_hrs_false_starts_GT2}}</td>
+
+                            
+                <td>{{users.snf_QTR_run_hrs_false_starts_GT3}}</td>
+                <td>{{users.snf_SI_run_hrs_false_starts_GT3}}</td>
+                <td>{{users.snf_SN_run_hrs_false_starts_GT3}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_false_starts_GT4}}</td>
+                <td>{{users.snf_SI_run_hrs_false_starts_GT4}}</td>
+                <td>{{users.snf_SN_run_hrs_false_starts_GT4}}</td>
+            </tr>
+
+            <tr>
+                <td rowspan="5">Running Hours</td>
+
+            </tr>
+            <tr>
+                <td colspan="2">0.6N & Below</td>
+                <td>{{users.snf_QTR_run_hrs_0_6_N_GT1}}</td>
+                <td>{{users.snf_SI_run_hrs_0_6_N_GT1}}</td>
+                <td>{{users.snf_SN_run_hrs_0_6_N_GT1}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_0_6_N_GT2}}</td>
+                <td>{{users.snf_SI_run_hrs_0_6_N_GT2}}</td>
+                <td>{{users.snf_SN_run_hrs_0_6_N_GT2}}</td>
+
+                            
+                <td>{{users.snf_QTR_run_hrs_0_6_N_GT3}}</td>
+                <td>{{users.snf_SI_run_hrs_0_6_N_GT3}}</td>
+                <td>{{users.snf_SN_run_hrs_0_6_N_GT3}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_0_6_N_GT4}}</td>
+                <td>{{users.snf_SI_run_hrs_0_6_N_GT4}}</td>
+                <td>{{users.snf_SN_run_hrs_0_6_N_GT4}}</td>
+            </tr>
+
+
+
+
+            <tr>
+                <td colspan="2">0.8N (Hrs)</td>
+
+                <td>{{users.snf_QTR_run_hrs_0_8_N_GT1}}</td>
+                <td>{{users.snf_SI_run_hrs_0_8_N_GT1}}</td>
+                <td>{{users.snf_SN_run_hrs_0_8_N_GT1}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_0_8_N_GT2}}</td>
+                <td>{{users.snf_SI_run_hrs_0_8_N_GT2}}</td>
+                <td>{{users.snf_SN_run_hrs_0_8_N_GT2}}</td>
+
+                            
+                <td>{{users.snf_QTR_run_hrs_0_8_N_GT3}}</td>
+                <td>{{users.snf_SI_run_hrs_0_8_N_GT3}}</td>
+                <td>{{users.snf_SN_run_hrs_0_8_N_GT3}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_0_8_N_GT4}}</td>
+                <td>{{users.snf_SI_run_hrs_0_8_N_GT4}}</td>
+                <td>{{users.snf_SN_run_hrs_0_8_N_GT4}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">1.0N (Hrs)</td>
+
+
+                <td>{{users.snf_QTR_run_hrs_1_0_N_GT1}}</td>
+                <td>{{users.snf_SI_run_hrs_1_0_N_GT1}}</td>
+                <td>{{users.snf_SN_run_hrs_1_0_N_GT1}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_1_0_N_GT2}}</td>
+                <td>{{users.snf_SI_run_hrs_1_0_N_GT2}}</td>
+                <td>{{users.snf_SN_run_hrs_1_0_N_GT2}}</td>
+
+                            
+                <td>{{users.snf_QTR_run_hrs_1_0_N_GT3}}</td>
+                <td>{{users.snf_SI_run_hrs_1_0_N_GT3}}</td>
+                <td>{{users.snf_SN_run_hrs_1_0_N_GT3}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_1_0_N_GT4}}</td>
+                <td>{{users.snf_SI_run_hrs_1_0_N_GT4}}</td>
+                <td>{{users.snf_SN_run_hrs_1_0_N_GT4}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td colspan="2">Total</td>
+
+
+                <td>{{users.snf_QTR_run_hrs_total_GT1}}</td>
+                <td>{{users.snf_SI_run_hrs_total_GT1}}</td>
+                <td>{{users.snf_SN_run_hrs_total_GT1}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_total_GT2}}</td>
+                <td>{{users.snf_SI_run_hrs_total_GT2}}</td>
+                <td>{{users.snf_SN_run_hrs_total_GT2}}</td>
+
+                            
+                <td>{{users.snf_QTR_run_hrs_total_GT3}}</td>
+                <td>{{users.snf_SI_run_hrs_total_GT3}}</td>
+                <td>{{users.snf_SN_run_hrs_total_GT3}}</td>
+
+                <td>{{users.snf_QTR_run_hrs_total_GT4}}</td>
+                <td>{{users.snf_SI_run_hrs_total_GT4}}</td>
+                <td>{{users.snf_SN_run_hrs_total_GT4}}</td>
+
+
+
+
+            </tr>
+
+
+
+            <tr>
+                <td rowspan="3">Min RDT in Sec (1500 to 500 RPM)</td>
+
+            </tr>
+
+            <tr>
+                <td>LP Spool</td>
+                <td colspan="4">{{users.snf_min_RDT_Lp_spool_gt1}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_gt2}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_gt3}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_gt4}}</td>
+            </tr>
+
+            <tr>
+                <td>HP Spool</td>
+                <td colspan="4">{{users.snf_min_RDT_Hp_spool_gt1}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_gt2}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_gt3}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_gt4}}</td>
+
+            </tr>
+
+
+
+            <tr>
+                <td rowspan="6">Min RDT in Sec (1500 to 500 RPM)</td>
+
+            </tr>
+
+            <tr>
+                <td rowspan="2">LP Spool</td>
+                <td class="td-bluelight">Cold</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_cold_gt1}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_cold_gt2}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_cold_gt3}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_cold_gt4}}</td>
+            </tr>
+
+
+
+
+
+            <tr>
+
+                <td>Hot</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_Hot_gt1}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_Hot_gt2}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_Hot_gt3}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Lp_spool_Hot_gt4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td rowspan="2">HP Spool</td>
+                <td class="td-bluelight">Cold</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_cold_gt1}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_cold_gt2}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_cold_gt3}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_cold_gt4}}</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Hot</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_Hot_gt1}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_Hot_gt2}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_Hot_gt3}}</td>
+                <td colspan="3">{{users.snf_min_RDT_Hp_spool_Hot_gt4}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td rowspan="3">Maximum turning motor current (amps)</td>
+
+            </tr>
+
+            <tr>
+                <td >LP Spool</td>
+                <td colspan="4">{{users.snf_max_mot_curr_Lp_spool_gt1}}</td>
+                <td colspan="3">{{users.snf_max_mot_curr_Lp_spool_gt2}}</td>
+                <td colspan="3">{{users.snf_max_mot_curr_Lp_spool_gt3}}</td>
+                <td colspan="3">{{users.snf_max_mot_curr_Lp_spool_gt4}}</td>
+                
+            </tr>
+
+            <tr>
+                <td >HP Spool</td>
+                <td colspan="4">{{users.snf_max_mot_curr_Hp_spool_gt1}}</td>
+                <td colspan="3">{{users.snf_max_mot_curr_Hp_spool_gt2}}</td>
+                <td colspan="3">{{users.snf_max_mot_curr_Hp_spool_gt3}}</td>
+                <td colspan="3">{{users.snf_max_mot_curr_Hp_spool_gt4}}</td>
+
+            </tr>
+
+
+
+
+
+        </table>
+
+
+        <h4 class="text-left heading-style2"><u class="font-weight-bold">Reduction Gear Running Hours</u></h4>
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th rowspan="2">&nbsp;</th>
+                <th colspan="3">RG1</th>
+                <th colspan="3">RG2</th>
+            </tr>
+            <tr>
+                <th>QTR</th>
+                <th>SINCE MR</th>
+                <th>SINCE NEW</th>
+                <th>QTR</th>
+                <th>SINCE MR</th>
+                <th>SINCE NEW</th>
+            </tr>
+            <tr>
+                <td class="td-bluelight">Running Hours</td>
+               
+                <td><input type="text" class="form-control" value="{{users.red_gear_QTR_RG1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.red_gear_since_MR_RG1}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.red_gear_since_new_RG1}}" ></td>
+                <td><input type="text" class="form-control" value="{{users.red_gear_QTR_RG2}}"></td>
+                <td><input type="text" class="form-control" value="{{users.red_gear_since_MR_RG2}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.red_gear_since_new_RG2}}" ></td>
+               
+            </tr>
+          
+        </table>
+
+
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th rowspan="2">NUMBER OF ENGAGEMENTS</th>
+                <th colspan="2">GT1</th>
+                <th colspan="2">GT2</th>
+                <th colspan="2">GT3</th>
+                <th colspan="2">GT4</th>
+            </tr>
+            <tr>
+                <th>QTR</th>
+                <th>TOTAL SINCE MR</th>
+                <th>QTR</th>
+                <th>TOTAL SINCE MR</th>
+                <th>QTR</th>
+                <th>TOTAL SINCE MR</th>
+                <th>QTR</th>
+                <th>TOTAL SINCE MR</th>
+            </tr>
+            <tr>
+                <td class="td-bluelight">AHEAD</td>
+               
+                <td>{{users.snf_ahead_QTR_GT1}}</td>
+                <td>{{users.snf_ahead_total_since_MR_GT1}}</td>
+                <td>{{users.snf_ahead_QTR_GT2}}</td>
+                <td>{{users.snf_ahead_total_since_MR_GT2}}</td>
+                <td>{{users.snf_ahead_QTR_GT3}}</td>
+                <td>{{users.snf_ahead_total_since_MR_GT3}}</td>
+                <td>{{users.snf_ahead_QTR_GT4}}</td>
+                <td>{{users.snf_ahead_total_since_MR_GT4}}</td>
+               
+            </tr>
+
+
+            <tr>
+                <td class="td-bluelight">ASTERN</td>
+               
+                <td>{{users.snf_astern_QTR_GT1}}</td>
+                <td>{{users.snf_astern_total_since_MR_GT1}}</td>
+                <td>{{users.snf_astern_QTR_GT2}}</td>
+                <td>{{users.snf_astern_total_since_MR_GT2}}</td>
+                <td>{{users.snf_astern_QTR_GT3}}</td>
+                <td>{{users.snf_astern_total_since_MR_GT3}}</td>
+                <td>{{users.snf_astern_QTR_GT4}}</td>
+                <td>{{users.snf_astern_total_since_MR_GT4}}</td>
+               
+            </tr>
+          
+        </table>
+
+        <h4 class="text-left heading-style2" class="font-weight-bold"><u>GT Parameter at 0.6 N during Quarter: - </u></h4>
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+
+                <td colspan="3">Sea Water Temperature</td>
+                <td>{{users.snf_gt_para_date_GT1}}</td>
+                <td>{{users.snf_gt_para_date_GT2}}</td>
+                <td>{{users.snf_gt_para_date_GT3}}</td>
+                <td>{{users.snf_gt_para_date_GT4}}</td>
+            </tr>
+
+            <tr>
+
+                <td colspan="3">Ambient Water Temperature</td>
+                <td>{{users.snf_gt_para_date_GT1}}</td>
+                <td>{{users.snf_gt_para_date_GT2}}</td>
+                <td>{{users.snf_gt_para_date_GT3}}</td>
+                <td>{{users.snf_gt_para_date_GT4}}</td>
+               
+
+            </tr>
+           
+           
+           
+            <tr colspan="5">
+                <th colspan="3">Parameter</th>
+                <th>GT NO 1</th>
+                <th>GT NO 2</th>
+                <th>GT NO 3</th>
+                <th>GT NO 4</th>
+            </tr>
+
+            <tbody>
+                <tr>
+
+                    <td colspan="3">Date</td>
+                    <td>{{users.snf_gt_para_date_GT1}}</td>
+                    <td>{{users.snf_gt_para_date_GT2}}</td>
+                    <td>{{users.snf_gt_para_date_GT3}}</td>
+                    <td>{{users.snf_gt_para_date_GT4}}</td>
+                   
+
+                </tr>
+           
+                <tr>
+                    <td colspan="3">HPC</td>
+
+                    <td>{{users.snf_gt_para_HPC_GT1}}</td>
+                    <td>{{users.snf_gt_para_HPC_GT2}}</td>
+                    <td>{{users.snf_gt_para_HPC_GT3}}</td>
+                    <td>{{users.snf_gt_para_HPC_GT4}}</td>
+                   
+
+                </tr>
+                <tr>
+                    <td colspan="3">LPC (RPM)</td>
+
+                 
+                    <td>{{users.snf_gt_para_LPC_GT1}}</td>
+                    <td>{{users.snf_gt_para_LPC_GT2}}</td>
+                    <td>{{users.snf_gt_para_LPC_GT3}}</td>
+                    <td>{{users.snf_gt_para_LPC_GT4}}</td>
+
+                </tr>
+
+
+                <tr>
+                    <td colspan="3">PT (RPM)</td>
+
+                    <td>{{users.snf_gt_para_PT_GT1}}</td>
+                    <td>{{users.snf_gt_para_PT_GT2}}</td>
+                    <td>{{users.snf_gt_para_PT_GT3}}</td>
+                    <td>{{users.snf_gt_para_PT_GT4}}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">Shaft (RPM)</td>
+
+                    <td>{{users.snf_gt_para_shaft_GT1}}</td>
+                    <td>{{users.snf_gt_para_shaft_GT2}}</td>
+                    <td>{{users.snf_gt_para_shaft_GT3}}</td>
+                    <td>{{users.snf_gt_para_shaft_GT4}}</td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="3">Exhaust Gas Temp</td>
+
+                    <td>{{users.snf_gt_para_exhaust_gas_GT1}}</td>
+                    <td>{{users.snf_gt_para_exhaust_gas_GT2}}</td>
+                    <td>{{users.snf_gt_para_exhaust_gas_GT3}}</td>
+                    <td>{{users.snf_gt_para_exhaust_gas_GT4}}</td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="3">Off Take Temp Deg C</td>
+
+                    <td>{{users.snf_gt_para_off_take_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_off_take_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_off_take_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_off_take_temp_GT4}}</td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="3">Frame Temp Deg C </td>
+
+                    <td>{{users.snf_gt_para_frame_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_frame_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_frame_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_frame_temp_GT4}}</td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="3">Main Fuel Pressure kg/cm²</td>
+
+                    <td>{{users.snf_gt_para_main_fuel_press_GT1}}</td>
+                    <td>{{users.snf_gt_para_main_fuel_press_GT2}}</td>
+                    <td>{{users.snf_gt_para_main_fuel_press_GT3}}</td>
+                    <td>{{users.snf_gt_para_main_fuel_press_GT4}}</td>
+
+                </tr> 
+
+                <tr>
+                    <td colspan="3">Starting Fuel Pressure (kgf/cm²)</td>
+
+                    <td>{{users.snf_gt_para_start_fuel_press_GT1}}</td>
+                    <td>{{users.snf_gt_para_start_fuel_press_GT2}}</td>
+                    <td>{{users.snf_gt_para_start_fuel_press_GT3}}</td>
+                    <td>{{users.snf_gt_para_start_fuel_press_GT4}}</td>
+
+                </tr>
+
+
+                <tr>
+                    <td colspan="3">Engine Lub Oil Pressure (kgf/cm²)</td>
+
+                    <td>{{users.snf_gt_para_eng_lub_oil_press_GT1}}</td>
+                    <td>{{users.snf_gt_para_eng_lub_oil_press_GT2}}</td>
+                    <td>{{users.snf_gt_para_eng_lub_oil_press_GT3}}</td>
+                    <td>{{users.snf_gt_para_eng_lub_oil_press_GT4}}</td>
+
+                </tr>
+                <tr>
+                    <td colspan="3">RG Lub Oil Pressure (kgf/cm²)</td>
+
+                    <td>{{users.snf_gt_para_rg_lub_oil_press_GT1}}</td>
+                    <td>{{users.snf_gt_para_rg_lub_oil_press_GT2}}</td>
+                    <td>{{users.snf_gt_para_rg_lub_oil_press_GT3}}</td>
+                    <td>{{users.snf_gt_para_rg_lub_oil_press_GT4}}</td>
+
+                </tr>
+                <tr>
+                    <td colspan="3">Engine inlet Lub oil temp (℃)</td>
+
+                    <td>{{users.snf_gt_para_eng_inlet_oil_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_eng_inlet_oil_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_eng_inlet_oil_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_eng_inlet_oil_temp_GT4}}</td>
+
+                </tr>
+                <tr>
+                    <td colspan="3">Engine Outlet Lub Oil temp (℃)</td>
+
+                    <td>{{users.snf_gt_para_eng_outlet_oil_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_eng_outlet_oil_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_eng_outlet_oil_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_eng_outlet_oil_temp_GT4}}</td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="3">LPC Bearing temp (℃)</td>
+
+                    <td>{{users.snf_gt_para_lpc_bear_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_lpc_bear_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_lpc_bear_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_lpc_bear_temp_GT4}}</td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="3">HPC Bearing temp (℃)</td>
+
+                    <td>{{users.snf_gt_para_hpc_bear_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_hpc_bear_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_hpc_bear_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_hpc_bear_temp_GT4}}</td>
+
+                </tr>
+
+
+
+                <tr>
+                    <td colspan="3">HPT Bearing temp (℃)</td>
+
+                    <td>{{users.snf_gt_para_hpt_bear_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_hpt_bear_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_hpt_bear_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_hpt_bear_temp_GT4}}</td>
+
+                </tr>
+
+
+                <tr>
+                    <td colspan="3">LPT Bearing temp (℃)</td>
+
+                    <td>{{users.snf_gt_para_lpt_bear_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_lpt_bear_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_lpt_bear_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_lpt_bear_temp_GT4}}</td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="3">PT Bearing temp (℃)</td>
+
+                    <td>{{users.snf_gt_para_pt_bear_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_pt_bear_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_pt_bear_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_pt_bear_temp_GT4}}</td>
+
+                </tr>
+              
+                <tr>
+                    <td colspan="3">HPC Balance Chamber PR kg/cm²</td>     
+                    <td>{{users.snf_gt_para_hpc_bal_chamb_GT1}}</td>
+                    <td>{{users.snf_gt_para_hpc_bal_chamb_GT2}}</td>
+                    <td>{{users.snf_gt_para_hpc_bal_chamb_GT3}}</td>
+                    <td>{{users.snf_gt_para_hpc_bal_chamb_GT4}}</td>           
+
+                </tr>
+                <tr>
+                    <td colspan="3">PT Balance Chamber Pr kg/cm²</td>
+
+                    <td>{{users.snf_gt_para_pt_bal_chamb_GT1}}</td>
+                    <td>{{users.snf_gt_para_pt_bal_chamb_GT2}}</td>
+                    <td>{{users.snf_gt_para_pt_bal_chamb_GT3}}</td>
+                    <td>{{users.snf_gt_para_pt_bal_chamb_GT4}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">RG Inlet Lub Oil Temp (℃)</td>
+
+                    <td>{{users.snf_gt_para_rg_inlet_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_rg_inlet_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_rg_inlet_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_rg_inlet_temp_GT4}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">RG Outlet Lub Oil Temp Deg c (℃)</td>
+
+                    <td>{{users.snf_gt_para_rg_outlet_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_rg_outlet_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_rg_outlet_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_rg_outlet_temp_GT4}}</td>
+
+                </tr>
+                <tr>
+                    <td colspan="3">Engine Slip</td>
+
+                    <td>{{users.snf_gt_para_eng_slip_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_eng_slip_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_eng_slip_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_eng_slip_temp_GT4}}</td>
+
+                </tr>
+              
+
+                <tr>
+                    <td colspan="3">Average lub Oil Consumption kg/Hr</td>
+
+                    <td>{{users.snf_gt_para_avg_oil_temp_GT1}}</td>
+                    <td>{{users.snf_gt_para_avg_oil_temp_GT2}}</td>
+                    <td>{{users.snf_gt_para_avg_oil_temp_GT3}}</td>
+                    <td>{{users.snf_gt_para_avg_oil_temp_GT4}}</td>
+                </tr>
+
+
+          
+            </tbody>
+        </table>
+
+
+
+        <h4 class="text-left heading-style2"><u class="font-weight-bold">Gas Turbine Generators: -</u></h4>
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th rowspan="2" colspan="2">&nbsp;</th>
+                <th colspan="3">GTG NO. 1</th>
+                <th colspan="3">GTG NO. 2</th>
+            </tr>
+            <tr>
+                <th>QTR</th>
+                <th>SI</th>
+                <th>SN</th>
+                <th>QTR</th>
+                <th>SI</th>
+                <th>SN</th>
+            </tr>
+            <tr>
+                <td class="td-bluelight" colspan="2">RG Running Hours</td>
+               
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_RG_QTR_GT1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_RG_SI_GT1}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_RG_SN_GT1}}" ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_RG_QTR_GT2}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_RG_SI_GT2}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_RG_SN_GT2}}" ></td>
+               
+            </tr>
+          
+            <tr>
+                <td class="td-bluelight"  colspan="2">TC Running Hours</td>
+               
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_TC_QTR_GT1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_TC_SI_GT1}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_TC_SN_GT1}}" ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_TC_QTR_GT2}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_TC_SI_GT2}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_TC_SN_GT2}}" ></td>
+            </tr>
+            <tr>
+                <td rowspan="3">Number of cold starts</td>
+            </tr>
+
+            <tr>
+                <td  class="td-bluelight">Rectifier</td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_rect_QTR_GT1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_rect_SI_GT1}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_rect_SN_GT1}}" ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_rect_QTR_GT2}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_rect_SI_GT2}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_rect_SN_GT2}}" ></td>
+               
+            </tr>
+
+            <tr>
+                <td class="td-bluelight">Battery</td>
+               
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_batt_QTR_GT1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_batt_SI_GT1}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_batt_SN_GT1}}" ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_batt_QTR_GT2}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_batt_SI_GT2}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_cold_batt_SN_GT2}}" ></td>
+               
+            </tr>
+
+
+            <tr>
+                <td rowspan="3">Number of Hot Starts</td>
+            </tr>
+
+            <tr>
+                <td  class="td-bluelight">Rectifier</td>
+               
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_rect_QTR_GT1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_rect_SI_GT1}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_rect_SN_GT1}}" ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_rect_QTR_GT2}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_rect_SI_GT2}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_rect_SN_GT2}}" ></td>
+               
+            </tr>
+
+            <tr>
+                <td class="td-bluelight">Battery</td>
+               
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_batt_QTR_GT1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_batt_SI_GT1}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_batt_SN_GT1}}" ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_batt_QTR_GT2}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_batt_SI_GT2}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_hot_batt_SN_GT2}}" ></td>
+               
+            </tr>
+
+            <tr>
+                <td rowspan="3" colspan="2">Minimum Rundown time (S)</td>
+            </tr>
+
+            <tr class="text-center">
+               
+                <td class="td-bluelight">COLD</td>
+                <td colspan="2"  class="td-bluelights">HOT</td>
+                <td class="td-bluelight">COLD</td>
+                <td colspan="2" class="td-bluelights">HOT</td>
+               
+            </tr>
+
+
+            <tr>
+               
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_min_run_cold_GT1}}"></td>
+                <td colspan="2"><input type="text" class="form-control" value="{{users.snf_gas_turb_min_run_hot_GT1}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_gas_turb_min_run_cold_GT2}}"></td>
+                <td colspan="2"><input type="text" class="form-control" value="{{users.snf_gas_turb_min_run_hot_GT2}}"  ></td>
+               
+            </tr>
+          
+        </table>
+
+
+        <h4 class="text-left heading-style2"><u class="font-weight-bold">GTG Parameter at 450 kW – 500 kW during quarter: - (Range / Limit as per OI of GTG P-1250-2E).</u></h4>
+
+        <table class="table table-bordered table-style-color table-form-color1 tabletd-color">
+            <tr>
+                <th>Ser</th>
+                <th width="25%">Parameters</th>
+                <th>GTG 1</th>
+                <th>GTG 2</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td class="td-bluelights">Date</td>
+                <td><input type="date" class="form-control" value="{{users.snf_para_date_gtg1}}"></td>
+                <td><input type="date" class="form-control" value="{{users.snf_para_date_gtg2}}"  ></td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td class="td-bluelights">Load kW</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_load_kW_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_load_kW_gtg2}}"></td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td class="td-bluelights">Compressor Bearing Temp &deg;C</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_comp_bear_temp_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_comp_bear_temp_gtg2}}"></td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td class="td-bluelights">Turbine Bearing Temp &deg;C</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_turb_bear_temp_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_turb_bear_temp_gtg2}}"></td>
+            </tr>
+            <tr>
+                <td>5.</td>
+                <td class="td-bluelights">Oil Cooler Outlet Temp &deg;C</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_oil_cooler_outlet_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_oil_cooler_outlet_gtg2}}"></td>
+            </tr>
+
+            <tr>
+                <td>6.</td>
+                <td class="td-bluelights">Exhaust Gas Temp &deg;C</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_exhaust_gas_temp_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_exhaust_gas_temp_gtg2}}"></td>
+            </tr>
+
+
+            <tr>
+                <td>7.</td>
+                <td class="td-bluelights">LO Pressure in Lub Oil System kg/cm²</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_LO_press_lubOil_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_LO_press_lubOil_gtg2}}"></td>
+            </tr>
+
+
+            <tr>
+                <td>8.</td>
+                <td class="td-bluelights">LO Pressure in control System Kg/cm²</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_LO_press_contSys_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_LO_press_contSys_gtg2}}"></td>
+            </tr>
+            <tr>
+                <td>9.</td>
+                <td class="td-bluelights">Burner Fuel Inlet Pressure kg/cm²</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_burner_fuel_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_burner_fuel_gtg2}}"></td>
+            </tr>
+            <tr>
+                <td>10.</td>
+                <td class="td-bluelights">Spill Fuel pressure kg/cm²</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_spill_fuel_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_spill_fuel_gtg2}}"></td>
+            </tr>
+            <tr>
+                <td>11.</td>
+                <td class="td-bluelights">Compressor Outlet Air Pressure kg/cm²</td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_comp_outlet_gtg1}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_para_comp_outlet_gtg2}}"></td>
+            </tr>
+        </table>
+
+
+        <h4 class="text-left heading-style2"><u class="font-weight-bold">EEF for the quarter: -</u></h4>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <td colspan="4" class="text-center"><u class="font-weight-bold"> EEF for the quarter ending 30 Jun 24 </u></td>
+                </tr>
+            <tr>
+              
+                <th width="17%">Hours underway during the QTR</th>
+                <th>Cumulative RHs of GT during the QTR </th>
+                <th>Calculated EEF</th>
+                <th  width="37%">Remarks</th>
+            </tr>
+
+            <tr>
+                <td><input type="text" class="form-control" value="{{users.snf_eef_hrs_during_QTR}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_eef_cumulative_during_QTR}}"  ></td>
+                <td><input type="text" class="form-control" value="{{users.snf_eef_calculated_eef}}"></td>
+                <td><input type="text" class="form-control" value="{{users.snf_eef_remarks}}"  ></td>
+                </tr>
+        </table>
+
+            <div class="heading-style2 text-center" style="margin-top: 30em;">
+                <h2><u class="font-weight-bold">PART III: INSPECTIONS AND MAINTENANCE</u></h2>
+               
+            </div>
+            
+            
+            <h4 class="text-left heading-style2"><u class="font-weight-bold">(I) Inspection/ Trials: -</u></h4>
+            <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                    <th colspan="2">&nbsp;</th>
+                    <th>GT 1</th>
+                    <th>GT 2</th>
+                    <th>GT 3</th>
+                    <th>GT 4</th>
+                    <th>GTG 1</th>
+                    <th>GTG 2</th>
+                </tr>
+            
+                <tr>
+                    <td colspan="2">Date of last Vibration Trial</td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_vib_trial_date_GT1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_vib_trial_date_GT2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_vib_trial_date_GT3}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_vib_trial_date_GT4}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_vib_trial_date_GTG1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_vib_trial_date_GTG2}}"  ></td>
+                    </tr>
+            
+                     <tr>
+                    <td  colspan="2">Date of last Full Power Trial</td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_full_pow_trial_date_GT1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_full_pow_trial_date_GT2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_full_pow_trial_date_GT3}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_full_pow_trial_date_GT4}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_full_pow_trial_date_GTG1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_full_pow_trial_date_GTG2}}"  ></td>
+                    </tr>
+            
+                
+                    <tr>
+                    <td colspan="2">Date of Last Lub Oil Analysis</td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_lub_oil_date_GT1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_lub_oil_date_GT2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_lub_oil_date_GT3}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_lub_oil_date_GT4}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_lub_oil_date_GTG1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_lub_oil_date_GTG2}}"  ></td>
+                 </tr>
+            
+            
+                    <tr>
+                     <td colspan="2" >Date of Last Fuel Equipment Calibration
+                        <ul>
+                            <li>HP Pump</li>
+                            <li>AFCU</li>
+                            <li>Burner Set</li>
+                        </ul>
+                     </td>
+                  
+                     <td><input type="date" class="form-control" value="{{users1.snf_ins_last_fuel_eqp_date_GT1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_fuel_eqp_date_GT2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_fuel_eqp_date_GT3}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_fuel_eqp_date_GT4}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_fuel_eqp_date_GTG1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_fuel_eqp_date_GTG2}}"  ></td>
+                    </tr>
+            
+            
+                    <tr>
+                    <td colspan="2">Date of Last Safety Cut out/ interlock Checks</td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_safe_cut_date_GT1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_safe_cut_date_GT2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_safe_cut_date_GT3}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_safe_cut_date_GT4}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_safe_cut_date_GTG1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_last_safe_cut_date_GTG2}}"  ></td>
+                    </tr>
+            
+            
+            
+                    <tr>
+                    <td colspan="2">Date of last Lub oil pump drive and RG Inspection</td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_pump_drive_date_GT1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_pump_drive_date_GT2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_pump_drive_date_GT3}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_pump_drive_date_GT4}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_pump_drive_date_GTG1}}"></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_ins_pump_drive_date_GTG2}}"  ></td>
+                    </tr>
+            
+                    <tr>
+                        <td rowspan="3">Total Air Gap ‘A’ in Friction Coupling in Compressed Mode (mm)</td>
+                    </tr>
+            
+                    <tr>
+                        <td  class="td-bluelight">T</td>
+                       
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_T_date_GT1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_T_date_GT2}}" ></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_T_date_GT3}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_T_date_GT4}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_T_date_GTG1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_T_date_GTG2}}"></td>
+                       
+                    </tr>
+                    <tr>
+                        <td  class="td-bluelight">B</td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_B_date_GT1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_B_date_GT2}}" ></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_B_date_GT3}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_B_date_GT4}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_B_date_GTG1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_air_gap_B_date_GTG2}}"></td>
+                       
+                       
+                    </tr>
+            
+            
+                    <tr>
+                        <td rowspan="3">Friction Pad thickness in Compressor mode (mm)</td>
+                    </tr>
+            
+                    <tr>
+                        <td  class="td-bluelight">T</td>
+                       
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_T_date_GT1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_T_date_GT2}}" ></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_T_date_GT3}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_T_date_GT4}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_T_date_GTG1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_T_date_GTG2}}"></td>
+                       
+                       
+                    </tr>
+                    <tr>
+                        <td  class="td-bluelight">B</td>
+                       
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_B_date_GT1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_B_date_GT2}}" ></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_B_date_GT3}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_B_date_GT4}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_B_date_GTG1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_friction_pad_B_date_GTG2}}"></td>
+                       
+                       
+                    </tr>
+            
+            
+            
+                    <tr>
+                        <td rowspan="3">Jaw Coupling Clearance</td>
+                    </tr>
+            
+                    <tr>
+                        <td  class="td-bluelight">T</td>
+                       
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_T_date_GT1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_T_date_GT2}}" ></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_T_date_GT3}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_T_date_GT4}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_T_date_GTG1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_T_date_GTG2}}"></td>
+                       
+                       
+                    </tr>
+                    <tr>
+                        <td  class="td-bluelight">B</td>
+                       
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_B_date_GT1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_B_date_GT2}}" ></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_B_date_GT3}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_B_date_GT4}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_B_date_GTG1}}"></td>
+                        <td><input type="text" class="form-control" value="{{users1.snf_ins_jaw_coup_B_date_GTG2}}"></td>
+                       
+                    </tr>
+            </table>
+            
+            <h4 class="text-left heading-style2"><u class="font-weight-bold">Maintenance: - </u> </h4>
+            
+            <h4 class="text-left heading-style2"><u class="font-weight-bold">(I)	Routines Due and Undertaken: - </u> </h4>
+            <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                    <th>Ser</th>
+                    <th>Equipment</th>
+                    <th>Schedule No.</th>
+                    <th>Job Undertaken</th>
+                    <th>Observation</th>
+                   
+                </tr>
+            
+                <tr>
+                    <td>1</td>
+                    <td>GTG 1</td>
+                    <td>MT-41087</td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gtg1}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_gtg1}}" ></td>
+            
+                  
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td>GTG 2</td>
+                    <td>MT-41087</td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gtg2}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_gtg2}}" ></td>
+            
+                  
+                </tr>
+            
+            
+                <tr>
+                    <td>3</td>
+                    <td>GT 1</td>
+                    <td>MT-22001</td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gt1}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_gt1}}" ></td>
+            
+                  
+                </tr>
+            
+            
+                <tr>
+                    <td>4</td>
+                    <td>GT 2</td>
+                    <td>MT-22001</td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gt2}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_gt2}}" ></td>
+            
+                  
+                </tr>
+            
+            
+                <tr>
+                    <td>5</td>
+                    <td>GT 3</td>
+                    <td>MT-22001</td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gt3}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_gt3}}" ></td>
+            
+                  
+                </tr>
+            
+            
+                <tr>
+                    <td>6</td>
+                    <td>GT 4</td>
+                    <td>MT-22001</td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gt4}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_gt4}}" ></td>
+            
+                  
+                </tr>
+            
+            
+                <tr>
+                    <td>7</td>
+                    <td>RG 1 & RG 2</td>
+                    <td>MT-26011</td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_rg1}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_rg1}}" ></td>
+            
+                  
+                </tr>
+              </table>
+            
+            
+            
+            
+            
+            
+              <h4 class="text-left heading-style2"><u class="font-weight-bold">(II)	Routines Due and Not Undertaken: - </u> </h4>
+              <table class="table table-bordered table-form-color1 tabletd-color">
+                  <tr>
+                      <th>Ser</th>
+                      <th>Equipment</th>
+                      <th>Routine</th>
+                      <th>Job in Brief</th>
+                      <th>Reasons</th>
+                     
+                  </tr>
+              
+                  <tr>
+                      <td>1</td>
+                      <td>GTG 1</td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gtg1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gtg1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_gtg1}}" ></td>
+              
+                    
+                  </tr>
+              
+                  <tr>
+                      <td>2</td>
+                      <td>GTG 2</td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gtg1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_main_rout_job_und_gtg2}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_main_rout_obs_gtg2}}" ></td>
+              
+                    
+                  </tr>
+              
+              
+                </table>
+              
+            
+            
+            
+            
+              <h4 class="text-left heading-style2"><u class="font-weight-bold">(III) Replacement of Units/Sub units: - </u> </h4>
+            
+              <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                    <th width="1%">Ser</th>
+                    <th width="8%">Equipment/Position</th>
+                    <th width="6%">Serial No.</th>
+                    <th width="8%">Date Of Calibration</th>
+                    <th width="8%">Date Of Installation</th>
+                    <th width="6%">RH</th>
+                    <th width="10%">Reason for Replacement</th>
+                    <th width="12%">Remarks</th>
+                   
+                </tr>
+            
+                {% for al in SnfReplaceGTQuartDynamic%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.replace_for_unit_snf_eqp}}</td>
+                        <td>{{al.replace_for_unit_snf_ser}}</td>
+                        <td>{{al.replace_for_unit_snf_date_of_calib}}</td>
+                        <td>{{al.replace_for_unit_snf_date_of_ins}}</td>
+                        <td>{{al.replace_for_unit_snf_RH}}</td>
+                        <td>{{al.replace_for_unit_snf_reas_for_replac}}</td>
+                        <td>{{al.replace_for_unit_snf_remarks}}</td>
+
+                </tr>
+                {% endfor %}
+
+              </table>
+            
+            
+              <h4 class="text-left heading-style2"><u class="font-weight-bold">(IV) Running Hours/ Calibration Details of GT Fuel Equipment </u>  </h4>
+              <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                  
+                    <th colspan="2">Equipment/Position</th>
+                    <th>Serial No.</th>
+                    <th>Date Of Calibration</th>
+                    <th>Date Of Installation</th>
+                    <th>RH</th>
+                    <th>Reason for Replacement</th>
+                   
+                </tr>
+            
+                <tr>
+                    <td rowspan="7">GT Fuel Pump</td>
+                </tr>
+            
+                <tr>
+                    <td  class="td-bluelight">GT 1</td>
+                   
+                  
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_ser_no_gt1}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_calib_gt1}}" ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_inst_gt1}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_RH_gt1}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_reas_for_rep_gt1}}"></td>
+                  
+                   
+                </tr>
+            
+                <tr>
+                    <td  class="td-bluelight">GT 2</td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_ser_no_gt2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_calib_gt2}}" ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_inst_gt2}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_RH_gt2}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_reas_for_rep_gt2}}"></td>
+                    
+                  
+                   
+                </tr>
+            
+            
+                <tr>
+                    <td  class="td-bluelight">GT 3</td>
+                   
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_ser_no_gt3}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_calib_gt3}}" ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_inst_gt3}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_RH_gt3}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_reas_for_rep_gt3}}"></td>
+                  
+                   
+                </tr>
+            
+            
+            
+                <tr>
+                    <td  class="td-bluelight">GT 4</td>
+                   
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_ser_no_gt4}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_calib_gt4}}" ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_inst_gt4}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_RH_gt4}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_reas_for_rep_gt4}}"></td>
+                  
+                   
+                </tr>
+            
+            
+                <tr>
+                    <td  class="td-bluelight">SPTA</td>
+                   
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_ser_no_SPTA_1}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_calib_SPTA_1}}" ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_inst_SPTA_1}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_RH_SPTA_1}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_reas_for_rep_SPTA_1}}"></td>
+                  
+                   
+                </tr>
+            
+            
+                <tr>
+                    <td  class="td-bluelight">SPTA</td>
+                   
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_ser_no_SPTA_2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_calib_SPTA_2}}" ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_fuel_pump_date_of_inst_SPTA_2}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_RH_SPTA_2}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_fuel_pump_reas_for_rep_SPTA_2}}"></td>
+                  
+                   
+               </tr>
+            
+            
+            
+            
+               <tr>
+                <td rowspan="8">AFCU</td>
+            </tr>
+            
+            <tr>
+                <td  class="td-bluelight">GT 1</td>
+               
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_ser_no_gt1}}"  ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_calib_gt1}}" ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_inst_gt1}}" ></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_RH_gt1}}"></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_reas_for_rep_gt1}}"></td>
+              
+               
+            </tr>
+            
+            <tr>
+                <td  class="td-bluelight">GT 2</td>
+               
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_ser_no_gt2}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_calib_gt2}}" ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_inst_gt2}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_AFCU_RH_gt2}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_AFCU_reas_for_rep_gt2}}"></td>
+              
+               
+            </tr>
+            
+            
+            <tr>
+                <td  class="td-bluelight">GT 3</td>
+               
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_ser_no_gt3}}"  ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_calib_gt3}}" ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_inst_gt3}}" ></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_RH_gt3}}"></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_reas_for_rep_gt3}}"></td>
+              
+               
+            </tr>
+            
+            
+            
+            <tr>
+                <td  class="td-bluelight">GT 4</td>
+               
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_ser_no_gt4}}"  ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_calib_gt4}}" ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_inst_gt4}}" ></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_RH_gt4}}"></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_reas_for_rep_gt4}}"></td>
+              
+               
+            </tr>
+            
+            
+            <tr>
+                <td  class="td-bluelight">SPTA</td>
+               
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_ser_no_SPTA_1}}"  ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_calib_SPTA_1}}" ></td>
+                    <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_inst_SPTA_1}}" ></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_AFCU_RH_SPTA_1}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.snf_AFCU_reas_for_rep_SPTA_1}}"></td>
+              
+               
+            </tr>
+            
+            
+            <tr>
+                <td  class="td-bluelight">SPTA</td>
+               
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_ser_no_SPTA_2}}"  ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_calib_SPTA_2}}" ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_inst_SPTA_2}}" ></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_RH_SPTA_2}}"></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_reas_for_rep_SPTA_2}}"></td>
+              
+               
+            </tr>
+            
+            
+               <tr>
+                <td  class="td-bluelight">SPTA</td>
+               
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_ser_no_SPTA_3}}"  ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_calib_SPTA_3}}" ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_AFCU_date_of_inst_SPTA_3}}" ></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_RH_SPTA_3}}"></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_AFCU_reas_for_rep_SPTA_3}}"></td>
+              
+               
+            </tr>
+            
+            
+            
+            
+            <tr>
+            <td rowspan="5">Burners</td>
+            </tr>
+            
+            <tr>
+            <td  class="td-bluelight">GT 1</td>
+            
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_ser_no_gt1}}"  ></td>
+            <td><input type="date" class="form-control" value="{{users1.snf_burner_date_of_calib_gt1}}" ></td>
+            <td><input type="date" class="form-control" value="{{users1.snf_burner_date_of_inst_gt1}}" ></td>
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_RH_gt1}}"></td>
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_reas_for_rep_gt1}}"></td>
+            
+            
+            </tr>
+            
+            <tr>
+            <td  class="td-bluelight">GT 2</td>
+            
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_ser_no_gt2}}"></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_burner_date_of_calib_gt2}}" ></td>
+                <td><input type="date" class="form-control" value="{{users1.snf_burner_date_of_inst_gt2}}" ></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_burner_RH_gt2}}"></td>
+                <td><input type="text" class="form-control" value="{{users1.snf_burner_reas_for_rep_gt2}}"></td>
+            
+            
+            </tr>
+            
+            
+            <tr>
+            <td  class="td-bluelight">GT 3</td>
+            
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_ser_no_gt3}}"></td>
+            <td><input type="date" class="form-control" value="{{users1.snf_burner_date_of_calib_gt3}}" ></td>
+            <td><input type="date" class="form-control" value="{{users1.snf_burner_date_of_inst_gt3}}" ></td>
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_RH_gt3}}"></td>
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_reas_for_rep_gt3}}"></td>
+            
+            
+            </tr>
+            
+            
+            
+            <tr>
+            <td  class="td-bluelight">GT 4</td>
+            
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_ser_no_gt4}}"></td>
+            <td><input type="date" class="form-control" value="{{users1.snf_burner_date_of_calib_gt4}}" ></td>
+            <td><input type="date" class="form-control" value="{{users1.snf_burner_date_of_inst_gt4}}" ></td>
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_RH_gt4}}"></td>
+            <td><input type="text" class="form-control" value="{{users1.snf_burner_reas_for_rep_gt4}}"></td>
+            
+            
+            </tr>
+               
+            </table>
+            
+            
+            
+            <h4 class="text-left heading-style2"><u class="font-weight-bold">(V) Spectrometric Trend (Lub Oil) Limit copper (cu) ≤ 5.90 and iron (Fe) ≤3.90 (06 May 24)</u> </h4>
+              <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                    <th>Element</th>
+                    <th>GT 1</th>
+                    <th>GT 2</th>
+                    <th>GT 3</th>
+                    <th>GT 4</th>
+                    <th>RG 1</th>
+                    <th>RG 2</th>
+                    <th>GTG 1</th>
+                    <th>GTG 2</th>
+                    <th>Remarks</th>
+                   
+                </tr>
+            
+            
+                <tr>
+                    <td>Fe</td>
+                    <td>{{users1.snf_spect_Fe_GT1}}</td>
+                    <td>{{users1.snf_spect_Fe_GT2}}</td>
+                    <td>{{users1.snf_spect_Fe_GT3}}</td>
+                    <td>{{users1.snf_spect_Fe_GT4}}</td>
+                    <td>{{users1.snf_spect_Fe_RG1}}</td>
+                    <td>{{users1.snf_spect_Fe_RG2}}</td>
+                    <td>{{users1.snf_spect_Fe_GTG1}}</td>
+                    <td>{{users1.snf_spect_Fe_GTG2}}</td>
+                    <td>{{users1.snf_spect_Fe_Remarks}}</td>
+                  
+                   
+                </tr>
+            
+                
+                <tr>
+                    <td>Cu</td>
+                    <td>{{users1.snf_spect_Cu_GT1}}</td>
+                    <td>{{users1.snf_spect_Cu_GT2}}</td>
+                    <td>{{users1.snf_spect_Cu_GT3}}</td>
+                    <td>{{users1.snf_spect_Cu_GT4}}</td>
+                    <td>{{users1.snf_spect_Cu_RG1}}</td>
+                    <td>{{users1.snf_spect_Cu_RG2}}</td>
+                    <td>{{users1.snf_spect_Cu_GTG1}}</td>
+                    <td>{{users1.snf_spect_Cu_GTG2}}</td>
+                    <td>{{users1.snf_spect_Cu_Remarks}}</td>
+                </tr>
+                </table>
+            
+            
+            
+            
+                <h4 class="text-left heading-style2"><u class="font-weight-bold">(VI) Physical Properties {{users1.snf_physical_prop_date}}</u></h4>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                  <tr>
+                      <th>Ser</th>
+                      <th>Parameter</th>
+                      <th>GT 1</th>
+                      <th>GT 2</th>
+                      <th>GT 3</th>
+                      <th>GT 4</th>
+                      <th>RG 1</th>
+                      <th>RG 2</th>
+                      <th>GTG 1</th>
+                      <th>GTG 2</th>
+                    
+                     
+                  </tr>
+            
+            
+                  <tr>
+                      <td>1</td>
+                      <td>Viscosity cst at 50 Deg C </td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_visc_GT1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_visc_GT2}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_visc_GT3}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_visc_GT4}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_visc_RG1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_visc_RG21}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_visc_GTG1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_visc_GTG2}}" ></td>
+                  </tr>
+            
+                  
+                  <tr>
+                      <td>2</td>
+                      <td>Water Content (present or Not)</td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_wat_cont_GT1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_wat_cont_GT2}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_wat_cont_GT3}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_wat_cont_GT4}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_wat_cont_RG1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_wat_cont_RG21}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_wat_cont_GTG1}}" ></td>
+                      <td><input type="text" class="form-control" value="{{users1.snf_phy_prop_wat_cont_GTG2}}" ></td>
+                  </tr>
+                  </table>
+            
+            
+                  <h4 class="text-left heading-style2"><u class="font-weight-bold">(VII) Record of replacement of FNT and CT 500 Filters: -</u></h4>
+            
+                  <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr>
+                       
+                        <th>GT</th>
+                        <th colspan="2">GT 1</th>
+                        <th colspan="2">GT 2</th>
+                        <th colspan="2">GT 3</th>
+                        <th colspan="2">GT 4</th>                                  
+                        <th colspan="2">GTG 1</th>
+                        <th colspan="2">GTG 2</th>
+                      
+                       
+                    </tr>
+            
+                    <tr>
+                        <td>FILTER</td>
+                        <td>FNT</td>
+                        <td>CT-500</td>
+                        <td>FNT</td>
+                        <td>CT-500</td>
+                        <td>FNT</td>
+                        <td>CT-500</td>
+                        <td>FNT</td>
+                        <td>CT-500</td>
+                        <td>FNT</td>
+                        <td>CT-500</td>
+                        <td>FNT</td>
+                        <td>CT-500</td>
+                     
+                    </tr>
+            
+                    <tr>
+                        <td>DATE</td>
+                        <td>{{users1.snf_record_FNT_date_GT1}}</td>
+                        <td>{{users1.snf_record_CT_500_date_GT1}}</td>
+                        <td>{{users1.snf_record_FNT_date_GT2}}</td>
+                        <td>{{users1.snf_record_CT_500_date_GT2}}</td>
+                        <td>{{users1.snf_record_FNT_date_GT3}}</td>
+                        <td>{{users1.snf_record_CT_500_date_GT3}}</td>
+                        <td>{{users1.snf_record_FNT_date_GT4}}</td>
+                        <td>{{users1.snf_record_CT_500_date_GT4}}</td>
+                        <td>{{users1.snf_record_FNT_date_GTG1}}</td>
+                        <td>{{users1.snf_record_CT_500_date_GTG1}}</td>
+                        <td>{{users1.snf_record_FNT_date_GTG2}}</td>
+                        <td>{{users1.snf_record_CT_500_date_GTG2}}</td>
+                     
+                    </tr>
+            
+            
+                </table>
+            
+            
+            
+                <div class="heading-style2 text-center">
+                    <h2><u class="font-weight-bold">PART - IV DEFECTS</u></h2>   
+                </div>
+            
+            
+                
+            
+                <h4 class="heading-style2 text-center"><u class="font-weight-bold">Defects Observed During the Quarter: -</u></h4>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr> 
+                        <th width="1%">Ser</th>        
+                        <th width="5%">Date</th>
+                        <th width="10%">Equipment</th>
+                        <th width="12%">Defect Description</th>
+                        <th width="8%">Remedial Action</th> 
+                        <th width="12%">Remarks</th>   
+                    </tr>
+
+                    {% for al in SnfDefectGTQuartDynamic%}
+                    <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{al.defect_during_quarter_snf_date}}</td>
+                            <td>{{al.defect_during_quarter_snf_eqp}}</td>
+                            <td>{{al.defect_during_quarter_snf_desc}}</td>
+                            <td>{{al.defect_during_quarter_snf_rem_action}}</td>
+                            <td>{{al.defect_during_quarter_snf_remarks}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            
+            
+                <div class="heading-style2 text-center">
+                    <h2><u class="font-weight-bold">REMARKS</u></h2>
+                </div>
+            
+                <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                    <tr>
+                      <td>
+                    
+                        <div class="form-floating">
+                          {{users1.snf_quarterly_return_remarks | safe}}
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+    </div>
+</section>
+<table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+    <tr>
+        <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+        <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+    </tr>
+</table>
+
+<table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+    <tr style="border: 0; border-style:None;">
+        <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+        <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+    </tr>
+</table>
+
+</div>
+</body>
+</html>

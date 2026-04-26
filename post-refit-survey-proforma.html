@@ -1,0 +1,169 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>P-15/P-15(GTG)</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+        <div class="wrapper">
+            <div class="container-fluid panel-right">
+                <div class="heading-style2">
+                    <div style="display: flex;flex-direction: column;">
+                        <h2 class="text-right" style="margin-bottom: 0px;">Enclosure 2 to NEC letter</h2>
+                        <h2 class="text-right mb-4">301/SURV/REFIT dated: {{users.post_refit_form_date}}</h2>
+                    </div>
+                    <h2 class="text-center mt-3 heading-style2"><strong><b>EMI/EMC POST REFIT SURVEY PERFORMA</b></strong></h2>
+                    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                        <tr>
+                            <td colspan="2"  style="background:#efedff"><strong>Ship: </strong></td>
+                            <td>{{users.trial.ship.name}}</td>     
+                        
+                            <td  colspan="2" style="background:#efedff"><strong>Type of Refit: </strong></td>
+                            <td>{{users.post_refit_refit_type}}</td>
+                        
+                            <td  colspan="2" style="background:#efedff"><strong>Date of Pre-refit survey:</strong></td>
+                            <td>{{users.post_refit_date_refit_survey}}</td>
+                        </tr>
+                        <tr>
+                            <td  style="background:#efedff">Proposed/ tentative dates of Post refit survey:</td>
+                            <td colspan="4" style="background:#efedff !important"><label>(a) Harbour Trials:</label>
+                                {{users.post_refit_date_harbour_trial}}>
+                            </td>
+                            <td colspan="4" style="background:#efedff"><label>(b) Sea/ Anchorage Trials:</label>
+                                {{users.post_refit_date_sea_trial}}>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>1. It is confirmed that all electrical/ electronic equipment fitted onboard are operational. List of equipment non-operational is attached herewith.</p>
+                    <p>2. It is confirmed that STW & HATS of all equipment fitted onboard has been completed and cleared. List of equipment for which HATs have not been successfully cleared is enclosed herewith.</p>
+                    <p>3. The following portable/ mobile transmitters (WLAN handsets/headsets, FDCS headsets/ handsets, Walkie-Talkies, Magloop headsets, Hydra handsets etc.) are available/ used onboard:-</p>
+                    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                        <tr>
+                            <th style="text-align: center;">Sl </th>
+                            <th style="text-align: center;">Portable / Mobile Transmitter Unit</th>
+                            <th style="text-align: center;">Locations/ Areas of ship where used</th>
+                            <th style="text-align: center;">Max Power O/P</th>
+                            <th style="text-align: center;">Frequency</th>
+                        </tr>
+                        {% if users%}
+                        <tr>
+                            <td>{{users.post_refit_3_si_1}}</td>
+                            <td>{{users.post_refit_3_port_mob_trans_unit_1}}</td>
+                            <td>{{users.post_refit_3_area_ship_used_1}}</td>
+                            <td>{{users.post_refit_3_max_power_op_1}}</td>
+                            <td>{{users.post_refit_3_frequency_1}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{users.post_refit_3_si_2}}</td>
+                            <td>{{users.post_refit_3_port_mob_trans_unit_2}}</td>
+                            <td>{{users.post_refit_3_area_ship_used_2}}</td>
+                            <td>{{users.post_refit_3_max_power_op_2}}</td>
+                            <td>{{users.post_refit_3_frequency_2}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{users.post_refit_3_si_3}}</td>
+                            <td>{{users.post_refit_3_port_mob_trans_unit_3}}</td>
+                            <td>{{users.post_refit_3_area_ship_used_3}}</td>
+                            <td>{{users.post_refit_3_max_power_op_3}}</td>
+                            <td>{{users.post_refit_3_frequency_3}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{users.post_refit_3_si_4}}</td>
+                            <td>{{users.post_refit_3_port_mob_trans_unit_4}}</td>
+                            <td>{{users.post_refit_3_area_ship_used_4}}</td>
+                            <td>{{users.post_refit_3_max_power_op_4}}</td>
+                            <td>{{users.post_refit_3_frequency_4}}</td>
+                        </tr>
+                        {% endif %}
+                    </table>
+                    <p>4. The following blanking/ interference suppression units are installed onboard and it is confirmed that they are operational and interfaced with the concerned TXs / RXs as per design (give names of blanking units). Further give scheme / matrix of blanking i.e. receiver blanked & names of transmitters whose pulses have been used to blank that receiver.</p>
+                    <p>5. It is confirmed that ships own power supply is available for the duration of the trials.</p>
+                    <p>6. Results of HATS on RF TXs & RXs:</p>
+                    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                        <tr>
+                            <th style="text-align: center;">Sl </th>
+                            <th style="text-align: center;">Name of RF Tx or Rx (All communication, EW, radar, DF equipment)</th>
+                            <th style="text-align: center;">If Rx, then Sensitivity (dBm or µV) If Tx, then Max Power Output (dBm or Watts) (as measured during HATS)</th>
+                        </tr>
+                        {% if users%}
+                        <tr>
+                            <td>{{users.post_refit_6_si_1}}</td>
+                            <td>{{users.post_refit_6_name_rf_tx_1}}</td>
+                            <td>{{users.post_refit_6_rx_sensitivity_1}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{users.post_refit_6_si_2}}</td>
+                            <td>{{users.post_refit_6_name_rf_tx_2}}</td>
+                            <td>{{users.post_refit_6_rx_sensitivity_2}}</td>
+                        </tr>
+                        {% endif %}
+                    </table>
+
+                    <p>7. IF frequencies of RF receivers are as follows:-</p>
+                    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                        <tr>
+                            <th style="text-align: center;">Sl </th>
+                            <th style="text-align: center;">Name of RF Receiver (All communication, EW, radar, DF equipment)</th>
+                            <th style="text-align: center;">IF Frequency (MHz) [if more than one IF stages used pls list all IFs]</th>
+                        </tr>
+                        {% if users%}
+                        <tr>
+                            <td>{{users.post_refit_7_si_1}}</td>
+                            <td>{{users.post_refit_7_name_rf_receiver_1}}</td>
+                            <td>{{users.post_refit_7_frequency_mhz_1}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{users.post_refit_7_si_2}}</td>
+                            <td>{{users.post_refit_7_name_rf_receiver_2}}</td>
+                            <td>{{users.post_refit_7_frequency_mhz_2}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{users.post_refit_7_si_3}}</td>
+                            <td>{{users.post_refit_7_name_rf_receiver_3}}</td>
+                            <td>{{users.post_refit_7_frequency_mhz_3}}</td>
+                        </tr>
+                        {% endif %}
+                        
+                    </table>
+                    <br>
+                    <br>
+                    <br>
+                    <p>8. List of known EMI problems (if any) are as follows:-</p>
+                    <textarea rows="10" rows="12" type="text" class="form-control cinput" style="background-color: white!important;border: 1px solid #dddddd!important;border-radius: 4px!important;width:100%">{{users.list_known_problems}}</textarea>
+                    <div class="text-right mt-5">
+                        <input type="text" class="form-control text-center" style="background-color: white!important;border: 1px solid #dddddd!important;border-radius: 4px!important;" value="{{users.post_refit_sign}}">
+                        <p>SHIP’S REP’S SIGNATURE (CO/XO/LO)</p>
+                    </div>
+                </div>
+                <h4>Recommendations. Following recommended:</h4>
+                    {%  with "service/approvals.html" as template %}   
+                        {% include template %}
+                    
+                    {% endwith %}
+                <div class="clear"></div>
+            </div>
+        </div>
+        <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+    </body>
+</html>

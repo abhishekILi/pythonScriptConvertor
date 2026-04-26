@@ -1,0 +1,619 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>pre-ranging-appendix-f</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+   <body>
+    <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+        <section class="body-card form-style1 trial-form">
+
+            <div class="heading-style2 text-center">
+                <img width="100px" alt="Logo"
+                style="height: 150px; width: 160px; position: relative; left: 40%;"
+                src="{{satellite_unit_icon}}">
+                <h3 style="text-align: center;">MACHINERY TRIAL UNIT {{satellite_unit}}</h3>
+                <h4 style="text-align: center;">Comprehensive Trials Report</h4>
+            </div>
+            <table class="table table-bordered table-form-color1 tabletd-color" style="background: #0b014a00 !important;">
+                <tr>
+                    <td width="10%"><strong>Ship:</strong></td>
+                    <td>{{ship}}</td>
+                    <td class="td-bluelight" width="10%"><strong>Date:</strong></td>
+                    <td>{{users.MACHINE_TRIAL_Date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td width="10%"><strong>Occasion:</strong></td>
+                    <td>{{users.MACHINE_TRIAL_Occasion}}
+                    </td>
+                    <td class="td-bluelight" width="10%"><strong>Equipment:</strong></td>
+                    <td>{{equipment}}</td>
+                </tr>
+                <tr>
+                    <td width="6%"><strong>CMMS Code:</strong></td>
+                    <td>{{cmms_code}}</td>
+                    <td class="td-bluelight" width="10%"><strong>Name:</strong></td>
+                    <td>{{nom_name}}</td>
+                </tr>
+                <tr>
+                    <td width="6%"><strong>Make:</strong></td>
+                    <td>{{users.MACHINE_TRIAL_Make}}</td>
+                    <td class="td-bluelight" width="6%"><strong>Models:</strong></td>
+                    <td>{{model}}</td>
+                </tr>
+                <tr>
+                    <td width="6%"><strong>RPM:</strong></td>
+                    <td>{{users.MACHINE_TRIAL_RPM}}</td>
+                    <td class="td-bluelight" width="6%"><strong>Driver Bearing DE:</strong></td>
+                    <td style="padding: 0px;">
+                        <table class="table table-bordered table-form-color1 tabletd-color" style="background: #0b014a00 !important;">
+                        <tr>
+                            <td style="width: 50%;padding: 10px;border: 0px solid black;">{{users.MACHINE_TRIAL_Bearing_DE}}</td>
+                            <td style="width: 50%;padding: 10px;border: 0px solid black;border-left: 1px solid black;">{{users.comprehensive_driver_bearing_nde}}</td>
+                        </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="6%"><strong>Coupling:</strong></td>
+                    <td>{{users.MACHINE_TRIAL_Coupling2}}</td>
+                    <td class="td-bluelight" width="15%"><strong>Driver Bearing NDE:</strong></td>
+                    <td style="padding: 0px;">
+                        <table class="table table-bordered table-form-color1 tabletd-color" style="background: #0b014a00 !important;">
+                            <tr>
+                                <td style="width: 50%;padding: 10px;border: 0px solid black;" colspan=""> {{users.MACHINE_TRIAL_Bearing_NDE}}</td>
+                                <td style="width: 50%;padding: 10px;border: 0px solid black;border-left: 1px solid black;" colspan=""> {{users.comprehensive_driver_bearing_nde}} </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="td-bluelight" width="10%"><strong>Driven Bearing DE:</strong></td>
+                    <td style="padding: 0px;">
+                        <table class="table table-bordered table-form-color1 tabletd-color" style="background: #0b014a00 !important;">
+                            <tr>
+                                <td style="width: 50%;padding: 10px;border: 0px solid black;" colspan="">{{users.vib_trial_B_Bearing_DE}}</td>
+                                <td style="width: 50%;padding: 10px;border: 0px solid black;border-left: 1px solid black;" colspan="">{{users.comprehensive_driven_bearing_de}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                
+
+
+                    <td class="td-bluelight"><strong>Driven Bearing NDE:</strong></td>
+                    <td style="padding: 0px;">
+                        <table class="table table-bordered table-form-color1 tabletd-color" style="background: #0b014a00 !important;">
+                            <tr>
+                                <td style="width: 50%;padding: 10px;border: 0px solid black;" colspan=""> {{users.vib_trial_B_Bearing_NDE}}</td>
+                                <td style="width: 50%;padding: 10px;border: 0px solid black;border-left: 1px solid black;" colspan=""> {{users.comprehensive_driven_bearing_nde}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+
+            </table>
+            <h4>Equipment Image</h4>
+            <div style="display: flex!important;justify-content: center!important;">
+                <img src="{{equipment_image}}" alt="equipment_image" style="height:250px;">
+            </div>
+
+            <h4>1. Overall Vibration Values (mm/sec)</h4>
+            {% if users.ShowOverallVibrationValuesSection %}
+            <div>
+                <div style="overflow-x: auto;">
+                    <table class="table table-bordered table-form-color1 tabletd-color">
+                        <tr style="text-align: center;">
+                            <th>Points</th>
+                            <th colspan="3">Driver FE</th>
+                            <th colspan="3">Driver DE</th>
+                            <th colspan="3">Driven FE</th>
+                            <th colspan="3">Driven DE</th>
+                            <th colspan="6">Additional</th>
+                        </tr>
+                        <tr>
+                            <td>No</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>Direction</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Values</td>
+                            <td {% if users.MACHINE_TRIAL_val_H1|to_float > users.MACHINE_TRIAL_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_H1}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_V1|to_float > users.MACHINE_TRIAL_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_V1}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_A1|to_float > users.MACHINE_TRIAL_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_A1}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_H2|to_float > users.MACHINE_TRIAL_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_H2}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_V2|to_float > users.MACHINE_TRIAL_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_V2}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_A2|to_float > users.MACHINE_TRIAL_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_A2}}</td>
+
+                            <td {% if users.MACHINE_TRIAL_val_H3|to_float > users.MACHINE_TRIAL_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.MACHINE_TRIAL_val_H3}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_V3|to_float > users.MACHINE_TRIAL_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.MACHINE_TRIAL_val_V3}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_A3|to_float > users.MACHINE_TRIAL_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.MACHINE_TRIAL_val_A3}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_H4|to_float > users.MACHINE_TRIAL_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.MACHINE_TRIAL_val_H4}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_V4|to_float > users.MACHINE_TRIAL_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.MACHINE_TRIAL_val_V4}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_A4|to_float > users.MACHINE_TRIAL_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.MACHINE_TRIAL_val_A4}}</td>
+
+                            <td {% if users.MACHINE_TRIAL_val_H5|to_float > users.MACHINE_TRIAL_additional1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_H5}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_V5|to_float > users.MACHINE_TRIAL_additional2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_V5}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_A5|to_float > users.MACHINE_TRIAL_additional3|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_A5}}</td>
+
+                            <td {% if users.MACHINE_TRIAL_val_H6|to_float > users.MACHINE_TRIAL_additional4|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_H6}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_V6|to_float > users.MACHINE_TRIAL_additional5|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_V6}}</td>
+                            <td {% if users.MACHINE_TRIAL_val_A6|to_float > users.MACHINE_TRIAL_additional6|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_val_A6}}</td>
+                        </tr>
+                        <tr>
+                            <td>Limits</td>
+                            <td colspan="6">{{users.MACHINE_TRIAL_limit1}}</td>
+                            <td colspan="6">{{users.MACHINE_TRIAL_limit2}}</td>
+                            <td>{{users.MACHINE_TRIAL_additional1}}</td>
+                            <td>{{users.MACHINE_TRIAL_additional2}}</td>
+                            <td>{{users.MACHINE_TRIAL_additional3}}</td>
+
+                            <td>{{users.MACHINE_TRIAL_additional4}}</td>
+                            <td>{{users.MACHINE_TRIAL_additional5}}</td>
+                            <td>{{users.MACHINE_TRIAL_additional6}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            {% else %}
+            <div>
+            Not Applicable
+            </div>
+            {% endif %}
+            <br>
+            <h4>2. Mount Attenuation</h4>
+                <!-- <div>
+                    <mat-slide-toggle (change)="toggleMountAttenuationSection()">Applicable/NA</mat-slide-toggle>
+                </div> -->
+            {% if users.ShowMountAttenuationSection %}
+            <div class="table-responsive table-input-auto-1">
+                <div *ngIf="ShowMountAttenuationSection">
+                    <table class="table table-bordered table-form-color1 tabletd-color">
+                        <tr style="text-align: center;">
+                            <th>Mount No.</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                            <th>11</th>
+                            <th>12</th>
+                            <th>13</th>
+                            <th>14</th>
+                            <th>15</th>
+                            <th>16</th>
+                            <th>17</th>
+                            <th>18</th>
+                        </tr>
+                        <tr>
+                            <td>Top</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top1}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top2}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top3}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top4}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top5}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top6}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top7}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top8}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top9}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top10}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top11}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top12}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top13}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top14}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top15}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top16}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top17}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_top18}}</td>
+                        </tr>
+                        <tr>
+                            <td>Bottom</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom1}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom2}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom3}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom4}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom5}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom6}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom7}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom8}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom9}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom10}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom11}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom12}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom13}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom14}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom15}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom16}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom17}}</td>
+                            <td>{{users.MACHINE_TRIAL_mount_bottom18}}</td>
+                        </tr>
+                        <tr>
+                            <td>Attenuation %</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation1|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation1}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation2|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation2}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation3|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation3}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation4|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation4}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation5|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation5}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation6|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation6}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation7|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation7}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation8|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation8}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation9|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation9}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation10|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation10}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation11|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation11}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation12|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation12}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation13|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation13}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation14|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation14}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation15|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation15}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation16|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation16}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation17|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation17}}</td>
+                            <td {% if users.MACHINE_TRIAL_mount_attenuation18|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.MACHINE_TRIAL_mount_attenuation18}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            {% else %}
+            <div>
+                Not Applicable
+            </div>
+            {% endif %}
+            <br>
+            <h4>3. Safety Device Checks</h4>
+            {% if users.ShowSafetyDeviceChecksSection %}
+                <table class="table table-bordered table-style-color tabletd-color">
+                    <tr colspan="6" style="text-align:center;font-weight: 600;">
+                        <th width="3%" style="font-weight:bold;">Sl No</th>
+                        <th width="13%" style="font-weight:bold;">Parameters</th>
+                        <th width="13%" style="font-weight:bold;">Units</th>
+                        <th width="13%" style="font-weight:bold;">Limits</th>
+                        <th width="13%" style="font-weight:bold;">Obs Value</th>
+                        <th width="13%" style="font-weight:bold;">Remarks</th>
+
+                    </tr>
+
+                    {% for al in daynamic_1 %}
+                        <tr>
+                            <td width="3%"> {{forloop.counter}}</td>
+                            <td width="13%">{{al.MACHINE_TRIAL_parameter1}}</td>
+                            <td width="13%">{{al.MACHINE_TRIAL_Units_RPM1}}</td>
+                            <td width="13%">{{al.MACHINE_TRIAL_Limits1}}</td>
+                            <td width="13%">{{al.MACHINE_TRIAL_Obs_Value1}}</td>
+                            <td width="13%">{{al.MACHINE_TRIAL_Remarks1}}</td>
+                            
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+            <span>
+                Not Applicable
+            </span>
+            {% endif %}
+            <h4>4. Check-off List </h4>
+            {% if users.ShowCheckOffListSection %}
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th>SNo.</th>
+                        <th>Description</th>
+                        <th>Remarks</th>
+                        <th>Observation</th>
+                    </tr>
+                    <tr>
+                        <td>(a)</td>
+                        <td>Physical condition of SV mounts of pumps motor</td>
+                        <td>
+                            {{users.Physical_con_SV}}
+                        </td>
+                        <td>{{users.Physical_con_SV_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(b)</td>
+                        <td>Physical Condition of foundation</td>
+                        <td>
+                            {{users.Physical_con_foundation}}
+                        </td>
+                        <td>{{users.Physical_con_foundation_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(c)</td>
+                        <td>Condition of Suction/Discharge compensator</td>
+                        <td>
+                            {{users.Condition_of_Suction}}
+                        </td>
+                        <td>{{users.Condition_of_Suction_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(d)</td>
+                        <td>Securing of suction/discharge pipe</td>
+                        <td>
+                            {{users.Securing_of_suction}}
+                        </td>
+                        <td>{{users.Securing_of_suction_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(e)</td>
+                        <td>Abnormal Noise</td>
+                        <td>
+                            {{users.Abnormal_Noise}}
+                        </td>
+                        <td>{{users.Abnormal_Noise_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(f)</td>
+                        <td>Excessive Vibration</td>
+                        <td>
+                            {{users.Excessive_Vibration}}
+                        </td>
+                        <td>{{users.Excessive_Vibration_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(g)</td>
+                        <td>Gland Leak ( Mechanical Seal)</td>
+                        <td>
+                            {{users.Gland_Leak}}
+                        </td>
+                        <td>{{users.Gland_Leak_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(h)</td>
+                        <td>Pressure Fluctuation</td>
+                        <td>
+                            {{users.Pressure_Fluctuation}}
+                        </td>
+                        <td>{{users.Pressure_Fluctuation_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(j)</td>
+                        <td>Suction Pressure(Bar)</td>
+                        <td>
+                            {{users.Suction_Pressure}}
+                        </td>
+                        <td>{{users.Suction_Pressure_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(k)</td>
+                        <td>Discharge Pressure (Bar)</td>
+                        <td>
+                            {{users.Discharge_Pressure}}
+                        </td>
+                        <td>{{users.Discharge_Pressure_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(l)</td>
+                        <td>Start/Stop from local and remote</td>
+                        <td>
+                            {{users.Start_Stop_local}}
+                        </td>
+                        <td>{{users.Start_Stop_local_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(m)</td>
+                        <td>Valves and gauges provided with tallies</td>
+                        <td>
+                            {{users.Valves_gauges}}
+                        </td>
+                        <td>{{users.Valves_gauges_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(n)</td>
+                        <td>Operating instructions displayed for pump</td>
+                        <td>
+                            {{users.Operating_instructions}}
+                        </td>
+                        <td>{{users.Operating_instructions_Obs}}</td>
+                    </tr>
+                    <tr>
+                        <td>(o)</td>
+                        <td>Pipe painting as per colour standard</td>
+                        <td>
+                            {{users.Pipe_painting}}
+                        </td>
+                        <td>{{users.Pipe_painting_Obs}}</td>
+                    </tr>
+                    <tr>
+                        {% for al in daynamic_2 %}
+                            <tr>
+                                <td width="3%"> {{forloop.counter}}</td>
+                                <td width="13%">{{al.Operating_dynamic_input_1}}</td>
+                                <td width="13%">{{al.Pipe_painting_d}}</td>
+                                <td width="13%">{{al.Pipe_painting_Obs_d}}</td>
+                            </tr>
+                        {% endfor %}
+
+                    </tr>
+
+
+                </table>
+            {% else %}
+            <span>
+                Not Applicable
+            </span>
+            {% endif %}
+            <h4>5. Performance Parameters</h4>
+            {% if users.ShowPerformanceParametersSection %}
+                <table class="table table-bordered table-style-color tabletd-color">
+                        <tr colspan="6" style="text-align:center;font-weight: 600;">
+                            <th width="3%" style="font-weight:bold;">Sl No</th>
+                            <th width="13%" style="font-weight:bold;">Parameters</th>
+                            <th width="13%" style="font-weight:bold;">Units</th>
+                            <th width="13%" style="font-weight:bold;">Limits</th>
+                            <th width="13%" style="font-weight:bold;">Obs Value</th>
+                            <th width="13%" style="font-weight:bold;">Remarks</th>
+
+                        </tr>
+                    
+                            {% for al in daynamic_3 %}
+                                <tr>
+                                    <td width="3%"> {{forloop.counter}}</td>
+                                    <td width="13%">{{al.Performance_Param_a}}</td>
+                                    <td width="13%">{{al.Performance_Units_RPM_a}}</td>
+                                    <td width="13%">{{al.Performance_Limits_a}}</td>
+                                    <td width="13%">{{al.Performance_Obs_Value_a}}</td>
+                                    <td width="13%">{{al.Performance_Remarks_a}}</td>
+                                    
+                                </tr>
+                            {% endfor %}
+                        </tr>
+
+                </table>
+            {% else %}
+            <span>
+                Not Applicable
+            </span>
+            {% endif %}
+                <br>
+                <h4>6. Final Assessment and Recommendations</h4>
+                {% if users.MACHINE_TRIAL_comment %}
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr>
+                        <td>
+                            <div class="form-floating" style="text-align: left;"> {{users.MACHINE_TRIAL_comment | safe}} </div>
+                        </td>
+                    </tr>
+                </table>
+                {% else %}
+                <span>Not Applicable</span>
+                {% endif %}
+                <br>
+                <h4>Trial Inspectors</h4>
+                <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                {% for user_detail in user_dict %}
+                    <tr>
+                        <td > {{forloop.counter}}</td>
+                        <td > {{user_detail.first_name}} {{user_detail.last_name}} ({{user_detail.loginname}})</td>
+                    </tr>
+                {% endfor %}
+                </table>
+                
+        </section>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

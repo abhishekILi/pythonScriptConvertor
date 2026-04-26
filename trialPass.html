@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>External Examination Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body {
+            margin: 50px 20px 50px 20px;
+            size: landscape;
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 1px dotted;
+            padding: 10px 30px 150px 30px;
+        }
+
+        .wrapper {
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .clear {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            clear: both;
+        }
+
+        .star {
+            color: red;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        tr,
+        th {
+            text-align: start;
+        }
+
+        tr,
+        th {
+            font-size: 14px;
+        }
+
+        tr td {
+            text-align: left;
+        }
+
+        table {
+            border: 1px solid lightgray;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table tr {
+            margin: 0px !important;
+        }
+
+        table tr th {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align: left;
+        }
+
+        table tr td {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align: left;
+        }
+
+        textarea {
+            width: 100%;
+            font-size: 12px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            display: none;
+        }
+
+        .btn {
+            display: none;
+        }
+
+        @media print {
+
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                display: none !important;
+            }
+        }
+
+        .ggh{
+            margin-top: 50px !important;
+        }
+
+        .ggh {
+            border: none;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .ggh tr {
+            margin: 0px !important;
+        }
+
+        .ggh tr th {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align: left;
+        }
+
+        .ggh tr td {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align: left;
+        }
+
+        .abc{
+            text-align: end!important;
+        }
+
+        .tc{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading-style2 heading-style3 text-center">
+        <h2>Machinery Trial Unit (MUMBAI)</h2>
+        <h3 class="tc"><U> Trial Pass for Trial: {{trialNumber}}</U></h3>
+    </div>
+    
+    <table class="table table-bordered table-form-color1">
+        
+        <tr >
+            <td>&nbsp;&nbsp;Trial Pass Number</td>
+            <td width="70%">&nbsp;&nbsp;{{users.trial_pass_number}}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Trial Date Time</td>
+            <td>&nbsp;&nbsp;{{users.trial_date}} {{users.trial_time}}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Ship </td>
+            <td>&nbsp;&nbsp;{{ship}}</td>
+        </tr>
+        
+        <tr>
+            <td>&nbsp;&nbsp;Trial Name</td>
+            <td>&nbsp;&nbsp;{{trial_name}}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Occasion</td>
+            <td>&nbsp;&nbsp;{{ocation_trial}}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Equipment</td>
+            <td>&nbsp;&nbsp;{{equipment}}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;Equipment Nomenclature</td>
+            <td>&nbsp;&nbsp;{{nomenclature}}</td>
+        </tr>
+
+        <tr>
+            <td>&nbsp;&nbsp;Type</td>
+            <td>&nbsp;&nbsp;{{users.trial_type}}</td>
+        </tr>
+
+        <tr>
+            <td rowspan="{{inspectorLen}}">&nbsp;&nbsp;Trial Inspector</td>
+            {% for i in inspector %}
+                <tr><td>&nbsp;&nbsp;{{forloop.counter}}. {{i.first_name}}  {{i.last_name}}</td></tr>
+            {% endfor %}
+            
+            <!-- <tr><td>&nbsp;&nbsp;lkdfjkl</td></tr>
+            <tr><td>&nbsp;&nbsp;lkdfjkl</td></tr>
+            <tr><td>&nbsp;&nbsp;lkdfjkl</td></tr>
+            <tr><td>&nbsp;&nbsp;lkdfjkl</td></tr> -->
+        </tr>
+
+        <tr>
+            <td rowspan="{{equipment_toolLen}}">&nbsp;&nbsp;Test Equipment</td>
+            {% for j in equipment_tool %}
+                <tr><td>&nbsp;&nbsp;{{forloop.counter}}. {{j.name}}</td></tr>
+            {% endfor %}
+        </tr>
+    </table>
+
+    
+    <table class="ggh">
+        <tr>
+            <!-- <div>
+                <h4 style="margin: 0;">Abcdef xyzdef</h4>
+                <p style="margin: 0;">(Initiator)</p>
+            </div> -->
+            <th><b>{{trial_pass_initate_by}}</b></th>
+            <th class="abc"><b>{{trial_pass_approved_by}}</b></th>
+        </tr>
+        
+        <tr>
+            <td>(Initiator)</td>
+            <td class="abc">(Approver)</td>
+        </tr>
+        <!-- <tr>
+            <div>
+                <h4 style="margin: 0;">Abcdef xyzdef</h4>
+                <p style="margin: 0;">(Approver)</p>
+            </div>
+        </tr> -->
+        <!-- <tr>
+            <td>&nbsp;&nbsp;Type</td>
+            <td>&nbsp;&nbsp;{{users.trial_type}}</td>
+        </tr> -->
+    </table>
+    
+
+
+
+</body>
+
+</html>

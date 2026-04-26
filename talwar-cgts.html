@@ -1,0 +1,114 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>TEG/TALWAR CGTs</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+     <div class="wrapper">
+            <div class="heading-style2 heading-style3 text-center">
+               <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">TEG/TALWAR CGTs</h2>
+            </div>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+               <tr>
+                  <th>SER</th>
+                  <th>DESCRIPTION</th>
+                  <th>LIMIT</th>
+                  <th>Observed Value</th>
+                  <th>Remarks</th>
+               </tr>
+               {% if users%}
+               <tr>
+                 <td style="font-size:14px; color: #222;">1</td>
+                 <td style="font-size:14px; color: #222;">FRONT TRUNNION (V)</td>
+                 <td style="font-size:14px; color: #222;">&lt; 7.1</td>
+                 <td style="font-size:14px; color: #222;">{{users.Observed_Value_1}}</td>
+                 <td style="font-size:14px; color: #222;">{{users.Remarks_1}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}      
+               <tr>
+                  <td style="font-size:14px; color: #222;">2</td>
+                  <td style="font-size:14px; color: #222;">FRONT TRUNNION (A)</td>
+                  <td style="font-size:14px; color: #222;">&lt; 7.1</td>
+                 <td style="font-size:14px; color: #222;">{{users.Observed_Value_2}}</td>
+                 <td style="font-size:14px; color: #222;">{{users.Remarks_2}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}      
+               <tr>
+                  <td style="font-size:14px; color: #222;">3</td>
+                  <td style="font-size:14px; color: #222;">ADAPTOR FLANGE (H)</td>
+                  <td style="font-size:14px; color: #222;">&lt; 7.1</td>
+                 <td style="font-size:14px; color: #222;">{{users.Observed_Value_3}}</td>
+                 <td style="font-size:14px; color: #222;">{{users.Remarks_3}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}      
+              <tr>
+               <td style="font-size:14px; color: #222;">4</td>
+               <td style="font-size:14px; color: #222;">CRG FORWARD INPUT (V)</td>
+               <td style="font-size:14px; color: #222;">&lt; 4.3</td>
+                 <td style="font-size:14px; color: #222;">{{users.Observed_Value_4}}</td>
+                 <td style="font-size:14px; color: #222;">{{users.Remarks_4}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}      
+              <tr>
+                 <td style="font-size:14px; color: #222;">5</td>
+                 <td style="font-size:14px; color: #222;">CRG FORWARD OUTPUT (V)</td>
+                 <td style="font-size:14px; color: #222;">&lt; 4.3</td>
+                 <td style="font-size:14px; color: #222;">{{users.Observed_Value_5}}</td>
+                 <td style="font-size:14px; color: #222;">{{users.Remarks_5}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}      
+              <tr>
+                <td style="font-size:14px; color: #222;">6</td>
+                <td style="font-size:14px; color: #222;">CRG FORWARD OUTPUT (A)</td>
+                <td style="font-size:14px; color: #222;">&lt; 4.3</td>
+                 <td style="font-size:14px; color: #222;">{{users.Observed_Value_6}}</td>
+                 <td style="font-size:14px; color: #222;">{{users.Remarks_6}}</td>
+              </tr>
+              {% endif%}
+              {% if users%}      
+              <tr>
+                 <td style="font-size:14px; color: #222;">7</td>
+                 <td style="font-size:14px; color: #222;">RG BODY BOTTOM (V)</td>
+                 <td style="font-size:14px; color: #222;">&lt; 4.3</td>
+                 <td style="font-size:14px; color: #222;">{{users.Observed_Value_7}}</td>
+                 <td style="font-size:14px; color: #222;">{{users.Remarks_7}}</td>
+              </tr>
+              {% endif%}
+            </table>
+            <h4>Recommendations. Following recommended:</h4>
+            {%  with "service/approvals.html" as template %}   
+                  {% include template %}
+                  
+            {% endwith %}
+            <div class="clear"></div>
+         </div>
+         <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+   </body>
+</html>

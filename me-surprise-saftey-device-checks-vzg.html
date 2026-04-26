@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>me-saftey-device-checks-vzg</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+         body {
+            margin: 50px 50px;
+            size: landscape;
+            font-family: Arial;
+            letter-spacing:1px;
+        }
+
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+        tr,
+        th {
+          text-align: start;
+        }
+    
+        tr,
+        th {
+          font-size: 14px;
+        }
+    
+        .table {
+          border: 1px solid lightgray;
+          font-size: 12px;
+          padding: 0px;
+          margin: 0px;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        .textarea{
+              width: 100%;
+              min-height: 80px;
+              /* padding: 10px; */
+              font-size: 12px;
+              resize: none;
+              overflow-y: hidden;
+          }
+        
+        .table tr {
+          margin: 0px !important;
+          text-align:left;
+        }
+    
+        .table tr th {
+          background-color: #80808054;
+          padding: 0px;
+          margin: 0px;
+          border: 1px solid black;
+          text-align: center;
+          padding: 2px 2px 2px 2px;
+        }
+    
+        .table tr td {
+          background-color: #80808054;
+          padding: 0px;
+          margin: 0px;
+          border: 1px solid black;
+          padding: 2px 2px 2px 2px;
+          text-align:left;
+        }
+
+        .clear {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            clear: both;
+        }
+
+        .star {
+            color: red;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        tr,
+        th {
+            text-align: start;
+        }
+
+        tr,
+        th {
+            font-size: 14px;
+        }
+      </style>
+   </head>
+   <body>
+      <div class="wrapper">
+         
+         <div style="float:right">
+              <p>Report Generated on: {{ history.approved_date_time }}</p>
+            </div>
+             <div class="heading-style2 heading-style3 text-center">
+              <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT_Logo_ucOIgyz.jpg" class="ng-star-inserted">
+              <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT VIZAG</h2>       
+                <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">ME SURPRISE SAFETY DEVICE CHECKS</h2>              
+             </div>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            
+            <tr>
+                 <td width="15%"><strong>SHIP :</strong></td>
+                 <td width="30%"style="font-size:14px; color: #222;">{{ship_name}}</td>
+                 <td class="td-bluelight" width="10%"><strong>DATE OF TRIAL :</strong></td>
+                 <td style="font-size:14px; color: #222;">{{users.me_date}}</td>
+                  
+              </tr>
+              
+
+
+              <tr>
+                     <td width="6%"><strong>OCCASION OF TRIAL :</strong></td>
+                     <td style="font-size:14px; color: #222;">{{users.me_occasion_of_trial}}</td>
+                     <td class="td-bluelight" width="10%"><strong>R/H SINCE INSTALLATION :</strong></td>
+                     <td style="font-size:14px; color: #222;">{{users.me_rh_since_install}}</td>
+              </tr>
+    
+              <tr>
+                 <td width="15%"><strong>MAKE</strong></td>
+                 <td style="font-size:14px; color: #222;">{{users.me_make}}</td>
+                 <td width="15%"><strong>MODEL :</strong></td>
+                 <td style="font-size:14px; color: #222;">{{users.me_model}}</td>
+                 
+              </tr>
+              
+              <tr>
+
+                 <td class="td-bluelight" width="15%"><strong>EQUIPMENT :</strong></td>
+                 <td style="font-size:14px; color: #222; ">{{equipment_name}}</td>
+              
+              </tr>
+
+           </table>
+           
+           <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+                <th>SER</th>
+                <th>PARAMETERS</th>
+                <th>LOCATION</th>
+                <th>LIMITS</th>
+                <th>OBS. VALUE</th>
+                <th>REMARKS</th>
+            </tr>
+            <tr>
+                    <td>1.</td>
+                    <td>LOW LUB OIL PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lub_oil_pressure_limit}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_obs_val}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>2.</td>
+                    <td>HIGH FRESH WATER TEMPERATURE </td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_fresh_water_temperature_limit}}</td>
+                    <td>{{users.me_high_fresh_water_temperature_obs_val}}</td>
+                    <td>{{users.me_high_fresh_water_temperature_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>3.</td>
+                    <td>HIGH LUB OIL TEMPERATURE </td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_lub_oil_temperature_limit}}</td>
+                    <td>{{users.me_high_lub_oil_temperature_obs_val}}</td>
+                    <td>{{users.me_high_lub_oil_temperature_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>4.</td>
+                    <td>LOW SEA WATER PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_sea_water_pressure_limit}}</td>
+                    <td>{{users.me_low_sea_water_pressure_obs_val}}</td>
+                    <td>{{users.me_low_sea_water_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>5.</td>
+                    <td>LOW OVER SPEED AIR PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_over_speed_air_pressure_limit}}</td>
+                    <td>{{users.me_low_over_speed_air_pressure_obs_val}}</td>
+                    <td>{{users.me_low_over_speed_air_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>6.</td>
+                    <td>LOW STARTING AIR PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_starting_air_pressure_limit}}</td>
+                    <td>{{users.me_low_starting_air_pressure_obs_val}}</td>
+                    <td>{{users.me_low_starting_air_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>7.</td>
+                    <td>FUEL OIL PRESS</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_fuel_oil_press_limit}}</td>
+                    <td>{{users.me_fuel_oil_press_obs_val}}</td>
+                    <td>{{users.me_fuel_oil_press_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>8.</td>
+                    <td>LOW COOLANT PRESS</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_coolant_press_limit}}</td>
+                    <td>{{users.me_low_coolant_press_obs_val}}</td>
+                    <td>{{users.me_low_coolant_press_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>9.</td>
+                    <td>EMERGENCY STOP</td>
+
+                    <td>-</td>
+                    <td>{{users.me_emergency_stop_limit}}</td>
+                    <td>{{users.me_emergency_stop_obs_val}}</td>
+                    <td>{{users.me_emergency_stop_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>10.</td>
+                    <td>MAIN BEARING TEMPERATURE</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_main_bearing_temperature_limit}}</td>
+                    <td>{{users.me_main_bearing_temperature_obs_val}}</td>
+                    <td>{{users.me_main_bearing_temperature_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>11.</td>
+                    <td>HIGH EXHAUST TEMPERATURE</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_exhaust_temperature_limit}}</td>
+                    <td>{{users.me_high_exhaust_temperature_obs_val}}</td>
+                    <td>{{users.me_high_exhaust_temperature_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>12.</td>
+                    <td>LOW LUB OIL PRESSURE AT 400 RPM</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lub_oil_pressure_at_400_lrpm_limit}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_at_400_lrpm_obs_val}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_at_400_lrpm_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>13.</td>
+                    <td>LOW LUB OIL PRESSURE AT 400 RPM</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lub_oil_pressure_at_400_grpm_limit}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_at_400_grpm_obs_val}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_at_400_grpm_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>14.</td>
+                    <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT 400</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_ht_cooling_water_pengine_inlet_at_400l_limit}}</td>
+                    <td>{{users.me_low_ht_cooling_water_pengine_inlet_at_400l_obs_val}}</td>
+                    <td>{{users.me_low_ht_cooling_water_pengine_inlet_at_400l_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>15.</td>
+                    <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT 400</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_ht_cooling_water_pengine_inlet_at_400g_limit}}</td>
+                    <td>{{users.me_low_ht_cooling_water_pengine_inlet_at_400g_obs_val}}</td>
+                    <td>{{users.me_low_ht_cooling_water_pengine_inlet_at_400g_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>16.</td>
+                    <td>OIL MIST DETECTOR</td>
+
+                    <td>%</td>
+                    <td>{{users.me_oil_mist_detector_limit}}</td>
+                    <td>{{users.me_oil_mist_detector_obs_val}}</td>
+                    <td>{{users.me_oil_mist_detector_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>17.</td>
+                    <td>LOW LUB OIL PRESSURE 500</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lub_oil_pressure_500_limit}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_500_obs_val}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_500_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>18.</td>
+                    <td>LOW LUB OIL PRESSURE 750</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lub_oil_pressure_750_limit}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_750_obs_val}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_750_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>19.</td>
+                    <td>LOW LUB OIL PRESSURE 1000</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lub_oil_pressure_1000_limit}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_1000_obs_val}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_1000_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>20.</td>
+                    <td>HIGH SPLASH OIL TEMP</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_splash_oil_temp_limit}}</td>
+                    <td>{{users.me_high_splash_oil_temp_obs_val}}</td>
+                    <td>{{users.me_high_splash_oil_temp_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>21.</td>
+                    <td>LOW LUB OIL PRESSURE BEFORE ENGINE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lub_oil_pressure_before_engine_limit}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_before_engine_obs_val}}</td>
+                    <td>{{users.me_low_lub_oil_pressure_before_engine_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>22.</td>
+                    <td>HIGH CYLINDER FRESH WATER TEMP</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_cylinder_fresh_water_temp_limit}}</td>
+                    <td>{{users.me_high_cylinder_fresh_water_temp_obs_val}}</td>
+                    <td>{{users.me_high_cylinder_fresh_water_temp_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>23.</td>
+                    <td>FW TEMP AFTER MAIN ENGINE </td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_fw_temp_after_main_engine_limit}}</td>
+                    <td>{{users.me_fw_temp_after_main_engine_obs_val}}</td>
+                    <td>{{users.me_fw_temp_after_main_engine_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>24.</td>
+                    <td>FW TEMP BEFORE MAIN ENGINE</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_fw_temp_before_main_engine_limit}}</td>
+                    <td>{{users.me_fw_temp_before_main_engine_obs_val}}</td>
+                    <td>{{users.me_fw_temp_before_main_engine_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>25.</td>
+                    <td>FW PRESSURE BEFORE ENGINE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_fw_pressure_before_engine_limit}}</td>
+                    <td>{{users.me_fw_pressure_before_engine_obs_val}}</td>
+                    <td>{{users.me_fw_pressure_before_engine_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>26.</td>
+                    <td>FW TEMP AFTER TC ‘A’ BANK</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_fw_temp_after_tc_a_bank_limit}}</td>
+                    <td>{{users.me_fw_temp_after_tc_a_bank_obs_val}}</td>
+                    <td>{{users.me_fw_temp_after_tc_a_bank_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>27.</td>
+                    <td>FW TEMP AFTER TC B BANK</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_fw_temp_after_tc_b_bank_limit}}</td>
+                    <td>{{users.me_fw_temp_after_tc_b_bank_obs_val}}</td>
+                    <td>{{users.me_fw_temp_after_tc_b_bank_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>28.</td>
+                    <td>CHAGE AIR TEMP AFTER COOLER A BANK</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_chage_air_temp_after_cooler_a_bank_limit}}</td>
+                    <td>{{users.me_chage_air_temp_after_cooler_a_bank_obs_val}}</td>
+                    <td>{{users.me_chage_air_temp_after_cooler_a_bank_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>29.</td>
+                    <td>CHAGE AIR TEMP AFTER COOLER B BANK</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_chage_air_temp_after_cooler_b_bank_limit}}</td>
+                    <td>{{users.me_chage_air_temp_after_cooler_b_bank_obs_val}}</td>
+                    <td>{{users.me_chage_air_temp_after_cooler_b_bank_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>30.</td>
+                    <td>LUB OIL PRESSURE BEFORE TC</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_lub_oil_pressure_before_tc_limit}}</td>
+                    <td>{{users.me_lub_oil_pressure_before_tc_obs_val}}</td>
+                    <td>{{users.me_lub_oil_pressure_before_tc_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>31.</td>
+                    <td>LUB OIL TEMP BEFORE ENGINE AND TC</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_lub_oil_temp_before_engine_and_tc_limit}}</td>
+                    <td>{{users.me_lub_oil_temp_before_engine_and_tc_obs_val}}</td>
+                    <td>{{users.me_lub_oil_temp_before_engine_and_tc_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>32.</td>
+                    <td>LUB OIL TEMPERATURE AFTER TC</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_lub_oil_temperature_after_tc_limit}}</td>
+                    <td>{{users.me_lub_oil_temperature_after_tc_obs_val}}</td>
+                    <td>{{users.me_lub_oil_temperature_after_tc_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>33.</td>
+                    <td>LUB OIL TEMP AFTER COOLER</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_lub_oil_temp_after_cooler_limit}}</td>
+                    <td>{{users.me_lub_oil_temp_after_cooler_obs_val}}</td>
+                    <td>{{users.me_lub_oil_temp_after_cooler_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>34.</td>
+                    <td>FUEL PRESSURE BEFORE ENGINE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_fuel_pressure_before_engine_limit}}</td>
+                    <td>{{users.me_fuel_pressure_before_engine_obs_val}}</td>
+                    <td>{{users.me_fuel_pressure_before_engine_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>35.</td>
+                    <td>EXHAUST TEMP AVERAGE DEVIATION AFTER EACH CYLINDER</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_exhaust_temp_avertion_after_each_cylinder_limit}}</td>
+                    <td>{{users.me_exhaust_temp_avertion_after_each_cylinder_obs_val}}</td>
+                    <td>{{users.me_exhaust_temp_avertion_after_each_cylinder_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>36.</td>
+                    <td>AUTO FUEL FILTER DIFFERENTIAL PR</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_auto_fuel_filter_differential_pr_limit}}</td>
+                    <td>{{users.me_auto_fuel_filter_differential_pr_obs_val}}</td>
+                    <td>{{users.me_auto_fuel_filter_differential_pr_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>37.</td>
+                    <td>STARTING AIR PR BEFORE ENGINE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_starting_air_pr_before_engine_limit}}</td>
+                    <td>{{users.me_starting_air_pr_before_engine_obs_val}}</td>
+                    <td>{{users.me_starting_air_pr_before_engine_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>38.</td>
+                    <td>CONTROL AIR PR AFTER REDUCING STATION </td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_control_air_pr_after_reducing_station_limit}}</td>
+                    <td>{{users.me_control_air_pr_after_reducing_station_obs_val}}</td>
+                    <td>{{users.me_control_air_pr_after_reducing_station_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>39.</td>
+                    <td>HIGH DIFFERNTIAL OIL PRESSURE AUTO FILTER</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_high_differntial_oil_pressure_auto_filter_limit}}</td>
+                    <td>{{users.me_high_differntial_oil_pressure_auto_filter_obs_val}}</td>
+                    <td>{{users.me_high_differntial_oil_pressure_auto_filter_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>40.</td>
+                    <td>HIGH DIFFERNTIAL OIL PRESSURE INDICATOR FILTER</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_high_differntial_oil_pressure_indicator_filter_limit}}</td>
+                    <td>{{users.me_high_differntial_oil_pressure_indicator_filter_obs_val}}</td>
+                    <td>{{users.me_high_differntial_oil_pressure_indicator_filter_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>41.</td>
+                    <td>HIGH LUB OIL TEMPERATURE INLET</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_lub_oil_temperature_inlet_limit}}</td>
+                    <td>{{users.me_high_lub_oil_temperature_inlet_obs_val}}</td>
+                    <td>{{users.me_high_lub_oil_temperature_inlet_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>42.</td>
+                    <td>LOW LO PRESSURE TC INLET</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lo_pressure_tc_inlet_limit}}</td>
+                    <td>{{users.me_low_lo_pressure_tc_inlet_obs_val}}</td>
+                    <td>{{users.me_low_lo_pressure_tc_inlet_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>43.</td>
+                    <td>HIGH LUB OIL TEMPERATURE TC DRAIN</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_lub_oil_temperature_tc_drain_limit}}</td>
+                    <td>{{users.me_high_lub_oil_temperature_tc_drain_obs_val}}</td>
+                    <td>{{users.me_high_lub_oil_temperature_tc_drain_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>44.</td>
+                    <td>SPLASH OIL TEMP DEVIATION FROM MEAN</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_splash_oil_temp_deviation_from_mean_limit}}</td>
+                    <td>{{users.me_splash_oil_temp_deviation_from_mean_obs_val}}</td>
+                    <td>{{users.me_splash_oil_temp_deviation_from_mean_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>45.</td>
+                    <td>HIGH HT CW TEMP ENGINE OUTLET</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_ht_cw_temp_engine_outlet_limit}}</td>
+                    <td>{{users.me_high_ht_cw_temp_engine_outlet_obs_val}}</td>
+                    <td>{{users.me_high_ht_cw_temp_engine_outlet_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>46.</td>
+                    <td>LOW LT CW PRESSURE INLET TO CHARGE COOLER</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_lt_cw_pressure_inlet_to_charge_cooler_limit}}</td>
+                    <td>{{users.me_low_lt_cw_pressure_inlet_to_charge_cooler_obs_val}}</td>
+                    <td>{{users.me_low_lt_cw_pressure_inlet_to_charge_cooler_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>47.</td>
+                    <td>LOW FUEL PRESSURE ENGINE INLET</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_fuel_pressure_engine_inlet_limit}}</td>
+                    <td>{{users.me_low_fuel_pressure_engine_inlet_obs_val}}</td>
+                    <td>{{users.me_low_fuel_pressure_engine_inlet_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>48.</td>
+                    <td>HIGH FUEL OIL TEMP ENGINE INLET</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_fuel_oil_temp_engine_inlet_limit}}</td>
+                    <td>{{users.me_high_fuel_oil_temp_engine_inlet_obs_val}}</td>
+                    <td>{{users.me_high_fuel_oil_temp_engine_inlet_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>49.</td>
+                    <td>LOW CHARGE AIR PRESSURE BEFORE CYLINDER</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_charge_air_pressure_before_cylinder_limit}}</td>
+                    <td>{{users.me_low_charge_air_pressure_before_cylinder_obs_val}}</td>
+                    <td>{{users.me_low_charge_air_pressure_before_cylinder_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>50.</td>
+                    <td>HIGH CHARGE AIR TEMP AFTER COOLER</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_charge_air_temp_after_cooler_limit}}</td>
+                    <td>{{users.me_high_charge_air_temp_after_cooler_obs_val}}</td>
+                    <td>{{users.me_high_charge_air_temp_after_cooler_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>51.</td>
+                    <td>HIGH EXHAUST TEMP AFTER CYLINDER</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_exhaust_temp_after_cylinder_limit}}</td>
+                    <td>{{users.me_high_exhaust_temp_after_cylinder_obs_val}}</td>
+                    <td>{{users.me_high_exhaust_temp_after_cylinder_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>52.</td>
+                    <td>HIGH EXH TEMP DEVI FROM MEAN AFT CYL UPTO 59</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_exh_temp_devi_from_mean_aft_cyl_upto_59_limit}}</td>
+                    <td>{{users.me_high_exh_temp_devi_from_mean_aft_cyl_upto_59_obs_val}}</td>
+                    <td>{{users.me_high_exh_temp_devi_from_mean_aft_cyl_upto_59_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>53.</td>
+                    <td>HIGH EXH TEMP DEVI FROM MEAN AFTCYL FROM 60100</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_exh_temp_devi_from_mean_aftcyl_from_60100_limit}}</td>
+                    <td>{{users.me_high_exh_temp_devi_from_mean_aftcyl_from_60100_obs_val}}</td>
+                    <td>{{users.me_high_exh_temp_devi_from_mean_aftcyl_from_60100_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>54.</td>
+                    <td>HIGH EXHUAST TEMP BEFORE TC</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_exhuast_temp_before_tc_limit}}</td>
+                    <td>{{users.me_high_exhuast_temp_before_tc_obs_val}}</td>
+                    <td>{{users.me_high_exhuast_temp_before_tc_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>55.</td>
+                    <td>LOW EMERGENCY STOP AIR PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_emergency_stop_air_pressure_limit}}</td>
+                    <td>{{users.me_low_emergency_stop_air_pressure_obs_val}}</td>
+                    <td>{{users.me_low_emergency_stop_air_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>56.</td>
+                    <td>LOW CONTROL AIR PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_control_air_pressure_limit}}</td>
+                    <td>{{users.me_low_control_air_pressure_obs_val}}</td>
+                    <td>{{users.me_low_control_air_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>57.</td>
+                    <td>LOW FUEL PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_fuel_pressure_limit}}</td>
+                    <td>{{users.me_low_fuel_pressure_obs_val}}</td>
+                    <td>{{users.me_low_fuel_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>58.</td>
+                    <td>LOW JACKET FW PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_jacket_fw_pressure_limit}}</td>
+                    <td>{{users.me_low_jacket_fw_pressure_obs_val}}</td>
+                    <td>{{users.me_low_jacket_fw_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>59.</td>
+                    <td>JACKET FW TEMPERATURE HIGH</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_jacket_fw_temperature_high_limit}}</td>
+                    <td>{{users.me_jacket_fw_temperature_high_obs_val}}</td>
+                    <td>{{users.me_jacket_fw_temperature_high_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>60.</td>
+                    <td>LUB OIL PRESSURE LAST BEARING AT 500 RPM</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_lub_oil_pressure_last_bearing_at_500_rpm_limit}}</td>
+                    <td>{{users.me_lub_oil_pressure_last_bearing_at_500_rpm_obs_val}}</td>
+                    <td>{{users.me_lub_oil_pressure_last_bearing_at_500_rpm_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>61.</td>
+                    <td>LOW PISTON COOLING OIL PRESSURE AT 500 RPM</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_piston_cooling_oil_pressure_at_500_rpm_limit}}</td>
+                    <td>{{users.me_low_piston_cooling_oil_pressure_at_500_rpm_obs_val}}</td>
+                    <td>{{users.me_low_piston_cooling_oil_pressure_at_500_rpm_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>62.</td>
+                    <td>LEAKAGE FUEL LEVEL SWITCH</td>
+
+                    <td>%</td>
+                    <td>{{users.me_leakage_fuel_level_switch_limit}}</td>
+                    <td>{{users.me_leakage_fuel_level_switch_obs_val}}</td>
+                    <td>{{users.me_leakage_fuel_level_switch_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>63.</td>
+                    <td>LOW PISTON OIL PRESS</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_piston_oil_press_limit}}</td>
+                    <td>{{users.me_low_piston_oil_press_obs_val}}</td>
+                    <td>{{users.me_low_piston_oil_press_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>64.</td>
+                    <td>HIGH EXHAUST TEMPERATURE AT TC 1 AND TC 2</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_exhaust_temperature_at_tc_1_and_tc_2_limit}}</td>
+                    <td>{{users.me_high_exhaust_temperature_at_tc_1_and_tc_2_obs_val}}</td>
+                    <td>{{users.me_high_exhaust_temperature_at_tc_1_and_tc_2_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>65.</td>
+                    <td>LOW GEAR BOX OIL PRESS</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_gear_box_oil_press_limit}}</td>
+                    <td>{{users.me_low_gear_box_oil_press_obs_val}}</td>
+                    <td>{{users.me_low_gear_box_oil_press_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>66.</td>
+                    <td>LOW GEAR BOX CONTROL OIL PRESS</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_low_gear_box_control_oil_press_limit}}</td>
+                    <td>{{users.me_low_gear_box_control_oil_press_obs_val}}</td>
+                    <td>{{users.me_low_gear_box_control_oil_press_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>67.</td>
+                    <td>HIGH GEAR BOX LO TEMP</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_gear_box_lo_temp_limit}}</td>
+                    <td>{{users.me_high_gear_box_lo_temp_obs_val}}</td>
+                    <td>{{users.me_high_gear_box_lo_temp_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>68.</td>
+                    <td>HIGH EXHAUST TEMP 'A' BANK</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_exhaust_temp_a_bank_limit}}</td>
+                    <td>{{users.me_high_exhaust_temp_a_bank_obs_val}}</td>
+                    <td>{{users.me_high_exhaust_temp_a_bank_remark}}</td>
+                     </tr>
+             <tr>.
+                    <td>69.</td>
+                    <td>HIGH EXHAUST TEMP 'B' BANK</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_high_exhaust_temp_b_bank_limit}}</td>
+                    <td>{{users.me_high_exhaust_temp_b_bank_obs_val}}</td>
+                    <td>{{users.me_high_exhaust_temp_b_bank_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>70.</td>
+                    <td>LOW COOLANT LEVEL</td>
+
+                    <td>-</td>
+                    <td>{{users.me_low_coolant_level_limit}}</td>
+                    <td>{{users.me_low_coolant_level_obs_val}}</td>
+                    <td>{{users.me_low_coolant_level_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>71.</td>
+                    <td>TC SPEED 1</td>
+
+                    <td>KRPM</td>
+                    <td>{{users.me_tc_speed_1_limit}}</td>
+                    <td>{{users.me_tc_speed_1_obs_val}}</td>
+                    <td>{{users.me_tc_speed_1_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>72.</td>
+                    <td>TC SPEED 2</td>
+
+                    <td>KRPM</td>
+                    <td>{{users.me_tc_speed_2_limit}}</td>
+                    <td>{{users.me_tc_speed_2_obs_val}}</td>
+                    <td>{{users.me_tc_speed_2_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>73.</td>
+                    <td>CHARGE AIR TEMP</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_charge_air_temp_limit}}</td>
+                    <td>{{users.me_charge_air_temp_obs_val}}</td>
+                    <td>{{users.me_charge_air_temp_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>74.</td>
+                    <td>CHARGE AIR TEMP BEFORE SEQUENTIAL CONTROL V</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_charge_air_temp_before_sequential_control_v_limit}}</td>
+                    <td>{{users.me_charge_air_temp_before_sequential_control_v_obs_val}}</td>
+                    <td>{{users.me_charge_air_temp_before_sequential_control_v_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>75.</td>
+                    <td>SEA WATER PRESSURE</td>
+
+                    <td>BAR</td>
+                    <td>{{users.me_sea_water_pressure_limit}}</td>
+                    <td>{{users.me_sea_water_pressure_obs_val}}</td>
+                    <td>{{users.me_sea_water_pressure_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>76.</td>
+                    <td>INDIVIDUAL CYL EXHAUST TEMP DEVIATION</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_individual_cyl_exhaust_temp_deviation_limit}}</td>
+                    <td>{{users.me_individual_cyl_exhaust_temp_deviation_obs_val}}</td>
+                    <td>{{users.me_individual_cyl_exhaust_temp_deviation_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>77.</td>
+                    <td>FUEL PREFILTER WATER LEVEL</td>
+
+                    <td>-</td>
+                    <td>{{users.me_fuel_prefilter_water_level_limit}}</td>
+                    <td>{{users.me_fuel_prefilter_water_level_obs_val}}</td>
+                    <td>{{users.me_fuel_prefilter_water_level_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>78.</td>
+                    <td>LEAKAGE FUEL LEVEL</td>
+
+                    <td>-</td>
+                    <td>{{users.me_leakage_fuel_level_limit}}</td>
+                    <td>{{users.me_leakage_fuel_level_obs_val}}</td>
+                    <td>{{users.me_leakage_fuel_level_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>79.</td>
+                    <td>FUEL FILTER WATER LEVEL</td>
+
+                    <td>-</td>
+                    <td>{{users.me_fuel_filter_water_level_limit}}</td>
+                    <td>{{users.me_fuel_filter_water_level_obs_val}}</td>
+                    <td>{{users.me_fuel_filter_water_level_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>80.</td>
+                    <td>EXHAUST TEMPERATURE 'A' BANK</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_exhaust_temperature_a_bank_limit}}</td>
+                    <td>{{users.me_exhaust_temperature_a_bank_obs_val}}</td>
+                    <td>{{users.me_exhaust_temperature_a_bank_remark}}</td>
+                     </tr>
+             <tr>
+                    <td>81.</td>
+                    <td>EXHAUST TEMPERATURE 'B' BANK</td>
+
+                    <td>DEG C</td>
+                    <td>{{users.me_exhaust_temperature_b_bank_limit}}</td>
+                    <td>{{users.me_exhaust_temperature_b_bank_obs_val}}</td>
+                    <td>{{users.me_exhaust_temperature_b_bank_remark}}</td>
+                     </tr>
+
+                     <tr>
+                        <td>82.</td>
+                        <td>FW TEMP AT CYLINDER 1 OUT LET</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_fw_temp_at_cylinder_1_out_let_limit}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_1_out_let_obs_val}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_1_out_let_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>83.</td>
+                        <td>FW TEMP AT CYLINDER 2 OUT LET</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_fw_temp_at_cylinder_2_out_let_limit}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_2_out_let_obs_val}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_2_out_let_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>84.</td>
+                        <td>FW TEMP AT CYLINDER 3 OUT LET</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_fw_temp_at_cylinder_3_out_let_limit}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_3_out_let_obs_val}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_3_out_let_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>85.</td>
+                        <td>FW TEMP AT CYLINDER 4 OUT LET</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_fw_temp_at_cylinder_4_out_let_limit}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_4_out_let_obs_val}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_4_out_let_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>86.</td>
+                        <td>FW TEMP AT CYLINDER 5 OUT LET</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_fw_temp_at_cylinder_5_out_let_limit}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_5_out_let_obs_val}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_5_out_let_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>87.</td>
+                        <td>FW TEMP AT CYLINDER 6 OUT LET</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_fw_temp_at_cylinder_6_out_let_limit}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_6_out_let_obs_val}}</td>
+                        <td>{{users.me_fw_temp_at_cylinder_6_out_let_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>88.</td>
+                        <td>LUB OIL TEMP TC BRG OUT LET</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_lub_oil_temp_tc_brg_out_let_limit}}</td>
+                        <td>{{users.me_lub_oil_temp_tc_brg_out_let_obs_val}}</td>
+                        <td>{{users.me_lub_oil_temp_tc_brg_out_let_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>89.</td>
+                        <td>LUB OIL TEMP PISTON 1 DRAIN</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_lub_oil_temp_piston_1_drain_limit}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_1_drain_obs_val}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_1_drain_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>90.</td>
+                        <td>LUB OIL TEMP PISTON 2 DRAIN</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_lub_oil_temp_piston_2_drain_limit}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_2_drain_obs_val}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_2_drain_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>91.</td>
+                        <td>LUB OIL TEMP PISTON 3 DRAIN</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_lub_oil_temp_piston_3_drain_limit}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_3_drain_obs_val}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_3_drain_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>92.</td>
+                        <td>LUB OIL TEMP PISTON 4 DRAIN</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_lub_oil_temp_piston_4_drain_limit}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_4_drain_obs_val}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_4_drain_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>93.</td>
+                        <td>LUB OIL TEMP PISTON 5 DRAIN</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_lub_oil_temp_piston_5_drain_limit}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_5_drain_obs_val}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_5_drain_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>94.</td>
+                        <td>LUB OIL TEMP PISTON 6 DRAIN</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_lub_oil_temp_piston_6_drain_limit}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_6_drain_obs_val}}</td>
+                        <td>{{users.me_lub_oil_temp_piston_6_drain_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>95.</td>
+                        <td>DRIVE LUB OIL TEMP </td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_drive_lub_oil_temp_limit}}</td>
+                        <td>{{users.me_drive_lub_oil_temp_obs_val}}</td>
+                        <td>{{users.me_drive_lub_oil_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>96.</td>
+                        <td>FUEL OIL TEMP AFTER HEATER </td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_fuel_oil_temp_after_heater_limit}}</td>
+                        <td>{{users.me_fuel_oil_temp_after_heater_obs_val}}</td>
+                        <td>{{users.me_fuel_oil_temp_after_heater_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>97.</td>
+                        <td>TC OUTLET EXHTGAS TEMP </td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_tc_outlet_exhtgas_temp_limit}}</td>
+                        <td>{{users.me_tc_outlet_exhtgas_temp_obs_val}}</td>
+                        <td>{{users.me_tc_outlet_exhtgas_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>98.</td>
+                        <td>EXHT GAS TEMP AFTER CYL 1</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_1_limit}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_1_obs_val}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_1_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>99.</td>
+                        <td>EXHT GAS TEMP AFTER CYL 2</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_2_limit}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_2_obs_val}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_2_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>100.</td>
+                        <td>EXHT GAS TEMP AFTER CYL 3</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_3_limit}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_3_obs_val}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_3_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>101.</td>
+                        <td>EXHT GAS TEMP AFTER CYL 4</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_4_limit}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_4_obs_val}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_4_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>102.</td>
+                        <td>EXHT GAS TEMP AFTER CYL 5</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_5_limit}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_5_obs_val}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_5_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>103.</td>
+                        <td>EXHT GAS TEMP AFTER CYL 6</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_6_limit}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_6_obs_val}}</td>
+                        <td>{{users.me_exht_gas_temp_after_cyl_6_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>104.</td>
+                        <td>SCAVANGING AIR TEMP IN MANIFOLD </td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_scavanging_air_temp_in_manifold_limit}}</td>
+                        <td>{{users.me_scavanging_air_temp_in_manifold_obs_val}}</td>
+                        <td>{{users.me_scavanging_air_temp_in_manifold_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>105.</td>
+                        <td>DRIVE LO PRESSURE </td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_drive_lo_pressure_limit}}</td>
+                        <td>{{users.me_drive_lo_pressure_obs_val}}</td>
+                        <td>{{users.me_drive_lo_pressure_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>106.</td>
+                        <td>LO PRESSURE THRUST BEARING</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_lo_pressure_thrust_bearing_limit}}</td>
+                        <td>{{users.me_lo_pressure_thrust_bearing_obs_val}}</td>
+                        <td>{{users.me_lo_pressure_thrust_bearing_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>107.</td>
+                        <td>LO VAPOUR CONCENTRATION CRANKCASE </td>
+          
+                        <td>Mg/l</td>
+                        <td>{{users.me_lo_vapour_concentration_crankcase_limit}}</td>
+                        <td>{{users.me_lo_vapour_concentration_crankcase_obs_val}}</td>
+                        <td>{{users.me_lo_vapour_concentration_crankcase_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>108.</td>
+                        <td>FUEL OIL PRE AFTER FILTER</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_fuel_oil_pre_after_filter_limit}}</td>
+                        <td>{{users.me_fuel_oil_pre_after_filter_obs_val}}</td>
+                        <td>{{users.me_fuel_oil_pre_after_filter_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>109.</td>
+                        <td>AIR TEMP UNDER PISTON SPACE 1</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_air_temp_under_piston_space_1_limit}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_1_obs_val}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_1_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>110.</td>
+                        <td>AIR TEMP UNDER PISTON SPACE 2</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_air_temp_under_piston_space_2_limit}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_2_obs_val}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_2_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>111.</td>
+                        <td>AIR TEMP UNDER PISTON SPACE 3</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_air_temp_under_piston_space_3_limit}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_3_obs_val}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_3_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>112.</td>
+                        <td>AIR TEMP UNDER PISTON SPACE 4</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_air_temp_under_piston_space_4_limit}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_4_obs_val}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_4_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>113.</td>
+                        <td>AIR TEMP UNDER PISTON SPACE 5</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_air_temp_under_piston_space_5_limit}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_5_obs_val}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_5_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>114.</td>
+                        <td>AIR TEMP UNDER PISTON SPACE 6</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_air_temp_under_piston_space_6_limit}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_6_obs_val}}</td>
+                        <td>{{users.me_air_temp_under_piston_space_6_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>115.</td>
+                        <td>SW PRESSURE</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_sw_pressure_limit}}</td>
+                        <td>{{users.me_sw_pressure_obs_val}}</td>
+                        <td>{{users.me_sw_pressure_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>116.</td>
+                        <td>PISTON COOLING LO PRESSURE </td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_piston_cooling_lo_pressure_limit}}</td>
+                        <td>{{users.me_piston_cooling_lo_pressure_obs_val}}</td>
+                        <td>{{users.me_piston_cooling_lo_pressure_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>117.</td>
+                        <td>LO PRESSURE AT MAIN BEARING INLET</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_lo_pressure_at_main_bearing_inlet_limit}}</td>
+                        <td>{{users.me_lo_pressure_at_main_bearing_inlet_obs_val}}</td>
+                        <td>{{users.me_lo_pressure_at_main_bearing_inlet_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>118.</td>
+                        <td>FUEL OIL FILTER DIFFERENTIAL PRESSURE</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_fuel_oil_filter_differential_pressure_limit}}</td>
+                        <td>{{users.me_fuel_oil_filter_differential_pressure_obs_val}}</td>
+                        <td>{{users.me_fuel_oil_filter_differential_pressure_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>119.</td>
+                        <td>LO FILTER DIFFERENTIAL PRESSURE</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_lo_filter_differential_pressure_limit}}</td>
+                        <td>{{users.me_lo_filter_differential_pressure_obs_val}}</td>
+                        <td>{{users.me_lo_filter_differential_pressure_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>120.</td>
+                        <td>CAM SHAFT LO DIFFERENTIAL PRESSURE</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_cam_shaft_lo_differential_pressure_limit}}</td>
+                        <td>{{users.me_cam_shaft_lo_differential_pressure_obs_val}}</td>
+                        <td>{{users.me_cam_shaft_lo_differential_pressure_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>121.</td>
+                        <td>EXHT TEMP AFTER WHRB</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_exht_temp_after_whrb_limit}}</td>
+                        <td>{{users.me_exht_temp_after_whrb_obs_val}}</td>
+                        <td>{{users.me_exht_temp_after_whrb_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>122.</td>
+                        <td>MAIN BEARING 1 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_1_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_1_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_1_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>123.</td>
+                        <td>MAIN BEARING 2 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_2_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_2_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_2_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>124.</td>
+                        <td>MAIN BEARING 3 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_3_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_3_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_3_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>125.</td>
+                        <td>MAIN BEARING 4 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_4_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_4_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_4_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>126.</td>
+                        <td>MAIN BEARING 5 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_5_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_5_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_5_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>127.</td>
+                        <td>MAIN BEARING 6 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_6_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_6_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_6_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>128.</td>
+                        <td>MAIN BEARING 7 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_7_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_7_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_7_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>129.</td>
+                        <td>MAIN BEARING 8 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_8_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_8_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_8_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>130.</td>
+                        <td>MAIN BEARING 9 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_9_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_9_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_9_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>131.</td>
+                        <td>MAIN BEARING 10 TEMP</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_main_bearing_10_temp_limit}}</td>
+                        <td>{{users.me_main_bearing_10_temp_obs_val}}</td>
+                        <td>{{users.me_main_bearing_10_temp_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>132.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 1</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_1_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_1_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_1_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>133.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 2</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_2_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_2_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_2_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>134.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 3</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_3_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_3_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_3_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>135.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 4</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_4_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_4_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_4_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>136.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 5</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_5_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_5_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_5_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>137.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 6</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_6_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_6_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_6_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>138.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 7</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_7_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_7_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_7_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>139.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 8</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_8_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_8_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_8_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>140.</td>
+                        <td>HIGH EXHAUST TEMPERATURE A 9</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_a_9_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_9_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_a_9_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>141.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 1</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_1_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_1_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_1_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>142.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 2</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_2_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_2_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_2_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>143.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 3</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_3_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_3_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_3_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>144.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 4</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_4_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_4_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_4_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>145.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 5</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_5_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_5_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_5_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>146.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 6</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_6_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_6_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_6_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>147.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 7</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_7_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_7_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_7_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>148.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 8</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_8_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_8_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_8_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>149.</td>
+                        <td>HIGH EXHAUST TEMPERATURE B 9</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_high_exhaust_temperature_b_9_limit}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_9_obs_val}}</td>
+                        <td>{{users.me_high_exhaust_temperature_b_9_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>150.</td>
+                        <td>SUMP OIL LEVEL</td>
+          
+                        <td>¾ th</td>
+                        <td>{{users.me_sump_oil_level_limit}}</td>
+                        <td>{{users.me_sump_oil_level_obs_val}}</td>
+                        <td>{{users.me_sump_oil_level_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>151.</td>
+                        <td>LOW LUB OIL PRESSURE 300</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_low_lub_oil_pressure_300_limit}}</td>
+                        <td>{{users.me_low_lub_oil_pressure_300_obs_val}}</td>
+                        <td>{{users.me_low_lub_oil_pressure_300_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>152.</td>
+                        <td>LOW LUB OIL PRESSURE 800</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_low_lub_oil_pressure_800_limit}}</td>
+                        <td>{{users.me_low_lub_oil_pressure_800_obs_val}}</td>
+                        <td>{{users.me_low_lub_oil_pressure_800_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>153.</td>
+                        <td>LOW LUB OIL PRESSURE 1050</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_low_lub_oil_pressure_1050_limit}}</td>
+                        <td>{{users.me_low_lub_oil_pressure_1050_obs_val}}</td>
+                        <td>{{users.me_low_lub_oil_pressure_1050_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>154.</td>
+                        <td>TC INLET TEMPERATURE ‘A’ BANK</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_tc_inlet_temperature_bank_limit}}</td>
+                        <td>{{users.me_tc_inlet_temperature_bank_obs_val}}</td>
+                        <td>{{users.me_tc_inlet_temperature_bank_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>155.</td>
+                        <td>TC INLET TEMPERATURE ‘B’ BANK</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_tc_inlet_temperature_bank_limit1}}</td>
+                        <td>{{users.me_tc_inlet_temperature_bank_obs_val1}}</td>
+                        <td>{{users.me_tc_inlet_temperature_bank_remark1}}</td>
+                    </tr>
+                 <tr>
+                        <td>156.</td>
+                        <td>TC OUTLET TEMPERATURE ‘A’ BANK</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_tc_outlet_temperature_bank_limit}}</td>
+                        <td>{{users.me_tc_outlet_temperature_bank_obs_val}}</td>
+                        <td>{{users.me_tc_outlet_temperature_bank_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>157.</td>
+                        <td>TC OUTLET TEMPERATURE ‘B’ BANK</td>
+          
+                        <td>DEG C</td>
+                        <td>{{users.me_tc_outlet_temperature_bank_limit11}}</td>
+                        <td>{{users.me_tc_outlet_temperature_bank_obs_val11}}</td>
+                        <td>{{users.me_tc_outlet_temperature_bank_remark11}}</td>
+                    </tr>
+                 <tr>
+                        <td>158.</td>
+                        <td>MAIN ENGINE LO PRESSURE 400650</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_main_engine_lo_pressure_400650_limit}}</td>
+                        <td>{{users.me_main_engine_lo_pressure_400650_obs_val}}</td>
+                        <td>{{users.me_main_engine_lo_pressure_400650_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>159.</td>
+                        <td>MAIN ENGINE LO PRESSURE 650850</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_main_engine_lo_pressure_650850_limit}}</td>
+                        <td>{{users.me_main_engine_lo_pressure_650850_obs_val}}</td>
+                        <td>{{users.me_main_engine_lo_pressure_650850_remark}}</td>
+                    </tr>
+                 <tr>
+                        <td>160.</td>
+                        <td>MAIN ENGINE LO PRESSURE 850</td>
+          
+                        <td>BAR</td>
+                        <td>{{users.me_main_engine_lo_pressure_850_limit}}</td>
+                        <td>{{users.me_main_engine_lo_pressure_850_obs_val}}</td>
+                        <td>{{users.me_main_engine_lo_pressure_850_remark}}</td>
+                    </tr>
+                 
+             
+            
+        </table>
+        
+        <h4 style="margin-top:14px;"><u>Final Assessment and Recommendations</u></h4>
+        <table class="table table-bordered table-form-color1">
+            
+                <textarea rowspan="10" class="textarea">{{users.FINAL_OBSERVATIONS_AND_REMARKS | safe}} </textarea>
+        </table></br>
+      <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+       <tr>
+           <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+           <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+       </tr>
+   </table>
+
+   <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center">
+       <tr>
+           <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+           <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+       </tr>
+     </table>
+</div>
+   </body>
+</html>

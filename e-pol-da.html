@@ -1,0 +1,567 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>E-POL DA MBI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="pdfkit-page-size" content="Legal" />
+        <meta name="pdfkit-orientation" content="Landscape" />
+        <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%;border-style: double; padding: 8px;}
+        
+ 
+    .table {
+      border: 1px solid lightgray;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .table tr {
+      margin: 0px !important;
+      text-align:left;
+    }
+
+    .table tr th {
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      text-align: center;
+      padding: 2px 2px 2px 2px;
+    }
+
+    .table tr td {
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      padding: 2px 2px 2px 2px;
+      text-align:left;
+    }
+
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         tr,th{font-size: 14px;}
+      </style>
+    </head>
+   <body>
+
+      <div class="wrapper">
+                       
+                         <div style="float:right">
+                           <p>Report Generated on: {{ history.approved_date_time }}</p>
+                         </div>
+                          <div class="heading-style2 heading-style3 text-center">
+                           <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT.png" class="ng-star-inserted">
+                           <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT MUMBAI</h2>       
+                             <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">E-POL DA/ME</h2>              
+                          </div>
+               
+                         <h4>General Information</h4>
+                         <table class="table table-bordered table-form-style tabletd-color">
+                            <thead>
+                               <tr>
+                                  <th width="5%" rowspan="2">S no</th>
+                                  <th rowspan="2">Equipment Name</th>
+                                  <th rowspan="2">Name of Engine Lub Oil</th>
+                                  <th rowspan="2">Sampling Data</th>
+                                  <th rowspan="2">Running Hrs Post Major Overhaul</th>
+                                  <th rowspan="2">Hrs Since Last Oil Change</th>
+                                  <th rowspan="2">Hrs Since Last Oil Addition</th>
+                                  <th rowspan="2">Sample Receive Date</th>
+                                  <th rowspan="2">Report Date</th>
+                                  <!--<th colspan="7">Test Parameters</th>-->
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                  <td>{{users.EpolDa_Serial_Number}}</td>
+                                  <td>{{users.EpolDa_Equipment_Name}}</td>
+                                  <td>{{users.EpolDa_Engine_Lub_Oil}}</td>
+                                  <td>{{users.EpolDa_Sampling_Data}}</td>
+                                  <td>{{users.EpolDa_Running_Hour_Overhaul}}</td>
+                                  <td>{{users.EpolDa_Hrs_Since_Lst_Oil_Change}}</td>
+                                  <td>{{users.EpolDa_Hrs_Since_Lst_Oil_Addition}}</td>
+                                  <td>{{users.EpolDa_Sample_Receive_Da}}
+                                  </td>
+                                  <td>{{users.EpolDa_Report_Date}}</td>
+                               </tr>
+                               
+                            </tbody>
+      
+                         
+                         
+                         
+                         
+                         </table>
+      
+                         <!--advanced oil test -->
+      
+                         <h4>Basic oil Test</h4>
+                         <table class="table table-bordered table-form-style tabletd-color">
+                            <thead>
+                               <tr>
+                                  <th width="5%" rowspan="2">S no</th>
+                                  <th rowspan="2">Test Name</th>
+                                  <th rowspan="2">Lower Upper Limit</th>
+                                  <th rowspan="2">Unit</th>
+                                  <th rowspan="2">Value(*numeric)</th>
+                                  <th rowspan="2">Remarks</th>
+                                  
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                  <td>1</td>
+                                  <td>Viscosity at 40 Degree Celcius</td>
+                                  <td>{{users.EpolDa_Basic_Lower_Upper_Limit}}</td>
+                                  <td>cSt</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Basic_Oil_Val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Basic_Oil_Remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>2</td>
+                                  <td>Viscosity at 100 Degree Celcius</td>
+                                  <td>{{users.EpolDa_Basic2_Lower_Upper_Limit}}</td>
+                                  <td>cST</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Basic2_Oil_Val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Basic2_Oil_Remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>3</td>
+                                  <td>Viscosity Index</td>
+                                  <td>{{users.EpolDa_Basic3_Lower_Upper_Limit}}</td>
+                                  <td>Calc</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Basic3_Oil_Val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Basic3_Oil_Remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>4</td>
+                                  <td>Water Content</td>
+                                  <td>{{users.EpolDa_Basic4_Lower_Upper_Limit}}</td>
+                                  <td>% ov volume</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Basic4_Oil_Val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Basic4_Oil_Remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>5</td>
+                                  <td>Total Acid Number*</td>
+                                  <td>{{users.EpolDa_Basic5_Lower_Upper_Limit}}</td>
+                                  <td>Mg KOH/g</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Basic5_Oil_Val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Basic5_Oil_Remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>6</td>
+                                  <td>Total Base Number*</td>
+                                  <td>{{users.EpolDa_Basic6_Lower_Upper_Limit}}</td>
+                                  <td>Mg KOH/g</td>
+      
+                                  <td>{{users.EpolDa_Basic6_Oil_Val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Basic6_Oil_Remarks}}</td>
+                               </tr>
+                               <tr>
+                                 <td>7</td>
+                                 <td>Toulene Insolubles</td>
+                                 <td>{{users.EpolDa_Basic7_Lower_Upper_Limit}}</td>
+                                 <td>% wt</td>
+      
+                                 <td>{{users.EpolDa_Basic7_Oil_Val}}
+                                 </td>
+                                 <td>{{users.EpolDa_Basic7_Oil_Remarks}}</td>
+                              </tr>
+                              <tr>
+                                 <td>8</td>
+                                 <td>Hexanc Insolubles</td>
+                                 <td>{{users.EpolDa_Basic7_hexan_Lower_Upper_Limit}}</td>
+                                 <td>% wt</td>
+      
+                                 <td>{{users.EpolDa_Basic7_hexan_Oil_Val}}
+                                 </td>
+                                 <td>{{users.EpolDa_Basic7_hexan_Oil_Remarks}}</td>
+                              </tr>
+                              <tr>
+                                 <td>9</td>
+                                 <td>Flash Point @ ° C</td>
+                                 <td>{{users.EpolDa_Basic7_flash_Lower_Upper_Limit}}</td>
+                                 <td>Deg. C</td>
+      
+                                 <td>{{users.EpolDa_Basic7_flash_Oil_Val}}
+                                 </td>
+                                 <td>{{users.EpolDa_Basic7_flash_Oil_Remarks}}</td>
+                              </tr>
+                              
+                               <!-- <tr>
+      
+                                  <td class="table-form-color2" colspan="9">Add Test Report 
+                                     <div class="form-group">
+                                        <span><a href="{{ImgUrl}}LINK URL:{{ImgUrl}}</a></span>
+                                        <input #fileInput type="file" name="EpolDa_Basic_Oil_Image" value="" class="form-control"
+                                           name="" placeholder="" (change)="onImageHandler($event)">
+                                     </div>
+                                  </td>
+      
+                               </tr> -->
+                               <tr>
+                                  <td>Final Observation</td>
+                                  <td colspan="10">{{users.EpolDa_Basic_Oil_FINAL_OBSERVATION}}</td>
+                               </tr>
+                            </tbody>
+      
+                         
+                         
+                         
+                         
+                         </table>
+      
+                         <h4>Advanced Oil Test</h4>
+                         <table class="table table-bordered table-form-style tabletd-color">
+                            <thead>
+                               <tr>
+                                  <th width="5%" rowspan="2">S no</th>
+                                  <th rowspan="2">Test Metal</th>
+                                  <th rowspan="2">Lower Upper Limit</th>
+                                  <th rowspan="2">Unit</th>
+                                  <th rowspan="2">Value(*numeric)</th>
+                                  <th rowspan="2">Remarks</th>
+                                  
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                  <td>1</td>
+                                  <td>Aluminium, AI</td>
+                                  <td>{{users.EpolDa_Advanvced_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>2</td>
+                                  <td>Barium, Ba</td>
+                                  <td>{{users.EpolDa_Advanvced2_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced2_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced2_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>3</td>
+                                  <td>Boron, B</td>
+                                  <td>{{users.EpolDa_Advanvced3_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced3_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced3_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>4</td>
+                                  <td>Calcium, Ca</td>
+                                  <td>{{users.EpolDa_Advanvced4_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced4_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced4_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>5</td>
+                                  <td>Chromium, Cr</td>
+                                  <td>{{users.EpolDa_Advanvced5_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced5_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced5_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>6</td>
+                                  <td>Copper, Cu</td>
+                                  <td>{{users.EpolDa_Advanvced6_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced6_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced6_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>7</td>
+                                  <td>Iron, Fe</td>
+                                  <td>{{users.EpolDa_Advanvced7_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced7_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced7_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>8</td>
+                                  <td>Lead, Pb</td>
+                                  <td>{{users.EpolDa_Advanvced8_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced8_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced8_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>9</td>
+                                  <td>Magnesium, Mg</td>
+                                  <td>{{users.EpolDa_Advanvced9_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced9_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced9_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>10</td>
+                                  <td>Nickel, Ni</td>
+                                  <td>{{users.EpolDa_Advanvced10_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced10_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced10_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>11</td>
+                                  <td>Phosphorus, P</td>
+                                  <td>{{users.EpolDa_Advanvced11_oil_lower_uper_limit}}</td>
+                                  <td>{{users.EpolDa_Advanvced11_oil_unit}}</td>
+                                  <td>{{users.EpolDa_Advanvced11_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced11_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>12</td>
+                                  <td>PQ Index</td>
+                                  <td>{{users.EpolDa_Advanvced12_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced12_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced12_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>13</td>
+                                  <td>Silicon, Si</td>
+                                  <td>{{users.EpolDa_Advanvced13_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced13_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced13_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>14</td>
+                                  <td>Silver, Ag</td>
+                                  <td>{{users.EpolDa_Advanvced14_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced14_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced14_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>15</td>
+                                  <td>Sodium, Na</td>
+                                  <td>{{users.EpolDa_Advanvced15_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced15_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced15_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>16</td>
+                                  <td>Tin, Sn</td>
+                                  <td>{{users.EpolDa_Advanvced16_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced16_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced16_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>17</td>
+                                  <td>Vanadium, V</td>
+                                  <td>{{users.EpolDa_Advanvced17_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced17_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced17_oil_remarks}}</td>
+                               </tr>
+                               <tr>
+                                  <td>18</td>
+                                  <td>Zinc, Zn</td>
+                                  <td>{{users.EpolDa_Advanvced18_oil_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  <td>{{users.EpolDa_Advanvced18_oil_value}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Advanvced18_oil_remarks}}</td>
+                               </tr>
+                             
+                               <tr>
+                                  <td>Final Observation</td>
+                                  <td colspan="10">{{users.EpolDa_Advanvced_oil_FINAL_OBSERVATION}}</td>
+                               </tr>
+                            </tbody>
+      
+                         
+                         
+                         
+                         
+                         </table>
+      
+                         <h4>Basic Coolant Test</h4>
+                         <table class="table table-bordered table-form-style tabletd-color">
+                            
+                            <thead>
+                               <tr>
+                                  <td ><strong>Name of Engine Coolant</strong></td>
+                                  <td colspan="5">{{users.Daload_Engine_coolant_name}}</td>
+                               </tr>
+                               <tr>
+                                  <th width="5%" rowspan="2">S no</th>
+                                  <th rowspan="2">Test Metal</th>
+                                  <th rowspan="2">Lower Upper Limit</th>
+                                  <th rowspan="2">Unit</th>
+                                  <th rowspan="2">Value(*numeric)</th>
+                                  <th rowspan="2">Remarks</th>
+                                  
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                  <td>1</td>
+                                  <td>pH value</td>
+                                  <td>{{users.EpolDa_Engine_coolant_lower_uper_limit}}</td>
+                                  <td>{{users.EpolDa_Engine_coolant_unit}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Engine_coolant_val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Engine_coolant_remark}}</td>
+                               </tr>
+                               
+      
+                               <tr>
+                                  <td>2</td>
+                                  <td>Reserve Alkalinity</td>
+                                  <td>{{users.EpolDa_Engine2_coolant_lower_uper_limit}}</td>
+                                  <td>{{users.EpolDa_Engine2_coolant_unit}}</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Engine2_coolant_val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Engine2_coolant_remark}}</td>
+                               </tr>
+      
+                               <tr>
+                                  <td>3</td>
+                                  <td>Hardness Content</td>
+                                  <td>{{users.EpolDa_Engine3_coolant_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Engine3_coolant_val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Engine3_coolant_remark}}</td>
+                               </tr>
+                               <tr>
+                                  <td>4</td>
+                                  <td>Chloride Content</td>
+                                  <td>{{users.EpolDa_Engine4_coolant_lower_uper_limit}}</td>
+                                  <td>ppm</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Engine4_coolant_val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Engine4_coolant_remark}}</td>
+                               </tr>
+                               <tr>
+                                  <td>5</td>
+                                  <td>% of Inhibitor%</td>
+                                  <td>{{users.EpolDa_Engine5_coolant_lower_uper_limit}}</td>
+                                  <td>ppm/Brix</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Engine5_coolant_val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Engine5_coolant_remark}}</td>
+                               </tr>
+                               <tr>
+                                  <td>6</td>
+                                  <td>Conductivity</td>
+                                  <td>{{users.EpolDa_Engine6_coolant_lower_uper_limit}}</td>
+                                  <td>ms/cm</td>
+                                  
+                                  
+                                  <td>{{users.EpolDa_Engine6_coolant_val}}
+                                  </td>
+                                  <td>{{users.EpolDa_Engine6_coolant_remark}}</td>
+                               </tr>
+                               
+                               <tr>
+                                  <td>Final Observation</td>
+                                  <td colspan="10">{{users.EpolDa_Engine_coolant_FINAL_OBSERVATION | safe}}</td>
+                               </tr>
+                               
+                            </tbody>
+      
+                         
+                         
+                         
+                         
+                         </table>
+                         <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+                           <tr>
+                               <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                               <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+                           </tr>
+                       </table>
+                  
+
+                    <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center">
+                     <tr>
+                         <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+                         <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+                     </tr>
+                  </table>
+
+               </div>
+    </body>
+    </html>
+        

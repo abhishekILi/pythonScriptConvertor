@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CBIU</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+        <meta name="pdfkit-page-size" content="Legal"/>
+        <meta name="pdfkit-orientation" content="Landscape"/>
+		<style type="text/css">
+         body{margin:50px 50px; size:landscape;}
+		.wrapper{width: 100%; margin: 20px auto;}
+		table{border-collapse: collapse;}
+		.clear{padding: 0; margin: 0; width: 100%; clear: both;}
+		.star{color: red;}
+    strong{font-weight: 600;}
+    body{margin:50px;background: #FFF !important;}
+		</style>		   
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="heading-style2">
+                <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>RETURNS</strong></h2>
+            </div>
+            
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                <tr>
+                    <th style="font-size:14px; color: #222; font-weight: 600;">Boiler Water Hygiene</th>
+                    <th style="font-size:14px; color: #222; font-weight: 600;">Limits</th>
+                    <th style="font-size:14px; color: #222; font-weight: 600;">Date</th>
+                </tr>
+                {% if users %}
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">Alkanity</td>
+                <td style="font-size:14px; color: #222;">{{users.alkanity_limit}}</td>
+                <td style="font-size:14px; color: #222;">{{users.alkanity_date |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%} 
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">Salinity</td>
+                <td style="font-size:14px; color: #222;">{{users.salinity_limit}}</td>
+                <td style="font-size:14px; color: #222;">{{users.salinity_date |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%} 
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">Phosphate(low)</td>
+                <td style="font-size:14px; color: #222;">{{users.phosphate_low_limit}}</td>
+                <td style="font-size:14px; color: #222;">{{users.phosphate_low_date |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%} 
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">Phosphate(high)</td>
+                <td style="font-size:14px; color: #222;">{{users.phosphate_high_limit}}</td>
+                <td style="font-size:14px; color: #222;">{{users.phosphate_high_date |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%} 
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">TDS</td>
+                <td style="font-size:14px; color: #222;">{{users.tds_limit}}</td>
+                <td style="font-size:14px; color: #222;">{{users.tds_date |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%} 
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">PH Value</td>
+                <td style="font-size:14px; color: #222;">{{users.PH_value_limit}}</td>
+                <td style="font-size:14px; color: #222;">{{users.PH_value_date |date:'d/m/Y'}}</td>
+                </tr>    
+                {% endif%}                
+            </table>
+
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 5px;">
+                <tr>
+                    <th colspan="5">20% POWER EXPLOITATION</th>
+                </tr>
+                <tr>
+                    <th colspan="5">MONTH/YEAR</th>
+                </tr>
+               
+                {% if users%} 
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">From</td>
+                    <td style="font-size:14px; color: #222;">{{users.power_exp_from_date |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">Time</td>
+                    <td style="font-size:14px; color: #222;">{{users.power_exp_from_time}}</td>
+                    <td>&nbsp;</td>
+                </tr>
+                {% endif%}
+                {% if users%} 
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">To</td>
+                    <td style="font-size:14px; color: #222;">{{users.power_exp_to_date |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">Time</td>
+                    <td style="font-size:14px; color: #222;">{{users.power_exp_to_time}}</td>
+                    <td>&nbsp;</td>
+                </tr>
+                {% endif%}
+                {% if users%} 
+                <tr>
+                    <td style="font-size:14px; color: #222; font-weight: 600;">RPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.power_exp_rpm}}</td>
+                    <td colspan="3">&nbsp;</td>
+                </tr>  
+                {% endif%}                   
+            </table>
+
+            <h4>15. Recommendations. Following recommended:</h4>
+            {% if approvalData %}
+              {% for approval in approvalData %}
+              <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; text-align: left;">
+                                      
+                      <tr><th>Trial No.</th><td>{{ approval.trial.trial_number }}</td></tr>
+                    
+                      <tr><th>Level</th><td>{{ approval.approved_level }}</td></tr>
+                      
+                      <tr> <th>Recommendations</th><td>{{ approval.comments }}</td></tr>
+                      
+                      <tr><th>Approval <br>Status</th>{% if approval.status == 1 %}
+                          <td>{{ "Approved" }}</td>
+                          {% endif %}
+                          {% if approval.status == 2 %}
+                          <td>{{ "Rejected" }}</td>
+                          {% endif %}
+                          </tr>
+                      <tr><th>Approved <br>Role</th><td>{{ approval.approved_role.name}}</td></tr>
+                      <tr><th>Approved <br>By</th><td>{{ approval.approved_by.first_name }} {{ approval.approved_by.last_name }}</td></tr>
+                  
+                
+              </table>
+            {% endfor %}
+              {% endif %}
+  <div class="clear"></div>
+
+		</div>
+        <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+	</body>
+	 
+</html>	

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+      <title>ehmfptle-reships</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+      </head>
+     <body>
+<section class="body-card form-style1 trial-form wrapper">
+  
+
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="panel-right">
+                       
+
+                        <div style="float:right">
+                            <p>Report Generated on: {{ history.approved_date_time }}</p>
+                          </div>
+                           <div class="heading-style2 heading-style3 text-center">
+                            <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg" class="ng-star-inserted">
+                            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">GTTT VIZAG</h2>       
+                              <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">OVERALL VIBRATION IN MM/SEC RMS</h2>              
+                           </div>
+                        <div class="panel-row">
+                           
+                            <table style="width:100%;" class="table table-bordered table-form-color">
+                                <tr>
+                                    <td class="td-bluelight" width="50%">Ship</td>
+                                    <td>{{users.Ship}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight" width="50%">Return for
+                                        Period</td>
+                                    <td>{{users.p15_cbpm_p15_cbpm_Return_For_Period}}</td>
+                                </tr>
+                            </table>
+                            <table class="table table-bordered table-form-color">
+                                <tr>
+                                    <th></th>
+                                    <th>GT 1</th>
+                                    <th>GT 2</th>
+                                    <th>GT 3</th>
+                                    <th>GT 4</th>
+                                    <th>RG 1</th>
+                                    <th>RG 2</th>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">Date Of Recording</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_GT1}}</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_GT2}}</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_GT3}}</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_GT4}}</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_RG1}}</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_RG2}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">Running hours SI</td>
+                                    <td>{{users.p15_cbpm_Running_hours_SI_GT1}}</td>
+                                    <td>{{users.p15_cbpm_Running_hours_SI_GT2}}</td>
+                                    <td>{{users.p15_cbpm_Running_hours_SI_GT3}}</td>
+                                    <td>{{users.p15_cbpm_Running_hours_SI_GT4}}</td>
+                                    <td>{{users.p15_cbpm_Running_hours_SI_RG1}}</td>
+                                    <td>{{users.p15_cbpm_Running_hours_SI_RG2}}</td>
+                                </tr>
+                            </table>
+
+                            <div class="note-card">
+                                <p style="margin-bottom: 35px;"><u>RECORDING NOTES</u></p>
+                                <p>MEASURING INSTRUMENT: T-30</p>
+                                <p>MOUNTING OF ACCELEROMETER: <u>MAGNETIC (EXCEPT WHERE INDICATED BY) *</u></p>
+                            </div>
+
+                            <h4 style="margin-top: 25px;"><b>1.&nbsp;&nbsp;M36E : DT59/RG54</b></h4>
+                            <table class="table table-bordered table-form-color">
+                                <tr>
+                                    <th>Ser</th>
+                                    <th>Point No</th>
+                                    <th>Description</th>
+                                    <th>Limits</th>
+                                    <th>GT1/RG1 T-30</th>
+                                    <th>GT2/RG1 T-30</th>
+                                    <th>GT3/RG2 T-30</th>
+                                    <th>GT4/RG2 T-30</th>
+                                    <th>Remarks</th>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(a)</td>
+                                    <td>1H</td>
+                                    <td>LPC Fwd Front Support-</td>
+                                    <!-- < rowspan="8">Non operational</}}> -->
+                                    <td>{{users.p15_cbpm_A1H_DT59_RG54_LIMIT}}</td>
+                                    <td>{{users.p15_cbpm_A1H_DT59_RG54_GT1_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A1H_DT59_RG54_GT2_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A1H_DT59_RG54_GT3_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A1H_DT59_RG54_GT4_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A1H_DT59_RG54_REMARK}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(b)</td>
+                                    <td>2V</td>
+                                    <td>Fwd Trunion - Vertical</td>
+                                    <td>{{users.p15_cbpm_A2V_DT59_RG54_LIMIT}}</td>
+                                    <td>{{users.p15_cbpm_A2V_DT59_RG54_GT1_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A2V_DT59_RG54_GT2_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A2V_DT59_RG54_GT3_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A2V_DT59_RG54_GT4_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A2V_DT59_RG54_REMARK}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(c)</td>
+                                    <td>3A</td>
+                                    <td>Fwd Trunion - Axial</td>
+                                    <td>{{users.p15_cbpm_A3A_DT59_RG54_LIMIT}}</td>
+                                    <td>{{users.p15_cbpm_A3A_DT59_RG54_GT1_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A3A_DT59_RG54_GT2_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A3A_DT59_RG54_GT3_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A3A_DT59_RG54_GT4_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A3A_DT59_RG54_REMARK}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(d)</td>
+                                    <td>4H</td>
+                                    <td>Fwd Trunion - Horizontal</td>
+                                    <td>{{users.p15_cbpm_A4H_DT59_RG54_LIMIT}}<td>
+                                    <td>{{users.p15_cbpm_A4H_DT59_RG54_GT1_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A4H_DT59_RG54_GT2_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A4H_DT59_RG54_GT3_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A4H_DT59_RG54_GT4_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A4H_DT59_RG54_REMARK}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(e)</td>
+                                    <td>5H</td>
+                                    <td>HPC Aft Flange - Horizontal</td>
+                                    <td>{{users.p15_cbpm_A5H_DT59_RG54_LIMIT}}</td>
+                                    <td>{{users.p15_cbpm_A5H_DT59_RG54_GT1_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A5H_DT59_RG54_GT2_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A5H_DT59_RG54_GT3_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A5H_DT59_RG54_GT4_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A5H_DT59_RG54_REMARK}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(f)</td>
+                                    <td>6A</td>
+                                    <td>HPC Aft Flange - Axial</td>
+                                    <td>{{users.p15_cbpm_A6A_DT59_RG54_LIMIT}}</td>
+                                    <td>{{users.p15_cbpm_A6A_DT59_RG54_GT1_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A6A_DT59_RG54_GT2_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A6A_DT59_RG54_GT3_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A6A_DT59_RG54_GT4_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A6A_DT59_RG54_REMARK}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(g)</td>
+                                    <td>7V</td>
+                                    <td>RG Fwd - Vertical</td>
+                                    <td>{{users.p15_cbpm_A7V_DT59_RG54_LIMIT}}</td>
+                                    <td>{{users.p15_cbpm_A7V_DT59_RG54_GT1_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A7V_DT59_RG54_GT2_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A7V_DT59_RG54_GT3_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A7V_DT59_RG54_GT4_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A7V_DT59_RG54_REMARK}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(h)</td>
+                                    <td>8V</td>
+                                    <td>RG Aft - Vertical</td>
+                                    <td>{{users.p15_cbpm_A8V_DT59_RG54_LIMIT}}</td>
+                                    <td>{{users.p15_cbpm_A8V_DT59_RG54_GT1_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A8V_DT59_RG54_GT2_RG1}}</td>
+                                    <td>{{users.p15_cbpm_A8V_DT59_RG54_GT3_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A8V_DT59_RG54_GT4_RG2}}</td>
+                                    <td>{{users.p15_cbpm_A8V_DT59_RG54_REMARK}}</td>
+                                </tr>
+                            </table>
+
+
+                            <h4 style="margin-top:25px;"><b> 2.&nbsp;&nbsp; GTG : 1250-2E</b></h4>
+                            <table class="table table-bordered table-form-color">
+                                <tr>
+                                    <th></th>
+                                    <th>J1</th>
+                                    <th>J3</th>
+                                    <th>M2</th>
+                                    <th>M4</th>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">Date of Recording</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_J1}}</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_J3}}</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_M2}}</td>
+                                    <td>{{users.p15_cbpm_Date_of_Recording_M4}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">RG Running Hrs SI</td>
+                                    <td>{{users.p15_cbpm_RG_Running_Hrs_SI_J1}}</td>
+                                    <td>{{users.p15_cbpm_RG_Running_Hrs_SI_J3}}</td>
+                                    <td>{{users.p15_cbpm_RG_Running_Hrs_SI_M2}}</td>
+                                    <td>{{users.p15_cbpm_RG_Running_Hrs_SI_M4}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">TC Running Hrs SI</td>
+                                    <td>{{users.p15_cbpm_TC_Running_Hrs_SI_J1}}</td>
+                                    <td>{{users.p15_cbpm_TC_Running_Hrs_SI_J3}}</td>
+                                    <td>{{users.p15_cbpm_TC_Running_Hrs_SI_M2}}</td>
+                                    <td>{{users.p15_cbpm_TC_Running_Hrs_SI_M4}}</td>
+                                </tr>
+                                <!--NK upper my code -->
+                            </table>
+                            <table class="table table-bordered table-form-color" style="margin-top:20px;">
+                                <tr>
+                                    <th>Ser</th>
+                                    <th>Point No</th>
+                                    <th>Description</th>
+                                    <th>Limits</th>
+                                    <th>J1</th>
+                                    <th>J3</th>
+                                    <th>M2</th>
+                                    <th>M4</th>
+                                    <th>Remarks</th>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(a)</td>
+                                    <td>1V</td>
+                                    <td>Alternator Fwd Bearing-</td>
+                                    <td>{{users.p15_cbpm_Alternato_Fwd_Bearing_Limit}}</td>
+                                    <td>{{users.p15_cbpm_Alternato_Fwd_Bearing_J1}}</td>
+                                    <td>{{users.p15_cbpm_Alternato_Fwd_Bearing_J3}}</td>
+                                    <td>{{users.p15_cbpm_Alternato_Fwd_Bearing_M2}}</td>
+                                    <td>{{users.p15_cbpm_Alternato_Fwd_Bearing_M4}}</td>
+                                    <td>{{users.p15_cbpm_Alternato_Fwd_Bearing_Remark}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(b)</td>
+                                    <td>2V</td>
+                                    <td>Alternator Aft Bearing-</td>
+                                    <td>{{users.p15_cbpm_Alternator_Aft_Bearing_Limit}}</td>
+                                    <td>{{users.p15_cbpm_Alternator_Aft_Bearing_J1}}</td>
+                                    <td>{{users.p15_cbpm_Alternator_Aft_Bearing_J3}}</td>
+                                    <td>{{users.p15_cbpm_Alternator_Aft_Bearing_M2}}</td>
+                                    <td>{{users.p15_cbpm_Alternator_Aft_Bearing_M4}}</td>
+                                    <td>{{users.p15_cbpm_Alternator_Aft_Bearing_Remark}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(c)</td>
+                                    <td>3V</td>
+                                    <td>RG Forward - Vertical</td>
+                                    <td>{{users.p15_cbpm_RG_Fwd_Limit}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Fwd_J1}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Fwd_J3}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Fwd_M2}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Fwd_M4}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Fwd_Remark}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(d)</td>
+                                    <td>4V</td>
+                                    <td>RG Aft - Vertical</td>
+                                    <td>{{users.p15_cbpm_RG_Aft_Limit}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Aft_J1}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Aft_J3}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Aft_M2}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Aft_M4}}
+                                    </td>
+                                    <td>{{users.p15_cbpm_RG_Aft_Remark}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(e)</td>
+                                    <td>5V</td>
+                                    <td>Compressor Bearing - Vertical</td>
+                                    <td>{{users.p15_cbpm_Compressor_Bearing_Limit}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Bearing_J1}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Bearing_J3}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Bearing_M2}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Bearing_M4}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Bearing_Remark}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(f)</td>
+                                    <td>6V</td>
+                                    <td>Compressor Body - Vertical</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_V_Limit}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_V_J1}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_V_J3}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_V_M2}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_V_M4}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_V_Remark}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(g)</td>
+                                    <td>6A</td>
+                                    <td>Compressor Body - Axial</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_A_Limit}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_A_J1}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_A_J3}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_A_M2}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_A_M4}}</td>
+                                    <td>{{users.p15_cbpm_Compressor_Body_A_Remark}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bluelight">(h)</td>
+                                    <td>7A</td>
+                                    <td>Turbine Bearing - Axial</td>
+                                    <td>{{users.p15_cbpm_Turbine_Bearing_Limit}}</td>
+                                    <td>{{users.p15_cbpm_Turbine_Bearing_J1}}</td>
+                                    <td>{{users.p15_cbpm_Turbine_Bearing_J3}}</td>
+                                    <td>{{users.p15_cbpm_Turbine_Bearing_M2}}</td>
+                                    <td>{{users.p15_cbpm_Turbine_Bearing_M4}}</td>
+                                    <td>{{users.p15_cbpm_Turbine_Bearing_Remark}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+
+<table cellspacing="0" cellpadding="5"  class="" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+    <tr>
+        <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+        <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+    </tr>
+</table>
+
+<table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center">
+    <tr>
+        <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+        <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+    </tr>
+  </table>
+</section>
+    </body>
+</html>

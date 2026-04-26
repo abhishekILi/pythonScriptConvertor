@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CBIU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Landscape"/>
+
+    <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div style="float:right">
+        <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+    <div class="panel-row">
+        <div class="heading-style2 text-center mt-4" style="margin-top:1rem!important;">
+            <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 47%;"
+                        src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+                <h2 style="text-align: center;">GTTT MUMBAI</h2>
+            <h2><U>RETURN ON GAS TURBINE INSTALLATIONS - 1241 RE CLASS</U></h2>
+        </div>
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <td><strong>Date:</strong></td>
+                <td>{{users.date}}</td>
+                <td class="td-bluelight"><strong>Date of Commission:</strong></td>
+                <td>{{users.date_of_comm}}</td>
+            </tr>
+
+            <tr>
+                <td><strong>Place:</strong></td>
+                <td>{{users.place}}</td>
+                <td class="td-bluelight"><strong>Return for quarter ending</strong></td>
+                <td>{{users.rtn_for_quarter_ending}}</td>
+            </tr>
+
+        </table>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <td width="8.5%"><strong>Ship:</strong></td>
+                <td>{{users.ship}}</td>
+            </tr>
+        </table>
+        <div class="heading-style2 text-center">
+            <h2><U>PART - I: GENERAL</U></h2>
+            <p>(To be filled in only in case of replacement of GT/RG)</p>
+        </div>
+        <table class="table table-bordered table-form-color1">
+            <tr>
+                <th rowspan="2">Unit</th>
+                <th rowspan="2">Old GT/RG S.NO.</th>
+                <th colspan="4">Details of New GT/ RG </th>
+                <th colspan="2">Remarks</th>
+            </tr>
+            <tr>
+                <th>S.NO</th>
+                <th>Ex-Ship / Contract</th>
+                <th>DOM</th>
+                <th>DOI</th>
+                <th>
+                    <ul type="i">
+                        <li>Reason of replacement</li>
+                        <li>Hours run (old GT/ RG)</li>
+                    </ul>
+                </th>
+            </tr>
+            <tr>
+                <td>PCGT</td>
+                <td>{{users.PCGT_old_S_No}}</td>
+                <td>{{users.PCGT_S_No}}</td>
+                <td>{{users.PCGT_ExShip_Contract}}</td>
+                <td>{{users.PCGT_DOM_Date}}</td>
+
+                <td>{{users.PCGT_DOI_Date}}</td>
+                <td>{{users.PCGT_Remarks}}</td>               
+            </tr>
+            <tr>
+                <td>SCGT</td>
+                <td>{{users.SCGT_old_S_No}}</td>
+                <td>{{users.SCGT_S_No}}</td>
+                <td>{{users.SCGT_ExShip_Contract}}</td>
+                <td>{{users.SCGT_DOM_Date}}</td>
+                <td>{{users.SCGT_DOI_Date}}</td>
+                <td>{{users.SCGT_Remarks}}</td>
+            </tr>
+            <tr>
+                <td>PBGT</td>
+                <td>{{users.PBGT_old_S_No}}</td>
+                <td>{{users.PBGT_S_No}}</td>
+                <td>{{users.PBGT_ExShip_Contract}}</td>
+                <td>{{users.PBGT_DOM_Date}}</td>
+                <td>{{users.PBGT_DOI_Date}}</td>
+                <td>{{users.PBGT_Remarks}}</td>
+            </tr>
+            <tr>
+                <td>SBGT</td>
+                <td>{{users.SBGT_old_S_No}}</td>
+                <td>{{users.SBGT_S_No}}</td>
+                <td>{{users.SBGT_ExShip_Contract}}</td>
+                <td>{{users.SBGT_DOM_Date}}</td>
+                <td>{{users.SBGT_DOI_Date}} </td>
+                <td>{{users.SBGT_Remarks}}</td>
+            </tr>
+            <tr>
+                <td>PCRG</td>
+                <td>{{users.PCRG_old_S_No}}</td>
+                <td>{{users.PCRG_S_No}}</td>
+                <td>{{users.PCRG_ExShip_Contract}}</td>
+                <td>{{users.PCRG_DOM_Date}}</td>
+                <td>{{users.PCRG_DOI_Date}}</td>
+                <td>{{users.PCRG_Remarks}}</td>
+            </tr>
+            <tr>
+                <td>SCRG</td>
+                <td>{{users.SCRG_old_S_No}}</td>
+                <td>{{users.SCRG_S_No}}</td>
+                <td>{{users.SCRG_ExShip_Contract}}</td>
+                <td>{{users.SCRG_DOM_Date}}</td>
+                <td>{{users.SCRG_DOI_Date}}</td>
+                <td>{{users.SCRG_Remarks}}</td>
+            </tr>
+            <tr>
+                <td>PBRG</td>
+                <td>{{users.PBRG_old_S_No}}</td>
+                <td>{{users.PBRG_S_No}}</td>
+                <td>{{users.PBRG_ExShip_Contract}}</td>
+                <td>
+                    {{users.PBRG_DOM_Date}}
+                </td>
+                <td>
+                  {{users.PBRG_DOI_Date}}
+                </td>
+                <td>{{users.PBRG_Remarks}}</td>
+            </tr>
+            <tr>
+                <td>SBRG</td>
+                <td>{{users.SBRG_old_S_No}}</td>
+                <td>{{users.SBRG_S_No}}</td>
+                <td>{{users.SBRG_ExShip_Contract}}
+                </td>
+                <td>
+                    {{users.SBRG_DOM_Date}}
+                </td>
+                <td>
+                  {{users.SBRG_DOI_Date}}
+                </td>
+                <td>{{users.SBRG_Remarks}}</td>
+            </tr>
+        </table>
+        <div class="note-card">
+            <p><strong><u><b>Note:</b></u></strong></p>
+            <ol type="1">
+                <li>&nbsp;&nbsp;<b>DOM-</b>Date of Manufacturing;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>DOI-</b>Date of Installation on
+                    board.</li>
+                <li>&nbsp;&nbsp;<b>GT-</b>PCGT/SCGT/PBGT/SBGT; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>RG-</b> PCRG/SCRG/PBRG/SBRG.</li>
+                <!-- <li>Running hours are to be rounded off to nearest whole number</li> -->
+            </ol>
+        </div>
+        <div class="heading-style2 text-center">
+            <h2><u>PART - II: OPERATIONS</u></h2>
+        </div>
+        <h4>(A)&nbsp;&nbsp;<u> Gas Turbine Exploitation</u></h4>
+        <table class="table table-bordered">
+            <tr>
+                <th colspan="3" rowspan="2">Operations</th>
+                <th colspan="3">PCGT</th>
+                <th colspan="3">SCGT</th>
+                <th colspan="3">PBGT</th>
+                <th colspan="3">SBGT</th>
+
+                <!-- <th colspan="3">PCGT</th>
+                <th colspan="3">SCGT</th>
+                <th colspan="3">PBGT</th>
+                <th colspan="3">SBGT</th> -->
+            </tr>
+            <tr>
+                <th>QTR</th>
+                <th>Sl</th>
+                <th>SN</th>
+                <th>QTR </th>
+                <th>Sl</th>
+                <th>SN</th>
+                <th>QTR</th>
+                <th>Sl</th>
+                <th>SN</th>
+                <th>QTR</th>
+                <th>Sl</th>
+                <th>SN</th>
+            </tr>
+            <tr>
+                <td colspan="3">No. of Cold Starts</td>
+                <td>{{users.Cold_Starts_PCGT_QTR}}</td>
+                <td>{{users.Cold_Starts_PCGT_Sl}}</td>
+                <td>{{users.Cold_Starts_PCGT_SN}}</td>
+                <td>{{users.Cold_Starts_SCGT_QTR}}</td>
+                <td>{{users.Cold_Starts_SCGT_Sl}}</td>
+                <td>{{users.Cold_Starts_SCGT_SN}}</td>
+                <td>{{users.Cold_Starts_PBGT_QTR}}</td>
+                <td>{{users.Cold_Starts_PBGT_Sl}}</td>
+                <td>{{users.Cold_Starts_PBGT_SN}}</td>
+                <td>{{users.Cold_Starts_SBGT_QTR}}</td>
+                <td>{{users.Cold_Starts_SBGT_Sl}}</td>
+                <td>{{users.Cold_Starts_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">No. of False Starts</td>
+                <td>{{users.False_Starts_PCGT_QTR}}</td>
+                <td>{{users.False_Starts_PCGT_Sl}}</td>
+                <td>{{users.False_Starts_PCGT_SN}}</td>
+                <td>{{users.False_Starts_SCGT_QTR}}</td>
+                <td>{{users.False_Starts_SCGT_Sl}}</td>
+                <td>{{users.False_Starts_SCGT_SN}}</td>
+                <td>{{users.False_Starts_PBGT_QTR}}</td>
+                <td>{{users.False_Starts_PBGT_Sl}}</td>
+                <td>{{users.False_Starts_PBGT_SN}}</td>
+                <td>{{users.False_Starts_SBGT_QTR}}</td>
+                <td>{{users.False_Starts_SBGT_Sl}}</td>
+                <td>{{users.False_Starts_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">No. of Hot Starts</td>
+                <td>{{users.Hot_Starts_PCGT_QTR}}</td>
+                <td>{{users.Hot_Starts_PCGT_Sl}}</td>
+                <td>{{users.Hot_Starts_PCGT_SN}}</td>
+                <td>{{users.Hot_Starts_SCGT_QTR}}</td>
+                <td>{{users.Hot_Starts_SCGT_Sl}}</td>
+                <td>{{users.Hot_Starts_SCGT_SN}}</td>
+                <td>{{users.Hot_Starts_PBGT_QTR}}</td>
+                <td>{{users.Hot_Starts_PBGT_Sl}}</td>
+                <td>{{users.Hot_Starts_PBGT_SN}}</td>
+                <td>{{users.Hot_Starts_SBGT_QTR}}</td>
+                <td>{{users.Hot_Starts_SBGT_Sl}}</td>
+                <td>{{users.Hot_Starts_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">Total</td>
+                <td class="table-form-color2">{{users.gas_turbine_Total_PCGT_QTR}}</td>
+
+                <td>{{users.gas_turbine_Total_PCGT_Sl}}</td>
+
+                <td>{{users.gas_turbine_Total_PCGT_SN}}</td>
+
+                <td>{{users.gas_turbine_Total_SCGT_QTR}}</td>
+
+                <td>{{users.gas_turbine_Total_SCGT_Sl}}</td>
+
+                <td>{{users.gas_turbine_Total_SCGT_SN}}</td>
+
+                <td>{{users.gas_turbine_Total_PBGT_QTR}}</td>
+
+                <td>{{users.gas_turbine_Total_PBGT_Sl}}</td>
+
+                <td>{{users.gas_turbine_Total_PBGT_SN}}</td>
+
+                <td>{{users.gas_turbine_Total_SBGT_QTR}}</td>
+
+                <td>{{users.gas_turbine_Total_SBGT_Sl}}</td>
+                
+                <td>{{users.gas_turbine_Total_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td rowspan="9">Running Hours</td>
+                <td rowspan="4" style="background: #efedff;" class="td-bluelight" >CGT</td>
+            </tr>
+            <tr>
+                <td>1.0N</td>
+                <td class="table-form-color2">{{users.CGT_1_0N_PCGT_QTR}}</td>
+                <td>{{users.CGT_1_0N_PCGT_Sl}}</td>
+                <td>{{users.CGT_1_0N_PCGT_SN}}</td>
+                <td>{{users.CGT_1_0N_SCGT_QTR}}
+                </td>
+                <td>{{users.CGT_1_0N_SCGT_Sl}}</td>
+                <td>{{users.CGT_1_0N_SCGT_SN}}</td>
+                <td colspan="6" rowspan="3" style="background-color: #ffffff!important;"></td>
+            </tr>
+            <tr>
+                <td>0.8N</td>
+                <td class="table-form-color2">{{users.CGT_0_8N_PCGT_QTR}}</td>
+                <td>{{users.CGT_0_8N_PCGT_Sl}}</td>
+                <td>{{users.CGT_0_8N_PCGT_SN}}</td>
+                <td>{{users.CGT_0_8N_SCGT_QTR}}</td>
+                <td>{{users.CGT_0_8N_SCGT_Sl}}</td>
+                <td>{{users.CGT_0_8N_SCGT_SN}}</td>
+                
+            </tr>
+            <tr>
+                <td>0.625N & Below</td>
+                <td class="table-form-color2">{{users.CGT_0_625N_PCGT_QTR}}</td>
+                <td>{{users.CGT_0_625N_PCGT_Sl}}</td>
+                <td>{{users.CGT_0_625N_PCGT_SN}}</td>
+                <td>{{users.CGT_0_625N_SCGT_QTR}}</td>
+                <td>{{users.CGT_0_625N_SCGT_Sl}}</td>
+                <td>{{users.CGT_0_625N_SCGT_SN}}</td>
+            </tr>
+            <tr>
+                <td rowspan="4">BGT</td>
+            </tr>
+            <tr>
+                <td>1.2N</td>
+                <td class="table-form-color2" style="background-color: #ffffff!important;" colspan="6" rowspan="3"></td>
+                <td>{{users.BGT_1_0N_PBGT_QTR}}</td>
+                <td>{{users.BGT_1_0N_PBGT_Sl}}</td>
+                <td>{{users.BGT_1_0N_PBGT_SN}}</td>
+                <td>{{users.BGT_1_0N_SBGT_QTR}}</td>
+                <td>{{users.BGT_1_0N_SBGT_Sl}}</td>
+                <td>{{users.BGT_1_0N_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td >1.0N</td>
+
+                <td>{{users.BGT_0_8N_PBGT_QTR}}</td>
+                <td>{{users.BGT_0_8N_PBGT_Sl}}</td>
+                <td>{{users.BGT_0_8N_PBGT_SN}}</td>
+                <td>{{users.BGT_0_8N_SBGT_QTR}}</td>
+                <td>{{users.BGT_0_8N_SBGT_Sl}}</td>
+                <td>{{users.BGT_0_8N_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td >0.8N & Below</td>
+                <td>{{users.BGT_0_625N_PBGT_QTR}}</td>
+                <td>{{users.BGT_0_625N_PBGT_Sl}}</td>
+                <td>{{users.BGT_0_625N_PBGT_SN}}</td>
+                <td>{{users.BGT_0_625N_SBGT_QTR}}</td>
+                <td>{{users.BGT_0_625N_SBGT_Sl}}</td>
+                <td>{{users.BGT_0_625N_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">Total (rounded off to nearest hour) </td>
+                <td class="table-form-color2">{{users.Total_PCGT_QTR}}</td>
+                <td>{{users.Total_PCGT_Sl}}</td>
+                <td>{{users.Total_PCGT_SN}}</td>
+                <td>{{users.Total_SCGT_QTR}}</td>
+                <td>{{users.Total_SCGT_Sl}}</td>
+                <td>{{users.Total_SCGT_SN}}</td>
+                <td>{{users.Total_PBGT_QTR}}</td>
+                <td>{{users.Total_PBGT_Sl}}</td>
+                <td>{{users.Total_PBGT_SN}}</td>
+                <td>{{users.Total_SBGT_QTR}}</td>
+                <td>{{users.Total_SBGT_Sl}}</td>
+                <td>{{users.Total_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">No. of Astern Engagements </td>
+                <td class="table-form-color2">{{users.Astern_Engagements_PCGT_QTR}}</td>
+                <td>{{users.Astern_Engagements_PCGT_Sl}}</td>
+                <td>{{users.Astern_Engagements_PCGT_SN}}</td>
+                <td>{{users.Astern_Engagements_SCGT_QTR}}</td>
+                <td>{{users.Astern_Engagements_SCGT_Sl}}</td>
+                <td>{{users.Astern_Engagements_SCGT_SN}}</td>
+                <td>{{users.Astern_Engagements_PBGT_QTR}}</td>
+                <td>{{users.Astern_Engagements_PBGT_Sl}}</td>
+                <td>{{users.Astern_Engagements_PBGT_SN}}</td>
+                <td>{{users.Astern_Engagements_SBGT_QTR}}</td>
+                <td>{{users.Astern_Engagements_SBGT_Sl}}</td>
+                <td>{{users.Astern_Engagements_SBGT_SN}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">No. of Prop Stop Orders</td>
+                <td class="table-form-color2">{{users.Prop_Stop_Orders_PCGT_QTR}}</td>
+                <td>{{users.Prop_Stop_Orders_PCGT_Sl}}</td>
+                <td>{{users.Prop_Stop_Orders_PCGT_SN}}</td>
+                <td>{{users.Prop_Stop_Orders_SCGT_QTR}}</td>
+                <td>{{users.Prop_Stop_Orders_SCGT_Sl}}</td>
+                <td>{{users.Prop_Stop_Orders_SCGT_SN}}</td>
+                <td>{{users.Prop_Stop_Orders_PBGT_QTR}}</td>
+                <td>{{users.Prop_Stop_Orders_PBGT_Sl}}</td>
+                <td>{{users.Prop_Stop_Orders_PBGT_SN}}</td>
+                <td>{{users.Prop_Stop_Orders_SBGT_QTR}}</td>
+                <td>{{users.Prop_Stop_Orders_SBGT_Sl}}</td>
+                <td>{{users.Prop_Stop_Orders_SBGT_SN}}</td>
+            </tr>
+        </table>
+        <div class="note-card">
+            <p><strong><u><b>Note:</b></u></strong></p>
+            <ol type="1">
+                <li>&nbsp;&nbsp;Running Hour is to be rounded off to nearest hour</li>
+                <li>&nbsp;&nbsp;<b>SI:</b> Since Installation; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>SN:</b> PCRG/SCRG/PBRG/SBRG.</li>
+                <!-- <li>Running hours are to be rounded off to nearest whole number</li> -->
+            </ol>
+        </div>
+        <h4>(B)&nbsp;&nbsp;<u>Running Hours of Reduction Gears</u></h4>
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th rowspan="2">&nbsp;</th>
+                <th colspan="4">PCRG</th>
+                <th colspan="4">SCRG</th>
+            </tr>
+            <tr>
+                <th>LS</th>
+                <th>JO</th>
+                <th>IO</th>
+                <th>TOTAL</th>
+                <th>LS</th>
+                <th>JO</th>
+                <th>IO</th>
+                <th>TOTAL</th>
+            </tr>
+            <tr>
+                <td class="td-bluelight">QTR</td>
+               
+                <td>{{users.QTR_PCRG_LS}}</td>
+                <td>{{users.QTR_PCRG_JO}}</td>
+                <td>{{users.QTR_PCRG_IO}}</td>
+                <td>{{users.QTR_PCRG_TOTAL}}</td>
+                <td>{{users.QTR_SCRG_LS}}</td>
+                <td>{{users.QTR_SCRG_JO}}</td>
+                <td>{{users.QTR_SCRG_IO}}</td>
+                <td>{{users.QTR_SCRG_TOTAL}}</td>
+            </tr>
+            <tr>
+                <td class="td-bluelight">Since installation</td>
+              
+                <td  colspan="3">{{users.installation_PCRG_LS}}</td>
+                
+                <td>{{users.installation_PCRG_TOTAL}}</td>
+                <td colspan="3">{{users.installation_SCRG_LS}}</td>
+                <td>{{users.installation_SCRG_TOTAL}}</td> 
+
+            </tr>
+            <tr>
+                <td>Since New</td>
+                <td  colspan="3">{{users.New_PCRG_LS}}</td>
+                <td>{{users.New_PCRG_TOTAL}}</td>
+                <td colspan="3">{{users.New_SCRG_LS}}</td>
+                <td>{{users.New_SCRG_TOTAL}}</td>
+            </tr>
+        </table>
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th rowspan="2">&nbsp;</th>
+                <th colspan="3">PBRG</th>
+                <th colspan="4">SBRG</th>
+            </tr>
+            <tr>
+                <th>JO</th>
+                <th>IO</th>
+                <th>TOTAL</th>
+                <th>JO</th>
+                <th>IO</th>
+                <th>TOTAL</th>
+            </tr>
+            <tr>
+                <td class="td-bluelight">QTR</td>
+              
+                <td>{{users.QTR_PBRG_JO}}</td>
+                <td>{{users.QTR_PBRG_IO}}</td>
+                <td>{{users.QTR_PBRG_TOTAL}}</td>
+                <td>{{users.QTR_SBRG_JO}}</td>
+                <td>{{users.QTR_SBRG_IO}}</td>
+                <td>{{users.QTR_SBRG_TOTAL}}</td>
+            </tr>
+            <tr>
+                <td class="td-bluelight">Since installation</td>
+               
+                <td colspan="2">{{users.installation_PBRG_JO}}
+                </td>
+                <!-- <td>{{users.installation_PBRG_IO}}
+                </td> -->
+                <td>{{users.installation_PBRG_TOTAL}}</td>
+                        <td colspan="2">{{users.installation_SBRG_JO}}
+                        </td>
+                        <!-- <td>{{users.installation_SBRG_IO}}
+                        </td> -->
+                        <td>{{users.installation_SBRG_TOTAL}}</td>
+            </tr>
+            <tr>
+                <td>Since New</td>
+               
+                <td colspan="2"><input type="text" class="form-control" value="{{users.New_PBRG_JO}}"></td>
+                <!-- <td><input type="text" class="form-control" value="{{users.New_PBRG_IO}}"></td> -->
+                <td><input type="text" class="form-control" value="{{users.New_PBRG_TOTAL}}"></td>
+                <td colspan="2"><input type="text" class="form-control" value="{{users.New_SBRG_JO}}"></td>
+                <!-- <td><input type="text" class="form-control" value="{{users.New_SBRG_IO}}"></td> -->
+                <td><input type="text" class="form-control" value="{{users.New_SBRG_TOTAL}}"></td>
+            </tr>
+        </table>
+        <div class="note-card">
+            <p><strong><U><B>Note:</B></U></strong></p>
+            <b>JO:&nbsp;&nbsp;Joint Operation; &nbsp;&nbsp;&nbsp;&nbsp; IO:&nbsp;&nbsp;Independent
+                Operation &nbsp;&nbsp;&nbsp;&nbsp; LS:&nbsp;&nbsp; Link Shaft</b>
+        </div>
+        <h4>(C)&nbsp;&nbsp;<u>Thrust Bearing Running Hours</u></h4>
+        <table class="table table-bordered table-form-color1">
+            <tr>
+                <th rowspan="2">&nbsp;</th>
+                <th colspan="4">PORT</th>
+                <th colspan="4">STBD</th>
+            </tr>
+            <tr>
+               
+                <th>SBRG</th>
+                <th>IO(c)</th>
+                <th>LS</th>
+                <th>Total</th>
+                <th>PBRG</th>
+                <th>IO(c)</th>
+                <th>LS</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>QTR</td>
+              
+                <td><input type="text" class="form-control" value="{{users.QTR_STBD_SBRG}}" [(ngModel)]="QTR_STBD_SBRG"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.QTR_STBD_IO}}" [(ngModel)]="QTR_STBD_IO"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.QTR_STBD_LS}}"   [(ngModel)]="QTR_STBD_LS"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.QTR_STBD_TOTAL}}" [(ngModel)]="QTR_STBD_TOTAL" readonly></td>
+                <td><input type="text" class="form-control" value="{{users.QTR_PORT_PBRG}}" [(ngModel)]="QTR_PORT_PBRG"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.QTR_PORT_IO}}"  [(ngModel)]="QTR_PORT_IO"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.QTR_PORT_LS}}" [(ngModel)]="QTR_PORT_LS"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.QTR_PORT_TOTAL}}" [(ngModel)]="QTR_PORT_TOTAL" readonly></td>
+            </tr>
+            <tr>
+                <td>Since installation</td>
+              
+                <td><input type="text" class="form-control"
+                        value="{{users.installation_STBD_SBRG}}"  [(ngModel)]="installation_STBD_SBRG"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.installation_STBD_IO}}" [(ngModel)]="installation_STBD_IO"  (ngModelChange)="calculate()">
+                </td>
+                <td><input type="text" class="form-control" value="{{users.installation_STBD_LS}}"  [(ngModel)]="installation_STBD_LS"  (ngModelChange)="calculate()">
+                </td>
+                <td><input type="text" class="form-control"
+                        value="{{users.installation_STBD_TOTAL}}"   [(ngModel)]="installation_STBD_TOTAL" readonly></td>
+                        <td><input type="text" class="form-control"
+                          value="{{users.installation_PORT_PBRG}}"  [(ngModel)]="installation_PORT_PBRG"  (ngModelChange)="calculate()"></td>
+                  <td><input type="text" class="form-control" value="{{users.installation_PORT_IO}}"  [(ngModel)]="installation_PORT_IO"  (ngModelChange)="calculate()">
+                  </td>
+                  <td><input type="text" class="form-control" value="{{users.installation_PORT_LS}}" [(ngModel)]="installation_PORT_LS"  (ngModelChange)="calculate()">
+                  </td>
+                  <td><input type="text" class="form-control"
+                          value="{{users.installation_PORT_TOTAL}}"  [(ngModel)]="installation_PORT_TOTAL" readonly></td>        
+            </tr>
+            <tr>
+                <td>Since New</td>
+               
+                <td><input type="text" class="form-control" value="{{users.New_STBD_SBRG}}"   [(ngModel)]="New_STBD_SBRG"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.New_STBD_IO}}"  [(ngModel)]="New_STBD_IO"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.New_STBD_LS}}"  [(ngModel)]="New_STBD_LS"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.New_STBD_TOTAL}}"  [(ngModel)]="New_STBD_TOTAL" readonly></td>
+                <td><input type="text" class="form-control" value="{{users.New_PORT_PBRG}}"   [(ngModel)]="New_PORT_PBRG"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.New_PORT_IO}}"   [(ngModel)]="New_PORT_IO"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.New_PORT_LS}}"  [(ngModel)]="New_PORT_LS"  (ngModelChange)="calculate()"></td>
+                <td><input type="text" class="form-control" value="{{users.New_PORT_TOTAL}}"   [(ngModel)]="New_PORT_TOTAL" readonly></td>
+            </tr>
+        </table>
+        <div class="note-card">
+            <p><strong><u><b>Note:</b></u></strong> &nbsp;&nbsp;&nbsp;<b>IO(C)-</b>&nbsp;&nbsp;&nbsp;&nbsp;lndependent
+                Operations (Cruise);
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>LS-</b>&nbsp;&nbsp;Link Shaft</p>
+        </div>
+<!-- End of Part 1 ***************************************************************************************************************************************************-->
+
+            <div class="heading-style2 text-center">
+                <h2><U>PART - III: INSPECTION/ TRIALS/ ROUTINES</U></h2>
+            </div>
+            <h4>(A)&nbsp;&nbsp;Maintenance Routines Due and Undertaken</h4>
+            <table class="table table-bordered table-form-color">
+                <tr>
+                    <th width="5%">SNO.</th>
+                    <th width="30%">Equipment</th>
+                    <th width="30%">Description</th>
+                    <th width="31.5%">Maintop Routine Number</th>
+                </tr>
+
+                {% for al in dynamic1 %}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.Due_Undertaken_Equipment}}</td>
+                        <td>{{al.Due_Undertaken_Description}}</td>
+                        <td>{{al.Due_Undertaken_Maintop_Routine_No}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+            <h4>(B)&nbsp;&nbsp;Maintenance Routines Due But Not Undertaken</h4>
+            <table class="table table-bordered table-form-color">
+                <tr>
+                    <th width="4%">SNO</th>
+                    <th width="10%">Equipment</th>
+                    <th width="15%">Description</th>
+                    <th width="20.5%">Maintop Routine Number</th>
+                    <th width="15.5%">Reason</th>
+
+                </tr>
+                {% for al in dynamic2%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.Due_Not_Undertaken_Equipment}}</td>
+                        <td>{{al.Due_Not_Undertaken_Description}}</td>
+                        <td>{{al.Due_Not_Undertaken_Maintop_Routine_No}}</td>
+                        <td>{{al.Due_Not_Undertaken_Reason}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+            <h4>(C)&nbsp;&nbsp;Inspection/ Trials/ Routines</h4>
+            <table class="table table-bordered table-form-color1">
+                <tr>
+                    <th>Date of</th>
+                   
+                    <th>PCGT & RG</th>
+                    <th>SCGT&RG</th>                               
+                    <th>PBGT/RG</th>
+                    <th>SBGT/RG</th>
+                </tr>
+                <tr>
+                    <td>Last EHM Trials</td>
+                    <td>
+                        {{users1.EHM_Trials_PCGT_RG_Date}}
+                    </td>
+
+                    <td>
+                        {{users1.EHM_Trials_SCGT_RG_Date}}
+                    </td>
+                   
+                    <td>
+                        {{users1.EHM_Trials_PBGT_RG_Date}}
+                    </td>
+
+                    <td>
+                        {{users1.EHM_Trials_SBGT_IRG_Date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Full Power Trials</td>
+                    <td>
+                        {{users1.FullPower_Trials_PCGT_RG_Date}}
+                    </td>
+
+                    <td>
+                        {{users1.FullPower_Trials_SCGT_RG_Date}}
+                    </td>
+
+                    <td>
+                        {{users1.FullPower_Trials_PBGT_RG_Date}}
+                    </td>
+
+                    <td>
+                        {{users1.FullPower_Trials_SBGT_IRG_Date}}
+                    </td>
+                  
+                </tr>
+                <tr>
+                    <td>Last Annual Routines</td>
+                  
+                    <td>
+                        {{users1.Annual_Routines_PCGT_RG_Date}}
+                    </td>
+                    <td>
+                        {{users1.Annual_Routines_SCGT_RG_Date}}
+                    </td>
+                 
+                    <td>
+                        {{users1.Annual_Routines_PBGT_RG_Date}}
+                    </td>
+
+                    <td>
+                        {{users1.Annual_Routines_SBGT_IRG_Date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Lub Oil Spectrometric Analysis</td>
+                    <td><input type="text" class="form-control" value="{{users1.Lub_Oil_Spectrometric_Analysis_SCGT}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.Lub_Oil_Spectrometric_Analysis_PCGT}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.Lub_Oil_Spectrometric_Analysis_SBGT}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.Lub_Oil_Spectrometric_Analysis_PBGT}}"></td>
+                </tr>
+                <tr>
+                    <td>Last Chemical Cleaning</td>
+
+                    <td>
+                        {{users1.Chemical_Cleaning_PCGT_RG_Date}}
+                    </td>
+                    <td>
+                        {{users1.Chemical_Cleaning_SCGT_RG_Date}}
+                    </td>
+
+                    <td>
+                        {{users1.Chemical_Cleaning_PBGT_RG_Date}}
+                    </td>
+
+                    <td>
+                       {{users1.Chemical_Cleaning_SBGT_IRG_Date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Drum Clearance Speed I</td>
+                    <td><input type="text" class="form-control" value="{{users1.Drum_Clearance_Speed_I_SCGT}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.Drum_Clearance_Speed_I_PCGT}}"></td>
+                    <td><input type="hidden" class="form-control" value="{{users1.Drum_Clearance_Speed_I_II_SCGT_PCGT}}"></td>
+                    <td><input type="hidden" class="form-control" value="{{users1.Drum_Clearance_Speed_I_II_SCGT_PCGT}}"></td>
+                   
+                </tr>
+                <tr>
+                    <td>
+                        Drum Clearance Speed II</td>
+
+                    <td><input type="text" class="form-control" value="{{users1.Drum_Clearance_Speed_II_SCGT}}"></td>
+                    <td><input type="text" class="form-control" value="{{users1.Drum_Clearance_Speed_II_PCGT}}"></td>
+                    <td><input type="hidden" class="form-control" value="{{users1.Drum_Clearance_Speed_I_II_SCGT_PCGT}}"></td>
+                    <td><input type="hidden" class="form-control" value="{{users1.Drum_Clearance_Speed_I_II_SCGT_PCGT}}"></td>
+                  
+            </table>
+            <h4>(D)&nbsp;&nbsp;Replacement of Units/ Sub Units</h4>
+            <table class="table table-bordered table-form-color">
+                <tr>
+                    <th colspan="8">Gas Turbine Aggregate (GTA)</th>
+                </tr>
+                <tr>
+                    <th width="3%">SNo.</th>
+                    <th width="11%">Date</th>
+                    <th width="15%">Unit/Sub Unit</th>
+                    <th width="15%">Old S.No</th>
+                    <th width="15%">New S.No</th>
+                    <th width="20%">Reason for Replacment </th>
+                    <th width="30%">Remarks</th>
+
+                </tr>
+
+                {% for al in dynamic3%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.GTA_date}}</td>
+                        <td>{{al.GTA_Unit}}</td>
+                        <td>{{al.GTA_Old_S_No}}</td>
+                        <td>{{al.GTA_Nes_S_No}}</td>
+                        <td>{{al.GTA_Reason}}</td>
+                        <td>{{al.GTA_Remarks}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+
+            <table class="table table-bordered table-form-color">
+                <tr>
+                    <th colspan="8">Control System</th>
+                </tr>
+                <tr>
+                    <th width="3%">SNo.</th>
+                    <th width="11%">Date</th>
+                    <th width="15%">Unit/Sub Unit</th>
+                    <th width="15%">Old S.No</th>
+                    <th width="15%">New S.No</th>
+                    <th width="20%">Reason for Replacment </th>
+                    <th width="30%">Remarks</th>
+                </tr>
+
+                {% for al in dynamic4%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.Control_System_date}}</td>
+                        <td>{{al.Control_System_Unit}}</td>
+                        <td>{{al.Control_System_Old_S_No}}</td>
+                        <td>{{al.Control_System_Nes_S_No}}</td>
+                        <td>{{al.Control_System_Reason}}</td>
+                        <td>{{al.Control_System_Remarks}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <div class="note-card">
+                <p><strong><u><b>Note:</b></u></strong> &nbsp;&nbsp;If Unit/ Sub Units code is NA, indicate appropriate reference in
+                    detail on
+                    separate annexure.</p>
+            </div>
+           <!-- End of Page 2------------------------------------------------------------------------------------------------------------------- -->
+                <div class="heading-style2 text-center">
+                    <h2><u>PART - IV: DEFECTS</u></h2>
+                </div>
+                <h4>(A)&nbsp;&nbsp; Defects Observed on GTA Control System during Quarter</h4>
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="3%">Ser</th>
+                        <th width="20%">Equipment</th>
+                        <th width="20%">Date</th>
+                        <th width="20%">Defect</th>
+                        <th width="18%">Remarks</th>
+
+                    </tr>
+
+                    {% for al in dynamic5%}
+                    <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{al.Equip_Observed_GTA_ControlSystem_durin_Quarter}}</td>
+                            <td>{{al.Date_Observed_GTA_ControlSystem_durin_Quarter}}</td>
+                            <td>{{al.Defects_Observed_GTA_ControlSystem_durin_Quarter}}</td>
+                            <td>{{al.Remarks_Observed_GTA_ControlSystem_durin_Quarter}}</td>
+                            
+                    </tr>
+                    {% endfor %}
+
+                </table>
+                <div class="heading-style2 text-center">
+                    <h2><u>PART - V: PERFORMANCE PARAMETERS AND RELIABILITY DATA</u></h2>
+                </div>
+                <h4>(A)&nbsp;&nbsp;GT Parameters</h4>
+                <table class="table table-bordered tabletd-color">
+                    <tr>
+                        <th colspan="2">PARAMETERS</th>                                  
+                        <th>PCGT</th>
+                        <th>SCGT</th>
+                        <th>PBGT</th>
+                        <th>SBGT</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Date:</td>
+                        <td>{{users2.GT_Params_date_PCGT}}</td>
+                        <td>{{users2.GT_Params_date_SCGT}}</td>
+                        <td>{{users2.GT_Params_date_PBGT}}</td>
+                        <td>{{users2.GT_Params_date_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Ambient Air Temperature (°C)</td>
+                        <td>{{users2.GT_Params_Air_Temp_PCGT}}</td>
+                        <td>{{users2.GT_Params_Air_Temp_SCGT}}</td>
+                        <td>{{users2.GT_Params_Air_Temp_PBGT}}</td>
+                        <td>{{users2.GT_Params_Air_Temp_SBGT}}</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">SW Temperature (°C)</td>
+                        <td>{{users2.GT_Params_SW_Temp_PCGT}}</td>
+                        <td>{{users2.GT_Params_SW_Temp_SCGT}}</td>
+                        <td>{{users2.GT_Params_SW_Temp_PBGT}}</td>
+                        <td>{{users2.GT_Params_SW_Temp_SBGT}}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td colspan="2">HPC (RPM)</td>
+                        <td>{{users2.GT_Params_HPC_PCGT}}</td>
+                        <td>{{users2.GT_Params_HPC_SCGT}}
+                        </td>
+                        <td>{{users2.GT_Params_HPC_PBGT}}
+                        </td>
+                        <td>{{users2.GT_Params_HPC_SBGT}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">LPC (RPM)</td>
+                        <td>{{users2.GT_Params_LPC_PCGT}}</td>
+                        <td>{{users2.GT_Params_LPC_SCGT}}
+                        </td>
+                        <td>{{users2.GT_Params_LPC_PBGT}}
+                        </td>
+                        <td>{{users2.GT_Params_LPC_SBGT}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">PT (RPM)</td>
+                        <td>{{users2.GT_Params_PT_PCGT}}</td>
+                        <td>{{users2.GT_Params_PT_SCGT}}
+                        </td>
+                        <td>{{users2.GT_Params_PT_PBGT}}
+                        </td>
+                        <td>{{users2.GT_Params_PT_SBGT}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Shaft (RPM)</td>
+                        <td>{{users2.GT_Params_Shaft_PCGT}}</td>
+                        <td>{{users2.GT_Params_Shaft_SCGT}}
+                        </td>
+                        <td>{{users2.GT_Params_Shaft_PBGT}}
+                        </td>
+                        <td>{{users2.GT_Params_Shaft_SBGT}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Ship Speed (Knots)</td>
+                        <td>{{users2.GT_Params_Ship_Speed_PCGT}}</td>
+                        <td>{{users2.GT_Params_Ship_Speed_SCGT}}</td>
+                        <td>{{users2.GT_Params_Ship_Speed_PBGT}}</td>
+                        <td>{{users2.GT_Params_Ship_Speed_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">LPT Exhaust Gas Temperature (°C) </td>
+                        <td>{{users2.GT_Params_After_LPT_PCGT}}</td>
+                        <td>{{users2.GT_Params_After_LPT_SCGT}}</td>
+                        <td>{{users2.GT_Params_After_LPT_PBGT}}</td>
+                        <td>{{users2.GT_Params_After_LPT_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Fuel Pressure Before Pump (kgf/cm²)</td>
+                        <td>{{users2.GT_Params_Fuel_P_Before_Pump_PCGT}}</td>
+                        <td>{{users2.GT_Params_Fuel_P_Before_Pump_SCGT}}</td>
+                        <td>{{users2.GT_Params_Fuel_P_Before_Pump_PBGT}}</td>
+                        <td>{{users2.GT_Params_Fuel_P_Before_Pump_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Fuel Pressure Before Main Injector (kgf/cm²)</td>
+                        <td>{{users2.GT_Params_Fuel_P_Before_Injector_PCGT}}</td>
+                        <td>{{users2.GT_Params_Fuel_P_Before_Injector_SCGT}}
+                        </td>
+                        <td>{{users2.GT_Params_Fuel_P_Before_Injector_PBGT}}
+                        </td>
+                        <td>{{users2.GT_Params_Fuel_P_Before_Injector_SBGT}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Oil Temperature at Engine Inlet (&deg;C)</td>
+                        <td>{{users2.GT_Params_Oil_Temp_Inlet_PCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_Inlet_SCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_Inlet_PBGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_Inlet_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Oil Temperature at Adaptor Outlet (&deg;C)</td>
+                        <td>{{users2.GT_Params_Oil_Temp_Adaptor_Outlet_PCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_Adaptor_Outlet_SCGT}}
+                        </td>
+                        <td>{{users2.GT_Params_Oil_Temp_Adaptor_Outlet_PBGT}}
+                        </td>
+                        <td>{{users2.GT_Params_Oil_Temp_Adaptor_Outlet_SBGT}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Oil Temperature at Settling Tank (&deg;C)</td>
+                        <td>{{users2.GT_Params_Oil_Temp_Settling_Tank_PCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_Settling_Tank_SCGT}}
+                        </td>
+                        <td>{{users2.GT_Params_Oil_Temp_Settling_Tank_PBGT}}
+                        </td>
+                        <td>{{users2.GT_Params_Oil_Temp_Settling_Tank_SBGT}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Oil Pressure at Engine Inlet (kgf/cm²)</td>
+                        <td>{{users2.GT_Params_Oil_P_Eng_Inlet_PCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_P_Eng_Inlet_SCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_P_Eng_Inlet_PBGT}}</td>
+                        <td>{{users2.GT_Params_Oil_P_Eng_Inlet_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Static Air Pressure (kgf/cm²)</td>
+                        <td>{{users2.GT_Params_Static_Air_P_PCGT}}</td>
+                        <td>{{users2.GT_Params_Static_Air_P_SCGT}}</td>
+                        <td>{{users2.GT_Params_Static_Air_P_PBGT}}</td>
+                        <td>{{users2.GT_Params_Static_Air_P_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Oil Temperature at RG Inlet(&deg;C)</td>
+                        <td>{{users2.GT_Params_Oil_Temp_RG_Inlet_PCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_RG_Inlet_SCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_RG_Inlet_PBGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_RG_Inlet_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Oil Temperature at RG Outlet (&deg;C)</td>
+                        <td>{{users2.GT_Params_Oil_Temp_RG_Outlet_PCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_RG_Outlet_SCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_RG_Outlet_PBGT}}</td>
+                        <td>{{users2.GT_Params_Oil_Temp_RG_Outlet_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Oil Pressure at RG Inlet (kgf/cm²)</td>
+                        <td>{{users2.GT_Params_Oil_P_RG_Inlet_PCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_P_RG_Inlet_SCGT}}</td>
+                        <td>{{users2.GT_Params_Oil_P_RG_Inlet_PBGT}}</td>
+                        <td>{{users2.GT_Params_Oil_P_RG_Inlet_SBGT}}</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Minimum Run Down Time (sec)</td>
+                        <td class="td-bluelight">HPC</td>
+                        <td>{{users2.GT_Params_Min_Run_Down_Time_PCGT_HPC}}</td>
+                        <td>{{users2.GT_Params_Min_Run_Down_Time_SCGT_HPC}}</td>
+                        <td>{{users2.GT_Params_Min_Run_Down_Time_PBGT_HPC}}</td>
+                        <td>{{users2.GT_Params_Min_Run_Down_Time_SBGT_HPC}}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-bluelight">LPC</td>
+                        <td>{{users2.GT_Params_Min_Run_Down_Time_PCGT_LPC}}</td>
+                        <td>{{users2.GT_Params_Min_Run_Down_Time_SCGT_LPC}}</td>
+                        <td>{{users2.GT_Params_Min_Run_Down_Time_PBGT_LPC}}</td>
+                        <td>{{users2.GT_Params_Min_Run_Down_Time_SBGT_LPC}}</td>
+                    </tr>
+                </table>
+                <div class="note-card">
+                    <p><strong><u><b>Note</b></u></strong></p>
+                    <ul type="1">
+                        <li> Run Down Time of LP & HP spool — From 1500 to 500 RPM.</li>
+                        <li>Parameters at 1.2N for Boost and 1.0N for Cruise in combined Mode.</li>
+                    </ul>
+                </div>
+                <h4>(B)&nbsp;&nbsp;Slip (Creep)</h4>
+                <table class="table table-bordered table-form-color1">
+                    <tr>
+                        <th>Parameters </th>
+                        <th>PCGT</th>
+                        <th>SCGT</th>
+                        <th>PBGT</th>
+                        <th>SBGT</th>
+                    </tr>
+                    <tr>
+                        <td>Slip by Exhaust Gas Temperature (&deg;C) </td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_Ex_Gas_Temp_PCGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_Ex_Gas_Temp_SCGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_Ex_Gas_Temp_PBGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_Ex_Gas_Temp_SBGT}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Slip by LPC (RPM)</td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_LPC_PCGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_LPC_SCGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_LPC_PBGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_LPC_SBGT}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Slip by Air Pressure after HPC (kgf/cm²)</td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_Air_P_HPC_PCGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_Air_P_HPC_SCGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_Air_P_HPC_PBGT}}"></td>
+                        <td><input type="text" class="form-control"
+                                value="{{users2.Slip_Params_Slip_Air_P_HPC_SBGT}}"></td>
+                    </tr>
+                </table>
+                <h4>(C)&nbsp;&nbsp;Engine Field Temperatures</h4>
+                <table class="table table-bordered table-form-color1">
+                    <tr>
+                        <th rowspan="2">Point</th>
+                        <th colspan="2">PCGT</th>
+                        <th colspan="2">SCGT</th>
+                        <th colspan="2">PBGT</th>
+                        <th colspan="2">SBGT</th>
+                    </tr>
+                    <tr>
+                        <th>Temp (&deg;C)</th>
+                        <th>∆T c</th>
+                        <th>Temp (&deg;C)</th>
+                        <th>∆T c</th>
+                        <th>Temp (&deg;C)</th>
+                        <th>∆T c</th>
+                        <th>Temp (&deg;C)</th>
+                        <th>∆T c</th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_1_PCGT_TempC}}"  [(ngModel)]="Eng_1_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_1_PCGT_Tc}}" [(ngModel)]="Eng_1_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_1_SCGT_TempC}}" [(ngModel)]="Eng_1_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_1_SCGT_Tc}}" [(ngModel)]="Eng_1_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_1_PBGT_TempC}}" [(ngModel)]="Eng_1_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_1_PBGT_Tc}}" [(ngModel)]="Eng_1_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_1_SBGT_TempC}}" [(ngModel)]="Eng_1_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_1_SBGT_Tc}}" [(ngModel)]="Eng_1_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_2_PCGT_TempC}}"  [(ngModel)]="Eng_2_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_2_PCGT_Tc}}" [(ngModel)]="Eng_2_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_2_SCGT_TempC}}" [(ngModel)]="Eng_2_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_2_SCGT_Tc}}" [(ngModel)]="Eng_2_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_2_PBGT_TempC}}" [(ngModel)]="Eng_2_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_2_PBGT_Tc}}" [(ngModel)]="Eng_2_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_2_SBGT_TempC}}" [(ngModel)]="Eng_2_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_2_SBGT_Tc}}" [(ngModel)]="Eng_2_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_3_PCGT_TempC}}"  [(ngModel)]="Eng_3_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_3_PCGT_Tc}}" [(ngModel)]="Eng_3_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_3_SCGT_TempC}}" [(ngModel)]="Eng_3_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_3_SCGT_Tc}}" [(ngModel)]="Eng_3_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_3_PBGT_TempC}}" [(ngModel)]="Eng_3_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_3_PBGT_Tc}}" [(ngModel)]="Eng_3_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_3_SBGT_TempC}}" [(ngModel)]="Eng_3_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_3_SBGT_Tc}}" [(ngModel)]="Eng_3_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_4_PCGT_TempC}}"  [(ngModel)]="Eng_4_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_4_PCGT_Tc}}" [(ngModel)]="Eng_4_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_4_SCGT_TempC}}" [(ngModel)]="Eng_4_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_4_SCGT_Tc}}" [(ngModel)]="Eng_4_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_4_PBGT_TempC}}" [(ngModel)]="Eng_4_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_4_PBGT_Tc}}" [(ngModel)]="Eng_4_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_4_SBGT_TempC}}" [(ngModel)]="Eng_4_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_4_SBGT_Tc}}" [(ngModel)]="Eng_4_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_5_PCGT_TempC}}"  [(ngModel)]="Eng_5_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_5_PCGT_Tc}}" [(ngModel)]="Eng_5_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_5_SCGT_TempC}}" [(ngModel)]="Eng_5_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_5_SCGT_Tc}}" [(ngModel)]="Eng_5_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_5_PBGT_TempC}}" [(ngModel)]="Eng_5_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_5_PBGT_Tc}}" [(ngModel)]="Eng_5_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_5_SBGT_TempC}}" [(ngModel)]="Eng_5_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_5_SBGT_Tc}}" [(ngModel)]="Eng_5_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_6_PCGT_TempC}}"  [(ngModel)]="Eng_6_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_6_PCGT_Tc}}" [(ngModel)]="Eng_6_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_6_SCGT_TempC}}" [(ngModel)]="Eng_6_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_6_SCGT_Tc}}" [(ngModel)]="Eng_6_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_6_PBGT_TempC}}" [(ngModel)]="Eng_6_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_6_PBGT_Tc}}" [(ngModel)]="Eng_6_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_6_SBGT_TempC}}" [(ngModel)]="Eng_6_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_6_SBGT_Tc}}" [(ngModel)]="Eng_6_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>7.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_7_PCGT_TempC}}"  [(ngModel)]="Eng_7_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_7_PCGT_Tc}}" [(ngModel)]="Eng_7_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_7_SCGT_TempC}}" [(ngModel)]="Eng_7_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_7_SCGT_Tc}}" [(ngModel)]="Eng_7_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_7_PBGT_TempC}}" [(ngModel)]="Eng_7_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_7_PBGT_Tc}}" [(ngModel)]="Eng_7_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_7_SBGT_TempC}}" [(ngModel)]="Eng_7_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_7_SBGT_Tc}}" [(ngModel)]="Eng_7_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>8.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_8_PCGT_TempC}}"  [(ngModel)]="Eng_8_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_8_PCGT_Tc}}" [(ngModel)]="Eng_8_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_8_SCGT_TempC}}" [(ngModel)]="Eng_8_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_8_SCGT_Tc}}" [(ngModel)]="Eng_8_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_8_PBGT_TempC}}" [(ngModel)]="Eng_8_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_8_PBGT_Tc}}" [(ngModel)]="Eng_8_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_8_SBGT_TempC}}" [(ngModel)]="Eng_8_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_8_SBGT_Tc}}" [(ngModel)]="Eng_8_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    <tr>
+                        <td>9.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_9_PCGT_TempC}}"  [(ngModel)]="Eng_9_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_9_PCGT_Tc}}" [(ngModel)]="Eng_9_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_9_SCGT_TempC}}" [(ngModel)]="Eng_9_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_9_SCGT_Tc}}" [(ngModel)]="Eng_9_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_9_PBGT_TempC}}" [(ngModel)]="Eng_9_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_9_PBGT_Tc}}" [(ngModel)]="Eng_9_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_9_SBGT_TempC}}" [(ngModel)]="Eng_9_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_9_SBGT_Tc}}" [(ngModel)]="Eng_9_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>10.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_10_PCGT_TempC}}"  [(ngModel)]="Eng_10_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_10_PCGT_Tc}}" [(ngModel)]="Eng_10_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_10_SCGT_TempC}}" [(ngModel)]="Eng_10_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_10_SCGT_Tc}}" [(ngModel)]="Eng_10_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_10_PBGT_TempC}}" [(ngModel)]="Eng_10_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_10_PBGT_Tc}}" [(ngModel)]="Eng_10_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_10_SBGT_TempC}}" [(ngModel)]="Eng_10_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_10_SBGT_Tc}}" [(ngModel)]="Eng_10_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>11.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_11_PCGT_TempC}}"  [(ngModel)]="Eng_11_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_11_PCGT_Tc}}" [(ngModel)]="Eng_11_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_11_SCGT_TempC}}" [(ngModel)]="Eng_11_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_11_SCGT_Tc}}" [(ngModel)]="Eng_11_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_11_PBGT_TempC}}" [(ngModel)]="Eng_11_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_11_PBGT_Tc}}" [(ngModel)]="Eng_11_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_11_SBGT_TempC}}" [(ngModel)]="Eng_11_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_11_SBGT_Tc}}" [(ngModel)]="Eng_11_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>12.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_12_PCGT_TempC}}"  [(ngModel)]="Eng_12_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_12_PCGT_Tc}}" [(ngModel)]="Eng_12_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_12_SCGT_TempC}}" [(ngModel)]="Eng_12_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_12_SCGT_Tc}}" [(ngModel)]="Eng_12_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_12_PBGT_TempC}}" [(ngModel)]="Eng_12_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_12_PBGT_Tc}}" [(ngModel)]="Eng_12_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_12_SBGT_TempC}}" [(ngModel)]="Eng_12_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_12_SBGT_Tc}}" [(ngModel)]="Eng_12_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>13.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_13_PCGT_TempC}}"  [(ngModel)]="Eng_13_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_13_PCGT_Tc}}" [(ngModel)]="Eng_13_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_13_SCGT_TempC}}" [(ngModel)]="Eng_13_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_13_SCGT_Tc}}" [(ngModel)]="Eng_13_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_13_PBGT_TempC}}" [(ngModel)]="Eng_13_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_13_PBGT_Tc}}" [(ngModel)]="Eng_13_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_13_SBGT_TempC}}" [(ngModel)]="Eng_13_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_13_SBGT_Tc}}" [(ngModel)]="Eng_13_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>14.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_14_PCGT_TempC}}"  [(ngModel)]="Eng_14_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_14_PCGT_Tc}}" [(ngModel)]="Eng_14_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_14_SCGT_TempC}}" [(ngModel)]="Eng_14_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_14_SCGT_Tc}}" [(ngModel)]="Eng_14_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_14_PBGT_TempC}}" [(ngModel)]="Eng_14_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_14_PBGT_Tc}}" [(ngModel)]="Eng_14_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_14_SBGT_TempC}}" [(ngModel)]="Eng_14_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_14_SBGT_Tc}}" [(ngModel)]="Eng_14_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>15.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_15_PCGT_TempC}}"  [(ngModel)]="Eng_15_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_15_PCGT_Tc}}" [(ngModel)]="Eng_15_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_15_SCGT_TempC}}" [(ngModel)]="Eng_15_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_15_SCGT_Tc}}" [(ngModel)]="Eng_15_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_15_PBGT_TempC}}" [(ngModel)]="Eng_15_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_15_PBGT_Tc}}" [(ngModel)]="Eng_15_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_15_SBGT_TempC}}" [(ngModel)]="Eng_15_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_15_SBGT_Tc}}" [(ngModel)]="Eng_15_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>16.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_16_PCGT_TempC}}"  [(ngModel)]="Eng_16_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_16_PCGT_Tc}}" [(ngModel)]="Eng_16_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_16_SCGT_TempC}}" [(ngModel)]="Eng_16_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_16_SCGT_Tc}}" [(ngModel)]="Eng_16_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_16_PBGT_TempC}}" [(ngModel)]="Eng_16_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_16_PBGT_Tc}}" [(ngModel)]="Eng_16_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_16_SBGT_TempC}}" [(ngModel)]="Eng_16_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_16_SBGT_Tc}}" [(ngModel)]="Eng_16_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>17.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_17_PCGT_TempC}}"  [(ngModel)]="Eng_17_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_17_PCGT_Tc}}" [(ngModel)]="Eng_17_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_17_SCGT_TempC}}" [(ngModel)]="Eng_17_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_17_SCGT_Tc}}" [(ngModel)]="Eng_17_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_17_PBGT_TempC}}" [(ngModel)]="Eng_17_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_17_PBGT_Tc}}" [(ngModel)]="Eng_17_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_17_SBGT_TempC}}" [(ngModel)]="Eng_17_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_17_SBGT_Tc}}" [(ngModel)]="Eng_17_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>18.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_18_PCGT_TempC}}"  [(ngModel)]="Eng_18_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_18_PCGT_Tc}}" [(ngModel)]="Eng_18_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_18_SCGT_TempC}}" [(ngModel)]="Eng_18_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_18_SCGT_Tc}}" [(ngModel)]="Eng_18_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_18_PBGT_TempC}}" [(ngModel)]="Eng_18_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_18_PBGT_Tc}}" [(ngModel)]="Eng_18_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_18_SBGT_TempC}}" [(ngModel)]="Eng_18_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_18_SBGT_Tc}}" [(ngModel)]="Eng_18_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>19.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_19_PCGT_TempC}}"  [(ngModel)]="Eng_19_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_19_PCGT_Tc}}" [(ngModel)]="Eng_19_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_19_SCGT_TempC}}" [(ngModel)]="Eng_19_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_19_SCGT_Tc}}" [(ngModel)]="Eng_19_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_19_PBGT_TempC}}" [(ngModel)]="Eng_19_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_19_PBGT_Tc}}" [(ngModel)]="Eng_19_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_19_SBGT_TempC}}" [(ngModel)]="Eng_19_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_19_SBGT_Tc}}" [(ngModel)]="Eng_19_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>20.</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_20_PCGT_TempC}}" [(ngModel)]="Eng_20_PCGT_TempC"  numberOnly (ngModelChange)="avgCalculationPCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_20_PCGT_Tc}}" [(ngModel)]="Eng_20_PCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_20_SCGT_TempC}}" [(ngModel)]="Eng_20_SCGT_TempC"  numberOnly (ngModelChange)="avgCalculationSCGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_20_SCGT_Tc}}" [(ngModel)]="Eng_20_SCGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_20_PBGT_TempC}}" [(ngModel)]="Eng_20_PBGT_TempC"  numberOnly (ngModelChange)="avgCalculationPBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_20_PBGT_Tc}}" [(ngModel)]="Eng_20_PBGT_Tc"  (ngModelChange)="calculate()"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_20_SBGT_TempC}}" [(ngModel)]="Eng_20_SBGT_TempC"  numberOnly (ngModelChange)="avgCalculationSBGT()">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_20_SBGT_Tc}}" [(ngModel)]="Eng_20_SBGT_Tc"  (ngModelChange)="calculate()"></td>
+                    </tr>
+                    <tr>
+                        <td>Temp Average (T<sub>avg</sub>)</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Avg_PCGT_TempC}}"  [(ngModel)]="Eng_T_Avg_PCGT_TempC">
+                        </td>
+                        <td><input type="hidden" class="form-control" value="{{users2.Eng_T_Avg_PCGT_Tc}}">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Avg_SCGT_TempC}}" [(ngModel)]="Eng_T_Avg_SCGT_TempC">
+                        </td>
+                        <td><input type="hidden" class="form-control" value="{{users2.Eng_T_Avg_SCGT_Tc}}">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Avg_PBGT_TempC}}" [(ngModel)]="Eng_T_Avg_PBGT_TempC">
+                        </td>
+                        <td><input type="hidden" class="form-control" value="{{users2.Eng_T_Avg_PBGT_Tc}}">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Avg_SBGT_TempC}}" [(ngModel)]="Eng_T_Avg_SBGT_TempC">
+                        </td>
+                        <td><input type="hidden" class="form-control" value="{{users2.Eng_T_Avg_SBGT_Tc}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Temp High (Point)</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_High_PCGT_TempC}}"  [(ngModel)]="Eng_T_High_PCGT_TempC">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_High_PCGT_Tc}}" [(ngModel)]="Eng_T_High_PCGT_Tc">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_High_SCGT_TempC}}" [(ngModel)]="Eng_T_High_SCGT_TempC">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_High_SCGT_Tc}}" [(ngModel)]="Eng_T_High_SCGT_Tc">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_High_PBGT_TempC}}" [(ngModel)]="Eng_T_High_PBGT_TempC">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_High_PBGT_Tc}}" [(ngModel)]="Eng_T_High_PBGT_Tc">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_High_SBGT_TempC}}" [(ngModel)]="Eng_T_High_SBGT_TempC">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_High_SBGT_Tc}}" [(ngModel)]="Eng_T_High_SBGT_Tc">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Temp Low (Point)</td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Low_PCGT_TempC}}"  [(ngModel)]="Eng_T_Low_PCGT_TempC">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Low_PCGT_Tc}}" [(ngModel)]="Eng_T_Low_PCGT_Tc">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Low_SCGT_TempC}}"  [(ngModel)]="Eng_T_Low_SCGT_TempC">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Low_SCGT_Tc}}" [(ngModel)]="Eng_T_Low_SCGT_Tc">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Low_PBGT_TempC}}" [(ngModel)]="Eng_T_Low_PBGT_TempC">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Low_PBGT_Tc}}" [(ngModel)]="Eng_T_Low_PBGT_Tc">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Low_SBGT_TempC}}" [(ngModel)]="Eng_T_Low_SBGT_TempC">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Eng_T_Low_SBGT_Tc}}" [(ngModel)]="Eng_T_Low_SBGT_Tc">
+                        </td>
+                    </tr>
+                </table>
+                <div class="note-card">
+                    <p><strong><b><u>Note:</u></b></strong> &nbsp;&nbsp;∆T= T<sub>avg</sub>-Temp at a point; Negative ∆T corresponds to ∆T<sub>Low</sub>
+                       &nbsp;&nbsp; Positive ∆T
+                        corresponds to ∆T
+                        <sub>High</sub></p>
+                </div>
+                <h4>(D) Fluid Consumption and Performance Parameters.</h4>
+                <table class="table table-bordered table-form-color1">
+                    <tr>
+                        <th>Fluid</th>
+                        <th>PCGT</th>
+                        <th>SCGT</th>
+                        <th>PBGT</th>
+                        <th>SBGT</th>
+                    </tr>
+                    <tr>
+                        <td>Fuel (Ton/hr)</td>
+                        <td><input type="text" class="form-control" value="{{users2.Fluid_Fuel_PCGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Fluid_Fuel_SCGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Fluid_Fuel_PBGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.Fluid_Fuel_SBGT}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Lub Oil (kg/hr)</td>
+                        <td><input type="text" class="form-control" value="{{users2.Fluid_Lub_Oil_PCGT}}">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Fluid_Lub_Oil_SCGT}}">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Fluid_Lub_Oil_PBGT}}">
+                        </td>
+                        <td><input type="text" class="form-control" value="{{users2.Fluid_Lub_Oil_SBGT}}">
+                        </td>
+                    </tr>
+                </table>
+                <h4>(E) Spectrometry Trend (LO).</h4>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Element</th>
+                        <th>PCGT</th>
+                        <th>SCGT</th>
+                        <th>PBGT</th>
+                        <th>SBGT</th>
+                    </tr>
+                    <tr>
+                        <td>Fe</td>
+                        <td><input type="text" class="form-control" value="{{users2.LO_Ele_Fe_SCGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.LO_Ele_Fe_PCGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.LO_Ele_Fe_SBGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.LO_Ele_Fe_PBGT}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Cu</td>
+                        <td><input type="text" class="form-control" value="{{users2.LO_Ele_Ce_SCGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.LO_Ele_Ce_PCGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.LO_Ele_Ce_SBGT}}"></td>
+                        <td><input type="text" class="form-control" value="{{users2.LO_Ele_Ce_PBGT}}"></td>
+                    </tr>
+                </table>
+                <div class="note-card">
+                    <p><strong><u><b>Note:</b></u></strong>&nbsp;&nbsp;Fe and Cu Content as in Lab Report</p>
+                </div>
+
+
+    <!-- End of Page 3****************************************************************************************************** -->
+
+                    <div class="heading-style2 text-center">
+                        <h2><u>PART-VI: RECORDING OF RUNNING HOURS AND CALIBRATION/REPAIRS DATA<br>
+                                HP FUEL PUMPS OF MAIN PROPULSION GAS TURBINE</u></h2>
+                    </div>
+                    <h4>(A)&nbsp;&nbsp;Pump Fitted on Engine</h4>
+                    <table class="table table-bordered table-form-color1">
+                        <tr>
+                            <th width="5%" rowspan="2">SNO.</th>
+                            <th width="20%"rowspan="2">Pump Position</th>
+                            <th width="20%" rowspan="2">Pump SNo</th>
+                            <th width="20%" rowspan="2">Date of Installation</th>
+                            <th width="20%" colspan="2">Total R/H</th>
+                            <th width="20%"rowspan="2">Remarks</th>
+
+                        </tr>
+                        <tr>
+                            <th>R/H QTR</th>
+                            <th>R/H Total</th>
+                        </tr>
+
+                        {% for al in dynamic6 %}
+                    <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{al.Pump_Pos_Name}}</td>
+                            <td>{{al.Pump_Pos_Pumps_No}}</td>
+                            <td>{{al.Pump_Pos_Date_Installation}}</td>
+                            <td>{{al.Pump_Pos_Total_QTR}}</td>
+                            <td>{{al.Pump_Pos_Total_Total}}</td>
+                            <td>{{al.Pump_Pos_Remarks}}</td>
+                    </tr>
+                        {% endfor %}
+
+        </table>
+        <div class="note-card">&nbsp;&nbsp;&nbsp; <p>Details of pump for the GTA units fitted on newly installed GTs
+                in engine room</p>
+        </div>
+
+        <h4>(B)&nbsp;&nbsp;Pumps in SPTA</h4>
+        <table class="table table-bordered table-form-color">
+            <tr>
+                <th width="5%">SNo.</th>
+                <th width="22%">Pump SNO</th>
+                <th width="22%">Last Calibrated On</th>
+                <th width="22%">Total R/H</th>
+                <th width="24%">Remarks</th>
+            </tr>
+
+            {% for al in dynamic7 %}
+            <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{al.SPTA_Pump_SNO}}</td>
+                    <td>{{al.SPTA_Last_Calibrated_Date}}</td>
+                    <td>{{al.SPTA_Total}}</td>
+                    <td>{{al.SPTA_Remarks}}</td>
+            </tr>
+                {% endfor %}
+
+        </table>
+        <h4>(C)&nbsp;&nbsp;Pumps Surveyed in Quarter</h4>
+        <table class="table table-bordered table-form-color">
+            <tr>
+                <th width="5%">SNo.</th>
+                <th width="12%">Pump SNO</th>
+                <th with="20%">Surveyed on</th>
+                <th width="25%">Survey Reference</th>
+                <th width="15%"> Total R/H</th>
+                <th width="30%">Reason for Survey (viz BLR / BER / Excess Stock / Non Compatible etc)
+                    TOR |
+                    Stock / Non-compatible
+                    etc)</th>
+            </tr>
+
+            {% for al in dynamic8 %}
+            <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{al.Pumps_Surve_S_No}}</td>
+                    <td>{{al.Pumps_Surve_Survey_on_date}}</td>
+                    <td>{{al.Pumps_Surve_Survey_ref}}</td>
+                    <td>{{al.Pumps_Surve_Total}}</td>
+                    <td>{{al.Pumps_Surve_Reason}}</td>
+            </tr>
+                {% endfor %}
+
+        </table>
+
+        <h4>(D)&nbsp;&nbsp;Pumps Received in Quarter</h4>
+        <table class="table table-bordered table-form-color">
+            <tr>
+                <th width="5%">SNo.</th>
+                <th width="25%">Pump SNO</th>
+                <th width="14%">Received On</th>
+                <th width="22%">Against Survey Reference</th>
+                <th width="25%">Remarks</th>
+            </tr>
+
+            {% for al in dynamic9 %}
+            <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{al.Pumps_Received_S_No}}</td>
+                    <td>{{al.Pumps_Received_on_date}}</td>
+                    <td>{{al.Pumps_Received_Against_Survey_Ref}}</td>
+                    <td>{{al.Pumps_Received_Remarks}}</td>
+            </tr>
+                {% endfor %}
+        </table>
+
+
+        <div class="heading-style2 text-center">
+            <h2><u>PART - VII REMARKS</u></h2>
+        </div>
+
+        <table class="table table-bordered table-style-color table-form-color tabletd-color">
+            <tr>
+              <td style="text-align: left;">
+               <h4>1. EEF achieved for this QTR is&nbsp;&nbsp;{{users3.EEF_Achieved}}</h4>
+                  {{users3.VII_Remarks | safe}}
+              </td>
+            </tr>
+          </table>
+
+    </div>
+    <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%" style="margin-left:50px"><img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+        <tr style="border: 0; border-style:None;">
+            <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+            <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+        </tr>
+      </table>
+    </div>
+</body>
+</html>

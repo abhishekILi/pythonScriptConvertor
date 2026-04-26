@@ -1,0 +1,308 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>ehmfptle-reships</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+  
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+  
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+   <body>
+      <div class="wrapper">
+        <div style="float:right">
+          <p>Report Generated on: {{ history.approved_date_time }}</p>
+      </div>
+              <div class="heading-style2 text-center">
+                <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-top: 14px; position: relative; left: 40%;" src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+                <h2>GTTT MUMBAI</h2>
+                <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">REQUISTION FOR <span>{{users.form_Name}}</span> TRIALS</h2>
+              </div>        
+              <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                {% if users%}
+                <tr>
+                    <th width="3%">1</th>
+                    <th width="50%"><p style="font-size: 14px; margin:0;">Name of Ship</p></th>
+                    <td style="font-size:14px; color: #222;">{{users.Req_EHM_Name_Ship}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <th>2</th>
+                    <th><p style="font-size: 14px; margin:0;">Machinery / Equipment</p></th>
+                    <td style="font-size:14px; color: #222;">{{users.Req_EHM_Machinery_Equipment}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <th>3</th>
+                    <th><p style="font-size: 14px; margin:0;">Reason for trial</p></th>
+                    <td style="font-size:14px; color: #222;">{{users.Req_EHM_Reason_trial}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <th>4</th>
+                    <th><p style="font-size: 14px; margin:0;">Proposed Date for harbour trial</p></th>
+                    <td style="font-size:14px; color: #222;">{{users.Req_EHM_Proposed_Date_harbour_trial |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <th>5</th>
+                    <th><p style="font-size: 14px; margin:0;">Proposed Date for Sea trial</p></th>
+                    <td style="font-size:14px; color: #222;">{{users.Req_EHM_Proposed_Date_Sea_trial |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+              </table>  
+
+              <h4>6. State of Machinery</h4>
+              <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                <tr>
+                  <th>Type</th>
+                  <th>PCGT</th>
+                  <th>PCRG</th>
+                  <th>SCGT</th>
+                  <th>SCRG</th>
+                  <th>PBGT</th>
+                  <th>PBRG</th>
+                  <th>SBGT</th>
+                  <th>SBRG</th>
+                </tr>
+                {% if users%}
+                <tr>
+                  <th>(a) S.No of GTAs</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_S_No_GTA_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_S_No_GTA_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_S_No_GTA_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_S_No_GTA_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_S_No_GTA_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_S_No_GTA_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_S_No_GTA_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_S_No_GTA_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(b) Running Hours Since Installation</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_Instal_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_Instal_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_Instal_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_Instal_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_Instal_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_Instal_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_Instal_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_Instal_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(c) Running Hours Since New</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_New_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_New_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_New_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_New_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_New_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_New_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_New_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Running_Hrs_New_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(d) Hrs run since last trials</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_run_l_trials_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_run_l_trials_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_run_l_trials_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_run_l_trials_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_run_l_trials_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_run_l_trials_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_run_l_trials_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_run_l_trials_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(e) Date of last Trial</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Date_last_Trial_PCGT |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Date_last_Trial_PCRG |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Date_last_Trial_SCGT |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Date_last_Trial_SCRG |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Date_last_Trial_PBGT |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Date_last_Trial_PBRG |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Date_last_Trial_SBGT |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Date_last_Trial_SBRG |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(f) Last Major Routine Carried Out</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_L_Major_Routine_Carried_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_L_Major_Routine_Carried_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_L_Major_Routine_Carried_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_L_Major_Routine_Carried_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_L_Major_Routine_Carried_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_L_Major_Routine_Carried_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_L_Major_Routine_Carried_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_L_Major_Routine_Carried_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(g) Hours Since Last Major Routine</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_L_Major_Routine_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_L_Major_Routine_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_L_Major_Routine_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_L_Major_Routine_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_L_Major_Routine_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_L_Major_Routine_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_L_Major_Routine_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Hrs_L_Major_Routine_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(h) Details of replacement of Major Components/Sub-assemblies</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_rep_Major_Comp_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_rep_Major_Comp_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_rep_Major_Comp_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_rep_Major_Comp_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_rep_Major_Comp_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_rep_Major_Comp_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_rep_Major_Comp_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_rep_Major_Comp_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(i) Major Defect encountered Since</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Major_Defect_encountered_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Major_Defect_encountered_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Major_Defect_encountered_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Major_Defect_encountered_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Major_Defect_encountered_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Major_Defect_encountered_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Major_Defect_encountered_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Major_Defect_encountered_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(j) Outstanding defects/routine</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Outstd_defects_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Outstd_defects_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Outstd_defects_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Outstd_defects_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Outstd_defects_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Outstd_defects_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Outstd_defects_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Outstd_defects_SBRG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <th>(k) Previous life Extension accorded</th>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Prev_life_Extension_PCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Prev_life_Extension_PCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Prev_life_Extension_SCGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Prev_life_Extension_SCRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Prev_life_Extension_PBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Prev_life_Extension_PBRG}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Prev_life_Extension_SBGT}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_EHM_Prev_life_Extension_SBRG}}</td>
+                </tr>
+                {% endif%}
+                </table>
+
+              <h4>7. Any other relevant information</h4>
+              <table class="table table-bordered table-no-style tabletd-color">
+                <tr>
+                    <td>{{users.remarks_info}}</td>
+                </tr>
+            </table>
+
+        
+            <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+              <tr>
+                  <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                  <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+              </tr>
+          </table>
+
+          
+          <table cellspacing="0" cellpadding="5" width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+          <tr style="border: 0; border-style:None;">
+             <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report
+                Generated Through ITTTM</td>
+             <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;"
+                   src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+          </tr>
+       </table>
+      </div>
+          </body>
+    </html>

@@ -1,0 +1,203 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>e-cbpm-vibration</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         .table-line{vertical-align: top;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+    <div class="wrapper">
+        <div class="heading-style2 text-center">
+            <h2  style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">E-Cbpm Vibration</h2>
+        </div>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            {% if users%}
+            <tr>
+                <td width="10%"><strong>Ship:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Ship}}</td>
+                <td class="td-bluelight" width="10%"><strong>Date:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Date|date:'d/m/Y'}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td width="10%"><strong>Occasion:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Occasion}}</td>
+                <td class="td-bluelight" width="10%"><strong>Equipment:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Equipment}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td width="6%"><strong>CMMS Code:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.CMMS_Code}}</td>
+                <td class="td-bluelight" width="10%"><strong>Name:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.Name}}</td>
+            </tr>
+            {% endif%}
+        </table>
+        <h4>1. Overall Vibration Values</h4>
+        <div class="table-responsive table-input-auto-1">
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        <tr>
+            <th>Points</th>
+            <th colspan="3">Driver FE</th>
+            <th colspan="3">Driver DE</th>
+            <th colspan="3">Driver FE</th>
+            <th colspan="3">Driver DE</th>
+            <th colspan="3">Additional</th>
+        </tr>
+        <tr>
+            <td>No</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <tr>
+                <td>Direction</td>
+                <td>H</td>
+                <td>V</td>
+                <td>A</td>
+                <td>H</td>
+                <td>V</td>
+                <td>A</td>
+                <td>H</td>
+                <td>V</td>
+                <td>A</td>
+                <td>H</td>
+                <td>V</td>
+                <td>A</td>
+                <td>H</td>
+                <td>V</td>
+                <td>A</td>
+            </tr>
+     {% if users%}
+        <tr>
+            <td>Values</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_FE_1_H}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_FE_2_V}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_FE_3_A}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_DE_4_H}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_DE_5_V}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_DE_6_A}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_FE_7_H}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_FE_8_V}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_FE_9_A}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_DE_10_H}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_DE_11_V}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Driver_DE_12_A}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Additional_13_H}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Additional_14_V}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Val_Additional_15_A}}</td>
+        </tr>
+        {% endif%}
+        {% if users%}
+        <tr>
+            <td>Limits</td>
+            <td colspan="6" style="font-size:14px; color: #222;">{{users.Limits_Driver_FE_DE_1}}</td>
+            <td colspan="6" style="font-size:14px; color: #222;">{{users.Limits_Driver_FE_DE_2}}</td>
+            <td colspan="3" style="font-size:14px; color: #222;">{{users.Limits_Additional}}</td>
+            <td colspan="2" style="font-size:14px; color: #0000;"></td>
+        </tr>
+        {% endif%}
+       </table>
+    </div>
+       <h4>2. SPM Checks</h4>
+       <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+                <th>Points</th>
+                <th>dBm</th>
+                <th>dBc</th>
+                <th>Remarks</th>
+                <th>Observation</th>
+            </tr>
+            {% if users%}
+            <tr>
+                <td>Motor FE</td>
+                <td style="font-size:14px; color: #222;">{{users.Motor_FE_dBm}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Motor_FE_dBc}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Motor_FE_Remarks}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Motor_FE_Obs}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td>Motor DE</td>
+                <td style="font-size:14px; color: #222;">{{users.Motor_DE_dBm}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Motor_DE_dBc}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Motor_DE_Remarks}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Motor_DE_Obs}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td>Driven DE</td>
+                <td style="font-size:14px; color: #222;">{{users.Driven_DE_dBm}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Driven_DE_dBc}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Driven_DE_Remarks}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Driven_DE_Obs}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td>Driven FE</td>
+                <td style="font-size:14px; color: #222;">{{users.Driven_FE_dBm}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Driven_FE_dBc}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Driven_FE_Remarks}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Driven_FE_Obs}}</td>
+            </tr>
+            {% endif%}
+        </table>
+        <h4>3. Remarks (if any)</h4>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            {% if users%}
+            <tr>
+                <td style="font-size:14px; color: #222;">{{users.Remarks}}</td>
+            </tr>
+            {% endif%}
+        </table>
+        <h4>Recommendations. Following recommended:</h4>
+        {%  with "service/approvals.html" as template %}   
+              {% include template %}
+              
+        {% endwith %}
+        <div class="clear"></div>
+         </div>
+         <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+        </body>
+    </html>
+        

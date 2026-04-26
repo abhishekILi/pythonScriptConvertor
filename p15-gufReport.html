@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+      <title>GTTT P15AB GUF</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+      </head>
+     <body>
+     <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+        <section class="body-card form-style1 trial-form">
+           
+        
+                <div class="container-fluid">
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <div class="panel-right">
+                                <div class="panel-row">
+                                    <div style="display: flex;justify-content: center;">
+                                        <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 41%;"
+                                        src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+                                        <h2 style="text-align: center;">GTTT MUMBAI</h2>
+                                        <h2 style="text-align: center;">
+                                            <u><b>Monthly GTG Utilization Factor - {{users.Monthly_Guf}}</b></u></h2>
+                                        
+                                    </div>
+        
+                                    <table class="table table-bordered table-form-color">
+                                        <tr>
+                                            <th>Equipment</th>
+                                            <th>GTG J1</th>
+                                            <th>GTG J3</th>
+                                            <th>GTG M2</th>
+                                            <th>GTG M4</th>
+                                            <th>DA</th>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Total Running Hrs in the Month</b></td>
+                                            <td>{{users.Tota_Running_Hrs_in_the_Month_J1}}</td>
+                                            <td>{{users.Tota_Running_Hrs_in_the_Month_J3}}</td>
+                                            <td>{{users.Tota_Running_Hrs_in_the_Month_M3}}</td>
+                                            <td>{{users.Tota_Running_Hrs_in_the_Month_M4}}</td>
+                                            <td>{{users.Tota_Running_Hrs_in_the_Month_DA}}</td>
+                                        </tr><br>
+                                    </table>
+                                    <table class="table table-bordered table-form-color">
+                                        <tr>
+                                            <th>Ser</th>
+                                            <th>Description</th>
+                                            <th>Running Hrs</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Total GTG Running Hours</td>
+                                            <td>{{users.Total_GTG_Running_Hours}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>No of hours GTG run at Sea</td>
+                                            <td>{{users.No_of_hours_GTG_run_at_Sea}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>No of hours GTG run in Harbour</td>
+                                            <td>{{users.No_of_hours_GTG_run_in_Harbour}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td>Hours Underway</td>
+                                            <td>{{users.Hours_Underway}}</td>
+                                                   
+                                        </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td>Hours at Anchorage</td>
+                                            <td>{{users.Hours_at_Anchorage}}</td>
+                                                    
+                                        </tr>
+                                        <tr>
+                                            <td>6.</td>
+                                            <td>No of hours of ship in Harbour</td>
+                                            <td>{{users.Ship_Harbour}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7.</td>
+                                            <td>No of hours DA run at sea</td>
+                                            <td>{{users.No_of_hours_DA_run_at_sea}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8.</td>
+                                            <td>No of hours DA run in Harbour</td>
+                                            <td>{{users.No_of_hours_DA_run_in_Harbour}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9.</td>
+                                            <td>Capacity of Shore Supply available (KW)</td>
+                                            <td>{{users.Capacity_of_Shore_Supply_available_KW}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10.</td>
+                                            <td>Hours Shore Supply Available </td>
+                                            <td>{{users.Hours_Shore_Supply_Available}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>11.</td>
+                                            <td>Hours Shore Supply Utilised</td>
+                                            <td>{{users.Hours_Shore_Supply_Utilised}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12.</td>
+                                            <td>GUF at Sea</td>
+                                            <td>{{users.GUF_at_Sea}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>13.</td>
+                                            <td>GUF at Harbour</td>
+                                            <td>{{users.GUF_at_Harbour}}</td>
+                                        </tr>
+        
+                                    </table>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+           
+        </section>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center">
+            <tr>
+                <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+                <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+          </table>
+        </section>
+    </body>
+</html>

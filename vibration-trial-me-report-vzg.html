@@ -1,0 +1,469 @@
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vibration-trial-me-report-vzg</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body{margin:50px 50px; size:landscape; font-family: Arial; font-size:14px;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 14px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+        .textarea{
+          width: 100%;
+          min-height: 80px;
+          /* padding: 10px; */
+          font-size: 12px;
+          resize: none;
+          overflow-y: hidden;
+          border: 1px solid black;
+          padding: 4px;
+          text-align:left;
+      }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+
+<body>
+      <div class="container-fluid wrapper">
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <div class="panel-right">
+              <a href="javascript:void(0);" class="btn btn-primary btn-lg float-left backbtn" (click)="back(trialDet)">Back</a>
+              <div class="panel-row">
+              
+                <div style="float:right">
+                  <p>Report Generated on: {{ history.approved_date_time }}</p>
+                </div>
+                 <div class="heading-style2 heading-style3 text-center">
+                  <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 42%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT_Logo_ucOIgyz.jpg" class="ng-star-inserted">
+                  <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT VIZAG</h2>
+                    <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">MAIN ENGINE VIBRATION REPORT</h2>
+                 </div>
+
+
+                <div class="heading-style2 heading-style3 text-center">
+                  <h2><u>TECHNICAL DETAILS</u></h2>
+                </div>
+                <table class="table table-bordered table-form-color2 tabletd-color">
+                  <tr>
+                    <th class="thblue" width = "30px">Ser</th>
+                    <th class="thblue" width="40%">Description</th>
+                    <th class="thblue">Details</th>
+                    <th class="thblue">Remarks</th>
+                   
+                  </tr>
+                  <tr>
+                    <td width="25px">1.</td>
+                    <td>Ship's Name</td>
+                    <td>{{users.SHIP}}</td>
+                    <td>{{users.REMARK1}}</td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td>Date of trials</td>
+                    <td>{{users.DATE|convert_to_datetime}}</td>
+                    <td>{{users.REMARK2}}</td>
+                 
+                  </tr>
+                  <tr>
+                    <td>3.</td>
+                    <td>Occasion of trials</td>
+                    <td>{{users.Occasion}}</td>
+                    <td>{{users.REMARK3}}</td>
+                  </tr>
+                  <tr>
+                    <td>4.</td>
+                    <td>Equipment Nomenclature</td>
+                    <td>{{users.Equipment_Nomenclature}}</td>
+                    <td>{{users.REMARK4}}</td>
+                 
+                  </tr>
+                  <tr>
+                    <td>5.</td>
+                    <td>Equipment Ser No.</td>
+                    <td>{{users.Equipment}}</td>
+                    <td>{{users.REMARK5}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>6.</td>
+                    <td>Make</td>
+                    <td>{{users.Make}}</td>
+                    <td>{{users.REMARK6}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>7.</td>
+                    <td>Model & Type</td>
+                    <td>{{users.Model_Type}}</td>
+                    <td>{{users.REMARK7}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>8.</td>
+                    <td>Power Rating/Capacity</td>
+                    <td>{{users.Power_Rating}}</td>
+                    <td>{{users.REMARK8}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>9.</td>
+                    <td>Lub Oil/Coolant used</td>
+                    <td>{{users.Lub_Oil}}</td>
+                    <td>{{users.REMARK9}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>10.</td>
+                    <td>ERPM</td>
+                    <td>{{users.ERPM}}</td>
+                    <td>{{users.REMARK10}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>11.</td>
+                    <td>Pitch</td>
+                    <td>{{users.Pitch}}</td>
+                    <td>{{users.REMARK11}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>12.</td>
+                    <td>PCL</td>
+                    <td>{{users.PCL}}</td>
+                    <td>{{users.REMARK12}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>13.</td>
+                    <td>Location</td>
+                    <td>{{users.LOCATION}}</td>
+                    <td>{{users.REMARK13}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>14.</td>
+                    <td>Bearing Number</td>
+                    <td>{{users.Bearing_Number}}</td>
+                    <td>{{users.REMARK14}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>15.</td>
+                    <td>R/H since installation</td>
+                    <td>{{users.RH_since_installation}}</td>
+                    <td>{{users.REMARK15}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>16.</td>
+                    <td>R/H since last major routines</td>
+                    <td>{{users.RH_since_last_major_routins}}</td>
+                    <td>{{users.REMARK16}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>17.</td>
+                    <td>Last major routines/repairs carried out</td>
+                    <td>{{users.LAST_MAJOR}}</td>
+                    <td>{{users.REMARK17}}</td>
+                
+                  </tr>
+                </table>
+  
+                <div class="heading-style2 heading-style3 text-center">
+                  <h2><u>VIBRATION REPORT OF ME</u></h2>
+                </div>
+                <table class="table table-bordered table-form-color2 tabletd-color">
+                  <tr>
+                    <th class="thblue" rowspan="2">Ser</th>
+                    <th class="thblue" rowspan="2">Measuring Point</th>
+                    <th class="thblue" rowspan="2">Max Limit(MM/Sec)</th>
+                    <th class="thblue" colspan="3">60 % Load</th>
+                    <th class="thblue" colspan="3">Max or 100% Load</th>
+                    <th class="thblue" rowspan="2">Remarks</th>
+                   
+                  </tr>
+                  <tr>
+                    <td class="thblue" style="font-weight:bold;">V</td>
+                    <td class="thblue" style="font-weight:bold;">H</td>
+                    <td class="thblue" style="font-weight:bold;">A</td>
+                    <td class="thblue" style="font-weight:bold;">V</td>
+                    <td class="thblue" style="font-weight:bold;">H</td>
+                    <td class="thblue" style="font-weight:bold;">A</td>
+                  </tr>
+                  <tr>
+                    <td>1.</td>
+                    <td>Engine F/E Bearing</td>
+                    <td>{{users.MAX_LIMIT_VZG_1}}</td>
+                    <td>{{users.LOAD_V_VZG_1}}</td>
+                    <td>{{users.LOAD_H_VZG_1}}</td>
+                    <td>{{users.LOAD_A_VZG_1}}</td>
+                    <td>{{users.MAX_LOAD_V_VZG_1}}</td>
+                    <td>{{users.MAX_LOAD_H_VZG_1}}</td>
+                    <td>{{users.MAX_LOAD_A_VZG_1}}</td>
+                    <td>{{users.REMARK_VZG_1}}</td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td>Engine D/E Bearing</td>
+                    <td>{{users.MAX_LIMIT_VZG_2}}</td>
+                    <td>{{users.LOAD_V_VZG_2}}</td>
+                    <td>{{users.LOAD_H_VZG_2}}</td>
+                    <td>{{users.LOAD_A_VZG_2}}</td>
+                    <td>{{users.MAX_LOAD_V_VZG_2}}</td>
+                    <td>{{users.MAX_LOAD_H_VZG_2}}</td>
+                    <td>{{users.MAX_LOAD_A_VZG_2}}</td>
+                    <td>{{users.REMARK_VZG_2}}</td>
+                 
+                  </tr>
+                  <tr>
+                    <td>3.</td>
+                    <td>Alternator D/E Bearing</td>
+                    <td>{{users.MAX_LIMIT_VZG_3}}</td>
+                    <td>{{users.LOAD_V_VZG_3}}</td>
+                    <td>{{users.LOAD_H_VZG_3}}</td>
+                    <td>{{users.LOAD_A_VZG_3}}</td>
+                    <td>{{users.MAX_LOAD_V_VZG_3}}</td>
+                    <td>{{users.MAX_LOAD_H_VZG_3}}</td>
+                    <td>{{users.MAX_LOAD_A_VZG_3}}</td>
+                    <td>{{users.REMARK_VZG_3}}</td>
+                 
+                  </tr>
+                  <tr>
+                    <td>4.</td>
+                    <td>Alternator F/E Bearing</td>
+                    <td>{{users.MAX_LIMIT_VZG_4}}</td>
+                    <td>{{users.LOAD_V_VZG_4}}</td>
+                    <td>{{users.LOAD_H_VZG_4}}</td>
+                    <td>{{users.LOAD_A_VZG_4}}</td>
+                    <td>{{users.MAX_LOAD_V_VZG_4}}</td>
+                    <td>{{users.MAX_LOAD_H_VZG_4}}</td>
+                    <td>{{users.MAX_LOAD_A_VZG_4}}</td>
+                    <td>{{users.REMARK_VZG_4}}</td>
+                 
+                  </tr>
+                  <tr>
+                    <td>5.</td>
+                    <td>Turbocharger 1</td>
+                   <td>{{users.MAX_LIMIT_VZG_5}}</td>
+                    <td>{{users.LOAD_V_VZG_5}}</td>
+                    <td>{{users.LOAD_H_VZG_5}}</td>
+                    <td>{{users.LOAD_A_VZG_5}}</td>
+                    <td>{{users.MAX_LOAD_V_VZG_5}}</td>
+                    <td>{{users.MAX_LOAD_H_VZG_5}}</td>
+                    <td>{{users.MAX_LOAD_A_VZG_5}}</td>
+                    <td>{{users.REMARK_VZG_5}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>6.</td>
+                    <td>Turbocharger 1</td>
+                    <td>{{users.MAX_LIMIT_VZG_6}}</td>
+                    <td>{{users.LOAD_V_VZG_6}}</td>
+                    <td>{{users.LOAD_H_VZG_6}}</td>
+                    <td>{{users.LOAD_A_VZG_6}}</td>
+                    <td>{{users.MAX_LOAD_V_VZG_6}}</td>
+                    <td>{{users.MAX_LOAD_H_VZG_6}}</td>
+                    <td>{{users.MAX_LOAD_A_VZG_6}}</td>
+                    <td>{{users.REMARK_VZG_6}}</td>
+                
+                  </tr>
+               
+                </table>
+              
+                <div class="heading-style2 heading-style3 text-center">
+                  <h2><u>Attenuation report of ME at 100% Load</u></h2>
+                </div>
+                <table class="table table-bordered table-form-color2 tabletd-color">
+                  <tr>
+                    <th class="thblue" width="30px">Ser</th>
+                    <th class="thblue">Mount Number</th>
+                    <th class="thblue">Top readings</th>
+                    <th class="thblue">Bottom readings</th>
+                    <th class="thblue">Attenuation (%)</th>
+                    <th class="thblue">Remarks</th>
+
+                  </tr>
+            
+                  <tr>
+                    <td class="thblueC" width="15px">1.</td>
+                    <td class="thblueC">1</td>
+                    <td>{{users.TOP_READING_VZG_1}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_1}}</td>
+                    <td>{{users.ATTENUATION_VZG_1}}</td>
+                    <td>{{users.REMARKS_VZG_1}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">2.</td>
+                    <td class="thblueC">2</td>
+                    <td>{{users.TOP_READING_VZG_2}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_2}}</td>
+                    <td>{{users.ATTENUATION_VZG_2}}</td>
+                    <td>{{users.REMARKS_VZG_2}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">3.</td>
+                    <td class="thblueC">3</td>
+                    <td>{{users.TOP_READING_VZG_3}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_3}}</td>
+                    <td>{{users.ATTENUATION_VZG_3}}</td>
+                    <td>{{users.REMARKS_VZG_3}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">4.</td>
+                    <td class="thblueC">4</td>
+                    <td>{{users.TOP_READING_VZG_4}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_4}}</td>
+                    <td>{{users.ATTENUATION_VZG_4}}</td>
+                    <td>{{users.REMARKS_VZG_4}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">5.</td>
+                    <td class="thblueC">5</td>
+                    <td>{{users.TOP_READING_VZG_5}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_5}}</td>
+                    <td>{{users.ATTENUATION_VZG_5}}</td>
+                    <td>{{users.REMARKS_VZG_5}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">6.</td>
+                    <td class="thblueC">6</td>
+                    <td>{{users.TOP_READING_VZG_6}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_6}}</td>
+                    <td>{{users.ATTENUATION_VZG_6}}</td>
+                    <td>{{users.REMARKS_VZG_6}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">7.</td>
+                    <td class="thblueC">7</td>
+                    <td>{{users.TOP_READING_VZG_7}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_7}}</td>
+                    <td>{{users.ATTENUATION_VZG_7}}</td>
+                    <td>{{users.REMARKS_VZG_7}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">8.</td>
+                    <td class="thblueC">8</td>
+                    <td>{{users.TOP_READING_VZG_8}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_8}}</td>
+                    <td>{{users.ATTENUATION_VZG_8}}</td>
+                    <td>{{users.REMARKS_VZG_8}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">9.</td>
+                    <td class="thblueC">9</td>
+                    <td>{{users.TOP_READING_VZG_9}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_9}}</td>
+                    <td>{{users.ATTENUATION_VZG_9}}</td>
+                    <td>{{users.REMARKS_VZG_9}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">10.</td>
+                    <td class="thblueC">10</td>
+                    <td>{{users.TOP_READING_VZG_10}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_10}}</td>
+                    <td>{{users.ATTENUATION_VZG_10}}</td>
+                    <td>{{users.REMARKS_VZG_10}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">11.</td>
+                    <td class="thblueC">11</td>
+                    <td>{{users.TOP_READING_VZG_11}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_11}}</td>
+                    <td>{{users.ATTENUATION_VZG_11}}</td>
+                    <td>{{users.REMARKS_VZG_11}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">12.</td>
+                    <td class="thblueC">12</td>
+                    <td>{{users.TOP_READING_VZG_12}}</td>
+                    <td>{{users.BOTTOM_READING_VZG_12}}</td>
+                    <td>{{users.ATTENUATION_VZG_12}}</td>
+                    <td>{{users.REMARKS_VZG_12}}</td>
+                  </tr>
+                </table>
+          
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="margin-top:14px;"><u>Final Assessment and Recommendations</u></h4>
+        <table class="table table-bordered table-form-color1">
+            
+                <div rowspan="10" class="textarea">{{users.FINAL_OBSERVATIONS_AND_REMARKS | safe}} </div>
+        </table></br>
+      
+      <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center">
+      <tr>
+          <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+          <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>  

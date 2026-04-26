@@ -1,0 +1,3037 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>pre-ranging-appendix-f</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+   <body>
+    <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+
+        <div class="heading-style2 text-center">
+            <h4><u>GAS TURBINE GENERATOR (GTG) ACCEPTANCE</u></h4>
+        </div>
+
+        <table class="table table-bordered tabletd-color">
+            <tr>
+                <td colspan="2" class="subheader td-bluelight">SHIP</td>
+                <td>{{users.ship}}</td>
+                <td class="subheader td-bluelight">GTG LOCATION</td>
+                <td>{{users.p15_gtg_accept_loc}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="subheader td-bluelight">TC SERIAL</td>
+                <td>{{users.p15_gtg_accept_tcSer}}</td>
+                <td class="subheader td-bluelight">RG SERIAL</td>
+                <td>{{users.p15_gtg_accept_rgSer}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="subheader td-bluelight">DATE OF INSTALLATION</td>
+                <td>{{users.p15_gtg_accept_date_of_inst}}</td>
+                <td class="subheader td-bluelight">DATE OF TRIAL</td>
+                <td>{{users.p15_gtg_accept_date_of_trial}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="subheader">OCCASION OF TRIAL</td>
+                <td>{{users.p15_gtg_accept_occas_of_trial}}</td>
+                <td class="subheader td-bluelight">RH SINCE LAST TRIAL </td>
+                <td>{{users.p15_gtg_accept_RH_last_trial}}</td>
+            </tr>
+            <tr>
+                <td class="subheader td-bluelight">TC RH</td>
+                <td class="subheader td-bluelight">SI</td>
+                <td>{{users.p15_gtg_accept_tcRH_SI}}</td>
+                <td class="subheader td-bluelight">SN</td>
+                <td>{{users.p15_gtg_accept_tcRH_SN}}</td>
+            </tr>
+
+            <tr>
+                <td class="subheader td-bluelight">RG RH</td>
+                <td class="subheader td-bluelight">SI</td>
+                <td>{{users.p15_gtg_accept_rgRH_SI}}</td>
+                <td class="subheader td-bluelight">SN</td>
+                <td>{{users.p15_gtg_accept_rgRH_SN}}</td>
+            </tr>
+            <tr>
+                <td class="subheader" colspan="2">RH at last 7K (TC) </td>
+                <td>{{users.p15_gtg_accept_last_rout}}</td>
+                <td class="subheader">Balance for 7K (TC)</td>
+                <td>{{users.p15_gtg_accept_RH_at_last}}</td>         
+            </tr>
+
+            <tr>
+                <td class="subheader" colspan="2">RH at last 14K (RG) </td>
+                <td>{{users.p15_gtg_accept_last_routRG}}</td>
+                <td class="subheader">Balance for 14K (RG)</td>
+                <td>{{users.p15_gtg_accept_RH_at_lastRG}}</td>         
+            </tr>
+
+            <tr>
+                <td class="subheader" colspan="2">RH since last 1250 hrly routine (TC) </td>
+                <td>{{users.p15_gtg_accept_RH_at_last1250}}</td>
+                <td class="subheader">RH since last 2500 hrly routine (RG)  </td>
+                <td>{{users.p15_gtg_accept_RH_at_last2500}}</td>         
+            </tr>
+
+            <tr>
+                <td class="subheader" colspan="2">RH at harbour since last trial</td>
+                <td>{{users.p15_gtg_accept_RH_harbour}}</td>
+                <td class="subheader">Date of last trial </td>
+                <td>{{users.p15_gtg_accept_date_of_last_trial}}</td>         
+            </tr>
+        </table>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th>SNO</th>
+                <th colspan="3">DESCRIPTION OF TASK</th>
+                <th>STATUS</th>
+                <th colspan="4">REMARKS</th>
+            </tr>
+            <tr>
+                <th colspan="6" class="text-center">SECTION I -- INSPECTION OF BOOKS / RECORDS</th>
+            </tr>
+            <tr>
+                <td class="td-bluelight" rowspan="12">1</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">Running Log Book</td>
+            </tr>
+            <tr>
+                <td colspan="3">Lub oil level and salinity check reading</td>
+                <td>
+                    {{users.p15_gtg_accept_lub_oil_insp}}
+                </td>
+                <td>{{users.p15_gtg_accept_lub_oil_rem_insp}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">Three monthly routine carried out on date</td>
+                <td>{{users.p15_gtg_accept_3_mon_insp}}</td>
+                <td>{{users.p15_gtg_accept_3_mon_rem_insp}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">Six monthly routine carried out on date</td>
+                <td>{{users.p15_gtg_accept_6_mon_insp}}</td>
+                <td>{{users.p15_gtg_accept_6_mon_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">500 hourly routine carried out at running hour/date</td>
+                <td>{{users.p15_gtg_accept_500_hr_insp}}</td>
+                <td>{{users.p15_gtg_accept_500_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">1000 hourly routine carried out at running hour/date (1250-E)</td>
+                <td>{{users.p15_gtg_accept_1000_hr_insp}}</td>
+                <td>{{users.p15_gtg_accept_1000_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">1250 hourly routine carried out at running hour/date</td>
+                <td>{{users.p15_gtg_accept_1250_hr_insp}}</td>
+                <td>{{users.p15_gtg_accept_1250_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">2500 hourly routine carried out at running hour/date</td>
+                <td>{{users.p15_gtg_accept_2500_hr_insp}}</td>
+                <td>{{users.p15_gtg_accept_2500_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">7000 hourly routine carried out at running hour/date</td>
+                <td>{{users.p15_gtg_accept_7000_hr_insp}}</td>
+                <td>{{users.p15_gtg_accept_7000_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">14000 hourly routine carried out at running hour/date</td>
+                <td>{{users.p15_gtg_accept_14000_hr_insp}}</td>
+                <td>{{users.p15_gtg_accept_14000_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Record of Captains monthly/quarterly inspection/remarks</td>
+                <td>{{users.p15_gtg_accept_det_rec_option1}}</td>
+                <td>{{users.p15_gtg_accept_rec_of_cap_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Fuel flushing / Steam washing and Burner cleaning hours/date</td>
+                <td>{{users.p15_gtg_accept_fuel_flush_insp}}</td>
+                <td>{{users.p15_gtg_accept_fuel_flush_rem_insp}}</td>
+
+            </tr>
+
+            <tr>
+                <td class="td-bluelight" rowspan="5">2</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">Service Log</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Monthly running hour updated</td>
+                <td>{{users.p15_gtg_accept_mon_run_hr_insp}}</td>
+                <td>{{users.p15_gtg_accept_mon_run_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">All major routine carried out with details are entered</td>
+                <td>{{users.p15_gtg_accept_maj_rout_insp}}</td>
+                <td>{{users.p15_gtg_accept_maj_rout_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Any major defect rectified with parts renewed with SL.NO.</td>
+
+                <td>{{users.p15_gtg_accept_maj_def_insp}}</td>
+                <td>{{users.p15_gtg_accept_maj_def_rem_insp}}</td>
+
+            </tr>
+
+            <tr>
+                <td colspan="3">Record of Captains monthly inspection/remarks</td>
+                
+                <td>{{users.p15_gtg_accept_rec_of_cap_ser_OPT}}</td>
+                <td>{{users.p15_gtg_accept_rec_of_cap_ser_insp}}</td>
+            </tr>
+
+            <tr>
+                <td class="td-bluelight" rowspan="5">3</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">EMAP</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">All details regarding equipment are entered correctly</td>
+                <td>{{users.p15_gtg_accept_det_eqp}}</td>
+                <td>{{users.p15_gtg_accept_ser_det_eqp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">All Details of routines undertaken are mentioned</td>
+                <td>{{users.p15_gtg_accept_det_rout_emap}}</td>
+                <td>{{users.p15_gtg_accept_det_rout_rem_emap}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">All major defects are entered</td>
+                <td>{{users.p15_gtg_accept_maj_def_emap}}</td>
+                <td>{{users.p15_gtg_accept_maj_def_rem_emap}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Record of Captains monthly inspection/remarks</td>
+                <td>{{users.p15_gtg_accept_rec_of_cap_ser_insp_option}}</td>
+                <td>{{users.p15_gtg_accept_rec_of_cap_emap}}</td>
+            </tr>
+        </table>
+
+
+        <!-- section II start -->
+        <tr>
+            <th colspan="6" class="text-center">SECTION II -- STATE OF SYSTEMS</th>
+        </tr>
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th>SNO</th>
+                <th width="58%">DESCRIPTION OF TASK</th>
+                <th width="15%">STATUS</th>
+                <th colspan="4" width="42%">REMARKS</th>
+
+            </tr>
+            <tr>
+                <td class="td-bluelight" colspan="1" rowspan="9">4</td>
+                <td colspan="6"  style="background: #244264 !important;color: #fff !important;">Air Intake/Exhaust System</td>
+            </tr>
+
+            <tr>
+                <td>(a) Check intake wire mesh for corrosion and cleanliness</td>
+                <td>
+                    {{users.p15_gtg_accept_exhaust_sys_status}}
+                </td>
+                <td colspan="4">{{users.p15_gtg_accept_exhaust_sys_rem}}</td>
+            </tr>
+
+            <tr>
+
+                <td>(b) Check condition of ‘W’ filter</td>
+
+                <td>
+                    {{users.p15_gtg_accept_W_filter_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_W_filter_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(c) Check perforated sheet for corrosion and securing</td>
+                <td>
+                    {{users.p15_gtg_accept_corrosion_status}}
+                </td>
+                <td colspan="4">{{users.p15_gtg_accept_corrosion_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(d) Check condition of rubber diaphragm</td>
+
+                <td>
+                    {{users.p15_gtg_accept_diaphragm_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_diaphragm_rem}}</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>(e) Check condition of exhaust spring suspensions</td>
+
+                <td>
+                    {{users.p15_gtg_accept_spring_sus_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_spring_sus_rem}}</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>(f) Check hydraulic seal</td>
+
+                <td>
+                    {{users.p15_gtg_accept_hyd_seal_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_hyd_seal_rem}}</td>
+
+            </tr>
+
+
+
+            <tr>
+
+                <td>(g) Check for leakages</td>
+
+                <td>
+                    {{users.p15_gtg_accept_leakages_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_leakages_rem}}</td>
+
+            </tr>
+
+
+
+            <tr>
+                <td>(h) Check to see that the moisture seprator drain line provided on intake baffles is clear (only for Delhi Class)</td>
+                <td>{{users.p15_gtg_accept_baffles_status}}</td>
+                <td colspan="4">{{users.p15_gtg_accept_baffles_rem}}</td>
+            </tr>
+            {% for al in air_exhaust_system_p15_rows %}
+                <tr>
+                    <td style="width: 0.4%;">{{forloop.counter}}.</td>
+                    <td style="width: 12.7%;">{{al.air_exhaust_system_p15_desc}}</td>
+                    <td style="width: 3.0%;">{{al.air_exhaust_system_p15_status}}</td>                                                            
+                    <td style="width: 5.1%;">{{al.air_exhaust_system_p15_remarks}}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td class="td-bluelight" rowspan="6">5</td>
+                <td colspan="6"  style="background: #244264 !important;color: #fff !important;">Fuel System</td>
+            </tr>
+
+            <tr>
+
+                <td>(a) Check condition of coarse and fine fuel filter</td>
+
+                <td>
+                    {{users.p15_gtg_accept_fuel_filter_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_fuel_filter_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(b) Check date of cleaning of RU tank</td>
+
+                <td>
+                    {{users.p15_gtg_accept_RU_tank_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_RU_tank_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(c) Check date of replacement of CT500 and FNT filters</td>
+
+                <td>
+                    {{users.p15_gtg_accept_FNT_filt_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_FNT_filt_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(d) Check condition of starting injector filter and main injector
+                </td>
+
+                <td>
+                    {{users.p15_gtg_accept_main_inj_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_main_inj_rem}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td>(e) Check for leakages</td>
+                <td>{{users.p15_gtg_accept_fuel_leakage_status}}</td>
+                <td colspan="4">{{users.p15_gtg_accept_fuel_leakage_rem}}</td>
+
+            </tr>
+
+            {% for al in fuel_system_p15_rows %}
+            <tr>
+                <td style="width: 0.4%;">{{forloop.counter}}.</td>
+                <td style="width: 12.7%;">{{al.fuel_system_p15_desc}}</td>
+                <td style="width: 3.0%;">{{al.fuel_system_p15_status}}</td>                                                                   
+                <td style="width: 5.1%;">{{al.fuel_system_p15_remarks}}</td>
+            </tr>
+            {% endfor %}
+            
+            <tr>
+                <td class="td-bluelight" rowspan="7">6</td>
+                <td colspan="6"  style="background: #244264 !important;color: #fff !important;">Lub Oil System</td>
+            </tr>
+
+            <tr>
+
+                <td>(a) Check condition of both lub oil filters</td>
+
+                <td>
+                    {{users.p15_gtg_accept_lubOil_filter_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_lubOil_filter_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(b) Check the date of circulating tank cleaning</td>
+
+                <td>
+                    {{users.p15_gtg_accept_tank_clean_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_tank_clean_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(c) Check the lub oil level indicator.</td>
+
+                <td>
+                    {{users.p15_gtg_accept_lev_indic_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_lev_indic_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(d) Check condition of Zn protectors in cooler</td>
+
+                <td>
+                    {{users.p15_gtg_accept_zn_cooler_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_zn_cooler_rem}}</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>(e) Ensure correct operation of lub oil operated sea water valve
+                </td>
+
+                <td>
+                    {{users.p15_gtg_accept_water_valve_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_water_valve_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(f) Check for leakages, check for lub oil inlet screen in filling
+                    point</td>
+
+                <td>
+                    {{users.p15_gtg_accept_lubOil_inlet_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_lubOil_inlet_rem}}</td>
+
+            </tr>
+
+            {% for al in lubOil_system_p15_rows %}
+            <tr>
+                <td style="width: 0.4%;">{{forloop.counter}}.</td>
+                <td style="width: 12.7%;">{{al.lubOil_system_p15_desc}}</td>
+                <td style="width: 3.0%;">{{al.lubOil_system_p15_status}}</td>                                                                
+                <td style="width: 5.1%;">{{al.lubOil_system_p15_remarks}}</td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+                <td class="td-bluelight" rowspan="13">7</td>
+                <td colspan="6"  style="background: #244264 !important;color: #fff !important;">General Condition / Hygiene</td>
+            </tr>
+
+            <tr>
+
+                <td>(a) Check for soot marks on TC indicating leakage of gases from
+                    joints</td>
+
+                <td>
+                    {{users.p15_gtg_accept_TC_joints_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_TC_joints_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(b) State of heat resistant paint</td>
+
+                <td>
+                    {{users.p15_gtg_accept_heat_res_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_heat_res_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(c) Check condition of trunions</td>
+
+                <td>
+                    {{users.p15_gtg_accept_trunions_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_trunions_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(d) Check condition of general lighting around equipment</td>
+
+                <td>
+                    {{users.p15_gtg_accept_light_eqp_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_light_eqp_rem}}</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>(e) Check state of cleanliness of equipment</td>
+
+                <td>
+                    {{users.p15_gtg_accept_clean_eqp_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_clean_eqp_rem}}</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>(f) Check condition of SV mounts</td>
+
+                <td>
+                    {{users.p15_gtg_accept_sv_mount_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_sv_mount_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(g) Check all drain lines by air blow through </td>
+
+                <td>
+                    {{users.p15_gtg_accept_drain_line_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_drain_line_rem}}</td>
+
+            </tr>
+
+
+
+            <tr>
+
+                <td>(h) Check hot lagginig of steam lines from boiler room to GTG</td>
+
+                <td>
+                    {{users.p15_gtg_accept_boiler_room_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_boiler_room_rem}}</td>
+
+            </tr>
+
+
+
+
+            <tr>
+
+                <td>(j) Check all steam valves for GTG holding properly</td>
+
+                <td>
+                    {{users.p15_gtg_accept_steam_valve_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_steam_valve_rem}}</td>
+
+            </tr>
+
+            <tr>
+
+                <td>(k) Check for lub oil leakages from bearing housings/ labyrinth
+                    covers of TC – RG coupling and RG – Generator coupling</td>
+
+                <td>
+                    {{users.p15_gtg_accept_Rg_coup_status}}
+                </td>
+
+                <td colspan="4">{{users.p15_gtg_accept_Rg_coup_rem}}</td>
+
+            </tr>
+
+
+
+
+
+            <tr>
+
+                <td rowspan="2">(l) Check for freeness of floating washers </td>
+
+                <td>P - {{users.p15_gtg_accept_P_wash_clearance_status}}</td>
+                
+                <td colspan="4">
+                    {{users.p15_gtg_accept_P_wash_clearance_rem}}
+                </td>
+                <!-- <td>
+                    P- {{users.p15_gtg_accept_exhaust_sys_rem}}
+                    S- {{users.p15_gtg_accept_exhaust_sys_rem}}
+                </td> -->
+
+            </tr>
+
+            <tr>
+                <td>
+                        S - {{users.p15_gtg_accept_S_wash_clearance_status}} 
+                </td>
+                
+                <td colspan="4">
+                    {{users.p15_gtg_accept_S_wash_clearance_rem}}
+                </td>
+            </tr>
+
+            {% for al in gen_hygiene_p15_rows %}
+            <tr>
+                <td style="width: 0.4%;">{{forloop.counter}}.</td>
+                <td style="width: 12.7%;">{{al.gen_hygiene_p15_desc}}</td>
+                <td style="width: 3.0%;">{{al.gen_hygiene_p15_status}}</td>                                                                   
+                <td style="width: 5.1%;">{{al.gen_hygiene_p15_remarks}}</td>
+            </tr>
+            {% endfor %}
+
+    <!-- background: #244264 !important;
+    color: #fff !important; -->
+
+            <tr>
+                <td class="td-bluelight" rowspan="6">8</td>
+                <td colspan="6"  style="background: #244264 !important;color: #fff !important;">Condition of Controls/Instrumentation</td>
+            </tr>
+            <tr>
+                <td>(a) Check CT 642: - Readiness Breakage Signal break - off</td>
+                <td>{{users.p15_gtg_accept_CT_642_status}}</td>
+                <td>{{users.p15_gtg_accept_CT_642_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(b) Check condition / tightness of thermocouple glands</td>
+                <td>{{users.p15_gtg_accept_thermocouple_status}}</td>
+                <td>{{users.p15_gtg_accept_thermocouple_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(c) Check condition of control wiring</td>
+                <td>{{users.p15_gtg_accept_control_wiring_status}}</td>
+                <td>{{users.p15_gtg_accept_control_wiring_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(d) Check condition of batteries</td>
+                <td>{{users.p15_gtg_accept_cond_of_batt_status}}</td>
+                <td>{{users.p15_gtg_accept_cond_of_batt_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(e) Starter Insulation</td>
+                <td>{{users.p15_gtg_accept_starter_ins_status}}</td>
+                <td>{{users.p15_gtg_accept_starter_ins_rem}}</td>
+            </tr>
+
+            {% for al in cond_of_controls_p15_rows %}
+            <tr>
+                <td style="width: 0.4%;">{{forloop.counter}}.</td>
+                <td style="width: 12.7%;">{{al.cond_of_controls_p15_desc}}</td>
+                <td style="width: 3.0%;">{{al.cond_of_controls_p15_status}}</td>                                                                        
+                <td style="width: 5.1%;">{{al.cond_of_controls_p15_remarks}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!-- section II end -->
+
+        <div class="heading-style2 text-center">
+            <h2><u>ANY OTHER REMARKS</u></h2>
+        </div>
+
+        <table class="table table-bordered table-style-color table-form-color tabletd-color">
+            <tr>
+                <td>
+                    <div class="form-floating">
+                        <textarea appRichTextEditor class="form-control" placeholder="Leave a comment here" rows="10" style="height: 200px;border: 1px solid #00000059!important;"
+                            formControlName="p15_gtg_accept_remarks"
+                            id="floatingTextarea"></textarea>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="heading-style2 text-center">
+            <h4  class="font-weight-bold"><u>GTG STARTING PARAMETERS</u></h4>                                
+        </div>
+        <table class="table table-bordered tabletd-color">
+            <tr>
+                <td class="subheader td-bluelight">GTG T/C SER No</td>
+                <td>{{users.p15_gtg_accept_tc_ser}}</td>
+                <td class="subheader td-bluelight">DATE</td>
+                <td>{{users.p15_gtg_accept_date_par}}</td>
+            </tr>
+
+            <tr>   
+                <td class="subheader td-bluelight">GTG R/G SER No </td>
+                <td>{{users.p15_gtg_accept_rg_ser}}</td>
+                <td class="subheader td-bluelight">OCCASION</td>
+                <td>{{users.p15_gtg_accept_rg_occ}}</td>
+            </tr> 
+        </table>
+        <div>{{users.p15_ACCEPT_types_of_start}}</div>
+        <table class="table table-bordered tabletd-color">
+             <tr>
+                <th colspan="2">COLD START</th>
+                <th>LIMITING VALUES</th>
+                <th colspan="2">OBSERVED VALUES</th>
+            </tr>
+            <tr>
+                <td colspan="2">TIME</td>
+                <td></td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_time_1}}</td> -->
+                <td>{{users.p15_gtg_accept_coldStart_time_2}}</td>
+                <td>{{users.p15_gtg_accept_coldStart_time_3}}</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_time_4}}</td> -->
+            </tr>
+
+            <tr>
+                <td colspan="2">CURRENT (AMPS)</td>
+                <td> >3000 </td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_curr_1}}</td> -->
+                <td>{{users.p15_gtg_accept_coldStart_curr_2}}</td>
+                <td>{{users.p15_gtg_accept_coldStart_curr_3}}</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_curr_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">MAX. T/C RPM</td>
+                <td> >3500 </td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_RPM_1}}</td> -->
+                <td>{{users.p15_gtg_accept_coldStart_RPM_2}}</td>
+                <td>{{users.p15_gtg_accept_coldStart_RPM_3}}</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_RPM_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">SYSTEM L / O PRESS kgf/cm<sup>2</sup></td>
+                <td>  >0.3 </td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_sys_press_1}}</td> -->
+                <td>{{users.p15_gtg_accept_coldStart_sys_press_2}}</td>
+                <td>{{users.p15_gtg_accept_coldStart_sys_press_3}}</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_sys_press_4}}</td> -->
+            </tr>
+
+            <tr>
+                <td colspan="2">CONTROL L / O PRESS kgf/cm<sup>2</sup></td>
+                <td> >2.0 </td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_cont_press_1}}</td> -->
+                <td>{{users.p15_gtg_accept_coldStart_cont_press_2}}</td>
+                <td>{{users.p15_gtg_accept_coldStart_cont_press_3}}</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_cont_press_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">STARTER CUT OFF (sec)</td>
+                <td>70-75 Sec</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_cut_off_1}}</td> -->
+                <td>{{users.p15_gtg_accept_coldStart_cut_off_2}}</td>
+                <td>{{users.p15_gtg_accept_coldStart_cut_off_3}}</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_cut_off_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">RUN DOWN TIME</td>
+                <td>3'30 - 5'30''</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_run_down_1}}</td> -->
+                <td>{{users.p15_gtg_accept_coldStart_run_down_2}}</td>
+                <td>{{users.p15_gtg_accept_coldStart_run_down_3}}</td>
+                <!-- <td>{{users.p15_gtg_accept_coldStart_run_down_4}}</td> -->
+            </tr>
+        </table>
+
+        <div>{{users.p15_accept_types_of_start2}}</div>
+        <table class="table table-bordered tabletd-color">
+            <tr>
+                <th colspan="2">HOT START</th>
+                <th>LIMITING VALUE</th>
+                <th colspan="2">OBSERVED VALUES</th>
+            </tr>
+            <tr>
+                <td colspan="2">TIME</td>
+                <td>--</td>
+                <td>{{users.p15_gtg_accept_hotStart_time_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_time_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_time_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_time_4}}</td> -->
+            </tr>
+
+            <tr>
+                <td colspan="2">CURRENT (AMPS)</td>
+                <td>3000 A</td>
+                <td>{{users.p15_gtg_accept_hotStart_curr_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_curr_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_curr_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_curr_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">STARTING FUEL (PRESS & TIME) (kgf/cm<sup>2</sup> & sec)</td>
+                <td>4-5.5 / 10-12 </td>
+                <td>{{users.p15_gtg_accept_hotStart_start_fuel_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_start_fuel_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_start_fuel_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_start_fuel_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">SHUT OFF VALVE CLOSE SIGNAL LAMP DISAPPEARED AT (RPM)</td>
+                <td>2800-3200</td>
+                <td>{{users.p15_gtg_accept_hotStart_shutOff_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_shutOff_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_shutOff_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_shutOff_4}}</td> -->
+            </tr>
+
+            <tr>
+                <td colspan="2">BLOW OFF VALVE OPEN SIGNAL LAMP DISAPPEARED AT (RPM)</td>
+                <td>3500-4500</td>
+                <td>{{users.p15_gtg_accept_hotStart_blowOff_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_blowOff_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_blowOff_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_blowOff_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">STARTER CUT OFF (RPM AND TIME) (RPM & sec)</td>
+                <td>5000-8000 & 70-75 </td>
+                <td>{{users.p15_gtg_accept_hotStart_cutOff_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_cutOff_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_cutOff_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_cutOff_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">MAX EXHAUST GAS TEMPERATURE (&deg;C)</td>
+                <td>510</td>
+                <td>{{users.p15_gtg_accept_hotStart_gasTemp_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_gasTemp_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_gasTemp_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_gasTemp_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">ANTI-SURGE VALVE OPEN SIGNAL LAMP DISAPPEARED AT (RPM)</td>
+                <td>10200-11000</td> 
+                <td>{{users.p15_gtg_accept_hotStart_surge_open_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_surge_open_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_surge_open_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_surge_open_4}}</td> -->
+            </tr>
+
+
+
+            <tr>
+                <td colspan="2">ANTI-SURGE VALVE CLOSE SIGNAL LAMP APPEARED AT (RPM)</td>
+                <td>12000-12500</td>
+                <td>{{users.p15_gtg_accept_hotStart_surge_close_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_surge_close_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_surge_close_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_surge_close_4}}</td> -->
+            </tr>
+
+
+
+            <tr>
+                <td colspan="2">IDLING RPM</td>
+                <td>12540-12650</td>
+                <td>{{users.p15_gtg_accept_hotStart_idling_RPM_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_idling_RPM_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_idling_RPM_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_idling_RPM_4}}</td> -->
+            </tr>
+
+
+
+            <tr>
+                 <td colspan="2">TIME TAKEN FOR IDLING RPM (sec)</td>
+                <td>120” - 150”</td>
+                <td>{{users.p15_gtg_accept_hotStart_time_RPM_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_time_RPM_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_time_RPM_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_time_RPM_4}}</td> -->
+            </tr>
+
+
+            <tr>
+                <td colspan="2">RUN DOWN TIME</td>
+                <td>--</td>
+                <td>{{users.p15_gtg_accept_hotStart_runDown_time_1}}</td>
+                <!-- <td>{{users.p15_gtg_accept_hotStart_runDown_time_2}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_runDown_time_3}}</td>
+                <td>{{users.p15_gtg_accept_hotStart_runDown_time_4}}</td> -->
+            </tr>
+        </table>
+ 
+        <table class="table table-bordered tabletd-color">
+        
+        <tr>                               
+                <td class=""  style="background: #244264 !important;color: #fff !important;"><u>GOVERNER POSITION</u></td>                                   
+                <td class="text-end" colspan="6"  style="background: #244264 !important;color: #fff !important;"><p style="margin-left:500px !important"><u>A/C L/O PUMP PRESSURE</u></p></td>                                                                      
+                </tr>
+            
+
+                <tr>                                   
+                    <td class="subheader td-bluelight">LIMB POSITION</td>
+                    <td>{{users.p15_gtg_accept_limb_pos}}</td>
+                    <td class="subheader td-bluelight">CONTROL</td>
+                    <td>{{users.p15_gtg_accept_ac_lo_control}}</td>
+                    </tr>
+
+                <tr>
+            
+                <td class="subheader td-bluelight">TEETH MATCHING</td>
+                <td>{{users.p15_gtg_accept_teeth_match}}</td>
+                <td class="subheader td-bluelight">SYSTEM</td>
+                <td>{{users.p15_gtg_accept_ac_lo_system}}</td>
+                </tr>
+            
+        </table>
+
+        <table class="table table-bordered tabletd-color">
+        <tr>
+            
+            <td class="subheader td-bluelight"  style="background: #244264 !important;color: #fff !important;"><u>STARTING SCREW / VV:-</u></td>
+            
+            <td class="subheader td-bluelight text-end" colspan="6"  style="background: #244264 !important;color: #fff !important;"><p style="margin-left:500px !important"><u>D/C L/O PUMP PRESSURE</u></p></td>
+            
+            </tr>
+
+            <tr>
+            
+                <td class="subheader td-bluelight">VERTICAL</td>
+                <td>{{users.p15_gtg_accept_start_screw}}</td>
+                <td class="subheader td-bluelight">CONTROL</td>
+                <td>{{users.p15_gtg_accept_dc_lo_control}}</td>
+                </tr>
+
+
+
+                <tr>
+            
+            <td class="subheader td-bluelight">HORIZONTAL</td>
+            <td>{{users.p15_gtg_accept_horizontal}}</td>
+            <td class="subheader td-bluelight">SYSTEM</td>
+            <td>{{users.p15_gtg_accept_dc_lo_system}}</td>
+            </tr>
+        
+        </table>
+
+<!-- End of Page - 1 -->
+
+        <div class="heading-style2 text-center">
+    <h4 class="font-weight-bold"><u>GTG COLD AND HOT</u></h4> 
+    <h4 class="font-weight-bold"><u>PROTECTION CHECK PARAMETERS</u></h4>                                
+</div>
+
+<div class="heading-style2 text-center">
+    <h4  class="font-weight-bold"><u>Protection Checks</u></h4>              
+</div>
+
+
+<table class="table table-bordered tabletd-color">
+
+    <tr>
+    <th width="5%">Ser</th>
+    <th colspan="2">Name of Protection System</th>
+    <th>Limiting Values</th>
+    <th>Measured Values</th>
+    <th width="40%" colspan="3">Remarks</th>
+    </tr>
+
+
+
+  
+    <tr>
+        <td>a.</td>
+        <td colspan="2">Emergency Protection for Low Lub Oil Pressure in lub oil system (Kg/cm<sup>2</sup>)</td>
+        <td>2.0</td>
+        <td>{{usersTwo.p15_gtg_accept_emerg_meas_value}}</td>
+        <td colspan="3">{{usersTwo.p15_gtg_accept_emerg_remarks}}</td>
+    </tr>
+
+
+    <tr>
+        <td>b.</td>
+        <td colspan="2">Exhaust Gas Temp Warning</td>
+        <td>510 °C</td>
+        <td>{{usersTwo.p15_gtg_accept_gas_temp_warn_value}}</td>
+        <td colspan="3">{{usersTwo.p15_gtg_accept_gas_temp_warn_remarks}}</td>
+    </tr>
+
+
+    <tr>
+        <td>c.</td>
+        <td colspan="2">Exhaust Gas Temp Trip</td>
+        <td>550 °C</td>
+        <td>{{usersTwo.p15_gtg_accept_gas_temp_trip_value}}</td>
+        <td colspan="3">{{usersTwo.p15_gtg_accept_gas_temp_trip_remarks}}</td>
+    </tr>
+
+
+
+    <tr>
+        <td rowspan="2">d.</td>
+        <td rowspan="2">Turbine Bearing Overheat</td>
+        <td>Warning</td>
+        <td>85 °C</td>
+        <td>{{usersTwo.p15_gtg_accept_turb_bear_value}}</td>
+        <td colspan="3">{{usersTwo.p15_gtg_accept_turb_bear_remarks}}</td>
+    </tr>
+
+    <tr>
+        <td>Trip</td>
+        <td>90 °C</td>
+        <td>{{usersTwo.p15_gtg_accept_trip_90_value}}</td>
+        <td>{{usersTwo.p15_gtg_accept_trip_90_remarks}}</td>
+    </tr>
+
+    <tr>
+        <td>e.</td>
+        <td colspan="2">Spill Fuel Pressure Trip (Kg/cm<sup>2</sup>)</td>
+        <td>10</td>
+        <td>{{usersTwo.p15_gtg_accept_spill_fuel_value}}</td>
+        <td colspan="3">{{usersTwo.p15_gtg_accept_spill_fuel_remarks}}</td>
+    </tr>
+
+
+    <tr>
+        <td>f.</td>
+        <td colspan="2">Over Speed Trip (RPM)</td>
+        <td>13480-13730</td>
+        <td>{{usersTwo.p15_gtg_accept_speed_trip_value}}</td>
+        <td colspan="3">{{usersTwo.p15_gtg_accept_speed_trip_remarks}}</td>
+    </tr>
+
+
+
+    <tr>
+        <td>g.</td>
+        <td colspan="2">Remote Pneumatic Shut Down (Kg /cm2)</td>
+        <td>05 </td>
+        <td>{{usersTwo.p15_gtg_accept_shut_down_value}}</td>
+        <td colspan="3">{{usersTwo.p15_gtg_accept_shut_down_remarks}}</td>
+    </tr>
+</table>
+
+
+<div class="heading-style2 text-center">
+    <h4  class="font-weight-bold"><u>GTG RUNNING PARAMETERS (Rev Up)</u></h4> 
+                          
+</div>
+
+
+<table class="table table-bordered tabletd-color">
+
+
+
+    <tr>
+        <td>TIME</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_time_1}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_time_2}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_time_3}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_time_4}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_time_5}}</td>
+    </tr>
+
+    <tr>
+        <td>POWER</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_power_1}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_power_2}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_power_3}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_power_4}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_power_5}}</td>
+    </tr>
+
+
+
+    <tr>
+        <td>VOLTAGE</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_voltage_1}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_voltage_2}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_voltage_3}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_voltage_4}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_voltage_5}}</td>
+    </tr>
+
+
+
+    <tr>
+        <td>FREQUENCY (HZ)</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_frequency_1}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_frequency_2}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_frequency_3}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_frequency_4}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_up_frequency_5}}</td>
+    </tr>
+
+
+    <tr>
+        <td>TC RPM</td>
+        <td colspan="2">
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_1b}}
+        </td> 
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_TC_RPM_5b}}
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>EXHT GAS TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_exht_temp_5b}}
+        </td>
+    </tr>
+
+
+
+    <tr>
+        <td>TURBINE BRG. TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_turbine_temp_5b}}
+        </td>
+    </tr>
+
+    <tr>
+        <td>COMPRESSOR BRG. TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_temp_5b}}
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>GEN. AIR COOLER TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_airCool_temp_5b}}
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>OIL COOLER OUTLET TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_oilCool_temp_5b}}
+        </td>
+    </tr>
+
+    <tr>
+        <td>SYSTEM L/O PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_sys_LO_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>CONTROL L/O PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_control_LO_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>MAIN FUEL PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_main_fuel_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>SPILL FUEL PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_spill_fuel_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>COMP. AIR PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_comp_air_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>COOLING WATER PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_cool_water_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>AMBIENT AIR TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_up_amb_air_temp_5b}}
+        </td>
+    </tr>
+ 
+</table>
+
+
+
+
+<div class="heading-style2 text-center">
+    <h4  class="font-weight-bold"><u>GTG RUNNING PARAMETERS (Rev Down)</u></h4>                                                       
+</div>
+
+
+<table class="table table-bordered tabletd-color">
+
+
+
+    <tr>
+        <td>TIME</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_time_1}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_time_2}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_time_3}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_time_4}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_time_5}}</td>
+    </tr>
+
+    <tr>
+        <td>POWER</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_power_1}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_power_2}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_power_3}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_power_4}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_power_5}}</td>
+    </tr>
+
+
+
+    <tr>
+        <td>VOLTAGE</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_voltage_1}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_voltage_2}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_voltage_3}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_voltage_4}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_voltage_5}}</td>
+    </tr>
+
+
+
+    <tr>
+        <td>FREQUENCY (HZ)</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_frequency_1}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_frequency_2}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_frequency_3}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_frequency_4}}</td>
+        <td colspan="2">{{usersTwo.p15_gtg_accept_runn_para_down_frequency_5}}</td>
+    </tr>
+
+
+    <tr>
+        <td>TC RPM</td>
+        <td colspan="2">
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_1b}}
+        </td> 
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_TC_RPM_5b}}
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>EXHT GAS TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_exht_temp_5b}}
+        </td>
+    </tr>
+
+
+
+    <tr>
+        <td>TURBINE BRG. TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_turbine_temp_5b}}
+        </td>
+    </tr>
+
+    <tr>
+        <td>COMPRESSOR BRG. TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_temp_5b}}
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>GEN. AIR COOLER TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_airCool_temp_5b}}
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>OIL COOLER OUTLET TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_oilCool_temp_5b}}
+        </td>
+    </tr>
+
+    <tr>
+        <td>SYSTEM L/O PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_sys_LO_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>CONTROL L/O PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_control_LO_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>MAIN FUEL PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_main_fuel_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>SPILL FUEL PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_spill_fuel_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>COMP. AIR PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_comp_air_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>COOLING WATER PRESS. (Kg/cm<sup>2</sup>)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_cool_water_press_5b}}
+        </td>
+    </tr>
+    <tr>
+        <td>AMBIENT AIR TEMP.(&deg; C)</td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_1a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_1b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_2a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_2b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_3a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_3b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_4a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_4b}}
+        </td>
+        <td  colspan="2" >
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_5a}}&nbsp;
+            {{usersTwo.p15_gtg_accept_runn_para_down_amb_air_temp_5b}}
+        </td>
+    </tr>
+</table>
+
+
+
+<div class="heading-style2 text-center">
+    <h4  class="font-weight-bold"><u>GTG TOTAL BODY VIBRATION</u></h4>                                                       
+</div>
+
+<table class="table table-bordered tabletd-color">
+    <tr rowspan="2">
+        <th>TIME</th>
+        <th>LOAD</th>
+        <th colspan="2">GEN FWD</th>
+        <th colspan="2">GEN AFT</th>
+        <th colspan="2">RG (FWD)</th>
+        <th colspan="2">RG (AFT)</th>
+        <th colspan="3">COMP (BRG)</th>
+        <th colspan="3">COMP BODY</th>
+        <th colspan="2">TRBN sUPPORT</th>
+        <th colspan="1">TRBN BRGN</th>
+
+    </tr>
+
+    <tr>
+        <th></th>
+        <th></th>
+        <th>V</th>
+        <th>A</th>
+
+        <th>V</th>
+        <th>A</th>
+
+        <th>V</th>
+        <th>A</th>
+
+        <th>V</th>
+        <th>A</th>
+
+        <th>V</th>
+        <th>A</th>
+        <th>H</th>
+
+        <th>V</th>
+        <th>A</th>
+        <th>H</th>
+
+
+        <th>V</th>                                  
+        <th>H</th>
+
+        <th>A</th>
+      
+        
+
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>Idling</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_1_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_1_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_1_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_1_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_1_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_1_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_1_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_1_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>225 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_1_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+
+
+
+    <tr>
+        <td></td>
+        <td>450 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_1_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+
+
+
+    <tr>
+        <td></td>
+        <td>450 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_2_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+
+    <tr>
+        <td></td>
+        <td>675 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_1_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+
+    <tr>
+        <td></td>
+        <td>900 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_900kw_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_900kw_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_900kw_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_900kw_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_900kw_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_900kw_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_900kw_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_900kw_TRBN_BRGN_A}}</td>
+      
+
+    </tr>                                
+
+
+    <tr>
+        <td></td>
+        <td>675 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_675kw_2_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+
+    <tr>
+        <td></td>
+        <td>450 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_3_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+
+    <tr>
+        <td></td>
+        <td>450 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_450kw_4_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+
+    <tr>
+        <td></td>
+        <td>225 kW</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_225kw_2_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+
+
+    <tr>
+        <td></td>
+        <td>Idling</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_genFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_genFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_2_genAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_genAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_2_rgFWD_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_rgFWD_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_2_rgAFT_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_rgAFT_A}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_2_compBRG_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_compBRG_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_compBRG_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_2_compBody_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_compBody_A}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_compBody_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_2_TRBN_supp_V}}</td>
+        <td>{{usersTwo.p15_gtg_accept_idling_2_TRBN_supp_H}}</td>
+
+        <td>{{usersTwo.p15_gtg_accept_idling_2_TRBN_BRGN_A}}</td>
+      
+
+    </tr>
+</table>
+
+
+<div class="heading-style2 text-center">
+    <h4  class="font-weight-bold"><u>TRIAL SCHEDULE TO BE FOLLOWED ONBOARD SHIP</u></h4>                                                       
+</div>
+
+<table class="table table-bordered tabletd-color">
+    <tr>
+        <th>LOAD (%)</th>
+        <th>DURATION</th>
+        <th width="25%">REMARKS</th>
+    </tr>
+
+    <tr>
+      <td>0%</td>
+      <td>15 MINUTES</td>
+      <td>T-30, PARAMETERS</td>  
+    </tr>
+
+    <tr>
+        <td>25%</td>
+        <td>20 MINUTES</td>
+        <td>T-30, PARAMETERS</td>  
+      </tr>
+
+      <tr>
+        <td>50%</td>
+        <td>01 HOUR</td>
+        <td>VIBXPERT,T - 30, PARAMETERS</td>  
+      </tr>
+
+
+
+      <tr>
+        <td>75%</td>
+        <td>20 MINUTES</td>
+        <td>T-30, PARAMETERS</td>  
+      </tr>
+
+
+      <tr>
+        <td>100%</td>
+        <td>15 MINUTES</td>
+        <td>T-30, PARAMETERS</td>  
+      </tr>
+
+
+      <tr>
+        <td>75%</td>
+        <td>20 MINUTES</td>
+        <td>T-30, PARAMETERS</td>  
+      </tr>
+
+
+      <tr>
+        <td>50%</td>
+        <td>01 HOUR</td>
+        <td>VIBXPERT,T - 30, PARAMETERS</td>  
+      </tr>
+
+      <tr>
+        <td>25%</td>
+        <td>20 MINUTES</td>
+        <td>T-30, PARAMETERS</td>  
+      </tr>
+
+
+      <tr>
+        <td>0%</td>
+        <td>15 MINUTES</td>
+        <td>T-30, PARAMETERS</td>  
+      </tr>
+</table>
+
+    <div class="heading-style2 text-center">
+        <h4 class="font-weight-bold"><u>NARROW BAND ANALYSIS</u> </h4>                                                             
+    </div>
+
+    <table class="table table-bordered tabletd-color">
+        {% for al in narrow_band_analysis_rows %}
+        <tr> 
+            <td style="width: 0.5%;"> {{forloop.counter}}. </td>
+            <td style="width:12.5%">{{al.accept_narrow_band_analysis}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+
+<!-- End of Page - 2 -->
+<!-- Page 3 Starts -->
+
+                     
+        <div class="heading-style2 text-center">
+            <h4 class="font-weight-bold"><u>ATTENUATION ACROSS SV MOUNTS</u> </h4>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr style="text-align: center;">
+                <th>Mount No.</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>16</th>
+                <th>17</th>
+                <th>18</th>
+            </tr>
+            <tr>
+                <td>Top (mm/sec)</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top1}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top2}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top3}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top4}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top5}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top6}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top7}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top8}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top9}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top10}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top11}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top12}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top13}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top14}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top15}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top16}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top17}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_top18}}</td>
+            </tr>
+            <tr>
+                <td>Bottom (mm/sec)</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom1}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom2}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom3}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom4}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom5}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom6}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom7}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom8}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom9}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom10}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom11}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom12}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom13}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom14}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom15}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom16}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom17}}</td>
+                <td style="font-size:14px; color: #222;">{{usersThree.p15_gtg_accept_mount_bottom18}}</td>
+            </tr>
+            <tr>
+                <td>Attenuation %</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation1|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation1}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation2|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation2}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation3|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation3}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation4|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation4}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation5|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation5}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation6|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation6}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation7|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation7}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation8|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation8}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation9|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation9}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation10|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation10}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation11|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation11}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation12|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation12}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation13|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation13}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation14|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation14}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation15|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation15}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation16|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation16}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation17|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation17}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount_attenuation18|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount_attenuation18}}</td>
+            </tr>
+        </table>
+
+
+        <div class="heading-style2 text-center">
+        <h4 class="font-weight-bold"><u>HARDNESS ACROSS SV MOUNTS OF GTG 1250 2E</u> </h4>                                                             
+        </div>
+        <div>
+            <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr style="text-align: center;">
+                <th>Mount No.</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>16</th>
+                <th>17</th>
+                <th>18</th>
+                </tr>
+                <tr>
+                <td>Top (mm/sec)</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top1}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top2}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top3}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top4}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top5}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top6}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top7}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top8}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top9}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top10}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top11}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top12}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top13}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top14}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top15}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top16}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top17}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_top18}}</td>
+                </tr>
+                <tr>
+                <td>Bottom (mm/sec)</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom1}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom2}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom3}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom4}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom5}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom6}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom7}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom8}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom9}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom10}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom11}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom12}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom13}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom14}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom15}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom16}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom17}}</td>
+                <td>{{usersThree.p15_gtg_accept_mount1_bottom18}}</td>
+                </tr>
+                <tr>
+                <td>Attenuation %</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation1|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation1}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation2|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation2}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation3|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation3}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation4|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation4}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation5|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation5}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation6|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation6}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation7|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation7}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation8|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation8}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation9|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation9}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation10|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation10}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation11|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation11}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation12|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation12}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation13|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation13}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation14|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation14}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation15|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation15}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation16|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation16}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation17|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation17}}</td>
+                <td {% if usersThree.p15_gtg_accept_mount1_attenuation18|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{usersThree.p15_gtg_accept_mount1_attenuation18}}</td>
+                </tr>
+            </table>
+        </div>
+
+
+        <table class="table table-bordered tabletd-color">
+            <tr>
+                <td class="subheader td-bluelight">SECTION I/C</td>
+                <td>{{usersThree.p15_gtg_accept_sec_IC}}</td>
+                <td class="subheader td-bluelight">GTTT (V) REP</td>
+                <td>{{usersThree.p15_gtg_accept_gttt_REP}}</td>
+            </tr>
+
+            <tr>
+                <td class="subheader td-bluelight">AEO/SEO</td>
+                <td>{{usersThree.p15_gtg_accept_gtg_AEO}}</td>
+                <td class="subheader td-bluelight">TRIAL OFFICER GTTT (V)</td>
+                <td>{{usersThree.p15_gtg_accept_gttt_off}}</td>
+            </tr>
+
+        </table>
+
+
+        <div class="heading-style2 text-center">
+            <h4 class="font-weight-bold"><u>LIMITING VALUES OF PARAMETERS AT VARIOUS LOADS</u> </h4>
+        </div>
+
+        <table class="table table-bordered tabletd-color">
+            <tr>
+
+                <th>Power (KW)</th>
+                <th>IDLING</th>
+                <th>25%</th>
+                <th>50%</th>
+                <th>75%</th>
+                <th>100%</th>
+                <th>Permissible</th>
+                <th>Emergency Value</th>
+                
+            </tr>
+
+            <tr>
+
+                <td>Voltage (V)</td>
+                <td>380 V</td>
+                <td>380 V</td>
+                <td>380 V</td>
+                <td>380 V</td>
+                <td>380 V</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+
+                <td>Frequency (HZ)</td>
+                <td>50 Hz</td>
+                <td>50 Hz</td>
+                <td>50 Hz</td>
+                <td>50 Hz</td>
+                <td>50 Hz</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+            <tr>
+
+                <td>TC rpm</td>
+                <td colspan="5">12540--12650</td>
+                
+                <td></td>
+                <td>13480*</td>
+            </tr>
+
+            <tr>
+
+                <td>Exhaust Gas Temp.(&deg; C)</td>
+                <td>250-280</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>510</td>
+                <td>550*</td>
+            </tr>
+
+            <tr>
+
+                <td>Turbine Brg Temp. (&deg; C)</td>
+                <td colspan="5">50-80</td>
+                
+                <td>85*</td>
+                <td>90</td>
+            </tr>
+            <tr>
+
+                <td>Compressor Brg Temp.(&deg; C)</td>
+                <td colspan="5">40-50</td>
+                
+                <td>70*</td>
+                <td></td>
+            </tr>
+
+            <tr>
+
+                <td>Gen. Air cooler Temp.(&deg; C)</td>
+                <td colspan="5">Not Beyond 80</td>
+                
+                <td>85*</td>
+                <td></td>
+            </tr>
+
+            <tr>
+
+                <td>Cooler Out let Temp.(&deg; C)</td>
+                <td colspan="5">30-40</td>
+                
+                <td>50*</td>
+                <td></td>
+            </tr>
+
+            <tr>
+
+                <td>Control Lub Oil Pr. (Kg/cm<sup>2</sup>)</td>
+                <td colspan="5">2.8—3.0</td>
+                
+                <td>2.5</td>
+                <td>Below 2.0 </td>
+            </tr>
+
+            <tr>
+
+                <td>System Lub Oil Pr. (Kg/cm<sup>2</sup>)</td>
+                <td colspan="5">2.8—3.0</td>
+                
+                <td>6.0</td>
+                <td> </td>
+            </tr>
+
+
+            <tr>
+
+                <td>Main Fuel Press. (Kg/cm<sup>2</sup>)</td>
+                <td>45-56</td>
+                <td>-</td>
+                <td>46-61</td>
+                <td>-</td>
+                <td>47-65</td>
+                
+                <td>42-68</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+
+                <td>Spill Fuel Press. (Kg/cm<sup>2</sup>)</td>
+                <td>10-17</td>
+                <td>-</td>
+                <td>15-22</td>
+                <td>-</td>
+                <td>19-26</td>
+                
+                <td>8-28</td>
+                <td>-</td>
+            </tr>
+
+
+            <tr>
+
+                <td>Comp Air Press. (Kg/cm<sup>2</sup>)</td>
+                <td>3.8-4.3</td>
+                <td>4.0-4.5</td>
+                <td>4.2-4.7</td>
+                <td>4.4-4.9</td>
+                <td>4.6-5.2</td>
+                
+                <td>-</td>
+                <td>-</td>
+            </tr>
+
+
+            <tr>
+
+                <td>Cooling water press. (Kg/cm<sup>2</sup>)</td>
+                <td colspan="5">0.5-3.0</td>
+                
+                <td>0.5</td>
+                <td>-- </td>
+            </tr>
+
+            <tr>
+
+                <td>Fuel Press diff. (Kg/cm<sup>2</sup>)</td>
+                <td colspan="5">(0.5-1.5)</td>
+                
+                <td>(2.0)</td>
+                <td>--</td>
+            </tr>
+
+            <tr>
+
+                <td>Vacuum at compressor intake
+                    (mm H20)
+                    </td>
+                <td colspan="5">300 mm H20</td>
+                
+                <td>600 mm</td>
+                <td> </td>
+            </tr>
+
+
+            <tr>
+
+                <td>Oil consumption</td>
+                <td colspan="5">< 0.3 kg/hr</td>
+                
+                <td>--</td>
+                <td> </td>
+            </tr>
+
+
+            
+
+        </table>
+
+        <div class="heading-style2 text-center">
+            <h4 class="font-weight-bold"><u>PHASE ANALYSIS</u> </h4>
+        </div>
+
+       <table class="table table-bordered tabletd-color">
+                                    <tr>
+                                        <th colspan="2">PHASE ANALYSIS POINTS</th>
+                                        <th>DEFECT PHASE RANGE</th>
+                                        <th>DELTA PHASE VALUE</th>
+                                        <th>REMARKS</th>
+                                    </tr>
+        
+                                    <!-- first row  -->
+        
+                                    <tr>
+                                        <td rowspan="5">GENERATOR POINTS (AT 25 HZ)</td>
+                                        <td style="background: #efedff;">GEN FWD(VERTICAL-HORIZONTAL)</td>
+                                        <td>
+                                            <div>90&deg; ± 30&deg;</div> 
+                                            <div>(60&deg;-120&deg;)</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_fwd_VH_defect}}</td>
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_fwd_VH}}</td>    
+                                    </tr>
+        
+                                    <tr>
+                                        <td>GEN AFT(VERTICAL-HORIZONTAL)</td>  
+                                        <td>
+                                            <div>90&deg; ± 30&deg;</div>
+                                            <div>(60&deg; - 120&deg;)</div>
+                                        </td>        
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_aft_VH_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_aft_VH}}</td>   
+                                    </tr>
+        
+                                    <tr>
+                                        <td>GEN FWD (VERTICAL)-GEN AFT (VERTICAL)</td> 
+                                        <td>
+                                            <div>180&deg; ± 30&deg;</div>
+                                            <div>(150&deg;-210&deg;)</div>
+                                        </td>                
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_fwd_aft_VV_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_fwd_aft_VV}}</td>   
+                                    </tr>
+        
+                                    <tr>
+                                        <td>GEN FWD (HORIZONTAL)-GEN AFT (HORIZONTAL)</td> 
+                                        <td>
+                                            <div>180&deg; ± 30&deg;</div>
+                                            <div>(150&deg; - 210&deg;)</div>
+                                        </td>                           
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_fwd_aft_HH_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_fwd_aft_HH}}</td>   
+                                    </tr>
+        
+                                    <tr>
+                                        <td>GEN FWD (A)-GEN AFT (A) (OPPOSITE DIRECTION)</td> 
+                                          <td><div>0&deg; ± 30&deg;</div>
+                                            <div>(330&deg; - 30&deg;)</div>
+                                            </td>                
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_fwd_aft_VH_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_gen_GP_fwd_aft_VH}}</td>   
+                                    </tr>
+        
+                                <!-- second row  -->
+        
+                                    <tr>
+                                        <td rowspan="3">GENERATOR & RG COUPLING (AT 25 HZ)</td>
+                                        <td style="background: #efedff;">GEN AFT (V) - RG FWD (V)</td>
+                                        <td>
+                                            <div>180&deg; ± 30&deg;</div>
+                                            <div>(150&deg;-210&deg;)</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_RG_coup_aft_fwd_VV_defect}}</td>    
+                                        <td>{{usersThree.p15_gtg_accept_RG_coup_aft_fwd_VV}}</td>    
+                                    </tr>
+        
+        
+                                    <tr>
+                                        <td>GEN AFT (H) - RG FWD (H)</td>
+                                        <td>
+                                            <div>180&deg; ± 30&deg;</div>
+                                            <div>(150&deg; - 210&deg;)</div>
+                                        </td>                            
+                                        <td>{{usersThree.p15_gtg_accept_RG_coup_aft_fwd_HH_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_RG_coup_aft_fwd_HH}}</td>   
+                                    </tr>
+        
+                                    <tr>
+                                        <td>GEN AFT (A) - RG FWD (A) (OPPOSITE DIRECTION)</td>
+                                        <td>
+                                            <div>0&deg; ± 30&deg;</div>
+                                            <div>330&deg; - 30&deg;</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_RG_coup_aft_fwd_AA_defect}}</td>    
+                                        <td>{{usersThree.p15_gtg_accept_RG_coup_aft_fwd_AA}}</td>    
+                                    </tr>
+        
+                                      <!-- third row  -->
+                                      <tr>
+                                        <td rowspan="3">RG & COMRESSOR BEARING COUPLING (AT 210 HZ)</td>
+                                        <td style="background: #efedff;">RG AFT(V) - COMPRESSOR BEARING (V)</td>
+                                        <td>
+                                            <div>180&deg; ± 30&deg;</div>
+                                            <div>(150&deg;-210&deg;)</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_RG_compress_aft_brg_VV_defect}}</td>    
+                                        <td>{{usersThree.p15_gtg_accept_RG_compress_aft_brg_VV}}</td>    
+                                    </tr>
+        
+        
+                                    <tr>
+                                        <td>RG AFT(H) - COMPRESSOR BEARING (H)</td>   
+                                        <td>
+                                            <div>180&deg; ± 30&deg;</div>
+                                                <div>(150&deg; - 210&deg;)</div>
+                                        </td>                         
+                                        <td>{{usersThree.p15_gtg_accept_RG_compress_aft_brg_HH_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_RG_compress_aft_brg_HH}}</td>   
+                                    </tr>
+        
+                                    <tr>
+                                        <td>RG AFT(A) - COMPRESOR BEARING (A) (OPPOSITE DIRECTION) </td>
+                                        <td>
+                                            <div>0&deg; ± 30&deg;</div>
+                                            <div>(330&deg; - 30&deg;)</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_RG_compress_aft_brg_AA_defect}}</td>    
+                                        <td>{{usersThree.p15_gtg_accept_RG_compress_aft_brg_AA}}</td>    
+                                    </tr>
+        
+        
+                                    <!-- fourth row  -->
+                                    <tr>
+                                        <td rowspan="5">TC POINTS (AT 210 HZ)</td>
+                                        <td style="background: #efedff;">COMPRESSOR BEARING (V-H)</td>
+                                        <td>
+                                            <div>90&deg; ± 30&deg;</div>
+                                            <div>(60&deg; - 120&deg;)</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_tc_brg_VH_defect}}</td>    
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_tc_brg_VH}}</td>    
+                                    </tr>
+        
+                                    <tr>
+                                        <td>TURB SUPPORT (V-H)</td> 
+                                        <td>
+                                            <div>90&deg; ± 30&deg;</div>
+                                            <div>(60&deg; - 120&deg;)</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_tc_turb_VH_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_tc_turb_VH}}</td>   
+                                    </tr>
+        
+                                    <tr>
+                                        <td>COMPRESSOR BEARING (V) – TURB SUPPORT (V)</td> 
+                                        <td>
+                                            <div>180&deg; ± 30&deg;</div>
+                                            <div>(150&deg; - 210&deg;)</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_tc_turb_HH_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_tc_turb_HH}}</td>   
+                                    </tr>
+        
+        
+                                    <tr>
+                                        <td>COMPRESSOR BEARING (H) – TURB SUPPORT (H)</td> 
+                                        <td>
+                                            <div>180&deg; ± 30&deg;</div>
+                                            <div>(150&deg; - 210&deg;)</div>
+                                        </td>
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_turb_supp_VH_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_turb_supp_VH}}</td>   
+                                    </tr>
+        
+                                    
+                                    <tr>
+                                        <td>COMPRESSOR BEARING (A) – TURB BRG (A) (OPPOSITE DIRECTION)</td> 
+                                        <td>
+                                            <div>0&deg; ± 30&deg;</div>
+                                            <div>(330&deg; - 30&deg;)</div>
+                                        </td>                                      
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_turb_brg_AA_defect}}</td>   
+                                        <td>{{usersThree.p15_gtg_accept_TC_points_turb_brg_AA}}</td>   
+                                    </tr>
+                                </table>
+
+
+
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+        </table>
+    </div>
+
+   </body>
+   </html>
+
+
+
+
+
+
+
+

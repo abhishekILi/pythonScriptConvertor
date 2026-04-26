@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CBIU</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal"/>
+    <meta name="pdfkit-orientation" content="Landscape"/>
+		<style type="text/css">
+      body{margin:50px 50px; size:landscape;}
+		.wrapper{width: 100%; margin: 20px auto;}
+		table{border-collapse: collapse;}
+		.clear{padding: 0; margin: 0; width: 100%; clear: both;}
+		.star{color: red;}
+    strong{font-weight: 600;}
+    body{margin:50px;background: #FFF !important;}
+		</style>		   
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="heading-style2">
+	        <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>FLUE GAS ANALYSER</strong></h2>
+	    </div>
+      
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+        <tr>
+            <td style="font-size:14px; font-weight: 600; color: #000;"><strong>BOILER NAME/LOCATION : </strong> <span>{{users.boiler_name}}</span></td>
+        </tr>
+    </table>
+    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 5px;">
+      <tr>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Sl</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Time</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Shaft RPM</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">FD Blower RPM</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Burned Fuel Pressure</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Damper Position SUP/SAT Pass%</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">02%</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Stack Temp</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Ambient Temp</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Co2 %</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">C0 PPM</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">So2 %</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Excess Air %</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Stacl Loss</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Moisture Loss</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Effective Gross Calorific Value%</th>
+        <th style="font-size:13px; font-weight: 600; color: #000;">Effective NET Calorific Value%</th>
+      </tr>
+      
+      {% if users%} 
+      <tr>
+        <td style="font-size:14px; color: #222;">{{users.sl}}</td>
+        <td style="font-size:14px; color: #222;">{{users.time}}</td>
+        <td style="font-size:14px; color: #222;">{{users.shaft_rpm}}</td>
+        <td style="font-size:14px; color: #222;">{{users.FD_blower_rpm}}</td>
+        <td style="font-size:14px; color: #222;">{{users.burned_fule_pressure}}</td>
+        <td style="font-size:14px; color: #222;">{{users.damper_position}}</td>
+        <td style="font-size:14px; color: #222;">{{users.O2_pct}}</td>
+        <td style="font-size:14px; color: #222;">{{users.stack_temp_c}}</td>
+        <td style="font-size:14px; color: #222;">{{users.ambient_temb_c}}</td>
+        <td style="font-size:14px; color: #222;">{{users.CO2_pct}}</td>
+        <td style="font-size:14px; color: #222;">{{users.CO_ppm}}</td>
+        <td style="font-size:14px; color: #222;">{{users.SO2_pct}}</td>
+        <td style="font-size:14px; color: #222;">{{users.Excess_air_pct}}</td>
+        <td style="font-size:14px; color: #222;">{{users.stack_loss}}</td>
+        <td style="font-size:14px; color: #222;">{{users.moisture_loss}}</td>
+        <td style="font-size:14px; color: #222;">{{users.effective_gross_cal_val}}</td>
+        <td style="font-size:14px; color: #222;">{{users.effective_net_cal_val}}</td>
+      </tr>
+      {% endif%}
+    </table>
+
+    <h4>Recommendations. Following recommended:</h4>
+    {%  with "service/approvals.html" as template %}   
+          {% include template %}
+          
+    {% endwith %}
+    <div class="clear"></div>
+
+		</div>
+    <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+      <tr>
+          <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+          <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+      </tr>
+  </table>
+	</body>
+	 
+</html>	

@@ -1,0 +1,1625 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>re-gt-return</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+      </style>
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">RESTRICTED</h2>
+         </div>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+           
+            <tr>
+               <td width="6%"><strong>Date:</strong></td>
+              
+               <td style="font-size:14px; color: #222;">{{datesset | date:'d/m/Y'}}</td>
+               <td width="30%" class="td-bluelight"><strong>Date of Commission:</strong></td>
+               <td style="font-size:14px; color: #222;">{{users.date_of_comm | date:'d/m/Y'}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td><strong>Place:</strong></td>
+               <td style="font-size:14px; color: #222;">{{users.place}}</td>
+               <td class="td-bluelight"><strong>Return for quarter ending:</strong></td>
+               <td style="font-size:14px; color: #222;">{{users.date | date:'d/m/Y'}}</td>
+            </tr>
+            
+         </table>
+         <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-I: GENERAL</h2>
+         </div>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th rowspan="2">Unit</th>
+               <th rowspan="2">Old GT/RG S.NO.</th>
+               <th colspan="4">Details of New GT/ RG </th>
+               <th colspan="2">Remarks</th>
+            </tr>
+            <tr>
+               <th>S.NO</th>
+               <th>Ex-Ship / Contract</th>
+               <th>DOM</th>
+               <th>DOI</th>
+               <th>
+                  <ul type="i">
+                     <li>Reason of replacement</li>
+                     <li>Hours run (old GT/ RG)</li>
+                  </ul>
+               </th>
+            </tr>
+           
+            <tr>
+               <td>PBGT</td>
+               <td style="font-size:14px; color: #222;">{{users.PBGT_old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBGT_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBGT_ExShip_Contract}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBGT_DOM_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBGT_DOI}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBGT_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>SBGT</td>
+               <td style="font-size:14px; color: #222;">{{users.SBGT_old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBGT_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBGT_ExShip_Contract}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBGT_DOM_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBGT_DOI}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBGT_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>PBRG</td>
+               <td style="font-size:14px; color: #222;">{{users.PBRG_old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBRG_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBRG_ExShip_Contract}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBRG_DOM_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBRG_DOI}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PBRG_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>SBRG</td>
+               <td style="font-size:14px; color: #222;">{{users.SBRG_old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBRG_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBRG_ExShip_Contract}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBRG_DOM_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBRG_DOI}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SBRG_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>PCGT</td>
+               <td style="font-size:14px; color: #222;">{{users.PCGT_old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCGT_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCGT_ExShip_Contract}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCGT_DOM_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCGT_DOI}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCGT_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>SCGT</td>
+               <td style="font-size:14px; color: #222;">{{users.SCGT_old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCGT_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCGT_ExShip_Contract}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCGT_DOM_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCGT_DOI}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCGT_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>PCRG</td>
+               <td style="font-size:14px; color: #222;">{{users.PCRG_old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCRG_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCRG_ExShip_Contract}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCRG_DOM_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCRG_DOI}}</td>
+               <td style="font-size:14px; color: #222;">{{users.PCRG_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>SCRG</td>
+               <td style="font-size:14px; color: #222;">{{users.SCRG_old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCRG_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCRG_ExShip_Contract}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCRG_DOM_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCRG_DOI}}</td>
+               <td style="font-size:14px; color: #222;">{{users.SCRG_Remarks}}</td>
+            </tr>
+            
+         </table>
+         <div class="note-card">
+            <p><strong>Note:</strong>DOM-Date of Manufacturing; DOI-Date of Installation onboard.</p>
+            <ul type="1">
+               <li>DOM—Date of Manufacturing; | DOI-Date of Installation on board.</li>
+               <li>GT-— PCGT/SCGT/PBGT/SBGT,; RG- PCRG/SCRG/PBRG/SBRG.</li>
+               <li>Running hours are to be rounded off to nearest whole number</li>
+            </ul>
+         </div>
+         <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-II: OPERATIONS</h2>
+         </div>
+         <h4>(A) Gas Turbine Exploitation.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th colspan="3" rowspan="2">Operations</th>
+               <th colspan="3">SCGT</th>
+               <th colspan="3">PCGT</th>
+               <th colspan="3">SBGT</th>
+               <th colspan="3">PBGT</th>
+            </tr>
+            <tr>
+               <th>QTR</th>
+               <th>Sl</th>
+               <th>SN</th>
+               <th>QTR </th>
+               <th>Sl</th>
+               <th>SN</th>
+               <th>QTR</th>
+               <th>Sl</th>
+               <th>SN</th>
+               <th>QTR</th>
+               <th>Sl</th>
+               <th>SN</th>
+            </tr>
+           
+            <tr>
+               <td colspan="3">No of Cold Starts</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Cold_Starts_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="3">No of False Starts</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.False_Starts_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="3">No of Hot Starts</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Hot_Starts_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="3">Total</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.gas_turbine_Total_PBGT_SN}}</td>
+            </tr>
+            
+            <tr>
+               <td rowspan="9">Running Hours</td>
+               <td class="td-bluelight" rowspan="4">CGT</td>
+            </tr>
+           
+            <tr>
+               <td>1.0N</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_1_0N_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>0.8N</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_8N_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>0.625N & Below</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.CGT_0_625N_PBGT_SN}}</td>
+            </tr>
+            
+            <tr>
+               <td rowspan="4">BGT</td>
+            </tr>
+           
+            <tr>
+               <td>1.0N</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_1_0N_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>0.8N</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_8N_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>0.625N & Below</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.BGT_0_625N_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Total</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Total_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="3">No of Astern Engagements </td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Astern_Engagements_PBGT_SN}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="3">No of Prop Stop Orders</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PCGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PCGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PCGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_SBGT_SN}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PBGT_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PBGT_Sl}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Prop_Stop_Orders_PBGT_SN}}</td>
+            </tr>
+            
+         </table>
+         <h4>(B)Running Hours of Reduction Gears</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th rowspan="2">&nbsp;</th>
+               <th colspan="4">SCRG</th>
+               <th colspan="4">PCRG</th>
+            </tr>
+            <tr>
+               <th>JO</th>
+               <th>IO</th>
+               <th>LS</th>
+               <th>TOTAL</th>
+               <th>JO</th>
+               <th>IO</th>
+               <th>LS</th>
+               <th>TOTAL</th>
+            </tr>
+           
+            <tr>
+               <td class="td-bluelight">QTR</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_SCRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_SCRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_SCRG_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_SCRG_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PCRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PCRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PCRG_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PCRG_TOTAL}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td class="td-bluelight">Since installation</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_SCRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_SCRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_SCRG_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_SCRG_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PCRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PCRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PCRG_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PCRG_TOTAL}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>Since New</td>
+               <td style="font-size:14px; color: #222;">{{users.New_SCRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_SCRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_SCRG_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_SCRG_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PCRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PCRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PCRG_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PCRG_TOTAL}}</td>
+            </tr>
+            
+         </table>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th rowspan="2">&nbsp;</th>
+               <th colspan="4">SBRG</th>
+               <th colspan="4">PBRG</th>
+            </tr>
+            <tr>
+               <th>JO</th>
+               <th>IO</th>
+               <th>TOTAL</th>
+               <th>JO</th>
+               <th>IO</th>
+               <th>TOTAL</th>
+            </tr>
+           
+            <tr>
+               <td class="td-bluelight">QTR</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_SBRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_SBRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_SBRG_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PBRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PBRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PBRG_TOTAL}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td class="td-bluelight">Since installation</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_SBRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_SBRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_SBRG_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PBRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PBRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PBRG_TOTAL}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>Since New</td>
+               <td style="font-size:14px; color: #222;">{{users.New_SBRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_SBRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_SBRG_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PBRG_JO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PBRG_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PBRG_TOTAL}}</td>
+            </tr>
+            
+         </table>
+         <div class="note-card">
+            <p><strong>Note:</strong></p>
+            <ul type="i">
+               <li>In accordance with GTTT (MB) letter GTB/3000/GEN/RE dated 27 Mar 06.</li>
+               <li>JO-Joint Operation; 10-Independent Operation</li>
+            </ul>
+         </div>
+         <h4>(C)Thrust Bearinq Runnintt Hours</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th rowspan="2">&nbsp;</th>
+               <th colspan="4">STBD</th>
+               <th colspan="4">PORT</th>
+            </tr>
+            <tr>
+               <th>SBRG</th>
+               <th>IO(c)</th>
+               <th>LS</th>
+               <th>Total</th>
+               <th>PBRG</th>
+               <th>IO(c)</th>
+               <th>LS</th>
+               <th>Total</th>
+            </tr>
+            <tr>
+               <td>QTR</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_STBD_SBRG}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_STBD_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_STBD_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_STBD_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PORT_PBRG}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PORT_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PORT_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.QTR_PORT_TOTAL}}</td>
+            </tr>
+           
+            <tr>
+               <td>Since installation</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_STBD_SBRG}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_STBD_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_STBD_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_STBD_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PORT_PBRG}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PORT_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PORT_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.installation_PORT_TOTAL}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>Since New</td>
+               <td style="font-size:14px; color: #222;">{{users.New_STBD_SBRG}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_STBD_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_STBD_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_STBD_TOTAL}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PORT_PBRG}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PORT_IO}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PORT_LS}}</td>
+               <td style="font-size:14px; color: #222;">{{users.New_PORT_TOTAL}}</td>
+            </tr>
+            
+         </table>
+         <div class="note-card">
+            <p><strong>Note:</strong>IO(C)-lndependent Operations (Cruise); LS-Link Shaft</p>
+         </div>
+         <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART- lll: lNSPECTION/ TRIALS/ ROUTINES</h2>
+         </div>
+         <h4>(A)Maintenance Routines Due and Undertaken</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>SNO</th>
+               <th>Equipment</th>
+               <th>Description</th>
+               <th>Maintop Routine Number</th>
+            </tr>
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{users.Due_Undertaken_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Due_Undertaken_Equipment}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Due_Undertaken_Description}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Due_Undertaken_Maintop_Routine_No}}</td>
+            </tr>
+            
+         </table>
+         <h4>(B)Maintenance Routines Due But Not Undertaken</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>SNO</th>
+               <th>Equipment</th>
+               <th>Description</th>
+               <th>Maintop Routine Number</th>
+               <th>Reason</th>
+            </tr>
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{users.Due_Not_Undertaken_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Due_Not_Undertaken_Equipment}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Due_Not_Undertaken_Description}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Due_Not_Undertaken_Maintop_Routine_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Due_Not_Undertaken_Reason}}</td>
+            </tr>
+            
+         </table>
+         <h4>(C) Inspection/ Trials/ Routines</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Date of</th>
+               <th>SCGT&RG</th>
+               <th>PCGT & RG</th>
+               <th>SBGT/IRG</th>
+               <th>PBGT/RG</th>
+            </tr>
+           
+            <tr>
+               <td>Last EHM Trials</td>
+               <td style="font-size:14px; color: #222;">{{users.EHM_Trials_SCGT_RG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.EHM_Trials_PCGT_RG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.EHM_Trials_SBGT_IRG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.EHM_Trials_PBGT_RG_Date |date:'d/m/Y'}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>Last Full Power Trials</td>
+               <td style="font-size:14px; color: #222;">{{users.FullPower_Trials_SCGT_RG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.FullPower_Trials_PCGT_RG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.FullPower_Trials_SBGT_IRG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.FullPower_Trials_PBGT_RG_Date |date:'d/m/Y'}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>Last Annual Routines</td>
+               <td style="font-size:14px; color: #222;">{{users.Annual_Routines_SCGT_RG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Annual_Routines_PCGT_RG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Annual_Routines_SBGT_IRG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Annual_Routines_PBGT_RG_Date |date:'d/m/Y'}}</td>
+            </tr>
+            
+            <tr>
+               <td>Last Lub Oil Spectrometric Analysis</td>
+               <td style="font-size:14px; color: #222;">{{users.Lub_Oil_Spectrometric_Analysis}}</td>
+
+            </tr>
+           
+            <tr>
+               <td>Last Chemical Cleaning</td>
+               <td style="font-size:14px; color: #222;">{{users.Chemical_Cleaning_SCGT_RG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Chemical_Cleaning_PCGT_RG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Chemical_Cleaning_SBGT_IRG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Chemical_Cleaning_PBGT_RG_Date |date:'d/m/Y'}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>Drum Clearance Speed I</td>
+               <td style="font-size:14px; color: #222;"rowspan="2" colspan="2">{{users.Drum_Clearance_Speed_I_II_SCGT_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Drum_Clearance_Speed_I_SBGT_IRG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Drum_Clearance_Speed_I_PBGT_RG_Date |date:'d/m/Y'}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>
+                  Drum Clearance Speed II
+               </td>
+               <td style="font-size:14px; color: #222;">{{users.Drum_Clearance_Speed_II_SBGT_IRG_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.Drum_Clearance_Speed_II_PBGT_RG_Date |date:'d/m/Y'}}</td>
+            </tr>
+            
+         </table>
+         <h4>(d)Replacement of Units/ Sub Units-Nil</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th colspan="8">Gas Turbine Aggregate (GTA)</th>
+            </tr>
+            <tr>
+               <th>Date</th>
+               <th> Unit/Sub Unit</th>
+               <th>Old S.No</th>
+               <th>Nes S No.</th>
+               <th>Reason for Replacment </th>
+               <th>Remarks</th>
+            </tr>
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{users.GTA_date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.GTA_Unit}}</td>
+               <td style="font-size:14px; color: #222;">{{users.GTA_Old_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{users.GTA_Nes_S_No}}</td>
+                <td style="font-size:14px; color: #222;">{{users.GTA_Reason}}</td>
+
+               <td style="font-size:14px; color: #222;">{{users.GTA_Remarks}}</td>
+            </tr>
+            
+         </table>
+         <div class="note-card">
+            <p><strong>Note:</strong> if Unit/ Sub Units code is NA, indicate appropriate reference in detail on separate annexure.</p>
+         </div>
+         <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART -IV: DEFECTS</h2>
+         </div>
+         <h4>(A) Defects Observed on GTA during Quarter</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Date</th>
+               <th>DART No</th>
+               <th>Equipment</th>
+               <th>Description</th>
+               <th>Remedial Action</th>
+            </tr>
+            <tr>
+               <td colspan="5">STW in progress by ND (Mbi)</td>
+            </tr>
+         </table>
+         <h4>(B) Defects Observed on GTA Control System during Quarter</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Date</th>
+               <th>DART No</th>
+               <th>Equipment</th>
+               <th>Description</th>
+               <th>Remedial Action</th>
+            </tr>
+            <tr>
+               <td colspan="5">STW in progress by ND (Mbi)/MECI</td>
+            </tr>
+         </table>
+         <div class="note-card">
+            <p><strong>Note:</strong>Fe and Cu conieni as in lab report.</p>
+         </div>
+         <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART -V: PERFORMANCE PARAMETERS AND RELIABILITY DATA</h2>
+         </div>
+         <h4>(A)GT Parameters</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th colspan="2">PARAMETERS</th>
+               <th>SCGT</th>
+               <th>PCGT</th>
+               <th>SBGT</th>
+               <th>PBGT</th>
+            </tr>
+           
+            <tr>
+               <td colspan="2">Date:</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_date_SCGT |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_date_PCGT |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_date_SBGT |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_date_PBGT |date:'d/m/Y'}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Ambient Air Temperature </td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Air_Temp_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Air_Temp_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Air_Temp_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Air_Temp_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">HPC</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_HPC_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_HPC_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_HPC_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_HPC_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">LPC</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_LPC_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_LPC_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_LPC_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_LPC_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">PT</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_PT_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_PT_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_PT_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_PT_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Shaft </td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Shaft_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Shaft_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Shaft_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Shaft_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Ship Speed </td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Ship_Speed_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Ship_Speed_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Ship_Speed_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Ship_Speed_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Gas Temp After LPT</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_After_LPT_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_After_LPT_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_After_LPT_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_After_LPT_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Fuel Pressure Before Pump (kgffcm*)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Fuel_P_Before_Pump_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Fuel_P_Before_Pump_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Fuel_P_Before_Pump_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Fuel_P_Before_Pump_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Fuel Pressure Before Main Injector (kgf/cm?)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Fuel_P_Before_Injector_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Fuel_P_Before_Injector_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Fuel_P_Before_Injector_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Fuel_P_Before_Injector_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Oil Temperature at Engine Inlet (&deg;C)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Inlet_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Inlet_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Inlet_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Inlet_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Oil Temperature at Adaptor Outlet (&deg;C)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Adaptor_Outlet_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Adaptor_Outlet_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Adaptor_Outlet_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Adaptor_Outlet_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Oil Temperature at Settling Tank (&deg;C)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Settling_Tank_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Settling_Tank_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Settling_Tank_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_Settling_Tank_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Oil Pressure at Engine Inlet (kgf/cm*)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_P_Eng_Inlet_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_P_Eng_Inlet_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_P_Eng_Inlet_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_P_Eng_Inlet_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Static Air Pressure (kgf/cm)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Static_Air_P_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Static_Air_P_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Static_Air_P_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Static_Air_P_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Average LO Consumption (kg/hr)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Avg_LO_Con_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Avg_LO_Con_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Avg_LO_Con_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Avg_LO_Con_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Max Slip by LPC (RPM)(In1.0N for Boost & 0.8N for Cruise in combine Mode)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Max_Slip_LPC_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Max_Slip_LPC_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Max_Slip_LPC_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Max_Slip_LPC_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">T Up</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_T_Up_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_T_Up_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_T_Up_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_T_Up_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">T Down</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_T_Down_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_T_Down_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_T_Down_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_T_Down_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Ambient Air Temperature (&deg;C) </td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Amb_Air_Temp_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Amb_Air_Temp_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Amb_Air_Temp_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Amb_Air_Temp_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Sea Water Temperature (&deg;C)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Sea_Water_Temp_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Sea_Water_Temp_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Sea_Water_Temp_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Sea_Water_Temp_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Oil Temperature atRG Inlet(&deg;C)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_RG_Inlet_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_RG_Inlet_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_RG_Inlet_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_RG_Inlet_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Oil Temperature at RG Outlet CC)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_RG_Outlet_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_RG_Outlet_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_RG_Outlet_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_Temp_RG_Outlet_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td colspan="2">Oil Pressure at RG Inlet (kgf/cm²)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_P_RG_Inlet_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_P_RG_Inlet_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_P_RG_Inlet_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Oil_P_RG_Inlet_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td rowspan="2">Minimum Run Down Time (sec)</td>
+               <td class="td-bluelight">HPC</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Min_Run_Down_Time_SCGT_HPC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Min_Run_Down_Time_PCGT_HPC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Min_Run_Down_Time_SBGT_HPC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Min_Run_Down_Time_PBGT_HPC}}</td>
+            </tr>
+            <tr>
+               <td class="td-bluelight">LPC</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Min_Run_Down_Time_SCGT_LPC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Min_Run_Down_Time_PCGT_LPC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Min_Run_Down_Time_SBGT_LPC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.GT_Params_Min_Run_Down_Time_PBGT_LPC}}</td>
+            </tr>
+            
+         </table>
+         <div class="note-card">
+            <p><strong>Notes:</strong></p>
+            <ul type="1">
+               <li> Run Down Time of LP & HP spool — From 1500 to 500 RPM.</li>
+               <li>Indicate SRPM at which lub oil and fuel consumption data were recorded.</li>
+               <li>Parameters at 1.0N for Boost and 0.8N for Cruise in combine Mode.</li>
+            </ul>
+         </div>
+         <h4>(B)Slip (Creep)</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Parameters </th>
+               <th>SCGT</th>
+               <th>PCGT</th>
+               <th>SBGT</th>
+               <th>PBGT</th>
+            </tr>
+           
+            <tr>
+               <td>Slip by Exhaust Gas Temperature (&deg;C) </td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_Ex_Gas_Temp_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_Ex_Gas_Temp_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_Ex_Gas_Temp_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_Ex_Gas_Temp_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>Slip by LPC (RPM)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_LPC_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_LPC_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_LPC_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_LPC_PBGT}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>Slip by Air Pressure after HPC (kgf/cm*)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_Air_P_HPC_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_Air_P_HPC_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_Air_P_HPC_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Slip_Params_Slip_Air_P_HPC_PBGT}}</td>
+            </tr>
+            
+         </table>
+         <h4>(C)Engine Field Temperatures.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th rowspan="2">Point</th>
+               <th colspan="2">SCGT</th>
+               <th colspan="2">PCGT</th>
+               <th colspan="2">SBGT</th>
+               <th colspan="2">PBGT</th>
+            </tr>
+            <tr>
+               <th>Temp C</th>
+               <th>∆T c</th>
+               <th>Temp C</th>
+               <th>∆T c</th>
+               <th>Temp C</th>
+               <th>∆T c</th>
+               <th>Temp C</th>
+               <th>∆T c</th>
+            </tr>
+           
+            <tr>
+               <td>1</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_1_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_1_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_1_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_1_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_1_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_1_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_1_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_1_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>2</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_2_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_2_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_2_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_2_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_2_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_2_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_2_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_2_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>3</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_3_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_3_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_3_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_3_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_3_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_3_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_3_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_3_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>4</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_4_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_4_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_4_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_4_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_4_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_4_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_4_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_4_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>5</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_5_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_5_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_5_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_5_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_5_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_5_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_5_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_5_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>6</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_6_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_6_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_6_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_6_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_6_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_6_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_6_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_6_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>7</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_7_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_7_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_7_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_7_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_7_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_7_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_7_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_7_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>8</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_8_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_8_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_8_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_8_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_8_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_8_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_8_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_8_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>9</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_9_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_9_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_9_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_9_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_9_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_9_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_9_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_9_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>10</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_10_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_10_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_10_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_10_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_10_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_10_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_10_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_10_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>11</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_11_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_11_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_11_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_11_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_11_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_11_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_11_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_11_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>12</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_12_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_12_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_12_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_12_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_12_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_12_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_12_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_12_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>13</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_13_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_13_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_13_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_13_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_13_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_13_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_13_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_13_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>14</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_14_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_14_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_14_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_14_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_14_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_14_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_14_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_14_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>15</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_15_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_15_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_15_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_15_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_15_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_15_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_15_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_15_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>16</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_16_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_16_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_16_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_16_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_16_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_16_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_16_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_16_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>17</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_17_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_17_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_17_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_17_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_17_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_17_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_17_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_17_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>18</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_18_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_18_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_18_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_18_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_18_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_18_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_18_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_18_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>19</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_19_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_19_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_19_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_19_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_19_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_19_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_19_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_19_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>20</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_20_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_20_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_20_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_20_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_20_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_20_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_20_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_20_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>T Average (T avg)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Avg_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Avg_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Avg_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Avg_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Avg_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Avg_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Avg_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Avg_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>T High (Point)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_High_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_High_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_High_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_High_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_High_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_High_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_High_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_High_PBGT_Tc}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>T Low (Point)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Low_SCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Low_SCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Low_PCGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Low_PCGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Low_SBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Low_SBGT_Tc}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Low_PBGT_TempC}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_T_Low_PBGT_Tc}}</td>
+            </tr>
+            
+         </table>
+         <div class="note-card">
+            <p><strong>Notes:</strong>AT= Tavg-Temp at a point; Negative AT corresponds to AT Low; Positive AT corresponds to AT
+               High
+            </p>
+         </div>
+         <h4>(D) Fluid Consumption and Performance Parameters.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Fluid</th>
+               <th>SCGT</th>
+               <th>PCGT</th>
+               <th>SBGT</th>
+               <th>PBGT</th>
+            </tr>
+            <tr>
+               <td>Fuel (Ton/hr)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Fluid_Fuel_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Fluid_Fuel_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Fluid_Fuel_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Fluid_Fuel_PBGT}}</td>
+            </tr>
+            <tr>
+               <td>Lub Oil (kg/hr)</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Fluid_Lub_Oil_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Fluid_Lub_Oil_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Fluid_Lub_Oil_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Fluid_Lub_Oil_PBGT}}</td>
+            </tr>
+         </table>
+         <h4>(E) Spectrometry Trend (LO).</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Element</th>
+               <th>SCGT</th>
+               <th>PCGT</th>
+               <th>SBGT</th>
+               <th>PBGT</th>
+            </tr>
+            <tr>
+               <td>Fe</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.LO_Ele_Fe_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.LO_Ele_Fe_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.LO_Ele_Fe_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.LO_Ele_Fe_PBGT}}</td>
+            </tr>
+            <tr>
+               <td>Cu</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.LO_Ele_Ce_SCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.LO_Ele_Ce_PCGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.LO_Ele_Ce_SBGT}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.LO_Ele_Ce_PBGT}}</td>
+            </tr>
+         </table>
+         <div class="note-card">
+            <p><strong>Note:</strong>Fe and Cu Content as in Lab Report</p>
+         </div>
+         <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">PART-VI: RECORDING OF RUNNING HOURS AND CALIBRATION/REPAIRS DATA
+               HP FUEL PUMPS OF MAIN PROPULSION GAS TURBINE
+            </h2>
+         </div>
+         <h4>(A) Pump Fitted on Engine.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th rowspan="2">Pump Position</th>
+               <th rowspan="2">Pumps No</th>
+               <th rowspan="2">Date of Installation</th>
+               <th colspan="2">Total R/H</th>
+               <th rowspan="2">Remarks</th>
+            </tr>
+            <tr>
+               <th>R/H QTR</th>
+               <th>R/H Total</th>
+            </tr>
+           
+            <tr>
+               <td>PCGT</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PCGT_Pumps_No}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PCGT_Date_Installation |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PCGT_Total_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PCGT_Total_Total}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PCGT_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>SCGT</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SCGT_Pumps_No}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SCGT_Date_Installation |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SCGT_Total_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SCGT_Total_Total}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SCGT_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>PBGT</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PBGT_Pumps_No}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PBGT_Date_Installation |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PBGT_Total_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PBGT_Total_Total}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_PBGT_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td>SBGT</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SBGT_Pumps_No}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SBGT_Date_Installation |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SBGT_Total_QTR}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SBGT_Total_Total}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pump_Pos_SBGT_Remarks}}</td>
+            </tr>
+            
+         </table>
+         <h4>(B)Pumps in SPTA</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Pump SNO</th>
+               <th>Last Calibrated On</th>
+               <th>Total R/H</th>
+               <th>Remarks</th>
+            </tr>
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Pump_SNO}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Last_Calibrated_Date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Total}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Remarks}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Pump_SNO_2}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Last_Calibrated_Date_2 |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Total_2}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Remarks_2}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Pump_SNO_3}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Last_Calibrated_Date_3 |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Total_3}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Remarks_3}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Pump_SNO_4}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Last_Calibrated_Date_4 |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Total_4}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.SPTA_Remarks_4}}</td>
+            </tr>
+            
+         </table>
+         <h4>(C) Pumps Surveyed in Quarter.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Pump SNO</th>
+               <th>Survey on</th>
+               <th>Survey reference</th>
+               <th>Total R/H</th>
+               <th>Reason for Survey Survey (viz BLR/BER/Excess Lump SNO Surveyed On Reference | TOR | Stock/Non-compatible
+                  etc)
+               </th>
+            </tr>
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Surve_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Surve_Survey_on_date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Surve_Survey_ref}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Surve_Total}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Surve_Reason}}</td>
+            </tr>
+            
+         </table>
+         <h4>(D) Pumps Received in Quarter.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Pump SNO</th>
+               <th>Received On</th>
+               <th>Against Survey Reference</th>
+               <th>Remarks</th>
+            </tr>
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Received_S_No}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Received_on_date |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Received_Against_Survey_Ref}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Pumps_Received_Remarks}}</td>
+            </tr>
+            
+         </table>
+         <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">Part VII Reamarks</h2>
+         </div>
+         <ul type="i">
+            <li>Ship is in SR-21 wef 15 Jul 21. Replacement/ alignment of SCRG and SBRG have
+               been completed. STVW/ DR on fresh defects of GTA and associated system are in progress.
+            </li>
+            <li>Both CGTs have been de-preserved successfully in Dec 21.</li>
+         </ul>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th colspan="2">Enginner Officer</th>
+               <th colspan="2">Commanding Officer</th>
+            </tr>
+           
+            <tr>
+               <td><strong>Name:</strong></td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_Officer_name}}</td>
+               <td><strong>Name:</strong></td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Cmd_Officer_name}}</td>
+            </tr>
+            
+           
+            <tr>
+               <td><strong>Rank:</strong></td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Eng_Officer_Rank}}</td>
+               <td><strong>Rank:</strong></td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Cmd_Officer_Rank}}</td>
+            </tr>
+            
+         </table>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th colspan="4">(For Office Use Only)</th>
+            </tr>
+            <tr>
+               <th>Date Checked</th>
+               <th>Personnel</th>
+               <th>Date Of Data Entry</th>
+               <th>Personnel</th>
+            </tr>
+           
+            <tr>
+               <td style="font-size:14px; color: #222;">{{usersOne.Date_Checked |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Personnel}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Date_Of_Data_Entry |date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{usersOne.Personnel_Data_Entry}}</td>
+            </tr>
+            
+         </table>
+         <h4>Recommendations. Following recommended:</h4>
+         {%  with "service/approvals.html" as template %}   
+               {% include template %}
+               
+         {% endwith %}
+         <div class="clear"></div>   
+      </div>
+      <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+         <tr>
+             <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+             <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+         </tr>
+     </table>
+      </body>
+      </html>

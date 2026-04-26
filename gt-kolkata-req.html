@@ -1,0 +1,259 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>REQUISTION FOR EHM TRIALS</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+   <body>
+
+    <div class="wrapper">
+      <div style="float:right">
+          <p>Report Generated on: {{ history.approved_date_time }}</p>
+      </div>
+<section class="body-card form-style1 trial-form">
+  
+      <div class="container-fluid">
+        <div class="row mt-1">
+          <div class="col-md-12">
+            <div class="panel-right">
+              
+              <div class="panel-row">
+                <div class="heading-style2 heading-mat-sm text-center">
+                  <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 42%;"
+                  src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+                  <h2 style="text-align: center;">GTTT MUMBAI</h2>
+                  <h2 class="text-center mt-1 heading-style2">REQUISTION FOR {{users.req_gt_form_name}} TRIALS</h2>
+                </div>
+  
+                <table class="table table-bordered table-style-color tabletd-color table-requistion mt-1">
+                  <tr>
+                    <td width="3%"><b>1.</b></td>
+                    <td width="35%" class="td-bluelight"> Name of Ship</td>
+                    <td width="25%">{{ship}}</td>
+                  </tr>
+                  <tr>
+                    <td><b>2.</b></td>
+                    <td class="td-bluelight">Machinery / Equipment</td>
+                    <td>{{equipment}}</td>
+                  </tr>
+                  <tr>
+                    <td><b>3.</b></td>
+                    <td class="td-bluelight"> Reason for trial</td>
+                    <td>{{users.Req_EHM_Reason_trial}}</td>
+                  </tr>
+                  <tr>
+                    <td><b>4.</b></td>
+                    <td class="td-bluelight"> Proposed Date for harbour trial</td>
+                    <td>
+                      <div class="matt-group">{{users.Req_EHM_Proposed_Date_harbour_trial}}
+                      </div>
+  
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><b>5.</b></td>
+                    <td class="td-bluelight">
+                      <p style="font-size: 14px; margin:0;">Proposed Date for Sea trial</p>
+                    </td>
+                    <td>
+                      <div class="matt-group">{{users.Req_EHM_Proposed_Date_Sea_trial}}
+                      </div>
+  
+                    </td>
+                  </tr>
+                </table>
+  
+             
+  
+                <table class="table table-bordered table-style-color tabletd-color table-requistion mt-1">
+                  <tr>
+                    <th width="23%">Type</th>
+                    <th>GT No.1</th>
+                    <th>GT No.2</th>
+                    <th>GT No.3</th>
+                    <th>GT No.4</th>
+                    <th>RG1</th>
+                    <th>RG2</th>
+                   
+                  </tr>
+                  <tr>
+                    <td><b>6.</b>&nbsp;&nbsp; S.No of GTAs</td>
+                    <td>{{users.Req_EHM_S_No_GT_1}}</td>
+                    <td>{{users.Req_EHM_S_No_GT_2}}</td>
+                    <td>{{users.Req_EHM_S_No_GT_3}}</td>
+                    <td>{{users.Req_EHM_S_No_GT_4}}</td>
+                    <td>{{users.Req_EHM_S_No_RG1}}</td>
+                    <td>{{users.Req_EHM_S_No_RG2}}</td>
+                  
+                  </tr>
+                  <tr>
+                    <td><b>7.</b>&nbsp;&nbsp; Running Hours Since Installation</td>
+                    <td>{{users.Req_EHM_Running_Hrs_Instal_GT_1}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_Instal_GT_2}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_Instal_GT_3}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_Instal_GT_4}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_Instal_RG1}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_Instal_RG2}}</td>
+                  
+                  </tr>
+                  <tr>
+                    <td><b>8.</b>&nbsp;&nbsp; Running Hours Since New</td>
+                    <td>{{users.Req_EHM_Running_Hrs_new_GT_1}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_new_GT_2}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_new_GT_3}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_new_GT_4}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_new_RG1}}</td>
+                    <td>{{users.Req_EHM_Running_Hrs_new_RG2}}</td>
+              
+                  </tr>
+                  <tr>
+                    <td><b>9.</b>&nbsp;&nbsp; Hrs run since last trials</td>
+                    <td>{{users.Req_EHM_run_l_trials_GT_1}}</td>
+                    <td>{{users.Req_EHM_run_l_trials_GT_2}}</td>
+                    <td>{{users.Req_EHM_run_l_trials_GT_3}}</td>
+                    <td>{{users.Req_EHM_run_l_trials_GT_4}}</td>
+                    <td>{{users.Req_EHM_run_l_trials_RG1}}</td>
+                    <td>{{users.Req_EHM_run_l_trials_RG2}}</td>
+                   
+                  </tr>
+                  <tr>
+                    <td><b>10.</b>&nbsp;&nbsp; Date of last Trial</td>
+                    <td colspan="2">
+                      <div class="date-field">
+                        <div class="matt-group">{{users.Req_EHM_Date_last_Trial}}
+                        </div>
+  
+                      </div>
+                    </td>
+                    <td colspan="2" style="background: #efedff;"><b>11.</b>&nbsp;&nbsp; Last Major Routine Carried Out</td>
+                    <td colspan="2">{{users.Req_EHM_L_Major_Routine_Carried}}
+                    </td>
+                 
+                  </tr>
+                  <tr>
+                    <td><b>12.</b>&nbsp;&nbsp; Hours run Since Last Major Routine</td>
+                    <td>{{users.Req_EHM_run_L_Major_Routine_GT_1}}</td>
+                    <td>{{users.Req_EHM_run_L_Major_Routine_GT_1}}</td>
+                    <td>{{users.Req_EHM_run_L_Major_Routine_GT_1}}</td>
+                    <td>{{users.Req_EHM_run_L_Major_Routine_GT_1}}</td>
+                    <td>{{users.Req_EHM_run_L_Major_Routine_RG1}}</td>
+                    <td>{{users.Req_EHM_run_L_Major_Routine_RG2}}</td>
+                   
+                  </tr>
+                  <tr>
+                    <td><b>13.</b>&nbsp;&nbsp; Details of replacement of Major Equipment</td>
+                    <td colspan="6">
+                      {{users.Req_EHM_rep_Major_Comp}}
+                    </td>
+                   
+                  </tr>
+               
+                </table>
+
+
+                <div class="heading-style2 text-left">
+                  <h4><u>REMARKS</u></h4>
+              </div>
+              <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                  <tr>
+                    <td>
+                  
+                      <div class="form-floating"> {{users.kolkata_gt_req_remarks|safe}}
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+    <tr>
+        <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+        <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+    </tr>
+</table>
+
+<table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+  <tr style="border: 0; border-style:None;">
+      <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+      <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

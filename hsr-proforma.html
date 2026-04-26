@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ETMA Navy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal"/>
+    <meta name="pdfkit-orientation" content="Portrait"/>
+    <style type="text/css">
+
+    .sizx li{
+      margin-bottom: 5px;
+    }
+      body {
+        margin: 50px 20px 50px 20px;
+        size: landscape;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .wrapper{width: 100%;border-style: double; padding: 8px;}
+
+
+      table {
+          border-collapse: collapse;
+      }
+
+      .clear {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          clear: both;
+      }
+
+      .star {
+          color: red;
+      }
+
+      strong {
+          font-weight: 600;
+      }
+
+      tr,
+      th {
+          text-align: start;
+      }
+
+      tr,
+      th {
+          font-size: 14px;
+      }
+
+      th {
+        text-align: center;
+      }
+
+  </style>     
+  </head>
+  <body>
+    <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+        <div class="heading-style2 text-center" style="text-align:center;">
+          <img width="100px" alt="Logo"
+                  style="height: 150px; width: 160px; position: relative; left: 15%;"
+                  src="{{satellite_unit_icon}}">
+          <h2><b><u>
+            <strong>HELO STARTING RECTIFIER (HSR) TRIALS OCCASION OF TRIALS
+              {{users.occation_of_trial}}<br/>
+              TRIAL DATE -
+              {{users.trial_date}}
+            </strong>
+          </u>
+          </b>
+          </h2>
+          <h2 class="text-center mt-3 heading-style2"><b><u>
+            <strong>HELO STARTING RECTIFIER LOAD TRIAL REPORT – HSR CAT
+              {{users.trial_HSR_CAT}}
+              <br />(28.5V DC)SHIP – 
+              {{users.shipName}}
+            </strong>
+          </u>
+          </b>
+          </h2>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <div class="panel-right">
+
+
+              <div class="panel-row">
+                <h4>1. Trial Details</h4>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                  <tr>
+                    <td>(a)</td>
+                    <td>Presented by <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td width="70%">
+                    {{users.presented_by}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>
+                      Trial date
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      {{users.trials_date}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>Conducted by <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td width="70%">
+                    {{users.conducted_by}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>
+                      Occasion of current trial
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                    {{users.occationOfCurrTrial}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(e)</td>
+                    <td>
+                      Date of last trial carried out on
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      {{users.lastTrialDate}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(f)</td>
+                    <td>
+                      Proposal reference
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                      {{users.referanceTrialID}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(g)</td>
+                    <td>
+                      File reference
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td>
+                    {{users.referanceFileID}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(h)</td>
+                    <td>Reference document for trial</td>
+                    <td>
+                    EED-Q-267(R4)
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="panel-row">
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                  <tr>
+                    <td class="matt-group-td" width="25%" [ngStyle]="{ 'border-top': 0 }">
+                      <b>2. Test Equipment Used.</b>
+                      <span class="star"><span class="star">*</span></span>
+                    </td>
+                    <td [ngStyle]="{ 'border-top': 0 }">
+                    {{users.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="panel-row">
+                <h4>3. Equipment Details</h4>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                  <tr>
+                    <th colspan="3">Rectifier</th>
+                  </tr>
+                  <tr>
+                    <td width="5%">(a)</td>
+                    <td width="17%">
+                      Make,Model(Year) & rating <span class="star">*</span>
+                    </td>
+                    <td>
+                    {{users.rctfr_equipmentID}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>Equipment Serial no. <span class="star">*</span></td>
+                    <td>
+                    {{users.rctfr_equipmentSrNo}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>CMMS Equipment Code <span class="star">*</span></td>
+                    <td>
+                    {{users.rctfr_equipment_cmms_code}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>Location of Equipment <span class="star">*</span></td>
+                    <td>
+                    {{users.rctfr_equipment_location}}
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="panel-row">
+                  <h4>4. Insulation Resistance (i.a.w. NES 511(Issue 2))</h4>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                    <tr>
+                      <td width="5%">(a)</td>
+                      <td width="17%">
+                        Rectifier ( > 2MΩ) <span class="star">*</span>
+                      </td>
+                      <td>
+                        {{users.rectifier_val}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(b)</td>
+                      <td>Contactor Box (>10MΩ) <span class="star">*</span></td>
+                      <td width="50%">
+                        {{users.contactor_box_val}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(c)</td>
+                      <td>Flexible Cable (>20MΩ)<span class="star">*</span></td>
+                      <td>
+                        {{users.flexible_cable_val}}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <h4>5. Protection Checks</h4>
+                <div class="table-responsive">
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                    <tr>
+                      <th>Ser</th>
+                      <th>Protection</th>
+                      <th>Calibration Date<span class="star">*</span></th>
+                      <th>
+                        Calibration Certificate Provided (Yes/No)<span class="star">*</span>
+                      </th>
+                      <th>Permissible limit</th>
+                      <th>Observed Value<span class="star">*</span></th>
+                      <th width="13%">
+                        Status (Sat/ Unsat)<span class="star">*</span>
+                      </th>
+                      <th>Remarks</th>
+                    </tr>
+                    <tr>
+                      <td>(a)</td>
+                      <td>Over voltage<span class="star">*</span></td>
+                      <td>
+                        {{users.proChck_OV_CDate}}
+                      </td>
+                      <td>
+                        {{users.proChck_OV_CertSts}}
+                      </td>
+                      <td>
+                        36/32 ±1 Volts at Cable end within 01 sec. 
+                      </td>
+                      <td>
+                        {{users.proChck_OV_ObsVal}}
+                      </td>
+                      <td>
+                        {{users.proChck_OV_Sts}}
+                      </td>
+                      <td>
+                        {{users.proChck_OV_Remarks}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(b)</td>
+                      <td>Under voltage<span class="star">*</span></td>
+                      <td>
+                        {{users.proChck_UV_CDate}}
+                      </td>
+                      <td>
+                        {{users.proChck_UV_CertSts}}
+                      </td>
+                      <td>18 ± 0.5 Volts within 05 sec.</td>
+                      <td>
+                        {{users.proChck_UV_ObsVal}}
+                      </td>
+                      <td>
+                        {{users.proChck_UV_Sts}}
+                      </td>
+                      <td>
+                        {{users.proChck_UV_Remarks}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(c)</td>
+                      <td>
+                        Overload for setting at 1200A Overload for setting at
+                        1000A<span class="star">*</span>
+                      </td>
+                      <td>
+                        {{users.proChck_OVLD_CDate}}
+                      </td>
+                      <td>
+                        {{users.proChck_OVLD_CertSts}}
+                      </td>
+                      <td>
+                        125% ofrated output load (1200/ 1000A Amps) of the unit
+                        with the minimum time lag possible.Hand reset of the over
+                        current protection unit is to be provided.
+                      </td>
+                      <td>
+                        {{users.proChck_OVLD_ObsVal}}
+                      </td>
+                      <td>
+                        {{users.proChck_OVLD_Sts}}
+                      </td>
+                      <td>
+                        {{users.proChck_OVLD_Remarks}}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="note-card" style="text-align: justify!important;">
+                <p>
+                  <strong><u>Note:</u></strong> <p>The overvoltage trip may be set at 36± 1V
+                  with delay of 1 sec(settable) for HSR of M/s L&T make vide IHQ
+                  MoD(N)/DEE fax EE/03/5181 dated 23 Oct 19. The overvoltage trip
+                  may be set at 32±0.5V with delay of 1 sec(settable) for all
+                  other make of HSR i.a.w. EED-Q-267(R4).</p>
+                </p>
+              </div>
+              <h4>6. Instrumentation</h4>
+              <div class="table-responsive">
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                  <tr>
+                    <th>Ser</th>
+                    <th>Meter</th>
+                    <th>Ops/ Non Ops<span class="star">*</span></th>
+                    <th>Calibration Date<span class="star">*</span></th>
+                    <th>
+                      Calibration Certificate Provided (Yes/ No)<span class="star">*</span>
+                    </th>
+                    <th wdith="13%">
+                      Status (Sat/ Unsat)<span class="star">*</span>
+                    </th>
+                    <th>Remarks</th>
+                  </tr>
+                  <tr>
+                    <td>(a)</td>
+                    <td>Main AC input Voltmeter</td>
+                    <td>
+                    {{users.instrmtn_AC_VM_ops}}
+                    </td>
+                    <td>
+                      {{users.instrmtn_AC_VM_CDate}}
+                    </td>
+                    <td>
+                      {{users.instrmtn_AC_VM_CertSts}}
+                    </td>
+                    <td>
+                      {{users.instrmtn_AC_VM_Sts}}
+                    </td>
+                    <td>
+                    {{users.instrmtn_AC_VM_Remarks}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>DC Ammeter</td>
+                    <td>
+                    {{users.instrmtn_DC_AMM_ops}}
+                    </td>
+                    <td>{{users.instrmtn_DC_AMM_CDate}}
+                    </td>
+                    <td>
+                      {{users.instrmtn_DC_AMM_CertSts}}
+                    </td>
+                    <td>
+                      {{users.instrmtn_DC_AMM_Sts}}
+                    </td>
+                    <td>
+                    {{users.instrmtn_DC_AMM_Remarks}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>DC Voltmeter</td>
+                    <td>
+                    {{users.instrmtn_DC_VMM_ops}}
+                    </td>
+                    <td>
+                      {{users.instrmtn_DC_VMM_CDate}}
+                    </td>
+                    <td>
+                      {{users.instrmtn_DC_VM_CertSts}}
+                    </td>
+                    <td>
+                      {{users.instrmtn_DC_VM_Sts}}
+                    </td>
+                    <td>
+                    {{users.instrmtn_DC_VM_Remarks}}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <h4 style="margin-top:230px;">7. Miscellaneous</h4>
+              <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                <tr>
+                  <th>Ser</th>
+                  <th>Observations</th>
+                  <th>Details</th>
+                  <th>Remarks</th>
+                </tr>
+                <tr>
+                  <td width="5%">(a)</td>
+                  <td width="40%">
+                    DR details<span class="star">**</span>
+                  </td>
+                  <td>
+                    {{users.misc_past_Eqpt_hst}}
+                  </td>
+                  <td>
+                    {{users.misc_past_Eqpt_hst_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(b)</td>
+                  <td>
+                    Lighting and ventilation of compartment (Sat/ Unsat)<span class="star">*</span>
+                  </td>
+                  <td>
+                    {{users.misc_lighting}}
+                  </td>
+                  <td>
+                  {{users.misc_lighting_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(c)</td>
+                  <td>
+                    Cooling (Natural air/ Forced cooling)<span class="star">*</span>
+                  </td>
+                  <td>
+                    {{users.misc_cooling}}
+                  </td>
+                  <td>
+                  {{users.misc_cooling_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(d)</td>
+                  <td>
+                    Earthing of HSR and control panel (Sat/ Unsat)<span class="star">*</span>
+                  </td>
+                  <td>
+                    {{users.misc_earthing}}
+                  </td>
+                  <td>
+                  {{users.misc_earthing_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(e)</td>
+                  <td>
+                    Condition of cables (Sat/Unsat)<span class="star">*</span>
+                  </td>
+                  <td>
+                    {{users.misc_cbl_cond}}
+                  </td>
+                  <td>
+                  {{users.misc_cbl_cond_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(f)</td>
+                  <td>Cleanliness (Sat/ Unsat)*<span class="star">*</span></td>
+                  <td>
+                    {{users.misc_cleanliness}}
+                  </td>
+                  <td>
+                  {{users.misc_cleanliness_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(g)</td>
+                  <td>
+                    Indication lamps and switches (Sat/ Unsat)<span class="star">*</span>
+                  </td>
+                  <td>
+                    {{users.misc_indication}}
+                  </td>
+                  <td>
+                  {{users.misc_indication_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(h)</td>
+                  <td>Equipment tallies*<span class="star">*</span></td>
+                  <td>
+                    {{users.misc_Eqpt}}
+                  </td>
+                  <td>
+                  {{users.misc_Eqpt_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(I)</td>
+                  <td>
+                    Multi setting overload trip with suitable selection switch in
+                    the output circuit of rectifier (Available/ Not
+                    Available)<span class="star">*</span>
+                  </td>
+                  <td>
+                    {{users.misc_multi_setting}}
+                  </td>
+                  <td>
+                  {{users.misc_multi_setting_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>(j)</td>
+                  <td>
+                    Provision of calibration in overload trip. (Yes/ No)<span class="star">*</span>
+                  </td>
+                  <td>
+                    {{users.misc_prov_calibrn}}
+                  </td>
+                  <td>
+                  {{users.misc_prov_calibrn_remarks}}
+                  </td>
+                </tr>
+              </table>
+              <div class="note-card">
+                <p><strong><u>Note:</u></strong></p>
+                <ul type="i" style="text-align: justify;">
+                  <li>
+                    Each setting of overload trip will correspond to the starting
+                    current envelope of a particular type of aircraft and will
+                    trip the rectifier in case of overload to preset current
+                    value is fitted.
+                  </li>
+                  <li>
+                    For Para 1 to 7, All details are to be filled up by SS prior offering the trials, "*" fields will be verified by ETMA trials member during the conduct of trials.
+                    
+                  </li>
+                </ul>
+              </div>
+              <h4>8. Steady State Test (With Resistive load)</h4>
+              <p>Nominal voltage : 28.5 Volts</p>
+              <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                <tr>
+                  <th style="text-align:center;" rowspan="2">Load(Amps)</th>
+                  <th style="text-align:center;" colspan="2">Voltage at Cable End</th>
+                  <th style="text-align:center;" rowspan="2">Amps</th>
+                  <th style="text-align:center;" rowspan="2">Remarks</th>
+                </tr>
+                <tr>
+                  <th style="text-align:center;">Observed</th>
+                  <th style="text-align:center;">Permitted Limits</th>
+                </tr>
+                <tr>
+                  <td>0 - 200</td>
+                  <td>
+                  {{users.sstv_0x200_ObsVolt_cabl}}
+                  </td>
+                  <td rowspan="5">
+                    <ol type="i">
+                      <li>For rated capacity: 28 ± 0.5 V</li>
+                      <li>For capacity beyond rating: 22-29 V</li>
+                    </ol>
+                  </td>
+                  <td>
+                  {{users.sstv_0x200_amps}}
+                  </td>
+
+                  <td>
+                  {{users.sstv_0x200_remarks}}
+                  </td>
+
+                </tr>
+
+                <tr>
+                  <td>0 - 400</td>
+                  <td>
+                  {{users.sstv_0x400_ObsVolt_cabl}}
+                  </td>
+                  <td>
+                  {{users.sstv_0x400_amps}}
+                  </td>
+                  <td>
+                  {{users.sstv_0x400_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>0 - 800</td>
+                  <td>
+                  {{users.sstv_0x800_ObsVolt_cabl}}
+                  </td>
+                  <td>
+                  {{users.sstv_0x800_amps}}
+                  </td>
+                  <td>
+                  {{users.sstv_0x800_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>0 - 1000</td>
+                  <td>
+                  {{users.sstv_0x1000_ObsVolt_cabl}}
+                  </td>
+                  <td>
+                  {{users.sstv_0x1000_amps}}
+                  </td>
+                  <td>
+                  {{users.sstv_0x1000_remarks}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>0 - 1200</td>
+                  <td>
+                  {{users.sstv_0x1200_ObsVolt_cabl}}
+                  </td>
+                  <td>
+                  {{users.sstv_0x1200_amps}}
+                  </td>
+                  <td>
+                  {{users.sstv_0x1200_remarks}}
+                  </td>
+                </tr>
+              </table>
+              <h4>9. Transient Test (With Resistive load)</h4>
+              <div class="table-responsive">
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                  <tr>
+                    <th style="text-align:center;" rowspan="2">Load(Amps)</th>
+                    <th style="text-align:center;" colspan="1">Transient Voltage</th>
+                    <th style="text-align:center;" colspan="2">Final Voltage</th>
+                    <th style="text-align:center;" colspan="2">
+                      Recovery Time for Voltage Drop Below 18V/ 21V for Not More
+                      than 15ms
+                    </th>
+                    <th colspan="2">
+                      Recovery Time for Restoration to Voltage Between 22-29V in
+                      100ms
+                    </th>
+                    <th rowspan="2">Ripple (Max 1 Volt)(Sat/ Unsat)</th>
+                    <th rowspan="2">Voltage Modulation(2%)</th>
+                    <th rowspan="2">Remarks</th>
+                  </tr>
+                  <tr>
+                    <th>Cable End</th>
+                    <th>Cable End</th>
+                    <th>Permissible at Cable End</th>
+                    <th>Recorded</th>
+                    <th>Permissible</th>
+                    <th>Recorded</th>
+                    <th>Permissible</th>
+                  </tr>
+                  <tr>
+                    <td>0 - 200</td>
+                    <td>
+                    {{users.trnsntst_0x200_trnsnt_volt}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x200_final_volt}}
+                    </td>
+                    <td>NA</td>
+                    <td>
+                    {{users.trnsntst_0x200_rcvry_vol_recd}}
+                    </td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>
+                      {{users.trnsntst_0x200_ripple}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x200_vol_modln}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x200_remarks}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0 - 400</td>
+                    <td>
+                    {{users.trnsntst_0x400_trnsnt_volt}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x400_final_volt}}
+                    </td>
+                    <td>NA</td>
+                    <td>
+                    {{users.trnsntst_0x400_rcvry_vol_recd}}
+                    </td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>
+                      {{users.trnsntst_0x400_ripple}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x400_vol_modln}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x400_remarks}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0 - 800</td>
+                    <td>
+                    {{users.trnsntst_0x800_trnsnt_volt}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x800_final_volt}}
+                    </td>
+                    <td>22-29V</td>
+                    <td>
+                    {{users.trnsntst_0x800_rcvry_vol_recd}}
+                    </td>
+                    <td>Less than 15ms if dropped below 21V</td>
+                    <td>
+                    {{users.trnsntst_0x800_rcvry_vol_recd2}}
+                    </td>
+                    <td>100ms</td>
+                    <td>
+                      {{users.trnsntst_0x800_ripple}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x800_vol_modln}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x800_remarks}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0 - 1000</td>
+                    <td>
+                    {{users.trnsntst_0x1000_trnsnt_volt}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x1000_final_volt}}
+                    </td>
+                    <td>22-29V</td>
+                    <td>
+                    {{users.trnsntst_0x1000_rcvry_vol_recd}}
+                    </td>
+                    <td>Less than 15ms if dropped below 18V</td>
+                    <td>
+                    {{users.trnsntst_0x1000_rcvry_vol_recd2}}
+                    </td>
+                    <td>100ms</td>
+                    <td>
+                      {{users.trnsntst_0x1000_ripple}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x1000_vol_modln}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x1000_remarks}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>0 - 2000</td>
+                    <td>
+                    {{users.trnsntst_0x2000_trnsnt_volt}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x2000_final_volt}}
+                    </td>
+                    <td>22-29V</td>
+                    <td>
+                    {{users.trnsntst_0x2000_rcvry_vol_recd}}
+                    </td>
+                    <td>NA</td>
+                    <td></td>
+                    <td>NA</td>
+                    <td>
+                      {{users.trnsntst_0x2000_ripple}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x2000_vol_modln}}
+                    </td>
+                    <td>
+                    {{users.trnsntst_0x2000_remarks}}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="note-card " style="text-align: justify;">
+                <p><strong><u>Note:</u></strong></p>
+                <ul type="i" class="sizx">
+                  <li>
+                    Permissible Limits for Transients – Voltage should not
+                    drop below 18 V (for not more than 15ms) on application of
+                    1000 A and not below 21 V on application of 800 A (for not
+                    more than 15ms) vide EED ‘Q’ 267 (R4) & IHQ MoD(N) fax
+                    EE/03/5181 dated 18 Feb 13 and be restored to a voltage
+                    between 22 V to 29 V in 100ms}. Final Voltage should not drop
+                    below 18V on application of 1200 A vide IHQ/MoD(N) policy
+                    letter EE/03/5181 dated 09 Jul 19
+                  </li>
+                  <li>
+                    No permissible limits and checks at transient load regimes
+                    of 0-200, 0-400 mentioned in EED-Q 267 R(4), however in order
+                    to ascertain performance in step wise manner, the load is
+                    increased gradually. Also, as per EED (page 39, test ii –
+                    transient voltage test is at cable end only)
+                  </li>
+                  <li>
+                    The trials are to undertaken on Dynamic load banks (2000A)
+                    only. Though the starting current envelope are different for
+                    different helicopters, the starting rectifier will be tested
+                    for the helicopter starting current envelope as given below: -
+                    <ul type="i">
+                      <li>Peak starting current : 1200 Amps for 5 Sec.</li>
+                      <li>1st stage starting current : 850 amps for 10 Sec.</li>
+                      <li>2nd stage starting current : 300 amps for 15 Sec.</li>
+                      <li>3rd stage starting current : 200 amps for 30 Sec.</li>
+                      <li>
+                        Total starting period/cut off period: 25 to 60 seconds.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    Till such time dynamic load banks are not available, load
+                    trials of HSR be progressed using static load bank i.a.w.
+                    IHQ/MoD(N) policy letter EE/03/5181 dated 09 Jul 19
+                  </li>
+                  <li>
+                    All the new induction HSRs are to be compliant to Category ‘A’
+                    and till such time upgradation of HSRs is completed,
+                    guidelines mentioned vide IHQ/MoD(N) policy letter EE/03/5181/
+                    Policy/ L-107 dated 11 Sep 17 for Cat ‘B’, ‘C’ & ‘D’ HSRs may
+                    be adhered for undertaking load trials.
+                  </li>
+                  <li>Trials to be undertaken with 20 M cable only.</li>
+                </ul>
+              </div>
+              <br>
+              <br>
+              <h4>10. <strong>Recommendations</strong> Following recommended:-</h4>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                  <tr>
+                    <td width="15%"><strong>Trial Team Memeber</strong></td>
+
+                    <div class="signature-2"></div>
+                    <td>{{users.hsr_ship_Engineer_Officer}}
+                    </td>
+                    <td class="td-bluelight" width="15%"><strong>Electrical officer INS </strong></td>
+
+                    <div class="signature-2"></div>
+                    <td>{{users.hsr_ship_Commanding_Officer}}
+                    </td>
+                </tr>
+                </table>
+
+
+
+                <section class="body-card-diff">
+                  <div>
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card">
+                                      <div class="card-header">
+                                          <div class="row">
+                                              <h3 style="text-align:center;width: 100%;">Observations and Remarks (Re-Offer Trial)</h3>
+                                          </div>
+                                      </div>
+                                      
+                                          <table class="table table-bordered table-striped" style="margin-bottom: 0px;">
+                                              <thead class="thead-dark">
+                                                  <tr style="text-align: center;">
+                                                      <th scope="col" style="width:2%">Ser</th>
+                                                      <th scope="col" style="width:90%">Observation</th>
+                                                      <th scope="col" style="width:4%">Status</th>
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  
+                                                  {% for i in observationSerializer %}
+                                                      <tr>
+                                                          <td>{{forloop.counter}}</td>
+                                                          <td>{{i.re_offer_observation|safe}}</td>
+                                                          <td>{{i.re_offer_status}}</td>
+                                                      </tr>
+                                                  {% endfor %}
+                                                  
+                                              
+                                                  
+                                              </tbody>
+                                          </table>
+                                    
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+            
+            </div>
+          </div>
+        </div>
+      <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+        </tr>
+    </table>
+
+  </div>
+  </body>
+   
+</html> 

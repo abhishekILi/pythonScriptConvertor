@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+     <body>
+        <section class="body-card form-style1 trial-form wrapper">
+         
+        
+                <div class="container-fluid">
+                    <div class="row mt-1">
+                        <div class="col-md-12">
+                            <div class="panel-right">
+                              
+                                <div style="float:right">
+                                    <p>Report Generated on: {{ history.approved_date_time }}</p>
+                                  </div>
+                                   <div class="heading-style2 heading-style3 text-center">
+                                    <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 42%;" src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg" class="ng-star-inserted">
+                                    <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">GTTT VIZAG</h2>       
+                                      <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">ENGINE HEALTH MONITORING TRIALS PERFORMA</h2>              
+                                   </div>
+
+
+                                <div class="panel-row mt-4">
+                                   
+        
+                                    <table class="table table-bordered 1 tabletd-color">
+                                        <tr>
+                                            <td width="20%">1.<b> Name of Ship :</b></td>
+                                            <td width="20%">{{users.ship}}</td>
+        
+                                            <td class="td-bluelight" width="20%"><b>Proposed Date:</b></td>
+                                            <td width="20%">
+                                                    {{users.delhi_ehm_proposed_date}} 
+                                            </td>
+        
+        
+                                            <td width="10%">
+                                                {{users.delhi_ehm_harbour_sea_check}} 
+                                              </td>
+        
+                                        </tr>
+                                      
+        
+        
+                                    </table>
+        
+        
+                                    <table class="table table-bordered tabletd-color">
+        
+                                        <tr>
+                                            <th>S No.</th>
+                                            <th colspan="7" style="background-color: white !important; border:none"></th>
+                                        </tr>
+        
+                                      
+        
+        
+                                        <tr>
+                                            <td  rowspan="6">3.</td>
+                                            <td colspan="12" class="text-center font-weight-bold"><u  class="font-weight-bold">Details of Gas Turbines:-</u></td>
+                                        </tr>
+        
+                                        <tr>
+                                           
+                                            <th>Designation</th>
+                                            <th>Location</th>
+                                            <th  width="8%">Serial No</th>
+                                            <th width="7%">Installation Date</th>
+                                            <th>Present Cycle</th>
+                                            <th>Date of Last Trial</th>
+                                            <th colspan="2"  width="20%%">Remarks</th>
+                                        </tr>
+        
+        
+                                        <tr>
+                                           
+                                            <td>GT No.1</td>
+                                            <td>{{users.delhi_gt_gas_turbine_loc_GT1}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_ser_GT1}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_inst_GT1}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_prescyc_GT1}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_lastTrial_GT1}}</td>
+                                            <td colspan="4">{{users.delhi_gt_gas_turbine_remarks_GT1}}</td>
+                                           
+                                        </tr>
+        
+        
+                                        <tr>
+                                           
+                                            <td>GT No.2</td>
+                                            <td>{{users.delhi_gt_gas_turbine_loc_GT2}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_ser_GT2}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_inst_GT2}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_prescyc_GT2}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_lastTrial_GT2}}</td>
+                                            <td colspan="4">{{users.delhi_gt_gas_turbine_remarks_GT2}}</td>
+                                            
+                                        </tr>
+        
+        
+                                        <tr>
+                                           
+                                            <td>GT No.3</td>
+                                            <td>{{users.delhi_gt_gas_turbine_loc_GT3}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_ser_GT3}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_inst_GT3}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_prescyc_GT3}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_lastTrial_GT3}}</td>
+                                            <td colspan="4">{{users.delhi_gt_gas_turbine_remarks_GT3}}</td>
+                                            
+                                        </tr>
+        
+        
+                                        <tr>
+                                           
+                                            <td>GT No.4</td>
+                                            <td>{{users.delhi_gt_gas_turbine_loc_GT4}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_ser_GT4}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_inst_GT4}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_prescyc_GT4}}</td>
+                                            <td>{{users.delhi_gt_gas_turbine_lastTrial_GT4}}</td>
+                                            <td colspan="4">{{users.delhi_gt_gas_turbine_remarks_GT4}}</td>
+                                            
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td  rowspan="4">4.</td>
+                                            <td colspan="12" class="text-center font-weight-bold "><u  class="font-weight-bold">Details of Reduction Gears:-</u></td>
+                                        </tr>
+        
+                                        <tr>                                  
+                                            <th>Designation</th>
+                                            <th>Location</th>
+                                            <th width="8%">Serial No</th>
+                                            <th  width="7%">Installation Date</th>
+                                            <th>Present Cycle</th>
+                                            <th>Date of Last Trial</th>
+                                            <th   width="20%">Remarks</th>
+                                        </tr>
+        
+                                        
+                                        <tr>                                   
+                                            <td>RG No.1</td>
+                                            <td>{{users.delhi_gt_red_gear_loc_RG1}}</td>
+                                            <td>{{users.delhi_gt_red_gear_ser_RG1}}</td>
+                                            <td>{{users.delhi_gt_red_gear_inst_RG1}}</td>
+                                            <td>{{users.delhi_gt_red_gear_prescyc_RG1}}</td>
+                                            <td>{{users.delhi_gt_red_gear_lastTrial_RG1}}</td>
+                                            <td>{{users.delhi_gt_red_gear_remarks_RG1}}</td>
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td>RG No.2</td>
+                                            <td>{{users.delhi_gt_red_gear_loc_RG2}}</td>
+                                            <td>{{users.delhi_gt_red_gear_ser_RG2}}</td>
+                                            <td>{{users.delhi_gt_red_gear_inst_RG2}}</td>
+                                            <td>{{users.delhi_gt_red_gear_prescyc_RG2}}</td>
+                                            <td>{{users.delhi_gt_red_gear_lastTrial_RG2}}</td>
+                                            
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td  rowspan="8">5.</td>
+                                            <td colspan="12" class="text-center font-weight-bold "><u  class="font-weight-bold">Details of Running Hours(RHs Indicate: Running hours Since):</u></td>
+                                        </tr>
+        
+                                        </table>
+        
+                                        <table class="table table-bordered tabletd-color" style="margin-top:12px;">
+                                            <tr>
+                                               
+                                                <th colspan="1">Designation</th>
+                                                <th colspan="1">RHs Installation</th>
+                                                <th colspan="1">RHs Last Trials</th>
+                                                <th colspan="2">Type and Date of Last Major Routine(LMR)</th>
+                                                <th colspan="1">RHs LMR</th>
+                                                <th colspan="1">Remarks</th>
+                                            </tr>
+            
+            
+            
+            
+                                            <tr>
+                                               
+                                                <td colspan="1">GT No.1</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_ins_GT1}}</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_lastTrial_GT1}}</td>
+                                                <td  colspan="2" style="display:flex!important;">
+                                                    {{users.delhi_gt_run_hrs_maj_rou_type_GT1}}&nbsp;
+                                                    {{users.delhi_gt_run_hrs_maj_rou_date_GT1}}
+                                                </td>
+                                                <td>{{users.delhi_gt_run_hrs_lmr_GT1}}</td>                                   
+                                                <td>{{users.delhi_gt_run_hrs_lmr_remarks_GT1}}</td>  
+                                            </tr>
+            
+            
+            
+                                            
+                                            <tr>
+                                                <td colspan="1">GT No.2</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_ins_GT2}}</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_lastTrial_GT2}}</td>
+                                                <td  colspan="2" style="display:flex!important;">
+                                                    {{users.delhi_gt_run_hrs_maj_rou_type_GT2}}&nbsp;
+                                                    {{users.delhi_gt_run_hrs_maj_rou_date_GT2}}
+                                                </td>
+                                                <td>{{users.delhi_gt_run_hrs_lmr_GT2}}</td>                                   
+                                                <td>{{users.delhi_gt_run_hrs_lmr_remarks_GT2}}</td>  
+                                            </tr>
+            
+                                            <tr>
+                                                <td colspan="1">GT No.3</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_ins_GT3}}</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_lastTrial_GT3}}</td>
+                                                <td  colspan="2" style="display:flex!important;">
+                                                    {{users.delhi_gt_run_hrs_maj_rou_type_GT3}}&nbsp;
+                                                    {{users.delhi_gt_run_hrs_maj_rou_date_GT3}}
+                                                </td>
+                                                <td>{{users.delhi_gt_run_hrs_lmr_GT3}}</td>                                   
+                                                <td>{{users.delhi_gt_run_hrs_lmr_remarks_GT3}}</td>  
+                                            </tr>
+            
+            
+                                            <tr>
+                                                <td colspan="1">GT No.4</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_ins_GT4}}</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_lastTrial_GT4}}</td>
+                                                <td  colspan="2" style="display:flex!important;">
+                                                    {{users.delhi_gt_run_hrs_maj_rou_type_GT4}}&nbsp;
+                                                    {{users.delhi_gt_run_hrs_maj_rou_date_GT4}}
+                                                </td>
+                                                <td>{{users.delhi_gt_run_hrs_lmr_GT4}}</td>                                   
+                                                <td>{{users.delhi_gt_run_hrs_lmr_remarks_GT4}}</td>  
+                                            </tr>
+            
+                                           
+                                            <tr>
+                                               
+                                                <td colspan="1">RG No.1</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_ins_RG1}}</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_lastTrial_RG1}}</td>
+                                                <td  colspan="2" style="display:flex!important;">
+                                                    {{users.delhi_gt_run_hrs_maj_rou_type_RG1}}&nbsp;
+                                                    {{users.delhi_gt_run_hrs_maj_rou_date_RG1}}
+                                                </td>
+                                                <td>{{users.delhi_gt_run_hrs_lmr_RG1}}</td>                                   
+                                                <td>{{users.delhi_gt_run_hrs_lmr_remarks_RG1}}</td>
+
+                                            </tr>
+                                                                      
+                                            <tr>
+                                                <td colspan="1">RG No.2</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_ins_RG2}}</td>
+                                                <td colspan="1">{{users.delhi_gt_run_hrs_lastTrial_RG2}}</td>
+                                                <td  colspan="2" style="display:flex!important;">
+                                                    {{users.delhi_gt_run_hrs_maj_rou_type_RG2}}&nbsp;
+                                                    {{users.delhi_gt_run_hrs_maj_rou_date_RG2}}
+                                                </td>
+                                                <td>{{users.delhi_gt_run_hrs_lmr_RG2}}</td>                                   
+                                                <td>{{users.delhi_gt_run_hrs_lmr_remarks_RG2}}</td>
+                                            </tr>
+            
+            
+                                         
+            
+                                           
+            
+                                            </table>
+        
+                                            <table class="table table-bordered tabletd-color" style="margin-top:12px;">
+        
+                                        
+                                        <tr>
+                                            <td>6.</td>
+                                            <td  colspan="4" class="td-bluelight">Details of Mounts including Type, Qty, Status and Date of Installation/ Status of Bolts for Chock-fasted GTs:</td>
+                                            <td  colspan="8">{{users.delhi_gt_det_of_mount_GT}} </td>
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td>7.</td>
+                                            <td colspan="4" class="td-bluelights">Details of Major Units/ Components of GT/ RG/ System Replaced:</td>
+                                            <td colspan="8">{{users.delhi_gt_maj_units_of_GT_RG}}</td>
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td>8.</td>
+                                            <td colspan="4" class="td-bluelights">Major Defects Encountered since Last PA/ Major Routine on GT/ RG:</td>
+                                            <td colspan="8">
+                                                {{users.delhi_gt_maj_def_GT_RG}}</td>
+                                        </tr>
+        
+        
+                                        <tr>
+                                            <td>9.</td>
+                                            <td colspan="4" class="td-bluelights">Status of Last Trials Observations with Reference, if Any:</td>
+                                            <td colspan="8"> {{users.delhi_gt_status_last_trial}}</td>
+                                        </tr>
+        
+        
+                                        
+                                        <tr>
+                                            <td>10.</td>
+                                            <td colspan="4" class="td-bluelights">Details of Next Major Routines Due on GTs and RGs:</td>
+                                            <td colspan="8">{{users.delhi_gt_maj_rout_GT_and_RG}}</td>
+                                        </tr>
+        
+        
+        
+                                    </table>
+        
+        
+                                    <div class="heading-style2 text-center">
+                                        <h2><u  class="font-weight-bold">REMARKS</u></h2>
+                                    </div>
+                        
+                        
+                        
+                                    <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                                        <tr>
+                                          <td>
+                                        
+                                            <div class="form-floating">
+                                             {{users.delhi_accep_ehm_remarks | safe}}
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+       
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 8px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center">
+            <tr>
+                <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+                <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+          </table>
+        </section>
+     </body>
+</html>
+

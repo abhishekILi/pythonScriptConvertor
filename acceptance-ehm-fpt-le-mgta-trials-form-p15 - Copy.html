@@ -1,0 +1,1213 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>pre-ranging-appendix-f</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+
+   <body>
+    <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+            <div class="panel-right">
+                        <!-- <a [ngClass]= "{'bottom-position': isBottomPosition, 'top-position': !isBottomPosition}" href="javascript:void(0);" class="btn btn-primary btn-lg float-left backbtn floating" (click)="back(trialDet)">Back</a> -->
+                        <!-- <button [ngClass]= "{'bottom-position': isBottomPosition, 'top-position': !isBottomPosition}" class="floating btn-outline-danger" (click)="back(trialDet)">Back</button> -->
+                        <div class="panel-row">
+                        <div class="heading-style2 text-center">
+                            <h2>TRIAL REPORT DELHI CLASS</h2>
+                        </div>
+                        <table class="table table-bordered tabletd-color table-form-color1">
+                            <tr>
+                            <td><strong>Ship</strong></td>
+                            <td>
+                                <input type="text" class="form-control" formControlName="Ship">
+                            </td>
+                            <td class="td-bluelight"><strong>Date of Trial</strong> </td>
+                            <td>
+                                <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                    <input matInput [matDatepicker]="picker_Date_Trial" formControlName="Date_Trial"
+                                    onclick="$('#Date_Trial').trigger('click'); return false;" (keydown)="disableDate()"
+                                    placeholder="MM/DD/YYYY" [(ngModel)]="Date_Trial">
+                                    <mat-datepicker-toggle matSuffix [for]="picker_Date_Trial"
+                                    id="Date_Trial"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker_Date_Trial></mat-datepicker>
+                                </mat-form-field>
+                                </div>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td><strong>Report No:</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Report_No"></td>
+                            <td class="td-bluelight"><strong>Occasion</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Occasion"></td>
+                            </tr>
+                        </table>
+                        <table class="table table-bordered tabletd-color table-form-color1">
+                            <tr>
+                            <th colspan="2"><strong>TRIAL ERA</strong></th>
+                            <th colspan="2"><strong>TRIAL OFFICER</strong></th>
+                            </tr>
+                            <tr>
+                            <td><strong>Sign -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="TRIAL_ERA_Sing"></td>
+                            <td><strong>Sign -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="TRIAL_OFFICER_Sing"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Name -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="TRIAL_ERA_Name"></td>
+                            <td><strong>Name -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="TRIAL_OFFICER_Name"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Rank -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="TRIAL_ERA_Rank"></td>
+                            <td><strong>Rank -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="TRIAL_OFFICER_Rank"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>P No -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="TRIAL_ERA_P_No"></td>
+                            <td><strong>P No -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="TRIAL_OFFICER_P_No"></td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2 text-center">
+                            <h2>PART I - GENERAL INFORMATION</h2>
+                        </div>
+                        <!-- <div class="heading-style2 text-center">
+                            <h4>GENERAL INFORMATION</h4>
+                        </div> -->
+                        <table class="table table-bordered table-style-color tabletd-color">
+                            <tr>
+                            <td><strong>Ship</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Gen_Info_Ship"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Date of Trial</strong></td>
+                            <td>
+                                <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                    <input matInput [matDatepicker]="picker_Gen_Info_Date_Trial"
+                                    formControlName="Gen_Info_Date_Trial"
+                                    onclick="$('#Gen_Info_Date_Trial').trigger('click'); return false;" (keydown)="disableDate()"
+                                    placeholder="MM/DD/YYYY" [(ngModel)]="Gen_Info_Date_Trial">
+                                    <mat-datepicker-toggle matSuffix [for]="picker_Gen_Info_Date_Trial"
+                                    id="Gen_Info_Date_Trial"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker_Gen_Info_Date_Trial></mat-datepicker>
+                                </mat-form-field>
+                                </div>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td><strong>Occasion</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Gen_Info_Occ"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Authority </strong></td>
+                            <td><input type="text" class="form-control" formControlName="Gen_Info_Auth"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Propulsion Plant </strong></td>
+                            <td><input type="text" class="form-control" formControlName="Gen_Info_Prop_Plant"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Last Full Power Trial</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Gen_Info_Full_Power_Trial"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Last EHM</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Gen_Info_EHM"></td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2">
+                            <h4>1. Correspondence</h4>
+                        </div>
+                        <table class="table table-bordered table-style-color tabletd-color">
+                            <tr>
+                            <th>Sl No</th>
+                            <th>Type</th>
+                            <th>Authority</th>
+                            <th>Remarks</th>
+                            </tr>
+                            <tr>
+                            <td>(a)</td>
+                            <td class="td-bluelight">Ship’s Proposal </td>
+                            <td><input type="text" class="form-control" formControlName="Ship_Proposal_Auth"></td>
+                            <td><input type="text" class="form-control" formControlName="Ship_Proposal_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(b)</td>
+                            <td class="td-bluelight">HQENC Approval</td>
+                            <td><input type="text" class="form-control" formControlName="HQWNC_Approval_Auth"></td>
+                            <td><input type="text" class="form-control" formControlName="HQWNC_Approval_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(c)</td>
+                            <td class="td-bluelight">GTTT (V)’s Schedule</td>
+                            <td><input type="text" class="form-control" formControlName="GTTT_Auth"></td>
+                            <td><input type="text" class="form-control" formControlName="GTTT_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(d)</td>
+                            <td class="td-bluelight">Preliminary Observations</td>
+                            <td><input type="text" class="form-control" formControlName="Preliminary_Obs_Auth"></td>
+                            <td><input type="text" class="form-control" formControlName="Preliminary_Obs_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(e)</td>
+                            <td class="td-bluelight">Final Observations</td>
+                            <td><input type="text" class="form-control" formControlName="Final_Obs_Auth"></td>
+                            <td><input type="text" class="form-control" formControlName="Final_Obs_Remarks"></td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2">
+                            <h4>2.GTA</h4>
+                        </div>
+                        <table class="table table-bordered table-style-color tabletd-color">
+                            <tr>
+                            <th>Equipment</th>
+                            <th>Sl. No.</th>
+                            <th>RH Since Installation</th>
+                            <th>RH Since New</th>
+                            </tr>
+                            <tr>
+                            <td>GT 1</td>
+                            <td><input type="text" class="form-control" formControlName="GT_1_SNo"></td>
+                            <td><input type="text" class="form-control" formControlName="GT_1_Install"></td>
+                            <td><input type="text" class="form-control" formControlName="GT_1_New"></td>
+                            </tr>
+                            <tr>
+                            <td>GT 2</td>
+                            <td><input type="text" class="form-control" formControlName="GT_2_SNo"></td>
+                            <td><input type="text" class="form-control" formControlName="GT_2_Install"></td>
+                            <td><input type="text" class="form-control" formControlName="GT_2_New"></td>
+                            </tr>
+                            <tr>
+                            <td>GT 3</td>
+                            <td><input type="text" class="form-control" formControlName="GT_3_SNo"></td>
+                            <td><input type="text" class="form-control" formControlName="GT_3_Install"></td>
+                            <td><input type="text" class="form-control" formControlName="GT_3_New"></td>
+                            </tr>
+                            <tr>
+                            <td>GT 4</td>
+                            <td><input type="text" class="form-control" formControlName="GT_4_SNo"></td>
+                            <td><input type="text" class="form-control" formControlName="GT_4_Install"></td>
+                            <td><input type="text" class="form-control" formControlName="GT_4_New"></td>
+                            </tr>
+                            <tr>
+                            <td>RG 1</td>
+                            <td><input type="text" class="form-control" formControlName="RG_1_SNo"></td>
+                            <td><input type="text" class="form-control" formControlName="RG_1_Install"></td>
+                            <td><input type="text" class="form-control" formControlName="RG_1_New"></td>
+                            </tr>
+                            <tr>
+                            <td>RG 2</td>
+                            <td><input type="text" class="form-control" formControlName="RG_2_SNo"></td>
+                            <td><input type="text" class="form-control" formControlName="RG_2_Install"></td>
+                            <td><input type="text" class="form-control" formControlName="RG_2_New"></td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2 text-center">
+                            <h2>PART II – HARBOUR PHASE</h2>
+                        </div>
+                        <div class="heading-style2 text-center">
+                            <h4>SECTION - A</h4>
+                            <h4>DOCUMENTATION INSPECTION</h4>
+                        </div>
+                        <table class="table table-bordered table-form-color">
+                            <tr>
+                            <td><strong>Date:</strong></td>
+                            <td>
+                                <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                    <input matInput [matDatepicker]="picker_DOC_INSP_Date" formControlName="DOC_INSP_Date"
+                                    onclick="$('#DOC_INSP_Date').trigger('click'); return false;" (keydown)="disableDate()"
+                                    placeholder="MM/DD/YYYY" [(ngModel)]="DOC_INSP_Date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker_DOC_INSP_Date"
+                                    id="DOC_INSP_Date"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker_DOC_INSP_Date></mat-datepicker>
+                                </mat-form-field>
+                                </div>
+                            </td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2">
+                            <h4>1. Documentation Checks.</h4>
+                        </div>
+                        <table class="table table-bordered table-style-color tabletd-color">
+                            <tr>
+                            <th>SI. No.</th>
+                            <th>Component</th>
+                            <th>Check Standard</th>
+                            <th>Remarks</th>
+                            </tr>
+                            <tr>
+                            <td>(a)</td>
+                            <td class="td-bluelight">Pre start preparation book</td>
+                            <td class="td-bluelight">
+                                <ul type="a">
+                                <li>Check individual’s signatures for completion of actions as per check list.</li>
+                                <li>Check correctness of data entered.</li>
+                                </ul>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Pre_start_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(b)</td>
+                            <td class="td-bluelight">Running log book.</td>
+                            <td class="td-bluelight">
+                                <ul type="a">
+                                <li>Check all parameters in prescribed exploitation ranges.</li>
+                                <li>Check legibility/ overwriting.</li>
+                                <li>Ensure signature by relevant person.</li>
+                                <li>Limiting parameters sheet to be pasted in respective running log.</li>
+                                </ul>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Running_log_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(c)</td>
+                            <td class="td-bluelight">Service log</td>
+                            <td class="td-bluelight">
+                                <ul type="a">
+                                <li>Check entries of running hours.</li>
+                                <li>Check entries of major defects.</li>
+                                <li>Check monthly CBPM reading entered in service log.</li>
+                                </ul>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Service_log_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(d)</td>
+                            <td class="td-bluelight">Defects entries</td>
+                            <td class="td-bluelight">Ensure routines are undertaken as per MAINTOPs and relevant entries are made
+                                and counter signed at appropriate level.</td>
+                            <td><input type="text" class="form-control" formControlName="Defects_entries_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(e)</td>
+                            <td class="td-bluelight">EMAPs </td>
+                            <td class="td-bluelight">Ensure routines are undertaken as per MAINTOPs and relevant entries are made
+                                and counter signed at appropriate level.</td>
+                            <td><input type="text" class="form-control" formControlName="EMAPs_Remarks"></td>
+                            </tr>
+                            <!-- <tr>
+                            <td>(f)</td>
+                            <td class="td-bluelight">Clutch-in-trials</td>
+                            <td class="td-bluelight">Entry to be made in running log for clutch-in during entering and leaving
+                                harbor.</td>
+                            <td><input type="text" class="form-control" formControlName="Clutch_trials_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(g)</td>
+                            <td class="td-bluelight">Vib-10 & T-30</td>
+                            <td class="td-bluelight">Calibration of Vib-10 & T-30 meter (Last calibration date)</td>
+                            <td><input type="text" class="form-control" formControlName="Vib_10_Remarks"></td>
+                            </tr> -->
+                        </table>
+                        <div class="heading-style2">
+                            <h4>2. Inspection of Service Log.</h4>
+                        </div>
+                        <table class="table table-bordered table-form-color">
+                            <tr>
+                            <th>GT</th>
+                            <th>Page No.</th>
+                            <th>Observation</th>
+                            <th>Remark</th>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_GT_1"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Page_No_1"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Obs_1"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Remark_1"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_GT_2"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Page_No_2"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Obs_2"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Remark_2"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_GT_3"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Page_No_3"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Obs_3"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Remark_3"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_GT_4"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Page_No_4"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Obs_4"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Remark_4"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_GT_5"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Page_No_5"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Obs_5"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Remark_5"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_GT_6"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Page_No_6"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Obs_6"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Remark_6"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_GT_7"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Page_No_7"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Obs_7"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Remark_7"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_GT_8"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Page_No_8"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Obs_8"></td>
+                            <td><input type="text" class="form-control" formControlName="Ser_Log_Remark_8"></td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2">
+                            <h4>3. Inspection of EMAPs.</h4>
+                        </div>
+                        <table class="table table-bordered table-form-color">
+                            <tr>
+                            <th>Equipment</th>
+                            <th>Date of Occurrence</th>
+                            <th>Observation</th>
+                            <th>Remark</th>
+                            </tr>
+                            <tr>
+                            <td><input type="text" class="form-control" formControlName="EMAPs_Equip"></td>
+                            <td>
+                                <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                    <input matInput [matDatepicker]="picker_EMAPs_Date_Occ" formControlName="EMAPs_Date_Occ"
+                                    onclick="$('#EMAPs_Date_Occ').trigger('click'); return false;" (keydown)="disableDate()"
+                                    placeholder="MM/DD/YYYY" [(ngModel)]="EMAPs_Date_Occ">
+                                    <mat-datepicker-toggle matSuffix [for]="picker_EMAPs_Date_Occ"
+                                    id="EMAPs_Date_Occ"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker_EMAPs_Date_Occ></mat-datepicker>
+                                </mat-form-field>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="EMAPs_Obs"></td>
+                            <td><input type="text" class="form-control" formControlName="EMAPs_Remark"></td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2">
+                            <h4>4.Remarks</h4>
+                            <textarea autoResizeTxtArea name="message" type="text" class="textArea p-3" id="message" placeholder="Message" formControlName="Inspec_EMAPs_Remarks"></textarea>
+                        </div>
+                        <table class="table table-bordered table-form-color">
+                            <tr>
+                            <th colspan="2"><strong>TRIAL ERA</strong></th>
+                            <th colspan="2"><strong>TRIAL OFFICER</strong></th>
+                            </tr>
+                            <tr>
+                            <td><strong>Sign -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Remarks_TRIAL_ERA_Sing"></td>
+                            <td><strong>Sign -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Remarks_TRIAL_OFFICER_Sing"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Name -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Remarks_TRIAL_ERA_Name"></td>
+                            <td><strong>Name -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Remarks_TRIAL_OFFICER_Name"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>Rank -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Remarks_TRIAL_ERA_Rank"></td>
+                            <td><strong>Rank -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Remarks_TRIAL_OFFICER_Rank"></td>
+                            </tr>
+                            <tr>
+                            <td><strong>P No -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Remarks_TRIAL_ERA_P_No"></td>
+                            <td><strong>P No -</strong></td>
+                            <td><input type="text" class="form-control" formControlName="Remarks_TRIAL_OFFICER_P_No"></td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2 text-center">
+                            <h2>SECTION - B</h2>
+                        </div>
+                        <h4 class="text-center">GENERAL CHECKS</h4>
+                        <h4> 1. GT Inspection.</h4>
+                        <table class="table table-bordered table-form-color1">
+                            <tr>
+                            <td><strong>Date:</strong></td>
+                            <td>
+                                <div class="matt-group">
+                                <mat-form-field appearance="fill">
+                                    <input matInput [matDatepicker]="picker_GT_Insp_date" formControlName="GT_Insp_date"
+                                    onclick="$('#GT_Insp_date').trigger('click'); return false;" (keydown)="disableDate()"
+                                    placeholder="MM/DD/YYYY" [(ngModel)]="GT_Insp_date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker_GT_Insp_date"
+                                    id="GT_Insp_date"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker_GT_Insp_date></mat-datepicker>
+                                </mat-form-field>
+                                </div>
+                            </td>
+                            </tr>
+                        </table>
+                        <table class="table table-bordered">
+                            <tr>
+                            <th rowspan="3">Sl. No.</th>
+                            <th rowspan="3">Checks</th>
+                            <th colspan="4">Sat/ Unsat</th>
+                            <th rowspan="3">Remarks</th>
+                            </tr>
+                            <tr>
+                            <th colspan="2">FER</th>
+                            <th colspan="2">AER</th>
+                            </tr>
+                            <tr>
+                            <th>GT 1</th>
+                            <th>GT 2</th>
+                            <th>GT 3</th>
+                            <th>GT 4</th>
+                            </tr>
+                            <tr>
+                            <td>(a)</td>
+                            <td>State of heat resistant paint</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="heat_res_paint_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="heat_res_paint_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="heat_res_paint_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="heat_res_paint_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="heat_res_paint_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(b)</td>
+                            <td>Condition of trunnion supports</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="trunion_supports_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="trunion_supports_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="trunion_supports_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="trunion_supports_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="trunion_supports_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(c)</td>
+                            <td>State of SV mounts for cracks/bulge & application of Nicol Lacquer</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="SV_mounts_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="SV_mounts_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="SV_mounts_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="SV_mounts_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="SV_mounts_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(d)</td>
+                            <td>System pipelines (Leaks and Supports)</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Sys_pipe_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Sys_pipe_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Sys_pipe_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Sys_pipe_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Sys_pipe_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(e)</td>
+                            <td>Absence of accumulated fuel / oil inside the GT casing</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Absence_accu_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Absence_accu_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Absence_accu_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Absence_accu_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Absence_accu_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(f)</td>
+                            <td>Check instrumentation and gauges for satisfactory working.</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Check_ins_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Check_ins_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Check_ins_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Check_ins_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Check_ins_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(g)</td>
+                            <td>Intactness of rubber coaming on GT casing</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Intactness_rubber_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Intactness_rubber_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Intactness_rubber_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Intactness_rubber_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Intactness_rubber_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(h)</td>
+                            <td>Material state of reversing cylinder</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Material_state_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Material_state_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Material_state_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Material_state_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Material_state_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(j)</td>
+                            <td>GT casing drain is clear</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="GT_casing_drain_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="GT_casing_drain_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="GT_casing_drain_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="GT_casing_drain_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="GT_casing_drain_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(k)</td>
+                            <td>E/R Bilge plates securing</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Bilge_plates_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Bilge_plates_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Bilge_plates_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Bilge_plates_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Bilge_plates_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(l)</td>
+                            <td>E/R Bilge lighting</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Bilge_lighting_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Bilge_lighting_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Bilge_lighting_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Bilge_lighting_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Bilge_lighting_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(m)</td>
+                            <td>GT casing doors and their locking</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="GT_casing_doors_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="GT_casing_doors_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="GT_casing_doors_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="GT_casing_doors_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="GT_casing_doors_Remarks"></td>
+                            </tr>
+                        </table>
+                        <div class="heading-style2">
+                            <h4> 2. Fire Fighting System.</h4>
+                        </div>
+                        <table class="table table-bordered tabletd-color">
+                            <tr>
+                            <th rowspan="2">Sl. No.</th>
+                            <th rowspan="2">Component</th>
+                            <th rowspan="2">Check Standard</th>
+                            <th colspan="2">Sat/ Unsat/ Value</th>
+                            <th rowspan="2">Remarks</th>
+                            </tr>
+                            <tr>
+                            <th>FER</th>
+                            <th>AER</th>
+                            </tr>
+                            <tr>
+                            <td>(a)</td>
+                            <td>Fire Fighting bottle </td>
+                            <td class="td-bluelight">
+                                Check Pressure in GT fire fighting bottles( 100- 110 kgf/cm²). Bottles should not be rusted.
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Fire_Fighting_bottle_FER">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Fire_Fighting_bottle_AER">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Fire_Fighting_bottle_Remarks"></td>
+                            </tr>
+                        </table>
+                        <h4> 3. Air Intake Inspection.</h4>
+                        <table class="table table-bordered tabletd-color">
+                            <tr>
+                            <th rowspan="3">Sl. No.</th>
+                            <th rowspan="3">Component</th>
+                            <th rowspan="3">Check Standard</th>
+                            <th colspan="4">Sat/ Unsat/ Value</th>
+                            <th rowspan="3">Remarks</th>
+                            </tr>
+                            <tr>
+                            <th colspan="2">FER</th>
+                            <th colspan="2">AER</th>
+                            </tr>
+                            <tr>
+                            <th>GT 1</th>
+                            <th>GT 2</th>
+                            <th>GT 3</th>
+                            <th>GT 4</th>
+                            </tr>
+                            <tr>
+                            <td>(a)</td>
+                            <td>Rubber diaphragm and baffle plate</td>
+                            <td class="td-bluelight">Rubber is not torn, flaking or hard. Baffles are intact and corrosion free.
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Rubber_diaphragm_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Rubber_diaphragm_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Rubber_diaphragm_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Rubber_diaphragm_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Rubber_diaphragm_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(b)</td>
+                            <td>Wire mesh and guard</td>
+                            <td class="td-bluelight">Wire mesh is clean. Mesh and guards are corrosion free and intact.</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Wire_mesh_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Wire_mesh_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Wire_mesh_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Wire_mesh_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Wire_mesh_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(c)</td>
+                            <td>Air intake</td>
+                            <td class="td-bluelight">Clean and free from rust marks & foreign material. </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Air_intake_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Air_intake_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Air_intake_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Air_intake_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Air_intake_Remarks"></td>
+                            </tr>
+                            <tr>
+                            <td>(d)</td>
+                            <td>Moisture trap drain </td>
+                            <td class="td-bluelight">Drain line is clear and no water accumulation in tray.</td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Moisture_trap_drain_FER_GT_1">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Moisture_trap_drain_FER_GT_2">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Moisture_trap_drain_AER_GT_3">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group-radio">
+                                <mat-radio-group aria-label="Select an option" formControlName="Moisture_trap_drain_AER_GT_4">
+                                    <mat-radio-button value="Sat">Sat</mat-radio-button>
+                                    <mat-radio-button value="Unsat">Unsat</mat-radio-button>
+                                </mat-radio-group>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control" formControlName="Moisture_trap_drain_Remarks"></td>
+                            </tr>
+
+                        </table>
+                        </div>
+                        <!-- <div class=" group-btn mt-4">
+                        <a href="javascript:void(0);" *ngIf="trialDet.approved_level!='-1' && trialDet.type=='edit'"
+                            class="btn btn-success btn-lg float-right" (click)="save()">Next</a>
+
+                        <a href="javascript:void(0);" *ngIf="trialDet.type=='view'"
+                            class="btn btn-success btn-lg float-right">Next</a>
+                            <p class="text-center"><strong>Page 1 of 16</strong></p>
+
+                        </div> -->
+            </div>
+
+    </body>
+</html>

@@ -1,0 +1,350 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CBIU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal"/>
+    <meta name="pdfkit-orientation" content="Portrait"/>
+    <style type="text/css">
+      body {
+        margin: 50px 50px;
+        size:landscape;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .wrapper{width: 100%;border-style: double; padding: 8px;}
+      table {
+        border-collapse: collapse;
+      }
+      .clear {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        clear: both;
+      }
+      .star {
+        color: red;
+      }
+      strong {
+        font-weight: 600;
+      }
+      body {
+        margin: 50px;
+        background: #fff !important;
+      }
+      .textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+                border: 1px solid #80808054;
+                margin: 10px;
+            }
+    </style>
+  </head>
+  <body>
+  
+    <div class="wrapper">
+       <div style="float:right">
+           <p>Report Generated on: {{ history.approved_date_time }}</p>
+       </div>
+   
+    <div class="container-fluid">
+       <div class="row mt-5">
+           <div class="col-md-12">
+               <div class="panel-right">
+ 
+                   <div class="panel-row">
+                       <div class="heading-style2 text-center">
+                           <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+                           src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+                           <h2><u>BOILER DATA</u></h2>                            
+                       </div>
+ 
+      <table
+        cellspacing="0"
+        cellpadding="5"
+        border="1"
+        class="table grid-tab"
+        width="100%"
+        style="font-family: Arial, Helvetica, sans-serif"
+      >
+        {% if users %}
+        <tr>
+          <td
+            width="30%"
+            style="font-size: 14px; font-weight: 600; color: #000"
+          >
+            BOILER NAME / LOCATION
+          </td>
+          <td colspan="2" style="font-size: 14px; color: #222">
+            {{users.boiler_name}}
+          </td>
+        </tr>
+        {% endif%} {% if users%}
+        <tr>
+          <td style="font-size: 14px; font-weight: 600; color: #000">
+            BOILER TYPE
+          </td>
+          <td colspan="2" style="font-size: 14px; color: #222">
+            {{users.boiler_type}}
+          </td>
+        </tr>
+        {% endif%} {% if users%}
+        <tr>
+          <td style="font-size: 14px; font-weight: 600; color: #000">
+            BOILER MAKE
+          </td>
+          <td colspan="2" style="font-size: 14px; color: #222">
+            {{users.boiler_make}}
+          </td>
+        </tr>
+        {% endif%} {% if users%}
+        <tr>
+          <td style="font-size: 14px; font-weight: 600; color: #000">
+            REGISTRATION NUMBER
+          </td>
+          <td colspan="2" style="font-size: 14px; color: #222">
+            {{users.reg_no}}
+          </td>
+        </tr>
+        {% endif%} {% if users%}
+        <tr>
+          <td style="font-size: 14px; font-weight: 600; color: #000">
+            BOILER COMMISSIONING DATE
+          </td>
+          <td colspan="2" style="font-size: 14px; color: #222">
+            {{users.boiler_commi_date |date:'d/m/Y'}}
+          </td>
+        </tr>
+        {% endif%}
+      </table>
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif">
+        <tr >
+          <th >Boiler Data</th>
+          <th >Date</th>
+          <th>Occasion</th>
+        </tr>
+        <tr >
+           <td style="font-size: 14px; font-weight: 600; color: #000">BOILER RE-TUBINGS</td>
+           <td style="font-size: 14px; color: #222"> {{users.boi_re_tub_first_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.boi_re_tub_first_occ}}</td>
+        </tr>
+
+        <tr >
+           <td style="font-size: 14px; font-weight: 600; color: #000">ECONOMISER RENEWALS</td>
+           <td style="font-size: 14px; color: #222"> {{users.eco_renew_first_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.eco_renew_first_occ}}</td>
+        </tr>
+
+        <tr >
+           <td style="font-size: 14px; font-weight: 600; color: #000">SUPER-HEATER RENEWALS</td>
+           <td style="font-size: 14px; color: #222"> {{users.sup_heat_renew_first_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.sup_heat_renew_first_occ}} </td>
+        </tr>
+
+        <tr >
+           <td style="font-size: 14px; font-weight: 600; color: #000">STEAM DRUM RENEWAL</td>
+           <td style="font-size: 14px; color: #222"> {{users.steam_drum_renew_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.steam_drum_renew_occ}} </td>
+        </tr>
+
+        <tr >
+           <td style="font-size: 14px; font-weight: 600; color: #000">WATER DRUM RENEWAL</td>
+           <td style="font-size: 14px; color: #222"> {{users.water_drum_renew_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.water_drum_renew_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">BOILER WORKING PRESSURE</td>
+           <td style="font-size: 14px; color: #222"> {{users.BOILER_WORKING_P_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.BOILER_WORKING_P_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">BOILER CAPACITY</td>
+           <td style="font-size: 14px; color: #222"> {{users.BOILER_CAPACITY_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.BOILER_CAPACITY_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">NO OF DRUMS</td>
+           <td style="font-size: 14px; color: #222"> {{users.NO_OF_DRUMS_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.NO_OF_DRUMS_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">SUPERHEATER TYPE</td>
+           <td style="font-size: 14px; color: #222"> {{users.SUPERHEATER_TYPE_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.SUPERHEATER_TYPE_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">FURNACE TYPE</td>
+           <td style="font-size: 14px; color: #222"> {{users.FURNACE_TYPE_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.FURNACE_TYPE_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">ECONOMISER TYPE</td>
+           <td style="font-size: 14px; color: #222"> {{users.ECONOMISER_TYPE_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.ECONOMISER_TYPE_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">NO OF BURNERS</td>
+           <td style="font-size: 14px; color: #222"> {{users.NO_OF_BURNERS_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.NO_OF_BURNERS_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">DESIGNED EVAPORATION RATE</td>
+           <td style="font-size: 14px; color: #222"> {{users.DESIGNED_EVA_RATE_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.DESIGNED_EVA_RATE_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">DESIGNED TEST PRESSURE</td>
+           <td style="font-size: 14px; color: #222"> {{users.DESIGNED_TEST_P_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.DESIGNED_TEST_P_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">DESIGNED FUEL CONSUMPTION</td>
+           <td style="font-size: 14px; color: #222"> {{users.DESIGNED_FUEL_CONSUM_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.DESIGNED_FUEL_CONSUM_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">LAST DURABILITY INSPECTION</td>
+           <td style="font-size: 14px; color: #222"> {{users.LAST_DURABILITY_INSPEC_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.LAST_DURABILITY_INSPEC_occ}}</td>
+        </tr>
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">LAST INTERNAL CLEANING</td>
+           <td style="font-size: 14px; color: #222"> {{users.LAST_INTERNAL_CLEAN_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.LAST_INTERNAL_CLEAN_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">LAST EXTERNAL CLEANING</td>
+           <td style="font-size: 14px; color: #222"> {{users.LAST_EXTERNAL_CLEAN_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.LAST_EXTERNAL_CLEAN_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">CONDITIONAL ASSESSMENT DETAILS</td>
+           <td style="font-size: 14px; color: #222"> {{users.CONDITIONAL_ASSESSMENT_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.CONDITIONAL_ASSESSMENT_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">RLA DETAILS</td>
+           <td style="font-size: 14px; color: #222"> {{users.RLA_DETAILS_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.RLA_DETAILS_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">NO OF TUBES PLUGGED</td>
+           <td style="font-size: 14px; color: #222"> {{users.NO_TUBES_PLUGGED_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.NO_TUBES_PLUGGED_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">DRUM DETAILS</td>
+           <td style="font-size: 14px; color: #222"> {{users.DRUM_DETAILS_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.DRUM_DETAILS_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">FUSS</td>
+           <td style="font-size: 14px; color: #222"> {{users.FUSS_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.FUSS_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">DART</td>
+           <td style="font-size: 14px; color: #222"> {{users.DART_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.DART_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">STEAMING HOURS SINCE INSTALLATION</td>
+           <td style="font-size: 14px; color: #222"> {{users.STEAMING_HRS_INSTALL_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.STEAMING_HRS_INSTALL_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">STEAMING HOURS SINCE COMMISSIONING</td>
+           <td style="font-size: 14px; color: #222"> {{users.STEAMING_HRS_COMMISSIONING_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.STEAMING_HRS_COMMISSIONING_occ}}</td>
+        </tr>
+
+        <tr>
+           <td style="font-size: 14px; font-weight: 600; color: #000">STEAMING HOURS SINCE RE-TUBING</td>
+           <td style="font-size: 14px; color: #222"> {{users.STEAMING_HRS_RE_TUBING_date |date:'d/m/Y'}}</td>
+           <td style="font-size: 14px; color: #222">{{users.STEAMING_HRS_RE_TUBING_occ}}</td>
+        </tr>
+
+
+      </table>
+
+      <h4>Recommendations. Following recommended:</h4>
+      {% with "service/approvals.html" as template %} {% include template %} {%endwith %}
+      <div class="clear"></div>
+
+      <table class="table table-bordered tabletd-color table-form-color1" >
+         
+        <tr>
+          <td width="15%"><strong>Engineer Officer</strong></td>
+          <td>
+            <div class="signature-2"><input type="text" class="form-control" placeholder="Recommended/Not Recommended" value="{{users.Return_Engineer_Officer}}" readonly>
+            </div>
+          </td>
+          <td class="td-bluelight" width="15%"><strong>Commanding Officer</strong></td>
+          <td>
+            <div class="signature-2"><input type="text" class="form-control" placeholder="Recommended/Not Recommended"
+                value="{{users.Return_Commanding_Officer}}" readonly></div>
+          </td>
+        </tr>
+       
+      </table></br>
+
+
+      <table class="table table-bordered table-form-color1">
+        <th class="td-bluelight"><u>FINAL REMARKS AND RECOMMENDATION</u></th>
+        <tr>
+          <td  class="form-control textarea" rows="8" value="{{users.final_rem_boiler_data | safe}}" ></td>
+        </tr>
+
+      </table> 
+
+    </div>
+    <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 8px;">
+      <tr>
+          <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+          <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+      </tr>
+  </table>
+
+  <table cellspacing="0" cellpadding="5"   width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+    <tr style="border: 0; border-style:None;">
+        <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+        <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+    </tr>
+ </table>
+  
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  </body>
+</html>

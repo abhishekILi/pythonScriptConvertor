@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>me-running-hour-extension</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%;border-style: double; padding: 8px;}
+         tr,
+         th {
+           text-align: start;
+         }
+     
+         tr,
+         th {
+           font-size: 14px;
+         }
+     
+         .table {
+           border: 1px solid lightgray;
+           font-size: 12px;
+           padding: 0px;
+           margin: 0px;
+           border-collapse: collapse;
+           width: 100%;
+         }
+     
+         .table tr {
+           margin: 0px !important;
+           text-align:left;
+         }
+         .textarea{
+            width: 100%;
+            min-height: 80px;
+            /* padding: 10px; */
+            font-size: 12px;
+            resize: none;
+            overflow-y: hidden;
+        }
+      
+         .table tr th {
+           background-color: #80808054;
+           padding: 0px;
+           margin: 0px;
+           border: 1px solid black;
+           text-align: center;
+           padding: 2px 2px 2px 2px;
+         }
+     
+         .table tr td {
+           background-color: #80808054;
+           padding: 0px;
+           margin: 0px;
+           border: 1px solid black;
+           padding: 2px 2px 2px 2px;
+           text-align:left;
+         }
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+    <div class="wrapper" >
+
+
+      <div style="float:right">
+         <p>Report Generated on: {{ history.approved_date_time }}</p>
+       </div>
+        <div class="heading-style2 heading-style3 text-center">
+         <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT.png" class="ng-star-inserted">
+         <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT MUMBAI</h2>       
+           <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">PROFORMA FOR LIFE EXTENSION TRIALS OF DIESEL ENGINES</h2>              
+        </div>
+
+
+
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+           <tr>
+              <td  width="50%"><strong>Ship :</strong></td>
+              <td  style="font-size:14px; color: #222;">{{users.Ship}}</td>
+           </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+           <tr>
+              <th colspan="3">Name of Equipment</th>
+           </tr>
+           <tr>
+              <td width="6%">(A)</td>
+              <td width="44%">Engine Type and Make</td>
+               <td style="font-size:14px; color: #222;">{{users.Engine_Type_Make}}</td>
+           </tr>
+           <tr>
+              <td>(B) </td>
+              <td width="44%">Rated Maximum RPM</td>
+               <td style="font-size:14px; color: #222;">{{users.Rated_Maximum_RPM}}</td>
+           </tr>
+           <tr>
+              <td>(C)</td>
+              <td width="44%">Equipment Serial No</td>
+               <td style="font-size:14px; color: #222;">{{users.Equipment_Serial_No}}</td>
+           </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+           <tr>
+              <th colspan="3">Running Hours</th>
+           </tr>
+           <tr>
+              <td width="6%">(A)</td>
+              <td>Since Installation</td>
+               <td style="font-size:14px; color: #222;">{{users.Since_Installation}}</td>
+           </tr>
+           <tr>
+              <td>(B)</td>
+              <td>Since Last Major Routine</td>
+               <td style="font-size:14px; color: #222;">{{users.Since_Last_Major_Routine}}</td>
+           </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+           <tr>
+              <td width="50%">Last Major Routine Undertaken</td>
+               <td style="font-size:14px; color: #222;">{{users.Last_Major_Routine_Undertaken}}</td>
+           </tr>
+           <tr>
+              <td>Past History of Equipment (Indicate major defects observed/ Assemblies replaced during the operation period)</td>
+              <td class="font-size: 12px; color: #222;">{{users.Past_History_Equipment}}</td>
+           </tr>
+           <tr>
+              <td>State of Safety Devices (Date last checked and present Ops status.) Attach SDC report.</td>
+               <td style="font-size:14px; color: #222;">{{users.State_of_Safety_Devices}}</td>
+           </tr>
+           <tr>
+              <td>Details of SS Routines completed</td>
+               <td style="font-size:14px; color: #222;">{{users.Details_SS_Routines_completed}}</td>
+           </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+           <tr>
+              <th colspan="3">Tentative dates for</th>
+           </tr>
+           <tr>
+              <td width="6%">(A)</td>
+              <td width="45%">Installation, Instrumentation and safety devices checks</td>
+               <td style="font-size:14px; color: #222;">{{users.Installation_Instrumentation}}</td>
+           </tr>
+           <tr>
+              <td>(B)</td>
+              <td>Load Trials/ Sea Trials</td>
+               <td style="font-size:14px; color: #222;">{{users.Load_Trials_Sea_Trials}}</td>
+           </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+           <tr>
+              <td width="50%">Hours proposed for extension</td>
+               <td style="font-size:14px; color: #222;">{{users.Hours_proposed_extension}}</td>
+           </tr>
+           
+        </table>
+        
+
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <tr>
+            <th width="1%">SER</th>
+            <th width="10%">PARAMETER</th>
+            <th width="7%">LOCATION</th>
+            <th width="8%">LOWER- UPPER LIMIT</th>
+            <th width="5%">UNIT</th>
+            <th width="5%">OBSERVED VALUE @ 25% LOAD</th>
+            <th width="5%">OBSERVED VALUE @ 50% LOAD</th>
+            <th width="5%">OBSERVED VALUE @ 75% LOAD</th>
+            <th width="5%">OBSERVED VALUE @ 100% LOAD</th>
+            <th width="8%">OBSERVED VALUE D @ 100% LOAD</th>
+            <th width="8%">REMARKS</th>
+         </tr>
+         {% for i in parameterSheetDynamic %}
+            <tr>
+               <td>{{forloop.counter}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_parameter}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_location}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_lower_upper_limit}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_unit}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_obs_25}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_obs_50}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_obs_75}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_obs_100}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_obs_100_load}}</td>
+               <td style="font-size:14px; color: #222;">{{i.da_parameter_sheet_remarks}}</td>
+            </tr>
+      {% endfor %}
+   </table>
+
+   <h4 style="margin-top:14px;"><u>Final Assessment and Recommendations</u></h4>
+   <table class="table table-bordered table-form-color1">
+       
+           <textarea rowspan="10" class="textarea">{{users.FINAL_OBSERVATIONS_AND_REMARKS | safe}} </textarea>
+   </table></br>
+
+   <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+      <tr>
+          <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+          <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+      </tr>
+  </table>
+
+  <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center">
+   <tr>
+       <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+       <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+   </tr>
+</table>
+
+
+     {% comment %} <div style="display:flex; justify-content:center;align-items:center;">
+
+      <div style="display:flex; flex-direction:column;">
+      <h3>Report Generated Through ITTTM</h3>
+      </div>
+      <div  style="display:flex; flex-direction:column;">
+      <img width="55" height="55" src="http://159.15.2.140:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;">
+      </div>
+     </div> {% endcomment %}
+   </div>
+   </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>monthly running boilers</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         .table-line{vertical-align: top;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+    <div class="wrapper">
+        {% if users.Steaming_Hours == "Jalashwa/Brahmaputra" %}
+        <div class="heading-style2 text-center" >
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">Steaming Hours(Jalashwa/Brahmaputra)</h2>
+        </div>
+       <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        <tr>
+            <th>Since last external cleaning</th>
+            <th>Since last internal cleaning</th>
+            <th>Since last re-tubing</th>
+            <th>Since commissioning</th>
+            <th>last month running Hours</th>
+            <th>Remarks</th>
+        </tr>
+        
+        <tr>
+            <tr>
+                <td style="font-size:14px; color: #222;">{{users.Jalashwa_last_external_clean}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Jalashwa_last_internal_clean}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Jalashwa_last_re_tubing}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Jalashwa_commissioning}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Jalashwa_last_month_run_Hrs}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Jalashwa_Remarks}}</td>
+            </tr>
+       </table>
+       {% endif %}
+       {% if users.Steaming_Hours == "Betwa" %}
+       <div class="heading-style2 text-center">
+        <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">Steaming Hours(Betwa)</h2>
+    </div>
+       <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        <tr>
+            <th rowspan="2">Since last external cleaning</th>
+            <th rowspan="2">Since last internal cleaning</th>
+            <th rowspan="2">Since last re-tubing</th>
+            <th colspan="2">Previous Hours till de-commissioning</th>
+            <th rowspan="2">last month running Hours</th>
+            <th rowspan="2">Remarks</th>
+        </tr>
+        <tr>
+            <th>Port Drum ex-godavari</th>
+            <th>stbd drum ex-taragiri</th>
+        </tr>
+        <tr>
+            <td style="font-size:14px; color: #222;">{{users.Betwa_last_external_clean}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Betwa_last_internal_clean}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Betwa_last_re_tubing}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Betwa_Port_Drum_ex_godavari}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Betwa_stbd_drum_ex_taragiri}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Betwa_last_month_run_Hrs}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Betwa_Remarks}}</td>
+        </tr>
+       </table>
+       {% endif %}
+       {% if users.Steaming_Hours == "Beas" %}
+       <div class="heading-style2 text-center">
+        <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">Steaming Hours(Beas)</h2>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        <tr>
+            <th rowspan="3">Since last external cleaning</th>
+            <th rowspan="3">Since last internal cleaning</th>
+            <th rowspan="3">Since last re-tubing</th>
+            <th colspan="4">Previous Hours till de-commissioning</th>
+            <th rowspan="3">last month running Hours</th>
+            <th rowspan="3">Remarks</th>
+        </tr>
+        <tr>
+            <th colspan="2">Port</th>
+            <th colspan="2">stbd</th>
+        </tr>
+        <tr>
+            <th>Steam Drum ex-Dunagiri</th>
+            <th>Water Drum-new Dooshan(UK)</th>
+            <th>Steam Drum ex-Dunagiri</th>
+            <th>Water Drum-new Dooshan</th>
+        </tr>
+        <tr>
+            <td style="font-size:14px; color: #222;">{{users.Beas_last_external_clean}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Beas_last_internal_clean}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Beas_last_re_tubing}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Beas_last_re_tubing}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Beas_Port_Water_Drum_new_Dooshan}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Beas_stbd_Steam_Drum_ex_Dunagiri}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Beas_stbd_Water_Drum_new_Dooshan}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Beas_last_month_run_Hrs}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Beas_Remarks}}</td>
+        </tr>
+       </table>
+       {% endif %}
+       {% if users.Steaming_Hours == "Vikramaditya" %}
+       <div class="heading-style2 text-center">
+        <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">Steaming Hours(Vikramaditya)</h2>
+       </div>
+       <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        <tr>
+            <th rowspan="2">External chemical cleaning(ECC)</th>
+            <th rowspan="2">Internal chemical cleaning(ICC)</th>
+            <th colspan="3">re-tubing</th>
+            <th rowspan="2">Since commissioning</th>
+            <th rowspan="2">Since installation</th>
+            <th rowspan="2">Last Month running Hours</th>
+            <th rowspan="2">Remarks</th>
+        </tr>
+        <tr>
+            <th>Complete with Econ</th>
+            <th>Without Econ</th>
+            <th>Only Econ</th>
+        </tr>
+        <tr>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_External_chemical_clean}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_Internal_chemical_clean}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_Complete_with_Econ}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_Without_Econ}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_Only_Econ}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_commissioning}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_installation}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_last_month_run_Hrs}}</td>
+            <td style="font-size:14px; color: #222;">{{users.Vikramaditya_Remarks}}</td>
+        </tr>
+         </table>
+         {% endif %}
+         <h4>Recommendations. Following recommended:</h4>
+         {%  with "service/approvals.html" as template %}   
+               {% include template %}
+               
+         {% endwith %}
+         <div class="clear"></div>
+
+        </div>
+         </div>
+         <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+        </body>
+    </html>
+        

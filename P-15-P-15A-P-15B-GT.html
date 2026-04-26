@@ -1,0 +1,288 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>da-surprise-safety-device-check</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+        <div class="wrapper">
+            <div class="heading-style2 heading-style3 text-center">
+                <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">P-15/P-15A/P-15B GT</h2>
+            </div>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                
+                <tr>
+                    <td class="table-form-color2" width="15%"><strong>Ship :</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_make}}</td>
+                    <td class="table-form-color2" width="15%"><strong>Return for Period :</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_make |date:'d/m/Y'}}</td>
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <th>GT 1</th>
+                    <th>GT 2</th>
+                    <th>GT 3</th> 
+                    <th>GT 4</th>
+                    <th>RG 1</th>
+                    <th>RG 2</th>
+                </tr>
+                <tr>
+                    <th>Date Of Recording</th>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                </tr>
+                <tr>
+                    <th>Running hours SI</th>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+            </table>
+                <br><br>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                <p><b> 1. M36E:DT59/RG54</b></p>
+                <tr>
+                    <th>Ser</th>
+                    <th>Point No</th>
+                    <th>Description</th>
+                    <th>GT1/RG1</th>
+                    <th>GT2/RG1</th>
+                    <th>GT3/RG2</th>
+                    <th>GT4/RG2</th>
+                </tr>
+
+                <tr>
+                    <td>(a)</td>
+                    <td>1H</td>
+                    <td>LPC Fwd front support-(H)</td>
+                    <td rowspan="8">Non operational</td>
+                    <!-- <td><input type="text" class="form-control" formControlName="Ser_1"></td> -->
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(b)</td>
+                    <td>2V</td>
+                    <td>Fwd Trunion-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(c)</td>
+                    <td>3A</td>
+                    <td>Fwd Trunion-(A)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(d)</td>
+                    <td>4H</td>
+                    <td>Fwd Trunion-(H)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(e)</td>
+                    <td>5H</td>
+                    <td>HPC Aft Flange-(H)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(f)</td>
+                    <td>6A</td>
+                    <td>HPC Aft Flange-(A)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(g)</td>
+                    <td>7V</td>
+                    <td>RG Fwd-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(h)</td>
+                    <td>8V</td>
+                    <td>RG Alt-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+            </table>            
+                <br><br>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                <p><b> 2. P-15/P-15A/P-15B GTG 1250-2E</b></p>
+
+                <tr>
+                    <th></th>
+                    <th>J1</th>
+                    <th>J3</th>
+                    <th>M2</th> 
+                    <th>M4 </th>
+                </tr>
+                <tr>
+                    <th>Date Of Recording</th>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2 |date:'d/m/Y'}}</td>
+                </tr>
+                <tr>
+                    <th>RG Running Hrs SI</th>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+                <tr>
+                    <th>TC Running Hrs SI</th>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <th>Ser</th>
+                    <th>Point No</th>
+                    <th>Description</th>
+                    <th>J1</th>
+                    <th>J3</th>
+                    <th>M2</th>
+                    <th>M4</th>
+                </tr>            
+                <tr>
+                    <td>(a)</td>
+                    <td>1V</td>
+                    <td>Alternator Fwd Bearing-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(b)</td>
+                    <td>2V</td>
+                    <td>Alternator Aft Bearing-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(c)</td>
+                    <td>3V</td>
+                    <td>RG Fwd-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(d)</td>
+                    <td>4V</td>
+                    <td>RG Aft-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(e)</td>
+                    <td>5V</td>
+                    <td>Compressor Bearing-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(f)</td>
+                    <td>6V</td>
+                    <td>Compressor Body-(V)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(g)</td>
+                    <td>6A</td>
+                    <td>Compressor Body-(A)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+
+                <tr>
+                    <td>(h)</td>
+                    <td>7A</td>
+                    <td>Turbine Bearing-(A)</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                </tr>
+            </table>
+            <h4>Recommendations. Following recommended:</h4>
+            {%  with "service/approvals.html" as template %}   
+                {% include template %}
+                
+            {% endwith %}
+        </div>
+        <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+    </body>
+</html>      

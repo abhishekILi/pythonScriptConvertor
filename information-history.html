@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CBIU</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal"/>
+    <meta name="pdfkit-orientation" content="Landscape"/>
+		<style type="text/css">
+    body{margin:50px 50px; size:landscape;}
+		.wrapper{width: 100%; margin: 20px auto;}
+		table{border-collapse: collapse;}
+		.clear{padding: 0; margin: 0; width: 100%; clear: both;}
+		.star{color: red;}
+    strong{font-weight: 600;}
+    body{margin:50px;background: #FFF !important;}
+		</style>		   
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="heading-style2">
+	        <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>Information History</strong></h2>
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">Water Pressuer Test</h2>
+	    </div>
+
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        {% if users%} 
+        <tr>
+          <td><p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">Date</p></td>
+          <td style="font-size:14px; color: #222;">{{users.date |date:'d/m/Y'}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td><p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">Boiler Name / Location</p></td>
+          <td style="font-size:14px; color: #222;">{{users.boiler_name }}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td><p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">Occasion</p></td>
+          <td style="font-size:14px; color: #222;">{{users.occasion}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td><p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">Maximum Pressure Raised</p></td>
+          <td style="font-size:14px; color: #222;">{{users.max_pressure_raise}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td><p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">Rate of Leak</p></td>
+          <td style="font-size:14px; color: #222;">{{users.rate_of_leak}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td><p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">Remarks</p></td>
+          <td style="font-size:14px; color: #222;">{{users.remarks}}</td>
+        </tr>
+        {% endif%}
+      </table>
+
+      <h1 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">EXTERNAL EXAMINATION AND CLEANING</h1>
+
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+              <th rowspan="2" style="font-size:14px; font-weight: 600; color: #000;">OCCASION </th>
+              <th rowspan="2" style="font-size:14px; font-weight: 600; color: #000;">INSPECTING AUTHORITY</th>
+              <th style="font-size:14px; font-weight: 600; color: #000;">CARRIED ON</th>
+              <th style="font-size:14px; font-weight: 600; color: #000;">NEXT DUE</th>
+              <th rowspan="2" style="font-size:14px; font-weight: 600; color: #000;">REMARKS AND METHOD USED</th>
+            </tr>
+            <tr>
+              <th style="font-size:14px; font-weight: 600; color: #000;">( DD/MM/YYYY )</th>
+              <th style="font-size:14px; font-weight: 600; color: #000;">( DD/MM/YYYY )</th>
+            </tr>
+            <tr>
+              {% if users%} 
+              <td>
+                 <p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">FOUR  MONTHLY</p>
+                 <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">( By Time)</p>
+              </td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_four_mon_inspect_auth}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_four_mon_carriedon_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_four_mon_nextdue_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_four_mon_remarks }}</td>
+            </tr>
+            {% endif%}
+            {% if users%} 
+            <tr>
+              <td>
+                 <p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">1400  HOURLY</p>
+                 <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">( By Running Hours)</p>
+              </td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_1400_Hrs_inspect_auth}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_1400_Hrs_carriedon_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_1400_Hrs_nextdue_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_1400_Hrs_remarks}}</td>
+            </tr>
+            {% endif%}
+            {% if users%} 
+            <tr>
+              <td>
+                 <p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">BEFORE DURABILITY INSPECTION</p>
+              </td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_before_dura_ins_inspect_auth}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_before_dura_ins_carriedon_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_before_dura_ins_nextdue_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_before_dura_ins_remarks}}</td>
+            </tr>
+            {% endif%}
+            {% if users%} 
+            <tr>
+              <td>
+                 <p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">BEFORE REFIT</p>
+              </td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_before_refit_inspect_auth}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_before_refit_carriedon_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_before_refit_nextdue_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.FFO_occ_before_refit_remarks}}</td>
+            </tr>
+            {% endif%}
+          </table>   
+
+          <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+              <th rowspan="2" style="font-size:14px; color: #222;">OCCASION </th>
+              <th rowspan="2" style="font-size:14px; color: #222;">INSPECTING AUTHORITY</th>
+              <th style="font-size:14px; color: #222;">CARRIED ON</th>
+              <th style="font-size:14px; color: #222;">NEXT DUE</th>
+              <th rowspan="2" style="font-size:14px; color: #222;">REMARKS AND METHOD USED</th>
+            </tr>
+            <tr>
+              <th style="font-size:14px; color: #222;">( DD/MM/YYYY )</th>
+              <th style="font-size:14px; color: #222;">( DD/MM/YYYY )</th>
+            </tr>
+            {% if users%} 
+            <tr>
+              <td>
+                 <p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">SIX  MONTHLY</p>
+                 <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">( By Time)</p>
+              </td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_six_mon_inspect_auth}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_six_mon_carriedon_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_six_mon_nextdue_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_six_mon_remarks}}</td>
+            </tr>
+            {% endif%}
+            {% if users%} 
+            <tr>
+              <td>
+                 <p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">2100  HOURLY</p>
+                 <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">( By Running Hours)</p>
+              </td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_2100_Hrs_inspect_auth}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_2100_Hrs_carriedon_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_2100_Hrs_nextdue_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_2100_Hrs_remarks}}</td>
+            </tr>
+            {% endif%}
+            {% if users%} 
+            <tr>
+              <td>
+                 <p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">BEFORE DURABILITY INSPECTION</p>
+              </td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_before_dura_ins_inspect_auth}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_before_dura_ins_carriedon_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_before_dura_ins_nextdue_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_before_dura_ins_remarks}}</td>
+            </tr>
+            {% endif%}
+            {% if users%} 
+            <tr>
+              <td>
+                 <p style="font-size: 14px; color: #000; font-weight: 600; margin:0 0 5px;">BEFORE REFIT</p>
+              </td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_before_refit_inspect_auth}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_before_refit_carriedon_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_before_refit_nextdue_date |date:'d/m/Y'}}</td>
+              <td style="font-size:14px; color: #222;">{{users.Dieso_occ_before_refit_remarks}}</td>
+            </tr>
+            {% endif%}
+          </table>  
+
+          <h4>Recommendations. Following recommended:</h4>
+          {% if approvalData %}
+            {% for approval in approvalData %}
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; text-align: left;">
+                                    
+                    <tr><th>Trial No.</th><td>{{ approval.trial.trial_number }}</td></tr>
+                  
+                    <tr><th>Level</th><td>{{ approval.approved_level }}</td></tr>
+                    
+                    <tr> <th>Recommendations</th><td>{{ approval.comments }}</td></tr>
+                    
+                    <tr><th>Approval <br>Status</th>{% if approval.status == 1 %}
+                        <td>{{ "Approved" }}</td>
+                        {% endif %}
+                        {% if approval.status == 2 %}
+                        <td>{{ "Rejected" }}</td>
+                        {% endif %}
+                        </tr>
+                    <tr><th>Approved <br>Role</th><td>{{ approval.approved_role.name}}</td></tr>
+                    <tr><th>Approved <br>By</th><td>{{ approval.approved_by.first_name }} {{ approval.approved_by.last_name }}</td></tr>
+              
+            </table>
+          {% endfor %}
+            {% endif %}
+<div class="clear"></div>
+		</div>
+    <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+      <tr>
+          <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+          <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+      </tr>
+  </table>
+	</body>
+	 
+</html>	

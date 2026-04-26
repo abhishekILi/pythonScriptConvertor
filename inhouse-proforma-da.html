@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>ETMA Navy</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin:50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         body{margin:50px;background: #FFF !important;}
+      </style>
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="heading-style2">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>INHOUSE TRIALS – DA/TA OCCASION OF TRIALS
+               TRIALS DATE - <span style="border-bottom: 1px solid #000;">{{users.trials_date |date:'d/m/Y'}}</span></strong>
+            </h2>
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>DIESEL ALTERNATOR INHOUSE TRIAL REPORT – <span style="border-bottom: 1px solid #000;">{{users.trial_conv_no}}</span> <br/>
+               DA/TA - <span style="border-bottom: 1px solid #000;">({{users.equipment_KW}} &nbsp; KW)</span>
+               SHIP – INS  <span style="border-bottom: 1px solid #000;">{{users.shipID}}</span></strong>
+            </h2>
+         </div>
+         <h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">1. Trial Details</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+             {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Trial date <span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.trial_date |date:'d/m/Y'}}</td>
+            </tr>
+            {% endif%}
+              {% if users%} 
+            <tr>
+               <td>(b)</td>
+               <td>Occasion of trial <span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.occationOfCurrTrial}}</td>
+            </tr>
+             {% endif%}
+             {% if users%} 
+            <tr>
+               <td>(c)</td>
+               <td>Reference document for trial</td>
+               <td>{{users.referanceDocID}}</td>
+            </tr>
+            {% endif%}
+            
+         </table>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;margin: 20px 0 10px;">
+            <tr>
+            <td><h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">2. Test Equipment Used. <span class="star"><span class="star">*</span></span></h4></td>
+            <td style="font-size:14px; color: #222;">{{users.testEquipmentUsed}}</td>
+            
+          </tr>
+          </table>
+                   <h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">3. Equipment Details</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+            <tr>
+               <th align="left" colspan="3">Engine</th>
+            </tr>
+             {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Make <span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.engn_equipmentID}}</td>
+            </tr>
+             {% endif%}
+            {% if users%} 
+            <tr>
+               <td>(b)</td>
+               <td>Model & serial no. <span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.engn_equipmentSrNo}}</td>
+            </tr>
+             {% endif%}
+            {% if users%} 
+            <tr>
+               <td>(c)</td>
+               <td>RPM<span class="star"><span class="star">*</span></span> </td>
+               <td style="font-size:14px; color: #222;">{{users.engn_rpm_val}}</td>
+            </tr>
+            {% endif%}
+         </table>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 20px;">
+            <tr>
+               <th align="left" colspan="3">Governor</th>
+            </tr>
+             {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Make <span class="star"><span class="star">*</span></span></td>
+               <td width="40%" style="font-size:14px; color: #222;">{{users.govnr_equipmentID}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Model & serial no. <span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.govnr_equipmentSrNo}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(c)</td>
+               <td>Type<span class="star"><span class="star">*</span></span> </td>
+               <td style="font-size:14px; color: #222;">{{users.govnr_type}}</td>
+            </tr>
+            {% endif%}
+         </table>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 20px;">
+            <tr>
+               <th align="left" colspan="3">Alternator</th>
+            </tr>
+             {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Make and rating<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.altnr_equipmentID}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Model & serial no.<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.altnr_equipmentSrNo}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(c)</td>
+               <td>Rated voltage<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.altnr_RatedVoltage}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(d)</td>
+               <td>Rated frequency<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.altnr_RatedFrequency}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(e)</td>
+               <td>Rated kVA/ kW<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.altnr_RatedVal}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(f)</td>
+               <td>Rated current<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.altnr_RatedCurrentVal}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(g)</td>
+               <td>Bearing number<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.altnr_BearingNo}}</td>
+            </tr>
+            {% endif%}
+         </table>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 20px;">
+            <tr>
+               <th align="left" colspan="3">AVR</th>
+            </tr>
+             {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Make and type<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.avr_equipmentID}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Model & serial no.<span class="star"><span class="star">**</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.avr_equipmentSrNo}}</td>
+            </tr>
+            {% endif%}
+         </table>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 20px;">
+            <tr>
+               <th align="left" colspan="3">Supply Breaker</th>
+            </tr>
+             {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Make<span class="star"></span></td>
+               <td style="font-size:14px; color: #222;">{{users.spplyBrkr_equipmentID}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Model & Serial no.<span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.spplyBrkr_equipmentSrNo}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(c)</td>
+               <td>Rated capacity (Amps)* <span class="star"><span class="star">*</span></span></td>
+               <td style="font-size:14px; color: #222;">{{users.spplyBrkr_RatedCpcty}}</td>
+            </tr>
+            {% endif%}
+         </table>
+         <h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">4.Insulation Resistance (iaw NES 511(Issue 2) and NES 502 issue 4).</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+            {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Generator hot (>1MW) <span class="star">*</span>  </td>
+               <td style="font-size:14px; color: #222;">{{users.ir_gnrtr_hot}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Generator cold (>1MW) <span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.ir_gnrtr_cold}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(c)</td>
+               <td>Switchboard (>2MW) <span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.ir_swtchbrd}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(d)</td>
+               <td>Generator to switchboard cable (>20MW) <span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.ir_swtchbrd_cbl}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(e)</td>
+               <td>Insulation of breaker (>10MW) <span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.ir_insltn_brkr}}</td>
+            </tr>
+            {% endif%}
+            
+         </table>
+         <h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">5. Protection Checks.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+            <tr>
+               <th align="left">Ser</th>
+               <th align="left">Protection</th>
+               <th align="left">Calibration Date<span class="star">*</span></th>
+               <th align="left">Calibration Certificate Provided (Yes/No)<span class="star">*</span></th>
+               <th align="left">Tripping Value</th>
+               <th align="left">Observed Value<span class="star">*</span></th>
+               <th align="left">Status (Sat/ Unsat)<span class="star">*</span></th>
+               <th align="left">Remarks<span class="star">*</span></th>
+            </tr>
+            <tr>
+               <th align="left" colspan="7">Breaker Protection</th>
+            </tr>
+
+            {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Over voltage </td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVT_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVT_CertSts}}</td>
+               <td>110% of rated voltage</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVT_ObsVal}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVT_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVT_Remarks}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Under voltage </td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_UVT_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_UVT_CertSts}}</td>
+               <td>85% of rated voltage</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_UVT_ObsVal}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_UVT_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_UVT_Remarks}}</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Overload</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVLD_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVLD_CertSts}}</td>
+               <td>NA</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVLD_ObsVal}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVLD_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_BP_OVLD_Remarks}}</td>
+            </tr>
+            {% endif%}
+            
+            <tr>
+               <th align="left" colspan="7">Generator/ Switchboard Protection</th>
+            </tr>
+              {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Over voltage trip</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_OVT_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_OVT_CertSts}}</td>
+               <td>110% of rated voltage</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_OVT_ObsVal}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_OVT_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_OVT_Remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Under voltage trip</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_UVT_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_UVT_CertSts}}</td>
+               <td>85% of rated voltage</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_UVT_ObsVal}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_UVT_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_UVT_Remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(c)</td>
+               <td>Reverse power relay</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_RPR_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_RPR_CertSts}}</td>
+               <td>NA</td>
+               <td>NA</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_RPR_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_RPR_Remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(d)</td>
+               <td>Diode failure trip</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_DFT_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_DFT_CertSts}}</td>
+               <td>NA</td>
+               <td>NA</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_DFT_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_DFT_Remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(e)</td>
+               <td>Winding temp alarm</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_WTA_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_WTA_CertSts}}</td>
+               <td>NA</td>
+               <td>NA</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_WTA_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_WTA_Remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(f)</td>
+               <td>Bearing temp alarm</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_BTA_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_BTA_CertSts}}</td>
+               <td>NA</td>
+               <td>NA</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_BTA_Sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.proChck_GSP_BTA_Remarks}}</td>
+            </tr>
+             {% endif%}
+           
+         </table>
+         <h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">6.Instrumentation.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+
+            {% if users%}
+            <tr>
+               <th align="left">Ser</th>
+               <th align="left">Meter </th>
+               <th align="left">Ops/ Non Ops<span class="star">*</span></th>
+               <th align="left">Calibration Date<span class="star">*</span></th>
+               <th align="left">Calibration Certificate (Available/ Not available)<span class="star">*</span></th>
+               <th align="left">Remarks<span class="star">*</span></th>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>kW Meter</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_KWM_ops}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_KWM_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_KWM_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_KWM_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Voltmeter</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_VM_ops}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_VM_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_VM_CertSts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_VM_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(c)</td>
+               <td>Ammeter</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_AMM_ops}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_AMM_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_AMM_CertSts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_AMM_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(d)</td>
+               <td>Frequency meter</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_FM_ops}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_FM_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_FM_CertSts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_FM_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(e)</td>
+               <td>Power factor meter</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_PFM_ops}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_PFM_CDate|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_PFM_CertSts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.instrmtn_PFM_remarks}}</td>
+            </tr>
+             {% endif%}
+         
+         </table>
+         <h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">7.DA Control Panel Checks.</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+            {% if users%}
+            <tr>
+               <th colspan="3"></th>
+               <th>Remarks<span class="star">*</span></th>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Condition of cables (Sat/Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_cbl_cond}}</td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_cbl_cond_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Cleanliness (Sat/Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_cleanliness}}</td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_cleanliness_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(C)</td>
+               <td>Instrumentation (Date of calibration and certificate available - Yes/No)*<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_instrmnttn}}</td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_instrmnttn_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(d)</td>
+               <td>Indication lamps (Sat/Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_indication}}</td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_indication_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(e)</td>
+               <td>Switch/ knobs (Sat/Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_switch_knobs}}</td>
+               <td style="font-size:14px; color: #222;">{{users.DAcpCh_switch_knobs_remarks}}</td>
+            </tr>
+             {% endif%}
+         </table>
+         <h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">8.  Miscellaneous Checks</h4>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+            {% if users%}
+            <tr>
+               <th colspan="3"></th>
+               <th>Remarks<span class="star">*</span></th>
+            </tr>
+            {% endif%}
+
+            {% if users%}
+            <tr>
+               <td>(a)</td>
+               <td>Main stator resistance checks<span class="star">**</span></td>
+               <td width="45%" style="font-size:14px; color: #222;">{{users.misc_MSRC}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_MSRC_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(b)</td>
+               <td>Main rotor resistance checks<span class="star">**</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_MRRC}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_MRRC_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(c)</td>
+               <td>Exciter stator resistance checks<span class="star">**</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_ESRC}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_ESRC_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(d)</td>
+               <td>Exciter rotor resistance checks<span class="star">**</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_ERRC}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_ERRC_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(e)</td>
+               <td>SPM of bearing (Sat/Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_SPM_brng}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_SPM_brng_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(f)</td>
+               <td>Temp of bearing after trial (Sat/ Unsat) (<93 degC)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_temp_brng}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_temp_brng_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(g)</td>
+               <td>Lubricant used<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_lbrcnt_used}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_lbrcnt_used_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(h)</td>
+               <td>Greasing instruction on DA(Avl/ NA)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_greasing_instruction}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_greasing_instruction_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(i)</td>
+               <td>Anti condensation heater (Ops/ Non Ops)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_ACH}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_ACH_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(j)</td>
+               <td>Date of RRA replacement<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_RRA_replace_date|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_RRA_replace_date_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(k)</td>
+               <td>DTTT trial status (Sat/Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_DTTT_trial_sts}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_DTTT_trial_sts_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(l)</td>
+               <td>Internal communication (Sat/ Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_internal_cmmnctn}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_internal_cmmnctn_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(m)</td>
+               <td>Lighting of compartment (Sat/ Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_lghtng_comprt}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_lghtng_comprt_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(n)</td>
+               <td>Ventilation of compartment (Sat/ Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_vntlatn_comprt}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_vntlatn_comprt_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(o)</td>
+               <td>Generator terminal box and top cover nuts and bolts cover  are secured (Sat/ Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_generatr_termnal}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_generatr_termnal_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(p)</td>
+               <td>Loose cables/ wires of various instrumentation secured (Sat/ Unsat)* <span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_lose_cables}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_lose_cables_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(q)</td>
+               <td>Generator/ Swbd is earthed (Sat/ Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_generatr_Swbd}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_generatr_Swbd_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(r)</td>
+               <td>Generator supply breaker operates electrically (Sat/ Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_generatr_supply_brkr}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_generatr_supply_brkr_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(s)</td>
+               <td>Ambient temperature at start<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_ambient_temperature}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_ambient_temperature_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(t)</td>
+               <td>Temperature rise after two hours of running at full load<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_temprtre_rise}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_temprtre_rise_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(u)</td>
+               <td>Routine on cooler last carried out on (date)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_routine_cooler_on|date:'d/m/Y'}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_routine_cooler_on_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(v)</td>
+               <td>Temperature of cooler inlet pipe line<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_temprtre_cooler_inlet}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_temprtre_cooler_inlet_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(w)</td>
+               <td>Temperature of cooler outlet pipe line<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_temprtre_cooler_outlet}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_temprtre_cooler_outlet_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(x)</td>
+               <td>Check condition of zinc plugs (Sat/ Unsat)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_zinc_condn}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_zinc_condn_remarks}}</td>
+            </tr>
+             {% endif%}
+            {% if users%}
+            <tr>
+               <td>(y)</td>
+               <td>Stator winding temperature (where applicable)<span class="star">*</span></td>
+               <td style="font-size:14px; color: #222;">{{users.misc_stator_winding_temprtr}}</td>
+               <td style="font-size:14px; color: #222;">{{users.misc_stator_winding_temprtr_remarks}}</td>
+            </tr>
+             {% endif%}
+           
+         </table>
+         <div class="note-card">
+            <p><strong>Note:</strong> For Para 1 to 8, following to be followed while filling the details mentioned in </p>
+            <p><strong>sub serials:-</strong> </p>
+            <ul type="i">
+               <li>“<span class="star">*</span>” -   To be provided by SS.</li>
+               <li>“<span class="star">**</span>” -   To be checked/ provided by Yard.</li>
+            </ul>
+         </div>
+         <h4 style="font-size:18px ;color: #000; margin: 20px 0 10px;">9. Trials (To be Undertaken by Yard). </h4>
+         <div class="note-card heading-style2">
+            <ul type="i">
+               <li> Governor droop at 100% load change <span>test</span> <span>%</span></li>
+               <p>(Between 0.875% to 1% (for Electronic Governors)/ Between 3.5% to 4% (for Mechanical Governors)/ Upto 3% onboard Teg and Talwar class ships)</p>
+               <p>Governor Droop - (No load frequency - Full load frequency)*100
+                  Nominal frequency
+               </p>
+               <p>Nominal frequency – (No load frequency + Full load frequency)
+                  2  
+               </p>
+            </ul>
+         </div>
+         <div class="table-responsive">
+            <p>(b) Frequency range minimum ± 3% ( Mech Governor) and +1% (Elect Governor) at no load and rated load.</p>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+               <tr>
+                  <th align="left">Load %</th>
+                  <th align="left">Measured Frequency (Hz)</th>
+                  <th align="left">Remark</th>
+                  <th align="left">Observation</th>
+               </tr>
+               <tr>
+                  <td>0</td>
+                  <td style="font-size:14px; color: #222;">{{users.frequency_0_range_measured}}
+                  {{users.frequency_0_range_measured}}</td>
+                  <td>{{users.frequency_0_range_remark}}</td>
+                  <td>{{users.frequency_0_range_obs}}</td>
+               </tr>
+               <tr>
+                  <td>100</td>
+                  <td style="font-size:14px; color: #222;">{{users.frequency_100_range_measured}}
+                  {{users.frequency_100_range_remark}}</td>
+                  <td>{{users.frequency_100_range_remark}}</td>
+                  <td>{{users.frequency_100_range_obs}}</td>
+               </tr>
+            </table>
+         </div>
+         <div class="table-responsive">
+            <p>(c)  Final value and recovery time of frequency at load changes mentioned below.</p>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+               <tr>
+                  <th align="left" colspan="2">Load %</th>
+                  <th align="left" rowspan="2">Initial Speed(Hz)</th>
+                  <th align="left" rowspan="2">MomentarySpeed(Hz)</th>
+                  <th align="left" rowspan="2">Final Speed(Hz)</th>
+                  <th align="left" colspan="2">% Peak</th>
+                  <th align="left" colspan="2">Time of Recovery to Within ± 1 %/ 0.2% of Final Value</th>
+               </tr>
+               <tr>
+                  <th>Initial</th>
+                  <th>TO</th>
+                  <th>Observed</th>
+                  <th>PermissibleLimits</th>
+                  <th>Observed</th>
+                  <th>PermissibleLimits(Sec)</th>
+               </tr>
+               <tr>
+                  <th align="left" colspan="9">For All Alternators (Turbo/ Diesel Including Turbo-Charged Machines)</th>
+               </tr>
+
+               {% if users %}
+               <tr>
+                  <td>0</td>
+                  <td>25</td>
+                  <td style="font-size:14px; color: #222;"> {{users.rcvrylod_0x25_init_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_0x25_mtry_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_0x25_final_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_0x25_peak_obs}}</td>
+                  <td rowspan="4"><span class="star">***</span></td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_0x25_final_val_obs}}</td>
+                  <td rowspan="4"><span class="star">***</span></td>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <td>25</td>
+                  <td>0</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_25x0_init_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_25x0_mtry_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_25x0_final_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_25x0_peak_obs}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_25x0_final_val_obs}}</td>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <td>75</td>
+                  <td>100</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_75x100_init_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_75x100_mtry_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_75x100_final_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_75x100_peak_obs}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_75x100_final_val_obs}}</td>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <td>100</td>
+                  <td>75</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_100x75_init_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_100x75_mtry_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_100x75_final_speed}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_100x75_peak_obs}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvrylod_100x75_final_val_obs}}</td>
+               </tr>
+                {% endif %}
+            </table>
+            <div class="note-card">
+               <ul type="i">
+                  <li><span class="star">‘***’</span> Mechanical Governor – 2.5% of nominal speed and the speed should recover to within 1% of final speed within 2 secs and Electronic Governor – 1.5% of nominal speed and the speed should recover to within 0.2% of final speed within 2 secs. WJFACs – 3% of nominal speed. Non weapon platforms as per IHQ MoD(N)/ DEE letter EE/03/9700 dated 11 Jun 19 – 3.5% of nominal speed.</li>
+                  <li>Formula for % peak – (Initial frequency – Momentary frequency) <span class="star">*</span> 100
+                     Nominal frequency
+                  </li>
+                  <li>  The maximum speed variations resulting from sudden increase of 25% load stops when the generator is loaded at zero, 25, 50 and 75 % of rated full load should be recorded.</li>
+               </ul>
+            </div>
+         </div>
+         <div class="table-responsive">
+            <p>(d)  Final value and recovery time of voltage at all load changes achieved</p>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  {% if users %}
+               <tr>
+                  <th align="left" colspan="2">Load %</th>
+                  <th align="left" rowspan="2">Initial Voltage (v)</th>
+                  <th align="left" rowspan="2">Momentary Voltage(V)</th>
+                  <th align="left" rowspan="2">Final Voltage (V)</th>
+                  <th align="left" colspan="2">% Peak</th>
+                  <th align="left" colspan="2">Time of Recovery to Within ±1% of Final Value</th>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <th align="left">Initial</th>
+                  <th align="left">To</th>
+                  <th align="left">Observed</th>
+                  <th align="left">Permissible Limit</th>
+                  <th align="left">Observed (Sec)</th>
+                  <th align="left">PermissibleLimits(Sec)</th>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <th colspan="1">100</th>
+                  <th>75</th>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_100x75_init_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_100x75_mtry_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_100x75_final_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_100x75_peak_obs}}</td>
+                  <td rowspan="2">7.5%</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_100x75_final_val_obs}}</td>
+                  <td rowspan="5">1</td>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <th colspan="1">25</th>
+                  <th>0</th>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_25x0_init_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_25x0_mtry_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_25x0_final_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_25x0_peak_obs}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_25x0_final_val_obs}}</td>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <th colspan="2">0 + M</th>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_0M_init_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_0M_mtry_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_0M_final_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_0M_peak_obs}}</td>
+                  <td rowspan="3">15</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_0M_final_val_obs}}</td>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <th colspan="2">50 + M</th>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_50M_init_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_50M_mtry_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_50M_final_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_50M_peak_obs}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_50M_final_val_obs}}</td>
+               </tr>
+                {% endif %}
+                  {% if users %}
+               <tr>
+                  <th colspan="2">80 + M</th>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_80M_init_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_80M_mtry_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_80M_final_volt}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_80M_peak_obs}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rcvryvolt_80M_final_val_obs}}</td>
+               </tr>
+                {% endif %}
+            </table>
+            <div class="note-card">
+               <ul type="i">
+                  <li>‘M’ load is application of load equal to 50% rated KVA at 0.4 PF lagging.</li>
+                  <li>Formula for % peak – (Initial voltage – Momentary voltage) <span class="star">*</span> 100 Nominal voltage</li>
+                  <p>Nominal voltage – (No load voltage + Full load voltage)2</p>
+               </ul>
+            </div>
+         </div>
+         <div class="table-responsive">
+            <p>(e)  Minimum + 5% voltage range at no load and rated load with the help of hand regulator and AVR trimmer achieved</p>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+               <tr>
+                  <th rowspan="2"></th>
+                  <th rowspan="2">Load %</th>
+                  <th align="left" colspan="2">Voltage Measured on Switchboard (Volts)</th>
+                  <th colspan="2"></th>
+               </tr>
+               <tr>
+                  <th align="left">At Lowest Limit of Trimmer </th>
+                  <th align="left">At Highest Limit of Trimmer </th>
+                  <th align="left">Remark</th>
+                  <th align="left">Observation</th>
+               </tr>
+               <tr>
+                  <td rowspan="2">A.V.R. Control</td>
+                  <td>0</td>
+                  <td style="font-size:14px; color: #222;">{{users.AVRtrmmr_0_swtchbrd_lowest_limit}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.AVRtrmmr_0_swtchbrd_highest_limit}}</td>
+                  <td>{{users.AVRtrmmr_0_remark}}</td>
+                  <td>{{users.AVRtrmmr_0_obs}}</td>
+               </tr>
+               <tr>
+                  <td>100</td>
+                  <td style="font-size:14px; color: #222;">{{users.AVRtrmmr_100_swtchbrd_lowest_limit}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.AVRtrmmr_100_swtchbrd_highest_limit}}</td>
+                  <td>{{users.AVRtrmmr_100_remark}}</td>
+                  <td>{{users.AVRtrmmr_100_obs}}</td>
+               </tr>
+            </table>
+         </div>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 20px;">
+            <tr>
+               <td>(f) Load trials up to rated capacity carried out at Power actor (P.F)
+               </td>
+               <td style="font-size:14px; color: #222;">{{users.loadTrial_power_factor}}</td>
+            </tr>
+            <tr>
+               <td>(i) Max. kW achieved
+               </td>
+               <td style="font-size:14px; color: #222;">{{users.max_achieved_KW_val}}</td>
+            </tr>
+            <tr>
+               <td>(ii)  Max. amp achieved 
+               </td>
+               <td style="font-size:14px; color: #222;">{{users.max_achieved_amp_val}}</td>
+            </tr>
+         </table>
+         <p style="margin: 20px 0;"><strong>Signature of Electrical Officer</strong></p>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">           
+            <tr>
+               <td width="30%">Rank - </td>
+               <td style="font-size:14px; color: #222;">{{users.authorization_officer_rank}}</td>
+            </tr>
+            <tr>
+               <td>Name - </td>
+               <td style="font-size:14px; color: #222;">{{users.authorization_officer_name}}</td>
+            </tr>
+            <tr>
+               <td>Number - </td>
+               <td style="font-size:14px; color: #222;">{{users.authorization_officer_number}}</td>
+            </tr>
+            <tr>
+               <td>Date: </td>
+               <td style="font-size:14px; color: #222;">{{users.authorization_date|date:'d/m/Y'}}</td>
+            </tr>
+         </table>
+         <h4>15. Recommendations. Following recommended:</h4>
+            {% if approvalData %}
+               {% for approval in approvalData %}
+               <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; text-align: left;">
+                                       
+                     <tr><th>Trial No.</th><td>{{ approval.trial.trial_number }}</td></tr>
+                     
+                     <tr><th>Level</th><td>{{ approval.approved_level }}</td></tr>
+                     
+                     <tr> <th>Recommendations</th><td>{{ approval.comments }}</td></tr>
+                     
+                     <tr><th>Approval <br>Status</th>{% if approval.status == 1 %}
+                           <td>{{ "Approved" }}</td>
+                           {% endif %}
+                           {% if approval.status == 2 %}
+                           <td>{{ "Rejected" }}</td>
+                           {% endif %}
+                           </tr>
+                     <tr><th>Approved <br>Role</th><td>{{ approval.approved_role.name}}</td></tr>
+                     <tr><th>Approved <br>By</th><td>{{ approval.approved_by.first_name }} {{ approval.approved_by.last_name }}</td></tr>
+                                 
+               </table>
+            {% endfor %}
+               {% endif %}
+         <div class="clear"></div>
+      </div>
+      <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+         <tr>
+             <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+             <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+         </tr>
+     </table>
+   </body>
+</html>

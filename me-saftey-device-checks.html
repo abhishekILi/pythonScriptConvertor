@@ -1,0 +1,2725 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>me-saftey-device-checks-vzg</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%;border-style: double; padding: 8px;}
+         tr,
+    th {
+      text-align: start;
+    }
+
+    tr,
+    th {
+      font-size: 14px;
+    }
+
+    .table {
+      border: 1px solid lightgray;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .table tr {
+      margin: 0px !important;
+      text-align:left;
+    }
+    .textarea{
+      width: 100%;
+      min-height: 80px;
+      /* padding: 10px; */
+      font-size: 12px;
+      resize: none;
+      overflow-y: hidden;
+  }
+
+    .table tr th {
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      text-align: center;
+      padding: 2px 2px 2px 2px;
+    }
+
+    .table tr td {
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      padding: 2px 2px 2px 2px;
+      text-align:left;
+    }
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+      <div class="wrapper">
+        
+         <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+          </div>
+           <div class="heading-style2 heading-style3 text-center">
+            <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT.png" class="ng-star-inserted">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT MUMBAI</h2>       
+              <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">ME SAFTEY DEVICE CHECKS</h2>              
+           </div>
+   
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            
+            <tr>
+                 <td width="15%"><strong>Ship :</strong></td>
+                 <td style="font-size:14px; color: #222;">{{usersOne.Mesafe_Ship}}</td>
+                 <td class="td-bluelight" width="15%"><strong>EQUIPMENT :</strong></td>
+                 <td style="font-size:14px; color: #222;">{{usersOne.Mesafe_EQUIPMENT}}</td>
+              </tr>
+              
+              <tr>
+                 <td width="15%"><strong>MAKE / MODEL :</strong></td>
+                 <td style="font-size:14px; color: #222;">{{usersOne.Mesafe_Ship_MAKE_MODEL}}</td>
+                 <td class="td-bluelight" width="10%"><strong>DATE OF TRIAL :</strong></td>
+                 <td style="font-size:14px; color: #222;">{{usersOne.Mesafe_DATE_TRIAL }}</td>
+              </tr>
+              
+              <tr>
+                 <td width="6%"><strong>OCCASION OF TRIAL :</strong></td>
+                 <td style="font-size:14px; color: #222;">{{usersOne.Mesafe_Ship_OCC}}</td>
+                 <td class="td-bluelight" width="10%"><strong>R/H SINCE INSTALLATION :</strong></td>
+                 <td style="font-size:14px; color: #222;">{{usersOne.Mesafe_Ship_R_H_INST}}</td>
+              </tr>
+              
+           </table>
+
+           <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th colspan="6">ALARMS(REMOTE)</th>
+            </tr>
+            <tr>
+               <th>Sr No</th>
+               <th>Safety Parameters</th>
+               <th>Unit</th>
+               <th>Limit/Allowance</th>
+               <th>Observed Value</th>
+               <th>Remarks (SAT/UNSAT)</th>
+            </tr>
+           <tr>
+            <td>1</td>
+            <td>LOW LUB OIL PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_limit}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_obs_val}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>2</td>
+            <td>HIGH FRESH WATER TEMPERATURE </td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_fresh_water_temperature_limit}}</td>
+            <td>{{usersOne.me_high_fresh_water_temperature_obs_val}}</td>
+            <td>{{usersOne.me_high_fresh_water_temperature_remark}}</td>
+        </tr>
+     <tr>
+            <td>3</td>
+            <td>HIGH LUB OIL TEMPERATURE </td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_limit}}</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_obs_val}}</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_remark}}</td>
+        </tr>
+     <tr>
+            <td>4</td>
+            <td>LOW SEA WATER PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_sea_water_pressure_limit}}</td>
+            <td>{{usersOne.me_low_sea_water_pressure_obs_val}}</td>
+            <td>{{usersOne.me_low_sea_water_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>5</td>
+            <td>LOW OVER SPEED AIR PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_over_speed_air_pressure_limit}}</td>
+            <td>{{usersOne.me_low_over_speed_air_pressure_obs_val}}</td>
+            <td>{{usersOne.me_low_over_speed_air_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>6</td>
+            <td>LOW STARTING AIR PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_starting_air_pressure_limit}}</td>
+            <td>{{usersOne.me_low_starting_air_pressure_obs_val}}</td>
+            <td>{{usersOne.me_low_starting_air_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>7</td>
+            <td>FUEL OIL PRESS</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_fuel_oil_press_limit}}</td>
+            <td>{{usersOne.me_fuel_oil_press_obs_val}}</td>
+            <td>{{usersOne.me_fuel_oil_press_remark}}</td>
+        </tr>
+     <tr>
+            <td>8</td>
+            <td>LOW COOLANT PRESS</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_coolant_press_limit}}</td>
+            <td>{{usersOne.me_low_coolant_press_obs_val}}</td>
+            <td>{{usersOne.me_low_coolant_press_remark}}</td>
+        </tr>
+     <tr>
+            <td>9</td>
+            <td>EMERGENCY STOP</td>
+
+            <td>-</td>
+            <td>{{usersOne.me_emergency_stop_limit}}</td>
+            <td>{{usersOne.me_emergency_stop_obs_val}}</td>
+            <td>{{usersOne.me_emergency_stop_remark}}</td>
+        </tr>
+     <tr>
+            <td>10</td>
+            <td>MAIN BEARING TEMPERATURE</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_main_bearing_temperature_limit}}</td>
+            <td>{{usersOne.me_main_bearing_temperature_obs_val}}</td>
+            <td>{{usersOne.me_main_bearing_temperature_remark}}</td>
+        </tr>
+     <tr>
+            <td>11</td>
+            <td>HIGH EXHAUST TEMPERATURE</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_exhaust_temperature_limit}}</td>
+            <td>{{usersOne.me_high_exhaust_temperature_obs_val}}</td>
+            <td>{{usersOne.me_high_exhaust_temperature_remark}}</td>
+        </tr>
+     <tr>
+            <td>12</td>
+            <td>LOW LUB OIL PRESSURE AT < 400 RPM</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_at_400_rpm_limit}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_at_400_rpm_obs_val}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_at_400_rpm_remark}}</td>
+        </tr>
+     <tr>
+            <td>13</td>
+            <td>LOW LUB OIL PRESSURE AT >400 RPM</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_at_400_rpm_limit1}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_at_400_rpm_obs_val1}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_at_400_rpm_remark1}}</td>
+        </tr>
+     <tr>
+            <td>14</td>
+            <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT < 400</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_ht_cooling_water_pressure_engine_inlet_at_400_limit}}</td>
+            <td>{{usersOne.me_low_ht_cooling_water_pressure_engine_inlet_at_400_obs_val}}</td>
+            <td>{{usersOne.me_low_ht_cooling_water_pressure_engine_inlet_at_400_remark}}</td>
+        </tr>
+     <tr>
+            <td>15</td>
+            <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT > 400</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_ht_cooling_water_pressure_engine_inlet_at_400_limit1}}</td>
+            <td>{{usersOne.me_low_ht_cooling_water_pressure_engine_inlet_at_400_obs_val1}}</td>
+            <td>{{usersOne.me_low_ht_cooling_water_pressure_engine_inlet_at_400_remark1}}</td>
+        </tr>
+     <tr>
+            <td>16</td>
+            <td>OIL MIST DETECTOR</td>
+
+            <td>%</td>
+            <td>{{usersOne.me_oil_mist_detector_limit}}</td>
+            <td>{{usersOne.me_oil_mist_detector_obs_val}}</td>
+            <td>{{usersOne.me_oil_mist_detector_remark}}</td>
+        </tr>
+     <tr>
+            <td>17</td>
+            <td>LOW LUB OIL PRESSURE 500</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_500_limit}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_500_obs_val}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_500_remark}}</td>
+        </tr>
+     <tr>
+            <td>18</td>
+            <td>LOW LUB OIL PRESSURE 750</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_750_limit}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_750_obs_val}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_750_remark}}</td>
+        </tr>
+     <tr>
+            <td>19</td>
+            <td>LOW LUB OIL PRESSURE 1000</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_1000_limit}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_1000_obs_val}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_1000_remark}}</td>
+        </tr>
+     <tr>
+            <td>20</td>
+            <td>HIGH SPLASH OIL TEMP</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_splash_oil_temp_limit}}</td>
+            <td>{{usersOne.me_high_splash_oil_temp_obs_val}}</td>
+            <td>{{usersOne.me_high_splash_oil_temp_remark}}</td>
+        </tr>
+     <tr>
+            <td>21</td>
+            <td>LOW LUB OIL PRESSURE BEFORE ENGINE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_before_engine_limit}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_before_engine_obs_val}}</td>
+            <td>{{usersOne.me_low_lub_oil_pressure_before_engine_remark}}</td>
+        </tr>
+     <tr>
+            <td>22</td>
+            <td>HIGH CYLINDER FRESH WATER TEMP</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_cylinder_fresh_water_temp_limit}}</td>
+            <td>{{usersOne.me_high_cylinder_fresh_water_temp_obs_val}}</td>
+            <td>{{usersOne.me_high_cylinder_fresh_water_temp_remark}}</td>
+        </tr>
+     <tr>
+            <td>23</td>
+            <td>FW TEMP AFTER MAIN ENGINE </td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_fw_temp_after_main_engine_limit}}</td>
+            <td>{{usersOne.me_fw_temp_after_main_engine_obs_val}}</td>
+            <td>{{usersOne.me_fw_temp_after_main_engine_remark}}</td>
+        </tr>
+     <tr>
+            <td>24</td>
+            <td>FW TEMP BEFORE MAIN ENGINE</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_fw_temp_before_main_engine_limit}}</td>
+            <td>{{usersOne.me_fw_temp_before_main_engine_obs_val}}</td>
+            <td>{{usersOne.me_fw_temp_before_main_engine_remark}}</td>
+        </tr>
+     <tr>
+            <td>25</td>
+            <td>FW PRESSURE BEFORE ENGINE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_fw_pressure_before_engine_limit}}</td>
+            <td>{{usersOne.me_fw_pressure_before_engine_obs_val}}</td>
+            <td>{{usersOne.me_fw_pressure_before_engine_remark}}</td>
+        </tr>
+     <tr>
+            <td>26</td>
+            <td>FW TEMP AFTER TC 'A' BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_fw_temp_after_tc_a_bank_limit}}</td>
+            <td>{{usersOne.me_fw_temp_after_tc_a_bank_obs_val}}</td>
+            <td>{{usersOne.me_fw_temp_after_tc_a_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>27</td>
+            <td>FW TEMP AFTER TC 'B' BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_fw_temp_after_tc_b_bank_limit}}</td>
+            <td>{{usersOne.me_fw_temp_after_tc_b_bank_obs_val}}</td>
+            <td>{{usersOne.me_fw_temp_after_tc_b_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>28</td>
+            <td>CHAGE AIR TEMP AFTER COOLER 'A' BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_chage_air_temp_after_cooler_a_bank_limit}}</td>
+            <td>{{usersOne.me_chage_air_temp_after_cooler_a_bank_obs_val}}</td>
+            <td>{{usersOne.me_chage_air_temp_after_cooler_a_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>29</td>
+            <td>CHAGE AIR TEMP AFTER COOLER 'B' BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_chage_air_temp_after_cooler_b_bank_limit}}</td>
+            <td>{{usersOne.me_chage_air_temp_after_cooler_b_bank_obs_val}}</td>
+            <td>{{usersOne.me_chage_air_temp_after_cooler_b_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>30</td>
+            <td>LUB OIL PRESSURE BEFORE TC</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_lub_oil_pressure_before_tc_limit}}</td>
+            <td>{{usersOne.me_lub_oil_pressure_before_tc_obs_val}}</td>
+            <td>{{usersOne.me_lub_oil_pressure_before_tc_remark}}</td>
+        </tr>
+     <tr>
+            <td>31</td>
+            <td>LUB OIL TEMP BEFORE ENGINE AND TC</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_lub_oil_temp_before_engine_and_tc_limit}}</td>
+            <td>{{usersOne.me_lub_oil_temp_before_engine_and_tc_obs_val}}</td>
+            <td>{{usersOne.me_lub_oil_temp_before_engine_and_tc_remark}}</td>
+        </tr>
+     <tr>
+            <td>32</td>
+            <td>LUB OIL TEMPERATURE AFTER TC</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_lub_oil_temperature_after_tc_limit}}</td>
+            <td>{{usersOne.me_lub_oil_temperature_after_tc_obs_val}}</td>
+            <td>{{usersOne.me_lub_oil_temperature_after_tc_remark}}</td>
+        </tr>
+     <tr>
+            <td>33</td>
+            <td>LUB OIL TEMP AFTER COOLER</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_lub_oil_temp_after_cooler_limit}}</td>
+            <td>{{usersOne.me_lub_oil_temp_after_cooler_obs_val}}</td>
+            <td>{{usersOne.me_lub_oil_temp_after_cooler_remark}}</td>
+        </tr>
+     <tr>
+            <td>34</td>
+            <td>FUEL PRESSURE BEFORE ENGINE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_fuel_pressure_before_engine_limit}}</td>
+            <td>{{usersOne.me_fuel_pressure_before_engine_obs_val}}</td>
+            <td>{{usersOne.me_fuel_pressure_before_engine_remark}}</td>
+        </tr>
+     <tr>
+            <td>35</td>
+            <td>EXHAUST TEMP AVERAGE DEVIATION AFTER EACH CYLINDER</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_exhaust_temp_average_deviation_after_each_cylinder_limit}}</td>
+            <td>{{usersOne.me_exhaust_temp_average_deviation_after_each_cylinder_obs_val}}</td>
+            <td>{{usersOne.me_exhaust_temp_average_deviation_after_each_cylinder_remark}}</td>
+        </tr>
+     <tr>
+            <td>36</td>
+            <td>AUTO FUEL FILTER DIFFERENTIAL PR</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_auto_fuel_filter_differential_pr_limit}}</td>
+            <td>{{usersOne.me_auto_fuel_filter_differential_pr_obs_val}}</td>
+            <td>{{usersOne.me_auto_fuel_filter_differential_pr_remark}}</td>
+        </tr>
+     <tr>
+            <td>37</td>
+            <td>STARTING AIR PR BEFORE ENGINE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_starting_air_pr_before_engine_limit}}</td>
+            <td>{{usersOne.me_starting_air_pr_before_engine_obs_val}}</td>
+            <td>{{usersOne.me_starting_air_pr_before_engine_remark}}</td>
+        </tr>
+     <tr>
+            <td>38</td>
+            <td>CONTROL AIR PR AFTER REDUCING STATION </td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_control_air_pr_after_reducing_station_limit}}</td>
+            <td>{{usersOne.me_control_air_pr_after_reducing_station_obs_val}}</td>
+            <td>{{usersOne.me_control_air_pr_after_reducing_station_remark}}</td>
+        </tr>
+     <tr>
+            <td>39</td>
+            <td>HIGH DIFFERNTIAL OIL PRESSURE AUTO FILTER</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_high_differntial_oil_pressure_auto_filter_limit}}</td>
+            <td>{{usersOne.me_high_differntial_oil_pressure_auto_filter_obs_val}}</td>
+            <td>{{usersOne.me_high_differntial_oil_pressure_auto_filter_remark}}</td>
+        </tr>
+     <tr>
+            <td>40</td>
+            <td>HIGH DIFFERNTIAL OIL PRESSURE INDICATOR FILTER</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_high_differntial_oil_pressure_indicator_filter_limit}}</td>
+            <td>{{usersOne.me_high_differntial_oil_pressure_indicator_filter_obs_val}}</td>
+            <td>{{usersOne.me_high_differntial_oil_pressure_indicator_filter_remark}}</td>
+        </tr>
+     <tr>
+            <td>41</td>
+            <td>HIGH LUB OIL TEMPERATURE INLET</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_inlet_limit}}</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_inlet_obs_val}}</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_inlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>42</td>
+            <td>LOW LO PRESSURE TC INLET</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lo_pressure_tc_inlet_limit}}</td>
+            <td>{{usersOne.me_low_lo_pressure_tc_inlet_obs_val}}</td>
+            <td>{{usersOne.me_low_lo_pressure_tc_inlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>43</td>
+            <td>HIGH LUB OIL TEMPERATURE TC DRAIN</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_tc_drain_limit}}</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_tc_drain_obs_val}}</td>
+            <td>{{usersOne.me_high_lub_oil_temperature_tc_drain_remark}}</td>
+        </tr>
+     <tr>
+            <td>44</td>
+            <td>SPLASH OIL TEMP DEVIATION FROM MEAN</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_splash_oil_temp_deviation_from_mean_limit}}</td>
+            <td>{{usersOne.me_splash_oil_temp_deviation_from_mean_obs_val}}</td>
+            <td>{{usersOne.me_splash_oil_temp_deviation_from_mean_remark}}</td>
+        </tr>
+     <tr>
+            <td>45</td>
+            <td>HIGH HT CW TEMP ENGINE OUTLET</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_ht_cw_temp_engine_outlet_limit}}</td>
+            <td>{{usersOne.me_high_ht_cw_temp_engine_outlet_obs_val}}</td>
+            <td>{{usersOne.me_high_ht_cw_temp_engine_outlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>46</td>
+            <td>LOW LT CW PRESSURE INLET TO CHARGE COOLER</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_lt_cw_pressure_inlet_to_charge_cooler_limit}}</td>
+            <td>{{usersOne.me_low_lt_cw_pressure_inlet_to_charge_cooler_obs_val}}</td>
+            <td>{{usersOne.me_low_lt_cw_pressure_inlet_to_charge_cooler_remark}}</td>
+        </tr>
+     <tr>
+            <td>47</td>
+            <td>LOW FUEL PRESSURE ENGINE INLET</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_fuel_pressure_engine_inlet_limit}}</td>
+            <td>{{usersOne.me_low_fuel_pressure_engine_inlet_obs_val}}</td>
+            <td>{{usersOne.me_low_fuel_pressure_engine_inlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>48</td>
+            <td>HIGH FUEL OIL TEMP ENGINE INLET</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_fuel_oil_temp_engine_inlet_limit}}</td>
+            <td>{{usersOne.me_high_fuel_oil_temp_engine_inlet_obs_val}}</td>
+            <td>{{usersOne.me_high_fuel_oil_temp_engine_inlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>49</td>
+            <td>LOW CHARGE AIR PRESSURE BEFORE CYLINDER</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_charge_air_pressure_before_cylinder_limit}}</td>
+            <td>{{usersOne.me_low_charge_air_pressure_before_cylinder_obs_val}}</td>
+            <td>{{usersOne.me_low_charge_air_pressure_before_cylinder_remark}}</td>
+        </tr>
+     <tr>
+            <td>50</td>
+            <td>HIGH CHARGE AIR TEMP AFTER COOLER</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_charge_air_temp_after_cooler_limit}}</td>
+            <td>{{usersOne.me_high_charge_air_temp_after_cooler_obs_val}}</td>
+            <td>{{usersOne.me_high_charge_air_temp_after_cooler_remark}}</td>
+        </tr>
+     <tr>
+            <td>51</td>
+            <td>HIGH EXHAUST TEMP AFTER CYLINDER</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_exhaust_temp_after_cylinder_limit}}</td>
+            <td>{{usersOne.me_high_exhaust_temp_after_cylinder_obs_val}}</td>
+            <td>{{usersOne.me_high_exhaust_temp_after_cylinder_remark}}</td>
+        </tr>
+     <tr>
+            <td>52</td>
+            <td>HIGH EXH TEMP DEVI FROM MEAN AFT CYL UPTO 59%</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_exh_temp_devi_from_mean_aft_cyl_upto_59}}</td>
+            <td>{{usersOne.me_high_exh_temp_devi_from_mean_aft_cyl_upto_591}}</td>
+            <td>{{usersOne.me_high_exh_temp_devi_from_mean_aft_cyl_upto_592}}</td>
+        </tr>
+     <tr>
+            <td>53</td>
+            <td>HIGH EXH TEMP DEVI FROM MEAN AFTCYL FROM 60-100%</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_exh_temp_devi_from_mean_aftcyl_from_60100}}</td>
+            <td>{{usersOne.me_high_exh_temp_devi_from_mean_aftcyl_from_601001}}</td>
+            <td>{{usersOne.me_high_exh_temp_devi_from_mean_aftcyl_from_601002}}</td>
+        </tr>
+     <tr>
+            <td>54</td>
+            <td>HIGH EXHUAST TEMP BEFORE TC</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_exhuast_temp_before_tc_limit}}</td>
+            <td>{{usersOne.me_high_exhuast_temp_before_tc_obs_val}}</td>
+            <td>{{usersOne.me_high_exhuast_temp_before_tc_remark}}</td>
+        </tr>
+     <tr>
+            <td>55</td>
+            <td>LOW EMERGENCY STOP AIR PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_emergency_stop_air_pressure_limit}}</td>
+            <td>{{usersOne.me_low_emergency_stop_air_pressure_obs_val}}</td>
+            <td>{{usersOne.me_low_emergency_stop_air_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>56</td>
+            <td>LOW CONTROL AIR PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_control_air_pressure_limit}}</td>
+            <td>{{usersOne.me_low_control_air_pressure_obs_val}}</td>
+            <td>{{usersOne.me_low_control_air_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>57</td>
+            <td>LOW FUEL PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_fuel_pressure_limit}}</td>
+            <td>{{usersOne.me_low_fuel_pressure_obs_val}}</td>
+            <td>{{usersOne.me_low_fuel_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>58</td>
+            <td>LOW JACKET F/W PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_jacket_fw_pressure_limit}}</td>
+            <td>{{usersOne.me_low_jacket_fw_pressure_obs_val}}</td>
+            <td>{{usersOne.me_low_jacket_fw_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>59</td>
+            <td>JACKET FW TEMPERATURE HIGH</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_jacket_fw_temperature_high_limit}}</td>
+            <td>{{usersOne.me_jacket_fw_temperature_high_obs_val}}</td>
+            <td>{{usersOne.me_jacket_fw_temperature_high_remark}}</td>
+        </tr>
+     <tr>
+            <td>60</td>
+            <td>LUB OIL PRESSURE LAST BEARING AT 500 RPM</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_lub_oil_pressure_last_bearing_at_500_rpm_limit}}</td>
+            <td>{{usersOne.me_lub_oil_pressure_last_bearing_at_500_rpm_obs_val}}</td>
+            <td>{{usersOne.me_lub_oil_pressure_last_bearing_at_500_rpm_remark}}</td>
+        </tr>
+     <tr>
+            <td>61</td>
+            <td>LOW PISTON COOLING OIL PRESSURE AT 500 RPM</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_piston_cooling_oil_pressure_at_500_rpm_limit}}</td>
+            <td>{{usersOne.me_low_piston_cooling_oil_pressure_at_500_rpm_obs_val}}</td>
+            <td>{{usersOne.me_low_piston_cooling_oil_pressure_at_500_rpm_remark}}</td>
+        </tr>
+     <tr>
+            <td>62</td>
+            <td>LEAKAGE FUEL LEVEL SWITCH</td>
+
+            <td>%</td>
+            <td>{{usersOne.me_leakage_fuel_level_switch_limit}}</td>
+            <td>{{usersOne.me_leakage_fuel_level_switch_obs_val}}</td>
+            <td>{{usersOne.me_leakage_fuel_level_switch_remark}}</td>
+        </tr>
+     <tr>
+            <td>63</td>
+            <td>LOW PISTON OIL PRESS</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_piston_oil_press_limit}}</td>
+            <td>{{usersOne.me_low_piston_oil_press_obs_val}}</td>
+            <td>{{usersOne.me_low_piston_oil_press_remark}}</td>
+        </tr>
+     <tr>
+            <td>64</td>
+            <td>HIGH EXHAUST TEMPERATURE AT TC 1 AND TC 2</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_exhaust_temperature_at_tc_1_and_tc_2_limit}}</td>
+            <td>{{usersOne.me_high_exhaust_temperature_at_tc_1_and_tc_2_obs_val}}</td>
+            <td>{{usersOne.me_high_exhaust_temperature_at_tc_1_and_tc_2_remark}}</td>
+        </tr>
+     <tr>
+            <td>65</td>
+            <td>LOW GEAR BOX OIL PRESS</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_gear_box_oil_press_limit}}</td>
+            <td>{{usersOne.me_low_gear_box_oil_press_obs_val}}</td>
+            <td>{{usersOne.me_low_gear_box_oil_press_remark}}</td>
+        </tr>
+     <tr>
+            <td>66</td>
+            <td>LOW GEAR BOX CONTROL OIL PRESS</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_low_gear_box_control_oil_press_limit}}</td>
+            <td>{{usersOne.me_low_gear_box_control_oil_press_obs_val}}</td>
+            <td>{{usersOne.me_low_gear_box_control_oil_press_remark}}</td>
+        </tr>
+     <tr>
+            <td>67</td>
+            <td>HIGH GEAR BOX LO TEMP</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_gear_box_lo_temp_limit}}</td>
+            <td>{{usersOne.me_high_gear_box_lo_temp_obs_val}}</td>
+            <td>{{usersOne.me_high_gear_box_lo_temp_remark}}</td>
+        </tr>
+     <tr>
+            <td>68</td>
+            <td>HIGH EXHAUST TEMP A BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_exhaust_temp_a_bank_limit}}</td>
+            <td>{{usersOne.me_high_exhaust_temp_a_bank_obs_val}}</td>
+            <td>{{usersOne.me_high_exhaust_temp_a_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>69</td>
+            <td>HIGH EXHAUST TEMP B BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_high_exhaust_temp_b_bank_limit}}</td>
+            <td>{{usersOne.me_high_exhaust_temp_b_bank_obs_val}}</td>
+            <td>{{usersOne.me_high_exhaust_temp_b_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>70</td>
+            <td>LOW COOLANT LEVEL</td>
+
+            <td>-</td>
+            <td>{{usersOne.me_low_coolant_level_limit}}</td>
+            <td>{{usersOne.me_low_coolant_level_obs_val}}</td>
+            <td>{{usersOne.me_low_coolant_level_remark}}</td>
+        </tr>
+     <tr>
+            <td>71</td>
+            <td>TC SPEED 1</td>
+
+            <td>KRPM</td>
+            <td>{{usersOne.me_tc_speed_1_limit}}</td>
+            <td>{{usersOne.me_tc_speed_1_obs_val}}</td>
+            <td>{{usersOne.me_tc_speed_1_remark}}</td>
+        </tr>
+     <tr>
+            <td>72</td>
+            <td>TC SPEED 2</td>
+
+            <td>KRPM</td>
+            <td>{{usersOne.me_tc_speed_2_limit}}</td>
+            <td>{{usersOne.me_tc_speed_2_obs_val}}</td>
+            <td>{{usersOne.me_tc_speed_2_remark}}</td>
+        </tr>
+     <tr>
+            <td>73</td>
+            <td>CHARGE AIR TEMP</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_charge_air_temp_limit}}</td>
+            <td>{{usersOne.me_charge_air_temp_obs_val}}</td>
+            <td>{{usersOne.me_charge_air_temp_remark}}</td>
+        </tr>
+     <tr>
+            <td>74</td>
+            <td>CHARGE AIR TEMP BEFORE SEQUENTIAL CONTROL V</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_charge_air_temp_before_sequential_control_v_limit}}</td>
+            <td>{{usersOne.me_charge_air_temp_before_sequential_control_v_obs_val}}</td>
+            <td>{{usersOne.me_charge_air_temp_before_sequential_control_v_remark}}</td>
+        </tr>
+     <tr>
+            <td>75</td>
+            <td>SEA WATER PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersOne.me_sea_water_pressure_limit}}</td>
+            <td>{{usersOne.me_sea_water_pressure_obs_val}}</td>
+            <td>{{usersOne.me_sea_water_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>76</td>
+            <td>INDIVIDUAL CYL EXHAUST TEMP DEVIATION</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_individual_cyl_exhaust_temp_deviation_limit}}</td>
+            <td>{{usersOne.me_individual_cyl_exhaust_temp_deviation_obs_val}}</td>
+            <td>{{usersOne.me_individual_cyl_exhaust_temp_deviation_remark}}</td>
+        </tr>
+     <tr>
+            <td>77</td>
+            <td>FUEL PREFILTER WATER LEVEL</td>
+
+            <td>-</td>
+            <td>{{usersOne.me_fuel_prefilter_water_level_limit}}</td>
+            <td>{{usersOne.me_fuel_prefilter_water_level_obs_val}}</td>
+            <td>{{usersOne.me_fuel_prefilter_water_level_remark}}</td>
+        </tr>
+     <tr>
+            <td>78</td>
+            <td>LEAKAGE FUEL LEVEL</td>
+
+            <td>-</td>
+            <td>{{usersOne.me_leakage_fuel_level_limit}}</td>
+            <td>{{usersOne.me_leakage_fuel_level_obs_val}}</td>
+            <td>{{usersOne.me_leakage_fuel_level_remark}}</td>
+        </tr>
+     <tr>
+            <td>79</td>
+            <td>FUEL FILTER WATER LEVEL</td>
+
+            <td>-</td>
+            <td>{{usersOne.me_fuel_filter_water_level_limit}}</td>
+            <td>{{usersOne.me_fuel_filter_water_level_obs_val}}</td>
+            <td>{{usersOne.me_fuel_filter_water_level_remark}}</td>
+        </tr>
+     <tr>
+            <td>80</td>
+            <td>EXHAUST TEMPERATURE 'A' BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_exhaust_temperature_a_bank_limit}}</td>
+            <td>{{usersOne.me_exhaust_temperature_a_bank_obs_val}}</td>
+            <td>{{usersOne.me_exhaust_temperature_a_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>81</td>
+            <td>EXHAUST TEMPERATURE 'B' BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersOne.me_exhaust_temperature_b_bank_limit}}</td>
+            <td>{{usersOne.me_exhaust_temperature_b_bank_obs_val}}</td>
+            <td>{{usersOne.me_exhaust_temperature_b_bank_remark}}</td>
+        </tr>
+     
+        </table>
+         
+
+
+
+
+      
+
+
+
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+         <th colspan="6">ALARMS(LOCAL)</th>
+         <tr>
+            <th>SER</th>
+            <th>TRIPS</th>
+            <th>LOCATION</th>
+            <th>LIMIT/ALLOWANCE</th>
+            <th>OBSERVED VALUE</th>
+            <th>REMARKS (SAT/UNSAT)</th>
+         </tr>
+         <tr>
+            <td>1</td>
+            <td>LOW LUB OIL PRESSURE</td>
+
+            <td>KG/CM<sup>2</sup></td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_limit}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_obs_val}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>2</td>
+            <td>HIGH FRESH WATER TEMPERATURE</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_fresh_water_temperature_limit}}</td>
+            <td>{{usersTwo.me_high_fresh_water_temperature_obs_val}}</td>
+            <td>{{usersTwo.me_high_fresh_water_temperature_remark}}</td>
+        </tr>
+     <tr>
+            <td>3</td>
+            <td>HIGH LUB OIL TEMPERATURE</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_lub_oil_temperature_limit}}</td>
+            <td>{{usersTwo.me_high_lub_oil_temperature_obs_val}}</td>
+            <td>{{usersTwo.me_high_lub_oil_temperature_remark}}</td>
+        </tr>
+     <tr>
+            <td>4</td>
+            <td>LOW SEA WATER PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_sea_water_pressure_limit}}</td>
+            <td>{{usersTwo.me_low_sea_water_pressure_obs_val}}</td>
+            <td>{{usersTwo.me_low_sea_water_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>5</td>
+            <td>LOW COOLANT LEVEL</td>
+
+            <td>-</td>
+            <td>{{usersTwo.me_low_coolant_level_limit}}</td>
+            <td>{{usersTwo.me_low_coolant_level_obs_val}}</td>
+            <td>{{usersTwo.me_low_coolant_level_remark}}</td>
+        </tr>
+     <tr>
+            <td>6</td>
+            <td>MAIN BEARING TEMPERATURE</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_main_bearing_temperature_limit}}</td>
+            <td>{{usersTwo.me_main_bearing_temperature_obs_val}}</td>
+            <td>{{usersTwo.me_main_bearing_temperature_remark}}</td>
+        </tr>
+     <tr>
+            <td>7</td>
+            <td>HIGH TEMPERATURE IN CUBICLE</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_temperature_in_cubicle_limit}}</td>
+            <td>{{usersTwo.me_high_temperature_in_cubicle_obs_val}}</td>
+            <td>{{usersTwo.me_high_temperature_in_cubicle_remark}}</td>
+        </tr>
+     <tr>
+            <td>8</td>
+            <td>FRESH WATER PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_fresh_water_pressure_limit}}</td>
+            <td>{{usersTwo.me_fresh_water_pressure_obs_val}}</td>
+            <td>{{usersTwo.me_fresh_water_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>9</td>
+            <td>OVER SPEED AIR PRESSURE LOW</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_over_speed_air_pressure_low_limit}}</td>
+            <td>{{usersTwo.me_over_speed_air_pressure_low_obs_val}}</td>
+            <td>{{usersTwo.me_over_speed_air_pressure_low_remark}}</td>
+        </tr>
+     <tr>
+            <td>10</td>
+            <td>LOW LUB OIL PRESSURE - 500</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_500_limit}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_500_obs_val}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_500_remark}}</td>
+        </tr>
+     <tr>
+            <td>11</td>
+            <td>LOW LUB OIL PRESSURE - 750</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_750_limit}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_750_obs_val}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_750_remark}}</td>
+        </tr>
+     <tr>
+            <td>12</td>
+            <td>LOW LUB OIL PRESSURE-1000</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure1000_limit}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure1000_obs_val}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure1000_remark}}</td>
+        </tr>
+     <tr>
+            <td>13</td>
+            <td>LOW SUPPLY AIR PRESSURE</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_supply_air_pressure_limit}}</td>
+            <td>{{usersTwo.me_low_supply_air_pressure_obs_val}}</td>
+            <td>{{usersTwo.me_low_supply_air_pressure_remark}}</td>
+        </tr>
+     <tr>
+            <td>14</td>
+            <td>HIGH EXHAUST TEMP A BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_exhaust_temp_a_bank_limit}}</td>
+            <td>{{usersTwo.me_high_exhaust_temp_a_bank_obs_val}}</td>
+            <td>{{usersTwo.me_high_exhaust_temp_a_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>15</td>
+            <td>HIGH EXHAUST TEMP B BANK</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_exhaust_temp_b_bank_limit}}</td>
+            <td>{{usersTwo.me_high_exhaust_temp_b_bank_obs_val}}</td>
+            <td>{{usersTwo.me_high_exhaust_temp_b_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>16</td>
+            <td>HIGH SPLASH OIL TEMP</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_splash_oil_temp_limit}}</td>
+            <td>{{usersTwo.me_high_splash_oil_temp_obs_val}}</td>
+            <td>{{usersTwo.me_high_splash_oil_temp_remark}}</td>
+        </tr>
+     <tr>
+            <td>17</td>
+            <td>LOW LUB OIL PRESSURE AT < 400 RPM</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_at_400_rpm_limit}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_at_400_rpm_obs_val}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_at_400_rpm_remark}}</td>
+        </tr>
+     <tr>
+            <td>18</td>
+            <td>LOW LUB OIL PRESSURE AT > 400 RPM</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_at_400_rpm_limit1}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_at_400_rpm_obs_val1}}</td>
+            <td>{{usersTwo.me_low_lub_oil_pressure_at_400_rpm_remark1}}</td>
+        </tr>
+     <tr>
+            <td>19</td>
+            <td>STARTING AIR PRESSURE LOW</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_starting_air_pressure_low_limit}}</td>
+            <td>{{usersTwo.me_starting_air_pressure_low_obs_val}}</td>
+            <td>{{usersTwo.me_starting_air_pressure_low_remark}}</td>
+        </tr>
+     <tr>
+            <td>20</td>
+            <td>HIGH DIFFERNTIAL OIL PRESSURE AUTO FILTRS</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_high_differntial_oil_pressure_auto_filtrs_limit}}</td>
+            <td>{{usersTwo.me_high_differntial_oil_pressure_auto_filtrs_obs_val}}</td>
+            <td>{{usersTwo.me_high_differntial_oil_pressure_auto_filtrs_remark}}</td>
+        </tr>
+     <tr>
+            <td>21</td>
+            <td>HIGH DIFFERNTIAL OIL PRESSURE INDICATOR FILTER</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_high_differntial_oil_pressure_indicator_filter_limit}}</td>
+            <td>{{usersTwo.me_high_differntial_oil_pressure_indicator_filter_obs_val}}</td>
+            <td>{{usersTwo.me_high_differntial_oil_pressure_indicator_filter_remark}}</td>
+        </tr>
+     <tr>
+            <td>22</td>
+            <td>HIGH LO TEMP INLET</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_lo_temp_inlet_limit}}</td>
+            <td>{{usersTwo.me_high_lo_temp_inlet_obs_val}}</td>
+            <td>{{usersTwo.me_high_lo_temp_inlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>23</td>
+            <td>LOW LO PRESSURE TC INLET</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_low_lo_pressure_tc_inlet_limit}}</td>
+            <td>{{usersTwo.me_low_lo_pressure_tc_inlet_obs_val}}</td>
+            <td>{{usersTwo.me_low_lo_pressure_tc_inlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>24</td>
+            <td>HIGH LO TEMP TC DRAIN</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_lo_temp_tc_drain_limit}}</td>
+            <td>{{usersTwo.me_high_lo_temp_tc_drain_obs_val}}</td>
+            <td>{{usersTwo.me_high_lo_temp_tc_drain_remark}}</td>
+        </tr>
+     <tr>
+            <td>25</td>
+            <td>SPLASH OIL TEMP DEVIATION FROM MEAN</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_splash_oil_temp_deviation_from_mean_limit}}</td>
+            <td>{{usersTwo.me_splash_oil_temp_deviation_from_mean_obs_val}}</td>
+            <td>{{usersTwo.me_splash_oil_temp_deviation_from_mean_remark}}</td>
+        </tr>
+     <tr>
+            <td>26</td>
+            <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT < 400</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_ht_cooling_water_pressure_engine_inlet_at_400_limit}}</td>
+            <td>{{usersTwo.me_low_ht_cooling_water_pressure_engine_inlet_at_400_obs_val}}</td>
+            <td>{{usersTwo.me_low_ht_cooling_water_pressure_engine_inlet_at_400_remark}}</td>
+        </tr>
+     <tr>
+            <td>27</td>
+            <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT > 400</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_ht_cooling_water_pressure_engine_inlet_at_400_limit1}}</td>
+            <td>{{usersTwo.me_low_ht_cooling_water_pressure_engine_inlet_at_400_obs_val1}}</td>
+            <td>{{usersTwo.me_low_ht_cooling_water_pressure_engine_inlet_at_400_remark1}}</td>
+        </tr>
+     <tr>
+            <td>28</td>
+            <td>HIGH HT CW TEMP ENGINE OUTLET</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_ht_cw_temp_engine_outlet_limit}}</td>
+            <td>{{usersTwo.me_high_ht_cw_temp_engine_outlet_obs_val}}</td>
+            <td>{{usersTwo.me_high_ht_cw_temp_engine_outlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>29</td>
+            <td>LOW LT CW PRESSURE INLET TO CHARGE COOLER</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_lt_cw_pressure_inlet_to_charge_cooler_limit}}</td>
+            <td>{{usersTwo.me_low_lt_cw_pressure_inlet_to_charge_cooler_obs_val}}</td>
+            <td>{{usersTwo.me_low_lt_cw_pressure_inlet_to_charge_cooler_remark}}</td>
+        </tr>
+     <tr>
+            <td>30</td>
+            <td>LOW FUEL PRESSURE ENGINE INLET</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_fuel_pressure_engine_inlet_limit}}</td>
+            <td>{{usersTwo.me_low_fuel_pressure_engine_inlet_obs_val}}</td>
+            <td>{{usersTwo.me_low_fuel_pressure_engine_inlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>31</td>
+            <td>HIGH FUEL OIL TEMP ENGINE INLET</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_fuel_oil_temp_engine_inlet_limit}}</td>
+            <td>{{usersTwo.me_high_fuel_oil_temp_engine_inlet_obs_val}}</td>
+            <td>{{usersTwo.me_high_fuel_oil_temp_engine_inlet_remark}}</td>
+        </tr>
+     <tr>
+            <td>32</td>
+            <td>LOW CHARGE AIR PRESSURE BEFORE CYLINDER</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_charge_air_pressure_before_cylinder_limit}}</td>
+            <td>{{usersTwo.me_low_charge_air_pressure_before_cylinder_obs_val}}</td>
+            <td>{{usersTwo.me_low_charge_air_pressure_before_cylinder_remark}}</td>
+        </tr>
+     <tr>
+            <td>33</td>
+            <td>HIGH CHARGE AIR TEMP AFTER COOLER</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_charge_air_temp_after_cooler_limit}}</td>
+            <td>{{usersTwo.me_high_charge_air_temp_after_cooler_obs_val}}</td>
+            <td>{{usersTwo.me_high_charge_air_temp_after_cooler_remark}}</td>
+        </tr>
+     <tr>
+            <td>34</td>
+            <td>HIGH EXHAUST TEMP AFTER CYLINDER</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_exhaust_temp_after_cylinder_limit}}</td>
+            <td>{{usersTwo.me_high_exhaust_temp_after_cylinder_obs_val}}</td>
+            <td>{{usersTwo.me_high_exhaust_temp_after_cylinder_remark}}</td>
+        </tr>
+     <tr>
+            <td>35</td>
+            <td>HIGH EXH TEMP DEVI FROM MEAN AFT CYL UPTO 59%</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_exh_temp_devi_from_mean_aft_cyl_upto_59}}</td>
+            <td>{{usersTwo.me_high_exh_temp_devi_from_mean_aft_cyl_upto_591}}</td>
+            <td>{{usersTwo.me_high_exh_temp_devi_from_mean_aft_cyl_upto_592}}</td>
+        </tr>
+     <tr>
+            <td>36</td>
+            <td>HIGH EXH TEMP DEVI FROM MEAN AFT CYL FROM 60-100%</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_exh_temp_devi_from_mean_aft_cyl_from_60100}}</td>
+            <td>{{usersTwo.me_high_exh_temp_devi_from_mean_aft_cyl_from_601001}}</td>
+            <td>{{usersTwo.me_high_exh_temp_devi_from_mean_aft_cyl_from_601002}}</td>
+        </tr>
+     <tr>
+            <td>37</td>
+            <td>HIGH EXHUAST TEMP BEFORE TC</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_high_exhuast_temp_before_tc_limit}}</td>
+            <td>{{usersTwo.me_high_exhuast_temp_before_tc_obs_val}}</td>
+            <td>{{usersTwo.me_high_exhuast_temp_before_tc_remark}}</td>
+        </tr>
+     <tr>
+            <td>38</td>
+            <td>LOW EMERGENCY STOP AIR PRESS</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_emergency_stop_air_press_limit}}</td>
+            <td>{{usersTwo.me_low_emergency_stop_air_press_obs_val}}</td>
+            <td>{{usersTwo.me_low_emergency_stop_air_press_remark}}</td>
+        </tr>
+     <tr>
+            <td>39</td>
+            <td>HIGH EXHAUST TEMP L/R BANK</td>
+
+            <td><sup>0</sup>C</td>
+            <td>{{usersTwo.me_high_exhaust_temp_lr_bank_limit}}</td>
+            <td>{{usersTwo.me_high_exhaust_temp_lr_bank_obs_val}}</td>
+            <td>{{usersTwo.me_high_exhaust_temp_lr_bank_remark}}</td>
+        </tr>
+     <tr>
+            <td>40</td>
+            <td>TC SPEED 1</td>
+
+            <td>RPM</td>
+            <td>{{usersTwo.me_tc_speed_1_limit}}</td>
+            <td>{{usersTwo.me_tc_speed_1_obs_val}}</td>
+            <td>{{usersTwo.me_tc_speed_1_remark}}</td>
+        </tr>
+     <tr>
+            <td>41</td>
+            <td>TC SPEED 2</td>
+
+            <td>RPM</td>
+            <td>{{usersTwo.me_tc_speed_2_limit}}</td>
+            <td>{{usersTwo.me_tc_speed_2_obs_val}}</td>
+            <td>{{usersTwo.me_tc_speed_2_remark}}</td>
+        </tr>
+     <tr>
+            <td>42</td>
+            <td>LOW COOLANT PRESS</td>
+
+            <td>BAR</td>
+            <td>{{usersTwo.me_low_coolant_press_limit}}</td>
+            <td>{{usersTwo.me_low_coolant_press_obs_val}}</td>
+            <td>{{usersTwo.me_low_coolant_press_remark}}</td>
+        </tr>
+     <tr>
+            <td>43</td>
+            <td>CHARGE AIR TEMP</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_charge_air_temp_limit}}</td>
+            <td>{{usersTwo.me_charge_air_temp_obs_val}}</td>
+            <td>{{usersTwo.me_charge_air_temp_remark}}</td>
+        </tr>
+     <tr>
+            <td>44</td>
+            <td>CHARGE AIR TEMP BEFORE SEQUENTIAL CONTROL V</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_charge_air_temp_before_sequential_control_v_limit}}</td>
+            <td>{{usersTwo.me_charge_air_temp_before_sequential_control_v_obs_val}}</td>
+            <td>{{usersTwo.me_charge_air_temp_before_sequential_control_v_remark}}</td>
+        </tr>
+     <tr>
+            <td>45</td>
+            <td>INDIVIDUAL CYL EXHAUST TEMP DEVIATION</td>
+
+            <td>DEG C</td>
+            <td>{{usersTwo.me_individual_cyl_exhaust_temp_deviation_limit}}</td>
+            <td>{{usersTwo.me_individual_cyl_exhaust_temp_deviation_obs_val}}</td>
+            <td>{{usersTwo.me_individual_cyl_exhaust_temp_deviation_remark}}</td>
+        </tr>
+     <tr>
+            <td>46</td>
+            <td>FUEL PREFILTER WATER LEVEL</td>
+
+            <td>-</td>
+            <td>{{usersTwo.me_fuel_prefilter_water_level_limit}}</td>
+            <td>{{usersTwo.me_fuel_prefilter_water_level_obs_val}}</td>
+            <td>{{usersTwo.me_fuel_prefilter_water_level_remark}}</td>
+        </tr>
+     <tr>
+            <td>47</td>
+            <td>FUEL FILTER WATER LEVEL</td>
+
+            <td>-</td>
+            <td>{{usersTwo.me_fuel_filter_water_level_limit}}</td>
+            <td>{{usersTwo.me_fuel_filter_water_level_obs_val}}</td>
+            <td>{{usersTwo.me_fuel_filter_water_level_remark}}</td>
+        </tr>
+     
+          </table>
+
+
+
+
+
+
+
+
+
+
+
+          <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <th colspan="6">TRIPS(REMOTE)</th>
+            <tr>
+               <th>SER</th>
+               <th>TRIPS</th>
+               <th>LOCATION</th>
+               <th>LIMIT/ALLOWANCE</th>
+               <th>OBSERVED VALUE</th>
+               <th>REMARKS (SAT/UNSAT)</th>
+            </tr>
+            <tr>
+               <td>1</td>
+               <td>LOW LUB OIL PRESSURE</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_limit}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_obs_val}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_remark}}</td>
+           </tr>
+        <tr>
+               <td>2</td>
+               <td>HIGH FRESH WATER TEMPERATURE</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_fresh_water_temperature_limit}}</td>
+               <td>{{usersThree.me_high_fresh_water_temperature_obs_val}}</td>
+               <td>{{usersThree.me_high_fresh_water_temperature_remark}}</td>
+           </tr>
+        <tr>
+               <td>3</td>
+               <td>OVER SPEED </td>
+ 
+               <td>RPM</td>
+               <td>{{usersThree.me_over_speed_limit}}</td>
+               <td>{{usersThree.me_over_speed_obs_val}}</td>
+               <td>{{usersThree.me_over_speed_remark}}</td>
+           </tr>
+        <tr>
+               <td>4</td>
+               <td>EMERGENCY SHUT DOWN</td>
+ 
+               <td></td>
+               <td>{{usersThree.me_emergency_shut_down_limit}}</td>
+               <td>{{usersThree.me_emergency_shut_down_obs_val}}</td>
+               <td>{{usersThree.me_emergency_shut_down_remark}}</td>
+           </tr>
+        <tr>
+               <td>5</td>
+               <td>MAIN BEARING TEMPERATURE HIGH</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_main_bearing_temperature_high_limit}}</td>
+               <td>{{usersThree.me_main_bearing_temperature_high_obs_val}}</td>
+               <td>{{usersThree.me_main_bearing_temperature_high_remark}}</td>
+           </tr>
+        <tr>
+               <td>6</td>
+               <td>OIL MIST DETECTOR TRIP</td>
+ 
+               <td>%</td>
+               <td>{{usersThree.me_oil_mist_detector_trip_limit}}</td>
+               <td>{{usersThree.me_oil_mist_detector_trip_obs_val}}</td>
+               <td>{{usersThree.me_oil_mist_detector_trip_remark}}</td>
+           </tr>
+        <tr>
+               <td>7</td>
+               <td>LOW LUB OIL PRESSURE 500</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_500_limit}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_500_obs_val}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_500_remark}}</td>
+           </tr>
+        <tr>
+               <td>8</td>
+               <td>LOW LUB OIL PRESSURE 750</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_750_limit}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_750_obs_val}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_750_remark}}</td>
+           </tr>
+        <tr>
+               <td>9</td>
+               <td>LOW LUB OIL PRESSURE 1000</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_1000_limit}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_1000_obs_val}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_1000_remark}}</td>
+           </tr>
+        <tr>
+               <td>10</td>
+               <td>EMERGENCY STOP(LCP)</td>
+ 
+               <td>-</td>
+               <td>{{usersThree.me_emergency_stoplcp_limit}}</td>
+               <td>{{usersThree.me_emergency_stoplcp_obs_val}}</td>
+               <td>{{usersThree.me_emergency_stoplcp_remark}}</td>
+           </tr>
+        <tr>
+               <td>11</td>
+               <td>EMERGENCY STOP(BRIDGE)</td>
+ 
+               <td>-</td>
+               <td>{{usersThree.me_emergency_stopbridge_limit}}</td>
+               <td>{{usersThree.me_emergency_stopbridge_obs_val}}</td>
+               <td>{{usersThree.me_emergency_stopbridge_remark}}</td>
+           </tr>
+        <tr>
+               <td>12</td>
+               <td>EMERGENCY STOP (FLYING BRIDGE)</td>
+ 
+               <td>-</td>
+               <td>{{usersThree.me_emergency_stop_flying_bridge_limit}}</td>
+               <td>{{usersThree.me_emergency_stop_flying_bridge_obs_val}}</td>
+               <td>{{usersThree.me_emergency_stop_flying_bridge_remark}}</td>
+           </tr>
+        <tr>
+               <td>13</td>
+               <td>HIGH CYLINDER FRESH WATER TEMPERATURE TRIP</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_cylinder_fresh_water_temperature_trip_limit}}</td>
+               <td>{{usersThree.me_high_cylinder_fresh_water_temperature_trip_obs_val}}</td>
+               <td>{{usersThree.me_high_cylinder_fresh_water_temperature_trip_remark}}</td>
+           </tr>
+        <tr>
+               <td>14</td>
+               <td>HIGH LUB OIL TEMP BEFORE ENGINE AND TC</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_lub_oil_temp_before_engine_and_tc_limit}}</td>
+               <td>{{usersThree.me_high_lub_oil_temp_before_engine_and_tc_obs_val}}</td>
+               <td>{{usersThree.me_high_lub_oil_temp_before_engine_and_tc_remark}}</td>
+           </tr>
+        <tr>
+               <td>15</td>
+               <td>OVER SPEED TRIP (TO BE TESTED AT 6 VOLT)</td>
+ 
+               <td>RPM</td>
+               <td>{{usersThree.me_over_speed_trip_to_be_tested_at_6_volt_limit}}</td>
+               <td>{{usersThree.me_over_speed_trip_to_be_tested_at_6_volt_obs_val}}</td>
+               <td>{{usersThree.me_over_speed_trip_to_be_tested_at_6_volt_remark}}</td>
+           </tr>
+        <tr>
+               <td>16</td>
+               <td>LOW LUB OIL PRESSURE AT < 400 RPM</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_at_400_rpm_limit}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_at_400_rpm_obs_val}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_at_400_rpm_remark}}</td>
+           </tr>
+        <tr>
+               <td>17</td>
+               <td>LOW LUB OIL PRESSURE AT > 400 RPM</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_at_400_rpm_limit1}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_at_400_rpm_obs_val1}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_at_400_rpm_remark1}}</td>
+           </tr>
+        <tr>
+               <td>18</td>
+               <td>LOW LUB OIL PRESSURE HARD WIRED</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_hard_wired_limit}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_hard_wired_obs_val}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_hard_wired_remark}}</td>
+           </tr>
+        <tr>
+               <td>19</td>
+               <td>LOW LO PRESSURE TC INLET</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lo_pressure_tc_inlet_limit}}</td>
+               <td>{{usersThree.me_low_lo_pressure_tc_inlet_obs_val}}</td>
+               <td>{{usersThree.me_low_lo_pressure_tc_inlet_remark}}</td>
+           </tr>
+        <tr>
+               <td>20</td>
+               <td>HIGH LO TEMP TC DRAIN</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_lo_temp_tc_drain_limit}}</td>
+               <td>{{usersThree.me_high_lo_temp_tc_drain_obs_val}}</td>
+               <td>{{usersThree.me_high_lo_temp_tc_drain_remark}}</td>
+           </tr>
+        <tr>
+               <td>21</td>
+               <td>HIGH SPLASH OIL TEMP</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_splash_oil_temp_limit}}</td>
+               <td>{{usersThree.me_high_splash_oil_temp_obs_val}}</td>
+               <td>{{usersThree.me_high_splash_oil_temp_remark}}</td>
+           </tr>
+        <tr>
+               <td>22</td>
+               <td>SPLASH OIL TEMP DEVIATION FROM MEAN</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_splash_oil_temp_deviation_from_mean_limit}}</td>
+               <td>{{usersThree.me_splash_oil_temp_deviation_from_mean_obs_val}}</td>
+               <td>{{usersThree.me_splash_oil_temp_deviation_from_mean_remark}}</td>
+           </tr>
+        <tr>
+               <td>26</td>
+               <td>JACKET FW TEMPERATURE HIGH</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_jacket_fw_temperature_high_limit}}</td>
+               <td>{{usersThree.me_jacket_fw_temperature_high_obs_val}}</td>
+               <td>{{usersThree.me_jacket_fw_temperature_high_remark}}</td>
+           </tr>
+        <tr>
+               <td>27</td>
+               <td>BEARING TEMPERATURE HIGH</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_bearing_temperature_high_limit}}</td>
+               <td>{{usersThree.me_bearing_temperature_high_obs_val}}</td>
+               <td>{{usersThree.me_bearing_temperature_high_remark}}</td>
+           </tr>
+        <tr>
+               <td>28</td>
+               <td>EMERGENCY STOP</td>
+ 
+               <td></td>
+               <td>{{usersThree.me_emergency_stop_limit}}</td>
+               <td>{{usersThree.me_emergency_stop_obs_val}}</td>
+               <td>{{usersThree.me_emergency_stop_remark}}</td>
+           </tr>
+        <tr>
+               <td>29</td>
+               <td>LUB OIL PRESSURE LAST BEARING AT 500 RPM</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_lub_oil_pressure_last_bearing_at_500_rpm_limit}}</td>
+               <td>{{usersThree.me_lub_oil_pressure_last_bearing_at_500_rpm_obs_val}}</td>
+               <td>{{usersThree.me_lub_oil_pressure_last_bearing_at_500_rpm_remark}}</td>
+           </tr>
+        <tr>
+               <td>30</td>
+               <td>LOW PISTON COOLING OIL PRESSURE AT 500 RPM</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_piston_cooling_oil_pressure_at_500_rpm_limit}}</td>
+               <td>{{usersThree.me_low_piston_cooling_oil_pressure_at_500_rpm_obs_val}}</td>
+               <td>{{usersThree.me_low_piston_cooling_oil_pressure_at_500_rpm_remark}}</td>
+           </tr>
+        <tr>
+               <td>31</td>
+               <td>TEST OVERSPEED</td>
+ 
+               <td>RPM</td>
+               <td>{{usersThree.me_test_overspeed_limit}}</td>
+               <td>{{usersThree.me_test_overspeed_obs_val}}</td>
+               <td>{{usersThree.me_test_overspeed_remark}}</td>
+           </tr>
+        <tr>
+               <td>32</td>
+               <td>GEAR BOX LOW LO PRESS</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_gear_box_low_lo_press_limit}}</td>
+               <td>{{usersThree.me_gear_box_low_lo_press_obs_val}}</td>
+               <td>{{usersThree.me_gear_box_low_lo_press_remark}}</td>
+           </tr>
+        <tr>
+               <td>33</td>
+               <td>GEAR BOX  LOW CONTROL OIL PRESS</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_gear_box_low_control_oil_press_limit}}</td>
+               <td>{{usersThree.me_gear_box_low_control_oil_press_obs_val}}</td>
+               <td>{{usersThree.me_gear_box_low_control_oil_press_remark}}</td>
+           </tr>
+        <tr>
+               <td>34</td>
+               <td>EMERGENCY STOP (MCR, LOP, BRIDGE)</td>
+ 
+               <td>-</td>
+               <td>{{usersThree.me_emergency_stop_mcr_lop_bridge_limit}}</td>
+               <td>{{usersThree.me_emergency_stop_mcr_lop_bridge_obs_val}}</td>
+               <td>{{usersThree.me_emergency_stop_mcr_lop_bridge_remark}}</td>
+           </tr>
+        <tr>
+               <td>35</td>
+               <td>LOW LUB OIL PRESSURE BEFORE TC</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_before_tc_limit}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_before_tc_obs_val}}</td>
+               <td>{{usersThree.me_low_lub_oil_pressure_before_tc_remark}}</td>
+           </tr>
+        <tr>
+               <td>36</td>
+               <td>CRANKCASE AIR PR</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_crankcase_air_pr_limit}}</td>
+               <td>{{usersThree.me_crankcase_air_pr_obs_val}}</td>
+               <td>{{usersThree.me_crankcase_air_pr_remark}}</td>
+           </tr>
+        <tr>
+               <td>40</td>
+               <td>MECHANICAL STOP (FLYING BRIDGE)</td>
+ 
+               <td>-</td>
+               <td>{{usersThree.me_mechanical_stop_flying_bridge_limit}}</td>
+               <td>{{usersThree.me_mechanical_stop_flying_bridge_obs_val}}</td>
+               <td>{{usersThree.me_mechanical_stop_flying_bridge_remark}}</td>
+           </tr>
+        <tr>
+               <td>41</td>
+               <td>HIGH DIFFERNTIAL OIL PRESSURE AUTO FILTRS</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_high_differntial_oil_pressure_auto_filtrs_limit}}</td>
+               <td>{{usersThree.me_high_differntial_oil_pressure_auto_filtrs_obs_val}}</td>
+               <td>{{usersThree.me_high_differntial_oil_pressure_auto_filtrs_remark}}</td>
+           </tr>
+        <tr>
+               <td>42</td>
+               <td>HIGH DIFFERNTIAL OIL PRESSURE INDICATOR FILTER</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_high_differntial_oil_pressure_indicator_filter_limit}}</td>
+               <td>{{usersThree.me_high_differntial_oil_pressure_indicator_filter_obs_val}}</td>
+               <td>{{usersThree.me_high_differntial_oil_pressure_indicator_filter_remark}}</td>
+           </tr>
+        <tr>
+               <td>43</td>
+               <td>HIGH LUB OIL TEMP INLET</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_lub_oil_temp_inlet_limit}}</td>
+               <td>{{usersThree.me_high_lub_oil_temp_inlet_obs_val}}</td>
+               <td>{{usersThree.me_high_lub_oil_temp_inlet_remark}}</td>
+           </tr>
+        <tr>
+               <td>44</td>
+               <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT < 400</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_ht_cooling_water_pressure_engine_inlet_at_400_limit}}</td>
+               <td>{{usersThree.me_low_ht_cooling_water_pressure_engine_inlet_at_400_obs_val}}</td>
+               <td>{{usersThree.me_low_ht_cooling_water_pressure_engine_inlet_at_400_remark}}</td>
+           </tr>
+        <tr>
+               <td>45</td>
+               <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT > 400</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_low_ht_cooling_water_pressure_engine_inlet_at_400_limit1}}</td>
+               <td>{{usersThree.me_low_ht_cooling_water_pressure_engine_inlet_at_400_obs_val1}}</td>
+               <td>{{usersThree.me_low_ht_cooling_water_pressure_engine_inlet_at_400_remark1}}</td>
+           </tr>
+        <tr>
+               <td>46</td>
+               <td>HIGH HT WATER TEMP ENGINE OUTLET</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_ht_water_temp_engine_outlet_limit}}</td>
+               <td>{{usersThree.me_high_ht_water_temp_engine_outlet_obs_val}}</td>
+               <td>{{usersThree.me_high_ht_water_temp_engine_outlet_remark}}</td>
+           </tr>
+        <tr>
+               <td>47</td>
+               <td>HIGH EXHAUST TEMP AFTER CYLINDER</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_exhaust_temp_after_cylinder_limit}}</td>
+               <td>{{usersThree.me_high_exhaust_temp_after_cylinder_obs_val}}</td>
+               <td>{{usersThree.me_high_exhaust_temp_after_cylinder_remark}}</td>
+           </tr>
+        <tr>
+               <td>48</td>
+               <td>HIGH EXHUAST TEMP BEFORE TC</td>
+ 
+               <td>DEG C</td>
+               <td>{{usersThree.me_high_exhuast_temp_before_tc_limit}}</td>
+               <td>{{usersThree.me_high_exhuast_temp_before_tc_obs_val}}</td>
+               <td>{{usersThree.me_high_exhuast_temp_before_tc_remark}}</td>
+           </tr>
+        <tr>
+               <td>49</td>
+               <td>FRESH WATER PRESSURE</td>
+ 
+               <td>BAR</td>
+               <td>{{usersThree.me_fresh_water_pressure_limit}}</td>
+               <td>{{usersThree.me_fresh_water_pressure_obs_val}}</td>
+               <td>{{usersThree.me_fresh_water_pressure_remark}}</td>
+           </tr>
+        
+             </table>
+
+
+
+
+
+
+
+             <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+               <th colspan="6">TRIPS(LOCAL)</th>
+               <tr>
+                  <th>SER</th>
+                  <th>TRIPS</th>
+                  <th>LOCATION</th>
+                  <th>LIMIT/ALLOWANCE</th>
+                  <th>OBSERVED VALUE</th>
+                  <th>REMARKS (SAT/UNSAT)</th>
+               </tr>
+               <tr>
+                  <td>1</td>
+                  <td>LOW LUB OIL PRESSURE</td>
+    
+                  <td>KG/CM2</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_limit}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_obs_val}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_remark}}</td>
+              </tr>
+           <tr>
+                  <td>2</td>
+                  <td>HIGH FRESH WATER TEMPERATURE</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_high_fresh_water_temperature_limit}}</td>
+                  <td>{{usersFour.me_high_fresh_water_temperature_obs_val}}</td>
+                  <td>{{usersFour.me_high_fresh_water_temperature_remark}}</td>
+              </tr>
+           <tr>
+                  <td>3</td>
+                  <td>LOW LUB OIL PRESSURE AT < 400 RPM</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_at_400_rpm_limit}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_at_400_rpm_obs_val}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_at_400_rpm_remark}}</td>
+              </tr>
+           <tr>
+                  <td>4</td>
+                  <td>LOW LUB OIL PRESSURE AT > 400 RPM</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_at_400_rpm_limit1}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_at_400_rpm_obs_val1}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_at_400_rpm_remark1}}</td>
+              </tr>
+           <tr>
+                  <td>5</td>
+                  <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT < 400</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFour.me_low_ht_cooling_water_pressure_engine_inlet_at_400_limit}}</td>
+                  <td>{{usersFour.me_low_ht_cooling_water_pressure_engine_inlet_at_400_obs_val}}</td>
+                  <td>{{usersFour.me_low_ht_cooling_water_pressure_engine_inlet_at_400_remark}}</td>
+              </tr>
+           <tr>
+                  <td>6</td>
+                  <td>LOW HT COOLING WATER PRESSURE ENGINE INLET AT > 400</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFour.me_low_ht_cooling_water_pressure_engine_inlet_at_400_limit1}}</td>
+                  <td>{{usersFour.me_low_ht_cooling_water_pressure_engine_inlet_at_400_obs_val1}}</td>
+                  <td>{{usersFour.me_low_ht_cooling_water_pressure_engine_inlet_at_400_remark1}}</td>
+              </tr>
+           <tr>
+                  <td>7</td>
+                  <td>MAIN BEARING TEMPERATURE</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_main_bearing_temperature_limit}}</td>
+                  <td>{{usersFour.me_main_bearing_temperature_obs_val}}</td>
+                  <td>{{usersFour.me_main_bearing_temperature_remark}}</td>
+              </tr>
+           <tr>
+                  <td>8</td>
+                  <td>OVER SPEED </td>
+    
+                  <td>RPM</td>
+                  <td>{{usersFour.me_over_speed_limit}}</td>
+                  <td>{{usersFour.me_over_speed_obs_val}}</td>
+                  <td>{{usersFour.me_over_speed_remark}}</td>
+              </tr>
+           <tr>
+                  <td>9</td>
+                  <td>EMERGENCY SHUT DOWN</td>
+    
+                  <td></td>
+                  <td>{{usersFour.me_emergency_shut_down_limit}}</td>
+                  <td>{{usersFour.me_emergency_shut_down_obs_val}}</td>
+                  <td>{{usersFour.me_emergency_shut_down_remark}}</td>
+              </tr>
+           <tr>
+                  <td>10</td>
+                  <td>LOW LUB OIL PRESSURE HARD WIRED</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_hard_wired_limit}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_hard_wired_obs_val}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_hard_wired_remark}}</td>
+              </tr>
+           <tr>
+                  <td>11</td>
+                  <td>LOW LUB OIL PRESSURE TC INLET</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_tc_inlet_limit}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_tc_inlet_obs_val}}</td>
+                  <td>{{usersFour.me_low_lub_oil_pressure_tc_inlet_remark}}</td>
+              </tr>
+           <tr>
+                  <td>12</td>
+                  <td>HIGH LO TEMP TC DRAIN</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_high_lo_temp_tc_drain_limit}}</td>
+                  <td>{{usersFour.me_high_lo_temp_tc_drain_obs_val}}</td>
+                  <td>{{usersFour.me_high_lo_temp_tc_drain_remark}}</td>
+              </tr>
+           <tr>
+                  <td>13</td>
+                  <td>HIGH SPLASH OIL TEMP</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_high_splash_oil_temp_limit}}</td>
+                  <td>{{usersFour.me_high_splash_oil_temp_obs_val}}</td>
+                  <td>{{usersFour.me_high_splash_oil_temp_remark}}</td>
+              </tr>
+           <tr>
+                  <td>14</td>
+                  <td>SPLASH OIL TEMP DEVIATION FROM MEAN</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_splash_oil_temp_deviation_from_mean_limit}}</td>
+                  <td>{{usersFour.me_splash_oil_temp_deviation_from_mean_obs_val}}</td>
+                  <td>{{usersFour.me_splash_oil_temp_deviation_from_mean_remark}}</td>
+              </tr>
+           <tr>
+                  <td>15</td>
+                  <td>TEST OVER SPEED </td>
+    
+                  <td>RPM</td>
+                  <td>{{usersFour.me_test_over_speed_limit}}</td>
+                  <td>{{usersFour.me_test_over_speed_obs_val}}</td>
+                  <td>{{usersFour.me_test_over_speed_remark}}</td>
+              </tr>
+           <tr>
+                  <td>16</td>
+                  <td>EMERGENCY STOP (LOP)</td>
+    
+                  <td>PUSH BUTTON</td>
+                  <td>{{usersFour.me_emergency_stop_lop_limit}}</td>
+                  <td>{{usersFour.me_emergency_stop_lop_obs_val}}</td>
+                  <td>{{usersFour.me_emergency_stop_lop_remark}}</td>
+              </tr>
+           <tr>
+                  <td>17</td>
+                  <td>HIGH DIFFERNTIAL OIL PRESSURE AUTO FILTRS</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFour.me_high_differntial_oil_pressure_auto_filtrs_limit}}</td>
+                  <td>{{usersFour.me_high_differntial_oil_pressure_auto_filtrs_obs_val}}</td>
+                  <td>{{usersFour.me_high_differntial_oil_pressure_auto_filtrs_remark}}</td>
+              </tr>
+           <tr>
+                  <td>18</td>
+                  <td>HIGH DIFFERNTIAL OIL PRESSURE INDICATOR FILTER</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFour.me_high_differntial_oil_pressure_indicator_filter_limit}}</td>
+                  <td>{{usersFour.me_high_differntial_oil_pressure_indicator_filter_obs_val}}</td>
+                  <td>{{usersFour.me_high_differntial_oil_pressure_indicator_filter_remark}}</td>
+              </tr>
+           <tr>
+                  <td>19</td>
+                  <td>HIGH LO TEMP INLET</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_high_lo_temp_inlet_limit}}</td>
+                  <td>{{usersFour.me_high_lo_temp_inlet_obs_val}}</td>
+                  <td>{{usersFour.me_high_lo_temp_inlet_remark}}</td>
+              </tr>
+           <tr>
+                  <td>20</td>
+                  <td>HIGH HT WATER TEMP ENGINE OUTLET</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_high_ht_water_temp_engine_outlet_limit}}</td>
+                  <td>{{usersFour.me_high_ht_water_temp_engine_outlet_obs_val}}</td>
+                  <td>{{usersFour.me_high_ht_water_temp_engine_outlet_remark}}</td>
+              </tr>
+           <tr>
+                  <td>21</td>
+                  <td>HIGH EXHAUST TEMP AFTER CYLINDER</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_high_exhaust_temp_after_cylinder_limit}}</td>
+                  <td>{{usersFour.me_high_exhaust_temp_after_cylinder_obs_val}}</td>
+                  <td>{{usersFour.me_high_exhaust_temp_after_cylinder_remark}}</td>
+              </tr>
+           <tr>
+                  <td>22</td>
+                  <td>HIGH EXHUAST TEMP BEFORE TC</td>
+    
+                  <td>DEG C</td>
+                  <td>{{usersFour.me_high_exhuast_temp_before_tc_limit}}</td>
+                  <td>{{usersFour.me_high_exhuast_temp_before_tc_obs_val}}</td>
+                  <td>{{usersFour.me_high_exhuast_temp_before_tc_remark}}</td>
+              </tr>
+           
+             </table>
+
+
+
+
+
+
+
+             <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+               <th colspan="6">INDICATION(REMOTE)</th>
+               <tr>
+                  <th>SER</th>
+                  <th>TRIPS</th>
+                  <th>LOCATION</th>
+                  <th>LIMIT/ALLOWANCE</th>
+                  <th>OBSERVED VALUE</th>
+                  <th>REMARKS (SAT/UNSAT)</th>
+               </tr>
+               <tr>
+                  <td>1</td>
+                  <td>TURNING GEAR ON</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_turning_gear_on_limit}}</td>
+                  <td>{{usersFive.me_turning_gear_on_obs_val}}</td>
+                  <td>{{usersFive.me_turning_gear_on_remark}}</td>
+              </tr>
+           <tr>
+                  <td>2</td>
+                  <td>LOW TC LUB OIL PRESSURE TRIP</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_low_tc_lub_oil_pressure_trip_limit}}</td>
+                  <td>{{usersFive.me_low_tc_lub_oil_pressure_trip_obs_val}}</td>
+                  <td>{{usersFive.me_low_tc_lub_oil_pressure_trip_remark}}</td>
+              </tr>
+           <tr>
+                  <td>3</td>
+                  <td>CYLINDER LUBRICATION FAILURE</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_cylinder_lubrication_failure_limit}}</td>
+                  <td>{{usersFive.me_cylinder_lubrication_failure_obs_val}}</td>
+                  <td>{{usersFive.me_cylinder_lubrication_failure_remark}}</td>
+              </tr>
+           <tr>
+                  <td>4</td>
+                  <td>LUB OIL INDICATOR FILTER DIFFERENTIAL PRESSURE</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_lub_oil_indicator_filter_differential_pressure_limit}}</td>
+                  <td>{{usersFive.me_lub_oil_indicator_filter_differential_pressure_obs_val}}</td>
+                  <td>{{usersFive.me_lub_oil_indicator_filter_differential_pressure_remark}}</td>
+              </tr>
+           <tr>
+                  <td>5</td>
+                  <td>FW EXPANSION TANK LOW LEVEL ALARM</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_fw_expansion_tank_low_level_alarm_limit}}</td>
+                  <td>{{usersFive.me_fw_expansion_tank_low_level_alarm_obs_val}}</td>
+                  <td>{{usersFive.me_fw_expansion_tank_low_level_alarm_remark}}</td>
+              </tr>
+           <tr>
+                  <td>6</td>
+                  <td>LOW LUB OIL PRESSURE TRIP</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_low_lub_oil_pressure_trip_limit}}</td>
+                  <td>{{usersFive.me_low_lub_oil_pressure_trip_obs_val}}</td>
+                  <td>{{usersFive.me_low_lub_oil_pressure_trip_remark}}</td>
+              </tr>
+           <tr>
+                  <td>7</td>
+                  <td>OIL MIST DETECTOR FAILURE</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_oil_mist_detector_failure_limit}}</td>
+                  <td>{{usersFive.me_oil_mist_detector_failure_obs_val}}</td>
+                  <td>{{usersFive.me_oil_mist_detector_failure_remark}}</td>
+              </tr>
+           <tr>
+                  <td>8</td>
+                  <td>CYLINDER LUBRICATOR GRAVITY TANK LOW OIL LEVEL</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_cylinder_lubricator_gravity_tank_low_oil_level_limit}}</td>
+                  <td>{{usersFive.me_cylinder_lubricator_gravity_tank_low_oil_level_obs_val}}</td>
+                  <td>{{usersFive.me_cylinder_lubricator_gravity_tank_low_oil_level_remark}}</td>
+              </tr>
+           <tr>
+                  <td>9</td>
+                  <td>CONTROL FAIL SYSTEM SET</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_control_fail_system_set_limit}}</td>
+                  <td>{{usersFive.me_control_fail_system_set_obs_val}}</td>
+                  <td>{{usersFive.me_control_fail_system_set_remark}}</td>
+              </tr>
+           <tr>
+                  <td>10</td>
+                  <td>LO PRIMPING PUMP LOW FLOW</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_lo_primping_pump_low_flow_limit}}</td>
+                  <td>{{usersFive.me_lo_primping_pump_low_flow_obs_val}}</td>
+                  <td>{{usersFive.me_lo_primping_pump_low_flow_remark}}</td>
+              </tr>
+           <tr>
+                  <td>11</td>
+                  <td>STAND BY LUB OIL PUMP RUN</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_stand_by_lub_oil_pump_run_limit}}</td>
+                  <td>{{usersFive.me_stand_by_lub_oil_pump_run_obs_val}}</td>
+                  <td>{{usersFive.me_stand_by_lub_oil_pump_run_remark}}</td>
+              </tr>
+           <tr>
+                  <td>12</td>
+                  <td>SHUT DOWN ALARM</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_shut_down_alarm_limit}}</td>
+                  <td>{{usersFive.me_shut_down_alarm_obs_val}}</td>
+                  <td>{{usersFive.me_shut_down_alarm_remark}}</td>
+              </tr>
+           <tr>
+                  <td>13</td>
+                  <td>FO DRAIN TANK LEVEL HIGH</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_fo_drain_tank_level_high_limit}}</td>
+                  <td>{{usersFive.me_fo_drain_tank_level_high_obs_val}}</td>
+                  <td>{{usersFive.me_fo_drain_tank_level_high_remark}}</td>
+              </tr>
+           <tr>
+                  <td>14</td>
+                  <td>FUEL OIL LEAKAGE</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_fuel_oil_leakage_limit}}</td>
+                  <td>{{usersFive.me_fuel_oil_leakage_obs_val}}</td>
+                  <td>{{usersFive.me_fuel_oil_leakage_remark}}</td>
+              </tr>
+           <tr>
+                  <td>15</td>
+                  <td>MAIN ENGINE TURNING GEAR ENGAGED</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_main_engine_turning_gear_engaged_limit}}</td>
+                  <td>{{usersFive.me_main_engine_turning_gear_engaged_obs_val}}</td>
+                  <td>{{usersFive.me_main_engine_turning_gear_engaged_remark}}</td>
+              </tr>
+           <tr>
+                  <td>16</td>
+                  <td>MAIN ENGINE FUEL CONTROL HANDLE STOP</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_main_engine_fuel_control_handle_stop_limit}}</td>
+                  <td>{{usersFive.me_main_engine_fuel_control_handle_stop_obs_val}}</td>
+                  <td>{{usersFive.me_main_engine_fuel_control_handle_stop_remark}}</td>
+              </tr>
+           <tr>
+                  <td>17</td>
+                  <td>MAIN ENGINE SAFETY STOP OVERRIDE</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_main_engine_safety_stop_override_limit}}</td>
+                  <td>{{usersFive.me_main_engine_safety_stop_override_obs_val}}</td>
+                  <td>{{usersFive.me_main_engine_safety_stop_override_remark}}</td>
+              </tr>
+           <tr>
+                  <td>18</td>
+                  <td>MAIN ENGINE SAFETY STOP RESET</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_main_engine_safety_stop_reset_limit}}</td>
+                  <td>{{usersFive.me_main_engine_safety_stop_reset_obs_val}}</td>
+                  <td>{{usersFive.me_main_engine_safety_stop_reset_remark}}</td>
+              </tr>
+           <tr>
+                  <td>19</td>
+                  <td>CONTROL SELECTION SWITCH REMOTE/LOCAL</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_control_selection_switch_remote_local_limit}}</td>
+                  <td>{{usersFive.me_control_selection_switch_remote_local_obs_val}}</td>
+                  <td>{{usersFive.me_control_selection_switch_remote_local_remark}}</td>
+              </tr>
+           <tr>
+                  <td>20</td>
+                  <td>24 DC V BACK UP</td>
+    
+                  <td></td>
+                  <td>{{usersFive.me_24_dc_v_back_up_limit}}</td>
+                  <td>{{usersFive.me_24_dc_v_back_up_obs_val}}</td>
+                  <td>{{usersFive.me_24_dc_v_back_up_remark}}</td>
+              </tr>
+           <tr>
+                  <td>21</td>
+                  <td>MATCH COMBINATOR 0 TO +2.50 PITCH ON THE OD BOX (S</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_match_combinator_0_to_3}}</td>
+                  <td>{{usersFive.me_match_combinator_0_to_1}}</td>
+                  <td>{{usersFive.me_match_combinator_0_to_2}}</td>
+              </tr>
+           <tr>
+                  <td>22</td>
+                  <td>SET PITCH LEVER FROM 0 TO FULL AHEAD PRESSURE FAL</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_set_pitch_lever_from_0_to_full_ahead_pressure_fal_limit}}</td>
+                  <td>{{usersFive.me_set_pitch_lever_from_0_to_full_ahead_pressure_fal_obs_val}}</td>
+                  <td>{{usersFive.me_set_pitch_lever_from_0_to_full_ahead_pressure_fal_remark}}</td>
+              </tr>
+           <tr>
+                  <td>23</td>
+                  <td>SET PITCH LEVER TO FULL ASTERN TIME FOR PR RISES</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_set_pitch_lever_to_full_astern_time_for_pr_rises_limit}}</td>
+                  <td>{{usersFive.me_set_pitch_lever_to_full_astern_time_for_pr_rises_obs_val}}</td>
+                  <td>{{usersFive.me_set_pitch_lever_to_full_astern_time_for_pr_rises_remark}}</td>
+              </tr>
+           <tr>
+                  <td>24</td>
+                  <td>SET ENGINE LEVER FROM 0 TO FULL AHEAD PR RISES</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_set_engine_lever_from_0_to_full_ahead_pr_rises_limit}}</td>
+                  <td>{{usersFive.me_set_engine_lever_from_0_to_full_ahead_pr_rises_obs_val}}</td>
+                  <td>{{usersFive.me_set_engine_lever_from_0_to_full_ahead_pr_rises_remark}}</td>
+              </tr>
+           <tr>
+                  <td>25</td>
+                  <td>INJECT LOAD LIMIT SIGNAL, (BY REMOVING 24V DC TO S</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_inject_load_limit_signal_by_removing_24v_dc_to_s_limit}}</td>
+                  <td>{{usersFive.me_inject_load_limit_signal_by_removing_24v_dc_to_s_obs_val}}</td>
+                  <td>{{usersFive.me_inject_load_limit_signal_by_removing_24v_dc_to_s_remark}}</td>
+              </tr>
+           <tr>
+                  <td>26</td>
+                  <td>REMOVE LOAD LIMIT SIGNAL (PITCH PR INCREASES TO 5.</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_remove_load_limit_signal_pitch_pr_increases_to_5_limit}}</td>
+                  <td>{{usersFive.me_remove_load_limit_signal_pitch_pr_increases_to_5_obs_val}}</td>
+                  <td>{{usersFive.me_remove_load_limit_signal_pitch_pr_increases_to_5_remark}}</td>
+              </tr>
+           <tr>
+                  <td>27</td>
+                  <td>RETURN PITCH LEVER FROM FULL ASTERN TO FULL AHEAD</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_return_pitch_lever_from_full_astern_to_full_ahead_limit}}</td>
+                  <td>{{usersFive.me_return_pitch_lever_from_full_astern_to_full_ahead_obs_val}}</td>
+                  <td>{{usersFive.me_return_pitch_lever_from_full_astern_to_full_ahead_remark}}</td>
+              </tr>
+           <tr>
+                  <td>28</td>
+                  <td>SET PITCH AIR LEVER TO FULL AHEAD INJECT BACK-OFF</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_set_pitch_air_lever_to_full_ahead_inject_backoff_limit}}</td>
+                  <td>{{usersFive.me_set_pitch_air_lever_to_full_ahead_inject_backoff_obs_val}}</td>
+                  <td>{{usersFive.me_set_pitch_air_lever_to_full_ahead_inject_backoff_remark}}</td>
+              </tr>
+           <tr>
+                  <td>29</td>
+                  <td>REMOVE BACK-OFF PITCH SIGNAL (PITCH PR RETURNS TO</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_remove_backoff_pitch_signal_pitch_pr_returns_to_limit}}</td>
+                  <td>{{usersFive.me_remove_backoff_pitch_signal_pitch_pr_returns_to_obs_val}}</td>
+                  <td>{{usersFive.me_remove_backoff_pitch_signal_pitch_pr_returns_to_remark}}</td>
+              </tr>
+           <tr>
+                  <td>30</td>
+                  <td>MOVE THE COMBINATOR TO FULL ASTERN GOVERNOR AIR PR</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_move_the_combinator_to_full_astern_governor_air_pr_limit}}</td>
+                  <td>{{usersFive.me_move_the_combinator_to_full_astern_governor_air_pr_obs_val}}</td>
+                  <td>{{usersFive.me_move_the_combinator_to_full_astern_governor_air_pr_remark}}</td>
+              </tr>
+           <tr>
+                  <td>31</td>
+                  <td>MOVE THE COMBINATOR TO FULL ASTERN PITCH AIR PR</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_move_the_combinator_to_full_astern_pitch_air_pr_limit}}</td>
+                  <td>{{usersFive.me_move_the_combinator_to_full_astern_pitch_air_pr_obs_val}}</td>
+                  <td>{{usersFive.me_move_the_combinator_to_full_astern_pitch_air_pr_remark}}</td>
+              </tr>
+           <tr>
+                  <td>32</td>
+                  <td>ISOLATE THE CONTROL AIR SUPPLY TO CONTROL PANEL CHANNEL</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_isolate_channel_limit}}</td>
+                  <td>{{usersFive.me_isolate_channel_obs_val}}</td>
+                  <td>{{usersFive.me_isolate_channel_remark}}</td>
+              </tr>
+           <tr>
+                  <td>33</td>
+                  <td>OPERATE CLUTCH ENGAGE PUSH BUTTON ENGINE PRESSURE</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_operate_clutch_engage_push_button_engine_pressure_limit}}</td>
+                  <td>{{usersFive.me_operate_clutch_engage_push_button_engine_pressure_obs_val}}</td>
+                  <td>{{usersFive.me_operate_clutch_engage_push_button_engine_pressure_remark}}</td>
+              </tr>
+           <tr>
+                  <td>34</td>
+                  <td>INPUT CLUTCH ENGAGE FEED BACK ENGINE PRESSURE FAL</td>
+    
+                  <td>BAR</td>
+                  <td>{{usersFive.me_input_clutch_engage_feed_back_engine_pressure_fal_limit}}</td>
+                  <td>{{usersFive.me_input_clutch_engage_feed_back_engine_pressure_fal_obs_val}}</td>
+                  <td>{{usersFive.me_input_clutch_engage_feed_back_engine_pressure_fal_remark}}</td>
+              </tr>
+           
+                </table>
+
+
+
+
+
+
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                  <th colspan="6">INDICATION(LOCAL)</th>
+                  <tr>
+                     <th>SER</th>
+                     <th>TRIPS</th>
+                     <th>LOCATION</th>
+                     <th>LIMIT/ALLOWANCE</th>
+                     <th>OBSERVED VALUE</th>
+                     <th>REMARKS (SAT/UNSAT)</th>
+                  </tr>
+                  <tr>
+                     <td>1</td>
+                     <td>RESET BUTTON</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_reset_button_limit}}</td>
+                     <td>{{usersSix.me_reset_button_obs_val}}</td>
+                     <td>{{usersSix.me_reset_button_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>2</td>
+                     <td>LAMP TEST</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_lamp_test_limit}}</td>
+                     <td>{{usersSix.me_lamp_test_obs_val}}</td>
+                     <td>{{usersSix.me_lamp_test_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>3</td>
+                     <td>ACKNOWLEDGE BUTTON</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_acknowledge_button_limit}}</td>
+                     <td>{{usersSix.me_acknowledge_button_obs_val}}</td>
+                     <td>{{usersSix.me_acknowledge_button_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>4</td>
+                     <td>START BLOCK</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_start_block_limit}}</td>
+                     <td>{{usersSix.me_start_block_obs_val}}</td>
+                     <td>{{usersSix.me_start_block_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>5</td>
+                     <td>EMERGENCY STOP</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_emergency_stop_limit}}</td>
+                     <td>{{usersSix.me_emergency_stop_obs_val}}</td>
+                     <td>{{usersSix.me_emergency_stop_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>6</td>
+                     <td>CONTROL ON INDICATION</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_control_on_indication_limit}}</td>
+                     <td>{{usersSix.me_control_on_indication_obs_val}}</td>
+                     <td>{{usersSix.me_control_on_indication_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>7</td>
+                     <td>LOCAL/REMOTE INDICATION</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_local_remote_indication_limit}}</td>
+                     <td>{{usersSix.me_local_remote_indication_obs_val}}</td>
+                     <td>{{usersSix.me_local_remote_indication_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>8</td>
+                     <td>DC VOLTAGE LOW</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_dc_voltage_low_limit}}</td>
+                     <td>{{usersSix.me_dc_voltage_low_obs_val}}</td>
+                     <td>{{usersSix.me_dc_voltage_low_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>9</td>
+                     <td>MANUAL HANDLE TO STOP</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_manual_handle_to_stop_limit}}</td>
+                     <td>{{usersSix.me_manual_handle_to_stop_obs_val}}</td>
+                     <td>{{usersSix.me_manual_handle_to_stop_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>10</td>
+                     <td>TURNING GEAR ENGAGE</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_turning_gear_engage_limit}}</td>
+                     <td>{{usersSix.me_turning_gear_engage_obs_val}}</td>
+                     <td>{{usersSix.me_turning_gear_engage_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>11</td>
+                     <td>PRIMING PUMP STARTED</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_priming_pump_started_limit}}</td>
+                     <td>{{usersSix.me_priming_pump_started_obs_val}}</td>
+                     <td>{{usersSix.me_priming_pump_started_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>12</td>
+                     <td>REMOTE CONTROL</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_remote_control_limit}}</td>
+                     <td>{{usersSix.me_remote_control_obs_val}}</td>
+                     <td>{{usersSix.me_remote_control_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>13</td>
+                     <td>LOCAL CONTROL</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_local_control_limit1}}</td>
+                     <td>{{usersSix.me_local_control_obs_val1}}</td>
+                     <td>{{usersSix.me_local_control_remark1}}</td>
+                 </tr>
+              <tr>
+                     <td>14</td>
+                     <td>SAFETIES OFF ORDER</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_safeties_off_order_limit}}</td>
+                     <td>{{usersSix.me_safeties_off_order_obs_val}}</td>
+                     <td>{{usersSix.me_safeties_off_order_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>15</td>
+                     <td>24 DC BACK UP</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_24_dc_back_up_limit}}</td>
+                     <td>{{usersSix.me_24_dc_back_up_obs_val}}</td>
+                     <td>{{usersSix.me_24_dc_back_up_remark}}</td>
+                 </tr>
+                 <th colspan="6">PUSH BUTTON</th>
+              <tr>
+                     <td>1</td>
+                     <td>ECS ACTIVE</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_ecs_active_limit}}</td>
+                     <td>{{usersSix.me_ecs_active_obs_val}}</td>
+                     <td>{{usersSix.me_ecs_active_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>2</td>
+                     <td>BACK UP ACTIVE</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_back_up_active_limit}}</td>
+                     <td>{{usersSix.me_back_up_active_obs_val}}</td>
+                     <td>{{usersSix.me_back_up_active_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>3</td>
+                     <td>LAMP TEST</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_lamp_test_limit1}}</td>
+                     <td>{{usersSix.me_lamp_test_obs_val1}}</td>
+                     <td>{{usersSix.me_lamp_test_remark1}}</td>
+                 </tr>
+              <tr>
+                     <td>4</td>
+                     <td>READY FOR OPERATION</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_ready_for_operation_limit}}</td>
+                     <td>{{usersSix.me_ready_for_operation_obs_val}}</td>
+                     <td>{{usersSix.me_ready_for_operation_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>5</td>
+                     <td>START (LCP)</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_start_lcp_limit}}</td>
+                     <td>{{usersSix.me_start_lcp_obs_val}}</td>
+                     <td>{{usersSix.me_start_lcp_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>6</td>
+                     <td>START (BRIDGE)</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_start_bridge_limit}}</td>
+                     <td>{{usersSix.me_start_bridge_obs_val}}</td>
+                     <td>{{usersSix.me_start_bridge_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>7</td>
+                     <td>START (FLYING BRIDGE)</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_start_flying_bridge_limit}}</td>
+                     <td>{{usersSix.me_start_flying_bridge_obs_val}}</td>
+                     <td>{{usersSix.me_start_flying_bridge_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>8</td>
+                     <td>STOP (LCP)</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_stop_lcp_limit}}</td>
+                     <td>{{usersSix.me_stop_lcp_obs_val}}</td>
+                     <td>{{usersSix.me_stop_lcp_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>9</td>
+                     <td>STOP (BRIDGE)</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_stop_bridge_limit}}</td>
+                     <td>{{usersSix.me_stop_bridge_obs_val}}</td>
+                     <td>{{usersSix.me_stop_bridge_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>10</td>
+                     <td>STOP (FLYING BRIDGE)</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_stop_flying_bridge_limit}}</td>
+                     <td>{{usersSix.me_stop_flying_bridge_obs_val}}</td>
+                     <td>{{usersSix.me_stop_flying_bridge_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>11</td>
+                     <td>LOCAL CONTROL</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_local_control_limit}}</td>
+                     <td>{{usersSix.me_local_control_obs_val}}</td>
+                     <td>{{usersSix.me_local_control_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>12</td>
+                     <td>SPEED UP</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_speed_up_limit}}</td>
+                     <td>{{usersSix.me_speed_up_obs_val}}</td>
+                     <td>{{usersSix.me_speed_up_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>13</td>
+                     <td>SPEED DOWN</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_speed_down_limit}}</td>
+                     <td>{{usersSix.me_speed_down_obs_val}}</td>
+                     <td>{{usersSix.me_speed_down_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>14</td>
+                     <td>CLUTCH AHEAD</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_clutch_ahead_limit}}</td>
+                     <td>{{usersSix.me_clutch_ahead_obs_val}}</td>
+                     <td>{{usersSix.me_clutch_ahead_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>15</td>
+                     <td>CLUTCH NUETRAL</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_clutch_nuetral_limit}}</td>
+                     <td>{{usersSix.me_clutch_nuetral_obs_val}}</td>
+                     <td>{{usersSix.me_clutch_nuetral_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>16</td>
+                     <td>CLUTCH ASTERN</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_clutch_astern_limit}}</td>
+                     <td>{{usersSix.me_clutch_astern_obs_val}}</td>
+                     <td>{{usersSix.me_clutch_astern_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>17</td>
+                     <td>TEST GOVERNOR</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_test_governor_limit}}</td>
+                     <td>{{usersSix.me_test_governor_obs_val}}</td>
+                     <td>{{usersSix.me_test_governor_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>18</td>
+                     <td>TEST OVERSPEED</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_test_overspeed_limit}}</td>
+                     <td>{{usersSix.me_test_overspeed_obs_val}}</td>
+                     <td>{{usersSix.me_test_overspeed_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>19</td>
+                     <td>TURN ENGINE</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_turn_engine_limit}}</td>
+                     <td>{{usersSix.me_turn_engine_obs_val}}</td>
+                     <td>{{usersSix.me_turn_engine_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>20</td>
+                     <td>ALARM DISPLAY</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_alarm_display_limit}}</td>
+                     <td>{{usersSix.me_alarm_display_obs_val}}</td>
+                     <td>{{usersSix.me_alarm_display_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>21</td>
+                     <td>STORED ALARM RESET</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_stored_alarm_reset_limit}}</td>
+                     <td>{{usersSix.me_stored_alarm_reset_obs_val}}</td>
+                     <td>{{usersSix.me_stored_alarm_reset_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>22</td>
+                     <td>LOP FAULT</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_lop_fault_limit}}</td>
+                     <td>{{usersSix.me_lop_fault_obs_val}}</td>
+                     <td>{{usersSix.me_lop_fault_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>23</td>
+                     <td>ALARM ACKNOWLEDGE</td>
+       
+                     <td>-</td>
+                     <td>{{usersSix.me_alarm_acknowledge_limit}}</td>
+                     <td>{{usersSix.me_alarm_acknowledge_obs_val}}</td>
+                     <td>{{usersSix.me_alarm_acknowledge_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>24</td>
+                     <td>SAFETY OVERRIDE</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_safety_override_limit}}</td>
+                     <td>{{usersSix.me_safety_override_obs_val}}</td>
+                     <td>{{usersSix.me_safety_override_remark}}</td>
+                 </tr>
+                 <th colspan="6"> PUMPS BUTTON</th>
+              <tr>
+                     <td>1</td>
+                     <td>START STANDBY LO PUMP AT < 400 RPM</td>
+       
+                     <td>BAR</td>
+                     <td>{{usersSix.me_start_standby_lo_pump_at_400_rpm_limit}}</td>
+                     <td>{{usersSix.me_start_standby_lo_pump_at_400_rpm_obs_val}}</td>
+                     <td>{{usersSix.me_start_standby_lo_pump_at_400_rpm_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>2</td>
+                     <td>START STANDBY LO PUMP AT > 400 RPM</td>
+       
+                     <td>BAR</td>
+                     <td>{{usersSix.me_start_standby_lo_pump_at_400_rpm_limit1}}</td>
+                     <td>{{usersSix.me_start_standby_lo_pump_at_400_rpm_obs_val1}}</td>
+                     <td>{{usersSix.me_start_standby_lo_pump_at_400_rpm_remark1}}</td>
+                 </tr>
+              <tr>
+                     <td>3</td>
+                     <td>START STANDBY HT CW PUMP AT < 400 RPM</td>
+       
+                     <td>BAR</td>
+                     <td>{{usersSix.me_start_standby_ht_cw_pump_at_400_rpm_limit}}</td>
+                     <td>{{usersSix.me_start_standby_ht_cw_pump_at_400_rpm_obs_val}}</td>
+                     <td>{{usersSix.me_start_standby_ht_cw_pump_at_400_rpm_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>4</td>
+                     <td>START STANDBY HT CW PUMP AT > 400 RPM</td>
+       
+                     <td>BAR</td>
+                     <td>{{usersSix.me_start_standby_ht_cw_pump_at_400_rpm_limit1}}</td>
+                     <td>{{usersSix.me_start_standby_ht_cw_pump_at_400_rpm_obs_val1}}</td>
+                     <td>{{usersSix.me_start_standby_ht_cw_pump_at_400_rpm_remark1}}</td>
+                 </tr>
+              <tr>
+                     <td>5</td>
+                     <td>HIGH HT CW TEMP ENGINE INLET</td>
+       
+                     <td>DEG C</td>
+                     <td>{{usersSix.me_high_ht_cw_temp_engine_inlet_limit}}</td>
+                     <td>{{usersSix.me_high_ht_cw_temp_engine_inlet_obs_val}}</td>
+                     <td>{{usersSix.me_high_ht_cw_temp_engine_inlet_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>6</td>
+                     <td>START STANDBY LT CW PUMP</td>
+       
+                     <td>BAR</td>
+                     <td>{{usersSix.me_start_standby_lt_cw_pump_limit}}</td>
+                     <td>{{usersSix.me_start_standby_lt_cw_pump_obs_val}}</td>
+                     <td>{{usersSix.me_start_standby_lt_cw_pump_remark}}</td>
+                 </tr>
+              <th colspan="6">MCU-SWITCH</th>
+              <tr>
+                     <td>1</td>
+                     <td>OPERATE BACKUP ECS AT LOP</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_operate_backup_ecs_at_lop_limit}}</td>
+                     <td>{{usersSix.me_operate_backup_ecs_at_lop_obs_val}}</td>
+                     <td>{{usersSix.me_operate_backup_ecs_at_lop_remark}}</td>
+                 </tr>
+              <tr>
+                     <td>2</td>
+                     <td>OPERATE SAFETY OVERRIDE  MAIN AND BACKUP SYSTEM</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_operate_safety_override_main_and_backup_system_limit}}</td>
+                     <td>{{usersSix.me_operate_safety_override_main_and_backup_system_obs_val}}</td>
+                     <td>{{usersSix.me_operate_safety_override_main_and_backup_system_remark}}</td>
+                 </tr>
+                 <th colspan="6">ECU-SWITCH</th>
+              <tr>
+                     <td>1</td>
+                     <td>EMERGENCY STOP LOP</td>
+       
+                     <td></td>
+                     <td>{{usersSix.me_emergency_stop_lop_limit}}</td>
+                     <td>{{usersSix.me_emergency_stop_lop_obs_val}}</td>
+                     <td>{{usersSix.me_emergency_stop_lop_remark}}</td>
+                 </tr>
+              
+         
+               </table>
+
+
+               <h4 style="margin-top:14px;"><u>Final Assessment and Recommendations</u></h4>
+               <table class="table table-bordered table-form-color1">
+                   
+                       <textarea rowspan="10" class="textarea">{{usersSix.FINAL_OBSERVATIONS_AND_REMARKS | safe}} </textarea>
+               </table></br>
+    
+      <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+         <tr>
+             <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+             <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+         </tr>
+     </table>
+
+     <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center">
+      <tr>
+          <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+          <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+      </tr>
+   </table>
+</div>
+   </body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vibration-trial-da-report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Landscape" />
+    <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            .textarea{
+                width: 100%;
+                min-height: 80px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            .facs{
+              align:left;
+              text-align:left;
+              justify-content:left;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+
+<body>
+
+    <section class="body-card form-style1 trial-form wrapper">
+    <form [formGroup]="form" autocomplete="off">
+          
+      <div class="container-fluid">
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <div class="panel-right">
+              <a href="javascript:void(0);" class="btn btn-primary btn-lg float-left backbtn" (click)="back(trialDet)">Back</a>
+              <div class="panel-row">
+             
+
+                
+         <div style="float:right">
+          <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+         <div class="heading-style2 heading-style3 text-center">
+          <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT.png" class="ng-star-inserted">
+          <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT MUMBAI</h2>       
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">VIBRATION REPORT OF DA</h2>              
+         </div>
+
+
+                <table class="table table-bordered table-form-color2 tabletd-color">
+                  <tr>
+                    <th class="thblue" rowspan="2">SER</th>
+                    <th class="thblue" rowspan="2">Measuring Point</th>
+                    <th class="thblue" rowspan="2">Max Vibration Limit(MM/Sec)</th>
+                    <th class="thblue" colspan="3">60 % Load</th>
+                    <th class="thblue" colspan="3">Max or 100% Load</th>
+                    <th class="thblue" rowspan="2">REMARKS</th>
+                   
+                  </tr>
+                  <tr>
+                    <td class="thblue">V</td>
+                    <td class="thblue">H</td>
+                    <td class="thblue">A</td>
+                    <td class="thblue">V</td>
+                    <td class="thblue">H</td>
+                    <td class="thblue">A</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Engin F/E Bearing</td>
+                    <td>{{users.MAX_VIBRATION_1}}</td>
+                    <td>{{users.LOAD_H_1}}</td>
+                    <td>{{users.LOAD_V_1}}</td>
+                    <td>{{users.LOAD_A_1}}</td>
+                    <td>{{users.MAX_LOAD_H_1}}</td>
+                    <td>{{users.MAX_LOAD_V_1}}</td>
+                    <td>{{users.MAX_LOAD_A_1}}</td>
+                    <td>{{users.REMARK_1}}</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Engin D/E Bearing</td>
+                <td>{{users.MAX_VIBRATION_2}}</td>
+                    <td>{{users.LOAD_H_2}}</td>
+                    <td>{{users.LOAD_V_2}}</td>
+                    <td>{{users.LOAD_A_2}}</td>
+                    <td>{{users.MAX_LOAD_H_2}}</td>
+                    <td>{{users.MAX_LOAD_V_2}}</td>
+                    <td>{{users.MAX_LOAD_A_2}}</td>
+                    <td>{{users.REMARK_2}}</td>
+                 
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Alternator D/E Bearing</td>
+                <td>{{users.MAX_VIBRATION_3}}</td>
+                    <td>{{users.LOAD_H_3}}</td>
+                    <td>{{users.LOAD_V_3}}</td>
+                    <td>{{users.LOAD_A_3}}</td>
+                    <td>{{users.MAX_LOAD_H_3}}</td>
+                    <td>{{users.MAX_LOAD_V_3}}</td>
+                    <td>{{users.MAX_LOAD_A_3}}</td>
+                    <td>{{users.REMARK_3}}</td>
+                 
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Alternator F/E Bearing</td>
+                <td>{{users.MAX_VIBRATION_4}}</td>
+                    <td>{{users.LOAD_H_4}}</td>
+                    <td>{{users.LOAD_V_4}}</td>
+                    <td>{{users.LOAD_A_4}}</td>
+                    <td>{{users.MAX_LOAD_H_4}}</td>
+                    <td>{{users.MAX_LOAD_V_4}}</td>
+                    <td>{{users.MAX_LOAD_A_4}}</td>
+                    <td>{{users.REMARK_4}}</td>
+                 
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Turbocharger 1 IN</td>
+                <td>{{users.MAX_VIBRATION_5}}</td>
+                    <td>{{users.LOAD_H_5}}</td>
+                    <td>{{users.LOAD_V_5}}</td>
+                    <td>{{users.LOAD_A_5}}</td>
+                    <td>{{users.MAX_LOAD_H_5}}</td>
+                    <td>{{users.MAX_LOAD_V_5}}</td>
+                    <td>{{users.MAX_LOAD_A_5}}</td>
+                    <td>{{users.REMARK_5}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>Turbocharger 1 OUT</td>
+                <td>{{users.MAX_VIBRATION_6}}</td>
+                    <td>{{users.LOAD_H_6}}</td>
+                    <td>{{users.LOAD_V_6}}</td>
+                    <td>{{users.LOAD_A_6}}</td>
+                    <td>{{users.MAX_LOAD_H_6}}</td>
+                    <td>{{users.MAX_LOAD_V_6}}</td>
+                    <td>{{users.MAX_LOAD_A_6}}</td>
+                    <td>{{users.REMARK_6}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Turbocharger 2 IN</td>
+                <td>{{users.MAX_VIBRATION_7}}</td>
+                    <td>{{users.LOAD_H_7}}</td>
+                    <td>{{users.LOAD_V_7}}</td>
+                    <td>{{users.LOAD_A_7}}</td>
+                    <td>{{users.MAX_LOAD_H_7}}</td>
+                    <td>{{users.MAX_LOAD_V_7}}</td>
+                    <td>{{users.MAX_LOAD_A_7}}</td>
+                    <td>{{users.REMARK_7}}</td>
+                
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Turbocharger 2 OUT</td>
+                <td>{{users.MAX_VIBRATION_8}}</td>
+                    <td>{{users.LOAD_H_8}}</td>
+                    <td>{{users.LOAD_V_8}}</td>
+                    <td>{{users.LOAD_A_8}}</td>
+                    <td>{{users.MAX_LOAD_H_8}}</td>
+                    <td>{{users.MAX_LOAD_V_8}}</td>
+                    <td>{{users.MAX_LOAD_A_8}}</td>
+                    <td>{{users.REMARK_8}}</td>
+                
+                  </tr>
+                </table>
+              
+                <div class="heading-style2 heading-style3 text-center">
+                  <h2>Attenuation report of DA at 100% load</h2>
+                </div>
+                <table class="table table-bordered table-form-color2 tabletd-color">
+                  <tr>
+                    <th class="thblue">Mount No.</th>
+                    <th class="thblue">Top</th>
+                    <th class="thblue">Bottom</th>
+                    <th class="thblue">Attenuation (%)</th>
+                  </tr>
+            
+                  <tr>
+                    <td class="thblueC">1</td>
+                    <td>{{users.TOP_1}}</td>
+                    <td>{{users.BOTTOM_1}}</td>
+                    <td>{{users.ATTENUATION_1}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">2</td>
+                    <td>{{users.TOP_2}}</td>
+                    <td>{{users.BOTTOM_2}}</td>
+                    <td>{{users.ATTENUATION_2}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">3</td>
+                    <td>{{users.TOP_3}}</td>
+                    <td>{{users.BOTTOM_3}}</td>
+                    <td>{{users.ATTENUATION_3}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">4</td>
+                <td>{{users.TOP_4}}</td>
+                    <td>{{users.BOTTOM_4}}</td>
+                    <td>{{users.ATTENUATION_4}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">5</td>
+                    <td>{{users.TOP_5}}</td>
+                    <td>{{users.BOTTOM_5}}</td>
+                    <td>{{users.ATTENUATION_5}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">6</td>
+                    <td>{{users.TOP_6}}</td>
+                    <td>{{users.BOTTOM_6}}</td>
+                    <td>{{users.ATTENUATION_6}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">7</td>
+                    <td>{{users.TOP_7}}</td>
+                    <td>{{users.BOTTOM_7}}</td>
+                    <td>{{users.ATTENUATION_7}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">8</td>
+                    <td>{{users.TOP_8}}</td>
+                    <td>{{users.BOTTOM_8}}</td>
+                    <td>{{users.ATTENUATION_8}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">9</td>
+                    <td>{{users.TOP_9}}</td>
+                    <td>{{users.BOTTOM_9}}</td>
+                    <td>{{users.ATTENUATION_9}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">10</td>
+                    <td>{{users.TOP_10}}</td>
+                    <td>{{users.BOTTOM_10}}</td>
+                    <td>{{users.ATTENUATION_10}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">11</td>
+                    <td>{{users.TOP_11}}</td>
+                    <td>{{users.BOTTOM_11}}</td>
+                    <td>{{users.ATTENUATION_11}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">12</td>
+                    <td>{{users.TOP_12}}</td>
+                    <td>{{users.BOTTOM_12}}</td>
+                    <td>{{users.ATTENUATION_12}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">13</td>
+                    <td>{{users.TOP_13}}</td>
+                    <td>{{users.BOTTOM_13}}</td>
+                    <td>{{users.ATTENUATION_13}}</td>
+                  </tr>
+                  <tr>
+                    <td class="thblueC">14</td>
+                    <td>{{users.TOP_14}}</td>
+                    <td>{{users.BOTTOM_14}}</td>
+                    <td>{{users.ATTENUATION_14}}</td>
+                  </tr>
+                </table>
+          
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    
+    <h4><u>Final Assessment and Recommendations</u></h4>
+
+    <table class="table table-bordered table-form-color tabletd-color">
+      <tr>
+          <td>
+              <div class="form-floating" style="text-align: left;"> {{users.FINAL_OBSERVATIONS_AND_REMARKS | safe}}  </div>
+          </td>
+      </tr>
+  </table>
+{% comment %}   
+    <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+      <tr>
+        <td style="float:left;">
+          <div style="text-align:left!important;">{{users.FINAL_OBSERVATIONS_AND_REMARKS }} </div>
+        </td>
+      </tr>
+
+    </table> {% endcomment %}
+
+
+  <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px;">
+    <tr>
+        <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+        <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+    </tr>
+</table>
+
+<table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center">
+  <tr>
+      <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+      <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+  </tr>
+</table>
+</section>
+</body>
+
+</html>
+  

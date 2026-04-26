@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>wpt-of-port-boiler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+      body {
+        margin: 50px 20px 50px 20px;
+        size: Landscape;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif!important;
+    }
+            .wrapper{
+              width: 100%; margin: 20px auto;
+            }
+            .clear{
+              padding: 0; margin: 0; width: 100%; clear: both;
+            }
+            .star{
+              color: red;
+            }
+            strong{
+              font-weight: 600;
+            }
+            body{
+              margin:50px;background: #FFF !important;
+            }
+
+            table{
+                border: 1px solid black;
+                font-size: 14px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            table tr{
+                margin: 0px!important;
+            }
+            table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+
+<body>
+
+  <section class="body-card form-style1 trial-form">
+    <form [formGroup]="form" autocomplete="off">
+      <div class="container-fluid panel-right">
+        <div class="heading-style2">
+          <h2 class="text-center mb-4">
+            <strong
+              ><u>POWER QUALITY PARAMETERS - 
+             {{users.shipID}}
+              </u>  
+            </strong>
+          </h2>
+          <h2 class="text-center mt-3 heading-style2">
+            <strong
+              ><u>AT INPUT OF
+              {{users.trial_conv_no}}
+              <span>
+                SYSTEM WITH SOURCE
+                <div class="matt-group heading-input">
+                  <mat-form-field appearance="fill">
+                    {{users.SYSTEM}} 
+                  </mat-form-field>
+                </div>DA/GTG
+              </span>
+            </u>
+            </strong>
+          </h2>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <div class="panel-right">
+
+              <div class="panel-row">
+
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <tr colspan="8">
+                      <th>Ser</th>
+                      <th>Parameters</th>
+                      <th>Acceptable Value</th>
+                      <th>Observed Value with Load ON</th>
+                      <th>Observed Value OFF with Load ON</th>
+                      <th>Observed Value ON with Load OFF</th>
+                      <th>Remarks</th>
+                    </tr>
+
+                    <tr>
+                      <th  colspan="8" style="background:#c8c8c8">1. Voltage</th>
+                    </tr>
+                    <tr>
+                      <td>(a)</td>
+                      <td>Nominal User Voltage</td>
+                      <td>440/415/400/380 V
+                      </td>
+                      <td>
+                        {{users.pq_checks_1}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_2}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_3}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_4}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(b)</td>
+                      <td>Nominal User Voltage Tolerance</td>
+                      <td>± 5%
+                      </td>
+                      <td>
+                        {{users.pq_checks_5}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_6}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_7}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_8}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(c)</td>
+                      <td>Voltage Modulation</td>
+                      <td>2%
+                      </td>
+                      <td>
+                        {{users.pq_checks_9}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_10}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_11}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_12}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(d)</td>
+                      <td>Line Voltage Unbalance Tolerance</td>
+                      <td>2%
+                      </td>
+                      <td>
+                        {{users.pq_checks_13}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_14}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_15}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_16}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(e)</td>
+                      <td>Voltage Transient Tolerance</td>
+                      <td>± 16 %
+                      </td>
+                      <td>
+                        {{users.pq_checks_17}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_18}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_19}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_20}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(f)</td>
+                      <td>Voltage Transient Recovery Time</td>
+                      <td>2 Sec
+                      </td>
+                      <td>
+                        {{users.pq_checks_21}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_22}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_23}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_24}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(g)</td>
+                      <td>Voltage Spike (Peak Value)</td>
+                      <td>2.5 kV
+                      </td>
+                      <td>
+                        {{users.pq_checks_25}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_26}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_27}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_28}}
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <th  colspan="8" style="background:#c8c8c8">2. Waveform</th>
+                    </tr>
+                
+              
+                    <tr>
+                      <td>(a)</td>
+                      <td>Total Harmonic Distoration Tolerance</td>
+                      <td>5%
+                      </td>
+                      <td>
+                        {{users.pq_checks_29}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_30}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_31}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_32}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(b)</td>
+                      <td>Total Harmonic Transient Tolerance</td>
+                      <td>15%
+                      </td>
+                      <td>
+                        {{users.pq_checks_33}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_34}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_35}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_36}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(c)</td>
+                      <td>Individual Harmonic</td>
+                      <td>3%
+                      </td>
+                      <td>
+                        {{users.pq_checks_37}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_38}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_39}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_40}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th  colspan="8" style="background:#c8c8c8">3. Frequency</th>
+                    </tr>
+                    <tr>
+                      <td>(a)</td>
+                      <td>Nominal Frequency</td>
+                      <td>50/60Hz
+                      </td>
+                      <td>
+                        {{users.pq_checks_41}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_42}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_43}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_44}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(b)</td>
+                      <td>Frequency Tolerance</td>
+                      <td>± 3%
+                      </td>
+                      <td>
+                        {{users.pq_checks_45}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_46}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_47}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_48}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(c)</td>
+                      <td>Frequency Modulation</td>
+                      <td>0.5%
+                      </td>
+                      <td>
+                        {{users.pq_checks_49}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_50}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_51}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_52}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(d)</td>
+                      <td>Frequency Transient Tolerance</td>
+                      <td>±4%
+                      </td>
+                      <td>
+                        {{users.pq_checks_53}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_54}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_55}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_56}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>(e)</td>
+                      <td>Frequency Transient Recovery Time</td>
+                      <td>2 Sec
+                      </td>
+                      <td>
+                        {{users.pq_checks_57}}
+                      </td>
+                      <td width="20%">
+                        {{users.pq_checks_58}}
+                      </td>
+                     
+                      <td>
+                        {{users.pq_checks_59}}
+                      </td>
+                      <td>
+                        {{users.pq_checks_60}}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+               
+              
+  
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+    <tr>
+        <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+        <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+    </tr>
+</table>
+</body>
+
+</html>
+  

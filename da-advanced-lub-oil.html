@@ -1,0 +1,301 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>da-advanced-lub-oil</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         .table-line{vertical-align: top;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+        <div class="wrapper">
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                <tr>
+                    <td width="15%"><strong>Ship :</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_occasion_of_trial}}</td>
+                    <td class="td-bluelight" width="15%"><strong>Equipment :</strong></td>   
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_occasion_of_trial}}</td>
+                    </tr>
+                    
+                    <tr>
+                    <td width="6%"><strong>Type of Lubricant :</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_occasion_of_trial}}</td>
+                    <td class="td-bluelight" width="10%"><strong>Sampling Date :</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_rh_since_install | date:'d/m/Y'}}</td>
+                </tr>
+
+                    <tr>
+                    <td width="15%"><strong>Oil Type:</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_make}}</td>
+                    <td class="td-bluelight" width="10%"><strong>Running Hrs Post Major Overhaul :</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_model}}</td>
+                    </tr>
+            
+                    <tr>
+                    <td width="15%"><strong>Hrs Since Last Oil Change:</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_make}}</td>
+                    <td class="td-bluelight" width="10%"><strong>Hrs Since Last Oil Addition & Quantity :</strong></td>
+                    <td style="font-size:14px; color: #222;">{{users.dassdc_model}}</td>
+                    </tr>
+            </table>
+
+            <div class="heading-style2 text-center">
+                <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">LUB OIL (OTHER ENGINES) Advance Tests</h2>
+            </div>      
+
+            {% for users in usersr %}
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                <tr>
+                    <th>S no</th>
+                    <th>TEST PARAMETER</th>
+                    <th>TEST METHOD</th>
+                    <th>UNIT</th>
+                    <th>SAMPLE DATE</th>
+                    <th>FRESH OIL DATA</th>
+                    <th>LIMITS</th>
+                </tr>
+                
+                <tr>
+                    <th class="table-form-color2"></th>
+                    <th class="table-form-color2">BASIC TESTS</th>
+                    <th class="table-form-color2"></th>
+                    <th class="table-form-color2"></th>
+                    <th style="font-size:14px; color: #222;">{{users.dassdc_rh_since_install | date:'d/m/Y'}}</th>
+                    <th class="table-form-color2"></th>
+                    <th class="table-form-color2"></th>
+                </tr>
+
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 1 </td>
+                    <td class="table-form-color2">Aluminium, Al</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Old_SData2}}</td>
+                    <td class="table-form-color2"> < 20 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 2 </td>
+                    <td class="table-form-color2">Barium, Ba</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Old_SData2}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+                {% endif%}
+                {% if users%}        
+                <tr>
+                    <td class="table-form-color2"> 3 </td>
+                    <td class="table-form-color2">Boron, B</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity_Index_Limits3}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity_Index_Old_SData3}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 4 </td>
+                    <td class="table-form-color2">Calcium, Ca</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Appearance_Limits4}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Appearance_Old_SData4}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 5 </td>
+                    <td class="table-form-color2">Chromium, Cr</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Water_Content_Limits5}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Water_Content_Old_SData5}}</td>
+                    <td class="table-form-color2"> < 10 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 6 </td>
+                    <td class="table-form-color2">Copper, Cu</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> < 10 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 7 </td>
+                    <td class="table-form-color2">Iron, Fe</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> < 40 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 8 </td>
+                    <td class="table-form-color2">Lead, Pb</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> < 30 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 9 </td>
+                    <td class="table-form-color2">Magnesium, Mg</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 10 </td>
+                    <td class="table-form-color2">Nickel, Ni</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> < 10 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 11 </td>
+                    <td class="table-form-color2">Phosphorus, P</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Toulene_Insolubles_Limits8}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Toulene_Insolubles_Old_SData8}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 12 </td>
+                    <td class="table-form-color2">Silicon, Si</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> < 15 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 13 </td>
+                    <td class="table-form-color2">Silver, Ag</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> < 10 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 14 </td>
+                    <td class="table-form-color2">Sodium, Na</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> < 20 </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 15 </td>
+                    <td class="table-form-color2">Tin, Sn</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 16 </td>
+                    <td class="table-form-color2">Vanadium, V</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 17 </td>
+                    <td class="table-form-color2">Zinc, Zn</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="table-form-color2"> 18 </td>
+                    <td class="table-form-color2">PQ Index</td>
+                    <td class="table-form-color2">ASTM D 6595</td>
+                    <td class="table-form-color2">PPM</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                    <td class="table-form-color2"> - </td>
+                </tr>
+
+                <tr>
+                    <td>Final Observation</td>
+                    <td style="font-size:14px; color: #222;"><textarea rows="10"></textarea></td>
+                </tr>        
+            </table>
+
+            {% endfor %}      
+            <h4>Recommendations. Following recommended:</h4>
+            {%  with "service/approvals.html" as template %}   
+                    {% include template %}
+                    
+            {% endwith %}
+        </div>
+        <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+   </body>       
+</html>
+        

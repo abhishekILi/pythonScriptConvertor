@@ -1,0 +1,2560 @@
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>me-diesel-engine-health-monitoring-vzg</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape; font-family: Arial;}
+         .wrapper{width: 100%;border-style: double; padding: 8px;}
+        
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         .table{
+          border: 1px solid lightgray;
+          font-size: 12px;
+          padding: 0px;
+          margin: 0px;
+          border-collapse: collapse;
+          width: 100%;
+      }
+      .table tr{
+          margin: 0px!important;
+      }
+      .textarea{
+        width: 100%;
+        min-height: 80px;
+        /* padding: 10px; */
+        font-size: 12px;
+        resize: none;
+        overflow-y: hidden;
+        border: 1px solid black;
+        padding: 4px;
+        text-align:left;
+    }
+  
+      .table tr th{
+          background-color: #80808054;
+          padding: 0px;
+          margin: 0px;
+          border: 1px solid black;
+          text-align: center;
+          padding: 2px 2px 2px 2px;
+      }
+      .table tr td{
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      text-align: center;
+      padding: 2px 2px 2px 2px;
+  }
+      </style>
+   </head>
+   <body>
+    <div class="wrapper">
+     
+
+        <div style="float:right">
+          <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+         <div class="heading-style2 heading-style3 text-center">
+          <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 42%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT_Logo_ucOIgyz.jpg" class="ng-star-inserted">
+          <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT VIZAG</h2>       
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">ME DEHMI – REQUISITION PERFORMA FOR MAIN ENGINES</h2>              
+         </div>
+
+        <table
+        cellspacing="0"
+        cellpadding="5"
+        border="1"
+        class="table grid-tab"
+        width="100%"
+        style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+      >
+        <tr>
+          <td width="18%"><strong>SHIP :</strong></td>
+          <td style="font-size: 14px; color: #222">{{users.Ship}}</td>
+          <td class="td-bluelight" width="15%"><strong>EQUIPMENT :</strong></td>
+          <td style="font-size: 14px; color: #222">{{users.EQUIPMENT}}</td>
+        </tr>
+        <tr>
+          <td><strong>ENGINE MAKE & MODEL :</strong></td>
+          <td style="font-size: 14px; color: #222">{{users.ENGINE_MAKE}}</td>
+          <td class="td-bluelight" width="10%">
+            <strong>DATE OF TRIAL :</strong>
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.DATE_OF_TRIAL|convert_to_datetime}}
+          </td>
+        </tr>
+      </table>
+      <div class="heading-style2">
+        <h4>(A) &nbsp;&nbsp;<u>STATUS OF DOCUMENTS AND ENGINE DATA</u></h4>
+      </div>
+      <table
+        cellspacing="0"
+        cellpadding="5"
+        border="1"
+        class="table grid-tab"
+        width="100%"
+        style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+      >
+        <tr>
+          <th>SER</th>
+          <th>CHECK</th>
+          <th>ME 1</th>
+          <th>ME 2</th>
+          <th>ME 3</th>
+          <th>ME 4</th>
+          <!-- <th>ME 5</th>
+          <th>ME 6</th> -->
+          <th>REMARKS</th>
+          <th>OBSERVATION</th>
+        </tr>
+        <tr>
+          <td>1.</td>
+          <td>DIESEL SERVICE LOG BOOK</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.DIESEL_SERVICE_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.DIESEL_SERVICE_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.DIESEL_SERVICE_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.DIESEL_SERVICE_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.DIESEL_SERVICE_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.DIESEL_SERVICE_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.DIESEL_SERVICE_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.DIESEL_SERVICE_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>EMAPS/KALAMAZOO</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.EMAPS_KALAMAZOO_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.EMAPS_KALAMAZOO_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.EMAPS_KALAMAZOO_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.EMAPS_KALAMAZOO_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.EMAPS_KALAMAZOO_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.EMAPS_KALAMAZOO_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.EMAPS_KALAMAZOO_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.EMAPS_KALAMAZOO_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>RUNNING LOG BOOK</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_LOG_BOOK_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_LOG_BOOK_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_LOG_BOOK_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_LOG_BOOK_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_LOG_BOOK_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_LOG_BOOK_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_LOG_BOOK_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_LOG_BOOK_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>ENGINE SERIAL NO</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.ENGINE_SERIAL_NO_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.ENGINE_SERIAL_NO_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.ENGINE_SERIAL_NO_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.ENGINE_SERIAL_NO_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.ENGINE_SERIAL_NO_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.ENGINE_SERIAL_NO_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.ENGINE_SERIAL_NO_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.ENGINE_SERIAL_NO_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td>RUNNING HOURS SINCE INSTALLATION</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_HOURS_INSTALL_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_HOURS_INSTALL_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_HOURS_INSTALL_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_HOURS_INSTALL_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_HOURS_INSTALL_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_HOURS_INSTALL_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_HOURS_INSTALL_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.RUNNING_HOURS_INSTALL_FILLING_INS}}
+          </td>
+          
+        </tr>
+
+        <tr>
+          <td>6.</td>
+          <td>LAST DEHMI CHECKS</td>
+          <td>{{users.LAST_DEHMI_INSTALL_ME_1}}</td>
+          <td>{{users.LAST_DEHMI_INSTALL_ME_2}}</td>
+          <td>{{users.LAST_DEHMI_INSTALL_ME_3}}</td>
+          <td>{{users.LAST_DEHMI_INSTALL_ME_4}}</td>
+          <td>{{users.LAST_DEHMI_INSTALL_REMARKS}}</td>
+          <td>
+            {{users.LAST_DEHMI_INSTALL_FILLING_INS}}
+          </td>
+        </tr>
+      </table>
+      <div class="heading-style2">
+        <h4>(B)&nbsp;&nbsp;<U>EXTERNAL STATE OF ENGINE</U></h4>
+      </div>
+      <table
+        cellspacing="0"
+        cellpadding="5"
+        border="1"
+        class="table grid-tab"
+        width="100%"
+        style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+      >
+        <tr>
+          <th>SER</th>
+          <th>CHECK</th>
+          <th>ME 1 </th>
+          <th>ME 2 </th>
+          <th>ME 3 </th>
+          <th>ME 4 </th>
+          <!-- <th>ME 5 </th>
+          <th>ME 6 </th> -->
+          <th>REMARKS</th>
+          <th>OBSERVATION</th>
+        </tr>
+        <tr>
+          <td>1.</td>
+          <td>CONDITION OF DURITES/ COMPENSATORS</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_DURITES_ME_1_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_DURITES_ME_2_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_DURITES_ME_3_ME_4}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_DURITES_ME_4_ME_5}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_DURITES_ME_5_ME_6}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_DURITES_ME_6_ME_7}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_DURITES_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_DURITES_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>CONDITION OF SV MOUNTS & APPLICATION OF NECOL LACQUER</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_SV_MOUNTS_ME_1_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_SV_MOUNTS_ME_2_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_SV_MOUNTS_ME_3_ME_4}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_SV_MOUNTS_ME_4_ME_5}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_SV_MOUNTS_ME_5_ME_6}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_SV_MOUNTS_ME_6_ME_7}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_SV_MOUNTS_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CONDITION_SV_MOUNTS_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>SYSTEM PIPELINES WELL SUPPORTED AND FREE OF LEAKS</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.SYS_PIPE_WELL_SUP_ME_1_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.SYS_PIPE_WELL_SUP_ME_2_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.SYS_PIPE_WELL_SUP_ME_3_ME_4}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.SYS_PIPE_WELL_SUP_ME_4_ME_5}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.SYS_PIPE_WELL_SUP_ME_5_ME_6}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.SYS_PIPE_WELL_SUP_ME_6_ME_7}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.SYS_PIPE_WELL_SUP_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.SYS_PIPE_WELL_SUP_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>FILTER DRAINS CLEAR</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.FILTER_DRAINS_CLEAR_ME_1_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.FILTER_DRAINS_CLEAR_ME_2_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.FILTER_DRAINS_CLEAR_ME_3_ME_4}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.FILTER_DRAINS_CLEAR_ME_4_ME_5}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.FILTER_DRAINS_CLEAR_ME_5_ME_6}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.FILTER_DRAINS_CLEAR_ME_6_ME_7}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.FILTER_DRAINS_CLEAR_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.FILTER_DRAINS_CLEAR_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td>STATUS OF BILGE PLATFORM IN THE IMMEDIATE VICINITY OF ENGINE</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_BILGE_ME_1_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_BILGE_ME_2_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_BILGE_ME_3_ME_4}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_BILGE_ME_4_ME_5}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_BILGE_ME_5_ME_6}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_BILGE_ME_6_ME_7}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_BILGE_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_BILGE_FILLING_INS}}
+          </td>
+        </tr>
+      </table>
+      <div class="heading-style2">
+        <h4>(C)&nbsp;&nbsp;<u>STATUS OF AIR INTAKE</u></h4>
+      </div>
+      <table
+        cellspacing="0"
+        cellpadding="5"
+        border="1"
+        class="table grid-tab"
+        width="100%"
+        style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+      >
+        <tr>
+          <th>SER</th>
+          <th>CHECK</th>
+          <th>ME 1</th>
+          <th>ME 2</th>
+          <th>ME 3</th>
+          <th>ME 4</th>
+          <!-- <th>ME 5</th>
+          <th>ME 6</th> -->
+          <th>REMARKS</th>
+          <th width="15%">OBSERVATION</th>
+        </tr>
+        <tr>
+          <td>1.</td>
+          <td>CLEANING OF AIR INTAKE FILTER</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANING_AIR_INTAKE_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANING_AIR_INTAKE_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANING_AIR_INTAKE_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANING_AIR_INTAKE_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.CLEANING_AIR_INTAKE_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANING_AIR_INTAKE_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANING_AIR_INTAKE_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANING_AIR_INTAKE_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>CLEANLINESS OF AIR INTAKE TRUNKING</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.CLEANLINESS_AIR_INTAKE_TRUNKING_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>INTAKE DRAIN CLEAR</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.INTAKE_DRAIN_CLEAR_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.INTAKE_DRAIN_CLEAR_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.INTAKE_DRAIN_CLEAR_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.INTAKE_DRAIN_CLEAR_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.INTAKE_DRAIN_CLEAR_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.INTAKE_DRAIN_CLEAR_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.INTAKE_DRAIN_CLEAR_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.INTAKE_DRAIN_CLEAR_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>
+            PERFORATED SHEET FOR CORROSION AND INTACTNESS OF SECURING (WHERE
+            APPLICABLE)
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.PERFORATED_SHEET_CORROSION_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.PERFORATED_SHEET_CORROSION_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.PERFORATED_SHEET_CORROSION_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.PERFORATED_SHEET_CORROSION_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.PERFORATED_SHEET_CORROSION_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.PERFORATED_SHEET_CORROSION_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.PERFORATED_SHEET_CORROSION_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.PERFORATED_SHEET_CORROSION_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td>AIR INTAKE RESTRICTION MEASURING INSTRUMENT</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.AIR_INTAKE_RESTRICTION_MEASURING_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.AIR_INTAKE_RESTRICTION_MEASURING_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.AIR_INTAKE_RESTRICTION_MEASURING_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>6.</td>
+          <td>STATUS OF VACUUM INDICATORS</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_VACUUM_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_VACUUM_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_VACUUM_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_VACUUM_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_VACUUM_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_VACUUM_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_VACUUM_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_VACUUM_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>7.</td>
+          <td>STATUS OF DURITES/ COMPENSATORS</td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_DURITES_ME_1}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_DURITES_ME_2}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_DURITES_ME_3}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_DURITES_ME_4}}
+          </td>
+          <!-- <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_DURITES_ME_5}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_DURITES_ME_6}}
+          </td> -->
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_DURITES_REMARKS}}
+          </td>
+          <td style="font-size: 14px; color: #222">
+            {{users.STATUS_OF_DURITES_FILLING_INS}}
+          </td>
+        </tr>
+        <tr>
+          <td>8.</td>
+          <td>INTAKE DRAIN CLEAR</td>
+          <td>{{users.INTAKE_DRAIN_ME_1}}</td>
+          <td>{{users.INTAKE_DRAIN_ME_2}}</td>
+          <td>{{users.INTAKE_DRAIN_ME_3}}</td>
+          <td>{{users.INTAKE_DRAIN_ME_4}}</td>
+          <td>{{users.INTAKE_DRAIN_REMARKS}}</td>
+          <td>
+            {{users.INTAKE_DRAIN_FILLING_INS}}
+          </td>
+        </tr>
+      </table>
+      <div class="heading-style2">
+        <h4>(D)&nbsp;&nbsp;<u>STATUS OF EXHAUST SYSTEM</u></h4>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>SECURING OF EXHAUST TRUNKING SUPPORTS AND LOAD HANGERS</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.SECURING_OF_EXHAUST_TRUNKING_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.SECURING_OF_EXHAUST_TRUNKING_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.SECURING_OF_EXHAUST_TRUNKING_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.SECURING_OF_EXHAUST_TRUNKING_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.SECURING_OF_EXHAUST_TRUNKING_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.SECURING_OF_EXHAUST_TRUNKING_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.SECURING_OF_EXHAUST_TRUNKING_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.SECURING_OF_EXHAUST_TRUNKING_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>INTACTNESS OF HOT LAGGING</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_OF_HOT_LAGGING_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_OF_HOT_LAGGING_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_OF_HOT_LAGGING_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_OF_HOT_LAGGING_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_OF_HOT_LAGGING_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_OF_HOT_LAGGING_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_OF_HOT_LAGGING_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_OF_HOT_LAGGING_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>STATUS OF CORROSION ON EXHAUST FUNNEL/FLAP/BALL VALVE</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_CORROSION_ON_EXHAUST_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_CORROSION_ON_EXHAUST_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_CORROSION_ON_EXHAUST_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_CORROSION_ON_EXHAUST_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.STATUS_CORROSION_ON_EXHAUST_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_CORROSION_ON_EXHAUST_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_CORROSION_ON_EXHAUST_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_CORROSION_ON_EXHAUST_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>CONDITION OF EXHAUST DRAIN PIPELINE</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_EXHAUST_DRAIN_PIPELINE_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>5.</td>
+            <td>INTACTNESS OF EXHAUST TRUNKING</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_EXH_TRUNKING_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_EXH_TRUNKING_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_EXH_TRUNKING_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_EXH_TRUNKING_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_EXH_TRUNKING_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_EXH_TRUNKING_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_EXH_TRUNKING_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.INTACTNESS_EXH_TRUNKING_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>6.</td>
+            <td>EXHAUST BACK PRESSURE MEASURING POINT ACCESSIBLE</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.EXHAUST_BACK_P_MEASURING_POINT_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.EXHAUST_BACK_P_MEASURING_POINT_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.EXHAUST_BACK_P_MEASURING_POINT_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.EXHAUST_BACK_P_MEASURING_POINT_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.EXHAUST_BACK_P_MEASURING_POINT_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.EXHAUST_BACK_P_MEASURING_POINT_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.EXHAUST_BACK_P_MEASURING_POINT_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.EXHAUST_BACK_P_MEASURING_POINT_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>7.</td>
+            <td>STATUS OF EXHAUST TRUNKING SUPPORTS AND LOAD HANGARS</td>
+            <td>{{users.STATUS_OF_EXHAUST_TRUNKING_ME_1}}</td>
+            <td>{{users.STATUS_OF_EXHAUST_TRUNKING_ME_2}}</td>
+            <td>{{users.STATUS_OF_EXHAUST_TRUNKING_ME_3}}</td>
+            <td>{{users.STATUS_OF_EXHAUST_TRUNKING_ME_4}}</td>
+            <td>{{users.STATUS_OF_EXHAUST_TRUNKING_REMARKS}}</td>
+            <td>
+              {{users.INTAKE_DRAIN_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(E)&nbsp;&nbsp;<u>STARTING AIR SYSTEM</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>CONDITION OF DURITES/ BRAIDED HOSES</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_DURITES_BRAIDED_HOSES_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_DURITES_BRAIDED_HOSES_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_DURITES_BRAIDED_HOSES_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_DURITES_BRAIDED_HOSES_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_DURITES_BRAIDED_HOSES_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_DURITES_BRAIDED_HOSES_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_DURITES_BRAIDED_HOSES_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_DURITES_BRAIDED_HOSES_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>STATUS OF AIR STARTING VALVE</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_AIR_STARTING_VALVE_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_AIR_STARTING_VALVE_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_AIR_STARTING_VALVE_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_AIR_STARTING_VALVE_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_AIR_STARTING_VALVE_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_AIR_STARTING_VALVE_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_AIR_STARTING_VALVE_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_AIR_STARTING_VALVE_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>WORKING OF AUTO/ MANUAL DRAIN VALVE OF AIR COMPRESSOR</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.WORKING_AUTO_MANUAL_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.WORKING_AUTO_MANUAL_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.WORKING_AUTO_MANUAL_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.WORKING_AUTO_MANUAL_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.WORKING_AUTO_MANUAL_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.WORKING_AUTO_MANUAL_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.WORKING_AUTO_MANUAL_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.WORKING_AUTO_MANUAL_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2" style="margin-top:5em;">
+          <h4>(F)&nbsp;&nbsp;<u>FUEL SYSTEM</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>CONDITION OF FUEL FILTERS</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_FUEL_FILTERS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_FUEL_FILTERS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_FUEL_FILTERS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_FUEL_FILTERS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_FUEL_FILTERS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_FUEL_FILTERS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_FUEL_FILTERS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_FUEL_FILTERS_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>STATUS OF FUEL CENTRIFUGE</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_FUEL_CENTRIFUGE_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_FUEL_CENTRIFUGE_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_FUEL_CENTRIFUGE_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_FUEL_CENTRIFUGE_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_FUEL_CENTRIFUGE_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_FUEL_CENTRIFUGE_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_FUEL_CENTRIFUGE_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.STATUS_OF_FUEL_CENTRIFUGE_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>FUEL LEAKAGES</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.FUEL_LEAKAGES_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.FUEL_LEAKAGES_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.FUEL_LEAKAGES_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.FUEL_LEAKAGES_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.FUEL_LEAKAGES_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.FUEL_LEAKAGES_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.FUEL_LEAKAGES_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.FUEL_LEAKAGES_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>CONDITION OF WIRE-BRAIDED HOSES</td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_OF_WIR_BRAIDED_HOSES_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_OF_WIR_BRAIDED_HOSES_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{users.CONDITION_OF_WIR_BRAIDED_HOSES_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(G)&nbsp;&nbsp;<u>LUB OIL SYSTEM</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td rowspan="3">1.</td>
+            <td>OUTCOME OF LAST LUB OIL ANALYSIS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_LUB_OIL_ANALYSIS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_LUB_OIL_ANALYSIS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_LUB_OIL_ANALYSIS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_LUB_OIL_ANALYSIS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_LUB_OIL_ANALYSIS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_LUB_OIL_ANALYSIS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_LUB_OIL_ANALYSIS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_LUB_OIL_ANALYSIS_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>BASIC</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BASIC_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BASIC_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BASIC_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BASIC_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.BASIC_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BASIC_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BASIC_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BASIC_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>ADVANCED</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.ADVANCED_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.ADVANCED_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.ADVANCED_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.ADVANCED_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.ADVANCED_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.ADVANCED_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.ADVANCED_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.ADVANCED_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>OUTCOME OF LAST LUB OIL ANALYSIS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_LAST_LUB_OIL_ANALYSIS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_LAST_LUB_OIL_ANALYSIS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_LAST_LUB_OIL_ANALYSIS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_LAST_LUB_OIL_ANALYSIS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_LAST_LUB_OIL_ANALYSIS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_LAST_LUB_OIL_ANALYSIS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_LAST_LUB_OIL_ANALYSIS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_LAST_LUB_OIL_ANALYSIS_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>STATUS OF LUB OIL CENTRIFUGE</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_LUB_OIL_CENTRIFUGE_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>OIL LEAKAGES</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OIL_LEAKAGES_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OIL_LEAKAGES_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OIL_LEAKAGES_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OIL_LEAKAGES_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.OIL_LEAKAGES_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OIL_LEAKAGES_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OIL_LEAKAGES_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OIL_LEAKAGES_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>5.</td>
+            <td>DATE OF LAST COOLER CLEANING</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_1|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_2|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_3|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_4|convert_to_datetime}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOLER_CLEANING_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOLER_CLEANING_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOLER_CLEANING_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>6.</td>
+            <td>STATUS OF DURITES/ COMPENSATORS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_DURITES_COMPENSATORS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_DURITES_COMPENSATORS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_DURITES_COMPENSATORS_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>7.</td>
+            <td>LUB OIL TEST KIT STATUS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.LUB_OIL_TEST_KIT_STATUS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.LUB_OIL_TEST_KIT_STATUS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.LUB_OIL_TEST_KIT_STATUS_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(H)&nbsp;&nbsp;<u>COOLANT/ FRESH WATER SYSTEM</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>OUTCOME OF LAST COOLANT ANALYSIS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.OUTCOME_OF_LAST_COOLANT_ANALYSIS_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>CONDITION OF GAUGE GLASS OF EXPANSION TANK</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_GAUGE_GLASS_OF_EX_TANK_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>STATUS OF COOLANT SYSTEM</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_COOLANT_SYSTEM_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_COOLANT_SYSTEM_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_COOLANT_SYSTEM_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>DATE OF LAST COOLER CLEANING</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_1|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_2|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_3|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_4|convert_to_datetime}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOL_CLEAN_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOL_CLEAN_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.DATE_OF_LAST_COOL_CLEAN_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>5.</td>
+            <td>COOLANT TEST KIT STATUS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.COOLANT_TEST_KIT_STATUS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.COOLANT_TEST_KIT_STATUS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.COOLANT_TEST_KIT_STATUS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.COOLANT_TEST_KIT_STATUS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.COOLANT_TEST_KIT_STATUS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.COOLANT_TEST_KIT_STATUS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.COOLANT_TEST_KIT_STATUS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.COOLANT_TEST_KIT_STATUS_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(J)&nbsp;&nbsp;<u>SEA WATER SYSTEM</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>STATUS OF S/W SYSTEM</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SW_SYSTEM_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SW_SYSTEM_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SW_SYSTEM_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SW_SYSTEM_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SW_SYSTEM_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SW_SYSTEM_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SW_SYSTEM_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SW_SYSTEM_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>CONDITION OF DURITES/ COMPENSATOR</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.CONDITION_OF_DURITES_COMPENSATOR_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>STATUS OF SUCTION STRAINER</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SUCTION_STRAINER_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SUCTION_STRAINER_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SUCTION_STRAINER_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SUCTION_STRAINER_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SUCTION_STRAINER_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SUCTION_STRAINER_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SUCTION_STRAINER_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_SUCTION_STRAINER_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>STATUS OF ZINC PLUGS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_ZINC_PLUGS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_ZINC_PLUGS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_ZINC_PLUGS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_ZINC_PLUGS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_ZINC_PLUGS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_ZINC_PLUGS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_ZINC_PLUGS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_OF_ZINC_PLUGS_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(K)&nbsp;&nbsp;<u>CLEARANCES CHECK</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>TAPPET CLEARANCE</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.TAPPET_CLEARANCE_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.TAPPET_CLEARANCE_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.TAPPET_CLEARANCE_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.TAPPET_CLEARANCE_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.TAPPET_CLEARANCE_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.TAPPET_CLEARANCE_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.TAPPET_CLEARANCE_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.TAPPET_CLEARANCE_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>INTAKE VALVE (LIMIT - 0.254 MM)</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INTAKE_VALVE_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INTAKE_VALVE_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INTAKE_VALVE_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INTAKE_VALVE_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.INTAKE_VALVE_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INTAKE_VALVE_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INTAKE_VALVE_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INTAKE_VALVE_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>EXHAUST VALVE (LIMIT- 0.508 MM)</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.EXHAUST_VALVE_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.EXHAUST_VALVE_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.EXHAUST_VALVE_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.EXHAUST_VALVE_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.EXHAUST_VALVE_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.EXHAUST_VALVE_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.EXHAUST_VALVE_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.EXHAUST_VALVE_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(L)&nbsp;&nbsp;<u>INSTRUMENTATION & CONTROL CHECKS</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>INSULATION OF CONTROL SYSTEM PANELS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INSULATION_OF_CONTROL_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INSULATION_OF_CONTROL_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INSULATION_OF_CONTROL_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INSULATION_OF_CONTROL_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.INSULATION_OF_CONTROL_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INSULATION_OF_CONTROL_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INSULATION_OF_CONTROL_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.INSULATION_OF_CONTROL_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>STATUS OF CALIBRATION OF INSTRUMENTATION</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_CALIB_OF_INSTRU_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_CALIB_OF_INSTRU_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_CALIB_OF_INSTRU_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_CALIB_OF_INSTRU_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_CALIB_OF_INSTRU_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_CALIB_OF_INSTRU_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_CALIB_OF_INSTRU_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_CALIB_OF_INSTRU_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>STATUS OF THERMOMETER/ THERMOCOUPLES/ PRESSURE SENSORS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_THERMOMETER_THERMOCOUPLES_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>THERMOMETER- TOTAL NON-OPS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOMETER_TOTAL_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOMETER_TOTAL_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOMETER_TOTAL_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOMETER_TOTAL_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOMETER_TOTAL_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOMETER_TOTAL_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOMETER_TOTAL_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOMETER_TOTAL_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>5.</td>
+            <td>THERMOCOUPLES TOTAL NON-OPS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOCOUPLES_TOTAL_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOCOUPLES_TOTAL_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOCOUPLES_TOTAL_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOCOUPLES_TOTAL_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOCOUPLES_TOTAL_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOCOUPLES_TOTAL_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOCOUPLES_TOTAL_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.THERMOCOUPLES_TOTAL_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>6.</td>
+            <td>PRESSURE GAUGE - TOTAL NON-OPS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.PRESSURE_GAUGE_TOTAL_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.PRESSURE_GAUGE_TOTAL_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.PRESSURE_GAUGE_TOTAL_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.PRESSURE_GAUGE_TOTAL_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.PRESSURE_GAUGE_TOTAL_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.PRESSURE_GAUGE_TOTAL_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.PRESSURE_GAUGE_TOTAL_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.PRESSURE_GAUGE_TOTAL_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>7.</td>
+            <td>NO OF FAULTY ALARMS/RELAYS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.NO_OF_FAULTY_ALARMS_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.NO_OF_FAULTY_ALARMS_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.NO_OF_FAULTY_ALARMS_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.NO_OF_FAULTY_ALARMS_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.NO_OF_FAULTY_ALARMS_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.NO_OF_FAULTY_ALARMS_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.NO_OF_FAULTY_ALARMS_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.NO_OF_FAULTY_ALARMS_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>8.</td>
+            <td>BLOWBY MEASUREMENT TOOL/ PROVISION</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BLOWBY_MEASUREMENT_TOOL_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BLOWBY_MEASUREMENT_TOOL_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.BLOWBY_MEASUREMENT_TOOL_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2" style="margin-top:8em;">
+          <h4>(M)&nbsp;&nbsp;<u>VENTILATION STATUS</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th width="12%">OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>STATUS OF COMPARTMENT VENTILATION</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_VENTILATION_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_VENTILATION_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_VENTILATION_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>
+              AVERAGE COMPARTMENT TEMPERATURE AT FOUR CORNERS/ AMBIENT AIR
+              TEMPERATURE
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.AVG_COMPARTMENT_TEMP_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.AVG_COMPARTMENT_TEMP_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.AVG_COMPARTMENT_TEMP_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.AVG_COMPARTMENT_TEMP_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.AVG_COMPARTMENT_TEMP_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.AVG_COMPARTMENT_TEMP_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.AVG_COMPARTMENT_TEMP_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.AVG_COMPARTMENT_TEMP_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>STATUS OF COMPARTMENT/ BILGE COOLERS</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_BILGE_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_BILGE_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_BILGE_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_BILGE_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_BILGE_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_BILGE_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_BILGE_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_COMPARTMENT_BILGE_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(N)&nbsp;&nbsp;<u>FIRE FIGHTING SYSTEM</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th>CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>STATUS OF MACHINERY COMPARTMENT FIRE FIGHTING SYSTEM</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_MACHINERY_COMPARTMENT_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_MACHINERY_COMPARTMENT_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.STATUS_MACHINERY_COMPARTMENT_FILLING_INS}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(P)&nbsp;&nbsp;<u>PERFORMANCE TRIALS DETAILS. (In Case of DAs)</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th width="15%">CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>Date of last SDC</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_of_last_SDC_ME_1|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_of_last_SDC_ME_2|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_of_last_SDC_ME_3|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_of_last_SDC_ME_4|convert_to_datetime}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_of_last_SDC_ME_5 |date:'d/m/Y'}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_of_last_SDC_ME_6 |date:'d/m/Y'}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_of_last_SDC_REMARKS|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_of_last_SDC_FILLING_INS|convert_to_datetime}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>Date of last load trial</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_load_trial_ME_1|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_load_trial_ME_2|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_load_trial_ME_3|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_load_trial_ME_4|convert_to_datetime}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_load_trial_ME_5 |date:'d/m/Y'}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_load_trial_ME_6 |date:'d/m/Y'}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_load_trial_REMARKS|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_load_trial_FILLING_INS|convert_to_datetime}}
+            </td>
+          </tr>
+        </table>
+        <div class="heading-style2">
+          <h4>(Q)&nbsp;&nbsp;<u>PERFORMANCE TRIALS DETAILS. (In Case of MEs)</u></h4>
+        </div>
+        <table
+          cellspacing="0"
+          cellpadding="5"
+          border="1"
+          class="table grid-tab"
+          width="100%"
+          style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px"
+        >
+          <tr>
+            <th>SER</th>
+            <th width="20%">CHECK</th>
+            <th>ME 1</th>
+            <th>ME 2</th>
+            <th>ME 3</th>
+            <th>ME 4</th>
+            <!-- <th>ME 5</th>
+            <th>ME 6</th> -->
+            <th>REMARKS</th>
+            <th>OBSERVATION</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>Max ERPM achieved during CST</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_CST_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_CST_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_CST_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_CST_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_CST_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_CST_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_CST_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_CST_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>Max ship's speed achieved during CST</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_speed_achieved_during_CST_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_speed_achieved_during_CST_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_speed_achieved_during_CST_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_speed_achieved_during_CST_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_speed_achieved_during_CST_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_speed_achieved_during_CST_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_speed_achieved_during_CST_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_speed_achieved_during_CST_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>Max ERPM achieved during last trial</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_last_trial_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_last_trial_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_last_trial_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_last_trial_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_last_trial_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_last_trial_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_last_trial_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ERPM_achieved_during_last_trial_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>Max ship's speed achieved during last trial</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_spd_achieved_during_last_trial_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_spd_achieved_during_last_trial_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_spd_achieved_during_last_trial_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_spd_achieved_during_last_trial_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_spd_achieved_during_last_trial_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_spd_achieved_during_last_trial_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_spd_achieved_during_last_trial_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_ship_spd_achieved_during_last_trial_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>5.</td>
+            <td>Max torsion meter readings</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_torsion_meter_readings_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_torsion_meter_readings_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_torsion_meter_readings_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_torsion_meter_readings_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_torsion_meter_readings_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_torsion_meter_readings_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_torsion_meter_readings_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Max_torsion_meter_readings_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>6.</td>
+            <td>Present status of torsion meter</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Present_status_of_torsion_meter_ME_1}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Present_status_of_torsion_meter_ME_2}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Present_status_of_torsion_meter_ME_3}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Present_status_of_torsion_meter_ME_4}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Present_status_of_torsion_meter_ME_5}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Present_status_of_torsion_meter_ME_6}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Present_status_of_torsion_meter_REMARKS}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Present_status_of_torsion_meter_FILLING_INS}}
+            </td>
+          </tr>
+          <tr>
+            <td>7.</td>
+            <td>Date of last SDC</td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_SDC_ME_1|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_SDC_ME_2|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_SDC_ME_3|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_SDC_ME_4|convert_to_datetime}}
+            </td>
+            <!-- <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_SDC_ME_5 |date:'d/m/Y'}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_SDC_ME_6 |date:'d/m/Y'}}
+            </td> -->
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_SDC_REMARKS|convert_to_datetime}}
+            </td>
+            <td style="font-size: 14px; color: #222">
+              {{usersOne.Date_last_SDC_FILLING_INS|convert_to_datetime}}
+            </td>
+          </tr>
+          <tr>
+            <td>8.</td>
+            <td>MAX LOAD ACHIEVED DURING CST</td>
+            <td>{{usersOne.MAX_LOAD_ME_1}}</td>
+            <td>{{usersOne.MAX_LOAD_ME_2}}</td>
+            <td>{{usersOne.MAX_LOAD_ME_3}}</td>
+            <td>{{usersOne.MAX_LOAD_ME_4}}</td>
+            <td>{{usersOne.MAX_LOAD_REMARKS}}
+            </td>
+            <td>
+              {{usersOne.MAX_LOAD_FILLING_INS}}
+
+            </td>
+          </tr>
+        </table>
+           <h4>Recommendations. Following recommended:</h4>
+           {%  with "service/approvals.html" as template %}   
+                 {% include template %}
+                 
+           {% endwith %}
+           <div class="clear"></div>
+        </div>
+
+
+        <h4 style="margin-top:14px;"><u>Final Assessment and Recommendations</u></h4>
+        <table class="table table-bordered table-form-color1">
+            
+                <div rowspan="10" class="textarea">{{usersOne.MeDiesel_FINAL_OBSERVATION | safe}} </div>
+
+        </table></br>
+   
+            <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+                <tr>
+                    <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                    <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+                </tr>
+            </table>
+       
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center">
+          <tr>
+              <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+              <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+          </tr>
+        </table>
+      </div>
+   </body>
+</html>

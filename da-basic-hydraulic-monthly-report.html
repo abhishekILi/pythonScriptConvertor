@@ -1,0 +1,231 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>da-basic-and-advance-hydraulic-monthly-report</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         .table-line{vertical-align: top;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+    <div class="wrapper">
+
+        <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">BASIC AND ADVANCE HYDRAULIC OIL MONTHLY</h2>
+        </div>
+        <h4>General Information</h4>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <thead>
+                    <tr>
+                        <th>Ship</th>
+                        <th>Equipment Name</th>
+                        <th>Sampling Date</th>
+                        <th>Oil Type</th>
+                        <th>Running Hrs Post Major Overhaul</th>
+                        <th>Hrs Since Last Oil Change</th>
+                        <th>Hrs Since Last Oil Addition & Quantity</th>
+                        <!-- <th rowspan="2">Report Date</th> -->
+                    </tr>
+            </thead>
+            <tbody>
+                    {% if users%}
+                    <tr>
+                        <td class="table-form-color2">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                        <td class="table-form-color2">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                        <td class="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                    </tr>
+            </tbody>
+        <table>
+
+        <div class="heading-style2 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">HYDRAULIC OIL Basic Test</h2>
+        </div>      
+
+        {% for users in usersr %}
+       <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+                <th>S no</th>
+                <th>TEST PARAMETER</th>
+                <th>TEST METHOD</th>
+                <th>Unit</th>
+                <th>SAMPLE DATE</th>
+                <th>FRESH DATA</th>
+                <th>LIMIT</th>
+            </tr>
+            
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 1 </td>
+                <td class="table-form-color2">Viscosity @ 0 Deg Celcius</td>
+                <td class="table-form-color2">ASTM D 445</td>
+                <td>cST</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Old_SData2}}</td>
+                <td style="font-size:14px; color: #222;">MAX 500</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 2 </td>
+                <td class="table-form-color2">Viscosity @ 40 Deg Celcius</td>
+                <td class="table-form-color2">ASTM D 445</td>
+                <td>cST</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Limits2}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity100_Old_SData2}}</td>
+                <td style="font-size:14px; color: #222;">28.8 - 35.2</td>
+            </tr>
+            {% endif%}
+            {% if users%}        
+            <tr>
+                <td class="table-form-color2"> 3 </td>
+                <td class="table-form-color2">Viscosity Index</td>
+                <td class="table-form-color2">ASTM D 2270</td>
+                <td>Calc.</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity_Index_Limits3}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Viscosity_Index_Old_SData3}}</td>
+                <td style="font-size:14px; color: #222;"> - </td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 4 </td>
+                <td class="table-form-color2">Appearance (Report)</td>
+                <td class="table-form-color2">Visual</td>
+                <td style="font-size:14px; color: #222;"></td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Appearance_Limits4}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Appearance_Old_SData4}}</td>
+                <td style="font-size:14px; color: #222;"> - </td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 5 </td>
+                <td class="table-form-color2">Water Content</td>
+                <td class="table-form-color2">ASTM D 95</td>
+                <td class="table-form-color2">%of vol.</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Water_Content_Limits5}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Water_Content_Old_SData5}}</td>
+                <td style="font-size:14px; color: #222;">MAX 0.05</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 6 </td>
+                <td class="table-form-color2">Hexane Insolubles</td>
+                <td class="table-form-color2">ASTM D 893</td>
+                <td class="table-form-color2">% wt</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                <td style="font-size:14px; color: #222;"> - </td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 7 </td>
+                <td class="table-form-color2">Toulene Insolubles</td>
+                <td class="table-form-color2">ASTM D 893</td>
+                <td class="table-form-color2">% wt</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                <td style="font-size:14px; color: #222;"> - </td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 8 </td>
+                <td class="table-form-color2">Total Acid Number (TAN)</td>
+                <td class="table-form-color2">ASTM D 974</td>
+                <td class="table-form-color2">mg KOH/g</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                <td style="font-size:14px; color: #222;">MAX 0.05</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 9 </td>
+                <td class="table-form-color2">Water Content</td>
+                <td class="table-form-color2">By Crakle</td>
+                <td class="table-form-color2">% wt</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                <td style="font-size:14px; color: #222;"> - </td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 10 </td>
+                <td class="table-form-color2">Flash Point</td>
+                <td class="table-form-color2">ASTM D 92</td>
+                <td class="table-form-color2">Deg C</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Limits7}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Hexane_Insolubles_Old_SData7}}</td>
+                <td style="font-size:14px; color: #222;">MAX 160</td>
+            </tr>
+            {% endif%}
+            {% if users%}
+            <tr>
+                <td class="table-form-color2"> 11 </td>
+                <td class="table-form-color2">Salt Content</td>
+                <td class="table-form-color2">ASTM D 3230</td>
+                <td class="table-form-color2">PPM</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Toulene_Insolubles_Limits8}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Toulene_Insolubles_Old_SData8}}</td>
+                <td style="font-size:14px; color: #222;"> - </td>
+            </tr>
+            
+            <tr> <td style="text-align: center;font-weight: 700;" colspan="7">HYDRAULIC OIL Advance Test</td></tr>
+            <tr>
+                <td class="table-form-color2"> 1 </td>
+                <td class="table-form-color2">Contamination</td>
+                <td class="table-form-color2">ISO 4406</td>
+                <td class="table-form-color2">NAS</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Toulene_Insolubles_Limits8}}</td>
+                <td style="font-size:14px; color: #222;">{{users.Epol_AC_Plant_Toulene_Insolubles_Old_SData8}}</td>
+                <td> < 8 </td>
+            </tr>
+            <tr>
+                <td>Final Observation</td>
+                <td style="font-size:14px; color: #222;"><textarea rows="10"></textarea></td>
+            </tr>        
+         </table>
+
+      
+       {% endfor %}
+      
+       <h4>Recommendations. Following recommended:</h4>
+       {%  with "service/approvals.html" as template %}   
+             {% include template %}
+             
+       {% endwith %}
+       <div class="clear"></div>
+
+       <div _ngcontent-bwk-c373="" align="right" class="text-end group-btn text-right" style="margin-top:10px;"><a _ngcontent-bwk-c373="" href="javascript:void(0);" class="btn btn-success btn-lg" style="text-decoration: none;">UPLOAD</a></div>
+         </div>
+         <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+        </body>
+    </html>
+        

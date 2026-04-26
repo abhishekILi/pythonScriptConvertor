@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Landscape" />
+    <style type="text/css">
+        body {
+            margin: 50px 50px;
+            size: landscape;
+        }
+
+        .wrapper {
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .clear {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            clear: both;
+        }
+
+        .star {
+            color: red;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        tr,
+        th {
+            text-align: start;
+        }
+
+        tr,
+        th {
+            font-size: 14px;
+        }
+
+        table {
+            border: 1px solid lightgray;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table tr {
+            margin: 0px !important;
+        }
+
+        table tr th {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align:left;
+        }
+
+        table tr td {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align:left;
+        }
+
+        textarea {
+            width: 100%;
+            font-size: 12px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            display: none;
+        }
+
+        .btn {
+            display: none;
+        }
+
+        @media print {
+
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading-style2 heading-style3 text-center">
+        <h2>PRE-TRIAL INFORMATION PROFORMA</h2>
+    </div>
+    <table class="table table-bordered table-form-color2 tabletd-color">
+        <tr>
+            <th>Ser</th>
+            <th>Description</th>
+            <th>Details</th>
+            <th>Remarks</th>
+         </tr>
+     <tr>
+            <td>1</td>
+            <td>Ship</td>
+
+            
+            <td>{{users.me_sdcship_obs_val}}</td>
+            <td>{{users.me_sdcship_remark}}</td>
+         </tr>
+     <tr>
+            <td>2</td>
+            <td>Name of Equipment</td>
+
+            
+            <td>{{users.me_sdcname_of_equipment_obs_val}}</td>
+            <td>{{users.me_sdcname_of_equipment_remark}}</td>
+         </tr>
+     <tr>
+            <td>3</td>
+            <td>Serial No of equipment</td>
+
+            
+            <td>{{users.me_sdcserial_no_of_equipment_obs_val}}</td>
+            <td>{{users.me_sdcserial_no_of_equipment_remark}}</td>
+         </tr>
+     <tr>
+            <td>4</td>
+            <td><B>Equipment Specification :</B></td>
+
+            
+            <td>{{users.me_sdcequipment_specification1}}</td>
+            <td>{{users.me_sdcequipment_specification2}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(a)</td>
+            <td>Type</td>
+
+            
+            <td>{{users.me_sdctype_obs_val}}</td>
+            <td>{{users.me_sdctype_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(b)</td>
+            <td>Make  Model</td>
+
+            
+            <td>{{users.me_sdcmake_model_obs_val}}</td>
+            <td>{{users.me_sdcmake_model_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(c)</td>
+            <td>Rated Capacity</td>
+
+            
+            <td>{{users.me_sdcrated_capacity_obs_val}}</td>
+            <td>{{users.me_sdcrated_capacity_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(d)</td>
+            <td>Rated speed</td>
+
+            
+            <td>{{users.me_sdcrated_speed_obs_val}}</td>
+            <td>{{users.me_sdcrated_speed_remark}}</td>
+         </tr>
+     <tr>
+            <td>5</td>
+            <td>Occasion for trials</td>
+
+            
+            <td>{{users.me_sdcoccasion_for_trials_obs_val}}</td>
+            <td>{{users.me_sdcoccasion_for_trials_remark}}</td>
+         </tr>
+     <tr>
+            <td>6</td>
+            <td><B>Running Hours :</B></td>
+
+            
+            <td>{{users.me_sdcrunning_hours_obs_val}}</td>
+            <td>{{users.me_sdcrunning_hours_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(a)</td>
+            <td> Since Installation</td>
+
+            
+            <td>{{users.me_sdca_since_installation_obs_val}}</td>
+            <td>{{users.me_sdca_since_installation_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(b)</td>
+            <td> Last Major Routine Undertaken</td>
+
+            
+            <td>{{users.me_sdcb_last_major_routine_undertaken_obs_val}}</td>
+            <td>{{users.me_sdcb_last_major_routine_undertaken_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(c)</td>
+            <td> Since last Major Routine</td>
+
+            
+            <td>{{users.me_sdcc_since_last_major_routine_obs_val}}</td>
+            <td>{{users.me_sdcc_since_last_major_routine_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(d)</td>
+            <td> Next Major Routine Due</td>
+
+            
+            <td>{{users.me_sdcd_next_major_routine_due_obs_val}}</td>
+            <td>{{users.me_sdcd_next_major_routine_due_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(e)</td>
+            <td> Hours left for next Major Routine</td>
+
+            
+            <td>{{users.me_sdce_hours_left_for_next_major_routine_obs_val}}</td>
+            <td>{{users.me_sdce_hours_left_for_next_major_routine_remark}}</td>
+         </tr>
+     <tr>
+            <td>7</td>
+            <td>Lub Oil Used</td>
+
+            
+            <td>{{users.me_sdclub_oil_used_obs_val}}</td>
+            <td>{{users.me_sdclub_oil_used_remark}}</td>
+         </tr>
+     <tr>
+            <td>8</td>
+            <td>Coolant Specifications</td>
+
+            
+            <td>{{users.me_sdccoolant_specifications_obs_val}}</td>
+            <td>{{users.me_sdccoolant_specifications_remark}}</td>
+         </tr>
+     <tr>
+            <td>9</td>
+            <td>Past History of Equipment if any known characteristics  major defects encountered during last ops cycle</td>
+
+            
+            <td>{{users.me_sdcpast_history_of_equipment_obs_val}}</td>
+            <td>{{users.me_sdcpast_history_of_equipment_remark}}</td>
+         </tr>
+     <tr>
+            <td>10</td>
+            <td><B>Routine carried out  proposed to be undertaken as per MAINTOPS for PRT :</B></td>
+
+            
+            <td>{{users.me_sdcroutine_prt_obs_val}}</td>
+            <td>{{users.me_sdcroutine_prt_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(a)</td>
+            <td> Routine  repair done as part of maintenance schedule or due to specific defect</td>
+
+            
+            <td>{{users.me_sdca_routine_obs_val}}</td>
+            <td>{{users.me_sdca_routine_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(b)</td>
+            <td> If routine  repair done due to specific defect give details of defect</td>
+
+            
+            <td>{{users.me_sdcb_defect_obs_val}}</td>
+            <td>{{users.me_sdcb_defect_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(c)</td>
+            <td> Major components changed during routine  repair</td>
+
+            
+            <td>{{users.me_sdcc_repair_obs_val}}</td>
+            <td>{{users.me_sdcc_repair_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(d)</td>
+            <td> Has work been done on governor  fuel injection pump  turbocharger?</td>
+
+            
+            <td>{{users.me_sdcd_turbocharger_obs_val}}</td>
+            <td>{{users.me_sdcd_turbocharger_remark}}</td>
+         </tr>
+     <tr>
+            <td>11</td>
+            <td>Any limitations anticipated after repair due to nonavailability of a particular critical spare for routine  repair etc</td>
+
+            
+            <td>{{users.me_sdcany_repair_etc_obs_val}}</td>
+            <td>{{users.me_sdcany_repair_etc_remark}}</td>
+         </tr>
+     <tr>
+            <td>12</td>
+            <td>Whether trials of engine done on test bed prior to installation onboard after routine  repair? If yes forward test bed trials report as enclosure</td>
+
+            
+            <td>{{users.me_sdcwhether_enclosure_obs_val}}</td>
+            <td>{{users.me_sdcwhether_enclosure_remark}}</td>
+         </tr>
+     <tr>
+            <td>13</td>
+            <td>Fuel  Lub Oil  RU tanks and systems cleaned  flushed through</td>
+
+            
+            <td>{{users.me_sdcfuel_through_obs_val}}</td>
+            <td>{{users.me_sdcfuel_through_remark}}</td>
+         </tr>
+     <tr>
+            <td>14</td>
+            <td>State of Fuel  Lub Oil Centrifuge Ops  Nonops</td>
+
+            
+            <td>{{users.me_sdcstate_of_ops_nonops_obs_val}}</td>
+            <td>{{users.me_sdcstate_of_ops_nonops_remark}}</td>
+         </tr>
+     <tr>
+            <td>15</td>
+            <td>Status of safety devices including interlocks</td>
+
+            
+            <td>{{users.me_sdcstatus_interlocks_obs_val}}</td>
+            <td>{{users.me_sdcstatus_interlocks_remark}}</td>
+         </tr>
+     <tr>
+            <td>16</td>
+            <td>State of Instrumentation and Controls</td>
+
+            
+            <td>{{users.me_sdcstate_controls_obs_val}}</td>
+            <td>{{users.me_sdcstate_controls_remark}}</td>
+         </tr>
+     <tr>
+            <td>17</td>
+            <td><B>State of Heat Exchangers Cleaned  Removed  Renewed :</B></td>
+
+            
+            <td>{{users.me_sdcstate_renewed_obs_val}}</td>
+            <td>{{users.me_sdcstate_renewed_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(a)</td>
+            <td> LO Cooler </td>
+
+            
+            <td>{{users.me_sdca_lo_cooler_obs_val}}</td>
+            <td>{{users.me_sdca_lo_cooler_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(b)</td>
+            <td> FW Cooler</td>
+
+            
+            <td>{{users.me_sdcb_fw_cooler_obs_val}}</td>
+            <td>{{users.me_sdcb_fw_cooler_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(c)</td>
+            <td> Charge air Cooler </td>
+
+            
+            <td>{{users.me_sdcc_charge_air_cooler_obs_val}}</td>
+            <td>{{users.me_sdcc_charge_air_cooler_remark}}</td>
+         </tr>
+     <tr>
+            <td>18</td>
+            <td><B>Status of following :</B></td>
+
+            
+            <td>{{users.me_sdcstatus_of_following_obs_val}}</td>
+            <td>{{users.me_sdcstatus_of_following_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(a)</td>
+            <td> Emergency cooling</td>
+
+            
+            <td>{{users.me_sdca_emergency_cooling_obs_val}}</td>
+            <td>{{users.me_sdca_emergency_cooling_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(b)</td>
+            <td> quick shut of valves</td>
+
+            
+            <td>{{users.me_sdcb_quick_shut_of_valves_obs_val}}</td>
+            <td>{{users.me_sdcb_quick_shut_of_valves_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(c)</td>
+            <td>  Turning gear</td>
+
+            
+            <td>{{users.me_sdcc_turning_gear_obs_val}}</td>
+            <td>{{users.me_sdcc_turning_gear_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(d)</td>
+            <td> Coupling  pump guard</td>
+
+            
+            <td>{{users.me_sdcd_coupling_pump_guard_obs_val}}</td>
+            <td>{{users.me_sdcd_coupling_pump_guard_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(e)</td>
+            <td>  Blidge plates</td>
+
+            
+            <td>{{users.me_sdce_blidge_plates_obs_val}}</td>
+            <td>{{users.me_sdce_blidge_plates_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(f)</td>
+            <td> Compartment lighting and ventilation system</td>
+
+            
+            <td>{{users.me_sdcf_system_obs_val}}</td>
+            <td>{{users.me_sdcf_system_remark}}</td>
+         </tr>
+     <tr>
+            <td>19</td>
+            <td><B>Tentative dates of :</B></td>
+
+            
+            <td>{{users.me_sdctentative_dates_of_obs_val}}</td>
+            <td>{{users.me_sdctentative_dates_of_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(a)</td>
+            <td> Initial  Installation and Safety Devices Checks</td>
+
+            
+            <td>{{users.me_sdca_devices_checks_obs_val}}</td>
+            <td>{{users.me_sdca_devices_checks_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(b)</td>
+            <td> Load  Governor trial </td>
+
+            
+            <td>{{users.me_sdcb_load_governor_trial_obs_val}}</td>
+            <td>{{users.me_sdcb_load_governor_trial_remark}}</td>
+         </tr>
+     <tr>
+            <td>&nbsp;&nbsp;&nbsp;(c)</td>
+            <td> Preliminary Sea Trial </td>
+
+            
+            <td>{{users.me_sdcc_preliminary_sea_trial_obs_val}}</td>
+            <td>{{users.me_sdcc_preliminary_sea_trial_remark}}</td>
+         </tr>
+     <tr>
+            <td>20</td>
+            <td>Special repairs undertaken</td>
+
+            
+            <td>{{users.me_sdcspecial_repairs_undertaken_obs_val}}</td>
+            <td>{{users.me_sdcspecial_repairs_undertaken_remark}}</td>
+         </tr>
+     
+    </table>
+    <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+        </tr>
+    </table>
+</body>
+
+</html>

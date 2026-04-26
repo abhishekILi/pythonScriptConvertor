@@ -1,0 +1,461 @@
+{% comment %} {% load custom_filters %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EPOL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body {
+            margin: 50px 50px;
+            size: Portrait;
+        }
+
+        .eqp-image{
+            height: 360px;
+            width: 640px;
+            text-align: center;
+        }
+
+        .wrapper {
+            width: 100%;
+            border-style: double;
+            padding: 16px;
+        }
+
+        .wrapper2 {
+            width: 100%;
+            border: 2px solid;
+            padding: 4px;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        table {
+            border-collapse: collapse;
+
+        }
+
+        .clear {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            clear: both;
+        }
+
+        .star {
+            color: red;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        body {
+            margin: 50px;
+            background: #FFF !important;
+        }
+
+        .table {
+            border: 1px solid lightgray;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table tr {
+            margin: 0px !important;
+        }
+
+        .table tr th {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+
+        .table tr td {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: left;
+            padding: 2px 2px 2px 2px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 10px;
+            /* padding: 10px; */
+            font-size: 12px;
+            resize: none;
+            overflow-y: hidden;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            display: none;
+        }
+
+        .btn {
+            display: none;
+        }
+
+        .Equpheader {
+
+            font-weight: 700;
+            text-align: center;
+        }
+
+        @media print {
+
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="heading-style2 text-center">
+            <img width="100px" alt="Logo"
+            style="height: 150px; width: 160px; position: relative; left: 40%;"
+            src="{{satellite_unit_icon}}">
+            <h3 style="margin-top:16px; text-align: center;">
+                <U>E-Vibration</U>
+            </h3>
+        </div>
+    
+        {% for data in vib_return_data%}
+            <div class="wrapper2">
+                <h4 style="text-align:center;">{{forloop.counter}}.{{data.EqpDropDown.nomenclature}}({{data.EqpDropDown.name}})</h4>
+                <div>
+                    <table class="table">
+                        <tr>
+                            <td style="padding-left:10px!important">Ship:</td>
+                            <td style="padding-left:10px!important">{{data.Ship}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:10px!important">Equipment:</td>
+                            <td style="padding-left:10px!important">{{data.EqpDropDown.nomenclature}}</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left:10px!important">Date:</td>
+                            <td style="padding-left:10px!important">{{data.Date}}</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left:10px!important">Equipment Status:</td>
+                            <td style="padding-left:10px!important">{{data.equipment_status_ops_nonops_vib}}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:10px!important">Occasion:</td>
+                            <td style="padding-left:10px!important">{{data.Occasion}}</td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left:10px!important">CMMS Code:</td>
+                            <td style="padding-left:10px!important">{{data.EqpDropDown.code}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div>
+                    <div *ngIf="(equipment_id_from_dropdown || display_section) && equipment_status_ops_nonops_vib=='ops'">
+                        <h4>Equipment's Image</h4>
+                        <div>
+                            <img src="http://159.15.2.140:8000/media/{{data.img_url}}" alt="Image not available for given Equipment" class="eqp-image">
+                        </div>
+
+
+                        {% if data.ShowOverallVibrationValuesSection  %}
+                            <div class="vib-style">
+                                <h4>1. Overall Vibration Values</h4>
+                                <table class="table" *ngIf="ShowOverallVibrationValuesSection_val">
+                                    <tr>
+                                        <th>Points</th>
+                                        <th colspan="3">Driver FE</th>
+                                        <th colspan="3">Driver DE</th>
+                                        <th colspan="3">Driven FE</th>
+                                        <th colspan="3">Driven DE</th>
+                                        <th colspan="6">Additional</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left:10px!important">No</td>
+                                        <td style="text-align:center;">1</td>
+                                        <td style="text-align:center;">2</td>
+                                        <td style="text-align:center;">3</td>
+                                        <td style="text-align:center;">4</td>
+                                        <td style="text-align:center;">5</td>
+                                        <td style="text-align:center;">6</td>
+                                        <td style="text-align:center;">7</td>
+                                        <td style="text-align:center;">8</td>
+                                        <td style="text-align:center;">9</td>
+                                        <td style="text-align:center;">10</td>
+                                        <td style="text-align:center;">11</td>
+                                        <td style="text-align:center;">12</td>
+                                        <td style="text-align:center;">13</td>
+                                        <td style="text-align:center;">14</td>
+                                        <td style="text-align:center;">15</td>
+                                        <td style="text-align:center;">16</td>
+                                        <td style="text-align:center;">17</td>
+                                        <td style="text-align:center;">18</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left:10px!important">Direction</td>
+                                        <td style="text-align:center;">H</td>
+                                        <td style="text-align:center;">V</td>
+                                        <td style="text-align:center;">A</td>
+                                        <td style="text-align:center;">H</td>
+                                        <td style="text-align:center;">V</td>
+                                        <td style="text-align:center;">A</td>
+                                        <td style="text-align:center;">H</td>
+                                        <td style="text-align:center;">V</td>
+                                        <td style="text-align:center;">A</td>
+                                        <td style="text-align:center;">H</td>
+                                        <td style="text-align:center;">V</td>
+                                        <td style="text-align:center;">A</td>
+                                        <td style="text-align:center;">H</td>
+                                        <td style="text-align:center;">V</td>
+                                        <td style="text-align:center;">A</td>
+                                        <td style="text-align:center;">H</td>
+                                        <td style="text-align:center;">V</td>
+                                        <td style="text-align:center;">A</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-left:10px!important">Values (mm/sec)</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_FE_1_H}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_FE_2_V}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_FE_3_A}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_DE_4_H}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_DE_5_V}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_DE_6_A}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_FE_7_H}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_FE_8_V}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_FE_9_A}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_DE_10_H}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_DE_11_V}}</td>
+                                        <td style="text-align:center;">{{data.Val_Driver_DE_12_A}}</td>
+                                        <td style="text-align:center;">{{data.Val_Additional_13_H}}</td>
+                                        <td style="text-align:center;">{{data.Val_Additional_14_V}}</td>
+                                        <td style="text-align:center;">{{data.Val_Additional_15_A}}</td>
+                                        <td style="text-align:center;">{{data.Val_Additional_16_H}}</td>
+                                        <td style="text-align:center;">{{data.Val_Additional_17_V}}</td>
+                                        <td style="text-align:center;">{{data.Val_Additional_18_A}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="padding-left:10px!important">Limits (mm/sec)</td>
+                                        <td colspan="6" style="text-align:center;">{{data.Limits_Driver_FE_DE_1}}</td>
+                                        <td colspan="6" style="text-align:center;">{{data.Limits_Driver_FE_DE_2}}</td>
+                                        <td style="text-align:center;">{{data.Limits_Additional1}}</td>
+                                        <td style="text-align:center;">{{data.Limits_Additional2}}</td>
+                                        <td style="text-align:center;">{{data.Limits_Additional3}}</td>
+                                        <td style="text-align:center;">{{data.Limits_Additional4}}</td>
+                                        <td style="text-align:center;">{{data.Limits_Additional5}}</td>
+                                        <td style="text-align:center;">{{data.Limits_Additional6}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        {% endif %}
+                        
+                        {% if data.ShowSpmChecksSection %}
+                        <div>
+                            <h4>2. SPM Checks</h4>
+                            <table class="table" *ngIf="showSpmChecks">
+                                <tr>
+                                    <th>Points</th>
+                                    <th>dBm</th>
+                                    <th>dBc</th>
+                                    <th>Colour Coding</th>
+                                    <th>Remarks</th>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:10px!important">Driver FE</td>
+                                    <td style="text-align:center;">{{data.Motor_FE_dBm}}</td>
+                                    <td style="text-align:center;">{{data.Motor_FE_dBc}}</td>
+                                    <td style="text-align:center;">{{data.Motor_FE_Remarks}}</td>
+                                    <td style="text-align:center;">{{data.Motor_FE_Obs}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:10px!important">Driver DE</td>
+                                    <td style="text-align:center;">{{data.Motor_DE_dBm}}</td>
+                                    <td style="text-align:center;">{{data.Motor_DE_dBc}}</td>
+                                    <td style="text-align:center;">{{data.Motor_DE_Remarks}}</td>
+                                    <td style="text-align:center;">{{data.Motor_DE_Obs}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:10px!important">Driven DE</td>
+                                    <td style="text-align:center;">{{data.Driven_DE_dBm}}</td>
+                                    <td style="text-align:center;">{{data.Driven_DE_dBc}}</td>
+                                    <td style="text-align:center;">{{data.Driven_DE_Remarks}}</td>
+                                    <td style="text-align:center;">{{data.Driven_DE_Obs}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:10px!important">Driven FE</td>
+                                    <td style="text-align:center;">{{data.Driven_FE_dBm}}</td>
+                                    <td style="text-align:center;">{{data.Driven_FE_dBc}}</td>
+                                    <td style="text-align:center;">{{data.Driven_FE_Remarks}}</td>
+                                    <td style="text-align:center;">{{data.Driven_FE_Obs}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        {% endif %}
+
+                        {% if data.ShowMountAttenuationSection %}
+                        <div class="vib-style">
+                            <h4>3. Mount Attenuation</h4>
+                            <table class="table" *ngIf="ShowMountAtt">
+                                <tr>
+                                    <th>Mount No.</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                    <th>11</th>
+                                    <th>12</th>
+                                    <th>13</th>
+                                    <th>14</th>
+                                    <th>15</th>
+                                    <th>16</th>
+                                    <th>17</th>
+                                    <th>18</th>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:10px!important">Top (mm/sec)</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top1}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top2}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top3}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top4}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top5}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top6}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top7}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top8}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top9}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top10}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top11}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top12}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top13}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top14}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top15}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top16}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top17}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_top18}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:10px!important">Bottom (mm/sec)</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom1}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom2}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom3}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom4}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom5}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom6}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom7}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom8}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom9}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom10}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom11}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom12}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom13}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom14}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom15}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom16}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom17}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_bottom18}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:10px!important">Attenuation %</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation1}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation2}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation3}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation4}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation5}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation6}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation7}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation8}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation9}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation10}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation11}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation12}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation13}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation14}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation15}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation16}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation17}}</td>
+                                    <td style="text-align:center;">{{data.vib_X_mount_attenuation18}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        {% endif %}
+
+                        <br>
+
+                    </div>
+
+                    <div>
+                        <h4>Final Observation</h4>
+                        <div style="border: 1px solid black;" style="text-align:center;">{{data.Remarks| safe }}</div>
+                        
+                    </div>
+                </div>
+                <hr>
+            </div>
+            {% if not forloop.last %}
+                <div class="page-break"></div>
+            {% endif %}
+        {% endfor %}
+        
+        <table cellspacing="0" cellpadding="5" width="100%"
+        style="page-break-before:none!important; font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed
+                By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br>
+                {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication
+                through ITTTM </td>
+            <td width="50%" style="margin-left:50px"> <img style="width:130px;height:130px;align-items:right"src="http://159.12.45.106:8000/{{qr}}" /></td>
+        </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" width="100%"
+            style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report
+                    Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;"src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;">
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+
+</html>

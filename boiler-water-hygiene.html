@@ -1,0 +1,251 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>boiler-water-hygiene</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="" />
+  <meta name="pdfkit-page-size" content="Legal" />
+  <meta name="pdfkit-orientation" content="Landscape" />
+  <style type="text/css">
+    body {
+      margin: 50px 50px;
+      size: landscape;
+      font-size: 14px;
+    }
+
+    .wrapper {
+      width: 100%;
+      border-style: double;
+      padding: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    .clear {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      clear: both;
+    }
+
+    .star {
+      color: red;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    tr,
+    th {
+      text-align: start;
+    }
+
+    tr,
+    th {
+      font-size: 14px;
+    }
+
+    table {
+      border: 1px solid lightgray;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table tr {
+      margin: 0px !important;
+    }
+
+    table tr th {
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      text-align: left;
+      padding: 2px 2px 2px 2px;
+    }
+
+    table tr td {
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      text-align: left;
+      padding: 2px 2px 2px 2px;
+    }
+
+    .textarea {
+      width: 100%;
+      min-height: 10px;
+      /* padding: 10px; */
+      font-size: 12px;
+      resize: none;
+      overflow-y: hidden;
+      border: 1px solid #80808054;
+      margin: 10px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      border: none;
+    }
+
+    button {
+      display: none;
+    }
+
+    .btn {
+      display: none;
+    }
+
+    @media print {
+
+      button,
+      input[type="button"],
+      input[type="submit"],
+      input[type="reset"] {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="heading-style2 text-center">
+      <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+        src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+      <h2 style="text-decoration: underline;">MAIN BOILER/ FEED WATER HYGIENE & RUNNING HOURS MONTHLY RETURNS – INS
+        VIKRAMADITYA FOR MONTH OF: {{general_data.boiler_water_hygiene_vkd_month}} - {{ship}}</h2>
+    </div>
+    <table>
+      <tr>
+        <th class="tHead" rowspan="2">S No.</th>
+        <!-- <th class="tHead" rowspan="2">Month</th> -->
+        <th class="tHead" rowspan="2" style="text-align:center;" >BLR</th>
+        <th class="tHead" rowspan="2" style="text-align:center;" >Alkalinity(Mg/l)(4-6)(lowest)</th>
+        <th class="tHead" rowspan="2" style="text-align:center;" >Sal(Mg/l)(max 10)(highest) </th>
+        <th class="tHead" rowspan="2" style="text-align:center;" >Feed Water Dissolved Oxygen (max 20 ppb)</th>
+        <!-- <th class="tHead" rowspan="2" style="text-align:center;" >TDS(PPM)(10-20)</th> -->
+        <th class="tHead" rowspan="2" style="text-align:center;" >Phosphate(PPM)(10-20)</th>
+        <th class="tHead" colspan="5" style="text-align:center;">Running Hours Since Last</th>
+        <th class="tHead" rowspan="2" style="text-align:center;" >Preservation state</th>
+      </tr>
+      <tr>
+        <th class="tHead">External Chemical Cleaning(ECC)</th>
+        <th class="tHead">Internal Chemical Cleaning(ICC)</th>
+        <th class="tHead">Since Installation</th>
+        <th class="tHead">Since Commissioning</th>
+        <th class="tHead">Since Last re-tubing</th>
+      </tr>
+      {% for i in users %}
+      <tr>
+        <td> {{forloop.counter}}</td>
+        <!-- <td >{{i.Boiler_Month}}</td>  -->
+        <td>{{i.Boiler_Blr}}</td>
+        <td>{{i.Boiler_Alkanity}}</td>
+        <td>{{i.Boiler_Sal}}</td>
+        <td>{{i.Boiler_ph}}</td>
+        <!-- <td >{{i.Boiler_TDS}}</td> -->
+        <td>{{i.Boiler_Phosphate}}</td>
+        <td>{{i.Boiler_External_Chemical_Cleaning}}</td>
+        <td>{{i.Boiler_Internal_Chemical_Cleaning}}</td>
+        <td>{{i.Boiler_Since_Installation}}</td>
+        <td>{{i.Boiler_Since_Commissioning}}</td>
+        <td>{{i.Boiler_Since_Last_re_tubing}}</td>
+        <td>{{i.Boiler_Remarks}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+    <br>
+
+    <table>
+
+      <tr>
+        <td width="15%"><strong>Engineer Officer</strong></td>
+        <td>
+          <p style="font-size:9px">Comment: {{esignature.engg_comment}}
+            <br>
+            Electronically Signed By:
+            <br>
+            {{esignature.engg_information.first_name}} {{esignature.engg_information.last_name}}
+            ({{esignature.engg_information.loginname}})
+            <br>
+            {{esignature.engg_information.designation}}
+            <br>
+            On {{esignature.engg_sign_time}}
+            <br>
+            Using login ID authentication through ITTTM.
+          </p>
+        </td>
+        <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.engg_sign_path}}" /></td>
+
+        <td class="td-bluelight" width="15%"><strong>Commanding Officer</strong></td>
+        <td>
+          <p style="font-size:9px">Comment: {{esignature.comm_comment}}
+            <br>
+            Electronically Signed By:
+            <br>
+            {{esignature.comm_information.first_name}} {{esignature.comm_information.last_name}}
+            ({{esignature.comm_information.loginname}})
+            <br>
+            {{esignature.comm_information.designation}}
+            <br>
+            On {{esignature.comm_sign_time}}
+            <br>
+            Using login ID authentication through ITTTM.
+          </p>
+        </td>
+        <!-- <td><img style="width:80px;height:80px;align-item:right" src="http://159.15.2.140:8000{{esignature.comm_sign_path}}" /></td> -->
+        <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.comm_sign_path}}" /></td>
+
+      </tr>
+
+    </table></br>
+    <h4>&nbsp;&nbsp;<u>Final Remarks and Recommendation</u></h4>
+    <table>
+      <td>{{general_data.General_Remark_By_SHIP | safe}}</td>
+    </table>
+
+    <table cellspacing="0" cellpadding="5" class="table grid-tab" width="100%"
+    style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+    <tr>
+      <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By:
+        <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On
+        {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+      <td width="50%" style="margin-left:50px"> <img style="width:130px;height:130px;align-items:right"
+          src="http://127.0.0.1:8000/{{qr}}" /></td>
+    </tr>
+  </table>
+
+  <table cellspacing="0" cellpadding="5" width="100%"
+    style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+    <tr style="border: 0; border-style:None;">
+      <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report
+        Generated Through ITTTM</td>
+      <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;"
+          src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+    </tr>
+  </table>
+  </div>
+  
+</body>
+
+</html>

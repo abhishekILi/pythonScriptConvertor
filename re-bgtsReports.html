@@ -1,0 +1,362 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>CBPM RE 1241</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+         body{margin:50px 50px; size:landscape;}
+         .wrapper{width: 100%;border-style: double; padding: 8px;}
+             table{border-collapse: collapse;}
+             .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+             .star{color: red;}
+             strong{font-weight: 600;}
+             body{margin:50px;background: #FFF !important;}
+ 
+             .table{
+                 border: 1px solid lightgray;
+                 font-size: 12px;
+                 padding: 0px;
+                 margin: 0px;
+                 border-collapse: collapse;
+                 width: 100%;
+             }
+             .table tr{
+                 margin: 0px!important;
+             }
+             .table tr th{
+                 background-color: #80808054;
+                 padding: 0px;
+                 margin: 0px;
+                 border: 1px solid black;
+                 text-align: center;
+                 padding: 2px 2px 2px 2px;
+             }
+             .table tr td{
+             background-color: #80808054;
+             padding: 0px;
+             margin: 0px;
+             border: 1px solid black;
+             text-align: center;
+             padding: 2px 2px 2px 2px;
+         }
+             textarea{
+                 width: 100%;
+                 min-height: 10px;
+                 /* padding: 10px; */
+                 font-size: 12px;
+                 resize: none;
+                 overflow-y: hidden;
+             }
+             h2{
+                 text-align: center;
+             }
+             input{
+                 border: none;
+             }
+             button{
+                 display: none;
+             }
+             .btn{
+                 display: none;
+             }
+ 
+             @media print{
+                 button, input[type="button"], input[type="submit"], input[type="reset"]{
+                     display: none !important;
+                 }
+             }
+     </style>
+   </head>
+   <body>
+     <div class="wrapper">
+      <div style="float:right">
+         <p>Report Generated on: {{ history.approved_date_time }}</p>
+         </div>
+
+        <section class="body-card form-style1 trial-form">  
+             <div class="container-fluid">
+                <div class="row mt-5">
+                   <div class="col-md-12">
+                      <div class="panel-right">
+                    
+                         <div class="panel-row">
+                            <div class="heading-style2 heading-style3 text-center">
+                              <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-top: 14px; position: relative; left: 41%;" src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+                              <h2>GTTT MUMBAI</h2>
+                               <h2 style="font-weight: bold!important; margin-bottom: 35px;"><u>OVERALL VIBRATION IN MM/SEC RMS 1241 RE</u></h2>
+                            </div>
+                            
+                           <table class="table table-bordered table-form-color">
+                              <tr>
+                                 <td>SHIP</td>
+                                 <td><input type="text" class="form-control" formControlName="ship" value="{{ship}}"></td>
+
+                              </tr>
+                              <tr>
+                                 <td>RETURN FOR THE PERIOD</td>
+                                 <td>{{users.return_for_the_period}}</td>
+                              </tr>
+                           </table>
+
+                            <div>
+                              <h4>1.&nbsp;&nbsp; The dates of carrying out vibration recording of Cruise GTs are as follows:-</h4>
+                            </div>
+                            <table class="table table-bordered table-form-color">
+                               <tr>
+                                  <th>Ser</th>
+                                  <th></th>
+                                  <th>PCGT</th>
+                                  <th>PCRG</th>
+                                  <th>SCGT</th>
+                                  <th>SCRG</th>
+                               </tr>
+         
+                               <tr>
+                                 <td>(a)</td>
+                                 <td>Date of Recording </td>
+                                 <td>{{users.PCGT_Recording}}</td>
+                                 <td>{{users.PCRG_Recording}}</td>
+                                 <td>{{users.SCGT_Recording}}</td>
+                                 <td>{{users.SCRG_Recording}}</td>
+                              </tr>
+                               <tr>
+                                 <td>(b)</td>
+                                 <td>Running Hours since installation</td>
+                                 <td>{{users.PCGT_Since_ins}}</td>
+                                 <td>{{users.PCRG_Since_ins}}</td>
+                                 <td>{{users.SCGT_Since_ins}}</td>
+                                 <td>{{users.SCRG_Since_ins}}</td>
+                              </tr>
+         
+                           </table>
+         
+                           <div>
+                              <h4>2.&nbsp;&nbsp;M15E CGT DP76/CRG PO76</h4>
+                            </div>
+         
+                           <table class="table table-bordered table-form-color">
+                              <tr>
+                                <th>Ser</th>
+                                <th>Point No.</th>
+         
+                                <th>Description</th>
+                                <th>Limit</th>
+                                <th>PCGT/RG</th>
+                                <th>SCGT/RG</th>
+                                <th>Remarks</th>
+                              </tr>
+                              <tr>
+                                <td>(a)</td>
+                                <td>1V</td>
+                                <td>Front Support Trunnion-Vertical</td>
+                                <td>&lt;10.7</td>
+                                <td>{{users.PCGT1}}</td>
+                                <td>{{users.SCGT1}}</td>
+                                <td>{{users.Remarks_CGT1}}</td>
+                             </tr>
+                              <tr>
+                                <td>(b)</td>
+                                <td>2H</td>
+                                <td>Front Support Trunnion-A</td>
+                                <td>&lt;10.7</td>
+                                <td>{{users.PCGT2}}</td>
+                                <td>{{users.SCGT2}}</td>
+                                <td>{{users.Remarks_CGT2}}</td>
+                             </tr>
+                              <tr>
+                                <td>(c)</td>
+                                <td>3V*</td>
+                                <td>AFT</td>
+                                <td>&lt;10.7</td>
+                                <td>{{users.PCGT3}}</td>
+                                <td>{{users.SCGT3}}</td>
+                                <td>{{users.Remarks_CGT3}}</td>
+                             </tr>
+                             <tr>
+                                <td>(d)</td>
+                                <td>4V</td>
+                                <td>RG Forward Casing Flange-Vertical</td>
+                                <td>&lt;7.1</td>
+                                <td>{{users.PCGT4}}</td>
+                                <td>{{users.SCGT4}}</td>
+                                <td>{{users.Remarks_CGT4}}</td>
+                             </tr>
+                             <tr>
+                              <td>(e)</td>
+                              <td>5V</td>
+                                <td>RG Aft Cover Flange-Vertical</td>
+                                <td>&lt;7.1</td>
+                                <td>{{users.PCGT5}}</td>
+                                <td>{{users.SCGT5}}</td>
+                                <td>{{users.Remarks_CGT5}}</td>
+                             </tr>
+                             <tr>
+                              <td>(f)</td>
+                              <td>6A</td>
+                              <td>RG Aft-A</td>
+                              <td>&lt;7.1</td>
+                                <td>{{users.PCGT6}}</td>
+                                <td>{{users.SCGT6}}</td>
+                                <td>{{users.Remarks_CGT}}</td>
+                             </tr>
+                           </table>
+         
+                           <div>
+                              <h4>3. The dates of carrying out vibration recording of Boost GTs are as follows:-</h4>
+                            </div>
+                            <table class="table table-bordered table-form-color">
+                               <tr>
+                                  <th>Ser</th>
+                                  <th></th>
+                                  <th>PBGT</th>
+                                  <th>PBRG</th>
+                                  <th>SBGT</th>
+                                  <th>SBRG</th>
+                               </tr>
+         
+                               <tr>
+                                 <td>(a)</td>
+                                 <td>Date of Recording </td>
+                                 <td>{{users.PBGT_Recording}}</td>
+                                 <td>{{users.PBRG_Recording}}</td>
+                                 <td>{{users.SBGT_Recording}}</td>
+                                 <td>{{users.SBRG_Recording}}</td>
+                              </tr>
+                               <tr>
+                                 <td>(b)</td>
+                                 <td>Running Hours since installation</td>
+                                 <td>{{users.PBGT_Since_ins}}</td>
+                                 <td>{{users.PBRG_Since_ins}}</td>
+                                 <td>{{users.SBGT_Since_ins}}</td>
+                                 <td>{{users.SBRG_Since_ins}}</td>
+                              </tr>
+         
+                           </table>
+         
+                           <div>
+                              <h4>4. M15E BGT DP77.1/CRG PO77</h4>
+                            </div>
+         
+         
+                           <table class="table table-bordered table-form-color">
+                               <tr>
+                                 <th>Ser</th>
+                                 <th>Point No.</th>
+         
+                                 <th>Description</th>
+                                 <th>Limit</th>
+                                 <th>PBGT/RG</th>
+                                 <th>SBGT/RG</th>
+                                 <th>Remarks</th>
+                               </tr>
+                               <tr>
+                                 <td>(a)</td>
+                                 <td>1V</td>
+                                 <td>Front Support Trunnion-Vertical</td>
+                                 <td>&lt;7.1</td>
+                                 <td>{{users.PBGT1}}</td>
+                                 <td>{{users.SBGT1}}</td>
+                                 <td>{{users.Remarks_BGT1}}</td>
+                              </tr>
+                               <tr>
+                                 <td>(b)</td>
+                                 <td>2H</td>
+                                 <td>Front Support Trunnion-Axial</td>
+                                 <td>&lt;7.1</td>
+                                 <td>{{users.PBGT2}}</td>
+                                 <td>{{users.SBGT2}}</td>
+                                 <td>{{users.Remarks_BGT2}}</td>
+                              </tr>
+                               <tr>
+                                 <td>(c)</td>
+                                 <td>3V</td>
+                                 <td>Adaptor Flange-Vertical</td>
+                                 <td>&lt;7.1</td>
+                                 <td>{{users.PBGT3}}</td>
+                                 <td>{{users.SBGT3}}</td>
+                                 <td>{{users.Remarks_BGT3}}</td>
+                              </tr>
+                              <tr>
+                                 <td>(d)</td>
+                                 <td>4V</td>
+                                 <td>Boost RG Half Coupling Casing (V)</td>
+                                 <td>&lt;4.3</td>
+                                 <td>{{users.PBGT4}}</td>
+                                 <td>{{users.SBGT4}}</td>
+                                 <td>{{users.Remarks_BGT4}}</td>
+                              </tr>
+                              <tr>
+                               <td>(e)</td>
+                               <td>5V</td>
+                                 <td>RG Top Cover Horizontal Flange Securing Bolt-Vertical</td>
+                                 <td>&lt;4.3</td>
+                                 <td>{{users.PBGT5}}</td>
+                                 <td>{{users.SBGT5}}</td>
+                                 <td>{{users.Remarks_BGT5}}</td>
+                              </tr>
+                              <tr>
+                               <td>(f)</td>
+                               <td>6V</td>
+                               <td>Output Shaft Casing Flange-Vertical</td>
+                               <td>&lt;4.3</td>
+                                 <td>{{users.PBGT6}}</td>
+                                 <td>{{users.SBGT6}}</td>
+                                 <td>{{users.Remarks_BGT6}}</td>
+                              </tr>
+                              <tr>
+                                 <td>(g)</td>
+                                 <td>7A</td>
+                                 <td>Output Shaft Casing Flange-Axial</td>
+                                 <td>&lt;4.3</td>
+                                   <td>{{users.PBGT7}}</td>
+                                   <td>{{users.SBGT7}}</td>
+                                   <td>{{users.Remarks_BGT7}}</td>
+                                </tr>
+                            </table>
+         
+                            <div>
+                              <h4>5. Remarks</h4>
+                            </div>
+         
+                            <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                              <tr>
+                                <td>
+                                  <div class="form-floating">
+                                    {{users.VII_Remarks}}
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                   </div>
+                    
+         
+                         </div>
+                      </div>
+                   </div>
+                </div>
+           
+           </section>
+           <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+         <tr style="border: 0; border-style:None;">
+             <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+             <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+         </tr>
+       </table>
+      
+      </div>
+    </body>
+</html>

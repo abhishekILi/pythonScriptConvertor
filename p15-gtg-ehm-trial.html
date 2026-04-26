@@ -1,0 +1,690 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>p15-gtg-ehm-trial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body {
+            margin: 50px 50px;
+            size: landscape;
+        }
+
+        .wrapper {
+            width: 100%;
+            border-style: double;
+            padding: 8px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .clear {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            clear: both;
+        }
+
+        .star {
+            color: red;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        body {
+            margin: 50px;
+            background: #FFF !important;
+        }
+
+        .table {
+            border: 1px solid lightgray;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table tr {
+            margin: 0px !important;
+        }
+
+        .table tr th {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+
+        .table tr td {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 10px;
+            /* padding: 10px; */
+            font-size: 12px;
+            resize: none;
+            overflow-y: hidden;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            display: none;
+        }
+
+        .btn {
+            display: none;
+        }
+
+        @media print {
+
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+        <div class="heading-style2 text-center">
+            <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+                src="{{satellite_unit_icon}}">
+            <h4><u>GAS TURBINE GENERATOR (GTG)
+                    PERFORMANCE AUDIT</u></h4>
+        </div>
+
+        <table class="table table-bordered tabletd-color">
+            <tr>
+                <td class="subheader td-bluelight">SHIP</td>
+                <td>{{users.ship}}</td>
+                <td class="subheader td-bluelight">GTG LOCATION</td>
+                <td colspan="4">{{users.p15_gtg_ehm_loc}}</td>
+            </tr>
+
+            <tr>
+
+                <td class="subheader td-bluelight">TC SERIAL</td>
+                <td>{{users.p15_gtg_ehm_tcSer}}</td>
+                <td class="subheader td-bluelight">RG SERIAL</td>
+                <td colspan="4">{{users.p15_gtg_ehm_rgSer}}</td>
+            </tr>
+
+            <tr>
+
+                <td class="subheader td-bluelight" colspan="3">DATE OF INSTALLATION</td>
+                <td colspan="4">{{users.p15_gtg_ehm_date_of_inst}}</td>
+
+            </tr>
+
+            <tr>
+                <td class="subheader td-bluelight">TC RH</td>
+                <td class="subheader td-bluelight" colspan="2">SI</td>
+                <td>{{users.p15_gtg_ehm_tcRH_SI}}</td>
+                <td class="subheader td-bluelight" colspan="2">SN</td>
+                <td>{{users.p15_gtg_ehm_tcRH_SN}}</td>
+            </tr>
+
+            <tr>
+                <td class="subheader td-bluelight">RG RH</td>
+                <td class="subheader td-bluelight" colspan="2">SI</td>
+                <td>{{users.p15_gtg_ehm_rgRH_SI}}</td>
+                <td class="subheader td-bluelight" colspan="2">SN</td>
+                <td>{{users.p15_gtg_ehm_rgRH_SN}}</td>
+            </tr>
+
+            <tr>
+
+                <td class="subheader td-bluelight" colspan="2">OCCASION OF TRIAL</td>
+                <td>{{users.p15_gtg_ehm_occ_of_trial}}</td>
+                <td class="subheader td-bluelight" colspan="2">DATE OF TRIAL</td>
+                <td colspan="2">{{users.p15_gtg_ehm_date_of_trial}}</td>
+            </tr>
+
+            <tr>
+
+                <td class="subheader td-bluelight" colspan="2">LAST ROUTINE UNDERTAKEN RH</td>
+                <td>{{users.p15_gtg_ehm_last_rout}}</td>
+                <td class="subheader td-bluelight" colspan="2">RH AT LAST 1500/2500(TC/RG): </td>
+                <td colspan="2">{{users.p15_gtg_ehm_RH_at_last}}</td>
+            </tr>
+
+            <tr>
+
+                <td class="subheader td-bluelight">DATE OF LAST TRIAL</td>
+                <td>{{users.p15_gtg_ehm_date_of_last_trial}}</td>
+                <td class="subheader td-bluelight">RH SINCE LAST TRIAL </td>
+                <td>{{users.p15_gtg_ehm_RH_last_trial}}</td>
+                <td class="subheader td-bluelight" colspan="2">RH AT HARBOUR SINCE LAST TRIAL </td>
+                <td>{{users.p15_gtg_ehm_RH_harbour}}</td>
+            </tr>
+
+        </table>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th>SNO</th>
+                <th colspan="3">DESCRIPTION OF TASK</th>
+                <th>STATUS</th>
+                <th colspan="4">REMARKS</th>
+
+            </tr>
+            <tr>
+                <th colspan="6" class="text-center">SECTION I -- INSPECTION OF BOOKS / RECORDS</th>
+            </tr>
+            <tr>
+                <td class="td-bluelight" rowspan="10">1</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">Running Log Book</td>
+            </tr>
+            <tr>
+                <td colspan="3">Lub oil level and salinity check reading</td>
+                <td>{{users.p15_gtg_ehm_lub_oil_insp}}</td>
+                <td>{{users.p15_gtg_ehm_lub_oil_rem_insp}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">Three monthly routine carried out on date</td>
+                <td>{{users.p15_gtg_ehm_3_mon_insp}}</td>
+                <td>{{users.p15_gtg_ehm_3_mon_rem_insp}}</td>
+
+            </tr>
+            <tr>
+                <td colspan="3">Four monthly routine carried out on date</td>
+                <td>{{users.p15_gtg_ehm_4_mon_insp}}</td>
+                <td>{{users.p15_gtg_ehm_4_mon_rem_insp}}</td>
+
+            </tr>
+            <tr>
+                <td colspan="3">500 hourly routine carried out at running hour/date</td>
+                <td>{{users.p15_gtg_ehm_500_hr_insp}}</td>
+                <td>{{users.p15_gtg_ehm_500_hr_rem_insp}}</td>
+
+            </tr>
+            <tr>
+                <td colspan="3">1000 hourly routine carried out at running hour/date (1250-E)</td>
+                <td>{{users.p15_gtg_ehm_1000_hr_insp}}</td>
+                <td>{{users.p15_gtg_ehm_1000_hr_rem_insp}}</td>
+
+            </tr>
+
+            <tr>
+                <td colspan="3">1250 hourly routine carried out at running hour/date</td>
+                <td>{{users.p15_gtg_ehm_1250_hr_insp}}</td>
+                <td>{{users.p15_gtg_ehm_1250_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">2500 hourly routine carried out at running hour/date</td>
+                <td>{{users.p15_gtg_ehm_2500_hr_insp}}</td>
+                <td>{{users.p15_gtg_ehm_2500_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">Record of Captains monthly inspection/remarks</td>
+                <td>{{users.p15_gtg_ehm_rec_of_cap_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Fuel flushing / Steam washing and Burner cleaning hours/date</td>
+                <td>{{users.p15_gtg_ehm_fuel_flush_insp}}</td>
+                <td>{{users.p15_gtg_ehm_fuel_flush_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td class="td-bluelight" rowspan="5">2</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">Service Log</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Monthly running hour updated</td>
+                <td>{{users.p15_gtg_ehm_mon_run_hr_insp}}</td>
+                <td>{{users.p15_gtg_ehm_mon_run_hr_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">All major routine carried out with details are entered</td>
+                <td>{{users.p15_gtg_ehm_maj_rout_insp}}</td>
+                <td>{{users.p15_gtg_ehm_maj_rout_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Any major defect rectified with parts renewed with SL.NO.</td>
+                <td>{{users.p15_gtg_ehm_maj_def_insp}}</td>
+                <td>{{users.p15_gtg_ehm_maj_def_rem_insp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">Record of Captains monthly inspection/remarks</td>
+                <td>{{users.p15_gtg_ehm_rec_of_cap_ser_insp}}</td>
+            </tr>
+
+
+
+            <tr>
+                <td class="td-bluelight" rowspan="5">3</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">EMAP</td>
+            </tr>
+
+
+            <tr>
+                <td colspan="3">All details regarding equipment are entered correctly</td>
+                <td>{{users.p15_gtg_ehm_det_eqp}}</td>
+                <td>{{users.p15_gtg_ehm_ser_det_eqp}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">All Details of routines undertaken are mentioned</td>
+                <td>{{users.p15_gtg_ehm_det_rout_emap}}</td>
+                <td>{{users.p15_gtg_ehm_det_rout_rem_emap}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="3">All major defects are entered</td>
+                <td>{{users.p15_gtg_ehm_maj_def_emap}}</td>
+                <td>{{users.p15_gtg_ehm_maj_def_rem_emap}}</td>
+            </tr>
+
+            <tr>
+                <td colspan="4">Record of Captains monthly inspection/remarks</td>
+                <td>{{users.p15_gtg_ehm_rec_of_cap_emap}}</td>
+            </tr>
+        </table>
+        <!-- section II start -->
+        <tr>
+            <th colspan="6" class="text-center">SECTION II -- STATE OF SYSTEMS</th>
+        </tr>
+        <table class="table table-bordered table-form-color1 tabletd-color">
+            <tr>
+                <th>SNO</th>
+                <th width="58%">DESCRIPTION OF TASK</th>
+                <th width="15%">STATUS</th>
+                <th colspan="4" width="42%">REMARKS</th>
+            </tr>
+            <tr>
+                <td class="td-bluelight" colspan="1" rowspan="9">4</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">Air Intake/Exhaust System
+                </td>
+            </tr>
+
+            <tr>
+
+                <td>(a) Check intake wire mesh for corrosion and cleanliness</td>
+                <td>{{users.p15_gtg_ehm_exhaust_sys_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_exhaust_sys_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(b) Check condition of ‘W’ filter</td>
+                <td>{{users.p15_gtg_ehm_W_filter_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_W_filter_rem}}</td>
+            </tr>
+
+            <tr>
+
+                <td>(c) Check perforated sheet for corrosion and securing</td>
+                <td>{{users.p15_gtg_ehm_corrosion_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_corrosion_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(d) Check condition of rubber diaphragm</td>
+                <td>{{users.p15_gtg_ehm_diaphragm_status}}
+                </td>
+                <td colspan="4">{{users.p15_gtg_ehm_diaphragm_rem}}</td>
+            </tr>
+
+
+            <tr>
+                <td>(e) Check condition of exhaust spring suspensions</td>
+                <td>{{users.p15_gtg_ehm_spring_sus_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_spring_sus_rem}}</td>
+            </tr>
+
+
+            <tr>
+                <td>(f) Check hydraulic seal</td>
+                <td>{{users.p15_gtg_ehm_hyd_seal_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_hyd_seal_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(g) Check for leakages</td>
+                <td>{{users.p15_gtg_ehm_leakages_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_leakages_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(h) Check to see that the moisture separator drain line provided on intake baffles is clear</td>
+                <td>{{users.p15_gtg_ehm_baffles_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_baffles_rem}}</td>
+            </tr>
+
+            {% for al in air_exhaust_system_p15_rows %}
+            <tr>
+                <td style="width: 0.4%;">{{forloop.counter}}.</td>
+                <td style="width: 13%;">{{al.air_exhaust_system_p15_desc}}</td>
+                <td style="width: 2.87%;">{{al.air_exhaust_system_p15_status}}</td>
+                <td style="width: 5.1%;">{{al.air_exhaust_system_p15_remarks}}</td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+                <td class="td-bluelight" rowspan="6">5</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">Fuel System</td>
+            </tr>
+
+            <tr>
+                <td>(a) Check condition of coarse and fine fuel filter</td>
+                <td>{{users.p15_gtg_ehm_fuel_filter_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_fuel_filter_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(b) Check date of cleaning of RU tank</td>
+                <td>{{users.p15_gtg_ehm_RU_tank_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_RU_tank_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(c) Check date of replacement of CT500 and FNT filters</td>
+                <td>{{users.p15_gtg_ehm_FNT_filt_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_FNT_filt_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(d) Check condition of starting injector filter and main injector</td>
+                <td>{{users.p15_gtg_ehm_main_inj_status}}</td>
+
+                <td colspan="4">{{users.p15_gtg_ehm_main_inj_rem}}</td>
+
+            </tr>
+
+            <tr>
+                <td>(e) Check for leakages</td>
+                <td>{{users.p15_gtg_ehm_fuel_leakage_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_fuel_leakage_rem}}</td>
+            </tr>
+
+            {% for al in fuel_system_p15_rows %}
+            <tr>
+                <td style="width: 0.4%;">{{forloop.counter}}.</td>
+                <td style="width: 13%;">{{al.fuel_system_p15_desc}}</td>
+                <td style="width: 2.87%;">{{al.fuel_system_p15_status}}</td>
+                <td style="width: 5.1%;">{{al.fuel_system_p15_remarks}}</td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+                <td class="td-bluelight" rowspan="7">6</td>
+                <td colspan="6" style="background: #244264 !important;color: #fff !important;">Lub Oil System</td>
+            </tr>
+
+            <tr>
+                <td>(a) Check condition of both lub oil filters</td>
+                <td>{{users.p15_gtg_ehm_lubOil_filter_status}}
+                </td>
+                <td colspan="4">{{users.p15_gtg_ehm_lubOil_filter_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(b) Check the date of circulating tank cleaning</td>
+                <td>{{users.p15_gtg_ehm_tank_clean_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_tank_clean_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(c) Check the lub oil level indicator.</td>
+                <td>{{users.p15_gtg_ehm_lev_indic_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_lev_indic_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(d) Check condition of Zn protectors in cooler</td>
+                <td>{{users.p15_gtg_ehm_zn_cooler_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_zn_cooler_rem}}</td>
+
+            </tr>
+
+
+            <tr>
+                <td>(e) Ensure correct operation of lub oil operated sea water valve</td>
+                <td>{{users.p15_gtg_ehm_water_valve_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_water_valve_rem}}</td>
+            </tr>
+
+            <tr>
+                <td>(f) Check for leakages, check for lub oil inlet screen in filling
+                    point</td>
+                <td>{{users.p15_gtg_ehm_lubOil_inlet_status}}</td>
+                <td colspan="4">{{users.p15_gtg_ehm_lubOil_inlet_rem}}</td>
+            </tr>
+
+            {% for al in lubOil_system_p15_rows %}
+            <tr>
+                <td style="width: 0.4%;">{{forloop.counter}}.</td>
+                <td style="width: 13%;">{{al.lubOil_system_p15_desc}}</td>
+                <td style="width: 2.87%;">{{al.lubOil_system_p15_status}}</td>
+                <td style="width: 5.1%;">{{al.lubOil_system_p15_remarks}}</td>
+            </tr>
+            {% endfor %}
+
+    <tr>
+        <td class="td-bluelight" rowspan="13">7</td>
+        <td colspan="6" style="background: #244264 !important;color: #fff !important;"> General Condition / Hygiene</td>
+    </tr>
+
+    <tr>
+        <td>(a) Check for soot marks on TC indicating leakage of gases from
+            joints</td>
+        <td>{{users.p15_gtg_ehm_TC_joints_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_TC_joints_rem}}</td>
+    </tr>
+
+    <tr>
+        <td>(b) State of heat resistant paint</td>
+        <td>{{users.p15_gtg_ehm_heat_res_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_heat_res_rem}}</td>
+
+    </tr>
+
+    <tr>
+        <td>(c) Check condition of trunions</td>
+        <td>{{users.p15_gtg_ehm_trunions_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_trunions_rem}}</td>
+    </tr>
+
+    <tr>
+        <td>(d) Check condition of general lighting around equipment</td>
+        <td>{{users.p15_gtg_ehm_light_eqp_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_light_eqp_rem}}</td>
+
+    </tr>
+
+
+    <tr>
+        <td>(e) Check state of cleanliness of equipment</td>
+        <td>{{users.p15_gtg_ehm_clean_eqp_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_clean_eqp_rem}}</td>
+    </tr>
+
+
+    <tr>
+        <td>(f) Check condition of SV mounts</td>
+        <td>{{users.p15_gtg_ehm_sv_mount_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_sv_mount_rem}}</td>
+    </tr>
+
+    <tr>
+        <td>(g) Check all drain lines by air blow through </td>
+        <td>{{users.p15_gtg_ehm_drain_line_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_drain_line_rem}}</td>
+    </tr>
+
+    <tr>
+        <td>(h) Check hot lagginig of steam lines from boiler room to GTG</td>
+        <td>{{users.p15_gtg_ehm_boiler_room_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_boiler_room_rem}}</td>
+    </tr>
+
+    <tr>
+        <td>(j) Check all steam valves for GTG holding properly</td>
+        <td>{{users.p15_gtg_ehm_steam_valve_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_steam_valve_rem}}</td>
+    </tr>
+
+    <tr>
+        <td>(k) Check for lub oil leakages from bearing housings/ labyrinth
+            covers of TC – RG coupling and RG – Generator coupling</td>
+        <td>{{users.p15_gtg_ehm_Rg_coup_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_Rg_coup_rem}}</td>
+
+    </tr>
+    <tr>
+        <td rowspan="2">(l) Check floating washer clearance </td>
+        <td>P - {{users.p15_gtg_ehm_P_wash_clearance_status}}</td>
+
+        <td colspan="4">{{users.p15_gtg_ehm_P_wash_clearance_rem}}</td>
+        <!-- <td>
+                    P- {{users.p15_gtg_ehm_exhaust_sys_rem}}
+                    S- {{users.p15_gtg_ehm_exhaust_sys_rem}}
+                </td> -->
+    </tr>
+
+    <tr>
+        <td>S - {{users.p15_gtg_ehm_S_wash_clearance_status}}</td>
+        <td colspan="4">{{users.p15_gtg_ehm_S_wash_clearance_rem}}
+        </td>
+    </tr>
+
+    {% for al in gen_hygiene_p15_rows %}
+    <tr>
+        <td style="width: 0.4%;">{{forloop.counter}}.</td>
+        <td style="width: 13%;">{{al.gen_hygiene_p15_desc}}</td>
+        <td style="width: 2.87%;">{{al.gen_hygiene_p15_status}}</td>
+        <td style="width: 5.1%;">{{al.gen_hygiene_p15_remarks}}</td>
+    </tr>
+    {% endfor %}
+
+    <tr>
+        <td class="td-bluelight" rowspan="7">8</td>
+        <td colspan="6" style="background: #244264 !important;color: #fff !important;">Condition of Controls/Instrumentation</td>
+    </tr>
+
+    <tr>
+        <td>(a) Check CT 642: - Readiness Breakage Signal break - off</td>
+        <td>{{users.p15_gtg_ehm_CT_642_status}}</td>
+        <td>{{users.p15_gtg_ehm_CT_642_rem}}</td>
+    </tr>
+
+    <tr>
+        <td>(b) Check condition / tightness of thermocouple glands</td>
+        <td>{{users.p15_gtg_ehm_thermocouple_status}}</td>
+        <td>{{users.p15_gtg_ehm_thermocouple_rem}}</td>
+
+    </tr>
+
+    <tr>
+
+        <td>(c) Check condition of control wiring</td>
+        <td>{{users.p15_gtg_ehm_control_wiring_status}}</td>
+        <td>{{users.p15_gtg_ehm_control_wiring_rem}}</td>
+    </tr>
+
+    <tr>
+        <td>(d) Check condition of batteries</td>
+        <td> {{users.p15_gtg_ehm_cond_of_batt_status}}</td>
+        <td>{{users.p15_gtg_ehm_cond_of_batt_rem}}</td>
+
+    </tr>
+
+    <tr>
+        <td>(e) Starter Insulation</td>
+        <td>{{users.p15_gtg_ehm_starter_ins_status}}</td>
+        <td>{{users.p15_gtg_ehm_starter_ins_rem}}</td>
+
+    </tr>
+
+    {% for al in cond_of_controls_p15_rows %}
+    <tr>
+        <td style="width: 0.4%;">{{forloop.counter}}.</td>
+        <td style="width: 13%;">{{al.cond_of_controls_p15_desc}}</td>
+        <td style="width: 2.87%;">{{al.cond_of_controls_p15_status}}</td>
+        <td style="width: 5.1%;">{{al.cond_of_controls_p15_remarks}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    <!-- section II end -->
+    <div class="heading-style2 text-left">
+        <h2><u>ANY OTHER REMARKS</u></h2>
+    </div>
+    <table class="table table-bordered table-style-color table-form-color tabletd-color">
+        <tr>
+            <td>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" appRichTextEditor rows="10"
+                        style="height: 150px;border: 1px solid #00000059!important;"
+                        formControlName="p15_gtg_ehm_remarks" id="floatingTextarea"></textarea>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" cellpadding="5" width="100%"
+        style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed
+                By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br>
+                {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication
+                through ITTTM </td>
+            <td width="50%" style="margin-left:50px"><img style="width:130px;height:130px;align-items:right"
+                    src="http://159.12.45.106:8000/{{qr}}" /></td>
+        </tr>
+    </table>
+    <table cellspacing="0" cellpadding="5" width="100%"
+        style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+        <tr style="border: 0; border-style:None;">
+            <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report
+                Generated Through ITTTM</td>
+            <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;"
+                    src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;">
+            </td>
+        </tr>
+    </table>
+    </div>
+
+</body>
+
+</html>

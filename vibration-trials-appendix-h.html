@@ -1,0 +1,532 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vibration-trials-appendix-h</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+      body{margin:50px 50px; size:landscape;}
+      .wrapper{width: 100%;border-style: double; padding: 8px;}
+          table{border-collapse: collapse;}
+          .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+          .star{color: red;}
+          strong{font-weight: 600;}
+          body{margin:50px;background: #FFF !important;}
+
+          .table{
+              border: 1px solid lightgray;
+              font-size: 12px;
+              padding: 0px;
+              margin: 0px;
+              border-collapse: collapse;
+              width: 100%;
+          }
+          .table tr{
+              margin: 0px!important;
+          }
+          .table tr th{
+              background-color: #80808054;
+              padding: 0px;
+              margin: 0px;
+              border: 1px solid black;
+              text-align: center;
+              padding: 2px 2px 2px 2px;
+          }
+          .table tr td{
+          background-color: #80808054;
+          padding: 0px;
+          margin: 0px;
+          border: 1px solid black;
+          text-align: center;
+          padding: 2px 2px 2px 2px;
+      }
+          textarea{
+              width: 100%;
+              min-height: 10px;
+              /* padding: 10px; */
+              font-size: 12px;
+              resize: none;
+              overflow-y: hidden;
+          }
+          h2{
+              text-align: center;
+          }
+          input{
+              border: none;
+          }
+          button{
+              display: none;
+          }
+          .btn{
+              display: none;
+          }
+
+          @media print{
+              button, input[type="button"], input[type="submit"], input[type="reset"]{
+                  display: none !important;
+              }
+          }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div style="float:right">
+        <p>Report Generated on: {{ history.approved_date_time }}</p>
+    </div>
+      <div class="heading-style2 text-center">
+        <img width="100px" alt="Logo"
+        style="height: 150px; width: 160px; position: relative; left: 40%;"
+        src="{{satellite_unit_icon}}">
+        <h2>MACHINERY TRIALS UNIT {{satellite_unit}}</h2>
+        <h4 style="text-align:center;">Requisition for Performance & Vibration Trials [Refers to WENCO(Tech) Article 0313(b)]
+        </h4>
+      </div>
+      <table class="table table-bordered table-bordered tabletd-color text-center">
+        <tr>
+          <td width="10%"><strong>Ship:</strong></td>
+          <td> {{users.vib_X_Ship}}</td>
+          <td class="td-bluelight" width="10%"><strong>Date:</strong></td>
+          <td>
+            <div class="matt-group">
+              {{users.vib_X_Date}}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td width="10%"><strong>Reason for Trial:</strong></td>
+          <td>
+            <div class="matt-group">
+              {{users.vib_X_Reason_Trial}}
+            </div>
+          </td>
+          <td class="td-bluelight" width="10%"><strong>Equipment:</strong></td>
+          <td>
+            {{nomenclature}}
+          </td>
+        </tr>
+        <tr>
+          <td width="15%"><strong>CMMS Code:</strong></td>
+          <td> {{users.vib_X_CMMS}}</td>
+          <td class="td-bluelight" width="10%"><strong>Name:</strong></td>
+          <td> {{users.vib_X_Name}}</td>
+        </tr>
+        <tr>
+          <td width="15%"><strong>Make:</strong></td>
+          <td> {{users.vib_X_Make}}</td>
+          <td class="td-bluelight" width="6%"><strong>Models:</strong></td>
+          <td> {{users.vib_X_Models}}</td>
+        </tr>
+      </table>
+      <table class="table table-bordered table-bordered tabletd-color text-center">
+        <tr>
+          <td width="15%"><strong>RPM:</strong></td>
+          <td width="23%">{{users.vib_X_RPM}}</td>
+          <td class="td-bluelight" width="6%"><strong>Driver Bearing DE:</strong></td>
+          <td>
+            <div class="matt-group">
+              {{users.vib_X_Driver_Bearing_DE1}}
+            </div>
+          </td>
+          <td>
+            <div class="check-line">{{users.vib_X_Driver_Bearing_DE1_inp1}}</div>
+          </td>
+        </tr>
+        <tr>
+          <td width="15%"><strong>Coupling:</strong></td>
+          <td> {{users.vib_X_Coupling}}</td>
+          <td class="td-bluelight" width="6%"><strong>Driver Bearing FE:</strong></td>
+          <td>
+            <div class="matt-group">
+              {{users.vib_X_Driver_Bearing_NDE1}}
+            </div>
+          </td>
+          <td>
+            <div class="check-line">{{users.vib_X_Driver_Bearing_DE1_inp2}}</div>
+          </td>
+        </tr>
+        <tr>
+          <td width="15%"><strong>RH Since Installation:</strong></td>
+          <td>{{users.vib_X_RH_Install}}</td>
+          <td class="td-bluelight" width="15%"><strong>Driven Bearing DE:</strong></td>
+          <td>
+            <div class="matt-group">
+              {{users.vib_X_Driven_Bearing_DE1}}
+            </div>
+          </td>
+          <td>
+            <div class="check-line">{{users.vib_X_Driver_Bearing_DE1_inp3}}</div>
+          </td>
+        </tr>
+        <tr>
+          <td width="15%"><strong>RH Since last Routine:</strong></td>
+          <td>
+            <div class="matt-group">
+              {{users.vib_X_RH_Routine}}
+            </div>
+            <div *ngIf="Other" class="pt-2">
+                {{users.vib_X_Gearbox_stage4}}
+            </div>
+          </td>
+          <td class="td-bluelight" width="15%"><strong>Driven Bearing FE:</strong></td>
+          <td>
+            <div class="matt-group">
+              {{users.vib_X_Driven_Bearing_NDE1}}
+            </div>
+          </td>
+          <td>
+            <div class="check-line">{{users.vib_X_Driver_Bearing_DE1_inp4}}</div>
+          </td>
+        </tr>
+      </table>
+      <h4>Belt Driven</h4>
+      <table class="table table-bordered table-bordered tabletd-color text-center">
+        <tr>
+          <td width="10%"><strong>Driver Shaft Diameter:</strong></td>
+          <td>{{users.vib_X_IN_Belt_Driver_Shaft}}</td>
+          <td class="td-bluelight" width="15%"><strong>Driven Shaft Diameter:</strong></td>
+          <td>{{users.vib_X_IN_Belt_Driven_Shaft}}</td>
+
+        </tr>
+        <tr>
+          <td width="20%"><strong>Centre Distance Between Pulley</strong></td>
+          <td colspan="3">{{users.vib_X_IN_Belt_Centre_Distance}}</td>
+        </tr>
+      </table>
+      <h4>Gearbox Reduction Ratio</h4>
+      <table class="table table-bordered table-bordered tabletd-color text-center">
+        <tr>
+          <td width="10%"><strong>1st Stage:</strong></td>
+          <td>{{users.vib_X_Gearbox_stage1}}</td>
+          <td class="td-bluelight" width="10%"><strong>2nd Stage:</strong></td>
+          <td>{{users.vib_X_Gearbox_stage2}}</td>
+          <td class="td-bluelight" width="10%"><strong>3rd Stage:</strong></td>
+          <td>{{users.vib_X_Gearbox_stage3}}</td>
+        </tr>
+      </table>
+      <h4>No of Gears</h4>
+      <table class="table table-bordered table-bordered tabletd-color text-center">
+        <tr>
+          <td width="6%"><strong>Driver:</strong></td>
+          <td>{{users.vib_X_Gear_Driver1}}</td>
+          <td class="td-bluelight" width="6%"><strong>Driver:</strong></td>
+          <td>{{users.vib_X_Gear_Driver2}}</td>
+          <td class="td-bluelight" width="6%"><strong>Driver:</strong></td>
+          <td>{{users.vib_X_Gear_Driver3}}</td>
+        </tr>
+        <tr>
+          <td width="6%"><strong>Driven:</strong></td>
+          <td>{{users.vib_X_Gear_Driven1}}</td>
+          <td class="td-bluelight" width="6%"><strong>Driven:</strong></td>
+          <td>{{users.vib_X_Gear_Driven2}}</td>
+          <td class="td-bluelight" width="6%"><strong>Driven:</strong></td>
+          <td>{{users.vib_X_Gear_Driven3}}</td>
+        </tr>
+      </table>
+      
+      <h4>1. Overall Vibration Values (mm/sec)</h4>
+      {% if users.ShowOverallVibrationValuesSection %}
+      <div>
+      <table class="table table-bordered table-bordered tabletd-color text-center">
+        <tr>
+          <th>Points</th>
+          <th colspan="3">Driver FE</th>
+          <th colspan="3">Driver DE</th>
+          <th colspan="3">Driven FE</th>
+          <th colspan="3">Driven DE</th>
+          <th colspan="6">Additional</th>
+        </tr>
+        <tr>
+          <td>No</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+        </tr>
+        <tr>
+        <tr>
+          <td>Direction</td>
+          <td>H</td>
+          <td>V</td>
+          <td>A</td>
+          <td>H</td>
+          <td>V</td>
+          <td>A</td>
+          <td>H</td>
+          <td>V</td>
+          <td>A</td>
+          <td>H</td>
+          <td>V</td>
+          <td>A</td>
+          <td>H</td>
+          <td>V</td>
+          <td>A</td>
+          <td>H</td>
+          <td>V</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>Values</td>
+          <td  {% if users.vib_X_overall_val_H1|to_float > users.vib_X_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_H1}}</td>
+          <td  {% if users.vib_X_overall_val_V1|to_float > users.vib_X_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_V1}}</td>
+          <td  {% if users.vib_X_overall_val_A1|to_float > users.vib_X_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_A1}}</td>
+          <td  {% if users.vib_X_overall_val_H2|to_float > users.vib_X_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_H2}}</td>
+          <td  {% if users.vib_X_overall_val_V2|to_float > users.vib_X_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_V2}}</td>
+          <td  {% if users.vib_X_overall_val_A2|to_float > users.vib_X_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_A2}}</td>
+
+          <td  {% if users.vib_X_overall_val_H3|to_float > users.vib_X_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_H3}}</td>
+          <td  {% if users.vib_X_overall_val_V3|to_float > users.vib_X_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_V3}}</td>
+          <td  {% if users.vib_X_overall_val_A3|to_float > users.vib_X_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_A3}}</td>
+          <td  {% if users.vib_X_overall_val_H4|to_float > users.vib_X_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_H4}}</td>
+          <td  {% if users.vib_X_overall_val_V4|to_float > users.vib_X_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_V4}}</td>
+          <td  {% if users.vib_X_overall_val_A4|to_float > users.vib_X_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_A4}}</td>
+
+          <td  {% if users.vib_X_overall_val_H5|to_float > users.vib_X_overall_additional1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_H5}}</td>
+          <td  {% if users.vib_X_overall_val_V5|to_float > users.vib_X_overall_additional2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_V5}}</td>
+          <td  {% if users.vib_X_overall_val_A5|to_float > users.vib_X_overall_additional3|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_A5}}</td>
+
+          <td  {% if users.vib_X_overall_val_H6|to_float > users.vib_X_overall_additional4|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_H6}}</td>
+          <td  {% if users.vib_X_overall_val_V6|to_float > users.vib_X_overall_additional5|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_V6}}</td>
+          <td  {% if users.vib_X_overall_val_A6|to_float > users.vib_X_overall_additional6|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_X_overall_val_A6}}</td>
+        </tr>
+
+        <tr>
+          <td>Limits</td>
+          <td colspan="6">{{users.vib_X_overall_limit1}}</td>
+          <td colspan="6">{{users.vib_X_overall_limit2}}</td>
+          
+          <td>{{users.vib_X_overall_additional1}}</td>
+          <td>{{users.vib_X_overall_additional2}}</td>
+          <td>{{users.vib_X_overall_additional3}}</td>
+          <td>{{users.vib_X_overall_additional4}}</td>
+          <td>{{users.vib_X_overall_additional5}}</td>
+          <td>{{users.vib_X_overall_additional6}}</td>  
+        </tr>
+      </table>
+      </div>
+      {% else %}
+      <div>
+        Not Applicable
+    </div>
+    {% endif %}
+
+    <h4>2. Mount Attenuation</h4>
+    <div>
+      {% comment %} <mat-slide-toggle (change)="toggleMountAttenuationSection()">Applicable/NA</mat-slide-toggle> {% endcomment %}
+    </div>
+    {% if users.ShowMountAttenuationSection %}
+    <div *ngIf="ShowMountAttenuationSection_val">
+      <div style="overflow-x: auto;">
+        <div class="table-responsive table-input-auto-1">
+          <table class="table table-bordered table-bordered tabletd-color text-center">
+            <tr>
+              <th>Mount No.</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7</th>
+              <th>8</th>
+              <th>9</th>
+              <th>10</th>
+              <th>11</th>
+              <th>12</th>
+              <th>13</th>
+              <th>14</th>
+              <th>15</th>
+              <th>16</th>
+              <th>17</th>
+              <th>18</th>
+            </tr>
+            <tr>
+              <td>Top</td>
+              <td>{{users.vib_X_mount_top1}}</td>
+              <td>{{users.vib_X_mount_top2}}</td>
+              <td>{{users.vib_X_mount_top3}}</td>
+              <td>{{users.vib_X_mount_top4}}</td>
+              <td>{{users.vib_X_mount_top5}}</td>
+              <td>{{users.vib_X_mount_top6}}</td>
+              <td>{{users.vib_X_mount_top7}}</td>
+              <td>{{users.vib_X_mount_top8}}</td>
+              <td>{{users.vib_X_mount_top9}}</td>
+              <td>{{users.vib_X_mount_top10}}</td>
+              <td>{{users.vib_X_mount_top11}}</td>
+              <td>{{users.vib_X_mount_top12}}</td>
+              <td>{{users.vib_X_mount_top13}}</td>
+              <td>{{users.vib_X_mount_top14}}</td>
+              <td>{{users.vib_X_mount_top15}}</td>
+              <td>{{users.vib_X_mount_top16}}</td>
+              <td>{{users.vib_X_mount_top17}}</td>
+              <td>{{users.vib_X_mount_top18}}</td>
+            </tr>
+            <tr>
+              <td>Bottom</td>
+              <td>{{users.vib_X_mount_bottom1}}</td>
+              <td>{{users.vib_X_mount_bottom2}}</td>
+              <td>{{users.vib_X_mount_bottom3}}</td>
+              <td>{{users.vib_X_mount_bottom4}}</td>
+              <td>{{users.vib_X_mount_bottom5}}</td>
+              <td>{{users.vib_X_mount_bottom6}}</td>
+              <td>{{users.vib_X_mount_bottom7}}</td>
+              <td>{{users.vib_X_mount_bottom8}}</td>
+              <td>{{users.vib_X_mount_bottom9}}</td>
+              <td>{{users.vib_X_mount_bottom10}}</td>
+              <td>{{users.vib_X_mount_bottom11}}</td>
+              <td>{{users.vib_X_mount_bottom12}}</td>
+              <td>{{users.vib_X_mount_bottom13}}</td>
+              <td>{{users.vib_X_mount_bottom14}}</td>
+              <td>{{users.vib_X_mount_bottom15}}</td>
+              <td>{{users.vib_X_mount_bottom16}}</td>
+              <td>{{users.vib_X_mount_bottom17}}</td>
+              <td>{{users.vib_X_mount_bottom18}}</td>
+            </tr>
+            <tr>
+              <td>Attenuation %</td>
+              <td {% if users.vib_X_mount_attenuation1|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation1}}</td>
+              <td {% if users.vib_X_mount_attenuation2|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation2}}</td>
+              <td {% if users.vib_X_mount_attenuation3|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation3}}</td>
+              <td {% if users.vib_X_mount_attenuation4|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation4}}</td>
+              <td {% if users.vib_X_mount_attenuation5|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation5}}</td>
+              <td {% if users.vib_X_mount_attenuation6|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation6}}</td>
+              <td {% if users.vib_X_mount_attenuation7|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation7}}</td>
+              <td {% if users.vib_X_mount_attenuation8|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation8}}</td>
+              <td {% if users.vib_X_mount_attenuation9|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation9}}</td>
+              <td {% if users.vib_X_mount_attenuation10|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation10}}</td>
+              <td {% if users.vib_X_mount_attenuation11|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation11}}</td>
+              <td {% if users.vib_X_mount_attenuation12|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation12}}</td>
+              <td {% if users.vib_X_mount_attenuation13|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation13}}</td>
+              <td {% if users.vib_X_mount_attenuation14|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation14}}</td>
+              <td {% if users.vib_X_mount_attenuation15|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation15}}</td>
+              <td {% if users.vib_X_mount_attenuation16|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation16}}</td>
+              <td {% if users.vib_X_mount_attenuation17|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation17}}</td>
+              <td {% if users.vib_X_mount_attenuation18|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_X_mount_attenuation18}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div>
+        Not Applicable
+    </div>
+    {% endif %}
+    <h4>3. SDC Checks</h4>
+    <div>
+      {% comment %} <mat-slide-toggle (change)="toggleSafetyDeviceChecksSection()">Applicable/NA</mat-slide-toggle> {% endcomment %}
+    </div>
+    {% if users.ShowSafetyDeviceChecksSection %}
+    <div style="overflow-x: auto;">
+      <table class="table table-bordered table-bordered tabletd-color text-center">
+        <tr>
+          <th>No</th>
+          <th>Parameters</th>
+          <th>Units</th>
+          <th>Type</th>
+          <th>Limits</th>
+          <th>Obs Value</th>
+          <th>Remarks</th>
+        </tr>
+        {% for i in ReqPandVDSCchecks %}
+          <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{i.vib_X_SDC_Checks_parameter1}}</td>
+              <td>{{i.vib_X_SDC_Checks_Units_RPM1}}</td>
+              <td>{{i.vib_X_SDC_Checks_Type1}}</td>
+              <td>{{i.vib_X_SDC_Checks_Limits1}}</td>
+              <td>{{i.vib_X_SDC_Checks_Obs_Value1}}</td>
+              <td>{{i.vib_X_SDC_Checks_Remarks1}}</td>
+          </tr>
+        {% endfor %}
+
+      </table>
+    </div>
+    {% else %}
+    <div>
+        Not Applicable
+    </div>
+    {% endif %}
+      
+    <h4>4. Performance Checks</h4>
+    <div>
+      {% comment %} <mat-slide-toggle (change)="togglePerformanceParametersSection()">Applicable/NA</mat-slide-toggle> {% endcomment %}
+    </div>
+    {% if users.ShowPerformanceParametersSection %}
+    <div style="overflow-x: auto;">
+      <table class="table table-bordered table-bordered tabletd-color table-striped text-center">
+        <tr>
+          <th>No</th>
+          <th>Parameters</th>
+          <th>Units</th>
+          <th>Limits</th>
+          <th>Obs Value</th>
+          <th>Remarks</th>
+        </tr>
+        {% for j in ReqPandVPerformancecheckss %}
+          <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{j.vib_X_Performance_Check_parameter1}}</td>
+              <td>{{j.vib_X_Performance_Check_Units_RPM1}}</td>
+              <td>{{j.vib_X_Performance_Check_Limits1}}</td>
+              <td>{{j.vib_X_Performance_Check_Obs_Value1}}</td>
+              <td>{{j.vib_X_Performance_Check_Remarks1}}</td>
+          </tr>
+        {% endfor %}
+        
+      </table>
+    </div>
+    {% else %}
+    <div>
+        Not Applicable
+    </div>
+    {% endif %}
+
+    <h4> Final Assessment and Recommendations</h4>
+    <table class="table table-bordered table-form-color tabletd-color">
+      <tr style="height: 20vh !important;">
+        <td>
+          <div class="form-floating" style="height: 24vh !important;">
+                {{users.observation | safe}}
+          </div>
+        </td>
+      </tr>
+    </table>
+         
+      <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+        </tr>
+      </table>
+      <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+        <tr style="border: 0; border-style:None;">
+            <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+            <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+        </tr>
+    </table>
+  </div>
+</body>
+
+</html>

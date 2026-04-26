@@ -1,0 +1,377 @@
+{% comment %} {% load custom_filters %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EPOL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body {
+            margin: 50px 50px;
+            size: Portrait;
+        }
+
+        .wrapper {
+            width: 100%;
+            border-style: double;
+            padding: 16px;
+        }
+
+        .wrapper2 {
+            width: 100%;
+            border: 2px solid;
+            padding: 4px;
+        }
+
+        .page-break{
+            page-break-after: always;
+        }
+        table {
+            border-collapse: collapse;
+
+        }
+
+        .clear {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            clear: both;
+        }
+
+        .star {
+            color: red;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        body {
+            margin: 50px;
+            background: #FFF !important;
+        }
+
+        .table {
+            border: 1px solid lightgray;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table tr {
+            margin: 0px !important;
+        }
+
+        .table tr th {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+
+        .table tr td {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: left;
+            padding: 2px 2px 2px 2px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 10px;
+            /* padding: 10px; */
+            font-size: 12px;
+            resize: none;
+            overflow-y: hidden;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            display: none;
+        }
+
+        .btn {
+            display: none;
+        }
+        .Equpheader{
+
+            font-weight: 700;
+            text-align:center;
+        }
+
+        @media print {
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}
+            </p>
+        </div>
+        <section class="body-card">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="heading-style2 text-center">
+                                <img width="100px" alt="Logo"
+                                style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                src="{{satellite_unit_icon}}">
+                                <h3 style="margin-top:16px; text-align: center;">
+                                    <U>EPOL</U>
+                                </h3>
+                            </div>
+                            {% for key, user in final_dict.items %}
+                            <div class= "wrapper2">
+                                <div class="Equpheader">
+                                   {{forloop.counter}}.{{user.basic_details.equipment_full_name}}</div>
+                                <table class="table">
+                                    <tr>
+                                        <td><strong>Equipment:<b class="star">*</b></strong></td>
+                                        <td>
+                                            <div>{{user.basic_details.equipment_full_name}}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Sampling Date:<b class="star">*</b></strong></td>
+                                        <td>
+                                            <div>{{user.basic_details.EPOL_Sample_Date}}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Equipment Status:<b class="star">*</b></strong></td>
+                                        <td>
+                                            <div>{{user.basic_details.equipment_status_ops_nonops}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Oil Type:<b class="star">*</b></strong></td>
+                                        <td>
+                                            <div>
+                                                {% if user.basic_details.return_type_of_oil == '1' %}
+                                                 Lub Oil   
+                                                 {% else %}
+                                                 Hydraulic Oil
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Return Type:<b class="star">*</b></strong></td>
+                                        <td>
+                                            <div>{{user.basic_details.return_type_of_eqp}}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Type of Lubricant:<b class="star">*</b></strong></td>
+                                        <td>{{user.basic_details.type_of_lubricant}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Running Hrs post Major overhaul:<b class="star">*</b></strong></td>
+                                        <td>{{user.basic_details.Running_hrs}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Hrs Since Last Routine Oil Change:<b class="star">*</b></strong></td>
+                                        <td>{{user.basic_details.Last_oil_change}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Qty of Fresh Oil added in the Month (Ltrs):<b
+                                                    class="star">*</b></strong></td>
+                                        <td>{{user.basic_details.Last_oil_addition}}</td>
+                                    </tr>
+                                </table>
+                                {% if user.basic_lub_details %}
+                                
+                                    <div>
+                                        <h4>LUB OIL BASIC TESTS</h4>
+                                        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab">
+                                            <tr>
+                                                <th>Ser</th>
+                                                <th>Test Parameter</th>
+                                                <th>Test Method</th>
+                                                <th>Unit</th>
+                                                <th>Sample Oil</th>
+                                                <th>Fresh Oil</th>
+                                                <th>Limits</th>
+                                            </tr>
+
+                                            {% for bl,lub_item in user.basic_lub_details.items %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{lub_item.test}}</td>
+                                                <td>{{lub_item.method}}</td>
+                                                <td>{{lub_item.unit}}</td>
+                                                <td>{{lub_item.sample_oil_data}}</td>
+                                                <td>{{lub_item.fresh_oil_data}}</td>
+                                                <td>{{lub_item.acceptable_range}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                {% endif %}
+                                
+                                {% if user.advance_lub_details %}
+                                    <div>
+                                        <h4>LUB OIL ADVANCE TESTS</h4>
+                                    </div>
+                                    <div class="resTable">
+                                        <table class="table table-bordered table-form-color1">
+                                            <tr>
+                                                <th>Ser</th>
+                                                <th>Test Parameter</th>
+                                                <th>Test Method</th>
+                                                <th>Unit</th>
+                                                <th>Sample Oil</th>
+                                                <th>Fresh Oil</th>
+                                                <th>Limits</th>
+                                            </tr>
+                                            {% for al,lub_a_item in user.advance_lub_details.items %}
+                                            <tr>
+                                                <td> {{forloop.counter}}</td>
+                                                <td>{{lub_a_item.test}}</td>
+                                                <td>{{lub_a_item.method}}</td>
+                                                <td>{{lub_a_item.unit}}</td>
+                                                <td>{{lub_a_item.sample_oil_data}}</td>
+                                                <td>{{lub_a_item.fresh_oil_data}}</td>
+                                                <td>{{lub_a_item.acceptable_range}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                {% endif %}
+
+                                {% if user.basic_hydraulic_details %}
+                                   
+                                    <div>
+                                        <h4>HYDRAULIC OIL BASIC TESTS</h4>
+                                    </div>
+                                    <div class="resTable">
+                                        <table class="table table-bordered table-form-style tabletd-color">
+                                            <tr>
+                                                <th>Ser</th>
+                                                <th>Test Parameter</th>
+                                                <th>Test Method</th>
+                                                <th>Unit</th>
+                                                <th>Sample Oil</th>
+                                                <th>Fresh Oil</th>
+                                                <th>Limits</th>
+                                            </tr>
+                                            {% for bh,hyd_b_detail in user.basic_hydraulic_details.items %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{hyd_b_detail.test}}</td>
+                                                <td>{{hyd_b_detail.method}}</td>
+                                                <td>{{hyd_b_detail.unit}}</td>
+                                                <td>{{hyd_b_detail.sample_oil_data}}</td>
+                                                <td>{{hyd_b_detail.fresh_oil_data}}</td>
+                                                <td>{{hyd_b_detail.acceptable_range}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                {% endif %}
+                                
+                                {% if user.advance_hydraulic_details %}
+                                    <div>
+                                        <h4>HYDRAULIC OIL ADVANCE TESTS</h4>
+                                    </div>
+                                    <div class="resTable">
+                                        <table class="table table-bordered table-form-style tabletd-color">
+                                            <tr>
+                                                <th>Ser</th>
+                                                <th>Test Parameter</th>
+                                                <th>Test Method</th>
+                                                <th>Unit</th>
+                                                <th>Sample Oil</th>
+                                                <th>Fresh Oil</th>
+                                                <th>Limits</th>
+                                            </tr>
+                                            {% for ah, hyd_a_detail in user.advance_hydraulic_details.items %}
+                                            <tr>
+                                                <td> {{forloop.counter}}</td>
+                                                <td>{{hyd_a_detail.test}}</td>
+                                                <td>{{hyd_a_detail.method}}</td>
+                                                <td>{{hyd_a_detail.unit}}</td>
+                                                <td>{{hyd_a_detail.sample_oil_data}}</td>
+                                                <td>{{hyd_a_detail.fresh_oil_data}}</td>
+                                                <td>{{hyd_a_detail.acceptable_range}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                {% endif %}
+                                <div>
+                                    <p style="text-align:left;font-weight: 900;">Final Observation</p>
+                                    <div style="border: 1px solid black;">{{user.basic_details.hydraulic_ba_final_observation | safe }}</div>
+                                </div>
+                            </div>
+                            <br>
+                            <hr>
+                            <br>
+
+                            {% if not forloop.last %}
+                            <div class="page-break"></div>
+                            {% endif %}
+
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <table cellspacing="0" cellpadding="5" width="100%"
+        style="page-break-before:none!important; font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed
+                By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br>
+                {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication
+                through ITTTM </td>
+            <td width="50%" style="margin-left:50px"> <img style="width:130px;height:130px;align-items:right"src="http://159.12.45.106:8000/{{qr}}" /></td>
+        </tr>
+    </table>
+    <table cellspacing="0" cellpadding="5" width="100%"
+        style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+        <tr style="border: 0; border-style:None;">
+            <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report
+                Generated Through ITTTM</td>
+            <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;"src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;">
+            </td>
+        </tr>
+    </table>
+    </div>
+   
+   
+  
+    
+    
+</body>
+
+</html>

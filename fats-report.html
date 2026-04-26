@@ -1,0 +1,1414 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>fats-report</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="" />
+        <meta name="pdfkit-page-size" content="Legal"/>
+        <meta name="pdfkit-orientation" content="Landscape"/>
+        <style type="text/css">
+            body {
+              margin: 50px 50px;
+              size: landscape;
+            }
+        
+            .wrapper {
+              width: 100%;
+              margin: 20px auto;
+            }
+        
+            table {
+              border-collapse: collapse;
+            }
+        
+            .clear {
+              padding: 0;
+              margin: 0;
+              width: 100%;
+              clear: both;
+            }
+        
+            .star {
+              color: red;
+            }
+        
+            strong {
+              font-weight: 600;
+            }
+        
+            tr,
+            th {
+              text-align: start;
+            }
+        
+            tr,
+            th {
+              font-size: 14px;
+            }
+        
+            table {
+              border: 1px solid lightgray;
+              font-size: 12px;
+              padding: 0px;
+              margin: 0px;
+              border-collapse: collapse;
+              width: 100%;
+            }
+        
+            table tr {
+              margin: 0px !important;
+              text-align:left;
+            }
+        
+            table tr th {
+              background-color: #80808054;
+              padding: 0px;
+              margin: 0px;
+              border: 1px solid black;
+              text-align: center;
+              padding: 2px 2px 2px 2px;
+            }
+        
+            table tr td {
+              background-color: #80808054;
+              padding: 0px;
+              margin: 0px;
+              border: 1px solid black;
+              padding: 2px 2px 2px 2px;
+              text-align:left;
+            }
+        
+            textarea {
+              width: 100%;
+              min-height: 10px;
+              /* padding: 10px; */
+              font-size: 12px;
+              resize: none;
+              overflow-y: hidden;
+            }
+        
+            h2 {
+              text-align: center;
+            }
+        
+            input {
+              border: none;
+            }
+        
+            button {
+              display: none;
+            }
+        
+            .btn {
+              display: none;
+            }
+        
+            @media print {
+        
+              button,
+              input[type="button"],
+              input[type="submit"],
+              input[type="reset"] {
+                display: none !important;
+              }
+            }
+          </style>
+    </head>
+    <body>
+        <section class="body-card form-style1 trial-form">
+            <form>
+              <div class="container-fluid">
+                <div class="row mt-5">
+                  <div class="col-md-12">
+                    <div class="panel-right">
+                      <div class="panel-row">
+                        <div class="heading-style2 text-center">
+                          <h2>FATs REPORT EQUIPMENT DETAIL</h2>
+                        </div>
+                        <h4>FATs REPORT</h4>
+                        <table class="table table-bordered table-form-color1 tabletd-color">
+                          <tr>
+                            <td width="15%"><strong>Project:</strong></td>
+                            <td>{{users.Project}}</td>
+                          </tr>
+                          <tr>
+                            <td width="10%"><strong>Shipyard:</strong></td>
+                            <td>{{users.Shipyard}}</td>
+                          </tr>
+                          <tr>
+                            <td width="15%"><strong>Yard:</strong></td>
+                            <td>{{users.Yard}}</td>
+                          </tr>
+                          <tr>
+                            <td width="15%"><strong>Equipment:</strong></td>
+                            <td>{{users.Equipment}}</td>
+                          </tr>
+                          <tr>
+                            <td width="15%"><strong>OEM:</strong></td>
+                            <td>{{users.OEM}}</td>
+                          </tr>
+                          <tr>
+                            <td width="15%"><strong>Place:</strong></td>
+                            <td>{{users.Place}}</td>
+                          </tr>
+                          <tr>
+                            <td width="15%"><strong>Date:</strong></td>
+                            <td>{{users.Date}}</td>
+                          </tr>
+                          <tr>
+                            <td width="15%"><strong>Type:</strong></td>
+                            <td>{{users.Type}}</td>
+                          </tr>
+                          <tr>
+                            <td width="15%"><strong>FATs Protocol:</strong></td>
+                            <td>{{users.FATs_Protocol}}</td>
+                          </tr>
+                          <tr>
+                            <td width="15%"><strong>Authority:</strong></td>
+                            <td>{{users.Authority}}</td>
+                          </tr>
+                        </table>
+                        <!-- ABN/SBN Start -->
+          
+                        <div *ngIf="is_Abn_Sbn">
+                          <div class="variable-row">
+                          <div class="heading-style2 text-center">
+                            <h2>SBN DATA</h2>
+                          </div>
+                          <!-- SBN Above mount table start -->
+                          <table class="table table-width table-bordered table-style-color tabletd-color" style="overflow-x: auto;display: block;">
+                            <thead>
+                              <tr style="text-align: center;"><th colspan="34" >100% Load Above Mount</th></tr>
+                              <tr style="text-align: center;">
+                                <!-- <th width="5%">No</th> -->
+                                <th>Frequincy</th>
+                                <th width="15%">10</th>
+                                <th  width="15%">12.5</th>
+                                <th  width="15%">16</th>
+                                <th  width="15%">20</th> 
+                                <th  width="15%">25</th>
+                                <th  width="15%">31.5</th>
+                                <th  width="15%">40</th>
+                                <th  width="15%">50</th>
+                                <th  width="15%">63</th>
+                                <th  width="15%">80</th>
+                                <th  width="15%">100</th>
+                                <th  width="15%">125</th>
+                                <th  width="15%">160</th>
+                                <th  width="15%">200</th>
+                                <th  width="15%">250</th>
+                                <th  width="15%">315</th>
+                                <th  width="15%">400</th>
+                                <th  width="15%">500</th>
+                                <th  width="15%">630</th>
+                                <th  width="15%">800</th>
+                                <th  width="15%">1000</th>
+                                <th  width="15%">1250</th>
+                                <th  width="15%">1600</th>
+                                <th  width="15%">2000</th>
+                                <th  width="15%">2500</th>
+                                <th  width="15%">3150</th>
+                                <th  width="15%">4000</th>
+                                <th  width="15%">5000</th>
+                                <th  width="15%">6300</th>
+                                <th  width="15%">8000</th>
+                                <th  width="15%">10000</th>
+                                <th width="8%">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for i  in sbnDynamic %}
+                                    <tr>
+                                        <td style="width: 4.1%;" width="15%">Mount{{forloop.counter}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_1}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_2}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_3}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_4}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_5}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_6}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_7}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_8}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_9}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_10}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_11}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_12}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_13}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_14}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_15}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_16}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_17}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_18}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_19}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_20}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_21}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_22}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_23}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_24}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_25}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_26}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_27}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_28}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_29}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_30}}</td>
+                                        <td width="15%">{{i.SBN_ABOVE_MOUNT_FRIQ_VAL_31}}</td>
+                                    </tr>
+                                {% endfor %}
+                          
+                              <tr colspan="34">
+                                <!-- <td width="5%" class="text-center">1</td> -->
+                                      <td width="18%">Max/Quadratic Mean/Average Vaue</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_1}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_2}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_3}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_4}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_5}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_6}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_7}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_8}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_9}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_10}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_11}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_12}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_13}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_14}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_15}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_16}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_17}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_18}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_19}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_20}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_21}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_23}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_24}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_25}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_26}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_27}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_28}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_29}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_30}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_31}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_32}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_AVG_VALUE_33}}</td>
+                              </tr>
+                              <tr colspan="34">
+                                <!-- <td width="5%" class="text-center">1</td> -->
+                                      <td width="18%">Mil std limit</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_1}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_2}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_3}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_4}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_5}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_6}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_7}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_8}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_9}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_10}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_11}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_12}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_13}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_14}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_15}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_16}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_17}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_18}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_19}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_20}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_21}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_23}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_24}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_25}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_26}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_27}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_28}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_29}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_30}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_31}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_32}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_Mil_std_lmt_33}}</td>
+                              </tr>
+                              <tr colspan="34">
+                                <!-- <td width="5%" class="text-center">1</td> -->
+                                      <td width="18%">TSP Limit</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_1}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_2}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_3}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_4}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_5}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_6}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_7}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_8}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_9}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_10}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_11}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_12}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_13}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_14}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_15}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_16}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_17}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_18}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_19}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_20}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_21}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_23}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_24}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_25}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_26}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_27}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_28}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_29}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_30}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_31}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_32}}</td>
+                                      <td width="15%">{{users.SBN_ABOVE_MOUNT_TSP_Lmt_33}}</td>
+                              </tr>
+                            </tbody>
+                        
+                          </table>
+                        </div>
+                          <!-- SBN Above mount table end -->
+          
+                          <!-- SBN below mount table start -->
+                          <div class="variable-row">
+                          <table class="table table-width table-bordered table-style-color tabletd-color" style="overflow-x: auto;display: block;">
+                            <thead>
+                              <tr style="text-align: center;"><th colspan="34" >100% Load Below Mount</th></tr>
+                              <tr style="text-align: center;">
+                                <!-- <th width="5%">No</th> -->
+                                <th>Frequincy</th>
+                                <th width="15%">10</th>
+                                <th width="15%">12.5</th>
+                                <th width="15%">16</th>
+                                <th width="15%">20</th> 
+                                <th width="15%">25</th>
+                                <th width="15%">31.5</th>
+                                <th width="15%">40</th>
+                                <th width="15%">50</th>
+                                <th width="15%">63</th>
+                                <th width="15%">80</th>
+                                <th width="15%">100</th>
+                                <th width="15%">125</th>
+                                <th width="15%">160</th>
+                                <th width="15%">200</th>
+                                <th width="15%">250</th>
+                                <th width="15%">315</th>
+                                <th width="15%">400</th>
+                                <th width="15%">500</th>
+                                <th width="15%">630</th>
+                                <th width="15%">800</th>
+                                <th width="15%">1000</th>
+                                <th width="15%">1250</th>
+                                <th width="15%">1600</th>
+                                <th width="15%">2000</th>
+                                <th width="15%">2500</th>
+                                <th width="15%">3150</th>
+                                <th width="15%">4000</th>
+                                <th width="15%">5000</th>
+                                <th width="15%">6300</th>
+                                <th width="15%">8000</th>
+                                <th width="15%">10000</th>
+                                <th width="8%">Action</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for j in abnDynamic %}
+                                    <tr>
+                                        <td style="width: 4.1%;" width="15%">Mount{{forloop.counter}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_1}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_2}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_3}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_4}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_5}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_6}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_7}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_8}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_9}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_10}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_11}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_12}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_13}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_14}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_15}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_16}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_17}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_18}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_19}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_20}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_21}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_22}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_23}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_24}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_25}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_26}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_27}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_28}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_29}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_30}}</td>
+                                        <td width="15%">{{j.SBN_BELOW_MOUNT_FRIQ_VAL_31}}</td>
+                                    </tr>
+                                {% endfor %}
+                          
+                              <tr colspan="34">
+                                <!-- <td width="5%" class="text-center">1</td> -->
+                                      <td width="18%">Max/Quadratic Mean/Average Vaue</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_1}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_2}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_3}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_4}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_5}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_6}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_7}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_8}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_9}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_10}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_11}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_12}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_13}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_14}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_15}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_16}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_17}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_18}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_19}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_20}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_21}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_23}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_24}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_25}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_26}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_27}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_28}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_29}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_30}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_31}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_32}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_AVG_VALUE_33}}</td>
+                              </tr>
+                              <tr colspan="34">
+                                <!-- <td width="5%" class="text-center">1</td> -->
+                                      <td width="18%">Mil std limit</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_1}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_2}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_3}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_4}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_5}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_6}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_7}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_8}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_9}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_10}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_11}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_12}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_13}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_14}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_15}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_16}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_17}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_18}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_19}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_20}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_21}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_23}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_24}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_25}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_26}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_27}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_28}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_29}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_30}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_31}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_32}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_Mil_std_lmt_33}}</td>
+                              </tr>
+                              <tr colspan="34">
+                                <!-- <td width="5%" class="text-center">1</td> -->
+                                      <td width="18%">TSP Limit</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_1}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_2}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_3}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_4}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_5}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_6}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_7}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_8}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_9}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_10}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_11}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_12}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_13}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_14}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_15}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_16}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_17}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_18}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_19}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_20}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_21}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_23}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_24}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_25}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_26}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_27}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_28}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_29}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_30}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_31}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_32}}</td>
+                                      <td width="15%">{{users.SBN_BELOW_MOUNT_TSP_Lmt_33}}</td>
+                              </tr>
+                            </tbody>
+                        
+                          </table>
+                        </div>
+                          <!-- SBN below mount table end -->
+          
+                          <div class="variable-row">
+                          <div class="heading-style2 text-center">
+                            <h2>ABN DATA</h2>
+                          </div>
+                          <table class="table table-bordered table-style-color table-width tabletd-color" style="overflow-x: auto;display: block;">
+                            <thead>
+                              <tr style="text-align: center;">
+                                <th style="width: 108px !important;">Frequincy</th>
+                                <th  style="width: 108px !important;">32</th>
+                                <th  style="width: 108px !important;">40</th>
+                                <th  style="width: 108px !important;">50</th>
+                                <th  style="width: 108px !important;">63</th>
+                                <th  style="width: 108px !important;">80</th>
+                                <th  style="width: 108px !important;">100</th>
+                                <th  style="width: 108px !important;">125</th>
+                                <th  style="width: 108px !important;">160</th>
+                                <th  style="width: 108px !important;">200</th>
+                                <th  style="width: 108px !important;">250</th>
+                                <th  style="width: 108px !important;">315</th>
+                                <th  style="width: 108px !important;">400</th>
+                                <th  style="width: 108px !important;">500</th>
+                                <th  style="width: 108px !important;">630</th>
+                                <th  style="width: 108px !important;">800</th>
+                                <th  style="width: 108px !important;">1000</th>
+                                <th  style="width: 108px !important;">1250</th>
+                                <th  style="width: 108px !important;">1600</th>
+                                <th  style="width: 108px !important;">2000</th>
+                                <th  style="width: 108px !important;">2500</th>
+                                <th  style="width: 108px !important;">3150</th>
+                                <th  style="width: 108px !important;">4000</th>
+                                <th  style="width: 108px !important;">5000</th>
+                                <th  style="width: 108px !important;">6300</th>
+                                <th  style="width: 108px !important;">8000</th>
+                                <th  style="width: 108px !important;">10000</th>
+                                <!-- style="width: 108px !important;""8%">Action</th> -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                                   
+                              <tr colspan="29">
+                                      <td style="width: 108px !important;">A</td>
+                                      <td style="width: 108px !important;">{{users.ABN_A1}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A2}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A3}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A4}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A5}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A6}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A7}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A8}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A9}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A10}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A11}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A12}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A13}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A14}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A15}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A16}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A17}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A18}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A19}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A20}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A21}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A22}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A23}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A24}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A25}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A26}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_A27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                      <td style="width: 108px !important;">B</td>
+                                      <td style="width: 108px !important;">{{users.ABN_B1}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B2}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B3}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B4}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B5}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B6}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B7}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B8}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B9}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B10}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B11}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B12}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B13}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B14}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B15}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B16}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B17}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B18}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B19}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B20}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B21}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B22}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B23}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B24}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B25}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B26}} </td>
+                                      <td style="width: 108px !important;">{{users.ABN_B27}} </td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">C</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_C27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">D</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_D27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">E</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_E27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">F</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_F27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">G</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_G27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">H</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_H27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">I</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_I27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">J</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_J27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">K</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_K27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">L</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_L27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">M</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_M27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">N</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_N27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">o</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_O27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">P</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_P27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">Q</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_Q27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">R</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_R27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">S</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_S27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">T</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_T27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">U</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_U27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">Max</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_MAX_27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">Mil std limit</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_mil_std_lmt_27}}</td>
+                              </tr>
+                              <tr colspan="29">
+                                <!-- style="width: 108px !important;""5%" class="text-center">1</td> -->
+                                      <td style="width: 108px !important;">TSP Limit</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_1}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_2}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_3}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_4}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_5}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_6}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_7}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_8}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_9}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_10}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_11}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_12}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_13}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_14}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_15}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_16}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_17}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_18}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_19}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_20}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_21}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_22}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_23}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_24}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_25}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_26}}</td>
+                                      <td style="width: 108px !important;">{{users.ABN_tsp_lmt_27}}</td>
+                              </tr>
+                            </tbody>
+                        
+                          </table>
+                        </div>
+                        </div>
+          
+                        <!--ABN/SBN  End-->
+          
+                        <table class="table table-bordered table-form-color tabletd-color">
+                          <tr>
+                            <th>Trial Description</th>
+                          </tr>
+                          <tr>
+                            <td>{{users.Trial_Description}}</td>
+                          </tr>
+                        </table>
+                        <div class="container-fluid">
+                            <div class="row mt-1">
+                                <div class="col-md-12">
+                                    <div class="panel-right">
+                                        <div class="panel-row">
+                                            <table class="table table-bordered table-form-color tabletd-color">
+                                                <tr>
+                                                    <th>Prestart Checks / Activities Undertaken</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{users.Prestart_Checks}}</td>
+                                                </tr>
+                                            </table>
+                                            <table class="table table-bordered table-form-color tabletd-color">
+                                                <tr>
+                                                    <th>Observations</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{users.Observations}}</td>
+                                                </tr>
+                                            </table>
+                                            <table class="table table-bordered table-form-color tabletd-color">
+                                                <tr>
+                                                    <th>Recommendation</th>
+                                                </tr>
+                                                <tr>
+                                                <td>{{users.Recommendation}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+           
+          </section>
+          <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+    </body>
+</html>

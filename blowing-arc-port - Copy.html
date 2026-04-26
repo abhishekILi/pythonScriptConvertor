@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>CBIU</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="pdfkit-page-size" content="Legal" />
+        <meta name="pdfkit-orientation" content="Portrait" />
+        <style type="text/css">
+            body {
+                margin: 50px 50px;
+                size: landscape;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+            }
+
+            .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table {
+                border-collapse: collapse;
+            }
+
+            .clear {
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                clear: both;
+            }
+
+            .star {
+                color: red;
+            }
+
+            strong {
+                font-weight: 600;
+            }
+
+            body {
+                margin: 50px;
+                background: #FFF !important;
+            }
+            table{
+            border: 1px solid lightgray;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width:100%;
+        }
+        table tr{
+            margin: 0px!important;
+        }
+        table tr th{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+
+        table tr td{
+         background-color: #80808054;
+         padding: 0px;
+         margin: 0px;
+         border: 1px solid black;
+         text-align: left;
+         padding: 2px 2px 2px 2px;
+     }
+
+     .textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+                border: 1px solid #80808054;
+                margin: 10px;
+            }
+        h2{
+            text-align: center;
+        }
+        input{
+            border: none;
+        }
+
+        button{
+            display: none;
+        }
+
+        .btn{
+            display: none;
+        }
+
+        @media print{
+            button, input[type="button"], input[type="submit"], input[type="reset"]{
+                display: none !important;
+            }
+        }
+        </style>
+    </head>
+
+    <body>
+      <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>        
+  
+        <div class="panel-row">
+          <div class="heading-style2 text-center">
+              <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+              src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+              <h2><u>BLOWING ARC OF SOOT BLOWERS (Y-160 BOILERS)- {{users.ship}} MONTH : {{users.boiler_arc_port_btw_month}}</u></h2>                            
+          </div>
+          <table class="table table-bordered tabletd-color table-form-color1" style="width: 100%!important;">
+            
+            <tr class="trblue">
+              <td>Soot Blower Number</td>
+              <td>Measured at Position</td>
+              <td>Specified Values in Degrees</td>
+              <td>Actual Reading in Degrees</td>
+              <td>Error</td>
+              <td>Remarks Highlighting Defects Observed</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>P1</b></td>
+              <td class="td-bluelight">VSO</td>
+              <!-- <td >+80°</td> background-color: #efedff!important; -->
+              <td>{{users.P1_sp_VSO_plus_5_degrees}}</td>
+              <td>{{users.P1_VSO_plus_5_degrees}}</td>
+              <td>{{users.P1_VSO_plus_5_degrees_error}}</td>
+              <td>{{users.P1_VSO_plus_5_remarks}}</td>
+            </tr>
+            <tr>
+              <td >VFO</td>
+              <!-- <td>+36°</td> -->
+              <td>{{users.P1_sp_VFO_plus_36_degrees}}</td>
+              <td>{{users.P1_VFO_plus_36_degrees}}</td>
+              <td>{{users.P1_VFO_plus_36_degrees_error}}</td>
+              <td>{{users.P1_VFO_plus_36_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFC</td>
+              <!-- <td>-25°</td> -->
+              <td>{{users.P1_sp_VFC_minus_25_degrees}}</td>
+              <td>{{users.P1_VFC_minus_25_degrees}}</td>
+              <td>{{users.P1_VFC_minus_25_degrees_error}}</td>
+              <td>{{users.P1_VFC_minus_25_remarks}}</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>P2</b></td>
+              <td class="td-bluelight">VSO</td>
+              <!-- <td class="td-bluelight">+80°</td> -->
+              <td>{{users.P2_sp_VSO_plus_80_degrees}}</td>
+              <td>{{users.P2_VSO_plus_80_degrees}}</td>
+              <td>{{users.P2_VSO_plus_80_degrees_error}}</td>
+              <td>{{users.P2_VSO_plus_80_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFO</td>
+              <!-- <td>+111°</td> -->
+              <td>{{users.P2_sp_VFO_plus_111_degrees}}</td>
+              <td>{{users.P2_VFO_plus_111_degrees}}</td>
+              <td>{{users.P2_VFO_plus_111_degrees_error}}</td>
+              <td>{{users.P2_VFO_plus_111_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFC</td>
+              <!-- <td>+50°</td> -->
+              <td>{{users.P2_sp_VFC_plus_50_degrees}}</td>
+              <td>{{users.P2_VFC_plus_50_degrees}}</td>
+              <td>{{users.P2_VFC_plus_50_degrees_error}}</td>
+              <td>{{users.P2_VFC_plus_50_remarks}}</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>P3</b></td>
+              <td class="td-bluelight">VSO</td>
+              <!-- <td class="td-bluelight">-30°</td> -->
+              <td>{{users.P3_sp_VSO_minus_30_degrees}}</td>
+              <td>{{users.P3_VSO_minus_30_degrees}}</td>
+              <td>{{users.P3_VSO_minus_30_degrees_error}}</td>
+              <td>{{users.P3_VSO_minus_30_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFO</td>
+              <!-- <td>+1°</td> -->
+              <td>{{users.P3_sp_VFO_plus_1_degrees}}</td>
+              <td>{{users.P3_VFO_plus_1_degrees}}</td>
+              <td>{{users.P3_VFO_plus_1_degrees_error}}</td>
+              <td>{{users.P3_VFO_plus_1_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFC</td>
+              <!-- <td>+150°</td> -->
+              <td>{{users.P3_sp_VFC_plus_150_degrees}}</td>
+              <td>{{users.P3_VFC_plus_150_degrees}}</td>
+              <td>{{users.P3_VFC_plus_150_degrees_error}}</td>
+              <td>{{users.P3_VFC_plus_150_remarks}}</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>P4</b></td>
+              <td class="td-bluelight">VSO</td>
+              <!-- <td class="td-bluelight">-40°</td> -->
+              <td>{{users.P4_sp_VSO_minus_40_degrees}}</td>
+              <td>{{users.P4_VSO_minus_40_degrees}}</td>
+              <td>{{users.P4_VSO_minus_40_degrees_error}}</td>
+              <td>{{users.P4_VSO_minus_40_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFO</td>
+              <!-- <td>-9°</td> -->
+              <td>{{users.P4_sp_VFO_minus_9_degrees}}</td>
+              <td>{{users.P4_VFO_minus_9_degrees}}</td>
+              <td>{{users.P4_VFO_minus_9_degrees_error}}</td>
+              <td>{{users.P4_VFO_minus_9_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFC</td>
+              <!-- <td>+150°</td> -->
+              <td>{{users.P4_sp_VFC_plus_150_degrees}}</td>
+              <td>{{users.P4_VFC_plus_150_degrees}}</td>
+              <td>{{users.P4_VFC_plus_150_degrees_error}}</td>
+              <td>{{users.P4_VFC_plus_150_remarks}}</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>P5</b></td>
+              <td class="td-bluelight">VSO</td>
+              <!-- <td class="td-bluelight">-85°</td> -->
+              <td>{{users.P5_sp_VSO_minus_85_degrees}}</td>
+              <td>{{users.P5_VSO_minus_85_degrees}}</td>
+              <td>{{users.P5_VSO_minus_85_degrees_error}}</td>
+              <td>{{users.P5_VSO_minus_85_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFO</td>
+              <!-- <td>-116°</td> -->
+              <td>{{users.P5_sp_VFO_minus_116_degrees}}</td>
+              <td>{{users.P5_VFO_minus_116_degrees}}</td>
+              <td>{{users.P5_VFO_minus_116_degrees_error}}</td>
+              <td>{{users.P5_VFO_minus_116_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFC</td>
+              <!-- <td>+120°</td> -->
+              <td>{{users.P5_sp_VFC_plus_120_degrees}}</td>
+              <td>{{users.P5_VFC_plus_120_degrees}}</td>
+              <td>{{users.P5_VFC_plus_120_degrees_error}}</td>
+              <td>{{users.P5_VFC_plus_120_remarks}}</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>P6</b></td>
+              <td class="td-bluelight">VSO</td>
+              <!-- <td class="td-bluelight">+85°</td> -->
+              <td>{{users.P6_sp_VSO_plus_85_degrees}}</td>
+              <td>{{users.P6_VSO_plus_85_degrees}}</td>
+              <td>{{users.P6_VSO_plus_85_degrees_error}}</td>
+              <td>{{users.P6_VSO_plus_85_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFO</td>
+              <!-- <td>+116°</td> -->
+              <td>{{users.P6_sp_VFO_plus_116_degrees}}</td>
+              <td>{{users.P6_VFO_plus_116_degrees}}</td>
+              <td>{{users.P6_VFO_plus_116_degrees_error}}</td>
+              <td>{{users.P6_VFO_plus_116_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFC</td>
+              <!-- <td>-120°</td> -->
+              <td>{{users.P6_sp_VFC_minus_120_degrees}}</td>
+              <td>{{users.P6_VFC_minus_120_degrees}}</td>
+              <td>{{users.P6_VFC_minus_120_degrees_error}}</td>
+              <td>{{users.P6_VFC_minus_120_remarks}}</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><b>P7</b></td>
+              <td class="td-bluelight">VSO</td>
+              <!-- <td class="td-bluelight">-155°</td> -->
+              <td>{{users.P7_sp_VSO_minus_155_degrees}}</td>
+              <td>{{users.P7_VSO_minus_155_degrees}}</td>
+              <td>{{users.P7_VSO_minus_155_degrees_error}}</td>
+              <td>{{users.P7_VSO_minus_155_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFO</td>
+              <!-- <td class="td-bluelight">-124°</td> -->
+              <td>{{users.P7_sp_VFO_minus_124_degrees}}</td>
+              <td>{{users.P7_VFO_minus_124_degrees}}</td>
+              <td>{{users.P7_VFO_minus_124_degrees_error}}</td>
+              <td>{{users.P7_VFO_minus_124_remarks}}</td>
+            </tr>
+            <tr>
+              <td>VFC</td>
+              <!-- <td>+175°</td> -->
+              <td>{{users.P7_sp_VFC_plus_175_degrees}}</td>
+              <td>{{users.P7_VFC_plus_175_degrees}}</td>
+              <td>{{users.P7_VFC_plus_175_degrees_error}}</td>
+              <td>{{users.P7_VFC_plus_175_remarks}}</td>
+            </tr>
+          </table>
+          <div class="note-card">
+            <strong><u>Note:</u></strong>
+            <ol type="1">
+              <li>Direction of rotation of all soot blowers except P5 is anti-clockwise. P5 soot blower rotates in the
+                clockwise direction.</li>
+              <li>VSO - Valve starts opening.</li>
+              <li>VFO - Valve fully opened.</li>
+              <li>VFC - Valve fully closeed.</li>
+            </ol>
+          </div>
+
+          <table class="table table-bordered tabletd-color table-form-color1" >
+
+            <tr>
+              <td width="15%"><strong>Engineer Officer</strong></td>
+              <td>
+                                <p style="font-size:9px">Comment: {{esignature.engg_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.engg_information.first_name}} {{esignature.engg_information.last_name}} ({{esignature.engg_information.loginname}})
+                                <br>
+                                {{esignature.engg_information.designation}}
+                                <br>
+                                On {{esignature.engg_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.engg_sign_path}}"/></td>
+
+              <td class="td-bluelight" width="15%"><strong>Commanding Officer</strong></td>
+              <td>
+                                <p style="font-size:9px">Comment: {{esignature.comm_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.comm_information.first_name}} {{esignature.comm_information.last_name}} ({{esignature.comm_information.loginname}})
+                                <br>
+                                {{esignature.comm_information.designation}}
+                                <br>
+                                On {{esignature.comm_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.comm_sign_path}}"/></td>
+
+            </tr>
+            
+          </table></br>
+
+          <table class="table table-bordered table-form-color1">
+            <th class="td-bluelight"><u>FINAL REMARKS AND RECOMMENDATION</u></th>
+            <tr>
+              <td  class="form-control textarea" rows="8" value="{{users.final_rem_blowing_arc_port|safe}}"></td>
+            </tr>
+
+          </table> 
+        </div>
+        <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+          <tr>
+              <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+              <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://127.0.0.1:8000/{{qr}}"/></td>
+          </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5"   width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+          <tr style="border: 0; border-style:None;">
+              <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+              <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+          </tr>
+        </table>
+      </div>
+          
+    </body>
+
+</html>

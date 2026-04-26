@@ -1,0 +1,329 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>da-shaft-cooling-water-system</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body {
+             margin: 50px 50px;
+             size: landscape;
+         }
+ 
+         .wrapper {
+             width: 100%;
+             margin: 20px auto;
+         }
+ 
+         table {
+             border-collapse: collapse;
+         }
+ 
+         .clear {
+             padding: 0;
+             margin: 0;
+             width: 100%;
+             clear: both;
+         }
+ 
+         .star {
+             color: red;
+         }
+ 
+         strong {
+             font-weight: 600;
+         }
+ 
+         tr,
+         th {
+             text-align: start;
+         }
+ 
+         tr,
+         th {
+             font-size: 14px;
+         }
+ 
+         table {
+             border: 1px solid lightgray;
+             font-size: 12px;
+             padding: 0px;
+             margin: 0px;
+             border-collapse: collapse;
+             width: 100%;
+         }
+ 
+         table tr {
+             margin: 0px !important;
+         }
+ 
+         table tr th {
+             background-color: #80808054;
+             padding: 0px;
+             margin: 0px;
+             border: 1px solid black;
+             text-align: center;
+             padding: 2px 2px 2px 2px;
+         }
+ 
+         table tr td {
+             background-color: #80808054;
+             padding: 0px;
+             margin: 0px;
+             border: 1px solid black;
+             text-align: center;
+             padding: 2px 2px 2px 2px;
+         }
+ 
+         textarea {
+             width: 100%;
+             min-height: 10px;
+             /* padding: 10px; */
+             font-size: 12px;
+             resize: none;
+             overflow-y: hidden;
+         }
+ 
+         h2 {
+             text-align: center;
+         }
+ 
+         input {
+             border: none;
+         }
+ 
+         button {
+             display: none;
+         }
+ 
+         .btn {
+             display: none;
+         }
+ 
+         @media print {
+ 
+             button,
+             input[type="button"],
+             input[type="submit"],
+             input[type="reset"] {
+                 display: none !important;
+             }
+         }
+     </style>
+   </head>
+   <body>
+      <section class="body-card form-style1 trial-form">
+         <form>
+           <div class="container-fluid">
+              <div class="row mt-5">
+                 <div class="col-md-12">
+                    <div class="panel-right">
+                      <a href="javascript:void(0);" class="btn btn-primary btn-lg float-left backbtn" (click)="back(trialDet)">Cancel</a>
+                       <div class="panel-row" style="overflow:auto">
+                         <div class="heading-style2 heading-style3 text-center">
+                              <h2>MONTHLY RETURN - SHAFT COOLING WATER SYSTEM</h2>
+                         </div>
+                              <table class="table table-bordered table-form-color1 tabletd-color">
+                                    <tr>
+                                       <td width="15%"><strong>Ship :</strong></td>
+                                       <td>{{Ship}}</td>
+                                       <td class="td-bluelight" width="15%" ><strong>Sampling Date:</strong></td>
+                                       <td>{{users.SC_Advance_Lub_Oil_Sample_Date}}</td>
+                                    </tr>
+                                    <tr>
+                                       <td width="15%"><strong>Equipment :</strong></td>
+                                       <td colspan="3">{{equipment}}</td>
+                                    </tr>
+                              </table>
+                         
+                         <div style="width: 100%;overflow-x: auto;">
+                           <table class="table table-bordered table-form-color1 tabletd-color">
+                              <thead>
+                                 <tr>
+                                    <th rowspan="3">Design value(m*3/h)</th>
+                                    <th rowspan="3">Log book entry: (Once in a watch)</th>
+
+                                    <th *ngIf="Ship !== 'INS VIKRAMADITYA'" colspan="4" class="subheader">Last Log Book Entry at Sea(M*3/H)</th>
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <th colspan="8" class="subheader">Last Log Book Entry at Sea(M*3/H)</th>
+                                    {% endif %}
+
+                                    <th rowspan="3">Flow Rate Alarm(Avl/Not Avl)(Ops/Non Ops)</th>
+                                    <th rowspan="3">Strainer/Filter Status(Fitted/Not Fitted)</th>
+                                    <th colspan="2" rowspan="2" class="subheader">Flow Meter(Ops/Non Ops)</th>
+
+                                    <th *ngIf="Ship !== 'INS VIKRAMADITYA'" colspan="4" class="subheader">Pressure Available in the system(Bar)</th>
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <th colspan="8" class="subheader">Pressure Available in the system(Bar)</th>
+                                    {% endif %}
+
+                                    <th rowspan="4">Remarks</th>
+                                 </tr>
+                                 <tr>
+                                    <th colspan="2" class="subheader">Port</th>
+                                    <th colspan="2" class="subheader">Stbd</th>
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <th colspan="2" class="subheader">Port2</th>
+                                    {% endif %}
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <th colspan="2" class="subheader">Stbd2</th>
+                                    {% endif %}
+         
+                                    <th colspan="2" class="subheader">Port</th>
+                                    <th colspan="2" class="subheader">Stbd</th>
+         
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <th colspan="2" class="subheader">Port2</th>
+                                    {% endif %}
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <th colspan="2" class="subheader">Stbd2</th>
+                                    {% endif %}
+                                 </tr>
+                                 <tr>
+                                    <th>Max</th>
+                                    <th>Min</th>
+                                    <th>Max</th>
+                                    <th>Min</th>
+                                    
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <th>Max</th>
+                                       <th>Min</th>
+                                       <th>Max</th>
+                                       <th>Min</th>
+                                    {% endif %}   
+         
+                                    <th>Port</th>
+                                    <th>Stbd</th>
+                                    <th>Max</th>
+                                    <th>Min</th>
+                                    <th>Max</th>
+                                    <th>Min</th>
+                                    
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <th>Max</th>
+                                       <th>Min</th>
+                                       <th>Max</th>
+                                       <th>Min</th>
+                                    {% endif %}
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td>{{ users.SC_design_value }}</td>
+                                    <td>{{users.SC_log_book_entry }}</td>
+         
+                                    <td>{{ users.SC_Last_log_port_max }}</td>
+                                    <td>{{ users.SC_Last_log_port_min }}</td>
+                                    <td>{{ users.SC_Last_log_stbd_max }}</td>
+                                    <td>{{ users.SC_Last_log_stbd_min }}</td>
+         
+                                    <!-- EXTRA FIELDS FOR VKD -->
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <td>{{ users.SC_Last_log_port_max1 }}</td>
+                                       <td>{{ users.SC_Last_log_port_min1 }}</td>
+                                       <td>{{ users.SC_Last_log_stbd_max1 }}</td>
+                                       <td>{{ users.SC_Last_log_stbd_min1 }}</td>
+                                    {% endif %}
+                                    <!-- END OF EXCTRA FIELDS FOR VKD -->
+      
+                                    <td>{{users.SC_Flow_rate_alarm}}
+                                       {{users.SC_Flow_rate_alarm_1_1}}
+                                    </td>
+                                    <td>{{users.SC_filter_status}}
+                                    </td>
+                                    <td style="width: 150px;">{{users.SC_flow_mtr_port}}
+                                    </td>
+                                    <td  style="width: 150px;">{{users.SC_flow_mt_stbd}}
+                                    </td>
+         
+         
+                                    <td>{{ users.SC_pressure_avail_port_max }}</td>
+                                    <td>{{ users.SC_pressure_avail_port_min }}</td>
+                                    <td>{{ users.SC_pressure_avail_stbd_max }}</td>
+                                    <td>{{ users.SC_pressure_avail_stbd_min }}</td>
+         
+                                    <!-- EXTRA FIELDS FOR VKD -->
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <td >{{ users.SC_Last_log_port_max2_3 }}</td>
+                                       <td >{{ users.SC_Last_log_port_min2_3 }}</td>
+                                       <td >{{ users.SC_Last_log_stbd_max2_3 }}</td>
+                                       <td >{{ users.SC_Last_log_stbd_min2_3 }}</td>
+                                    {% endif %}
+                                    <!-- END OF EXCTRA FIELDS FOR VKD -->
+         
+         
+                                    <td>{{ users.SC_remarks }}</td>
+                                 </tr>
+            
+                                 <tr>
+                                    <td>{{users.SC_design_value2}}</td>
+                                    <td>{{users.SC_log_book_entry2}}</td>
+         
+         
+                                    <td>{{ users.SC_Last_log_port_max2 }}</td>
+                                    <td>{{ users.SC_Last_log_port_min2 }}</td>
+                                    <td>{{ users.SC_Last_log_stbd_max2 }}</td>
+                                    <td>{{ users.SC_Last_log_stbd_min2 }}</td>
+         
+                                    <!-- EXTRA FIELDS FOR VKD -->
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <td >{{ users.SC_Last_log_port_max1_2 }}</td>
+                                       <td >{{ users.SC_Last_log_port_min1_2 }}</td>
+                                       <td >{{ users.SC_Last_log_stbd_max1_2 }}</td>
+                                       <td >{{ users.SC_Last_log_stbd_min1_2 }}</td>
+                                    {% endif %}
+                                    <!-- END OF EXCTRA FIELDS FOR VKD -->
+         
+                                    <td>{{users.SC_Flow_rate_alarm2}}{{users.SC_Flow_rate_alarm2_1_1}}</td>
+                                    <td>{{users.SC_filter_status2}}</td>
+                                    <td>{{users.SC_flow_mtr_port2}}</td>
+                                    <td>{{users.SC_flow_mt_stbd2}}</td>
+         
+                                    <td>{{ users.SC_pressure_avail_port_max2 }}</td>
+                                    <td>{{ users.SC_pressure_avail_port_min2 }}</td>
+                                    <td>{{ users.SC_pressure_avail_stbd_max2 }}</td>
+                                    <td>{{ users.SC_pressure_avail_stbd_min2 }}</td>
+         
+                                    <!-- EXTRA FIELDS FOR VKD -->
+                                    {% if Ship == 'INS VIKRAMADITYA' %}
+                                       <td>{{ users.SC_Last_log_port_max4 }}</td>
+                                       <td>{{ users.SC_Last_log_port_min4 }}</td>
+                                       <td>{{ users.SC_Last_log_stbd_max4 }}</td>
+                                       <td>{{ users.SC_Last_log_stbd_min4 }}</td>
+                                    {% endif %}
+                                    <!-- END OF EXCTRA FIELDS FOR VKD -->
+         
+                                    <td>{{ users.SC_remarks2 }}</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                         </div>
+         
+       
+       
+                          
+                       </div>
+                       {% comment %} <div class=" group-btn mt-4">
+                         <a href="javascript:void(0);" class="btn btn-danger btn-lg float-left" (click)="back(trialDet)">Cancel</a>
+                         <a href="javascript:void(0);" *ngIf="trialDet.type!='view' && trialDet.approved_level!='-1'" class="btn btn-success btn-lg float-right" (click)="save()">Save</a>
+                       </div> {% endcomment %}
+                    </div>
+                 </div>
+              </div>
+           </div>
+       </form>
+        </section>
+        <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+         <tr>
+             <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+             <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+         </tr>
+     </table>
+      </body>
+</html>

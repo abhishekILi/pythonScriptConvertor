@@ -1,0 +1,861 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>vibration-trials-appendix-b</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="" />
+        <meta name="pdfkit-page-size" content="Legal"/>
+        <meta name="pdfkit-orientation" content="Portrait"/>
+        <style type="text/css">
+            body{margin:50px 50px; size:landscape;}
+            .wrapper{width: 100%;border-style: double; padding: 8px;}
+                table{border-collapse: collapse;}
+                .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+                .star{color: red;}
+                strong{font-weight: 600;}
+                body{margin:50px;background: #FFF !important;}
+    
+                .table{
+                    border: 1px solid lightgray;
+                    font-size: 12px;
+                    padding: 0px;
+                    margin: 0px;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                .table tr{
+                    margin: 0px!important;
+                }
+                .table tr th{
+                    background-color: #80808054;
+                    padding: 0px;
+                    margin: 0px;
+                    border: 1px solid black;
+                    text-align: center;
+                    padding: 2px 2px 2px 2px;
+                }
+                .table tr td{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+                textarea{
+                    width: 100%;
+                    min-height: 10px;
+                    /* padding: 10px; */
+                    font-size: 12px;
+                    resize: none;
+                    overflow-y: hidden;
+                }
+                h2{
+                    text-align: center;
+                }
+                input{
+                    border: none;
+                }
+                button{
+                    display: none;
+                }
+                .btn{
+                    display: none;
+                }
+    
+                @media print{
+                    button, input[type="button"], input[type="submit"], input[type="reset"]{
+                        display: none !important;
+                    }
+                }
+        </style>
+    </head>
+   <body>
+        <div class="wrapper">
+            <div style="float:right">
+                <p>Report Generated on: {{ history.approved_date_time }}</p>
+            </div>
+            <div class="heading-style2 text-center">
+                <img width="100px" alt="Logo"
+                style="height: 150px; width: 160px; position: relative; left: 40%;"
+                src="{{satellite_unit_icon}}">
+                <h2  style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><u>MACHINERY TRIALS UNIT {{satellite_unit}}</u></h2>
+                <h4  style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><u>Advanced Trial Report</u></h4>
+            </div>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+ 
+            <tr>
+                <td width="10%"><strong>Trial ID</strong></td>
+                <td>{{users.vib_trial_B_trial_id}} </td>
+                <td class="td-bluelight" width="10%"><strong>Advance Trial Report</strong></td>
+                <td>{{users.vib_trial_B_trial_report}} </td>
+              </tr>
+            <tr>
+                <td width="10%"><strong>Ship:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Ship}}</td>
+                <td class="td-bluelight" width="10%"><strong>Date:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Date}}</td>
+            </tr>     
+
+            <tr>
+                <td width="10%"><strong>Occasion:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Occasion}}</td>
+                <td class="td-bluelight" width="10%"><strong>Equipment:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Equipment}}</td>
+            </tr>
+
+            <tr>
+                <td width="15%"><strong>CMMS Code:</strong></td>
+                <td style="font-size:14px; color: #222;">{{cmms_code}}</td>
+                <td class="td-bluelight" width="10%"><strong>Name:</strong></td>
+                <td style="font-size:14px; color: #222;">{{nomenclature}}</td>
+            </tr>
+      
+            <tr>
+                <td width="15%"><strong>Make:</strong></td>
+                <td >{{users.vib_trial_B_Make}}</td>
+                <td class="td-bluelight" width="6%"><strong>Models:</strong></td>
+                <td >{{model}}</td>
+            </tr>
+     
+            <tr>
+                <td width="15%"><strong>RPM:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_RPM}}</td>
+                <td class="td-bluelight" width="18%"><strong>Driver Bearing DE:</strong></td>
+                <td style="font-size:14px; color: #222;"><input type="text" value="{{users.vib_trial_B_Bearing_DE}}" style="width: 48%;"><input type="text" style="width: 48%;" value="{{users.driver_bearing_de}}"></td>
+            </tr>
+      
+            <tr>
+                <td width="15%"><strong>Coupling:</strong></td>
+                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Coupling}}</td>
+                <td class="td-bluelight"><strong>Driver Bearing NDE:</strong></td>
+                <td style="font-size:14px; color: #222;"><input type="text" value="{{users.vib_trial_B_Bearing_NDE}}" style="width: 48%;"><input type="text" style="width: 48%;" value="{{users.driver_bearing_nde}}"></td>
+            </tr>
+            <tr>
+                  
+                <td  width="18%"><strong>Driven Bearing DE:</strong></td>
+                <td style="font-size:14px; color: #222;" width="18%"><input type="text" value="{{users.vib_trial_B_Bearing_DE}}" style="width: 48%;"><input type="text" style="width: 48%;" value="{{users.driven_bearing_de}}"></td>
+
+                
+                <td class="td-bluelight"><strong>Driven Bearing NDE:</strong></td>
+                <td width="18%" > <input type="text" value="{{users.vib_trial_B_Bearing_NDE}}"style="width: 48%;"><input type="text" style="width: 48%;" value="{{users.driven_bearing_nde}}"></td>
+              </tr>
+
+        </table>
+        <h4 style="margin-bottom: 2px;">No. of Gear Teeth</h4>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            {% if users%}      
+            <tr>
+                <td width="10%"><strong>1st Stage:</strong></td>
+                <td >{{users.vib_trial_B_Gear_Teeth_stage1}}</td>
+                <td width="10%"><strong>2st Stage:</strong></td>
+                <td >{{users.vib_trial_B_Gear_Teeth_stage2}}</td>
+                <td width="10%"><strong>3st Stage:</strong></td>
+                <td >{{users.vib_trial_B_Gear_Teeth_stage3}}</td>
+                
+            </tr>
+            {% endif%}
+        </table>
+        
+        <h4 style="margin-bottom: 2px;">1.&nbsp;&nbsp; Overall Vibration Values</h4>
+            {% if users.ShowOverallVibrationValuesSection %}
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; ">
+                    <tr>
+                        <th>Points</th>
+                        <th colspan="3">Driver FE</th>
+                        <th colspan="3">Driver DE</th>
+                        <th colspan="3">Driver FE</th>
+                        <th colspan="3">Driver DE</th>
+                        <th colspan="6">Additional</th>
+                    </tr>
+                    <tr>
+                        <td>No.</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <tr>
+                            <td>Direction</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                            <td>H</td>
+                            <td>V</td>
+                            <td>A</td>
+                        </tr>
+                        {% if users%}      
+                      
+
+                    <tr>
+                        <td>Values</td>
+                        <td {% if users.vib_trial_B_overall_val_H1|to_float > users.vib_trial_B_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_H1}}</td>
+                        <td {% if users.vib_trial_B_overall_val_V1|to_float > users.vib_trial_B_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_V1}}</td>
+                        <td {% if users.vib_trial_B_overall_val_A1|to_float > users.vib_trial_B_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_A1}}</td>
+                        <td {% if users.vib_trial_B_overall_val_H2|to_float > users.vib_trial_B_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_H2}}</td>
+                        <td {% if users.vib_trial_B_overall_val_V2|to_float > users.vib_trial_B_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_V2}}</td>
+                        <td {% if users.vib_trial_B_overall_val_A2|to_float > users.vib_trial_B_overall_limit1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_A2}}</td>
+
+                        <td {% if users.vib_trial_B_overall_val_H3|to_float > users.vib_trial_B_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_trial_B_overall_val_H3}}</td>
+                        <td {% if users.vib_trial_B_overall_val_V3|to_float > users.vib_trial_B_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_trial_B_overall_val_V3}}</td>
+                        <td {% if users.vib_trial_B_overall_val_A3|to_float > users.vib_trial_B_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_trial_B_overall_val_A3}}</td>
+                        <td {% if users.vib_trial_B_overall_val_H4|to_float > users.vib_trial_B_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_trial_B_overall_val_H4}}</td>
+                        <td {% if users.vib_trial_B_overall_val_V4|to_float > users.vib_trial_B_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_trial_B_overall_val_V4}}</td>
+                        <td {% if users.vib_trial_B_overall_val_A4|to_float > users.vib_trial_B_overall_limit2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %} >{{users.vib_trial_B_overall_val_A4}}</td>
+
+                        <td {% if users.vib_trial_B_overall_val_H5|to_float > users.vib_trial_B_overall_additional1|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_H5}}</td>
+                        <td {% if users.vib_trial_B_overall_val_V5|to_float > users.vib_trial_B_overall_additional2|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_V5}}</td>
+                        <td {% if users.vib_trial_B_overall_val_A5|to_float > users.vib_trial_B_overall_additional3|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_A5}}</td>
+
+                        <td {% if users.vib_trial_B_overall_val_H6|to_float > users.vib_trial_B_overall_additional4|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_H6}}</td>
+                        <td {% if users.vib_trial_B_overall_val_V6|to_float > users.vib_trial_B_overall_additional5|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_V6}}</td>
+                        <td {% if users.vib_trial_B_overall_val_A6|to_float > users.vib_trial_B_overall_additional7|to_float %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_overall_val_A6}}</td>
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Limits</td>
+                        <td colspan="6" style="font-size:14px; color: #222;">{{users.vib_trial_B_overall_limit1}}</td>
+                        <td colspan="6" style="font-size:14px; color: #222;">{{users.vib_trial_B_overall_limit2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_overall_additional1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_overall_additional2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_overall_additional3}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_overall_additional4}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_overall_additional5}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_overall_additional7}}</td>
+                    </tr>
+                    {% endif%}
+                </table>
+            {% else %}
+                <p>Not Applicable</p>
+            {% endif %}
+       <h4 style="margin-bottom: 2px;">2.&nbsp;&nbsp; Mount Attenuation</h4>
+            {% if users.ShowMountAttenuationSection %}
+                <p>{{users.Mount_Attenuation}}</p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; ">
+                    <tr>
+                        <th>Mount No.</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                        <th>17</th>
+                        <th>18</th>
+                    </tr>
+                    {% if users%}      
+                    <tr>
+                        <td>Top</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top3}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top4}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top5}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top6}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top7}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top8}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top9}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top10}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top11}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top12}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top13}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top14}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top15}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top16}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top17}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_top18}}</td>
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Bottom</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom3}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom4}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom5}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom6}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom7}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom8}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom9}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom10}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom11}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom12}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom13}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom14}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom15}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom16}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom17}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_mount_bottom18}}</td>
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                  
+                    <tr>
+                        <td>Attenuation %</td>
+                        <td {% if users.vib_trial_B_mount_attenuation1|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation1}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation2|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation2}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation3|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation3}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation4|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation4}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation5|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation5}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation6|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation6}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation7|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation7}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation8|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation8}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation9|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation9}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation10|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation10}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation11|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation11}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation12|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation12}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation13|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation13}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation14|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation14}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation15|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation15}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation16|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation16}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation17|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation17}}</td>
+                        <td {% if users.vib_trial_B_mount_attenuation18|to_float < 70 %} style="color: red;" {% else %} style="color: black;" {% endif %}>{{users.vib_trial_B_mount_attenuation18}}</td>
+                    </tr>
+
+
+
+                    {% endif%}
+                </table>
+            {% else %}
+                <p>Not Applicable</p>
+            {% endif %}
+        <h4 style="margin-bottom: 2px;">3.&nbsp;&nbsp; Phase Analysis</h4>
+            {% if users.ShowPhaseAnalysesSection %}
+                {% comment %} <p style="margin-bottom: 2px;">{{users.Phase_Analysis}}</p> {% endcomment %}
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; ">
+                    <tr>
+                        <th>Location</th>
+                        <th>Plane</th>
+                        <th>Phase at 1X</th>
+                        <th>Remarks</th>
+                        <th>Observation</th>
+                    </tr>
+                    {% if users%}      
+                    <tr>
+                        <td rowspan="3">Across Coupling</td>
+                        <td class="td-bluelight">H to H</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Across_Coupling_Phase1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Across_Coupling_Remarks1}}</td>
+                        <td>{{users.vib_trial_B_Across_Coupling_Obs1}}</td>
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>V to V</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Across_Coupling_Phase2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Across_Coupling_Remarks2}}</td>
+                        <td>{{users.vib_trial_B_Across_Coupling_Obs2}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>A to A</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Across_Coupling_Phase3}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Across_Coupling_Remarks3}}</td>
+                        <td>{{users.vib_trial_B_Across_Coupling_Obs3}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Driver FE</td>
+                        <td class="td-bluelight">H to V</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Phase1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Remarks1}}</td>
+                        <td>{{users.vib_trial_B_Obs1}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Driver DE</td>
+                        <td class="td-bluelight">H to V</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Phase2}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Remarks2}}</td>
+                        <td>{{users.vib_trial_B_Obs2}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Driver FE</td>
+                        <td class="td-bluelight">H to V</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Phase3}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Remarks3}}</td>
+                        <td>{{users.vib_trial_B_Obs3}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Driver DE</td>
+                        <td class="td-bluelight">H to V</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Phase4}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Remarks4}}</td>
+                        <td>{{users.vib_trial_B_Obs4}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Across Driver</td>
+                        <td class="td-bluelight">A to A</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Phase5}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Remarks5}}</td>
+                        <td>{{users.vib_trial_B_Obs5}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Across Driven</td>
+                        <td class="td-bluelight">A to A</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Phase6}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Remarks6}}</td>
+                        <td>{{users.vib_trial_B_Obs6}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Machine and Base</td>
+                        <td class="td-bluelight">V top V</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Phase7}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Remarks7}}</td>
+                        <td>{{users.vib_trial_B_Obs7}}</td>
+
+                    </tr>
+                    {% endif%}
+                </table>
+            {% else %}
+                <p>Not Applicable</p>
+            {% endif %}
+        <h4 style="margin-bottom: 2px;">4.&nbsp;&nbsp;SPM Checks</h4>
+            {% if users.ShowSpmChecksSection %}
+                {% comment %} <p>{{users.SPM_Checks}}</p> {% endcomment %}
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; ">
+                    <tr>
+                        <th>Points</th>
+                        <th>dBm</th>
+                        <th>dBc</th>
+                        <th>Remarks</th>
+                        <th>Observation</th>
+                    </tr>
+                    {% if users%}      
+                    <tr>
+                        <td>Moto FE</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Moto_FE_dBm1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Moto_FE_dBc1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Moto_FE_Remarks1}}</td>
+                        <td>{{users.vib_trial_B_Moto_FE_Obs1}}</td>
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Moto DE</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Moto_DE_dBm1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Moto_DE_dBc1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Moto_DE_Remarks1}}</td>
+                        <td>{{users.vib_trial_B_Moto_DE_Obs1}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Driven DE</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Driven_DE_dBm1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Driven_DE_dBc1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Driven_DE_Remarks1}}</td>
+                        <td>{{users.vib_trial_B_Driven_DE_Obs1}}</td>
+
+                    </tr>
+                    {% endif%}
+                    {% if users%}      
+                    <tr>
+                        <td>Driven FE</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Driven_FE_dBm1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Driven_FE_dBc1}}</td>
+                        <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Driven_FE_Remarks1}}</td>
+                        <td>{{users.vib_trial_B_Driven_FE_Obs1}}</td>
+
+                    </tr>
+                    {% endif%}
+                </table>
+            {% else %}
+                <p>Not Applicable</p>
+            {% endif %}
+        <h4  style="margin-bottom: 2px;">5.&nbsp;&nbsp; Spectrum Analysis</h4>
+                {% if users.ShowSpectrumAnalysisSection %}
+                    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                        <tr>
+                            <th>Parameter</th>
+                            <th colspan="2">Value</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                        </tr>
+                        {% if users%}      
+                        <tr>
+                            <td>RPM 1x</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_RPM_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_RPM_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_RPM_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Multiple Harmonics</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Harmonic_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Harmonic_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Harmonic_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Soft Foot (1x)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Soft_Foot_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Soft_Foot_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Soft_Foot_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Dynamic Imbalance (1x)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Dynamic_Imbal_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Dynamic_Imbal_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Dynamic_Imbal_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>MISALIGNMENT (1x, 2x, 3x Har)
+                            </td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_MISALIGNMENT_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_MISALIGNMENT_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_MISALIGNMENT_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Coupling Faults (1x, 2x, Har)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Coupling_Faults_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Coupling_Faults_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Coupling_Faults_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>GMF</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_GMF_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_GMF_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_GMF_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>GMF with Sidebands</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_GMF_Sidebands_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_GMF_Sidebands_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_GMF_Sidebands_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Gear Natural Frequency</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Gear_Nat_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Gear_Nat_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Gear_Nat_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Resonance (with Bump Test)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Resonance_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Resonance_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Resonance_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Blade / Vane Pass Frequency</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Blade_Vane_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Blade_Vane_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Blade_Vane_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Oil Whirl (0.38-0.48x)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Oil_Whirl_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Oil_Whirl_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Oil_Whirl_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Rotating Looseness (1x Har)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Rotating_L_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Rotating_L_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Rotating_L_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Structural Looseness (1x)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Structural_L_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Structural_L_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Structural_L_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Cavitation / Flow Turbulance (1x and VP)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Cavitation_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Cavitation_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Cavitation_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        <tr>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Cavitation_remark_one_blank}}</td>                              
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Cavitation_remark_one_blank_1}}</td>                               
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Cavitation_remark_one_blank_2}}</td>                                
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Cavitation_remark_one_blank_3}}</td>
+                                
+                          </tr>
+
+                          <tr>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_spec_Cavitation_remark_two_blank}}</td>                               
+                            <td colspan="2" style="font-size:14px; color: #222;"> {{users.vib_trial_B_spec_Cavitation_remark_two_blank_1}}</td>                              
+                            <td style="font-size:14px; color: #222;"> {{users.vib_trial_B_spec_Cavitation_remark_two_blank_2}}</td>                              
+                            <td style="font-size:14px; color: #222;"> {{users.vib_trial_B_spec_Cavitation_remark_two_blank_3}}</td>
+                               
+                          </tr>
+                    </table>
+                    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                        <tr>
+                            <th>Belt Frequency</th>
+                            <th colspan="2">Value</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                        </tr>
+                        {% if users%}      
+                            <tr>
+                                <td>Sheave RPM</td>
+                                <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Sheave_RPM_val}}</td>
+                                <td  style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Sheave_RPM_status}}</td>
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Sheave_RPM_remark}}</td>
+                            </tr>
+                            {% endif%}
+                            {% if users%}      
+                            <tr>
+                                <td>Sheave Diameter</td>
+                                <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Sheave_Diameter_val}}</td>
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Sheave_Diameter_status}}</td>
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Sheave_Diameter_remark}}</td>
+                            </tr>
+                            {% endif%}
+                            {% if users%}      
+                            <tr>
+                                <td>Belt Length</td>
+                                <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_Length_val}}</td>
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_Length_status}}</td>
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_Length_remark}}</td>
+                            </tr>
+                            {% endif%}
+                            <tr>
+                                <td >Belt Rate Frequency Value</td>
+                                <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_frequency_val}}</td>                             
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_frequency_remark}}</td>                                
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_VALUE_remark}}</td>
+                            </tr>
+                            {% if users%}      
+                            <tr>
+                                <td>Belt Pulley Misalignment</td>
+                                <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_Pulley_val}}</td>
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_Pulley_status}}</td>
+                                <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Freq_Belt_Pulley_remark}}</td>
+                            </tr>
+                        {% endif%}
+                    </table>
+                    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                        <tr>
+                            <th>Motor</th>
+                            <th colspan="2">Value</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                        </tr>
+                        {% if users%}      
+                        <tr>
+                            <td>Twice Line Frequency</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_Twice_Line_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_Twice_Line_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_Twice_Line_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>Pole Pass Frequency (Slipx Poles)</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_Pole_Pass_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_Pole_Pass_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_Pole_Pass_remark}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td>PPF with Side Band</td>
+                            <td colspan="2" style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_PPF_val}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_PPF_status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Motor_PPF_remark}}</td>
+                        </tr>
+                        {% endif%}
+                    </table>
+                    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                        <tr>
+                            <th>Bearings</th>
+                            <th>NDE</th>
+                            <th>DE</th>
+                            <th rowspan="2" colspan="2">Mul 1x</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                        </tr>
+                        {% if users%}      
+                        <tr>
+                            <td>No. of Balls</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Balls_NDE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Balls_DE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Balls_Status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Balls_Remarks}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td colspan="3">Ball Pass Inner Race (BPFI)</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Inner_Race_BPFI_NDE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Inner_Race_BPFI_DE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Inner_Race_BPFI_Status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Inner_Race_BPFI_Remarks}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td colspan="3">Ball Pass Out Race (BPFO)</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Out_Race_BPFO_NDE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Out_Race_BPFO_DE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Out_Race_BPFO_Status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Out_Race_BPFO_Remarks}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td colspan="3">Ball Spin Frequency (BSF)</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Spin_Frequency_BSF_NDE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Spin_Frequency_BSF_DE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Spin_Frequency_BSF_Status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_Spin_Frequency_BSF_Remarks}}</td>
+                        </tr>
+                        {% endif%}
+                        {% if users%}      
+                        <tr>
+                            <td colspan="3">Fundamental Train Frequency (FTF)</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_FTF_NDE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_FTF_DE}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_FTF_Status}}</td>
+                            <td style="font-size:14px; color: #222;">{{users.vib_trial_B_Bearings_FTF_Remarks}}</td>
+                        </tr>
+                        {% endif%}
+                    </table>
+                {% else %}
+                    <p>Not Applicable</p>
+                {% endif %}
+        <h4 style="margin-bottom: 2px;">6. &nbsp;&nbsp;Spectrums</h4>
+        <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr colspan="2">
+              <th width="3%">Sl No</th>
+              <th width="50%">Description</th>
+            </tr>
+                {% for ch in dynamic_spectrum %}
+                <tr>
+                    <td width="3%">{{forloop.counter}}</td>
+                    <td width="50%"> {{ch.spectrum_analysis_desc}}</td>
+                </tr>
+                {% endfor %}
+        </table>
+
+        <h4 style="margin-bottom: 2px;">7.&nbsp;&nbsp; Final Assessment and Recommendations</h4>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+                     
+                <tr>
+                    <td style="font-size:14px; color: #222;"> {{usersOne.vib_trial_B_Assess | safe}} </td>
+                </tr>
+                
+            </table>
+            <hr style="margin-top: 15px;margin-bottom: 15px;">
+
+        <h4>Trial Inspectors</h4>
+            <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            {% for user_detail in user_dict %}
+            <tr>
+                <td> {{forloop.counter}}.</td>
+                <td> {{user_detail.first_name}} {{user_detail.last_name}} ({{user_detail.loginname}})</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+        </table>
+    </div>
+   </body>
+</html>

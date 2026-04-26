@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;
+            font-family: Arial, Helvetica, sans-serif;
+         }
+         .wrapper{width: 100%;border-style: double; padding: 8px;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+          strong{font-weight: 600;}
+           body{font-family: Arial;} 
+         tr,th{text-align: start;}
+         tr,th{font-size: 14px;}
+         textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+                border: 1px solid #80808054;
+                margin: 10px;
+            }
+      </style>
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="heading-style2 heading-style3 text-center">
+            <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">FULL LOAD TRIALS VIKRAMADITYA</h2>
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">BOILER NOMENCLATURE DATE <span style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_BOILER_NOMEN_Date |date:'d/m/Y'}}</span></h2>
+         </div>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>SRPM</th>
+               <th>Steam drum pressure</th>
+               <th>Fuel Pressure Before Burner (MPa)/ No of Burner in Use</th>
+               <th>Boiler load (%)</th>
+               <th>Exhaust Gas Temp (&deg;c)</th>
+               <th>TBU RPM</th>
+               <th>Air casing pressure ("WG)</th>
+               <th>Ship staff Remarks</th>
+               <th>CBIU Remarks</th>
+            </tr>
+            {% if users %}
+            <tr>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_SRPM}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_Steam_drum_P}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_Fuel_P_Burner}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_Boiler_load}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_Exh_Gas_Temp}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_TBU_RPM}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_Air_casing_P}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_Ship_staff_Remarks}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_1_CBIU_Remarks}}</td>
+            </tr>
+            {% endif%}
+            {% if users%} 
+            <tr>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_SRPM}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_Steam_drum_P}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_Fuel_P_Burner}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_Boiler_load}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_Exh_Gas_Temp}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_TBU_RPM}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_Air_casing_P}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_Ship_staff_Remarks}}</td>
+               <td style="font-size:14px; color: #222;">{{users.VIKRAMADITYA_2_CBIU_Remarks}}</td>
+            </tr>
+            {% endif%}
+         </table>
+         <div class="heading-style2 heading-style3 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">FULL LOAD TRIALS JALASHWA</h2>
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">BOILER NOMENCLATURE DATE <span style="font-size:14px; color: #222;">{{users.JALASHWA_BOILER_NOMEN_Date |date:'d/m/Y'}}</span></h2>
+         </div>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th rowspan="2">SRPM</th>
+               <th rowspan="2">Steam drum pressure</th>
+               <th rowspan="2">Fuel pressure to burners (psi)/No of Burner in Use</th>
+               <th rowspan="2">Fuel pump discharge pressure (psi)</th>
+               <th rowspan="2">Boiler load (%)</th>
+               <th colspan="2">FD blower rpm</th>
+               <th rowspan="2">Air casing pressure ("WG)</th>
+               <th rowspan="2">Ship staff Remarks)</th>
+               <th rowspan="2">CBIU Remarks</th>
+            </tr>
+            <tr>
+               <th>A</th>
+               <th>B</th>
+            </tr>
+            {% if users%} 
+            <tr>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_SRPM}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_Steam_drum_P}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_Fuel_P_Burner}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_Fuel_P_discharge}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_Boiler_load}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_FD_blower_rpm_A}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_FD_blower_rpm_B}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_Air_casing_P}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_Ship_staff_Remarks}}</td>
+               <td style="font-size:14px; color: #222;">{{users.JALASHWA_CBIU_Remarks}}</td>
+ 
+            </tr>
+            {% endif%}
+         </table>
+         <div class="heading-style2 heading-style3 text-center">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">B CLASS</h2>
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;">BOILER NOMENCLATURE DATE <span style="font-size:14px; color: #222;">{{users.B_CLASS_BOILER_NOMEN_Date |date:'d/m/Y'}}</span></h2>
+         </div>
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>SRPM</th>
+               <th>Burner fuel pressure(bar)</th>
+               <th>FD blower RPM</th>
+               <th>Boiler load (%)</th>
+               <th>Fuel pump discharge pressure (bar)</th>
+               <th>Atomizing steam pressure(bar)</th>
+               <th>Ship staff Remarks</th>
+               <th>CBIU Remarks</th>
+            </tr>
+            {% if users%} 
+            <tr>
+               <td style="font-size:14px; color: #222;">{{users.B_CLASS_SRPM}}</td>
+               <td style="font-size:14px; color: #222;">{{users.B_CLASS_Burner_fuel_P}}</td>
+               <td style="font-size:14px; color: #222;">{{users.B_CLASS_FD_blower_RPM}}</td>
+               <td style="font-size:14px; color: #222;">{{users.B_CLASS_Boiler_load}}</td>
+               <td style="font-size:14px; color: #222;">{{users.B_CLASS_Fuel_pump_discharge}}</td>
+               <td style="font-size:14px; color: #222;">{{users.B_CLASS_Atomizing_steam_pressure}}</td>
+               <td style="font-size:14px; color: #222;">{{users.B_CLASS_Ship_staff_Remarks}}</td>
+               <td style="font-size:14px; color: #222;">{{users.B_CLASS_CBIU_Remarks}}</td>
+            </tr>
+            {% endif%}
+         </table>
+         <h4>Recommendations. Following recommended:</h4>
+         {%  with "service/approvals.html" as template %}   
+               {% include template %}
+               
+         {% endwith %}
+         <div class="clear"></div>
+      </div>
+      <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+         <tr>
+             <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+             <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://127.0.0.1:8000/{{qr}}"/></td>
+         </tr>
+     </table>
+
+     <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+      <tr style="border: 0; border-style:None;">
+          <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+          <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+      </tr>
+    </table>
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+   </body>
+</html>

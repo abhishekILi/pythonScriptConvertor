@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CBIU</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+        <meta name="pdfkit-page-size" content="Legal"/>
+        <meta name="pdfkit-orientation" content="Landscape"/>
+		<style type="text/css">
+            body{margin:50px 50px; size:landscape;}
+		.wrapper{width: 100%; margin: 20px auto;}
+		table{border-collapse: collapse;}
+		.clear{padding: 0; margin: 0; width: 100%; clear: both;}
+		.star{color: red;}
+    strong{font-weight: 600;}
+    body{margin:50px;background: #FFF !important;}
+		</style>		   
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="heading-style2">
+	        <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>ECONOMISER OPERATING PARAMETERS</strong></h2>
+	    </div>
+      
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        {% if users%}
+        <tr><td style="font-size:14px; color: #000;"><strong>BOILER NAME / LOCATION</strong></td>
+            <td style="font-size:14px; color: #222;">{{users.boiler_name}}</td>
+        </tr>
+        {% endif%}
+    </table>
+    <h4 style="margin: 10px 0 5px; font-size:14px;">Period</h4>
+    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        {% if users%}
+        <tr>
+            <td style="font-size:14px; color: #000;"><strong>FROM:</strong></td>
+            <td style="font-size:14px; color: #222;">{{users.period_from_date |date:'d/m/Y'}}</td>
+        </tr>
+        {% endif%}
+        {% if users%}
+        <tr>
+            <td style="font-size:14px; color: #000;"><strong>TO:</strong></td>
+            <td style="font-size:14px; color: #222;">{{users.period_to_date |date:'d/m/Y'}}</td>
+        </tr>
+        {% endif%}
+    </table>
+    <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+        <tr>
+            <th rowspan="4" style="font-size:13px; color: #000; font-weight: 600;">SL</th>
+            <th rowspan="4" style="font-size:13px; color: #000; font-weight: 600;">Shaft RPM</th>
+            <th rowspan="4" style="font-size:13px; color: #000; font-weight: 600;">Steaming Hours since last external cleaning</th>
+            <th rowspan="4" style="font-size:13px; color: #000;">Boiler air Casing Pressure(MM HG)</th>
+            <th rowspan="4" style="font-size:13px; color: #000; font-weight: 600;">Register DraughtLoos(RDL)</th>
+            <th rowspan="4" style="font-size:13px; color: #000; font-weight: 600;">Economiser Draught Loss(RDL)</th>
+            <th rowspan="4" style="font-size:13px; color: #000; font-weight: 600;">Feed WATER TEMP.AT FEED HEATER OUTLET(C)</th>
+            <th colspan="5" style="font-size:13px; color: #000; font-weight: 600;">Economiser Temprature(c)</th>
+            <th rowspan="4" style="font-size:13px; color: #000; font-weight: 600;">Occasion parameter recorded</th>
+        </tr>
+        <tr>
+            <th colspan="2" style="font-size:13px; color: #000;">Feed Water</th>
+            <th colspan="2" style="font-size:13px; color: #000;">Flue Gas</th>
+            <th rowspan="3" style="font-size:13px; color: #000;">About Economiser</th>
+        </tr>
+        <tr>
+            <th rowspan="2" style="font-size:13px; color: #000; font-weight: 600;">At inlet</th>
+            <th rowspan="2" style="font-size:13px; color: #000; font-weight: 600;">At outlet</th>
+            <th colspan="2" style="font-size:13px; color: #000; font-weight: 600;">Blower Economiser</th>
+        </tr>
+        <tr>
+            <th style="font-size:13px; color: #000;">Saturated Pass</th>
+            <th style="font-size:13px; color: #000; font-weight: 600;">Super Heater Pass</th>
+        </tr>
+        <tr>
+            <td>(1)</td>
+            <td>(2)</td>
+            <td>(3)</td>
+            <td>(4)</td>
+            <td>(5)</td>
+            <td>(6)</td>
+            <td>(7)</td>
+            <td>(8)</td>
+            <td>(9)</td>
+            <td>(10)</td>
+            <td>(11)</td>
+            <td>(12)</td>
+            <td>(13)</td>
+        </tr>
+        {% if users%}
+        <tr>
+             <td style="font-size:14px; color: #222;">{{users.SL}}</td>
+              <td style="font-size:14px; color: #222;">{{users.shaft_RPM}}</td>
+              <td style="font-size:14px; color: #222;">{{users.stream_hrs_external_clean}}</td>
+              <td style="font-size:14px; color: #222;">{{users.boiler_air_casing_P_MMHG}}</td>
+              <td style="font-size:14px; color: #222;">{{users.reg_draught_loss_RDL}}</td>
+              <td style="font-size:14px; color: #222;">{{users.eco_draught_loss_RDL}}</td>
+              <td style="font-size:14px; color: #222;">{{users.feed_water_temp_feed_heater_outlet}}</td>
+              <td style="font-size:14px; color: #222;">{{users.eco_temp_feedwater_inlet}}</td>
+              <td style="font-size:14px; color: #222;">{{users.eco_temp_feedwater_outlet}}</td>
+              <td style="font-size:14px; color: #222;">{{users.eco_temp_fluegas_blw_eco_saturated_pass}}</td>
+              <td style="font-size:14px; color: #222;">{{users.eco_temp_fluegas_blw_eco_superheat_pass}}</td>
+              <td style="font-size:14px; color: #222;">{{users.eco_temp_above_eco}}</td>
+              <td style="font-size:14px; color: #222;">{{users.occ_params_rec}}</td>
+        </tr>
+        {% endif%}
+    </table>
+    <p><strong>Ocassion Parameters Recorder</strong> (To Be Indicated in Colum 13).</p>
+    <ol type="1">
+        <li>ASAEC AND ASBEC - During auxilary steamings immediately AFTER and just BEFORE external cleaning if boiler</li>
+        <li>WABSA and BAASB - The worst and the best Parameters obtained over Month just BEFORE and AFTER soot blowings unders auxilary Steaming conditions</li>
+        <li>MSAEC and MSBEC - During main steamings at representative Shaft RPMs immidetaly after and just before external cleaning of boiler</li>
+        <li>WMBSB and BMASB - The worst and best parameters obtained just before and after soot blowings under main streaming conditions at representative shaft RPMs </li>
+        <li>BDRRM and adrrm - parameter obtained brfore and after rectification of defects/remedial measures undertaken </li>
+    </ol>
+
+    <h4>Recommendations. Following recommended:</h4>
+    {%  with "service/approvals.html" as template %}   
+          {% include template %}
+          
+    {% endwith %}
+    <div class="clear"></div>
+
+		</div>
+        <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+	</body>
+	 
+</html>	

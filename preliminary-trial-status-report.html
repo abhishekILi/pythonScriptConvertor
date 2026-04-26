@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Landscape" />
+    <style type="text/css">
+        body {
+            margin: 50px 50px;
+            size: landscape;
+        }
+
+        .wrapper {
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .clear {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            clear: both;
+        }
+
+        .star {
+            color: red;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        tr,
+        th {
+            text-align: start;
+        }
+
+        tr,
+        th {
+            font-size: 14px;
+        }
+
+        table {
+            border: 1px solid lightgray;
+            font-size: 12px;
+            padding: 0px;
+            margin: 0px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table tr {
+            margin: 0px !important;
+        }
+
+        table tr th {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align:left;
+        }
+
+        table tr td {
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+            text-align:left;
+        }
+
+        textarea {
+            width: 100%;
+            font-size: 12px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            display: none;
+        }
+
+        .btn {
+            display: none;
+        }
+
+        @media print {
+
+            button,
+            input[type="button"],
+            input[type="submit"],
+            input[type="reset"] {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+      <div class="container-fluid">
+         <div class="row mt-5">
+            <div class="col-md-12">
+               <div class="panel-right">
+              
+                <div class="panel-row">
+                    <div class="heading-style2 text-center">
+                        <h2>Preliminary Trial Status Report</h2>
+                    </div>
+                  <table class="table table-bordered table-form-color1 tabletd-color">
+                      <tr>
+                          <td><strong>Ship :</strong></td>
+                          <td width="25%" colspan="2">{{users.Refit_Ship}}</td>
+                          <td class="td-bluelight"><strong>Refit Type :</strong></td>
+                          <td>{{users.Refit_Type}}</td>
+                          <td class="td-bluelight"><strong>Repair/ Routine :</strong></td>
+                          <td>{{users.Repair_routine}}</td>
+                          <td class="td-bluelight" width="10%"><strong>Year:</strong></td>
+                          <td>{{users.year}}</td>
+                          
+                      </tr>
+                      <tr>
+                          
+                          <td class="td-bluelight"><strong>Trial Type :</strong></td>
+                          <td width="25%" colspan="2">{{users.trial_type}}</td>
+                          <td class="td-bluelight"><strong>Component :</strong></td>
+                          <td>{{users.Refit_Component}}</td>
+                          <td class="td-bluelight"><strong>CMMS Code :</strong></td>
+                          <td colspan="3">{{users.Refit_cmms_code}}</td>
+                      </tr>
+                      
+                  </table>
+                  <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr>
+                      <td  class="td-bluelight"><strong>Trial Inspector :</strong></td>
+                      <td>{{users.Refit_inspector}}</td>
+                      <td class="td-bluelight"><strong>Date :</strong></td>
+                      <td>{{users.Refit_Trials_taken_by}}</td>
+                    </tr>
+                  </table>
+                  <div class="heading-style2 text-center">
+                      <h2>Trial Status</h2>
+                  </div>
+                  <table class="table table-bordered table-form-color1 tabletd-color">
+                      <tr>
+                          <td>Safety Device Checks</td>
+                          <td>
+                              {{users.Refit_sdc}}
+                            </td>
+                      </tr>
+                      <tr>
+                          <td>Performance</td>
+                          <td>
+                              {{users.Refit_performance}}
+                            </td>
+                      </tr>
+                      <tr>
+                          <td>Vibration</td>
+                          <td>
+                              {{users.Refit_vib}}
+                            </td>
+                      </tr>
+                      <tr>
+                          <td>Attenuation</td>
+                          <td>
+                              {{users.Refit_attenuation}}
+                            </td>
+                      </tr>
+                      <tr>
+                          <td>Status</td>
+                         <td>{{users.Refit_final_Status}}</td>
+                            
+                      </tr>
+                      <tr>
+                          <td width="15%"><strong>Observations:</strong></td>
+                          <td>{{users.Refit_Final_obs}}</td>
+                      </tr>
+                      <tr>
+                          <td width="15%"><strong>Remarks:</strong></td>
+                          <td>{{users.Refit_Trials_remark}}</td>
+                      </tr>
+                  </table>
+                 
+                       
+                </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+        </tr>
+    </table>
+</body>
+
+</html>
+   
+  
+  

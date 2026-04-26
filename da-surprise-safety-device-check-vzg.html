@@ -1,0 +1,816 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>da-surprise-safety-device-check-vzg</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="description" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape; font-family: Arial; letter-spacing:1px;}
+         .wrapper{width: 100%;border-style: double; padding: 8px;}
+        
+         tr,
+         th {
+           text-align: start;
+         }
+     
+         tr,
+         th {
+           font-size: 14px;
+         }
+     
+         .table {
+           border: 1px solid lightgray;
+           font-size: 12px;
+           padding: 0px;
+           margin: 0px;
+           border-collapse: collapse;
+           width: 100%;
+         }
+         .textarea{
+            width: 100%;
+            min-height: 80px;
+            /* padding: 10px; */
+            font-size: 12px;
+            resize: none;
+            overflow-y: hidden;
+            border: 1px solid black;
+            padding: 4px;
+            text-align:left;
+        }
+      
+         .table tr {
+           margin: 0px !important;
+           text-align:left;
+         }
+     
+         .table tr th {
+           background-color: #80808054;
+           padding: 0px;
+           margin: 0px;
+           border: 1px solid black;
+           text-align: center;
+           padding: 2px 2px 2px 2px;
+         }
+     
+         .table tr td {
+           background-color: #80808054;
+           padding: 0px;
+           margin: 0px;
+           border: 1px solid black;
+           padding: 2px 2px 2px 2px;
+           text-align:left;
+         }
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+         tr,th{font-size: 14px;}
+      </style>
+   </head>
+   <body>
+    <div class="wrapper">
+        
+
+         <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+          </div>
+           <div class="heading-style2 heading-style3 text-center">
+            <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-bottom: 10px;position: relative;left: 45%;" src="http://159.12.45.106:8000/media/satellite_unit_image/DTTT_Logo_ucOIgyz.jpg" class="ng-star-inserted">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DTTT VIZAG</h2>       
+              <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align:center;">DA SURPRISE SAFTEY DEVICE CHECKS</h2>              
+           </div>
+
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            
+            <tr>
+               <td width="15%"><strong>Ship :</strong></td>
+               <td style="font-size:14px; color: #222;">{{ship_name}}</td>
+               <td class="td-bluelight" width="15%"><strong>Date :</strong></td>   
+               <td style="font-size:14px; color: #222;">{{users.dassdc_date}}</td>
+            </tr>
+            
+            <tr>
+               <td width="15%"><strong>Occasion for Trial :</strong></td>
+               <td style="font-size:14px; color: #222;">{{users.dassdc_occasion_of_trial}}</td>
+               <td class="td-bluelight" width="15%"><strong>R/H Since Installation :</strong></td>
+               <td style="font-size:14px; color: #222;">{{users.dassdc_rh_since_install}}</td>
+            </tr>
+
+            <tr>
+               <td width="15%"><strong>Make :</strong></td>
+               <td style="font-size:14px; color: #222;">{{users.dassdc_make}}</td>
+               <td class="td-bluelight" width="15%"><strong>Model :</strong></td>
+               <td style="font-size:14px; color: #222;">{{users.dassdc_model}}</td>
+            </tr>
+            
+         </table>
+         <table border="1">
+         <tr>
+            <td width="15%"><strong>Equipment :</strong></td>
+            <td style="font-size:14px; color: #222;">{{equipment_name}}</td>
+         </tr>
+      </table>
+
+         <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+            <tr>
+               <th>Ser</th>
+               <th>Parameters</th>
+               <th>Location</th>
+               <th>Limits</th>
+               <th>Obs Value</th>
+               <th>Remarks</th>
+            </tr>
+               <tr>
+                  <td>1.</td>
+                  <td>EMERGENCY STOP LOCAL</td>
+
+                  <td>{{users.das_emergency_stop_local_loc}}</td>
+                  <td>{{users.das_emergency_stop_local_limit}}</td>
+                  <td>{{users.das_emergency_stop_local_obs_val}}</td>
+                  <td>{{users.das_emergency_stop_local_remark}}</td>
+               </tr>
+               <tr>
+                  <td>2.</td>
+                  <td>EMERGENCY STOP REMOTE</td>
+
+                  <td>{{users.das_emergency_stop_remote_loc}}</td>
+                  <td>{{users.das_emergency_stop_remote_limit}}</td>
+                  <td>{{users.das_emergency_stop_remote_obs_val}}</td>
+                  <td>{{users.das_emergency_stop_remote_remark}}</td>
+               </tr>
+               <tr>
+                  <td>3.</td>
+                  <td>EMERGENCY STOP PUSH BUTTON</td>
+
+                  <td>{{users.das_emergency_stop_push_button_loc}}</td>
+                  <td>{{users.das_emergency_stop_push_button_limit}}</td>
+                  <td>{{users.das_emergency_stop_push_button_obs_val}}</td>
+                  <td>{{users.das_emergency_stop_push_button_remark}}</td>
+               </tr>
+               <tr>
+                  <td>4.</td>
+                  <td>EMERGENCY TRIP FROM DAY PANEL SIGNAL</td>
+
+                  <td>{{users.das_emergency_trip_from_day_panel_signal_loc}}</td>
+                  <td>{{users.das_emergency_trip_from_day_panel_signal_limit}}</td>
+                  <td>{{users.das_emergency_trip_from_day_panel_signal_obs_val}}</td>
+                  <td>{{users.das_emergency_trip_from_day_panel_signal_remark}}</td>
+               </tr>
+               <tr>
+                  <td>5.</td>
+                  <td>EMERGENCY TRIP FROM LOCAL GOVERNOR</td>
+
+                  <td>{{users.das_emergency_trip_from_local_governor_loc}}</td>
+                  <td>{{users.das_emergency_trip_from_local_governor_limit}}</td>
+                  <td>{{users.das_emergency_trip_from_local_governor_obs_val}}</td>
+                  <td>{{users.das_emergency_trip_from_local_governor_remark}}</td>
+               </tr>
+               <tr>
+                  <td>6.</td>
+                  <td>EMERGENCY TRIP FROM SH RUB</td>
+
+                  <td>{{users.das_emergency_trip_from_shrub_loc}}</td>
+                  <td>{{users.das_emergency_trip_from_shrub_limit}}</td>
+                  <td>{{users.das_emergency_trip_from_shrub_obs_val}}</td>
+                  <td>{{users.das_emergency_trip_from_shrub_remark}}</td>
+               </tr>
+               <tr>
+                  <td>7.</td>
+                  <td>EMERGENCY DIVE PUSH BUTTON</td>
+
+                  <td>{{users.das_emergency_dive_push_button_loc}}</td>
+                  <td>{{users.das_emergency_dive_push_button_limit}}</td>
+                  <td>{{users.das_emergency_dive_push_button_obs_val}}</td>
+                  <td>{{users.das_emergency_dive_push_button_remark}}</td>
+               </tr>
+               <tr>
+                  <td>8.</td>
+                  <td>EMERGENCY SHUT OFF PUSH BUTTON ON DIESEL EXHAUST PANEL</td>
+
+                  <td>{{users.das_emergency_off_push_b_exhaust_panel_loc}}</td>
+                  <td>{{users.das_emergency_off_push_b_exhaust_panel_limit}}</td>
+                  <td>{{users.das_emergency_off_push_b_exhaust_panel_obs_val}}</td>
+                  <td>{{users.das_emergency_off_push_b_exhaust_panel_remark}}</td>
+               </tr>
+               <tr>
+                  <td>9.</td>
+                  <td>LOCAL EMERGENCY STOP PUSH BUTTON</td>
+
+                  <td>{{users.das_local_emergency_stop_push_button_loc}}</td>
+                  <td>{{users.das_local_emergency_stop_push_button_limit}}</td>
+                  <td>{{users.das_local_emergency_stop_push_button_obs_val}}</td>
+                  <td>{{users.das_local_emergency_stop_push_button_remark}}</td>
+               </tr>
+               <tr>
+                  <td>10.</td>
+                  <td>LOW LUB OIL PRESSURE</td>
+
+                  <td>{{users.das_low_lub_oil_pressure_loc}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_limit}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_obs_val}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_remark}}</td>
+               </tr>
+               <tr>
+                  <td>11.</td>
+                  <td>LUBRICATING OIL VERY LOW PR  1300 RPM</td>
+
+                  <td>{{users.das_lubricating_oil_very_low_pr_1300_rpm_loc}}</td>
+                  <td>{{users.das_lubricating_oil_very_low_pr_1300_rpm_limit}}</td>
+                  <td>{{users.das_lubricating_oil_very_low_pr_1300_rpm_obs_val}}</td>
+                  <td>{{users.das_lubricating_oil_very_low_pr_1300_rpm_remark}}</td>
+               </tr>
+               <tr>
+                  <td>12.</td>
+                  <td>HIGH COOLANT TEMPERATURE</td>
+
+                  <td>{{users.das_high_coolant_temperature_loc}}</td>
+                  <td>{{users.das_high_coolant_temperature_limit}}</td>
+                  <td>{{users.das_high_coolant_temperature_obs_val}}</td>
+                  <td>{{users.das_high_coolant_temperature_remark}}</td>
+               </tr>
+               <tr>
+                  <td>13.</td>
+                  <td>LUB OIL TEMPERATURE VERY HIGH</td>
+
+                  <td>{{users.das_lub_oil_temperature_very_high_loc}}</td>
+                  <td>{{users.das_lub_oil_temperature_very_high_limit}}</td>
+                  <td>{{users.das_lub_oil_temperature_very_high_obs_val}}</td>
+                  <td>{{users.das_lub_oil_temperature_very_high_remark}}</td>
+               </tr>
+               <tr>
+                  <td>14.</td>
+                  <td>OVER SPEED SAFETY STOP</td>
+
+                  <td>{{users.das_over_speed_safety_stop_loc}}</td>
+                  <td>{{users.das_over_speed_safety_stop_limit}}</td>
+                  <td>{{users.das_over_speed_safety_stop_obs_val}}</td>
+                  <td>{{users.das_over_speed_safety_stop_remark}}</td>
+               </tr>
+               <tr>
+                  <td>15.</td>
+                  <td>OVERSPEED 1</td>
+
+                  <td>{{users.das_overspeed_1_loc}}</td>
+                  <td>{{users.das_overspeed_1_limit}}</td>
+                  <td>{{users.das_overspeed_1_obs_val}}</td>
+                  <td>{{users.das_overspeed_1_remark}}</td>
+               </tr>
+               <tr>
+                  <td>16.</td>
+                  <td>OVERSPEED 2</td>
+
+                  <td>{{users.das_overspeed_2_loc}}</td>
+                  <td>{{users.das_overspeed_2_limit}}</td>
+                  <td>{{users.das_overspeed_2_obs_val}}</td>
+                  <td>{{users.das_overspeed_2_remark}}</td>
+               </tr>
+               <tr>
+                  <td>17.</td>
+                  <td>OVERSPEED TRIP</td>
+
+                  <td>{{users.das_overspeed_trip_loc}}</td>
+                  <td>{{users.das_overspeed_trip_limit}}</td>
+                  <td>{{users.das_overspeed_trip_obs_val}}</td>
+                  <td>{{users.das_overspeed_trip_remark}}</td>
+               </tr>
+               <tr>
+                  <td>18.</td>
+                  <td>LOW COOLING OIL PRESSURE</td>
+
+                  <td>{{users.das_low_cooling_oil_pressure_loc}}</td>
+                  <td>{{users.das_low_cooling_oil_pressure_limit}}</td>
+                  <td>{{users.das_low_cooling_oil_pressure_obs_val}}</td>
+                  <td>{{users.das_low_cooling_oil_pressure_remark}}</td>
+               </tr>
+               <tr>
+                  <td>19.</td>
+                  <td>DG COMPARTMENT VERY LOW PR DG BREAKER TRIP</td>
+
+                  <td>{{users.das_dg_compartment_very_low_pr_dg_breaker_trip_loc}}</td>
+                  <td>{{users.das_dg_compartment_very_low_pr_dg_breaker_trip_limit}}</td>
+                  <td>{{users.das_dg_compartment_very_low_pr_dg_breaker_trip_obs_val}}</td>
+                  <td>{{users.das_dg_compartment_very_low_pr_dg_breaker_trip_remark}}</td>
+               </tr>
+               <tr>
+                  <td>20.</td>
+                  <td>DG COMPARTMENT VERY LOW PR DIESEL TRIP</td>
+
+                  <td>{{users.das_dg_compartment_very_low_pr_diesel_trip_loc}}</td>
+                  <td>{{users.das_dg_compartment_very_low_pr_diesel_trip_limit}}</td>
+                  <td>{{users.das_dg_compartment_very_low_pr_diesel_trip_obs_val}}</td>
+                  <td>{{users.das_dg_compartment_very_low_pr_diesel_trip_remark}}</td>
+               </tr>
+               <tr>
+                  <td>21.</td>
+                  <td>CYLINDER GROUP A1,A2 AND A3 VERY HIGH TEMPERATURE</td>
+
+                  <td>{{users.das_cylinder_group_a1a2_and_a3_very_high_temperature_loc}}</td>
+                  <td>{{users.das_cylinder_group_a1a2_and_a3_very_high_temperature_limit}}</td>
+                  <td>{{users.das_cylinder_group_a1a2_and_a3_vht_obs_val}}</td>
+                  <td>{{users.das_cylinder_group_a1a2_and_a3_vht_remark}}</td>
+               </tr>
+               <tr>
+                  <td>22.</td>
+                  <td>CYLINDER GROUP A4,A5 AND A6 VERY HIGH TEMPERATURE</td>
+
+                  <td>{{users.das_cylinder_group_a4a5_and_a6_vht_loc}}</td>
+                  <td>{{users.das_cylinder_group_a4a5_and_a6_vht_limit}}</td>
+                  <td>{{users.das_cylinder_group_a4a5_and_a6_vht_obs_val}}</td>
+                  <td>{{users.das_cylinder_group_a4a5_and_a6_vht_remark}}</td>
+               </tr>
+               <tr>
+                  <td>23.</td>
+                  <td>CYLINDER GROUP B1, B2 AND B3 VERY HIGH TEMPERATURE</td>
+
+                  <td>{{users.das_cylinder_group_b1_b2_and_b3_vht_loc}}</td>
+                  <td>{{users.das_cylinder_group_b1_b2_and_b3_vht_limit}}</td>
+                  <td>{{users.das_cylinder_group_b1_b2_and_b3_vht_obs_val}}</td>
+                  <td>{{users.das_cylinder_group_b1_b2_and_b3_vht_remark}}</td>
+               </tr>
+               <tr>
+                  <td>24.</td>
+                  <td>CYLINDER GROUP B4, B5 AND B6 VERY HIGH TEMPERATURE</td>
+
+                  <td>{{users.das_cylinder_group_b4_b5_and_b6_vht_loc}}</td>
+                  <td>{{users.das_cylinder_group_b4_b5_and_b6_vht_limit}}</td>
+                  <td>{{users.das_cylinder_group_b4_b5_and_b6_vht_obs_val}}</td>
+                  <td>{{users.das_cylinder_group_b4_b5_and_b6_vht_remark}}</td>
+               </tr>
+               <tr>
+                  <td>25.</td>
+                  <td>EXCESS SNORKEL DEPTH INPUT FROM SNORKEL CONTROL</td>
+
+                  <td>{{users.das_excess_snorkel_depth_ifsc_loc}}</td>
+                  <td>{{users.das_excess_snorkel_depth_ifsc_limit}}</td>
+                  <td>{{users.das_excess_snorkel_depth_ifsc_obs_val}}</td>
+                  <td>{{users.das_excess_snorkel_depth_ifsc_remark}}</td>
+               </tr>
+               <tr>
+                  <td>26.</td>
+                  <td>EXHAUST DECOMPRESSION VALVE CLOSING FAILURE</td>
+
+                  <td>{{users.das_exhaust_decompression_valve_closing_failure_loc}}</td>
+                  <td>{{users.das_exhaust_decompression_valve_closing_failure_limit}}</td>
+                  <td>{{users.das_exhaust_decompression_valve_closing_failure_obs_val}}</td>
+                  <td>{{users.das_exhaust_decompression_valve_closing_failure_remark}}</td>
+               </tr>
+               <tr>
+                  <td>27.</td>
+                  <td>FLAP PROTECTION RELAY TRIP DUE TO SHUTTING OF  SURFACE EXHAUST FLAP</td>
+
+                  <td>{{users.das_flap_protection_relay_trip_dssc_flap_loc}}</td>
+                  <td>{{users.das_flap_protection_relay_trip_dssc_flap_limit}}</td>
+                  <td>{{users.das_flap_protection_relay_trip_dssc_flap_obs_val}}</td>
+                  <td>{{users.das_flap_protection_relay_trip_dssc_flap_remark}}</td>
+               </tr>
+               <tr>
+                  <td>28.</td>
+                  <td>FLAP PROTECTION RELAY TRIP DUE TO SHUTTING OF SNORT EXHAUST FLAP</td>
+
+                  <td>{{users.das_flap_protection_relay_trip_dsse_flap_loc}}</td>
+                  <td>{{users.das_flap_protection_relay_trip_dsse_flap_limit}}</td>
+                  <td>{{users.das_flap_protection_relay_trip_dsse_flap_obs_val}}</td>
+                  <td>{{users.das_flap_protection_relay_trip_dsse_flap_remark}}</td>
+               </tr>
+               <tr>
+                  <td>29.</td>
+                  <td>FRESH WATER EXPANSION TANK VERY LOW LEVEL</td>
+
+                  <td>{{users.das_fresh_water_expansion_tank_very_low_level_loc}}</td>
+                  <td>{{users.das_fresh_water_expansion_tank_very_low_level_limit}}</td>
+                  <td>{{users.das_fresh_water_expansion_tank_very_low_level_obs_val}}</td>
+                  <td>{{users.das_fresh_water_expansion_tank_very_low_level_remark}}</td>
+               </tr>
+               <tr>
+                  <td>30.</td>
+                  <td>FRESH WATER PRESS VERY LOW</td>
+
+                  <td>{{users.das_fresh_water_press_very_low_loc}}</td>
+                  <td>{{users.das_fresh_water_press_very_low_limit}}</td>
+                  <td>{{users.das_fresh_water_press_very_low_obs_val}}</td>
+                  <td>{{users.das_fresh_water_press_very_low_remark}}</td>
+               </tr>
+               <tr>
+                  <td>31.</td>
+                  <td>HIGH ALT BEARING TEMP DRIVE END</td>
+
+                  <td>{{users.das_high_alt_bearing_temp_drive_end_loc}}</td>
+                  <td>{{users.das_high_alt_bearing_temp_drive_end_limit}}</td>
+                  <td>{{users.das_high_alt_bearing_temp_drive_end_obs_val}}</td>
+                  <td>{{users.das_high_alt_bearing_temp_drive_end_remark}}</td>
+               </tr>
+               <tr>
+                  <td>32.</td>
+                  <td>HIGH ALT BEARING TEMP NONDRIVE END</td>
+
+                  <td>{{users.das_high_alt_bearing_temp_nondrive_end_loc}}</td>
+                  <td>{{users.das_high_alt_bearing_temp_nondrive_end_limit}}</td>
+                  <td>{{users.das_high_alt_bearing_temp_nondrive_end_obs_val}}</td>
+                  <td>{{users.das_high_alt_bearing_temp_nondrive_end_remark}}</td>
+               </tr>
+               <tr>
+                  <td>33.</td>
+                  <td>HIGH EXHAUST TEMP LEFT BANK</td>
+
+                  <td>{{users.das_high_exhaust_temp_left_bank_loc}}</td>
+                  <td>{{users.das_high_exhaust_temp_left_bank_limit}}</td>
+                  <td>{{users.das_high_exhaust_temp_left_bank_obs_val}}</td>
+                  <td>{{users.das_high_exhaust_temp_left_bank_remark}}</td>
+               </tr>
+               <tr>
+                  <td>34.</td>
+                  <td>HIGH EXHAUST TEMP RIGHT BANK</td>
+
+                  <td>{{users.das_high_exhaust_temp_right_bank_loc}}</td>
+                  <td>{{users.das_high_exhaust_temp_right_bank_limit}}</td>
+                  <td>{{users.das_high_exhaust_temp_right_bank_obs_val}}</td>
+                  <td>{{users.das_high_exhaust_temp_right_bank_remark}}</td>
+               </tr>
+               <tr>
+                  <td>35.</td>
+                  <td>HIGH EXHAUST TEMPERATURE</td>
+
+                  <td>{{users.das_high_exhaust_temperature_loc}}</td>
+                  <td>{{users.das_high_exhaust_temperature_limit}}</td>
+                  <td>{{users.das_high_exhaust_temperature_obs_val}}</td>
+                  <td>{{users.das_high_exhaust_temperature_remark}}</td>
+               </tr>
+               <tr>
+                  <td>36.</td>
+                  <td>HIGH EXHT GAS BACK PRESS PORT BANK</td>
+
+                  <td>{{users.das_high_exht_gas_back_press_port_bank_loc}}</td>
+                  <td>{{users.das_high_exht_gas_back_press_port_bank_limit}}</td>
+                  <td>{{users.das_high_exht_gas_back_press_port_bank_obs_val}}</td>
+                  <td>{{users.das_high_exht_gas_back_press_port_bank_remark}}</td>
+               </tr>
+               <tr>
+                  <td>37.</td>
+                  <td>HIGH EXHT GAS BACK PRESS STBD BANK</td>
+
+                  <td>{{users.das_high_exht_gas_back_press_stbd_bank_loc}}</td>
+                  <td>{{users.das_high_exht_gas_back_press_stbd_bank_limit}}</td>
+                  <td>{{users.das_high_exht_gas_back_press_stbd_bank_obs_val}}</td>
+                  <td>{{users.das_high_exht_gas_back_press_stbd_bank_remark}}</td>
+               </tr>
+               <tr>
+                  <td>38.</td>
+                  <td>HIGH WINDING TEMP B1</td>
+
+                  <td>{{users.das_high_winding_temp_b1_loc}}</td>
+                  <td>{{users.das_high_winding_temp_b1_limit}}</td>
+                  <td>{{users.das_high_winding_temp_b1_obs_val}}</td>
+                  <td>{{users.das_high_winding_temp_b1_remark}}</td>
+               </tr>
+               <tr>
+                  <td>39.</td>
+                  <td>HIGH WINDING TEMP B2</td>
+
+                  <td>{{users.das_high_winding_temp_b2_loc}}</td>
+                  <td>{{users.das_high_winding_temp_b2_limit}}</td>
+                  <td>{{users.das_high_winding_temp_b2_obs_val}}</td>
+                  <td>{{users.das_high_winding_temp_b2_remark}}</td>
+               </tr>
+               <tr>
+                  <td>40.</td>
+                  <td>HIGH WINDING TEMP R1</td>
+
+                  <td>{{users.das_high_winding_temp_r1_loc}}</td>
+                  <td>{{users.das_high_winding_temp_r1_limit}}</td>
+                  <td>{{users.das_high_winding_temp_r1_obs_val}}</td>
+                  <td>{{users.das_high_winding_temp_r1_remark}}</td>
+               </tr>
+               <tr>
+                  <td>41.</td>
+                  <td>HIGH WINDING TEMP R2</td>
+
+                  <td>{{users.das_high_winding_temp_r2_loc}}</td>
+                  <td>{{users.das_high_winding_temp_r2_limit}}</td>
+                  <td>{{users.das_high_winding_temp_r2_obs_val}}</td>
+                  <td>{{users.das_high_winding_temp_r2_remark}}</td>
+               </tr>
+               <tr>
+                  <td>42.</td>
+                  <td>HIGH WINDING TEMP Y1</td>
+
+                  <td>{{users.das_high_winding_temp_y1_loc}}</td>
+                  <td>{{users.das_high_winding_temp_y1_limit}}</td>
+                  <td>{{users.das_high_winding_temp_y1_obs_val}}</td>
+                  <td>{{users.das_high_winding_temp_y1_remark}}</td>
+               </tr>
+               <tr>
+                  <td>43.</td>
+                  <td>HIGH WINDING TEMP Y2</td>
+
+                  <td>{{users.das_high_winding_temp_y2_loc}}</td>
+                  <td>{{users.das_high_winding_temp_y2_limit}}</td>
+                  <td>{{users.das_high_winding_temp_y2_obs_val}}</td>
+                  <td>{{users.das_high_winding_temp_y2_remark}}</td>
+               </tr>
+               <tr>
+                  <td>44.</td>
+                  <td>LOW LUB OIL BENGINE IDLE</td>
+
+                  <td>{{users.das_low_lub_oil_bengine_idle_loc}}</td>
+                  <td>{{users.das_low_lub_oil_bengine_idle_limit}}</td>
+                  <td>{{users.das_low_lub_oil_bengine_idle_obs_val}}</td>
+                  <td>{{users.das_low_lub_oil_bengine_idle_remark}}</td>
+               </tr>
+               <tr>
+                  <td>45.</td>
+                  <td>LOW LUB OIL BENGINE RATED</td>
+
+                  <td>{{users.das_low_lub_oil_bengine_rated_loc}}</td>
+                  <td>{{users.das_low_lub_oil_bengine_rated_limit}}</td>
+                  <td>{{users.das_low_lub_oil_bengine_rated_obs_val}}</td>
+                  <td>{{users.das_low_lub_oil_bengine_rated_remark}}</td>
+               </tr>
+               <tr>
+                  <td>46.</td>
+                  <td>LOW LUB OIL PRESSURE TRIP AT 300 RPM</td>
+
+                  <td>{{users.das_low_lub_oil_pressure_trip_at_300_rpm_loc}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_trip_at_300_rpm_limit}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_trip_at_300_rpm_obs_val}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_trip_at_300_rpm_remark}}</td>
+               </tr>
+               <tr>
+                  <td>47.</td>
+                  <td>LOW LUB OIL PRESSURE TRIP AT 700 RPM</td>
+
+                  <td>{{users.das_low_lub_oil_pressure_trip_at_700_rpm_loc}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_trip_at_700_rpm_limit}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_trip_at_700_rpm_obs_val}}</td>
+                  <td>{{users.das_low_lub_oil_pressure_trip_at_700_rpm_remark}}</td>
+               </tr>
+               <tr>
+                  <td>48.</td>
+                  <td>LOW SPEED RELAY TRIP</td>
+
+                  <td>{{users.das_low_speed_relay_trip_loc}}</td>
+                  <td>{{users.das_low_speed_relay_trip_limit}}</td>
+                  <td>{{users.das_low_speed_relay_trip_obs_val}}</td>
+                  <td>{{users.das_low_speed_relay_trip_remark}}</td>
+               </tr>
+               <tr>
+                  <td>49.</td>
+                  <td>REMOTE EMERGENCY STOP PUSH BUTTON</td>
+
+                  <td>{{users.das_remote_emergency_stop_push_button_loc}}</td>
+                  <td>{{users.das_remote_emergency_stop_push_button_limit}}</td>
+                  <td>{{users.das_remote_emergency_stop_push_button_obs_val}}</td>
+                  <td>{{users.das_remote_emergency_stop_push_button_remark}}</td>
+               </tr>
+               <tr>
+                  <td>50.</td>
+                  <td>STOPING OF DIESEL WITH DEPTH EGP TRIP MTRS</td>
+
+                  <td>{{users.das_stoping_of_diesel_with_depth_egp_trip_mtrs_loc}}</td>
+                  <td>{{users.das_stoping_of_diesel_with_depth_egp_trip_mtrs_limit}}</td>
+                  <td>{{users.das_stoping_of_diesel_with_depth_egp_trip_mtrs_obs_val}}</td>
+                  <td>{{users.das_stoping_of_diesel_with_depth_egp_trip_mtrs_remark}}</td>
+               </tr>
+               <tr>
+                  <td>51.</td>
+                  <td>TRIP FROM DAY PANEL</td>
+
+                  <td>{{users.das_trip_from_day_panel_loc}}</td>
+                  <td>{{users.das_trip_from_day_panel_limit}}</td>
+                  <td>{{users.das_trip_from_day_panel_obs_val}}</td>
+                  <td>{{users.das_trip_from_day_panel_remark}}</td>
+               </tr>
+               <tr>
+                  <td>52.</td>
+                  <td>TURBO CHARGER OUTLET EXHAUST GAS VERY HIGH TEMP</td>
+
+                  <td>{{users.das_turbo_charger_ovgeh_temp_loc}}</td>
+                  <td>{{users.das_turbo_charger_ovgeh_temp_limit}}</td>
+                  <td>{{users.das_turbo_charger_ovgeh_temp_obs_val}}</td>
+                  <td>{{users.das_turbo_charger_ovgeh_temp_remark}}</td>
+               </tr>
+               <tr>
+                  <td>53.</td>
+                  <td>TURNING BAR ENGAGED</td>
+
+                  <td>{{users.das_turning_bar_engaged_loc}}</td>
+                  <td>{{users.das_turning_bar_engaged_limit}}</td>
+                  <td>{{users.das_turning_bar_engaged_obs_val}}</td>
+                  <td>{{users.das_turning_bar_engaged_remark}}</td>
+               </tr>
+               <tr>
+                  <td>54.</td>
+                  <td>UNDER VACCUM CONTOL ROOM PORT SIDE</td>
+
+                  <td>{{users.das_under_vaccum_contol_room_port_side_loc}}</td>
+                  <td>{{users.das_under_vaccum_contol_room_port_side_limit}}</td>
+                  <td>{{users.das_under_vaccum_contol_room_port_side_obs_val}}</td>
+                  <td>{{users.das_under_vaccum_contol_room_port_side_remark}}</td>
+               </tr>
+               <tr>
+                  <td>55.</td>
+                  <td>UNDER VACCUM CONTOL ROOM STBD SIDE</td>
+
+                  <td>{{users.das_under_vaccum_contol_room_stbd_side_loc}}</td>
+                  <td>{{users.das_under_vaccum_contol_room_stbd_side_limit}}</td>
+                  <td>{{users.das_under_vaccum_contol_room_stbd_side_obs_val}}</td>
+                  <td>{{users.das_under_vaccum_contol_room_stbd_side_remark}}</td>
+               </tr>
+               <tr>
+                  <td>56.</td>
+                  <td>UNDER VACCUM ENGINE ROOM PORT SIDE</td>
+
+                  <td>{{users.das_under_vaccum_engine_room_port_side_loc}}</td>
+                  <td>{{users.das_under_vaccum_engine_room_port_side_limit}}</td>
+                  <td>{{users.das_under_vaccum_engine_room_port_side_obs_val}}</td>
+                  <td>{{users.das_under_vaccum_engine_room_port_side_remark}}</td>
+               </tr>
+               <tr>
+                  <td>57.</td>
+                  <td>UNDER VACCUM ENGINE ROOM STBD SIDE</td>
+
+                  <td>{{users.das_under_vaccum_engine_room_stbd_side_loc}}</td>
+                  <td>{{users.das_under_vaccum_engine_room_stbd_side_limit}}</td>
+                  <td>{{users.das_under_vaccum_engine_room_stbd_side_obs_val}}</td>
+                  <td>{{users.das_under_vaccum_engine_room_stbd_side_remark}}</td>
+               </tr>
+               <tr>
+                  <td>58.</td>
+                  <td>UNDERSPEED</td>
+
+                  <td>{{users.das_underspeed_loc}}</td>
+                  <td>{{users.das_underspeed_limit}}</td>
+                  <td>{{users.das_underspeed_obs_val}}</td>
+                  <td>{{users.das_underspeed_remark}}</td>
+               </tr>
+               <tr>
+                  <td>59.</td>
+                  <td>WATER INRUSH SNORKEL</td>
+
+                  <td>{{users.das_water_inrush_snorkel_loc}}</td>
+                  <td>{{users.das_water_inrush_snorkel_limit}}</td>
+                  <td>{{users.das_water_inrush_snorkel_obs_val}}</td>
+                  <td>{{users.das_water_inrush_snorkel_remark}}</td>
+               </tr>
+               <tr>
+                  <td>60.</td>
+                  <td>HIGH FW TEMP LEFT BANK</td>
+
+                  <td>{{users.das_high_fw_temp_left_bank_loc}}</td>
+                  <td>{{users.das_high_fw_temp_left_bank_limit}}</td>
+                  <td>{{users.das_high_fw_temp_left_bank_obs_val}}</td>
+                  <td>{{users.das_high_fw_temp_left_bank_remark}}</td>
+               </tr>
+               <tr>
+                  <td>61.</td>
+                  <td>HIGH LEVEL IN BUFFER TANK</td>
+
+                  <td>{{users.das_high_level_in_buffer_tank_loc}}</td>
+                  <td>{{users.das_high_level_in_buffer_tank_limit}}</td>
+                  <td>{{users.das_high_level_in_buffer_tank_obs_val}}</td>
+                  <td>{{users.das_high_level_in_buffer_tank_remark}}</td>
+               </tr>
+               <tr>
+                  <td>62.</td>
+                  <td>HT WATER TRIP</td>
+
+                  <td>{{users.das_ht_water_trip_loc}}</td>
+                  <td>{{users.das_ht_water_trip_limit}}</td>
+                  <td>{{users.das_ht_water_trip_obs_val}}</td>
+                  <td>{{users.das_ht_water_trip_remark}}</td>
+               </tr>
+               <tr>
+                  <td>63.</td>
+                  <td>INSIPIENT FLOODING RELAY TRIP</td>
+
+                  <td>{{users.das_insipient_flooding_relay_trip_loc}}</td>
+                  <td>{{users.das_insipient_flooding_relay_trip_limit}}</td>
+                  <td>{{users.das_insipient_flooding_relay_trip_obs_val}}</td>
+                  <td>{{users.das_insipient_flooding_relay_trip_remark}}</td>
+               </tr>
+
+               <tr>
+                  <td>64.</td>
+                  <td>BAROMETER TRIP</td>
+
+                  <td>{{users.das_barometer_trip_loc}}</td>
+                  <td>{{users.das_barometer_trip_limit}}</td>
+                  <td>{{users.das_barometer_trip_obs_val}}</td>
+                  <td>{{users.das_barometer_trip_remark}}</td>
+                   </tr>
+
+
+          <tr>
+            
+                  <td>65.</td>
+                  <td> LOW LUB OIL PRESSURE</td>
+
+                  <td>{{users.das_low_lub_oil_loc}}</td>
+                  <td>{{users.das_low_lub_oil_limit}}</td>
+                  <td>{{users.das_low_lub_oil_obs_val}}</td>
+                  <td>{{users.das_low_lub_oil_remark}}</td>
+                  </tr>
+          <tr>
+                  <td>66.</td>
+                  <td>HIGH FW TEMP ALARM RIGHT BANK</td>
+
+                  <td>{{users.das_high_fw_right_loc}}</td>
+                  <td>{{users.das_high_fw_right_limit}}</td>
+                  <td>{{users.das_high_fw_right_obs_val}}</td>
+                  <td>{{users.das_high_fw_right_remark}}</td>
+                  </tr>
+          <tr>
+                  <td>67.</td>
+                  <td>HIGH FW TEMP ALARM LEFT BANK</td>
+
+                  <td>{{users.das_alarm_left_loc}}</td>
+                  <td>{{users.das_alarm_left_limit}}</td>
+                  <td>{{users.das_alarm_left_obs_val}}</td>
+                  <td>{{users.das_alarm_left_remark}}</td>
+                  </tr>
+          <tr>
+                  <td>68.</td>
+                  <td>HIGH FW TEMP TRIP RIGHT BANK</td>
+
+                  <td>{{users.das_temp_trip_right_loc}}</td>
+                  <td>{{users.das_temp_trip_right_limit}}</td>
+                  <td>{{users.das_temp_trip_right_obs_val}}</td>
+                  <td>{{users.das_temp_trip_right_remark}}</td>
+                  </tr>
+          <tr>
+                  <td>69.</td>
+                  <td>HIGH FW TEMP TRIP LEFT BANK</td>
+
+                  <td>{{users.das_trip_left_loc}}</td>
+                  <td>{{users.das_trip_left_limit}}</td>
+                  <td>{{users.das_trip_left_obs_val}}</td>
+                  <td>{{users.das_trip_left_remark}}</td>
+                  </tr>
+          <tr>
+                  <td>70.</td>
+                  <td>HIGH LO TEMPERATURE ALARM</td>
+
+                  <td>{{users.das_lo_temp_loc}}</td>
+                  <td>{{users.das_lo_temp_limit}}</td>
+                  <td>{{users.das_lo_temp_obs_val}}</td>
+                  <td>{{users.das_lo_temp_remark}}</td>
+                  </tr>
+          <tr>
+                  <td>71.</td>
+                  <td>HIGH ENCLOSURE TEMPERATURE ALARM</td>
+
+                  <td>{{users.das_enclosure_temp_loc}}</td>
+                  <td>{{users.das_enclosure_temp_limit}}</td>
+                  <td>{{users.das_enclosure_temp_obs_val}}</td>
+                  <td>{{users.das_enclosure_temp_remark}}</td>
+                  </tr>
+          <tr>
+                  <td>72.</td>
+                  <td>HIGH ENCLOSURE TEMPERATURE TRIP</td>
+
+                  <td>{{users.das_enclosure_temp_trip_loc}}</td>
+                  <td>{{users.das_enclosure_temp_trip_limit}}</td>
+                  <td>{{users.das_enclosure_temp_trip_obs_val}}</td>
+                  <td>{{users.das_enclosure_temp_trip_remark}}</td>
+                  </tr>
+          <tr>
+                  <td>73.</td>
+                  <td>LOW LUB OIL LEVEL ALARM</td>
+
+                  <td>{{users.das_low_lub_oil_level_loc}}</td>
+                  <td>{{users.das_low_lub_oil_level_limit}}</td>
+                  <td>{{users.das_low_lub_oil_level_obs_val}}</td>
+                  <td>{{users.das_low_lub_oil_level_remark}}</td>
+                  </tr>
+         
+            
+         </table>
+
+         
+         <h4 style="margin-top:14px;"><u>Final Assessment and Recommendations</u></h4>
+         <table class="table table-bordered table-form-color1">
+             
+                 <div rowspan="10" class="textarea">{{users.FINAL_OBSERVATIONS_AND_REMARKS | safe}} </div>
+         </table></br>
+     
+     <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+      <tr>
+          <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+          <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+      </tr>
+  </table>
+
+  <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center">
+   <tr>
+       <td width="55%" style="font-family:Times New Roman;text-align:right">Report Generated Through ITTTM</td>
+       <td width="45%"><img width="55" height="55" style="align-item:left" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+   </tr>
+ </table>
+</div>
+   </body>
+</html>

@@ -1,0 +1,2822 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ETMA Navy</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal"/>
+    <meta name="pdfkit-orientation" content="Landscape"/>
+		<style type="text/css">
+    body{margin:50px 50px; size:landscape;}
+		.wrapper{width: 100%; margin: 20px auto;}
+		table{border-collapse: collapse;}
+    table tr th, table tr td{font-size: 13px;}
+		.clear{padding: 0; margin: 0; width: 100%; clear: both;}
+		.star{color: red;}
+    body{margin:50px;background: #FFF !important;}
+		</style>		   
+	</head>
+	<body>
+		<div class="wrapper">
+      <div class="heading-style2">
+            <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>HELO STARTING CONVERTOR TRIALS  OCCASION OF TRIALS <span></span>
+            TRIALS DATE - <span style="border-bottom: 1px solid #000;">{{users.trial_date}}</span></strong></h2>
+            <h2 style="font-size: 18px; line-height: 30px; font-weight: 600; color: #000; text-align: center;"><strong>HELO STARTING FREQUENCY CONVERTOR LOAD TRIAL REPORT – CONVERTOR NO <span style="border-bottom: 1px solid #000;">{{users.}}</span> <br/>
+            TRIALS DATE - <span> (200V, 400HZ, 3 PH, 30/ 75 KVA) SHIP – INS </span>
+            </strong></h2>
+          </div>
+			
+             <ol type="1" class="list-style2">
+            <li>List of non-weapon electrical equipment i.a.w. with SFD may be submitted to ETMA/ ETMUs in hard copy and soft copy (editable format) along with a covering letter, 2 weeks prior to commencement of trials. Equipment which comes under purview of ETMA/ ETMUs is listed in NO 14/15.  </li>
+            <li> List of compartment for undertaking electrical hygiene checks may be submitted to ETMA/ ETMUs 2 weeks prior to commencement of electrical hygiene checks.</li>
+            
+            <li>Approved ATP of newly fitted equipment during refit along with approved BPs and WLDs may be submitted to ETMA/ ETMUs 2 weeks prior to commencement of trials.</li>
+            <li>In-house trials report along with trial requisition may be forwarded to ETMA/ ETMUs 1 week prior to commencement of trials for all the equipment.</li>
+         </ol>
+
+             <div class="panel-row">
+             <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                <tbody><tr>
+                  <th align="left">Ser</th>
+                  <th align="left">Equipment Description</th>
+                  <th align="left" width="12%">Status</th>
+                  <th align="left">Reference in Appendix ‘A’</th>
+                  <th align="left">Remarks</th>
+                </tr>
+                <tr>
+                  <td colspan="4"><strong>Power Generation &amp; Distribution Equipment</strong></td>
+                </tr>
+                {% if users %}
+                <tr>
+                  <td>1.</td>
+                  <td>DAs, GTGs, TAs &amp; PTO</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_DAs}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_DAs_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_DAs_remarks}}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                  <td>2.</td>
+                  <td>Static/ Rotary convertors (excluding weapon’s convertor)</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_convertors}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_convert_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_convert_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Rectifiers</td>
+                  <td style="font-size:14px; color: #222;">{{users.rectifiers}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rectifiers_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.rectifiers_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Battery banks &amp; System UPS</td>
+                  <td style="font-size:14px; color: #222;">{{users.system_ups}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.system_ups_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.system_ups_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>5.</td>
+                  <td>Main/ Auxiliary switchboards and associated switchgear</td>
+                  <td style="font-size:14px; color: #222;">{{users.switc}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.switc_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.switc_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>6.</td>
+                  <td>Automatic Power Management System (APMS)</td>
+                  <td style="font-size:14px; color: #222;">{{users.apms}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.apms_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.apms_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>7.</td>
+                  <td>Motors and Starter panels of steering gear/ auto pilot, stabilisers</td>
+                  <td style="font-size:14px; color: #222;">{{users.steer_gear}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.steer_gear_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.steer_gear_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>8.</td>
+                  <td>Motor and Starter panels of air-conditioning equipment</td>
+                  <td style="font-size:14px; color: #222;">{{users.panel_equip}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.panel_equip_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.panel_equip_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>9.</td>
+                  <td>Electrical Motors &amp; Pumps</td>
+                  <td style="font-size:14px; color: #222;">{{users.eletric_item}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.eletric_item_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.eletric_item_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>10.</td>
+                  <td>Luminosity Checks</td>
+                  <td style="font-size:14px; color: #222;">{{users.luminosity_checks}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.luminosity_checks_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.luminosity_checks_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>11.</td>
+                  <td>General Lighting</td>
+                  <td style="font-size:14px; color: #222;">{{users.gen_lighting}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.gen_lighting_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.gen_lighting_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>12.</td>
+                  <td>Domestic machinery/ equipment</td>
+                  <td style="font-size:14px; color: #222;">{{users.domes_machin}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.domes_machin_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.domes_machin_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>13.</td>
+                  <td>DBs, Fuse Panels</td>
+                  <td style="font-size:14px; color: #222;">{{users.dbs}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.dbc_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.dbc_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>14.</td>
+                  <td>Auto Changeover Switches (ACOS)/ Hand Changeover Switches (HCOS)</td>
+                  <td style="font-size:14px; color: #222;">{{users.changeover_switch}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.changeover_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.changeover_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>15.</td>
+                  <td>Siren</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_siren}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_siren_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_siren_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>16.</td>
+                  <td>Window Wipers</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_window_wiper}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_window_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_window_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>17.</td>
+                  <td>NLCP &amp; Nav lights</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_nav_lights}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_nav_light_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.pg_nav_light_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>18.</td>
+                  <td>Emergency Power Supply Arrangement</td>
+                  <td style="font-size:14px; color: #222;">{{users.emerg_arrange}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.emerg_arrange_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.emerg_arrange_remarks}}</td>
+                </tr>               
+                <tr>
+                  <td colspan="4" class="bg-light">Communication Equipment</td>
+                </tr>
+                <tr>
+                  <td>19</td>
+                  <td>Fire Alarm System (Addressable/ Non-Addressable)</td>
+                  <td style="font-size:14px; color: #222;">{{users.fire_alarm_sys}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.fire_alarm_sys_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.fire_alarm_sys_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>20</td>
+                  <td>Main Broadcast/ SRE &amp; Intercom System</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_intercom_sys}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_intercom_sys_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_intercom_sys_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>21</td>
+                  <td>Auto Telephone Exchange</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_telephone_exch}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_telephone_exch_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_telephone_exch_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>22</td>
+                  <td>Interphone</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_interphone}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_interphone_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_interphone_ref}}</td>
+                </tr>
+                <tr>
+                  <td>23</td>
+                  <td>Flood Alarm System (Addressable/ Non-Addressable)</td>
+                  <td style="font-size:14px; color: #222;">{{users.flood_alarm_sys}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.flood_alarm_sys_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.flood_alarm_sys_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>24</td>
+                  <td>Ships Installed Radiac System (SIRS)</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_SIRS}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_SIRS_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_SIRS_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>25</td>
+                  <td>Portable Monitoring System (PMS)</td>
+                  <td style="font-size:14px; color: #222;">{{users.port_monit_sys}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.port_monit_sys_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.port_monit_sys_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>26</td>
+                  <td>Recreational TV</td>
+                  <td style="font-size:14px; color: #222;">{{users.recreational_TV}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.recreational_TV_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.recreational_TV_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>27</td>
+                  <td>CCTV</td>
+                  <td style="font-size:14px; color: #222;">{{users.CCTV}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.CCTV_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.CCTV_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>28</td>
+                  <td>Ships Installed Chemical Agent Detection system (SICADS)</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_SICADS}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_SICADS_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ce_SICADS_remarks}}</td>
+                </tr>
+                <tr>
+                  <td>29</td>
+                  <td>Sound Power Telephone (SPT)</td>
+                  <td style="font-size:14px; color: #222;">{{users.sound_power_tele}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sound_power_tele_ref}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sound_power_tele_remarks}}</td>
+                </tr>
+               
+             </tbody></table>
+             <h6 class="heading-style2"><strong>POWER GENERATION AND DISTRIBUTION EQUIPMENT</strong></h6>
+             <h4>1. DAs, GTGs, TAs &amp; PTOs. </h4>
+             <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(a)</td>
+                    <td>Presented by </td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(b)</td>
+                    <td>Trial date </td>
+                    <td style="font-size:14px; color: #222;">{{users.DAs_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(c)</td>
+                    <td>Date of last trial carried out on </td>
+                    <td style="font-size:14px; color: #222;">{{users.DAs_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(d)</td>
+                    <td>Proposal Reference </td>
+                    <td style="font-size:14px; color: #222;">{{users.DAs_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(e)</td>
+                    <td>Reference document for trial</td>
+                   <td style="font-size:14px; color: #222;">{{users.DAs_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+              </div>
+              <div class="panel-row"> 
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{users.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+              
+                <p><strong>(c) Equipment Details</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Make </td>
+                    <td style="font-size:14px; color: #222;">{{users.DAs_equipmentID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Known Major Defects<span class="star"><span class="star">*</span><span class="star">*</span></span></td>
+                    <td style="font-size:14px; color: #222;">{{users.DAs_equipment_defects}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(d) Operational Checks.</strong></p>
+                <div class="table-responsive">
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                <tbody><tr>
+                  <th align="left" rowspan="2">Ser</th>
+                  <th align="left" rowspan="2">DA/TA/GTGNo. &amp; Rating</th>
+                  <th align="left" rowspan="2">Status(Ops/ NonOps)</th>
+                  <th align="left" rowspan="2">Voltage
+                  Response(Sat/Unsat)</th>
+                  <th align="left" rowspan="2">Frequency
+                  Response(Sat/Unsat)</th>
+                  <th align="left" rowspan="2">Paralleling
+                  (Attended/Unattended)</th>
+                  <th align="left" rowspan="2">Insulation of Statorand Rotor(MΩ)</th>
+                  <th align="left" rowspan="2">Status ofCoole
+                  (Sat/Unsat)</th>
+                  <th align="left" rowspan="2">SPM (DE/NDE)</th>
+                  <th align="left" colspan="2">Ohmic Value </th>
+                  <th align="left" rowspan="2">Remarks</th>
+                </tr>
+                <tr>
+                  <th>Main &amp;Exciter Stator</th>
+                  <th>Main &amp; Exciter Rotor</th>
+                </tr>
+                <tr>
+                  <td style="font-size:14px; color: #222;">{{users.DAs_Ser}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.DA_val}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.DAs_status}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.voltage_response}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.frequen_response}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.paralleling}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.insulation_stator_val}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.status_coolers}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.SPM}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ov_exciter_stator}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.ov_exciter_rotor}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.remarks}}</td>
+                </tr>
+              </tbody></table>
+              </div>
+              <div class="note-card">
+                  <p><strong>Note:</strong>For DAs on which NR/MR routine/ major repairs are not undertaken during the refit then fingerprint test on ship’s load may be undertaken by SS and reports may be submitted to ETMA.</p>
+                </div>
+                <p><strong>(e) Observations.</strong></p>
+                <p><strong>(f) Recommendations.</strong></p>
+                <h4>2. Static/Rotary Converters (Ship’s Converter, C &amp; C Converter, Helo Starting Converter).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{users.sta_con_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{users.sta_con_last_TrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{users.sta_con_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{users.sta_con_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{users.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Equipment Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Make</td>
+                    <td style="font-size:14px; color: #222;">{{users.sta_con_equipmentID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Make</td>
+                    <td style="font-size:14px; color: #222;">{{users.sta_con_equipment_defects}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(d) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left" rowspan="2">Ser</th>
+                    <th align="left" rowspan="2">Equipment</th>
+                    <th align="left" rowspan="2">Status(Sat/Unsat)</th>
+                    <th align="left" rowspan="2">Calibration of Instrumentation(Sat/Unsat)</th>
+                    <th align="left" rowspan="2">Insulation (MOhm)</th>
+                    <th align="left" colspan="2">SPM</th>
+                    <th align="left" colspan="2">Current (Amps)</th>
+                    <th align="left" rowspan="2">Remarks</th>
+                  </tr>
+                  <tr>
+                    <th>DE</th>
+                    <th>NDE</th>
+                    <th>Starting</th>
+                    <th>Running</th>
+                  </tr>
+                  <tr><td style="font-size:14px; color: #222;">{{users.Static_Rotary_Ser}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.equipment}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sta_status}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.cabrat_instr}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.insulation_val}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.spm_DE_val}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.spm_NDE_val}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.amps_starting_val}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.amps_running_val}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.oper_check_remark}}</td>
+                  </tr><tr>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong> Convertor description (make, rating) and location may be submitted by SS, 2 weeks prior to commencement of trials</p>
+                </div>
+                <p><strong>(e) Observations.</strong></p>
+                <p><strong>(f) Recommendations.</strong></p>
+                 <h4>3. Rectifiers (Helo Starting Rectifier, Battery Charging Rectifier and Ship’s Rectifier).</h4>
+                 <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{users.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Equipment Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Make</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_equipmentID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Make</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_equipment_defects}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(d) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Equipment</th>
+                    <th align="left">Last Load Trials Undertaken(Date)</th>
+                    <th align="left">Voltage Response/Output Voltage</th>
+                    <th align="left">Status(Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{users.Rectifiers_opt_check_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_equip}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.last_load_trials |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.output_voltage}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_remark}}</td>
+                  </tr>
+                  <!-- <tr>
+                    <td style="font-size:14px; color: #222;">{{users.}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_equip2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.last_load_trials2 |date:'d/m/Y'}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.output_voltage2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_status2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.rctfr_remark2}}</td>
+                  </tr> -->
+                </table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Rectifier description (make, rating) and location may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Observations.</strong></p>
+                <p><strong>(f) Recommendations.</strong></p>
+                <h4>4. Battery Banks &amp; System UPS Checks (DG/TG Starting &amp; Control Batteries, Boat Batteries, Diesel Driven (DD) Fire Pump
+                Batteries, DD Air Compressor Batteries, NLCP Back Up Batteries Etc.)
+                </h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{users.bb_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{users.bb_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{users.bb_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{users.bb_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{users.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Sealed Maintenance Free Batteries Operational Checks.
+                </strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left" rowspan="2">Ser</th>
+                    <th align="left" rowspan="2">Battery/ UPS Description</th>
+                    <th align="left" rowspan="2">Qty</th>
+                    <th align="left" rowspan="2">Rating(V, Ah)</th>
+                    <th align="left" colspan="2">Internal Resistance </th>
+                    <th align="left" rowspan="2">Location</th>
+                    <th align="left" rowspan="2">Status Ops/ Non Ops</th>
+                    <th align="left" rowspan="2">Remarks/ Defects</th>
+                  </tr>
+                  <tr>
+                    <th>Rated</th>
+                    <th>Measured</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{users.Free_Batteries_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.bb_battery}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.rating_val}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.int_resis_rated}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.int_resis_measured}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.location}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.bb_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.bb_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Battery/ UPS description, quantity, rating, rated internal resistance and location may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <p><strong>(f) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{users.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(h) Lead Acid Batteries Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Battery/ UPS Description</th>
+                    <th align="left">Qty</th>
+                    <th align="left">Rating</th>
+                    <th align="left">Location</th>
+                    <th align="left">Terminal Voltage</th>
+                    <th align="left">Density</th>
+                    <th align="left">Status Ops/Non OpsPartially Ops</th>
+                    <th align="left">Remarks/ Defects</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{users.Batteries_Operational_Checks}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_battery}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_rating}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_loaction}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_terminal_volt}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_density}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.lab_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Battery/ UPS description, quantity, rating and location may be submitted by SS, 2 weeks prior to commencement of trials. </p>
+                </div>
+                <p><strong>(J)Observations</strong></p>
+                <p><strong>(k) Recommendations.</strong></p>
+                <h4>5. Main/ Auxiliary Switchboards and Associated Switchgear.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{users.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Equipment Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Make</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_equipmentID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Make</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_equipment_defects}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(d) Operational Checks</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Switchboard</th>
+                    <th align="left">Status (Sat/Unsat)</th>
+                    <th align="left">Insulati on(MΩ)</th>
+                    <th align="left">Manual Synchronisati on Checks</th>
+                    <th align="left">Breaker Calibration(Date)</th>
+                    <th align="left">Instrument Calibration (Date)</th>
+                    <th align="left">Protections Calibrations(Date)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{users.Main_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.switc_board}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_insulation_val}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_sync_check}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_break_calibra}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_instr_calibra}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_protec_calibra}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.as_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(e) Observations.</strong></p>
+                <p><strong>(f) Recommendations</strong></p>
+                <h4>6. Automatic Power Management System (APMS).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{users.apms_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{users.apms_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{users.apms_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{users.apms_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{users.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Equipment Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Make</td>
+                    <td style="font-size:14px; color: #222;">{{users.apms_equipmentID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Make</td>
+                    <td style="font-size:14px; color: #222;">{{users.apms_equipment_defects}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(d) Operational Checks</strong></p>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Incoming
+                      Breaker
+                      Status &amp;
+                      Operation</th>
+                    <th align="left">Data Logging
+                        (Ops/ Non ops/
+                        NA)
+                      </th>
+                    <th align="left">Breaker Status &amp; Parameters</th>
+                    <th align="left">Unattended Paralleling/Attended Paralleling</th>
+                    <th align="left">Buzzer &amp; Power ON Indication</th>
+                    <th align="left">Insulation Monitoring Device (Ops/Non ops)</th>
+                    <th align="left">Residual Issue</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{users.Automatic_Power_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.apms_income_brek}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.amps_data_log}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.amps_brek_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.amps_parallel}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.amps_buzzer}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.amps_monitor_devic}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.amps_residual_issue}}</td></tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of Features in APMS may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Observations.</strong></p>
+                <p><strong>(f) Recommendations.</strong></p>
+                <h4>7. Motors and Starter Panels of Steering Gear/ Auto Pilot, Stabilisers.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <div class="table-responsive">
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left" rowspan="2">Ser</th>
+                    <th align="left" rowspan="2">Motor Description With Rating (kW/HP)</th>
+                    <th align="left" rowspan="2">Status(Sat/Unsat)</th>
+                    <th align="left" rowspan="2">Insulation(MΩ)(&gt;1MΩ)</th>
+                    <th align="left" colspan="2">Starting Current(Amps)</th>
+                    <th align="left" colspan="2">Running Current(Amps)</th>
+                    <th align="left" colspan="2">SPM</th>
+                    <th align="left" rowspan="2">Calibration of Starters (Sat/Unsat)</th>
+                    <th align="left" rowspan="2">Remarks
+                      /Defects
+                     ifAny 
+                   (IncludingStarter)</th>
+                  </tr>
+                  <tr>
+                    <th align="left">Specified</th>
+                    <th align="left">Measured</th>
+                    <th align="left">Specified</th>
+                    <th align="left">Measured</th>
+                    <th align="left">DE</th>
+                    <th align="left">NDE</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Motors_Starter_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_motor_rating}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_insulat_val}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_start_specifi}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_start_measured}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_running_specifi}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_running_measured}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_DE}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_NDE}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_calibrationofStarters}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.steer_remark}}</td>
+                  </tr>
+                </tbody></table>
+                </div>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Description of all the motors fitted onboard (rating, rated starting current, rated running current, NDE &amp; DE bearing numberand location), type of starter may be submitted by SS, 2 weeks prior to commencement of trials</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <h4>8. Motor and Starter Panels of Air-Conditioning Equipment and Ref Plant.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <div class="table-responsive">
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left" rowspan="2">Ser</th>
+                    <th align="left" rowspan="2">Motor Description With Rating (kW/HP)</th>
+                    <th align="left" rowspan="2">Status(Sat/Unsat)</th>
+                    <th align="left" rowspan="2">Insulation(MΩ)(&gt;1MΩ)</th>
+                    <th align="left" colspan="2">Starting Current(Amps)</th>
+                    <th align="left" colspan="2">Running Current(Amps)</th>
+                    <th align="left" colspan="2">SPM</th>
+                    <th align="left" rowspan="2">Calibration of Starters (Sat/Unsat)</th>
+                    <th align="left" rowspan="2">Remarks
+                      /Defects
+                     ifAny 
+                   (IncludingStarter)</th>
+                  </tr>
+                  <tr>
+                    <th align="left">Specified</th>
+                    <th align="left">Measured</th>
+                    <th align="left">Specified</th>
+                    <th align="left">Measured</th>
+                    <th align="left">DE</th>
+                    <th align="left">NDE</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Motors_Starter_Ser_Panels_Air_Conditioning}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_tally_data}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_insulat_val}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_start_specifi}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_start_measured}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_running_specifi}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_running_measured}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_DE}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_NDE}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_calibrationofStarters}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.ref_remark}}</td>
+                  </tr>
+                </tbody></table>
+                </div>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Description of all the motors fitted onboard (rating, rated starting current, rated running current, NDE &amp; DE bearing number and location), type of starter may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <h4>9. Electrical Motors &amp; Pumps (Fire/ Bilge PP, HP Compressors, Capstan, Fresh Water, Lub Oil, Priming, Oil Transfer Pumps,Ventilation Motors, Winches, etc).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                  <p><strong>(c) Operational Checks.</strong></p>
+                <div class="table-responsive">
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left" rowspan="2">Ser</th>
+                    <th align="left" rowspan="2">Motor Description With Rating (kW/HP)</th>
+                    <th align="left" rowspan="2">Status(Sat/Unsat)</th>
+                    <th align="left" rowspan="2">Insulation(MΩ)(&gt;1MΩ)</th>
+                    <th align="left" colspan="2">Starting Current(Amps)</th>
+                    <th align="left" colspan="2">Running Current(Amps)</th>
+                    <th align="left" colspan="2">SPM</th>
+                   <th align="left" rowspan="2">Calibration of Starters (Sat/Unsat)</th>
+                    <th align="left" rowspan="2">Remarks
+                      /Defects
+                     ifAny 
+                   (IncludingStarter)</th>
+                  </tr>
+                  <tr>
+                    <th align="left">Specified</th>
+                    <th align="left">Measured</th>
+                    <th align="left">Specified</th>
+                    <th align="left">Measured</th>
+                    <th align="left">DE</th>
+                    <th align="left">NDE</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Electrical_Motors_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_rating}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_insulat_val}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_start_specifi}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_start_measured}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_running_specifi}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_running_measured}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_DE}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_NDE}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_calibrationofStarters}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.elect_remark}}</td>
+                  </tr>
+                </tbody></table>
+                </div>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Description of all the motors fitted onboard (rating, rated starting current, rated running current, NDE &amp; DE bearing number and location), type of starter may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <h4>10. Luminosity Checks (Machinery Spaces, Aft Steering Position (ASP), Operations Room, Lobbies/ Passageways, Cold Room/ CoolRoom, Magazines and Hangars).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.lc_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.lc_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.lc_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.lc_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                  <th align="left">Ser</th>
+                  <th align="left">Location</th>
+                  <th align="left">Permissible Lux Value(Def Stan 02-587 Part 1)</th>
+                  <th align="left">Measured Lux Value </th>
+                  <th align="left">Remarks/ Defects</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Luminosity_Checks_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.lc_location}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.lc_permissibleLux_Val}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.lc_measuredLux_Val}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.lc_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>
+                  Compartment names and their location may be provided by SS, 2 weeks prior commencement of trials. Lux value forMachinery Spaces is 100, Aft Steering Position (ASP) is 150, Operations Room is 150, Lobbies/ Passageways is 75, Cold Room/Cool Room is 100, Magazines is 150, Hangar is 300).</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <h4>11. General Lighting (E/R Lighting, Upper Deck Lighting, Navigational Lighting, AELs, etc.).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left" rowspan="2">Ser</th>
+                    <th align="left" rowspan="2">Location (With Nos. Held)</th>
+                    <th align="left" rowspan="2">Quantity</th>
+                    <th align="left" colspan="2">Status</th>
+                    <th align="left" rowspan="2">Remarks/ Defects</th>
+                  </tr>
+                  <tr>
+                    <th>Ops</th>
+                    <th>Non Ops</th>
+                  </tr>
+                  <tr>
+                    <td>(i)</td>
+                    <td>E/R lighting </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_ER_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_ER_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_ER_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_ER_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Weather deck lighting </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_weath_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_weath_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_weath_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_weath_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Helo deck lighting </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_helo_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_helo_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_helo_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_helo_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>AELs</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_AELs_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_AELs_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_AELs_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_AELs_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>General lighting</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_gener_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_gener_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_gener_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_gener_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(vi)</td>
+                    <td>Helo hangar lighting </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_helohangar_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_helohanger_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_helohanger_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.gl_helohangar_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Location and quantity of light fitted in respective compartment may be submitted by SS, 2 weeks prior to commencement of trials</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <h4>12. Domestic Machinery/ Equipment (Laundry, Galley equipment, Commercial Eqpt).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Equipment Description</th>
+                    <th align="left">Qty</th>
+                    <th align="left">Location </th>
+                    <th align="left">Status (Ops/Non Ops)</th>
+                    <!-- <th align="left">Due for Maintenance(Yes/ No)</th> -->
+                    <th align="left">Recurring Defects (In Past 12Months)</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Domestic_Mach_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_desc}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_location}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_status}}</td>
+                    <!-- <td style="font-size:14px; color: #222;">{{usersOne.}}</td> -->
+                    <td style="font-size:14px; color: #222;">{{usersOne.equip_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of Ship fit domestic machinery equipment indicating quantity and location may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations</strong></p>
+                <h4>13. DBs, Fuse Panels.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_lastTrialDate|date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <div class="table-responsive">
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Equipment Description</th>
+                    <th align="left">Visual Inspection (Insulation, Sealing, Cabling, Eqpt Hygiene, Earthing, Damages Etc.) (Sat/ Unsat) </th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_Fuse_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_equip_desc}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_visual_ins}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.DBs_remark}}</td>
+                  </tr>
+                </tbody></table>
+                </div>
+                <div class="note-card">
+                  <p><strong>Note:</strong> List of DBs/ Fuse panels indicating rating and location may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <h4>14. ACOS/ HCOS.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks of ACOS.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">ACOS(No, Rating &amp; Location)</th>
+                    <th align="left">System</th>
+                    <th align="left">Dwell Time</th>
+                    <th align="left">ACOS Change Over (Sat/ Unsat/NA)</th>
+                    <!-- <th align="left">Due for Maint Routines (Yes/No)</th> -->
+                    <th align="left">Remarks/ Defects</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Checks_ACOS_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_no}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_system}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_dwell_time}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_change_over}}</td>
+                    <!-- <td style="font-size:14px; color: #222;">{{usersOne.}}</td> -->
+                    <td style="font-size:14px; color: #222;">{{usersOne.acos_remarks}}</td> 
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of ACOS (No., Rating and Location) and system name may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <p><strong>(f) Operational Checks of HCOS.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">HCOS (No,Rating &amp;Location)</th>
+                    <th align="left">System</th>
+                    <th align="left">HCOS Change Over (Sat/ Unsat/ NA)</th>
+                    <th align="left">Status (Functional/Not Functional)</th>
+                    <th align="left">Remarks/Defects</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Checks_HCOS_Ser}}</td> 
+                    <td style="font-size:14px; color: #222;">{{usersOne.hcos_no}}</td> 
+                    <td style="font-size:14px; color: #222;">{{usersOne.hcos_system}}</td> 
+                    <td style="font-size:14px; color: #222;">{{usersOne.hcos_change_over}}</td> 
+                    <td style="font-size:14px; color: #222;">{{usersOne.hcos_status}}</td> 
+                    <td style="font-size:14px; color: #222;">{{usersOne.hcos_remark}}</td> 
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>: List of HCOS (no., rating and location) and system name may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(g) Observations.</strong></p>
+                <p><strong>(h) Recommendations.</strong></p>
+                <h4>15. Siren.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.siren_trial_date|date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.siren_lastTrialDate|date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.siren_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.siren_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Siren (Location)</th>
+                    <th align="left">Electrical Hygiene Checks of Siren Panel</th>
+                    <th align="left">Status (Functional/Not Functional)</th>
+                    <th align="left">Remarks/Defects</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Siren_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.siren_location}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.siren_eh_check}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.siren_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.siren_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Location of Sirenmay be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                   </div>
+                  <p><strong>(d) Observations</strong></p>
+                  <p><strong>(e) Recommendations.</strong></p>
+               
+                <h4>16. Window Wipers.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.wiper_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.wiper_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.wiper_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.wiper_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Motor Description With Rating (kW/ HP)</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Window_Wipers_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.wiper_des_ratingVal}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.wiper_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.wiper_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of motors with rating may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <h4>17. NLCP and Nav Light.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.nav_light_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.nav_light_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.nav_light_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.nav_light_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">List of NLCP </th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks/ Defects If Any</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.NLCP_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.list_NLCP}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.nav_light_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.NLCP_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of NLCP may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(f) Observations.</strong></p>
+                <p><strong>(g) Recommendations.</strong></p>
+                <h4>18. Emergency Supply System.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.emerg_sys_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.emerg_sys_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.emerg_sys_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.emerg_sys_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Checks</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td>(i)</td> 
+                    <td>
+                      <ul type="a">
+                      <li>No physical damage on emergency flexible cables.</li>
+                      <li>Check continuity and insulation of cables at random (15% of total cables to be checked).</li>
+                      <li>All rubber lugs at cable ends are intact. </li>
+                      <li>All identification markings provided on lugs are in order.</li>
+                      <li>Identification marking of Emergency Switch Connection Box (ESCB) is provided for each phase near the terminal of each phase.</li>
+                      <li>Availability of key in securing clip provided on the box.</li>
+                      <li>Provisioning of emergency connection terminals on Switchboard section/ EDCs.</li>
+                    </ul></td>
+                      <td style="font-size:14px; color: #222;">{{usersOne.sys_visual_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Carry out visual inspection of the permanent verticals</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sys_perm_verti_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Carry out visual inspection of the permanent horizontals</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sys_perm_horiz_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Carry out visual inspection of through bulkhead connections and deck tubes if any.</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sys_deck_tube_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Check the functionality of emergency portable transformers along with emergency link box and supply distribution board.</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sys_transform_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(vi)</td>
+                    <td>Check for availability of layout diagrams and ship staff alacrity and awareness in laying emergency cables as per diagrams. </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sys_diagram_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(vii)</td>
+                    <td>Check the insulation and continuity at both ends after laying out cable from service to source.</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sys_servi_remark}}</td>
+                  </tr>
+                  <tr>
+                    <td>(viii)</td>
+                    <td>Post insulation checks, connect up the cables at both ends and switch on the emergency supply for the equipment. Check availability of power supply to consumer</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sys_conn_cbl_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong></p>
+                  <ul type="i">
+                    <li>(aa) System efficacy may be checked by energising one major equipment.</li>
+                    <li>(ab) Details of emergency supply system indicating location and quantity of supply boxes and cables and layout diagram may be provided by SS, 2 weeks prior to commencement of trials. </li>
+                  </ul>
+                </div>                
+                <h4>19. Fire Alarm System (Addressable/ Non-Addressable)</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks of Sensors.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th>Ser</th>
+                    <th>Compartment</th>
+                    <th>Type of Sensor</th>
+                    <th>Qty</th>
+                    <th>Status (Sat/ Unsat)</th>
+                    <th>Remarks</th>
+                  </tr>
+                  <tr>
+                   <td style="font-size:14px; color: #222;">{{usersOne.Fire_Alarm_Ser}}</td>
+                   <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_sensorcompart}}</td>
+                   <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_typeofsensor}}</td>
+                   <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_qty}}</td>
+                   <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_status}}</td>
+                   <td style="font-size:14px; color: #222;">{{usersOne.fire_sys_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of sensors indicating type of sensor, quantity, compartment name and layout diagram may be submitted bySS, 2weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Operational Checks of Control Panel.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description</th>
+                    <th align="left">Ser Description Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                   <td style="font-size:14px; color: #222;">{{usersOne.Control_Panel_Ser}}</td>
+                   <td style="font-size:14px; color: #222;">{{usersOne.fire_cp_des}}</td>
+                   <td style="font-size:14px; color: #222;">{{usersOne.fire_cp_status}}</td>
+                   <td style="font-size:14px; color: #222;">{{usersOne.fire_cp_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of features may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Operational Checks of UPS.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description of UPS </th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">1</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fire_ups_des}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fire_ups_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fire_ups_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>Description of UPS indicating rating of UPS and backup time as per technical document may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(f) Observations.</strong></p>
+                <p><strong>(g) Recommendations.</strong></p>
+                <h4>20. Main Broadcast/ SRE &amp; Intercom System.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td>(i)</td>
+                    <td>Priority function (high priority user can interrupt lower priority user</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_priority_func}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_priority_Remarks}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Muting function (when mic position initiated local speaker should mute.</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_muting_func}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_muting_Remarks}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>UPS back up (power the system automatically without causinginterruption in case main supply fails. UPS should provide backup of atleast 30mins).</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_UPSbackup}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_UPSbackup_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(d) Operational Checks of Microphone Station /Announcement Points of Main Broadcast.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Location</th>
+                    <th align="left">Number of Mic</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                  <td style="font-size:14px; color: #222;">{{usersOne.Main_Broadcast_Ser}}</td>
+                  <td style="font-size:14px; color: #222;">{{usersOne.sre_mic_location}}</td>
+                  <td style="font-size:14px; color: #222;">{{usersOne.sre_mic_val}}</td>
+                  <td style="font-size:14px; color: #222;">{{usersOne.sre_mic_status}}</td>
+                  <td style="font-size:14px; color: #222;">{{usersOne.sre_mic_Remarks}}</td>
+                </tr>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of microphone station/ announcement points indicating quantity, location and loop diagram may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Operational Checks of Main Broadcast Speaker.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Location</th>
+                    <th align="left">Qty</th>
+                    <th align="left">Wattage (1/2/3/4)</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Broadcast_Speaker_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_bc_locat}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_bc_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_bc_wattageVal}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_bc_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_bc_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of speakers indicating quantity, rating and locations may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(f) Operational Checks of Microphone Station /Announcement Points of Intercom.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                  <th align="left">Ser</th>
+                  <th align="left">Location</th>
+                  <th align="left">Number of Mic</th>
+                  <th align="left">Status (Sat/ Unsat)</th>
+                  <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Points_Intercom_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_inter_locat}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_inter_mic}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_inter_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_inter_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of microphone station/ announcement points indicating quantity, location and loop diagram may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(g) Operational Checks of Intercom Speaker.</strong></p>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Location</th>
+                    <th align="left">Qty</th>
+                    <th align="left">Wattage (1/2/3/4)</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Intercom_Speaker_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_interspe_locat}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_interspe_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_interspe_wattageVal}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_interspe_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sre_interspe_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of speakers indicating quantity, rating and locations may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(h) Observations.</strong></p>
+                <p><strong>(i) Recommendations.</strong></p>
+                <h4>21. Auto Telephone Exchange.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.tele_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.tele_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.tele_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.tele_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks of Telephone Lines.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Location</th>
+                    <th align="left">Telephone No.</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Telephone_Lines_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.tele_Locat}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.tele_num}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.tele_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.tele_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong> List of telephone numbers and location may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendation.</strong></p>
+                <h4>22. Interphone.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Group</th>
+                    <th align="left">Location</th>
+                    <th align="left">Communication With Master</th>
+                    <th align="left">Status (Sat/Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Interphone_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_grp}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_locat}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_comm}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.interph_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of interphones indicating group and location may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendations.</strong></p>
+                <h4>23. Flood Alarm System (Addressable/ Non-Addressable).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks of Sensors.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Location</th>
+                    <th align="left">Qty</th>
+                    <th align="left">Type of Sensor</th>
+                    <th align="left">Operational Status of Sensor(Sat/ Unsat)</th>
+                    <th align="left">Control Unit Audio Alarm</th>
+                    <th align="left">Control Unit Visual Indication</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Flood_Alarm_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_locat}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_typeSensor}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_oper}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_controlAutio}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_controlVis}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_sys_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of sensors indicating type of sensor, quantity, location and layout diagram may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Operational Checks of Control Panel.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Flood_Alarm_Control_Panel_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_cp_des}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_cp_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_cp_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong> List of features may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Operational Checks of UPS.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description of UPS </th>
+                    <th align="left">Backup (Minutes)</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Flood_Alarm_UPS_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_ups_des}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_ups_backup}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_ups_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.fld_ups_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong> Description of UPS indicating rating of UPS and backup time as per technical document may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(f) Observations.</strong></p>
+                <p><strong>(g) Recommendations.</strong></p>
+                <h4>24. Ships Installed Radiac System (SIRS).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks of Control Panel.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description</th>
+                    <th align="left">Status (Sat/Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td>(i)</td>
+                    <td>Indications of indicating assembly</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_ass_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_ass_Remarks}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Indications of detectors</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_det_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_det_Remarks}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Self test</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_test_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_test_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(d) Sensor Check.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Type of Sensor</th>
+                    <th align="left">Location</th>
+                    <th align="left">Status (Sat/ Unsat) </th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.SIRS_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_sen_type}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_sen_locat}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_sen_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_sen_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong> List of sensors indicating type of sensor may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Power Supply Check at Central Indicating Assembly Test Point.</strong></p>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Test Point Pin</th>
+                    <th align="left">Specified Limit as Per INBR 1082 (vii)(In Volts)</th>
+                    <th align="left">Tolerance ± 10 %(In Volts)</th>
+                    <th align="left">Obtained Value(In Volts)</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Test_Point_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_pow_testPoint}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_pow_limitVal}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_pow_ToleranceVal}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_pow_obtVal}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(f) Miscellaneous Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description</th>
+                    <th align="left">Status (Sat/Unsat)</th>
+                  </tr>
+                  <tr>
+                    <td>(i)</td>
+                    <td>Check that all display shows “0” if sensor connected and “NC” if sensor not connected </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_mic_NC}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Check all simulator mode as per HATs schedule of INBR 1082 (VII). </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_mic_HAT}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Check alarm indication in simulator mode when dose rate is higher in LLDR and HLDR.</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sirs_mic_LLDR}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(g) Observations.</strong></p>
+                <p><strong>(h) Recommendations.</strong></p>
+                <h4>25. Portable Monitoring System.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.pms_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.pms_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.pms_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.pms_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Serial Number of PMS </th>
+                    <th align="left">Performance (Sat/ Unsat) </th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Portable_Monitoring_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.pms_serial_no}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.pms_perform}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.pms_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>  List of PMS may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Observations.</strong></p>
+                <p><strong>(e) Recommendation.</strong></p>
+                <h4>26. Recreational TV.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks of TV Sets.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Location of TV Sets</th>
+                    <th align="left">Performance (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Recreational_TV_Sets_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_loca}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_perform}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of TV sets indicating locations may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Operational Checks of Amplifiers / Set Top Boxes (STB)/ TVRO.</strong></p>
+                 <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Amplifiers/ STBs/ TVRO </th>
+                    <th align="left">Location </th>
+                    <th align="left">Performance (Sat/Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.STB_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_STBs}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_STBloca}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_STBperform}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.recre_tv_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of Amplifiers/ Set Top Boxes (STB)/ TVRO indicating locations may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Observations.</strong></p>
+                <p><strong>(f) Recommendation.</strong></p>
+                <h4>27. CCTV.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks of Camera.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Location of Camera</th>
+                    <th align="left">Qty</th>
+                    <th align="left">Performance (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.CCTV_Camera_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_loc_camera}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_perform}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of cameras indicating location and quantity may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Operational Checks of Monitors/ Recording Unit.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Monitor/ Recording Unit</th>
+                    <th align="left">Location</th>
+                    <th align="left">Performance (Sat/Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.CCTV_Recording_Unit_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_monitorUnit}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_monitorUnit_loc}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_monitorUnit_perf}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.cctv_monitorUnit_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of monitors/ recording unit indicating location may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Observations.</strong></p>
+                <p><strong>(f) Recommendation.</strong></p>
+                <h4>28. Ships Installed Chemical Agent Detection system (SICADS).</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Operational Checks of Chemical Agent Detectors.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Location</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Ships_Installed_Agent_Detectors_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_location}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of sensors indicating locations may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(d) Operational Checks of Control Panel</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description</th>
+                    <th align="left">Status (Sat/ Unsat)</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Ships_Installed_Control_Panel_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_cp_des}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_cp_status}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.sicads_cp_Remarks}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong> List of features may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Observations.</strong></p>
+                <p><strong>(f) Recommendation.</strong></p>
+                <h4>29. Sound Power Telephone.</h4>
+                <p><strong>(a) Trial Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <td>(i)</td>
+                    <td>Presented by</td>
+                    <td style="font-size:14px; color: #222;">{{users.Presented_by}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>Trial date</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_trial_date |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>Date of last trial carried out on</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_lastTrialDate |date:'d/m/Y'}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>Proposal reference</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_referanceTrialID}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>Reference document for trial</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_referanceDocID}}</td>
+                  </tr>
+                </tbody></table>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 10px;">
+                  <tr>
+                    <td>
+                      <h4>(b) Test Equipment Used. <span class="star"><span class="star">*</span></span></h4>
+                    </td>
+                    <td>
+                      {{usersOne.testEquipmentUsed}}
+                    </td>
+                  </tr>
+                </table>
+                <p><strong>(c) Equipment Details.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Description</th>
+                    <th align="left">Quantity</th>
+                  </tr>
+                  <tr>
+                    <td>(i)</td>
+                    <td>No. of groups</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_grp_qty}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ii)</td>
+                    <td>No. of single say SPTs</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_singleway}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iii)</td>
+                    <td>No. of multiway SPTs</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_multi}}</td>
+                  </tr>
+                  <tr>
+                    <td>(iv)</td>
+                    <td>No. of single way SPT weatherproof socket box </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_single_sockBox}}</td>
+                  </tr>
+                  <tr>
+                    <td>(v)</td>
+                    <td>No. of multiway SPT weatherproof socket box</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_multi_sockBox}}</td>
+                  </tr>
+                  <tr>
+                    <td>(vi)</td>
+                    <td>No. of multiway SPT with socket box for headset</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_multi_Headset}}</td>
+                  </tr>
+                  <tr>
+                    <td>(vii)</td>
+                    <td>No. of single way SPT with socket box for headset</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_single_Headset}}</td>
+                  </tr>
+                  <tr>
+                    <td>(viii)</td>
+                    <td>Single way SPT console mounted</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_single_cons}}</td>
+                  </tr>
+                  <tr>
+                    <td>(ix)</td>
+                    <td>Multiway SPT – 24 console mounted</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_multi_cons}}</td>
+                  </tr>
+                  <tr>
+                    <td>(x)</td>
+                    <td>SPT hooter </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_hooter}}</td>
+                  </tr>
+                  <tr>
+                    <td>(xi)</td>
+                    <td>Headset with MIC &gt; 10 mtr. cable</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_cblVal}}</td>
+                  </tr>
+                  <tr>
+                    <td>(xii)</td>
+                    <td>Single way SPT (portable) complete with plug &amp; lead </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_singlr_portable}}</td>
+                  </tr>
+                  <tr>
+                    <td>(xiii)</td>
+                    <td>Multiway SPT (portable) complete with plug &amp; lead </td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_multi_porable}}</td>
+                  </tr>
+                </tbody></table>
+                <p><strong>(d) Operational Checks.</strong></p>
+                <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                  <tbody><tr>
+                    <th align="left">Ser</th>
+                    <th align="left">Locations</th>
+                    <th align="left">Qty</th>
+                    <th align="left">Quantity</th>
+                    <th align="left">Performance (Sat/Unsat</th>
+                    <th align="left">Remarks</th>
+                  </tr>
+                  <tr>
+                    <td style="font-size:14px; color: #222;">{{usersOne.Sound_Power_Ser}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_oper_locat}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_oper_type}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_oper_qty}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_oper_perform}}</td>
+                    <td style="font-size:14px; color: #222;">{{usersOne.spt_oper_remark}}</td>
+                  </tr>
+                </tbody></table>
+                <div class="note-card">
+                  <p><strong>Note:</strong>List of SPTs indicating type, quantity and location may be submitted by SS, 2 weeks prior to commencement of trials.</p>
+                </div>
+                <p><strong>(e) Observations.</strong></p>              
+              </div>
+            </div>
+            <h4>Recommendations. Following recommended:</h4>
+            {%  with "service/approvals.html" as template %}   
+                  {% include template %}
+                  
+            {% endwith %}
+            <div class="clear"></div>
+            <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+              <tr>
+                  <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                  <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+              </tr>
+          </table>
+	</body>
+	 
+</html>	

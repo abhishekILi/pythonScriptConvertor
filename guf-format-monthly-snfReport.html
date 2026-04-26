@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+      <title>vizag-SNF-return-GUF</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+      </head>
+     <body>
+         <div class="wrapper">
+            <div style="float:right">
+                <p>Report Generated on: {{ history.approved_date_time }}</p>
+                </div>
+        <section class="body-card form-style1 trial-form">
+          
+       
+               <div class="container-fluid">
+                   <div class="row mt-1">
+                       <div class="col-md-12">
+                           <div class="panel-right">
+                            
+                               <div class="panel-row">
+                                   <div class="heading-style2 text-center">
+                                    <img width="100px" alt="Logo"
+                                    style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                    src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg">
+                                    <h2 style="text-align: center;">GTTT VIZAG</h2>
+                                       <h2>GTG UTILISATION FACTOR </h2>
+                                       <p>Refer to HQEF/FEO letter FEG/300/50/02 dated 08 Sep 20.</p>
+                                       <p>GUF for the month of May 24 is tabulated below.</p>
+                                       
+                                   </div>
+       
+                                   <table class="table table-bordered tabletd-color">
+                                       <tr>
+                                           <td class="subheader">DATE</td>
+                                           <td>{{users.snf_guf_date}}</td>
+                                           <td class="subheader">SHIP</td>
+                                           <td>{{ship}}</td>
+                                           </tr>
+                                   </table>
+                                 
+                                   <table class="table table-bordered tabletd-color">
+                                    <tr>
+                                        <th>Ser</th>
+                                        <th>Description</th>
+                                        <th width="25%">Formula</th>
+                                        <th>GTG-1</th>
+                                        <th>GTG-2</th>
+                                       
+                                        <th>Hours</th>
+                                        <th>Measured Value</th>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>(a)</td>
+                                        <td>GUF (Sea)</td>
+                                        <td style="text-align: center;"><u>∑ RH of (GTG-1 + GTG-2)</u>
+                                            Hrs underway </td>
+                                      
+                                        <td>{{users.snf_guf_sea_GTG1}}</td>
+                                        <td>{{users.snf_guf_sea_GTG2}}</td>
+                                        <td>{{users.snf_guf_sea_hrsunderway}}</td>
+                                        <td>{{users.snf_guf_sea_measured_value}}</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>(b)</td>
+                                        <td>GUF (Harbour)</td>
+                                        <td style="text-align: center;"><u>∑ RH of (GTG-1 + GTG-2)</u>
+                                            Hrs in Harbour & at Anchorage</td>
+                                     
+                                        <td>{{users.snf_guf_harbor_GTG1}}</td>
+                                        <td>{{users.snf_guf_harbor_GTG2}}</td>
+                                        <td>{{users.snf_guf_harbor_hrsunderway}}</td>
+                                        <td>{{users.snf_guf_harbor_measured_value}}</td>
+                                      
+                                    </tr>
+    
+                                    <tr>
+                                        <td colspan="6" style="text-align: center;">Total GUF</td>
+                                      
+                                        <td>{{users.snf_total_guf}}</td>
+                                    </tr>
+    
+                               
+                              
+                            </table>
+       
+                                   <div class="heading-style2 text-center">
+                                       <h2><u>REMARKS</u></h2>
+                                   </div>
+                       
+                       
+                       
+                                   <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                                       <tr>
+                                         <td>
+                                       
+                                           <div class="form-floating" style="text-align: left;">
+                                             {{users.snf_guf_monthly_remarks | safe}}
+                                           </div>
+                                         </td>
+                                       </tr>
+                                     </table>
+       
+                               </div>
+       
+       
+                               
+       
+                           </div>
+                       </div>
+                   </div>
+               </div>
+         
+       </section>  
+       <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+        <tr>
+            <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+            <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+        <tr style="border: 0; border-style:None;">
+            <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+            <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+        </tr>
+</table>
+
+</div>
+    </body>
+</html>

@@ -1,0 +1,478 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>pre-ranging-appendix-f</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+  
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+  
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+   <body>
+    <body class="body-card form-style1 trial-form">
+        <div class="wrapper">
+            <div style="float:right">
+                <p>Report Generated on: {{ history.approved_date_time }}</p>
+            </div>
+                <div class="heading-style2 text-center">
+                    <img width="100px" alt="Logo"
+                    style="height: 150px; width: 160px; position: relative; left: 40%;"
+                    src="{{satellite_unit_icon}}">
+                    <h2><u>PERFORMA FOR PRE-OPERATIONAL SYSTEM READINESS CHECKS BY SHIPS ACOUSTIC HYGIENE TEAM</u></h2>
+                </div>
+                <h4>1.&nbsp;&nbsp;&nbsp;General Information</h4>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr>
+                        <td width="35%"><strong>Name of the Ship:</strong></td>
+                        <td>{{users.Prerange_gen_Name_Ship}}</td>
+                
+                        <td width="10%" style="background-color:#efedff;"><strong>Date of Commissioning:</strong></td>
+                        <td> {{users.Prerange_gen_Date_Comm}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%"><strong>No. of Propellers:</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_No_Prop}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%"><strong>No. of blades on each Propeller:</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_No_blades}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%"><strong>Maximum speed (Engine / Shaft):</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_Max_speed}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%"><strong>Tonnage of ship:</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_Tonnage_ship1}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%"><strong>Select Type of ship bottom:</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_Type_s_bottom}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%"><strong>Length of ship</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_Len_ship}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%"><strong>Width of ship:</strong></td>
+                        <td colspan="3"> {{users.Prerange_gen_wid_ship}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%"><strong>Details of anti-cavitation system:</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_anti_cavitation_sys1}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nature of last refit Details of As & As if any major Structural changes:</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_Nature_AS}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date of last pre UWR Phase I and Phase II trials:</strong></td>
+                        <td>{{users.Prerange_gen_Date_pre_UWR}}</td>
+                    
+                        <td style="background-color:#efedff;"><strong>Date of last propeller and Hull cleaning:</strong></td>
+                        <td>{{users.Prerange_gen_Date_prop_Hull_cleaning}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modification / ABER equipment / Major repair or Renewal of underwater machinery since last UWR Ranging:</strong></td>
+                        <td colspan="3">{{users.Prerange_gen_ABER_equip}}</td>
+                    </tr>
+                </table>
+                <h4>2.&nbsp;&nbsp;&nbsp;List of noise reduction systems installed onboard ( Tuned Mass Dampers, ADAM coatings, Cascade orifice in fluid system etc)</h4>
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th width="5%">Ser</th>
+                        <th>System</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Remarks</th>
+                    </tr>
+                    {% for i in Pre_Ranging_Table_1 %}
+                        <tr>
+                            <td width="5%">{{forloop.counter}}</td>
+                            <td width="23%">{{i.Prerange_Noise_Reduc_System}}</td>
+                            <td width="25.2%">{{i.Prerange_Noise_Reduc_Location}}</td>
+                            <td width="20.5%">{{i.Prerange_Noise_Reduc_Status}}</td>
+                            <td>{{i.Prerange_Noise_Reduc_Remarks}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            
+                <h4>3.&nbsp;&nbsp;&nbsp;Details of Main/Auxiliary Machinery</h4>
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr>
+                        <td width="20%"><b>(a)&nbsp;&nbsp;Gas Turbine propulsion</b></td>
+                        <td class="table-form-color2">{{users.Prerange_Gas_Turbine_propulsion_Remarks}}</td>
+                    </tr>
+                    <tr>
+                        <td width="20%">&nbsp;&nbsp;(i)&nbsp;No. of blades on GTs</td>
+                        <td class="table-form-color2">{{users.Prerange_No_of_blades_on_GTs_Remarks}}</td>
+                    </tr>
+                </table>
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th colspan="3">GT NO 1</th>
+                        <th colspan="3">GT NO 2</th>
+                        <th colspan="3">GT NO 3</th>
+                        <th colspan="3">GT NO 4</th>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <th>LPT</th>
+                        <th>HPT</th>
+                        <th>PT</th>
+                        <th>LPT</th>
+                        <th>HPT</th>
+                        <th>PT</th>
+                        <th>LPT</th>
+                        <th>HPT</th>
+                        <th>PT</th>
+                        <th>LPT</th>
+                        <th>HPT</th>
+                        <th>PT</th>
+                    </tr>
+                    <tr>
+                        <td>{{users.Prerange_gas_turbine_LPT1}}</td>
+                        <td>{{users.Prerange_gas_turbine_HPT1}}</td>
+                        <td>{{users.Prerange_gas_turbine_PT1}}</td>
+                        <td>{{users.Prerange_gas_turbine_LPT2}}</td>
+                        <td>{{users.Prerange_gas_turbine_HPT2}}</td>
+                        <td>{{users.Prerange_gas_turbine_PT2}}</td>
+                        <td>{{users.Prerange_gas_turbine_LPT3}}</td>
+                        <td>{{users.Prerange_gas_turbine_HPT3}}</td>
+                        <td>{{users.Prerange_gas_turbine_PT3}}</td>
+                        <td>{{users.Prerange_gas_turbine_LPT4}}</td>
+                        <td>{{users.Prerange_gas_turbine_HPT4}}</td>
+                        <td>{{users.Prerange_gas_turbine_PT4}}</td>
+                    </tr>
+                </table>
+                <h4>(b)&nbsp;&nbsp; IC. Engine Propulsion</h4>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr>
+                        <td width="20%">(i) No. of Cylinders</td>
+                        <td class="table-form-color2">{{users.Prerange_IC_No_Cylin}}</td>
+                    </tr>
+                    <tr>
+                        <td>(ii) Configuration</td>
+                        <td class="table-form-color2">{{users.Prerange_IC_Config}}</td>
+                    </tr>
+                    <tr>
+                        <td>(iii) Firing Order</td>
+                        <td class="table-form-color2">{{users.Prerange_IC_Firing_Order}}</td>
+                    </tr>
+                    <tr>
+                        <td>(iv) 2/4 Stroke</td>
+                        <td class="table-form-color2">{{users.Prerange_IC_Stroke}}</td>
+                    </tr>
+                </table>
+                <h4>(c)&nbsp;&nbsp; Steam Propulsion</h4>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr>
+                        <td width="20%">(i) No. of blades on Main Turbine:</td>
+                        <td>{{users.Prerange_Steam_Prop_blades_M_Turbine}}</td>
+                    </tr>
+                    <tr>
+                        <td>(ii) No. of Nozzles per Turbine:</td>
+                        <td>{{users.Prerange_Steam_Prop_Noz_Turbine}}</td>
+                    </tr>
+                </table>
+                <h4>(d)&nbsp;&nbsp; Submarines</h4>
+                <p style="font-size: 16px;color: #0b014a;">(i)&nbsp;&nbsp;IC Engine</p>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr>
+                        <td width="15%">(aa) No. of Cylinders</td>
+                        <td>{{users.Prerange_Submarines_No_Cylin}}</td>
+                    </tr>
+                    <tr>
+                        <td width="15%">(ab)Configuration</td>
+                        <td>{{users.Prerange_Submarines_Config}}</td>
+                    </tr>
+                    <tr>
+                        <td>(ac) Firing Order</td>
+                        <td>{{users.Prerange_Submarines_Firing_Order}}</td>
+                    </tr>
+                    <tr>
+                        <td>(ad) 2/4 Stroke</td>
+                        <td>{{users.Prerange_Submarines_Stroke}}</td>
+                    </tr>
+                </table>
+                <p style="font-size: 15px;color: #0b014a;">(ii)&nbsp;&nbsp;Main Motors</p>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr>
+                        <td width="15%">(aa) No.of Poles</td>
+                        <td>{{users.Prerange_Submarines_Poles}}</td>
+                    </tr>
+                    <tr>
+                        <td>(ab) Stator Windings</td>
+                        <td>{{users.Prerange_Submarines_Stator_Wind}}</td>
+                    </tr>
+                </table>
+                <h4>(e)&nbsp;&nbsp;Gear Box details</h4>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr style="text-align: center;">
+                        <th>Stage No.</th>
+                        <th>I Stage</th>
+                        <th>II Stage</th>
+                        <th>III Stage</th>
+                        <th>IV Stage</th>
+                        <th>Remarks</th>
+                    </tr>
+                    <tr>
+                        <td width="15%">Teeth On Driving Wheel</td>
+                        <td>{{users.Prerange_Gear_Box_stage1}}</td>
+                        <td>{{users.Prerange_Gear_Box_stage2}}</td>
+                        <td>{{users.Prerange_Gear_Box_stage3}}</td>
+                        <td>{{users.Prerange_Gear_Box_stage4}}</td>
+                        <td>{{users.Prerange_Gear_Box_remark}}</td>
+                    </tr>
+                    <tr>
+                        <td>Teeth On Driven Wheel</td>
+                        <td>{{users.Prerange_Gear_Box_Teeth_stage1}}</td>
+                        <td>{{users.Prerange_Gear_Box_Teeth_stage2}}</td>
+                        <td>{{users.Prerange_Gear_Box_Teeth_stage3}}</td>
+                        <td>{{users.Prerange_Gear_Box_Teeth_stage4}}</td>
+                        <td>{{users.Prerange_Gear_Box_Teeth_remark}}</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <br>
+                <h4>(f)&nbsp;&nbsp; Details of Auxiliary Machinery</h4>
+                <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th width="4.5%">Ser</th>
+                        <th>Equipment</th>
+                        <th>Number of Fitted</th>
+                        <th>Location</th>
+                        <th>Running RPM</th>
+                        <th>Remarks</th>
+                    </tr>
+                    {% for j in Pre_Ranging_Table_2 %}
+                        <tr>
+                            <td width="4.5%" class="text-center">{{forloop.counter}}</td>
+                            <td width="17.7%">{{j.Prerange_Aux_Machine_equip}}</td>
+                            <td width="25.6%">{{j.Prerange_Aux_Machine_Fitted}}</td>
+                            <td>{{j.Prerange_Aux_Machine_Location}}</td>
+                            <td width="22%">{{j.Prerange_Aux_Machine_Run_RPM}}</td>
+                            <td width="11.7%">{{j.Prerange_Aux_Machine_Remarks}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                <div class="heading-style2 text-center">
+                    <h2>III Status of Vibration/Noise Isolators/SV Mount</h2>
+                </div>
+                <h4>(g)&nbsp;&nbsp;Engineering Equipment (Main Propulsion and Auxiliary Machineries)</h4>
+                <table class="table table-bordered table-style-color table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th rowspan="2">Equipment</th>
+                        <th colspan="3">Status Of Mounts </th>
+                        <th rowspan="2">Last Date of Replacement</th>
+                        <th rowspan="2">Remarks if Any</th>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <th>Attenuation</th>
+                        <th>Visual </th>
+                        <th>Deflection</th>
+                    </tr>
+                    {% for i in Pre_Ranging_Table_5 %}
+                    <tr>
+                        <td>{{i.Prerange_Eng_equip}}</td>
+                        <td>{{i.Prerange_Eng_Attenuation}}</td>
+                        <td>{{i.Prerange_Eng_Visual}}</td>
+                        <td>{{i.Prerange_Eng_Deflection}}</td>
+                        
+                        <td>{{i.Prerange_Eng_Replacement}}</td>
+                        <td>
+                            {{i.Prerange_Eng_Remarks}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <h4>4. &nbsp;&nbsp;Details of bellows (Main Propulsion and Auxiliary systems)</h4>
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th width="5%">Ser</th>
+                        <th >System</th>
+                        <th>Size of Bellow</th>
+                        <th>Condition of Bellow</th>
+                        <th>Quantity</th>
+                        <th>Remarks</th>
+                    </tr>
+                    {% for k in Pre_Ranging_Table_3 %}
+                        <tr>
+                            <td width="5%" class="text-center">{{forloop.counter}}</td>
+                            <td width="13.6%">{{k.Prerange_vib1_System}}</td>
+                            <td width="22.2%">{{k.Prerange_vib1_Size_Bellow}}</td>
+                            <td width="28.9%">{{k.Prerange_vib1_Condition_Bellow}}</td>
+                            <td>{{k.Prerange_vib1_Quantity}}</td>
+                            <td width="11.7%">{{k.Prerange_vib1_Remarks}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                <h4>5.&nbsp;&nbsp;Electrical Equipments (Convertors, Transformers and other equipments)</h4>
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th rowspan="2">Ser</th>
+                        <th rowspan="2">Equipment</th>
+                        <th colspan="3">Status Of Mounts</th>
+                        <th rowspan="2">Last Date of Replacement</th>
+                        <th rowspan="2">Remarks if Any</th>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <th>Attenuation</th>
+                        <th>Visual </th>
+                        <th>Deflection</th>
+                    </tr>
+                    {% for i in Pre_Ranging_Table_6 %}
+                    <tr>
+                        <td>{{i.Prerange_Elec_SL}}</td>
+                        <td>{{i.Prerange_Elec_equip}}</td>
+                        <td>{{i.Prerange_Elec_Attenuation}}</td>
+                        <td>{{i.Prerange_Elec_Visual}}</td>
+                        <td>{{i.Prerange_Elec_Deflection}}</td>
+                        <td>{{i.Prerange_Elec_Replacement}}</td>
+                        <td>{{i.Prerange_Elec_Remarks}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <h4>6. &nbsp;&nbsp;SPM Checks on Motors</h4>
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th width="5%">Ser</th>
+                        <th>Equipment</th>
+                        <th>dBm</th>
+                        <th>dBc</th>
+                        <th>SPM Zone</th>
+                        <th>Remarks if Any</th>
+                    </tr>
+                    {% for l in Pre_Ranging_Table_4 %}
+                        <tr>
+                            <td width="5%">{{forloop.counter}}</td>
+                            <td width="28.6%">{{l.Prerange_SPM_Check_Equip}}</td>
+                            <td width="12%">{{l.Prerange_SPM_Check_dbm}}</td>
+                            <td width="11%">{{l.Prerange_SPM_Check_dbc}}</td>
+                            <td>{{l.deflection_radio_SPM_zone}}</td>
+                            <td width="34.2%">{{l.Prerange_SPM_Check_Remarks}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                <h4>7.&nbsp;&nbsp; Hull Equipments (ventilation blowers and STP etc.)</h4>
+                <table class="table table-bordered table-form-color tabletd-color">
+                    <tr style="text-align: center;">
+                        <th rowspan="2">Ser</th>
+                        <th rowspan="2">Equipment</th>
+                        <th colspan="3">Status Of Mounts </th>
+                        <th rowspan="2">Last Date of Replacement</th>
+                        <th rowspan="2">Remarks if Any</th>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <th>Attenuation</th>
+                        <th>Visual </th>
+                        <th>Deflection</th>
+                    </tr>
+                    {% for i in Pre_Ranging_Table_7 %}
+                    <tr>
+                        <td>{{i.Prerange_Hull_Equip_SL}}</td>
+                        <td>{{i.Prerange_Hull_Equip_Equipment}}</td>
+                        <td>{{i.Prerange_Hull_Equip_Attenuation_sat}}</td>
+                        <td>{{i.Prerange_Hull_Equip_Visual_sat}}</td>
+                        <td>{{i.Prerange_Hull_Equip_Deflection_sat}}</td>
+                        <td>{{i.Prerange_Hull_Equip_Replacement}}</td>
+                        <td>{{i.Prerange_Hull_Equip_Remarks}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% comment %} <div class=" group-btn mt-4">
+                    <a href="javascript:void(0);" class="btn btn-danger btn-lg float-left" (click)="back(trialDet)">Cancel</a>
+                    <a href="javascript:void(0);" *ngIf="trialDet.type!='view' && trialDet.approved_level!='-1'" class="btn btn-success btn-lg float-right" (click)="save()">Save</a>
+                </div> {% endcomment %}
+                <h4>8.&nbsp;&nbsp;Final Assessment and Recommendations</h4>
+                <table>
+                    <tr>
+                        <td>{{users.observation | safe}}</td>
+                    </tr>
+                </table>
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+          </table>
+          <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+            <tr style="border: 0; border-style:None;">
+                <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

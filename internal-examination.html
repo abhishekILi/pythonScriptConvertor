@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CBIU</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<style type="text/css">
+         body {
+            margin: 50px 50px;
+            size: landscape;
+            font-size:15px;
+            text-align:justify;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #FFF !important;
+        }  		.wrapper{width: 1000px; margin: 20px auto;}
+		table{border-collapse: collapse;}
+		.clear{padding: 0; margin: 0; width: 100%; clear: both;}
+		.star{color: red;}
+    strong{font-weight: 600;}
+    body{margin:50px;background: #FFF !important;}
+    table tr th, table tr td{
+       text-align:left;
+    }
+		</style>		   
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="heading-style2">
+	        <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>INTERNAL EXAMINATION</strong></h2>
+	    </div>
+      
+      <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+        <tr>
+          <th rowspan="2" style="font-size:14px; font-weight: 600; color: #000;">OCCASION </th>
+          <th rowspan="2" style="font-size:14px; font-weight: 600; color: #000;">INSPECTING AUTHORITY</th>
+          <th rowspan="2" style="font-size:14px; font-weight: 600; color: #000;">INTERNAL CLEANING (METHOD USED)</th>
+          <th style="font-size:14px; font-weight: 600; color: #000;">CARRIED ON</th>
+          <th style="font-size:14px; font-weight: 600; color: #000;">NEXT DUE</th>
+          <th rowspan="2" style="font-size:14px; font-weight: 600; color: #000;">REMARKS</th>
+        </tr>
+        <tr>
+          <th style="font-size:12px; font-weight: 600; color: #000;">DD/MM/YYYY</th>
+          <th style="font-size:12px; font-weight: 600; color: #000;">DD/MM/YYYY</th>
+        </tr>
+        {% if users%} 
+        <tr>
+          <td>
+             <p style="font-size: 13px; color: #000; font-weight: 600; margin-bottom: 5px;">12 MONTHLY</p>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">( After the first date of first raising steam following the last routine internal cleaning )</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Engineer officier of the ship</p>
+          </td>
+          <td>
+             <p style="font-size: 13px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Not Applicable</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_12_mon_carriedon_date |date:'d/m/Y'}}</td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_12_mon_nextdue_date |date:'d/m/Y'}}</td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_12_mon_remarks}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td>
+             <p style="font-size: 13px; color: #000; font-weight: 600; margin-bottom: 5px;">24 MONTHLY</p>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">( After the first date of first raising steam following the last routine internal cleaning )</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Engineer officier of the ship and <br/> A Representative of the Administrative Authority (CBIU Rep.)</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Not Applicable</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_24_mon_carriedon_date |date:'d/m/Y'}}</td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_24_mon_nextdue_date |date:'d/m/Y'}}</td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_24_mon_remarks}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td>
+             <p style="font-size: 13px; color: #000; font-weight: 600; margin-bottom: 5px;">36 MONTHLY</p>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">( After the first date of first raising steam following the last routine internal cleaning )</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Engineer officier of the ship and <br/> A Representative of the Administrative Authority (CBIU Rep.)</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Not Applicable</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_36_mon_carriedon_date |date:'d/m/Y'}}</td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_36_mon_nextdue_date |date:'d/m/Y'}}</td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_36_mon_remarks}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td>
+             <p style="font-size: 14px; color: #000; font-weight: 600; margin-bottom: 5px;">48 MONTHLY</p>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">( After the first date of first raising steam following the last routine internal cleaning )</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Engineer officier of the ship and <br/> A Representative of the Administrative Authority (CBIU Rep.)</p>
+          </td>
+          <td style="font-size:14px; color: #222;"> 
+            {{users.intr_occ_48_mon_intr_clean}}
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_48_mon_carriedon_date |date:'d/m/Y'}}</td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_48_mon_nextdue_date |date:'d/m/Y'}}</td>
+          <td style="font-size:14px; color: #222;">{{users.intr_occ_48_mon_remarks}}</td>
+        </tr>
+        {% endif%}
+        <tr>
+          <td colspan="6">
+             <div class="heading-style2 text-center text-uppercasew">
+                <h2 style="font-size:14px; color: #222;">Special Occasion</h2>
+             </div>
+          </td>
+        </tr>
+        {% if users%} 
+        <tr>
+          <td>
+             <p style="font-size: 14px; color: #000; font-weight: 600; margin-bottom: 5px; text-transform: uppercase;">Oil &amp; Grease Deposits</p>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">(in the event of any trace of oil or grease  being found in boiler, boiler water or boiler feed water)</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Engineer officier of the ship</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">if considered necessary</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.spl_occ_oil_grease_dep_carriedon_date |date:'d/m/Y'}}</td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Not Applicable</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.spl_occ_oil_grease_dep_remarks}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td>
+             <p style="font-size: 13px; color: #000; font-weight: 600; margin-bottom: 5px; text-transform: uppercase;">Boiler Water Salinity</p>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">(105 ppm to 140 ppm chlorides - if maintained for less than 24 hrs.)</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Engineer officier of the ship</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">if considered necessary</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.spl_occ_boi_water_salinity_less_24Hrs_carriedon_date |date:'d/m/Y'}}</td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Not Applicable</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.spl_occ_boi_water_salinity_less_24Hrs_remarks}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td>
+             <p style="font-size: 13px; color: #000; font-weight: 600; margin-bottom: 5px; text-transform: uppercase;">Boiler Water Salinity</p>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0;">(105 ppm to 140 ppm chlorides - if maintained for more than 24 hrs and over 140 ppm anytime.)</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Engineer officier of the ship</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">if considered necessary</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.spl_occ_boi_water_salinity_more_24Hrs_carriedon_date}}</td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Not Applicable</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.spl_occ_boi_water_salinity_more_24Hrs_remarks}}</td>
+        </tr>
+        {% endif%}
+        {% if users%} 
+        <tr>
+          <td>
+             <p style="font-size: 13px; color: #000; font-weight: 600; margin-bottom: 5px; text-transform: uppercase;">In times of war or extreme operational hazard</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Engineer officier of the ship</p>
+          </td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">if considered necessary</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.spl_occ_war_ope_hazard_carriedon_date |date:'d/m/Y'}}</td>
+          <td>
+             <p style="font-size: 14px; color: #333; text-transform: uppercase; margin: 0; text-align: center;">Not Applicable</p>
+          </td>
+          <td style="font-size:14px; color: #222;">{{users.spl_occ_war_ope_hazard_remarks}}</td>
+        </tr>
+        {% endif%}
+     </table>   
+
+     <h4>Recommendations. Following recommended:</h4>
+     {% if approvalData %}
+       {% for approval in approvalData %}
+       <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; text-align: left;">
+                               
+               <tr><th>Trial No.</th><td>{{ approval.trial.trial_number }}</td></tr>
+             
+               <tr><th>Level</th><td>{{ approval.approved_level }}</td></tr>
+               
+               <tr> <th>Recommendations</th><td>{{ approval.comments }}</td></tr>
+               
+               <tr><th>Approval <br>Status</th>{% if approval.status == 1 %}
+                   <td>{{ "Approved" }}</td>
+                   {% endif %}
+                   {% if approval.status == 2 %}
+                   <td>{{ "Rejected" }}</td>
+                   {% endif %}
+                   </tr>
+               <tr><th>Approved <br>Role</th><td>{{ approval.approved_role.name}}</td></tr>
+               <tr><th>Approved <br>By</th><td>{{ approval.approved_by.first_name }} {{ approval.approved_by.last_name }}</td></tr>
+           
+         
+       </table>
+     {% endfor %}
+       {% endif %}
+<div class="clear"></div>
+		</div>
+      <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+         <tr>
+             <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+             <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+         </tr>
+     </table>
+	</body>
+	 
+</html>	

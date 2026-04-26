@@ -1,0 +1,476 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+      <title>CBPM-Talwar-Report</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+         body{margin:50px 50px; size:landscape;}
+         .wrapper{width: 100%;border-style: double; padding: 8px;}
+             table{border-collapse: collapse;}
+             .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+             .star{color: red;}
+             strong{font-weight: 600;}
+             body{margin:50px;background: #FFF !important;}
+ 
+             .table{
+                 border: 1px solid lightgray;
+                 font-size: 12px;
+                 padding: 0px;
+                 margin: 0px;
+                 border-collapse: collapse;
+                 width: 100%;
+             }
+             .table tr{
+                 margin: 0px!important;
+             }
+             .table tr th{
+                 background-color: #80808054;
+                 padding: 0px;
+                 margin: 0px;
+                 border: 1px solid black;
+                 text-align: center;
+                 padding: 2px 2px 2px 2px;
+             }
+             .table tr td{
+             background-color: #80808054;
+             padding: 0px;
+             margin: 0px;
+             border: 1px solid black;
+             text-align: center;
+             padding: 2px 2px 2px 2px;
+         }
+             textarea{
+                 width: 100%;
+                 min-height: 10px;
+                 /* padding: 10px; */
+                 font-size: 12px;
+                 resize: none;
+                 overflow-y: hidden;
+             }
+             h2{
+                 text-align: center;
+             }
+             input{
+                 border: none;
+             }
+             button{
+                 display: none;
+             }
+             .btn{
+                 display: none;
+             }
+ 
+             @media print{
+                 button, input[type="button"], input[type="submit"], input[type="reset"]{
+                     display: none !important;
+                 }
+             }
+     </style>
+      </head>
+     <body>
+     
+ <div class="wrapper">
+   <div style="float:right">
+      <p>Report Generated on: {{ history.approved_date_time }}</p>
+      </div>
+        <section class="body-card form-style1 trial-form">
+           
+         
+               <div class="container-fluid">
+                  <div class="row mt-5">
+                     <div class="col-md-12">
+                        <div class="panel-right">
+                         
+                           <div class="panel-row">
+                              <div class="heading-style2 heading-style3 text-center">
+                                 <img width="100px" alt="Logo" style="height: 150px; width: 160px; margin-top: 14px; position: relative; left: 41%;" src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+                                 <h2>GTTT MUMBAI</h2>
+                               </div>
+                              <table class="table table-bordered table-form-color">
+                                 <tr>
+                                    <td>SHIP</td>
+                                    <td>{{Ship}}</td>
+
+         
+                                 </tr>
+                                 <tr>
+                                    <td>RETURN FOR THE PERIOD</td>
+                                    <td>{{users.return_for_the_period}}</td>
+                                 </tr>
+                              </table>
+         
+         
+         
+                              <table class="table table-bordered table-form-color">
+                                 <tr>
+                                    <th>EQUIPMENT</th>
+                                    <th>PCGT</th>
+                                    <th>PCRG</th>
+                                    <th>SCGT</th>
+                                    <th>SCRG</th>
+                                    <th>CRGA</th>
+                                 </tr>
+                                 <tr>
+                                    <td> DATE OF RECORDING </td>
+                                    <td>{{users.PCGT_equipment_date_of_recording}}</td>
+                                    <td>{{users.PCRG_equipment_date_of_recording}}</td>
+                                    <td>{{users.SCGT_equipment_date_of_recording}}</td>
+                                    <td>{{users.SCRG_equipment_date_of_recording}}</td>
+                                    <td>{{users.CRGA_equipment_date_of_recording}}</td>
+         
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td> RUNNING HOURS SI </td>
+                                    <td>{{users.PCGT_running_hours_si}}</td>
+                                    <td>{{users.PCRG_running_hours_si}}</td>
+                                    <td>{{users.SCGT_running_hours_si}}</td>
+                                    <td>{{users.SCRG_running_hours_si}}</td>
+                                    <td>{{users.CRGA_running_hours_si}}</td>
+         
+                                 </tr>
+                              </table>
+         
+         
+                              <div class="heading-style2 heading-style3 text-center">
+                                 <h3>MEASURING INSTRUMENT: SPM T-30</h3>
+                                 <h3>MOUNTING OF ACCELEROMETER: MAGNETIC(EXCEPT WHERE INDICATED BY*)</h3>
+                              </div>
+         
+                              <div class="heading-style2 heading-style3 text-center">
+                                 <h3>1. CGT C 71.1/CRG PO63</h3>
+         
+                              </div>
+                              <table class="table table-bordered table-form-color">
+                                 <tr>
+                                    <th>SER</th>
+                                    <th>POINT NO</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>LIMIT</th>
+                                    <th>PCGT/RG</th>
+                                    <th>SCGT/RG</th>
+                                 </tr>
+                                 <tr>
+                                    <td>(a)</td>
+                                    <td>1V</td>
+                                    <td>FWD TRUNION-VERTICAL</td>
+                                    <td>{{users.limit_1v}}</td>
+                                    <td>{{users.pcgt_rg_1v}}</td>
+                                    <td>{{users.scgt_rg_1v}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(b)</td>
+                                    <td>2A</td>
+                                    <td>FWD TRUNION-AXIAL</td>
+                                    <td>{{users.limit_2a}}</td>
+                                    <td>{{users.pcgt_rg_2a}}</td>
+                                    <td>{{users.scgt_rg_2a}}</td>
+                                 </tr>
+         
+         
+         
+                                 <tr>
+                                    <td>(c)</td>
+                                    <td>3H*</td>
+                                    <td>ADAPTOR FLANGE-HORIZONTAL</td>
+                                    <td>{{users.limit_3h}}</td>
+                                    <td>{{users.pcgt_rg_3h}}</td>
+                                    <td>{{users.scgt_rg_3h}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(d)</td>
+                                    <td>4V</td>
+                                    <td>CRG FWD INPUT-VERTICAL</td>
+                                    <td>{{users.limit_4v}}</td>
+                                    <td>{{users.pcgt_rg_4v}}</td>
+                                    <td>{{users.scgt_rg_4v}}</td>
+                                 </tr>
+         
+         
+         
+         
+                                 <tr>
+                                    <td>(e)</td>
+                                    <td>5V</td>
+                                    <td>CRG FWD OUTPUT-VERTICAL</td>
+                                    <td>{{users.limit_5v}}</td>
+                                    <td>{{users.pcgt_rg_5v}}</td>
+                                    <td>{{users.scgt_rg_5v}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(f)</td>
+                                    <td>6A</td>
+                                    <td>CRG FWD OUTPUT-AXIAL</td>
+                                    <td>{{users.limit_6a}}</td>
+                                    <td>{{users.pcgt_rg_6a}}</td>
+                                    <td>{{users.scgt_rg_6a}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(g)</td>
+                                    <td>7V</td>
+                                    <td>RG BODY BOTTOM-VERTICAL</td>
+                                    <td>{{users.limit_7v}}</td>
+                                    <td>{{users.pcgt_rg_7v}}</td>
+                                    <td>{{users.scgt_rg_7v}}</td>
+                                 </tr>
+         
+                              </table>
+         
+         
+         
+         
+                              <div class="heading-style2 heading-style3 text-center">
+                                 <h3>2. CRGA P1063</h3>
+         
+                              </div>
+                              <table class="table table-bordered table-form-color">
+                                 <tr>
+                                    <th>SER</th>
+                                    <th>POINT NO</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>LIMIT</th>
+                                    <th>CRGA</th>
+         
+                                 </tr>
+                                 <tr>
+                                    <td>(a)</td>
+                                    <td>1V</td>
+                                    <td>DRIVING CRG FRICTION JAW CLUTCH TOP-VERTICAL</td>
+                                    <td>{{users.CRGA_limit_1v}}</td>
+                                    <td>{{users.crga_1v}}</td>
+         
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(b)</td>
+                                    <td>2V</td>
+                                    <td>CRGA PORT FWD-VERTICAL</td>
+                                    <td>{{users.CRGA_limit_2v}}</td>
+                                    <td>{{users.crga_2v}}</td>
+         
+                                 </tr>
+         
+         
+         
+                                 <tr>
+                                    <td>(c)</td>
+                                    <td>3V</td>
+                                    <td>CRGA STBD FWD-VERTICAL</td>
+                                    <td>{{users.CRGA_limit_3v}}</td>
+                                    <td>{{users.crga_3v}}</td>
+         
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(d)</td>
+                                    <td>4V</td>
+                                    <td>DRIVEN CRG,CRGA FRICTION JAW CLUTCH AFT TOP-VERTICAL</td>
+                                    <td>{{users.CRGA_limit_4v}}</td>
+                                    <td>{{users.crga_4v}}</td>
+         
+                                 </tr>
+         
+         
+                              </table>
+         
+         
+                              <div class="heading-style2 heading-style3 text-center">
+                                 <h3>3. BGTS T59 / BRG PO58</h3>
+         
+                              </div>
+         
+         
+                              <table class="table table-bordered table-form-color">
+                                 <tr>
+                                    <th>EQUIPMENT</th>
+                                    <th>PBGT</th>
+                                    <th>PBRG</th>
+                                    <th>SBGT</th>
+                                    <th>SBRG</th>
+                                   
+                                 </tr>
+                                 <tr>
+                                    <td> DATE OF RECORDING </td>
+                                    <td>{{users.PBGT_equipment_date_of_recording}}</td>
+                                    <td>{{users.PBRG_equipment_date_of_recording}}</td>
+                                    <td>{{users.SBGT_equipment_date_of_recording}}</td>
+                                    <td>{{users.SBRG_equipment_date_of_recording}}</td>
+                                  
+         
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td> RUNNING HOURS SI </td>
+                                    <td>{{users.PBGT_running_hours_si}}</td>
+                                    <td>{{users.PBRG_running_hours_si}}</td>
+                                    <td>{{users.SBGT_running_hours_si}}</td>
+                                    <td>{{users.SBRG_running_hours_si}}</td>
+         
+                                 </tr>
+                              </table>
+         
+         
+                              <table class="table table-bordered table-form-color">
+                                 <tr>
+                                    <th>SER</th>
+                                    <th>POINT NO</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>LIMIT</th>
+                                    <th>SBGT/SBRG</th>
+                                    <th>PBGT/PBRG</th>
+                                 </tr>
+                                 <tr>
+                                    <td>(a)</td>
+                                    <td>1H</td>
+                                    <td>LPC FWD FRONT SUPPORT</td>
+                                    <td>{{users.BGTs_limit_1h}}</td>
+                                    <td>{{users.sbgt_sbrg_1h}}</td>
+                                    <td>{{users.pbgt_pbrg_1h}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(b)</td>
+                                    <td>2V</td>
+                                    <td>FWD TRUNION - VERTICAL</td>
+                                    <td>{{users.BGTs_limit_2v}}</td>
+                                    <td>{{users.sbgt_sbrg_2v}}</td>
+                                    <td>{{users.pbgt_pbrg_2v}}</td>
+                                 </tr>
+         
+         
+         
+                                 <tr>
+                                    <td>(c)</td>
+                                    <td>3A</td>
+                                    <td>FWD TRUNION - AXIAL</td>
+                                    <td>{{users.BGTs_limit_3a}}</td>
+                                    <td>{{users.sbgt_sbrg_3a}}</td>
+                                    <td>{{users.pbgt_pbrg_3a}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(d)</td>
+                                    <td>4H</td>
+                                    <td>FWD TRUNION - HORIZONTAL</td>
+                                    <td>{{users.BGTs_limit_4h}}</td>
+                                    <td>{{users.sbgt_sbrg_4h}}</td>
+                                    <td>{{users.pbgt_pbrg_4h}}</td>
+                                 </tr>
+         
+         
+         
+         
+                                 <tr>
+                                    <td>(e)</td>
+                                    <td>5H</td>
+                                    <td>HPC AFT FLANGE - HORIZONTAL</td>
+                                    <td>{{users.BGTs_limit_5h}}</td>
+                                    <td>{{users.sbgt_sbrg_5h}}</td>
+                                    <td>{{users.pbgt_pbrg_5h}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(f)</td>
+                                    <td>6A</td>
+                                    <td>HPC AFT FLANGE - AXIAL</td>
+                                    <td>{{users.BGTs_limit_6a}}</td>
+                                    <td>{{users.sbgt_sbrg_6a}}</td>
+                                    <td>{{users.pbgt_pbrg_6a}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(g)</td>
+                                    <td>7V</td>
+                                    <td>BRG FWD Z4 TOP-VERTICAL</td>
+                                    <td>{{users.BGTs_limit_7v}}</td>
+                                    <td>{{users.sbgt_sbrg_7v}}</td>
+                                    <td>{{users.pbgt_pbrg_7v}}</td>
+                                 </tr>
+         
+                                 <tr>
+                                    <td>(h)</td>
+                                    <td>8V</td>
+                                    <td>BRG Z6 AFT-VERTICAL</td>
+                                    <td>{{users.BGTs_limit_8v}}</td>
+                                    <td>{{users.sbgt_sbrg_8v}}</td>
+                                    <td>{{users.pbgt_pbrg_8v}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(i)</td>
+                                    <td>9A</td>
+                                    <td>BRG Z6 AFT-AXIAL</td>
+                                    <td>{{users.BGTs_limit_9a}}</td>
+                                    <td>{{users.sbgt_sbrg_9a}}</td>
+                                    <td>{{users.pbgt_pbrg_9a}}</td>
+                                 </tr>
+         
+                                 <tr>
+                                    <td>(j)</td>
+                                    <td>10V</td>
+                                    <td>BRG FWD INPUT-VERTICAL</td>
+                                    <td>{{users.BGTs_limit_10v}}</td>
+                                    <td>{{users.sbgt_sbrg_10v}}</td>
+                                    <td>{{users.pbgt_pbrg_10v}}</td>
+                                 </tr>
+         
+         
+                                 <tr>
+                                    <td>(k)</td>
+                                    <td>11V</td>
+                                    <td>BRG BODY BOTTOM-VERTICAL</td>
+                                    <td>{{users.BGTs_limit_11v}}</td>
+                                    <td>{{users.sbgt_sbrg_11v}}</td>
+                                    <td>{{users.pbgt_pbrg_11v}}</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+       
+         </section>
+         <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+            <tr>
+                <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+            </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+         <tr style="border: 0; border-style:None;">
+             <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+             <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+         </tr>
+       </table>
+    </body>
+
+        
+ </div>
+</html>

@@ -1,0 +1,1534 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CBIU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="pdfkit-page-size" content="Legal"/>
+    <meta name="pdfkit-orientation" content="Portrait"/>
+    <meta name="pdfkit-orientation" content="Landscape"/> 
+
+    <style type="text/css">
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+          margin: 5% 1.5rem 5% 1.5rem !important ;
+          size: Landscape;
+          font-size:15px;
+          text-align:justify;
+      }
+
+      .wrapper {
+          width: 100%;
+          margin: 20px 20px;
+      }
+
+      table {
+          border-collapse: collapse;
+      }
+
+      .clear {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          clear: both;
+      }
+
+      .star {
+          color: red;
+      }
+
+      strong {
+          font-weight: 600;
+      }
+
+      tr,
+      th {
+          text-align: start;
+          font-size: 15px;
+
+      }
+
+      th {
+          text-align: center!important;
+      }
+
+      .paxcvy{
+        padding-left: 166px!important;    
+        }
+
+        .panel-row-six{
+            margin-top: 300px!important;
+        }
+
+  </style>
+  </head>
+  <body>
+   <div class="container-fluid panel-right">
+      <div class="heading-style2" style="text-align:center; font-size:14px; line-height:35px;">
+        <h2 class="text-center mt-8 heading-style2"><strong><u>ELECTRICAL HYGIENE CHECKS -
+            <span>
+            <u>{{users.electrical_hygiene_check}}</u>
+            </span></strong>
+            <br>
+                  <span>OCCASION OF CHECKS –</span>
+                  <span>
+                      <u>{{users.occation_of_trial}}</u>   
+                  </span><br>
+                   DATE OF CHECKS –
+                  <span>
+
+                     <u>{{users.trials_date}}</u>
+                  </span>
+                </u>
+              </strong>
+          </h2>
+
+      </div>
+      <hr>
+     
+      <div class="row mt-6">
+          <div class="col-md-12">
+              <div class="panel-right">
+                  <ol type="1" class="list-style2">
+                      <br></br>
+                      <li><strong><u>Purpose</u></strong> 
+                        <p>Electrical hygiene checks are undertaken to ensure
+                          electrically safe
+                          working environment for personnel in all the compartments onboard ship.
+                          Good electrical hygiene onboard ships also ensure defect free and smooth operation of
+                          all electrical
+                          machineries.
+                          The same can be ensured by following correct electrical practices while installation,
+                          operation and
+                          maintenance of electrical equipment.
+                          The following are the guidelines and forms an advisory for the standard of electrical
+                          hygiene expected
+                          in a ship.</p> </li>
+                      <li>
+                          <p> The proforma is divided into two check-off lists for undertaking electrical hygiene
+                              checks of
+                              different compartments onboard ship, which are as follows:- </p>
+                          <div class="ms-4 list-style2">
+                              <p>(a) <strong><u>Standard Check-Off List.</u></strong> <p>This list consists of checks
+                                  of all the
+                                  electrical equipment which are common for all the compartments. These checks are
+                                  mandatory for all
+                                  the compartments onboard ship.</p> </p>
+                              <p>(b) <strong><u>Compartments Specific Check-Off List.</u></strong> <p>This list
+                                  consists of checks of
+                                  all the electrical equipment which are compartment specific. Compartment
+                                  specific checks for
+                                  different types of compartment are mentioned in compartments specific check-off
+                                  list.</p></p>
+                          </div>
+                      </li>
+                      <li><strong><u>Ocassions of Checks</u></strong></li>
+                      <div class="ms-4 list-style2 mt-4">
+                          <p>(a) General </p>
+                          <p>(b) Surprise Checks</p>
+                          <p>(c) Equipment Specific </p>
+                          <p>(d) During the Pre Refit Trials and End Refit Trials </p>
+                          <p>(e) New construction ships, (Electrical hygiene will be undertaken by WOT) </p>
+                      </div>
+
+                      <li><strong><u>Procedure</u></strong> <p>Checks of compartment are to be undertaken as mentioned
+                          below:-</p></li>
+                      <div class="ms-4 list-style2 mt-4">
+                          <p>(a) The compartments in list of compartment table against which ‘SL’ is written, for
+                              those
+                              compartments checks are to be done as per standard check off list only. </p>
+                          <p>(b) The compartments in list of compartment table against which ‘SL+CS’ is written,
+                              for those
+                              compartments checks are to be done as per standard check off list and compartment
+                              specific check-off
+                              list both. </p>
+                          <p>(c) Complete list of compartment is to be made available for scheduling electrical
+                              hygiene checks of
+                              all the compartments. </p>
+                          <p>(d) Standard check off list is required to be filled for all compartments separately.
+                          </p>
+                      </div>
+                  </ol>
+        
+                  
+                  
+                  <div class="heading-style2 mt-4 mb-2" style="text-align:center; margin-top:200rem!important; margin-bottom:2rem!important;">
+                      <h2><strong><u>LIST OF COMPARTMENTS</u></strong></h2>
+                  </div>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" height="150%" style="margin-top: 15px;">
+                      <tr>
+                          <th>Ser</th>
+                          <th>Compartment Name</th>
+                          <th>Check Off List <br /> (Standard List (SL) / Compartment Specific List (CS))</th>
+                          <th>Status (Completed/ Not Completed/ In Progress/ NA)</th>
+                          <th>Remarks</th>
+                      </tr>
+                      <tr>
+                          <td>1.</td>
+                          <td>Machinery compartments including engine rooms, emergency DA compartment, steering
+                              gear compartment
+                              etc.</td>
+                          <td>SL + CS</td>
+                          <td>
+                           {{users.comp_machin_compart}}
+                          </td>
+                          <td>
+                           {{users.comp_machin_compart_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>2.</td>
+                          <td>Switchboards</td>
+                          <td>SL + CS</td>
+                          <td>
+                           {{users.comp_switchboards}}
+                          </td>
+                          <td>
+                           {{users.comp_switchboards_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>3.</td>
+                          <td>Battery Compartments</td>
+                          <td>SL + CS</td>
+                          <td>
+                           {{users.comp_battery_compart}}
+                          </td>
+                          <td>
+                           {{users.comp_battery_compart_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>4.</td>
+                          <td>ATU, AFU, REF & AC plants</td>
+                          <td>SL</td>
+                          <td>
+                              {{users.comp_plants}}
+                          </td>
+                          <td>
+                              {{users.comp_plants_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>5.</td>
+                          <td>Weather decks (foxle, helo deck, quarter deck, boat decks & bridge top)</td>
+                          <td>SL</td>
+                          <td>
+                              {{users.comp_weather_decks}}
+                          </td>
+                          <td>
+                              {{users.comp_weather_decks_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>6.</td>
+                          <td>Bridge & Ops Room</td>
+                          <td>SL</td>
+                          <td>
+                              {{users.comp_room_list}}
+                          </td>
+                          <td>
+                              {{users.comp_room_list_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>7.</td>
+                          <td>Weapons compartments, Magazines & HF post</td>
+                          <td>SL + CS</td>
+                          <td>
+                              {{users.comp_post_check}}
+                          </td>
+                          <td>
+                              {{users.comp_post_check_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>8.</td>
+                          <td>Shore supply & it’s JB</td>
+                          <td>SL</td>
+                          <td>
+                              {{users.comp_supply_check}}
+                          </td>
+                          <td>
+                              {{users.comp_supply_check_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>9.</td>
+                          <td>Habitability areas (mess decks, dining halls, ward room, officers cabin and office
+                              spaces,
+                              recreation rooms)</td>
+                          <td>SL</td>
+                          <td>
+                              {{users.comp_habitability_area}}
+                          </td>
+                          <td>
+                              {{users.comp_habitability_area_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>10.</td>
+                          <td>Store rooms, cold & cool rooms & workshops</td>
+                          <td>SL + CS</td>
+                          <td>
+                              {{users.comp_check_room_list}}
+                          </td>
+                          <td>
+                              {{users.comp_check_room_list_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>11.</td>
+                          <td>CO pantry, ship’s galley & officers galley</td>
+                          <td>SL + CS</td>
+                          <td>
+                              {{users.comp_galley_check}}
+                          </td>
+                          <td>
+                              {{users.comp_galley_check_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>12.</td>
+                          <td>Alleyways</td>
+                          <td>SL</td>
+                          <td>
+                              {{users.comp_alleyways}}
+                          </td>
+                          <td>
+                              {{users.comp_alleyways_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>13.</td>
+                          <td>Aviation decks & compartments</td>
+                          <td>SL</td>
+                          <td>
+                              {{users.comp_aviat_dec_compart}}
+                          </td>
+                          <td>
+                              {{users.comp_aviat_dec_compart_remarks}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>14.</td>
+                          <td>Miscellaneous like bathrooms, laundry, barber shop & paint stores</td>
+                          <td>SL</td>
+                          <td>
+                              {{users.comp_misc}}
+                          </td>
+                          <td>
+                              {{users.comp_misc_remarks}}
+                          </td>
+                      </tr>
+                  </table>
+                  <br><br>
+                  <div class="heading-style2 mt-4 mb-8" style="text-align:center; margin-top:200rem!important;">
+                      <h2><strong><u>STANDARD CHECKS-OFF LIST</u></strong></h2>
+                  </div>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <td>(a)</td>
+                          <td>Trial Date</td>
+                          <td>
+                           {{users.trial_date}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>Compartment name</td>
+                          <td>{{users.compart_name}}</td>
+                      </tr>
+                  </table>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <th colspan="1">Ser</th>
+                          <th class='paxcvy' colspan="2">Checks</th>
+                          <th rowspan="1">Status(Sat/ Unsat/ NA)</th>
+                          <th rowspan="1">Remarks</th>
+                      </tr>
+                      <tr>
+                          <th rowspan="12">1.</th>
+                      </tr>
+                      <tr>
+                          <th colspan="4">Cables</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Check for broken/ perished cable, without proper termination.</td>
+                          <td>
+                              {{users.sco_cbl_broken}}
+                                      
+                          </td>
+                          <td>{{users.sco_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>No loose cabling/ naked wires/ loose connections/ sparking inside the compartment.
+                          </td>
+                          <td>
+                              {{users.sco_cbl_cond_check}}
+                                      
+                          </td>
+                          <td>{{users.sco_cbl_cond_check_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>All cables to be routed through cable channels/ trays and to be neatly secured using
+                              metallic cable
+                              ties/ clips. No cables are sagging or left loose.</td>
+                          <td>
+                              {{users.sco_cbl_route}}
+                                      
+                          </td>
+                          <td>{{users.sco_cbl_route_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>Cables should only be covered with rigid/ flexible metallic conduit i.a.w IHQ MoD
+                              (N) Policy EE/ 03/
+                              9620 dated 26 Dec 19.</td>
+                          <td>
+                              {{users.sco_cbl_val}}
+                                      
+                          </td>
+                          <td>{{users.sco_cbl_val_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(e)</td>
+                          <td>Cables are not lying in haphazard manner.</td>
+                          <td>
+                              {{users.sco_cbl_manner}}
+                                      
+                          </td>
+                          <td>{{users.sco_cbl_manner_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(f)</td>
+                          <td>Cables that run from one compartment to other are passed through MCT gland.</td>
+                          <td>
+                              {{users.sco_cbl_path}}
+                                      
+                          </td>
+                          <td>{{users.sco_cbl_path_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(g)</td>
+                          <td>Proper grounding of metal sheaths of cables while using shielded cables.</td>
+                          <td>
+                              {{users.sco_cbl_metal_check}}
+                                      
+                          </td>
+                          <td>{{users.sco_cbl_metal_remark}}</td>
+                      </tr>
+                     
+                      <tr>
+                          <td>(h)</td>
+                          <td>Check for painted cables.</td>
+                          <td>
+                              {{users.sco_ptd_cbl_check}}
+                                      
+                          </td>
+                          <td>{{users.sco_ptd_cbl_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(j)</td>
+                          <td>Check all unused cables have been removed. </td>
+                          <td>
+                              {{users.sco_cbl_remove}}
+                                      
+                          </td>
+                          <td>{{users.sco_cbl_remove_remark}}</td>
+                      </tr>
+
+                      <tr>
+                          <th colspan="5">Lead Lamps</th>
+                      </tr>
+                      <tr>
+                          <th rowspan="8">2.</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Check that 24V lead lamps/ battery operated torch lights are being used for
+                              illumination in confined
+                              spaces. Only DC lamps to be used.</td>
+                          <td>
+                              {{users.sco_ll_light}}
+                                      
+                          </td>
+                          <td>{{users.sco_ll_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>No use of naked lead lamps, metal holders and plugs are being used. The holder is to
+                              be properly
+                              insulated.</td>
+                          <td>
+                              {{users.sco_ll_holders}}
+                                      
+                          </td>
+                          <td>{{users.sco_holder_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>Length of lead lamps is as short as practicable and so arranged as to prevent their
+                              being chafed and
+                              passed off through doors & hatches.</td>
+                          <td>
+                              {{users.sco_ll_length}}
+                                      
+                          </td>
+                          <td>{{users.sco_length_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>The lead lamp must be plugged in the same compartment.</td>
+                          <td>
+                              {{users.sco_ll_plugin}}
+                                      
+                          </td>
+                          <td>{{users.sco_plugin_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(e)</td>
+                          <td>Adapter type plug socket (not 2 pin type) is used. No direct connection to DB.</td>
+                          <td>
+                              {{users.sco_ll_plug_socket}}
+                                      
+                          </td>
+                          <td>{{users.sco_plug_socket_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(f)</td>
+                          <td>The cable termination in lead lamp is in
+                              such a way that
+                              it is never under tension when lamp is moved from place to place.</td>
+                          <td>
+                              {{users.sco_ll_rating}}
+                                      
+                          </td>
+                          <td>{{users.sco_rating_remark}}
+                          </td>
+                      </tr>
+
+                      <tr>
+                          <th colspan="4">Switches, Plugs & Sockets</th>
+                      </tr>
+                      <tr>
+                          <th rowspan="10">3.</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Multiple connections should not be taken from one single point anywhere onboard as
+                              this may lead to
+                              overloading and heating of point.</td>
+                          <td>
+                              {{users.sco_sps_conn_point}}
+                                      
+                          </td>
+                          <td>{{users.sco_sps_conn_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>Check all switches used on board are marinised double pole (double pole MCBs for
+                              230V) to ensure
+                              complete isolation of supplies to the services in switched Off condition.</td>
+                          <td>
+                              {{users.sco_sps_service}}
+                                      
+                          </td>
+                          <td>{{users.sco_service_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>ELCBs/ RCCBs are used for domestic supply.</td>
+                          <td>
+                              {{users.sco_sps_supply}}
+                                      
+                          </td>
+                          <td>{{users.sco_supply_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>Check for overloading of sockets.</td>
+                          <td>
+                              {{users.sco_sps_check_socket}}
+                                      
+                          </td>
+                          <td>{{users.sco_check_socket_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(e)</td>
+                          <td>Check for earth integrity of all plugs and sockets. Metal case sockets should be
+                              properly grounded.
+                          </td>
+                          <td>
+                              {{users.sco_sps_socket_condi}}
+                                      
+                          </td>
+                          <td>{{users.sco_socket_condi_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(f)</td>
+                          <td>No spike guard or extension cords are used. </td>
+                          <td>
+                              {{users.sco_sps_cords}}
+                                      
+                          </td>
+                          <td>{{users.sco_cords_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(g)</td>
+                          <td>Water tight switch/ socket on weather deck. </td>
+                          <td>
+                              {{users.sco_sps_deck}}
+                                      
+                          </td>
+                          <td>{{users.sco_deck_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(h)</td>
+                          <td>Commercial switches not to be used unless authorised . </td>
+                          <td>
+                              {{users.sco_comm_switch}}
+                                      
+                          </td>
+                          <td>{{users.sco_comm_switch_remark}}
+                          </td>
+                      </tr>
+
+                      <tr>
+                          <th colspan="4">Lighting</th>
+                      </tr>
+                      <tr>
+                          <th rowspan="8">4.</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Only MIL Grade marinised LED for weather deck, pendant and cabin lights are fitted.
+                          </td>
+                          <td>
+                              {{users.sco_lit_fix}}
+                                      
+                          </td>
+                          <td>{{users.sco_fix_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>Light fittings are provided with protective glass in position and properly
+                              tightened. No light lamps
+                              are without lamp shades. No broken/ cracked glass cover.</td>
+                          <td>
+                              {{users.sco_lit_protect}}
+                                      
+                          </td>
+                          <td>{{users.sco_protect_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>All light fittings are properly connected, fixture is steady and not hanging.</td>
+                          <td>
+                              {{users.sco_lit_conn}}
+                                      
+                          </td>
+                          <td>{{users.sco_conn_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>Shock mounts of light fittings are not broken/ perished, and no temporary
+                              arrangements are done to
+                              hold it at its place.</td>
+                          <td>
+                              {{users.sco_lit_check}}
+                                      
+                          </td>
+                          <td>{{users.sco_check_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(e)</td>
+                          <td>Check for operation ability of all lights fitted in the compartment.</td>
+                          <td>
+                              {{users.sco_lit_oper_test}}
+                                      
+                          </td>
+                          <td>{{users.sco_oper_test_remark}}</td>
+                      </tr>
+                     
+                      <tr>
+                          <td>(f)</td>
+                          <td>Fitment of light fitting should not affect the maintenance envelope of the
+                              equipment.</td>
+                          <td>
+                              {{users.sco_lit_env_equip}}
+                                      
+                          </td>
+                          <td>{{users.sco_env_equip_remark}}</td>
+                      </tr>
+
+                      <tr>
+                          <th colspan="4">Tools & Test Equipment</th>
+                      </tr>
+                      <tr>
+                          <th rowspan="5">5.</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>All common test equipment viz. multi meters, SPM, meggers etc. are maintained in
+                              good working
+                              condition and are duly insulated at contact points from user/ handle.</td>
+                          <td>
+                              {{users.sco_tte_condi}}
+                                      
+                          </td>
+                          <td>{{users.sco_tte_condi_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>Whenever any tool like soldering iron is unattended, power supply of it is isolated
+                              and switched
+                              off.</td>
+                          <td>
+                              {{users.sco_tte_tool}}
+                                      
+                          </td>
+                          <td>{{users.sco_tool_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>Use of proper tallies to be placed at work place. ‘MEN AT WORK, DONOT SWITCH ON’.
+                          </td>
+                          <td>
+                              {{users.sco_tte_instra}}
+                                      
+                          </td>
+                          <td>{{users.sco_instra_remark}}
+                          </td>
+                      </tr>
+
+                      <tr>
+                          <th colspan="4">Distribution Box / Junction Box</th>
+                      </tr>
+                      <tr>
+                          <th rowspan="11">6.</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Check front and rear panel/ doors for starters, DB’s and JB’s are dust free,
+                              properly closed and
+                              fitted with rubber seals.</td>
+                          <td>
+                              {{users.sco_DBs_check_panel}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_check_panel_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>All nut-bolts/ clips of the panel covers must be in place, bolted with screws, nuts
+                              & bolts and no
+                              loose items are rested inside or top of the boxes.</td>
+                          <td>
+                              {{users.sco_DBs_panel_cover}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_cover_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>Check DBs for loose connections, perished cables, exposed live wiring, and frayed
+                              cables.</td>
+                          <td>
+                              {{users.sco_DBs_check_DBs}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_check_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>All equipment/ JBs/ speakers to have correct earthing and grounding arrangement.
+                          </td>
+                          <td>
+                              {{users.sco_DBs_equip}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_equip_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(e)</td>
+                          <td>All electrical connections are inside the panel box so that no one can touch them
+                              accidentally.</td>
+                          <td>
+                              {{users.sco_DBs_conn}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_conn_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(f)</td>
+                          <td>All indications, instrumentations and gauges are intact, clean and fully functional
+                              in order to
+                              facilitate legible reading.</td>
+                          <td>
+                              {{users.sco_DBs_func_order}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_func_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(g)</td>
+                          <td>Tightened din rail.</td>
+                          <td>
+                              {{users.sco_DBs_tight_din}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_tight_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(h)</td>
+                          <td>Availability of circuit diagram</td>
+                          <td>
+                              {{users.sco_DBs_availability}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_availability_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(i)</td>
+                          <td>Check condition of cable glands in DBs and JBs.</td>
+                          <td>
+                              {{users.sco_DBs_cbl_condi}}
+                                      
+                          </td>
+                          <td>{{users.sco_DBs_cbl_remark}}</td>
+                      </tr>
+
+                      <tr>
+                          <th colspan="5">General</th>
+                      </tr>
+                      <tr>
+                          <th rowspan="11">7.</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>All equipment and sub-units are clean and are free from foreign particles, dust and
+                              carbon deposit.
+                              External area is clear of any obstructing material, fire hazard etc.</td>
+                          <td>
+                              {{users.sco_gen_material}}
+                                      
+                          </td>
+                          <td>{{users.sco_gen_material_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>Dirt, waste, rags, sawdust and other waste especially if contaminated with oil/
+                              grease may generate
+                              heat spontaneously which may be sufficient to ignite flammable mixtures. Such
+                              mixtures are stored and
+                              disposed off properly.</td>
+                          <td>
+                              {{users.sco_gen_dispos}}
+                                      
+                          </td>
+                          <td>{{users.sco_gen_dispos_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>No flanges/ couplers are directly installed above electrical panels. Water/ POL
+                              should not be
+                              leaking on to electrical equipment. </td>
+                          <td>
+                              {{users.sco_gen_elect_item}}
+                                      
+                          </td>
+                          <td>{{users.sco_gen_elect_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>Use of placard and notice boards as much as possible to inform others about the
+                              ongoing work.</td>
+                          <td>
+                              {{users.sco_gen_inform}}
+                                      
+                          </td>
+                          <td>{{users.sco_gen_inform_remark}}</td>
+                      </tr>
+                  </table>
+                  <div class="heading-style2 mt-4 mb-2" style="margin-top:200rem!important;">
+                      <br></br>
+                      <h2 style="text-align:center;"><strong><u>COMPARTMENT SPECIFIC CHECK-OFF LIST</u></strong></h2>
+                  </div>
+                  <div class="panel-row">
+                      <h4><u>1. Machinery Compartment</u></h4>
+                  </div>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <td>Trial date</td>
+                          <td>
+                  
+                           {{users.csc_MC_trial_date}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Compartment name</td>
+                          <td>{{users.csc_MC_compart_name}}</td>
+                      </tr>
+                  </table>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <th>Ser</th>
+                          <th>Checks</th>
+                          <th>Status(Sat / Unsat/ NA)</th>
+                          <th>Remarks</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Good housekeeping of the machinery compartment (no spillage of lubricant). Wood,
+                              paints, spirits,
+                              oil drums should not be kept in machinery spaces and steering gear compartment.</td>
+                          <td>
+                              {{users.csc_MC_check_mc}}
+                                      
+                          </td>
+                          <td>{{users.csc_Mc_check_remark}}</td>
+                      </tr>
+                      
+                      <tr>
+                          <td>(b)</td>
+                          <td>All rotating & reciprocating parts of electric motors are adequately protected by
+                              guards.</td>
+                          <td>
+                              {{users.csc_MC_electric_motors}}
+                                      
+                          </td>
+                          <td>{{users.csc_Mc_electric_remark}}</td>
+                      </tr>
+                  </table>
+                  <div class="panel-row">
+                      <h4><u>2. Switch boards</u></h4>
+                  </div>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <td>Trial date</td>
+                          <td>
+                           {{users.csc_SB_trial_date}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Compartment name</td>
+                          <td>{{users.csc_SB_compart_name}}</td>
+                      </tr>
+                  </table>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <th>Ser</th>
+                          <th>Checks</th>
+                          <th>Status(Sat / Unsat/ NA)</th>
+                          <th>Remarks</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Pipelines not to pass through switchboard compartment.</td>
+                          <td>
+                              {{users.csc_SB_pipeline}}
+                                      
+                          </td>
+                          <td>{{users.csc_SB_pipeline_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>No paint on cables.</td>
+                          <td>
+                              {{users.csc_SB_cbl}}
+                                      
+                          </td>
+                          <td>{{users.csc_SB_cbl_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>Check supply & feeder breakers are properly connected without any temporary
+                              arrangement.</td>
+                          <td>
+                              {{users.csc_SB_check_conn}}
+                                      
+                          </td>
+                          <td>{{users.csc_SB_check_conn_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>Check for proper colour coding of breaker.</td>
+                          <td>
+                              {{users.csc_SB_code}}
+                                      
+                          </td>
+                          <td>{{users.csc_SB_code_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(e)</td>
+                          <td>Check availability of HV mats.</td>
+                          <td>
+                              {{users.csc_SB_availability}}
+                                      
+                          </td>
+                          <td>{{users.csc_SB_availability_remark}}</td>
+                      </tr>
+                  </table>
+                  <div class="panel-row">
+                      <h4><u>3. Battery Charging & Stowage Compartments</u></h4>
+                  </div>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <td>Trial date</td>
+                          <td>
+                           {{users.csc_BC_trial_date}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Compartment name</td>
+                          <td>{{users.csc_BC_compart_name}}</td>
+                      </tr>
+                  </table>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <th>Ser</th>
+                          <th>Checks</th>
+                          <th>Status(Sat / Unsat/ NA)</th>
+                          <th>Remarks</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Approved 5A and 15A DP switch sockets to be provided within the battery charging
+                              compartment and
+                              lighting supply switch is placed outside.</td>
+                          <td>
+                              {{users.csc_BC_socket_val}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_socket_val_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>Double pole switch socket provided for remote charging of motorboat batteries with
+                              charging cable in
+                              good/ healthy condition of sufficient length and current capacity is available.</td>
+                          <td>
+                              {{users.csc_BC_capacity}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_capacity_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>Remote charging cable to be fitted with suitable plug compatible with charging
+                              socket. It is to be
+                              stowed in a dedicated stowage within the battery charging compartment.</td>
+                          <td>
+                              {{users.csc_BC_remote_charge}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_remote_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>Light fittings installed should be spark proof marinised standard and ‘not off the
+                              shelf’.</td>
+                          <td>
+                              {{users.csc_BC_light}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_light_remark}}</td>
+                      </tr>
+                     
+                      <tr>
+                          <td>(e)</td>
+                          <td>Door switch and red lighting to be provided in the compartment.</td>
+                          <td>
+                              {{users.csc_BC_compart_switch}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_compart_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(f)</td>
+                          <td>Alkaline and Lead Acid batteries are kept in separate compartment.</td>
+                          <td>
+                              {{users.csc_BC_battery}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_battery_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(g)</td>
+                          <td>Battery terminals must be covered with petroleum jelly and connections must be
+                              tight.</td>
+                          <td>
+                              {{users.csc_BC_battery_conn}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_conn_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(h)</td>
+                          <td>Metal tools such as spanners, should never be placed on top of batteries. Use only
+                              insulated handle
+                              tools.</td>
+                          <td>
+                              {{users.csc_BC_tools}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_tools_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(j)</td>
+                          <td>No loose batteries to be kept within the compartment.</td>
+                          <td>
+                              {{users.csc_BC_battery_no}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_battery_no_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(k)</td>
+                          <td>Ventilation must be sufficient to remove gases produced during charging process
+                              i.a.w NES 102. Check
+                              functioning of ventilation fan.</td>
+                          <td>
+                              {{users.csc_BC_process}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_process_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(l)</td>
+                          <td>Battery compartment are painted with special acid resistant rubberized paint to
+                              prevent any
+                              corrosion. </td>
+                          <td>
+                              {{users.csc_BC_acid_resistant}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_socket_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(m)</td>
+                          <td><u>Cleaning of battery.</u> The acid and formation of copper sulphate on the battery top
+                              should be cleaned
+                              regularly with cotton, moisturised with soda solution of ammonia water.</td>
+                          <td>
+                              {{users.csc_BC_cleaning}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_cleaning_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(n)</td>
+                          <td>Battery terminals and metal supports should be cleaned properly down to bare metal
+                              and covered with
+                              Vaseline or petroleum jelly.</td>
+                          <td>
+                              {{users.csc_BC_metal_support}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_metal_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(p)</td>
+                          <td>Emergency wash basin with adequate supply of fresh water and drainage arrangement in
+                              case
+                              electrolyte splash, to be present in the compartment.</td>
+                          <td>
+                              {{users.csc_BC_pres_compart}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_pres_compart_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(q)</td>
+                          <td>Check that battery vent caps are in place to prevent overflow and spilling of
+                              electrolyte.</td>
+                          <td>
+                              {{users.csc_BC_vent_caps}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_vent_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(r)</td>
+                          <td>Charger is shut off when connecting or disconnecting the battery.</td>
+                          <td>
+                              {{users.csc_BC_connect}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_connect_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(s)</td>
+                          <td>All common test equipment viz. multi meters, meggers etc. are maintained in good
+                              working condition
+                              and are duly insulated at contact points from user/ handle.</td>
+                          <td>
+                              {{users.csc_BC_test_eqiup}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_test_equip_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(t)</td>
+                          <td>Battery to be covered with suitable insulating material and battery connections are
+                              kept clean, dust
+                              free & tight.</td>
+                          <td>
+                              {{users.csc_BC_material}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_material_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(u)</td>
+                          <td>Battery compartment is kept open while charging to vent heat and explosive gases.
+                          </td>
+                          <td>
+                              {{users.csc_BC_gas}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_gas_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(v)</td>
+                          <td>Battery compartment not used as a store for any material or gear not associated.
+                              Adequate no. of
+                              shelves and trays to be provided within the battery charging room for stowage of all
+                              spare motorboat
+                              batteries.</td>
+                          <td>
+                              {{users.csc_BC_stowage}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_stowage_remark}}</td>
+                      </tr>
+                     
+                      <tr>
+                          <td>(w)</td>
+                          <td>Batteries are transported in upright condition to avoid spillage of electrolyte.
+                          </td>
+                          <td>
+                              {{users.csc_BC_transport}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_transport_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(x)</td>
+                          <td>No ventilation trunking/ duct/ fire main coupler should run through battery
+                              compartment.</td>
+                          <td>
+                              {{users.csc_BC_security}}
+                                      
+                          </td>
+                          <td>{{users.csc_BC_security_remark}}</td>
+                      </tr>
+                  </table>
+                  <div class="panel-row">
+                      <h4><u>4. CO Pantry, Ship’s Galley & Officers Galley</u></h4>
+                  </div>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <td>Trial date</td>
+                          <td>
+                           {{users.csc_galley_trial_date}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Compartment name</td>
+                          <td>{{users.csc_galley_compart_name}}</td>
+                      </tr>
+                  </table>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <th>Ser</th>
+                          <th>Checks</th>
+                          <th>Status(Sat / Unsat/ NA)</th>
+                          <th>Remarks</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Galley cables to be single length cable without any joint/ connection. Cables with
+                              joints covered
+                              with insulating tapes tends to gradually peel due to presence of oil vapor/ heat in
+                              the compartment,
+                              thus exposing live wires.</td>
+                          <td>
+                              {{users.csc_galley_cbl}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_cbl_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>All ships to have suitable visual lamp indication for indicating On/Off status of
+                              galley hot plates
+                              and deep fryer outside galley on the main alleyway.</td>
+                          <td>
+                              {{users.csc_galley_status}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_status_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>Yellow lamp to indicate availability of power supply to galley range indication
+                              panel.</td>
+                          <td>
+                              {{users.csc_galley_range}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_range_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>Power supply for galley equipment be provided through a breaker located outside
+                              galley preferably
+                              (single isolation switch). The breaker must be switched off prior securing/ closing
+                              the galley.
+                              Indication of status of single isolation switch to be available locally and remotely
+                              (at DCHQ).</td>
+                          <td>
+                              {{users.csc_galley_equip}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_equip_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(e)</td>
+                          <td>Single isolation switch and MCCBs are to be capable of being key locked in the ‘Off’
+                              position to
+                              prevent any chances of accidental switching on of the galley equipment.</td>
+                          <td>
+                              {{users.csc_galley_key}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_key_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(f)</td>
+                          <td>Ventilation shut down arrangement available outside galley. Crash stop button for
+                              galley exhaust
+                              marked and painted RED.</td>
+                          <td>
+                              {{users.csc_galley_availability}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_availability_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(g)</td>
+                          <td>Heat/ smoke sensors should be operational.</td>
+                          <td>
+                              {{users.csc_galley_operation}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_operation_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(h)</td>
+                          <td>Check for water accumulation around galley equipment.</td>
+                          <td>
+                              {{users.csc_galley_check_accum}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_accum_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(j)</td>
+                          <td>No thin layer of oil observed on terminals/ electrical connections.</td>
+                          <td>
+                              {{users.csc_galley_conn}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_conn_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(k)</td>
+                          <td>All galley equipment are earthed and wires not painted.</td>
+                          <td>
+                              {{users.csc_galley_capacity}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_capacity_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(l)</td>
+                          <td>Hot plates screwed properly to base plates. No hair line cracks on hot plate which
+                              could damage/
+                              lead to low insulation of heating element.</td>
+                          <td>
+                              {{users.csc_galley_element}}
+                                      
+                          </td>
+                          <td>{{users.csc_galley_element_remark}}</td>
+                      </tr>
+                  </table>
+                  <div class="panel-row">
+                      <h4><u>5. Weapon Compartments,Magazines & HF Post</u></h4>
+                  </div>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <td>Trial date</td>
+                          <td>
+                           {{users.csc_magazine_trial_date}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Compartment name</td>
+                          <td>{{users.csc_magazine_compart_name}}</td>
+                      </tr>
+                  </table>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <th>Ser</th>
+                          <th>Checks</th>
+                          <th>Status(Sat / Unsat/ NA)</th>
+                          <th>Remarks</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Bulb shades are explosion/ shatter proof. Naked lights are not used.</td>
+                          <td>
+                              {{users.csc_magazine_status}}
+                                      
+                          </td>
+                          <td>{{users.csc_magazine_status_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>Light fittings are divided into two groups, each fed from a different source of
+                              supply.</td>
+                          <td>
+                              {{users.csc_magazine_source}}
+                                      
+                          </td>
+                          <td>{{users.csc_magazine_source_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>No battery-operated lamp or electric torches are designed to be stowed/ fitted.</td>
+                          <td>
+                              {{users.csc_magazine_operater}}
+                                      
+                          </td>
+                          <td>{{users.csc_magazine_opera_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>Emergency lighting other than AEL is provided in the magazine.</td>
+                          <td>
+                              {{users.csc_magazine_ael}}
+                                      
+                          </td>
+                          <td>{{users.csc_magazine_ael_remark}}</td>
+                      </tr>
+                  </table>
+                  <div class="panel-row">
+                      <h4><u>6. Cold & Cool Room</u></h4>
+                  </div>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <td>Trail date</td>
+                          <td>
+                           {{users.csc_CR_trial_date}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Compartment name</td>
+                          <td>{{users.csc_CR_compart_name}}</td>
+                      </tr>
+                  </table>
+                  <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                      <tr>
+                          <th>Ser</th>
+                          <th>Checks</th>
+                          <th>Status(Sat / Unsat/ NA)</th>
+                          <th>Remarks</th>
+                      </tr>
+                      <tr>
+                          <td>(a)</td>
+                          <td>Incandescent watertight well glass fittings are used in cold/ cool room. </td>
+                          <td>
+                              {{users.csc_CR_range}}
+                                      
+                          </td>
+                          <td>{{users.csc_CR_range_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(b)</td>
+                          <td>Independent lighting in every room which cannot be switched off from the outside.
+                          </td>
+                          <td>
+                              {{users.csc_CR_light}}
+                                      
+                          </td>
+                          <td>{{users.csc_CR_lig_remark}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>(c)</td>
+                          <td>Audio visual alarm system to indicate that someone is trapped in any of the cold/
+                              cool room is
+                              installed with parallel set sited in DCHQ or bridge. Alarm to be operated from
+                              within the compartment
+                              with clearly tallied to state their purpose. Battery backup to alarm is provided to
+                              be functional even
+                              when there is power failure.</td>
+                          <td>
+                              {{users.csc_CR_visual_state}}
+                                      
+                          </td>
+                          <td>{{users.csc_CR_visual_remark}}</td>
+                      </tr>
+                      <tr>
+                          <td>(d)</td>
+                          <td>An external warning light in parallel with room illumination light shall be fitted
+                              in each cold/
+                              cool room to indicate that internal lighting is on or someone is trapped inside.
+                          </td>
+                          <td>
+                              {{users.csc_CR_external_warning}}
+                                      
+                          </td>
+                          <td>{{users.csc_CR_external_remarks}}</td>
+                      </tr>
+                  </table>
+               
+
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+    <tr>
+        <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+        <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+    </tr>
+</table>
+  </body>
+</html>

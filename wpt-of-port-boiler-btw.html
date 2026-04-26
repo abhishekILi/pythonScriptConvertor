@@ -1,0 +1,381 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>wpt-of-port-boiler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="pdfkit-page-size" content="Legal" />
+    <meta name="pdfkit-orientation" content="Portrait" />
+    <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+            .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+             strong{font-weight: 600;}
+           body{font-family: Arial;} 
+            body{margin:50px;background: #FFF !important;}
+
+            table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            table tr{
+                margin: 0px!important;
+            }
+            table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: left;
+                padding: 2px 2px 2px 2px;
+            }
+            table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: left;
+            padding: 2px 2px 2px 2px;
+        }
+            .textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+                border: 1px solid #80808054;
+                margin: 10px;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+</head>
+
+<body>
+   
+    <div class="wrapper">
+        <div style="float:right">
+            <p>Report Generated on: {{ history.approved_date_time }}</p>
+        </div>
+            <div class="container-fluid">
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="panel-right">
+
+                            <div class="panel-row">
+                                <div class="heading-style2 text-center">
+                                    <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                    src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+                                    <h2 style="text-align: center;">IN-587(Rev-I)</h2>
+                                    <h2 style="text-align: center;">(i) S.-355</h2>
+                                   
+                                </div>
+                            
+                                <table class="table table-bordered tabletd-color table-form-color1">
+                                    <tr>
+                                        <td width="10%"><strong>ShipName: </strong></td>
+                                        <td>{{users.wpt_port_boiler_ShipName}}</td>
+
+                                        <td width="15%" style="background:#efedff"><strong>Report Ref No: </strong></td>
+                                        <td>{{users.wpt_port_boiler_Report_Ref_No}}
+                                        </td>
+
+                                        <td width="10%" style="background:#efedff"><strong>Date:</strong></td>
+                                        <td colspan="2">{{users.wpt_port_boiler_Date}}</td>
+                                    </tr>
+                                </table>
+                                <div class="heading-style2 heading-style3 text-center">
+                                    <h2><U>REPORT OF WATER PRESSURE TEST OF BOILER</U>
+                                        {{users.REP_EX_WATER_PRESSURE}}
+                                    </h2>
+                                </div>
+                                <p style="font-size:16px;color: #0b014a;"><strong>(Test to be undertaken i.a.w Article 1255, BR 3000 and Article 0314, BR 2000(25) (1). Report is to be rendered in quadruplicate to CBIU on all occasions of WPT, listed at para 1(a) to (c), Art 1255 of BR 3000).
+                                </strong>
+                                </p>
+                                <div class="heading-style2 text-center">
+                                    <h2><U>PART-I</U></h2>
+                                </div>
+                                <table class="table table-bordered tabletd-color">
+                                    <!-- <tr>
+                                        <th colspan="5"><U>PART – I</U></th>
+                                    </tr> -->
+                                    <tr>
+                                        <td>1.</td>
+                                        <td class="td-bluelight"><b>Port/Place of test</b></td>
+                                        <td colspan="3">{{users.wpt_Port_Place_test}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.</td>
+                                        <td class="td-bluelight"><b>Date of test</b></td>
+                                        <td colspan="3">
+                                           {{users.wpt_Date_test}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3.</td>
+                                        <td class="td-bluelight"><b>Occasion of test</b></td>
+                                        <td colspan="3">{{users.wpt_Occasion_test}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">4.</td>
+                                        <td class="td-bluelight"><b>Test pressure</b>
+                                            <p>(a) As recommended vide Art 1255 of BR 3000</p>
+                                        </td>
+                                        <td colspan="3">{{users.wpt_Test_pressure}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>(b) Actual (Maximum)</td>
+                                        <td class="table-form-color2" colspan="3">{{users.wpt_Test_Actual}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5.</td>
+                                        <td class="td-bluelight"><b>If pressure has been reduced, indicate briefly reason,reduced pressure and since when.</b>
+                                        </td>
+                                        <td colspan="3">{{users.wpt_press_reduced}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>6.</td>
+                                        <td class="td-bluelight"><b>Duration in minutes the above test pressure was applied.</b></td>
+                                        <td colspan="3">{{users.wpt_Duration_minutes}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7.</td>
+                                        <td class="td-bluelight"><b>Pressure drop observed in 5 minutes at actual (maximum)test pressure.</b></td>
+                                        <td colspan="3">{{users.wpt_Pressure_drop}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>8.</td>
+                                        <td class="td-bluelight"><b>Extent of permanent set (distortion) due to test, if any and details of parts affected.</b>
+                                        </td>
+                                        <td colspan="3">{{users.wpt_Extent_permanent}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9.</td>
+                                        <td class="td-bluelight"><b>Details of boiler mountings removed blanked during the test.</b></td>
+                                        <td colspan="3">
+                                            <!-- <table style="border: 0px;"> -->
+                                                <!-- <tr> -->
+                                                    <!-- <td class="col-md-1 text-center">a)</td> -->
+                                                    {{users.wpt_boiler_mountings_1}}
+                                                <!-- </tr> -->
+                                                <!-- <tr>
+                                                    <td class="col-md-1 text-center">b)</td>
+                                                    <td class="col-md-11 pl-0">{{users.wpt_boiler_mountings_2}}</td>
+                                                </tr>
+    
+                                                <tr>
+                                                    <td class="col-md-1 text-center">c)</td>
+                                                    <td class="col-md-11 pl-0">{{users.wpt_boiler_mountings_3}}</td>
+                                                </tr> -->
+                                            <!-- </table> -->
+                                        </td>
+                                    </tr>
+                                </table>
+                            <table>
+                                <tr>
+                                    <td>10.</td>
+                                    <td class="td-bluelight"><b>Brief details of source and nature of leaks (such as sweating, seeping drop by drop or continuous etc.) observed/during the test</b></td>
+                                    <td class="td-bluelight">Pressure at which leak first became evident</td>
+                                    <td class="td-bluelight">Weather rectified (Yes/No)</td>
+                                </tr>
+                                <tr>
+                                    <td class="col text-center"></td>
+                                    <td class="col text-center"> (a)</td>
+                                    <td class="col text-center"> (b)</td>
+                                    <td class="col text-center"> (c)</td>    
+                                </tr>
+                                {% for i in dyanamicData %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i.phosphate_date_of_occurrence}}</td>
+                                        <td>{{i.phosphate_actual_value_measured}}</td>
+                                        <td>{{i.phosphate_duration_boiler}}</td>                
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                <table>
+
+                    <tr>
+                        <td>11.</td>
+                        <td class="td-bluelight"><b>Pump used for the test (shore/ship’s pump).</b></td>
+                        <td colspan="3">{{users.wpt_pump_used_for}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12.</td>
+                        <td class="td-bluelight"><b>If ship’s pump is non-operational indicate briefly since when reason/hold ups and remedial actions taken.</b></td>
+                        <td colspan="3">{{users.wpt_pump_non_operation_indication}}</td>
+                    </tr>
+                    </table>
+                    <div class="heading-style2 text-center">
+                        <h2><U>PART-II</U></h2>
+                    </div>
+                    <table class="table table-bordered tabletd-color">
+                        <tr>
+                            <td width="4%">13</td>
+                            <td class="td-bluelight" width="50%"><b>Ref No. and date of report rendered on last WPT</b></td>
+                            <td>{{users.Ref_No_date_report_rendered_last_WPT}}</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td class="td-bluelight"><b>Date of last WPT.</b></td>
+                            <td colspan="2">
+                                {{users.Date_last_WPT}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td class="td-bluelight"><b>Occasion of last WPT</b></td>
+                            <td>{{users.Occ_last_WPT}}</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td class="td-bluelight"><b>Date(s) of rectification of each of the outstanding leak(s) of the last WPT.</b></td>
+                            <td colspan="2">
+                                {{users.Date_rectification}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td class="td-bluelight"><b>Reason hold ups about each of the outstanding leak(s) of the last WPT which are yet to be rectified</b></td>
+                            <td>{{users.Reason_hold_ups}}</td>
+                        </tr>
+                    </table>
+
+                    <div class="row pl-3 mb-2">
+
+                        <p>(Note: Indicate leak (s) of the last WPT in Sl. 16 and 17 above by their Sl. No(s) as
+                            per the last WPT report).</p>
+                    </div></br>
+
+                    <div class="heading-style2 text-center">
+                        <h2><U>PART-III</U></h2>
+                    </div>
+                    <h4>18.&nbsp;&nbsp;&nbsp;&nbsp;<b>General remarks by ship.</b>
+                        <span class="text" style="font-size: 16px !important;">(To include any other information in
+                            addition to that given earlier which
+                            may be considered necessary to enable a more complete estimate to be formed of the state of
+                            the boiler.
+                            Particularly of the pressure parts e.g. recurring defects/erratic performance of boiler
+                            mountings,
+                            requiring repeated repairs, frequent failure of joints/packing materials and defects of
+                            joining faces,
+                            long outstanding defects, if any and any other abnormality being experienced.)</span>
+                    </h4>
+
+                    <table class="table table-bordered table-form-color1">
+
+                     <td class="textarea">  {{users.General_Remark_By_SHIP_WPT}}</td>
+
+                    </table></br>
+
+                    <table class="table table-bordered tabletd-color table-form-color1">
+                        <tr>
+                            <td width="15%"><strong>Engineer Officer</strong></td>
+                            <td>
+                                <p style="font-size:9px">Comment: {{esignature.engg_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.engg_information.first_name}} {{esignature.engg_information.last_name}} ({{esignature.engg_information.loginname}})
+                                <br>
+                                {{esignature.engg_information.designation}}
+                                <br>
+                                On {{esignature.engg_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.engg_sign_path}}"/></td>
+
+                            <td class="td-bluelight" width="15%"><strong>Commanding Officer</strong></td>
+                            <td>
+                                <p style="font-size:9px">Comment: {{esignature.comm_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.comm_information.first_name}} {{esignature.comm_information.last_name}} ({{esignature.comm_information.loginname}})
+                                <br>
+                                {{esignature.comm_information.designation}}
+                                <br>
+                                On {{esignature.comm_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.comm_sign_path}}"/></td>
+
+                        </tr>
+                    </table></br>
+                    <div class="heading-style2 text-center">
+                        <h2><U>PART – IV</U></h2>
+                    </div>
+                    <h4>19.&nbsp;&nbsp;&nbsp;&nbsp;<U>Remarks by CBIU</U></h4>
+
+                    <table class="table table-bordered table-form-color1">
+
+                      <td  class="textarea"> {{users.General_Remark_By_CBIU_WPT | safe}}</td>
+
+                    </table></br>
+
+                    <table class="table table-bordered table-form-color1">
+                        <tr>
+                            <td width="15%"><strong>Officer-in-Charge</strong></td>
+                            <td>{{users.wpt_Officer_in_Charge}}</td>
+
+                        </tr>
+                    </table>
+                </div>
+
+
+            </div>
+            </div>
+            </div>
+            </div>
+            <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 8px;">
+                <tr>
+                    <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                    <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+                </tr>
+            </table>
+
+
+            <table cellspacing="0" cellpadding="5"   width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+                <tr style="border: 0; border-style:None;">
+                    <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                    <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+                </tr>
+        </table>
+    </div>
+</body>
+
+</html>

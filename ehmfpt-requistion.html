@@ -1,0 +1,402 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>ehmfpt-requistion</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Landscape"/>
+      <style type="text/css">
+         body{margin: 50px 50px; size:landscape;}
+         .wrapper{width: 100%; margin: 20px auto;}
+         table{border-collapse: collapse;}
+         .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+         .star{color: red;}
+         strong{font-weight: 600;}
+         tr,th{text-align: start;}
+      </style>
+   </head>
+   <body>
+      <div class="wrapper">
+              <div class="heading-style2 heading-mat-sm">
+                <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>REQUISTION FOR 
+                  <span> EHM</span>
+                   </strong>TRIALS</h2></div>
+                   <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                    {% if users%}
+
+                <tr>
+                    <td width="3%">1</td>
+                    <td width="23%"><p style="font-size: 14px; margin:0;">Natue of Trial</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Natue_Trial}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>2</td>
+                    <td><p style="font-size: 14px; margin:0;">Requisition Date</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Date |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>3</td>
+                    <td><p style="font-size: 14px; margin:0;">Machinery (GT)</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Machinery}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>4</td>
+                    <td><p style="font-size: 14px; margin:0;">Reason for trial</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Reason_trial}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>5</td>
+                    <td><p style="font-size: 14px; margin:0;">Proposed Date for harbour trials</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Proposed_Date_harbour_trials |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>6</td>
+                    <td><p style="font-size: 14px; margin:0;">Proposed Date for Sea trials</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Proposed_Date_Sea_trials |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+              </table>   
+
+              <h4>7. State of Machinery</h4>
+              <div class="form-inline-group">
+                <div style="float: left; margin-left: 10px;" class="form-check">
+                  <input class="form-check-input" type="checkbox"  value="{{users.Req_GT1}}" 
+                  {% if users.Req_GT1 == 1 %} checked {% endif %}>
+                  
+                  <label class="form-check-label" for="defaultCheck1">
+                    GT 1
+                  </label>
+                </div>
+                <div style="float: left; margin-left: 10px;" class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{users.Req_GT2}}" 
+                  {% if users.Req_GT2 == 1 %} checked {% endif %}>
+                  <label class="form-check-label" for="defaultCheck2">
+                    GT 2
+                  </label>
+                </div>
+                <div style="float: left; margin-left: 10px;" class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{users.Req_GT3}}" id="defaultCheck3"
+                  {% if users.Req_GT3 == 1 %} checked {% endif %}>
+                  <label class="form-check-label" for="defaultCheck3">
+                    GT 3
+                  </label>
+                </div>
+                <div style="float: left; margin-left: 10px;" class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{users.Req_GT4}}" id="defaultCheck4" {% if users.Req_GT4 == 1 %} checked {% endif %}
+                  >
+                  <label class="form-check-label" for="defaultCheck4">
+                    GT 4
+                  </label>
+                </div>
+                <div style="float: left; margin-left: 10px;" class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{users.Req_RG1}}" id="defaultCheck5" {% if users.Req_RG1 == 1 %} checked {% endif %}>
+                  <label class="form-check-label" for="defaultCheck5">
+                    RG 1
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{users.Req_RG2}}" 
+                   {% if users.Req_RG2 == 1 %} checked {% endif %}>
+                  <label class="form-check-label" for="defaultCheck6">
+                    RG 2
+                  </label>
+                </div>
+              </div>
+
+              <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 25px;">
+                <tr>
+                  <th width="23%">Type</th>
+                  <th>GT 1</th>
+                  <th>GT 2</th>
+                  <th>GT 3</th>
+                  <th>GT 4</th>   
+                  <!-- <th>RG 1</th>
+                  <th>RG 2</th>                -->
+                </tr>
+                {% if users%}
+                <tr>
+                  <td>(a) Serial Number</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Serial_Number_GT1}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Serial_Number_GT2}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Serial_Number_GT3}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Serial_Number_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(b) Running Hours SN</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Running_Hrs_SN_GT1}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Running_Hrs_SN_GT2}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Running_Hrs_SN_GT3}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Running_Hrs_SN_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(c) Running Hours SI</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Running_Hrs_SI_GT1}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Running_Hrs_SI_GT2}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Running_Hrs_SI_GT3}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Running_Hrs_SI_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(d) Hours Since Last trial</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Hrs_Since_Last_trial_GT1}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Hrs_Since_Last_trial_GT2}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Hrs_Since_Last_trial_GT3}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Hrs_Since_Last_trial_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>(e) Hours Since Last Major Routine</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Hrs_Since_Last_Major_Routine_GT1}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Hrs_Since_Last_Major_Routine_GT2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Hrs_Since_Last_Major_Routine_GT3}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Hrs_Since_Last_Major_Routine_GT4}}</td>
+                  </tr>
+                  {% endif%}
+                  <tr>
+                    <td colspan="5">(f) Details</td>
+                  </tr>
+                  {% if users%}
+                <tr>
+                  <td class="subcatg-pad">(i) Date of Last Trials</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Date_Last_Trials_GT1 |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Date_Last_Trials_GT2 |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Date_Last_Trials_GT3 |date:'d/m/Y'}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Date_Last_Trials_GT4 |date:'d/m/Y'}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td class="subcatg-pad">(ii) Major Routine Done</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Major_Routine_Done_GT1}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Major_Routine_Done_GT2}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Major_Routine_Done_GT3}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Major_Routine_Done_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td class="subcatg-pad">(iii) Details of replacement of Major eqpt</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Details_rp_Major_eqpt_GT1}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Details_rp_Major_eqpt_GT2}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Details_rp_Major_eqpt_GT3}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Details_rp_Major_eqpt_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td class="subcatg-pad">(iv) Major Defect encountered Since last routine</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Major_Defect_en_l_routine_GT1}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Major_Defect_en_l_routine_GT2}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Major_Defect_en_l_routine_GT3}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Major_Defect_en_l_routine_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="subcatg-pad">(v) Outstanding defects/routine</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Outst_defects_routine_GT1}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Outst_defects_routine_GT2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Outst_defects_routine_GT3}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Outst_defects_routine_GT4}}</td>
+                  </tr>
+                  {% endif%}
+                  {% if users%}
+                <tr>
+                  <td class="subcatg-pad">(vi) Next routine falling due</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Nxt_routine_falling_due_GT1}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Nxt_routine_falling_due_GT2}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Nxt_routine_falling_due_GT3}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.Req_Nxt_routine_falling_due_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="subcatg-pad">(vii) Other relevant information</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Other_relevant_info_GT1}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Other_relevant_info_GT2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Other_relevant_info_GT3}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Other_relevant_info_GT4}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="subcatg-pad">(viii) Previous Life Ext Accorded</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Prev_Life_Ext_Accrd_GT1}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Prev_Life_Ext_Accrd_GT2}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Prev_Life_Ext_Accrd_GT3}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Prev_Life_Ext_Accrd_GT4}}</td>
+                </tr>
+                {% endif%}
+              </table>  
+              <div class="heading-style2  heading-mat-sm">
+                <h2 style="font-size: 20px; font-weight: 600; color: #000; text-align: center;"><strong>REQUISTION FOR 
+                  <span> GTG J1</span>
+                   </strong> VIBRATION TRIALS</h2></div>
+
+                   <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                {% if users%}
+                    <tr>
+                    <td width="3%">1</td>
+                    <td width="20%"><p style="font-size: 14px; margin:0;">Name of Ship</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Name_Ship}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>2</td>
+                    <td><p style="font-size: 14px; margin:0;">Machinery / Equipment</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Machinery_Equipment}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>3</td>
+                    <td><p style="font-size: 14px; margin:0;">Proposed Date of trial</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Proposed_Date_trial}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td>4</td>
+                    <td><p style="font-size: 14px; margin:0;">Reason for trial</p></td>
+                    <td style="font-size:14px; color: #222;">{{users.Req_Reason_trial}}</td>
+                </tr>
+                {% endif%}
+              </table>
+              <h4>5. State of Machinery</h4>
+              <div class="form-inline-group">
+                <div style="float: left;" class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{users.Req_operational}}" id="defaultCheck1" {% if users.Req_operational == 1 %} checked {% endif %}>
+                  <label class="form-check-label" for="defaultCheck1">
+                    Operational
+                  </label>
+                </div>
+                <div style="margin-left: 10px;float: left;" class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{users.Req_TC}}" id="defaultCheck2" {% if users.Req_TC == 1 %} checked {% endif %} >
+                  <label class="form-check-label" for="defaultCheck2">
+                    TC
+                  </label>
+                </div>
+                <div style="margin-left: 10px;float: left;" class="form-check">
+                  <input class="form-check-input" type="checkbox" value="{{users.Req_RG}}" id="defaultCheck3" {% if users.Req_RG == 1 %} checked {% endif %}>
+                  <label class="form-check-label" for="defaultCheck3">
+                    RG
+                  </label>
+                </div>
+              </div>
+              <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 60px;">
+                <tr>
+                  <th width="23%">Type</th>
+                  <th>TC</th>
+                  <th>RG</th>
+                </tr>
+                {% if users%}
+                <tr>
+                  <td>(a) Hours run since new</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Hours_run_since_new_TC}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Hours_run_since_new_RG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(b) Date of Last Vibration Trials</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Date_Last_Vibration_Trials_TC}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Date_Last_Vibration_Trials_RG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(c) Hours run since last trial</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Hrs_run_since_last_trial_TC}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Hrs_run_since_last_trial_RG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(d) Last major routine carried out on</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_L_major_routine_out_on_TC}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_L_major_routine_out_on_RG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(e) Hours since last major routine (6K)</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Hrs_since_l_major_routine_TC}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Hrs_since_l_major_routine_RG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(f) Details of replacement of major Components/Sub-assemblies</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_rep_major_Components_TC}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_rep_major_Components_RG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(g) Major defects encountered since last major routines observed</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Major_defects_encountered_TC}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Major_defects_encountered_RG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                  <td>(h) Outstanding defects/routines</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Outstanding_defects_TC}}</td>
+                  <td style="font-size:14px; color: #222;">{{users.sm_Outstanding_defects_RG}}</td>
+                </tr>
+                {% endif%}
+                {% if users%}
+                <tr>
+                    <td class="subcatg-pad">(vii) Other relevant information</td>
+                    <td style="font-size:14px; color: #222;">{{users.sm_Other_relevant_info_TC}}</td>
+                    <td style="font-size:14px; color: #222;">{{users.sm_Other_relevant_info_RG}}</td>                    
+                </tr>
+                {% endif%}
+              </table>
+
+              <h4>6. Any other relevant information</h4>
+              <table cellspacing="0" cellpadding="5" border="1" class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 15px;">
+                {% if users%}
+                <tr>
+                  <td style="font-size:14px; color: #222;">{{users.Other_relevant_info}}</td>                  
+                </tr>
+                {% endif%}
+              </table>
+              <h4>Recommendations. Following recommended:</h4>
+              {%  with "service/approvals.html" as template %}   
+                    {% include template %}
+                    
+              {% endwith %}
+              <div class="clear"></div>
+        
+            </div>
+            <table cellspacing="0" cellpadding="5"  class="table grid-tab" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+              <tr>
+                  <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                  <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-item:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+              </tr>
+          </table>
+            </body>
+            </html>
+       

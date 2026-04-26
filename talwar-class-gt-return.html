@@ -1,0 +1,2612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <title>GTTT Talwar Class</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="pdfkit-page-size" content="Legal" />
+        <meta name="pdfkit-orientation" content="Landscape" />
+
+        <style type="text/css">
+                .page-break{
+                        page-break-after: always;
+                    }
+                body{margin:50px 50px; size:landscape;}
+                .wrapper{width: 100%;border-style: double; padding: 8px;}
+                    table{border-collapse: collapse;}
+                    .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+                    .star{color: red;}
+                    strong{font-weight: 600;}
+                    body{margin:50px;background: #FFF !important;}
+        
+                    .table{
+                        border: 1px solid lightgray;
+                        font-size: 12px;
+                        padding: 0px;
+                        margin: 0px;
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
+                    .table tr{
+                        margin: 0px!important;
+                    }
+                    .table tr th{
+                        background-color: #80808054;
+                        padding: 0px;
+                        margin: 0px;
+                        border: 1px solid black;
+                        text-align: center;
+                        padding: 2px 2px 2px 2px;
+                    }
+                    .table tr td{
+                    background-color: #80808054;
+                    padding: 0px;
+                    margin: 0px;
+                    border: 1px solid black;
+                    text-align: center;
+                    padding: 2px 2px 2px 2px;
+                }
+                    textarea{
+                        width: 100%;
+                        min-height: 10px;
+                        /* padding: 10px; */
+                        font-size: 12px;
+                        resize: none;
+                        overflow-y: hidden;
+                    }
+                    h2{
+                        text-align: center;
+                    }
+                    input{
+                        border: none;
+                    }
+                    button{
+                        display: none;
+                    }
+                    .btn{
+                        display: none;
+                    }
+        
+                    @media print{
+                        button, input[type="button"], input[type="submit"], input[type="reset"]{
+                            display: none !important;
+                        }
+                    }
+            </style>
+</head>
+
+<body>
+        <div class="wrapper">
+        <div style="float:right">
+                <p>Report Generated on: {{ history.approved_date_time }}</p>
+                </div>
+        <div class="heading-style2 heading-style3 text-center">
+                <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 47%;"
+                        src="http://159.12.45.106:8000/media/satellite_unit_image/GTTT_LOGO_NGNnebb.jpg">
+                <h2 style="text-align: center;">GTTT MUMBAI</h2>
+                <h2 style="text-align: center;">RETURN ON GAS TURBINE INSTALLATION - TALWAR CLASS</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <td width="15%"><b>Ship :</b></td>
+                        <td>{{ship}}</td>
+                        <td class="td-bluelight" width="15%"><b>Date of Commission:</b></td>
+                        <td>{{users.date_comm}}</td>
+                </tr>
+                <tr>
+                        <td width="15%"><b>Place :</b></td>
+                        <td>{{users.Place}}</td>
+                        <td width="15%" class="td-bluelight"><b>Return for Quarter Ending :</b></td>
+                        <td>{{users.Return_quarter}}</td>
+                </tr>
+        </table>
+        <div class="heading-style2 heading-style3 text-center">
+                <h2>PART - I: GENERAL</h2>
+        </div>
+        <!-- part-1-general-start -->
+        <div>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                        <tr>
+                                <th rowspan="2">Unit</th>
+                                <th rowspan="2">Old GT/RG Ser</th>
+                                <th colspan="4" class="subheader">Details of New GT/RG</th>
+                                <th colspan="5" rowspan="2" width="30%">Remarks</th>
+                        <tr>
+                                <th width="8%">Ser</th>
+                                <th width="12%">Ex-Ship/Contract</th>
+                                <th width="12%">DOM</th>
+                                <th width="12%">DOI</th>
+                        </tr>
+
+                        <!-- PCGT  -->
+                        <tr>
+                                <td>PCGT</td>
+                                <td>{{users.old_gt_rg_Ser_PCGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_PCGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_PCGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_PCGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_PCGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_PCGT}}</td>
+                        </tr>
+
+
+                        <!-- SCGT  -->
+                        <tr>
+                                <td>SCGT</td>
+                                <td>{{users.old_gt_rg_Ser_SCGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_SCGT}} </td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_SCGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_SCGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_SCGT}} </td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_SCGT}}</td>
+                        </tr>
+                        <!-- PBGT  -->
+                        <tr>
+                                <td>PBGT</td>
+                                <td>{{users.old_gt_rg_Ser_PBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_PBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_PBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_PBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_PBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_PBGT}}</td>
+                        </tr>
+                        <!-- SBGT  -->
+                        <tr>
+                                <td>SBGT</td>
+                                <td>{{users.old_gt_rg_Ser_SBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_SBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_SBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_SBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_SBGT}}</td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_SBGT}}</td>
+                        </tr>
+                        <!-- PCRG  -->
+                        <tr>
+                                <td>PCRG</td>
+                                <td>{{users.old_gt_rg_Ser_PCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_PCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_PCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_PCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_PCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_PCRG}}</td>
+                        </tr>
+
+                        <!-- SCRG  -->
+                        <tr>
+                                <td>SCRG</td>
+                                <td>{{users.old_gt_rg_Ser_SCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_SCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_SCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_SCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_SCRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_SCRG}}</td>
+                        </tr>
+
+                        <!-- CRGA  -->
+                        <tr>
+                                <td>CRGA</td>
+                                <td>{{users.old_gt_rg_Ser_CRGA}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_CRGA}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_CRGA}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_CRGA}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_CRGA}}</td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_CRGA}}</td>
+                        </tr>
+
+                        <!-- PBRG  -->
+                        <tr>
+                                <td>PBRG</td>
+                                <td>{{users.old_gt_rg_Ser_PBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_PBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_PBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_PBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_PBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_PBRG}}</td>
+                        </tr>
+
+                        <!-- SBRG  -->
+                        <tr>
+                                <td>SBRG</td>
+                                <td>{{users.old_gt_rg_Ser_SBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ser_SBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Ex_Ship_Contract_SBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOM_SBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_DOI_SBRG}}</td>
+                                <td>{{users.det_of_new_gt_rg_Remarks_SBRG}}</td>
+                        </tr>
+                </table>
+        </div>
+        <div class="note-card">
+                <p><b>Note:</b>&nbsp;&nbsp;DOM-Date of Manufacturing; DOI-Date of Installation onboard.
+                </p>
+        </div>
+        <!-- part-1-general-end -->
+        <div class="page-break"></div>
+        <!-- part-II-Operations-start -->
+        <div style="width: 100%;">
+                <div class="heading-style2 heading-style3 text-center mt-2">
+                        <h2><u>PART - II: OPERATIONS</u></h2>
+                </div>
+                <div class="heading-style2 heading-style3 text-start">
+                        <h2 class="text-underline">(A) Gas Turbine Exploitation</h2>
+                </div>
+        </div>
+
+        <table class="table table-bordered">
+                <tr>
+                        <th colspan="3" rowspan="2">Operations</th>
+                        <th colspan="3">PCGT</th>
+                        <th colspan="3">SCGT</th>
+                        <th colspan="3">PBGT</th>
+                        <th colspan="3">SBGT</th>
+                </tr>
+                <tr>
+                        <th>QTR</th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                        <th>QTR </th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                        <th>QTR</th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                        <th>QTR</th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                </tr>
+                <tr>
+                        <td colspan="3">No of Cold Starts</td>
+
+                        <td>{{users.PCGT_QTR_number_of_cold_starts}}</td>
+                        <td>{{users.PCGT_SI_number_of_cold_starts}}</td>
+                        <td>{{users.PCGT_SN_number_of_cold_starts}}</td>
+                        <td>{{users.SCGT_QTR_number_of_cold_starts}}</td>
+                        <td>{{users.SCGT_SI_number_of_cold_starts}}</td>
+                        <td>{{users.SCGT_SN_number_of_cold_starts}}</td>
+
+                        <td>{{users.PBGT_QTR_number_of_cold_starts}}</td>
+                        <td>{{users.PBGT_SI_number_of_cold_starts}}</td>
+                        <td>{{users.PBGT_SN_number_of_cold_starts}}</td>
+
+                        <td>{{users.SBGT_QTR_number_of_cold_starts}}</td>
+                        <td>{{users.SBGT_SI_number_of_cold_starts}}</td>
+                        <td>{{users.SBGT_SN_number_of_cold_starts}}</td>
+
+
+                </tr>
+                <tr>
+                        <td colspan="3">No of False Starts</td>
+
+                        <td>{{users.PCGT_QTR_number_of_false_starts}}</td>
+                        <td>{{users.PCGT_SI_number_of_false_starts}}</td>
+                        <td>{{users.PCGT_SN_number_of_false_starts}}</td>
+                        <td>{{users.SCGT_QTR_number_of_false_starts}}</td>
+                        <td>{{users.SCGT_SI_number_of_false_starts}}</td>
+
+                        <td>{{users.SCGT_SN_number_of_false_starts}}</td>
+                        <td>{{users.PBGT_QTR_number_of_false_starts}}</td>
+                        <td>{{users.PBGT_SI_number_of_false_starts}}</td>
+                        <td>{{users.PBGT_SN_number_of_false_starts}}</td>
+
+                        <td>{{users.SBGT_QTR_number_of_false_starts}}</td>
+                        <td>{{users.SBGT_SI_number_of_false_starts}}</td>
+                        <td>{{users.SBGT_SN_number_of_false_starts}}</td>
+
+
+                </tr>
+                <tr>
+                        <td colspan="3">No of Hot Starts</td>
+
+                        <td>{{users.PCGT_QTR_number_of_hot_starts}}</td>
+                        <td>{{users.PCGT_SI_number_of_hot_starts}}</td>
+                        <td>{{users.PCGT_SN_number_of_hot_starts}}</td>
+                        <td>{{users.SCGT_QTR_number_of_hot_starts}}</td>
+                        <td>{{users.SCGT_SI_number_of_hot_starts}}</td>
+                        <td>{{users.SCGT_SN_number_of_hot_starts}}</td>
+                        <td>{{users.PBGT_QTR_number_of_hot_starts}}</td>
+                        <td>{{users.PBGT_SI_number_of_hot_starts}}</td>
+                        <td>{{users.PBGT_SN_number_of_hot_starts}}</td>
+                        <td>{{users.SBGT_QTR_number_of_hot_starts}}</td>
+                        <td>{{users.SBGT_SI_number_of_hot_starts}}</td>
+                        <td>{{users.SBGT_SN_number_of_hot_starts}}</td>
+
+
+                </tr>
+
+                <tr>
+                        <td colspan="3">No of Tech Starts</td>
+
+                        <td>{{users.PCGT_QTR_number_of_tech_starts}}</td>
+                        <td>{{users.PCGT_SI_number_of_tech_starts}}</td>
+                        <td>{{users.PCGT_SN_number_of_tech_starts}}</td>
+                        <td>{{users.SCGT_QTR_number_of_tech_starts}}</td>
+                        <td>{{users.SCGT_SI_number_of_tech_starts}}</td>
+                        <td>{{users.SCGT_SN_number_of_tech_starts}}</td>
+                        <td>{{users.PBGT_QTR_number_of_tech_starts}}</td>
+                        <td>{{users.PBGT_SI_number_of_tech_starts}}</td>
+                        <td>{{users.PBGT_SN_number_of_tech_starts}}</td>
+                        <td>{{users.SBGT_QTR_number_of_tech_starts}}</td>
+                        <td>{{users.SBGT_SI_number_of_tech_starts}}</td>
+                        <td>{{users.SBGT_SN_number_of_tech_starts}}</td>
+
+                </tr>
+                <tr>
+                        <td colspan="3">Total</td>
+
+
+                        <td>{{users.PCGT_QTR_total}}</td>
+                        <td>{{users.PCGT_SI_total}}</td>
+                        <td>{{users.PCGT_SN_total}}</td>
+
+
+                        <td>{{users.SCGT_QTR_total}}</td>
+                        <td>{{users.SCGT_SI_total}}</td>
+                        <td>{{users.SCGT_SN_total}}</td>
+
+                        <td>{{users.PBGT_QTR_total}}</td>
+                        <td>{{users.PBGT_SI_total}}</td>
+                        <td>{{users.PBGT_SN_total}}</td>
+
+                        <td>{{users.SBGT_QTR_total}}</td>
+                        <td>{{users.SBGT_SI_total}}</td>
+                        <td>{{users.SBGT_SN_total}}</td>
+
+
+                </tr>
+                <tr>
+                        <td rowspan="9">Running Hours</td>
+                        <td class="td-bluelight" rowspan="4">CGT</td>
+                </tr>
+                <tr>
+                        <td>1.5N</td>
+                        <td>{{users.PCGT_QTR_running_hrs_CGT_1_5N}}</td>
+                        <td>{{users.PCGT_SI_running_hrs_CGT_1_5N}}</td>
+                        <td>{{users.PCGT_SN_running_hrs_CGT_1_5N}}</td>
+                        <td>{{users.SCGT_QTR_running_hrs_CGT_1_5N}}</td>
+                        <td>{{users.SCGT_SI_running_hrs_CGT_1_5N}}</td>
+                        <td>{{users.SCGT_SN_running_hrs_CGT_1_5N}}</td>
+                        <td colspan="6" rowspan="3"></td>
+                </tr>
+                <tr>
+                        <td>1.25N</td>
+                        <td>{{users.PCGT_QTR_running_hrs_CGT_1_25N}}</td>
+                        <td>{{users.PCGT_SI_running_hrs_CGT_1_25N}}</td>
+                        <td>{{users.PCGT_SN_running_hrs_CGT_1_25N}}</td>
+
+                        <td>{{users.SCGT_QTR_running_hrs_CGT_1_25N}}</td>
+                        <td>{{users.SCGT_SI_running_hrs_CGT_1_25N}}</td>
+                        <td>{{users.SCGT_SN_running_hrs_CGT_1_25N}}</td>
+                </tr>
+                <tr>
+                        <td>1.0N & Below</td>
+
+                        <td>{{users.PCGT_QTR_running_hrs_CGT_1_0N_and_below}}</td>
+                        <td>{{users.PCGT_SI_running_hrs_CGT_1_0N_and_below}}</td>
+                        <td>{{users.PCGT_SN_running_hrs_CGT_1_0N_and_below}}</td>
+
+                        <td>{{users.SCGT_QTR_running_hrs_CGT_1_0N_and_below}}</td>
+                        <td>{{users.SCGT_SI_running_hrs_CGT_1_0N_and_below}}</td>
+                        <td>{{users.SCGT_SN_running_hrs_CGT_1_0N_and_below}}</td>
+                </tr>
+                <tr>
+                        <td rowspan="4">BGT</td>
+                </tr>
+                <tr>
+                        <td>1.0N</td>
+                        <td colspan="6" rowspan="3"></td>
+
+
+                        <td>{{users.PBGT_QTR_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.PBGT_SI_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.PBGT_SN_running_hrs_BGT_1_0N}}</td>
+
+                        <td>{{users.SBGT_QTR_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.SBGT_SI_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.SBGT_SN_running_hrs_BGT_1_0N}}</td>
+                </tr>
+                <tr>
+                        <td>0.8N</td>
+
+                        <td>{{users.PBGT_QTR_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.PBGT_SI_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.PBGT_SN_running_hrs_BGT_0_8N}}</td>
+
+                        <td>{{users.SBGT_QTR_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.SBGT_SI_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.SBGT_SN_running_hrs_BGT_0_8N}}</td>
+                </tr>
+                <tr>
+                        <td>0.7N & Below</td>
+
+
+                        <td>{{users.PBGT_QTR_running_hrs_BGT_0_7N_and_below}}</td>
+                        <td>{{users.PBGT_SI_running_hrs_BGT_0_7N_and_below}}</td>
+                        <td>{{users.PBGT_SN_running_hrs_BGT_0_7N_and_below}}</td>
+
+                        <td>{{users.SBGT_QTR_running_hrs_BGT_0_7N_and_below}}</td>
+                        <td>{{users.SBGT_SI_running_hrs_BGT_0_7N_and_below}}</td>
+                        <td>{{users.SBGT_SN_running_hrs_BGT_0_7N_and_below}}</td>
+                </tr>
+                <tr>
+                        <td colspan="2">Total</td>
+
+                        <td>{{users.PCGT_QTR_running_hrs_total}}</td>
+                        <td>{{users.PCGT_SI_running_hrs_total}}</td>
+                        <td>{{users.PCGT_SN_running_hrs_total}}</td>
+
+                        <td>{{users.SCGT_QTR_running_hrs_total}}</td>
+                        <td>{{users.SCGT_SI_running_hrs_total}}</td>
+                        <td>{{users.SCGT_SN_running_hrs_total}}</td>
+
+                        <td>{{users.PBGT_QTR_running_hrs_total}}</td>
+                        <td>{{users.PBGT_SI_running_hrs_total}}</td>
+                        <td>{{users.PBGT_SN_running_hrs_total}}</td>
+
+                        <td>{{users.SBGT_QTR_running_hrs_total}}</td>
+                        <td>{{users.SBGT_SI_running_hrs_total}}</td>
+                        <td>{{users.SBGT_SN_running_hrs_total}}</td>
+
+
+                </tr>
+                <tr>
+                        <td colspan="3">No of Astern Engagements </td>
+
+                        <td>{{users.SCGT_QTR_number_of_astern_engagements}}</td>
+                        <td>{{users.SCGT_SI_number_of_astern_engagements}}</td>
+                        <td>{{users.SCGT_SN_number_of_astern_engagements}}</td>
+                        <td>{{users.PCGT_QTR_number_of_astern_engagements}}</td>
+                        <td>{{users.PCGT_SI_number_of_astern_engagements}}</td>
+                        <td>{{users.PCGT_SN_number_of_astern_engagements}}</td>
+                        <td>{{users.SBGT_QTR_number_of_astern_engagements}}</td>
+                        <td>{{users.SBGT_SI_number_of_astern_engagements}}</td>
+                        <td>{{users.SBGT_SN_number_of_astern_engagements}}</td>
+                        <td>{{users.PBGT_QTR_number_of_astern_engagements}}</td>
+                        <td>{{users.PBGT_SI_number_of_astern_engagements}}</td>
+                        <td>{{users.PBGT_SN_number_of_astern_engagements}}</td>
+
+                </tr>
+                <tr>
+                        <td colspan="3">No of Prop Stop Orders</td>
+
+                        <td>{{users.SCGT_QTR_number_of_prop_stop_orders}}</td>
+                        <td>{{users.SCGT_SI_number_of_prop_stop_orders}}</td>
+                        <td>{{users.SCGT_SN_number_of_prop_stop_orders}}</td>
+                        <td>{{users.PCGT_QTR_number_of_prop_stop_orders}}</td>
+                        <td>{{users.PCGT_SI_number_of_prop_stop_orders}}</td>
+                        <td>{{users.PCGT_SN_number_of_prop_stop_orders}}</td>
+                        <td>{{users.SBGT_QTR_number_of_prop_stop_orders}}</td>
+                        <td>{{users.SBGT_SI_number_of_prop_stop_orders}}</td>
+                        <td>{{users.SBGT_SN_number_of_prop_stop_orders}}</td>
+                        <td>{{users.PBGT_QTR_number_of_prop_stop_orders}}</td>
+                        <td>{{users.PBGT_SI_number_of_prop_stop_orders}}</td>
+                        <td>{{users.PBGT_SN_number_of_prop_stop_orders}}</td>
+
+                </tr>
+        </table>
+        <!-- part-II-Operations-end -->
+
+        <div class="heading-style2 heading-style3 text-start" style="margin-top: 1em;">
+                <h2 class="text-underline">(B) Reduction Gear Exploitation</h2>
+        </div>
+
+        <table class="table table-bordered">
+                <tr>
+                        <th colspan="3" rowspan="2" width="30%">Mode</th>
+
+                        <th colspan="3">PCRG</th>
+                        <th colspan="3">SCRG</th>
+                        <th colspan="3">CRGA</th>
+                        <th colspan="3">PBRG</th>
+                        <th colspan="3">SBRG</th>
+
+                </tr>
+                <tr>
+                        <th>QTR</th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                        <th>QTR </th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                        <th>QTR</th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                        <th>QTR</th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                        <th>QTR</th>
+                        <th>Sl</th>
+                        <th>SN</th>
+                </tr>
+
+                <tr>
+                        <td rowspan="8">Running Hours</td>
+
+                </tr>
+                <tr>
+                        <td colspan="2">1.5N</td>
+
+                        <td>{{users.PCRG_QTR_running_hrs_1_5_N}}</td>
+                        <td>{{users.PCRG_SI_running_hrs_1_5_N}}</td>
+                        <td>{{users.PCRG_SN_running_hrs_1_5_N}}</td>
+                        <td>{{users.SCRG_QTR_running_hrs_1_5_N}}</td>
+                        <td>{{users.SCRG_SI_running_hrs_1_5_N}}</td>
+                        <td>{{users.SCRG_SN_running_hrs_1_5_N}}</td>
+                        <td colspan="9"></td>
+                </tr>
+                <tr>
+                        <td colspan="2">1.25N</td>
+
+                        <td>{{users.PCRG_QTR_running_hrs_1_25_N}}</td>
+                        <td>{{users.PCRG_SI_running_hrs_1_25_N}}</td>
+                        <td>{{users.PCRG_SN_running_hrs_1_25_N}}</td>
+                        <td>{{users.SCRG_QTR_running_hrs_1_25_N}}</td>
+                        <td>{{users.SCRG_SI_running_hrs_1_25_N}}</td>
+                        <td>{{users.SCRG_SN_running_hrs_1_25_N}}</td>
+                        <td>{{users.CRGA_QTR_running_hrs_1_25_N}}</td>
+                        <td>{{users.CRGA_SI_running_hrs_1_25_N}}</td>
+                        <td>{{users.CRGA_SN_running_hrs_1_25_N}}</td>
+                        <td colspan="6" rowspan="2"></td>
+                </tr>
+                <tr>
+                        <td colspan="2">1.0N & Below</td>
+
+                        <td>{{users.PCRG_QTR_running_hrs_1_0_N_and_below}}</td>
+                        <td>{{users.PCRG_SI_running_hrs_1_0_N_and_below}}</td>
+                        <td>{{users.PCRG_SN_running_hrs_1_0_N_and_below}}</td>
+                        <td>{{users.SCRG_QTR_running_hrs_1_0_N_and_below}}</td>
+                        <td>{{users.SCRG_SI_running_hrs_1_0_N_and_below}}</td>
+                        <td>{{users.SCRG_SN_running_hrs_1_0_N_and_below}}</td>
+                        <td>{{users.CRGA_QTR_running_hrs_1_0_N_and_below}}</td>
+                        <td>{{users.CRGA_SI_running_hrs_1_0_N_and_below}}</td>
+                        <td>{{users.CRGA_SN_running_hrs_1_0_N_and_below}}</td>
+                </tr>
+
+                <tr>
+                        <td colspan="2">1.0N</td>
+
+                        <td colspan="9"></td>
+
+                        <td>{{users.PBRG_QTR_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.PBRG_SI_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.PBRG_SN_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.SBRG_QTR_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.SBRG_SI_running_hrs_BGT_1_0N}}</td>
+                        <td>{{users.SBRG_SN_running_hrs_BGT_1_0N}}</td>
+
+                </tr>
+                <tr>
+                        <td colspan="2">0.8N</td>
+                        <td colspan="9"></td>
+
+                        <td>{{users.PBRG_QTR_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.PBRG_SI_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.PBRG_SN_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.SBRG_QTR_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.SBRG_SI_running_hrs_BGT_0_8N}}</td>
+                        <td>{{users.SBRG_SN_running_hrs_BGT_0_8N}}</td>
+
+                </tr>
+                <tr>
+                        <td colspan="2">0.7N & Below</td>
+
+                        <td colspan="9"></td>
+
+                        <td>{{users.PBRG_QTR_running_hrs_BGT_0_7N_and_below}}</td>
+                        <td>{{users.PBRG_SI_running_hrs_BGT_0_7N_and_below}}</td>
+                        <td>{{users.PBRG_SN_running_hrs_BGT_0_7N_and_below}}</td>
+
+                        <td>{{users.SBRG_QTR_running_hrs_BGT_0_7N_and_below}}</td>
+                        <td>{{users.SBRG_SI_running_hrs_BGT_0_7N_and_below}}</td>
+                        <td>{{users.SBRG_SN_running_hrs_BGT_0_7N_and_below}}</td>
+                </tr>
+
+                <tr>
+                        <td colspan="2">Total</td>
+
+
+                        <td>{{users.PCRG_QTR_running_hrs_total}}
+                        <td>{{users.PCRG_SI_running_hrs_total}}
+                        <td>{{users.PCRG_SN_running_hrs_total}}
+                        <td>{{users.SCRG_QTR_running_hrs_total}}
+                        <td>{{users.SCRG_SI_running_hrs_total}}
+                        <td>{{users.SCRG_SN_running_hrs_total}}
+                        <td>{{users.CRGA_QTR_running_hrs_total}}
+                        <td>{{users.CRGA_SI_running_hrs_total}}
+                        <td>{{users.CRGA_SN_running_hrs_total}}
+                        <td>{{users.PBRG_QTR_running_hrs_total}}
+                        <td>{{users.PBRG_SI_running_hrs_total}}
+                        <td>{{users.PBRG_SN_running_hrs_total}}
+                        <td>{{users.SBRG_QTR_running_hrs_total}}
+                        <td>{{users.SBRG_SI_running_hrs_total}}
+                        <td>{{users.SBRG_SN_running_hrs_total}}
+                </tr>
+               
+                <tr>
+                        <td colspan="2">Speed I</td>
+                        <td rowspan="5">No of Engagements in</td>
+                        <td>{{users.PCRG_QTR_number_of_engagements_in_speed_I}}</td>
+                        <td>{{users.PCRG_SI_number_of_engagements_in_speed_I}}</td>
+                        <td>{{users.PCRG_SN_number_of_engagements_in_speed_I}}</td>
+
+                        <td>{{users.SCRG_QTR_number_of_engagements_in_speed_I}}</td>
+                        <td>{{users.SCRG_SI_number_of_engagements_in_speed_I}}</td>
+                        <td>{{users.SCRG_SN_number_of_engagements_in_speed_I}}</td>
+                        <td colspan="9" rowspan="2"></td>
+                </tr>
+
+                <!-- <tr>
+                        <td rowspan="5" colspan="2">No of Engagements in</td>
+                </tr> -->
+               
+                <tr>
+                        <td colspan="2">Speed II</td>
+
+                        <td>{{users.PCRG_QTR_number_of_engagements_in_speed_II}}</td>
+                        <td>{{users.PCRG_SI_number_of_engagements_in_speed_II}}</td>
+                        <td>{{users.PCRG_SN_number_of_engagements_in_speed_II}}</td>
+
+                        <td>{{users.SCRG_QTR_number_of_engagements_in_speed_II}}</td>
+                        <td>{{users.SCRG_SI_number_of_engagements_in_speed_II}}</td>
+                        <td>{{users.SCRG_SN_number_of_engagements_in_speed_II}}</td>
+                </tr>
+
+                <tr>
+                        <td colspan="2">CRGA</td>
+
+
+                        <td>{{users.PCRG_QTR_number_of_engagements_in_CRGA}}</td>
+                        <td>{{users.PCRG_SI_number_of_engagements_in_CRGA}}</td>
+                        <td>{{users.PCRG_SN_number_of_engagements_in_CRGA}}</td>
+
+                        <td>{{users.SCRG_QTR_number_of_engagements_in_CRGA}}</td>
+                        <td>{{users.SCRG_SI_number_of_engagements_in_CRGA}}</td>
+                        <td>{{users.SCRG_SN_number_of_engagements_in_CRGA}}</td>
+
+                        <td>{{users.CRGA_QTR_number_of_engagements_in_CRGA}}</td>
+                        <td>{{users.CRGA_SI_number_of_engagements_in_CRGA}}</td>
+                        <td>{{users.CRGA_SN_number_of_engagements_in_CRGA}}</td>
+
+                        <td colspan="6"></td>
+
+                </tr>
+
+                <tr>
+                        <td colspan="2">AFC</td>
+                        <td colspan="9"></td>
+
+
+
+                        <td>{{users.PBRG_QTR_no_of_engagements_in_WUM}}</td>
+                        <td>{{users.PBRG_SI_no_of_engagements_in_WUM}}</td>
+                        <td>{{users.PBRG_SN_no_of_engagements_in_WUM}}</td>
+
+                        <td>{{users.SBRG_QTR_no_of_engagements_in_WUM}}</td>
+                        <td>{{users.SBRG_SI_no_of_engagements_in_WUM}}</td>
+                        <td>{{users.SBRG_SN_no_of_engagements_in_WUM}}</td>
+
+                </tr>
+
+        </table>
+
+        <div class="note-card">
+                <p><b>Note: </b>SI- Since Installation; SN-Since New.</p>
+                <ul type="1">
+                        <li>GT &RG Exploitation details, prior commissioning, are indicated separately at
+                                part II (C).</li>
+
+                </ul>
+        </div>
+
+        <div class="page-break"></div>
+        <div class="heading-style2 heading-style3 text-center">
+                <h2>(C) GT & RG Exploitation Details Prior Commissioning</h2>
+        </div>
+
+        <div class="heading-style2 heading-style3 ">
+                <h2>(i) Running Hours</h2>
+        </div>
+
+        <table class="table table-bordered">
+                <tr>
+                        <th colspan="1"></th>
+                        <th colspan="1">0.8N</th>
+                        <th colspan="1">1.0N</th>
+                        <th colspan="1">1.25N</th>
+                        <th colspan="1">1.5N</th>
+                        <th colspan="1">Total</th>
+                </tr>
+                        <!-- <p class="text-center font-weight-bold" style="text-align: center!important;">Gas
+                                Turbine</p> -->
+                        <tr>
+                                <td>Gas Turbine</td>
+                                <td colspan="6"></td>
+
+                        </tr>
+
+                        <tr>
+                                <td>SCGT</td>
+                                <td>{{users.running_hrs_0_8N_gas_turbine_SCGT}}</td>
+                                <td>{{users.running_hrs_1_0N_gas_turbine_SCGT}}</td>
+                                <td>{{users.running_hrs_1_25N_gas_turbine_SCGT}}</td>
+                                <td>{{users.running_hrs_1_5N_gas_turbine_SCGT}}</td>
+                                <td>{{users.running_hrs_total_gas_turbine_SCGT}}</td>
+                        </tr>
+                        <tr>
+                                <td>PCGT</td>
+                                <td>{{users.running_hrs_0_8N_gas_turbine_PCGT}}</td>
+                                <td>{{users.running_hrs_1_0N_gas_turbine_PCGT}}</td>
+                                <td>{{users.running_hrs_1_25N_gas_turbine_PCGT}}</td>
+                                <td>{{users.running_hrs_1_5N_gas_turbine_PCGT}}</td>
+                                <td>{{users.running_hrs_total_gas_turbine_PCGT}}</td>
+                        </tr>
+                        <tr>
+                                <td>SBGT</td>
+                                <td>{{users.running_hrs_0_8N_gas_turbine_SBGT}}</td>
+                                <td>{{users.running_hrs_1_0N_gas_turbine_SBGT}}</td>
+                                <td>{{users.running_hrs_1_25N_gas_turbine_SBGT}}</td>
+                                <td>{{users.running_hrs_1_5N_gas_turbine_SBGT}}</td>
+                                <td>{{users.running_hrs_total_gas_turbine_SBGT}}</td>
+
+
+                        </tr>
+                        <tr>
+                                <td>PBGT</td>
+                                <td>{{users.running_hrs_0_8N_gas_turbine_PBGT}} </td>
+                                <td>{{users.running_hrs_1_0N_gas_turbine_PBGT}}</td>
+                                <td>{{users.running_hrs_1_25N_gas_turbine_PBGT}}</td>
+                                <td>{{users.running_hrs_1_5N_gas_turbine_PBGT}}</td>
+                                <td>{{users.running_hrs_total_gas_turbine_PBGT}}</td>
+
+                        </tr>
+                        <tr>
+                                <td class="font-weight-bold text-center">Reduction Gear</td>
+                        </tr>
+
+                        <tr>
+                                <td>PCRG</td>
+                                <td>{{users.running_hrs_0_8N_reduction_gear_PCRG}}</td>
+                                <td>{{users.running_hrs_1_0N_reduction_gear_PCRG}}</td>
+                                <td>{{users.running_hrs_1_25N_reduction_gear_PCRG}}</td>
+                                <td>{{users.running_hrs_1_5N_reduction_gear_PCRG}}</td>
+                                <td>{{users.running_hrs_total_reduction_gear_PCRG}}</td>
+
+
+                        </tr>
+                        <tr>
+                                <td>SCRG</td>
+                                <td>{{users.running_hrs_0_8N_reduction_gear_SCRG}}</td>
+                                <td>{{users.running_hrs_1_0N_reduction_gear_SCRG}}</td>
+                                <td>{{users.running_hrs_1_25N_reduction_gear_SCRG}}</td>
+                                <td>{{users.running_hrs_1_5N_reduction_gear_SCRG}}</td>
+                                <td>{{users.running_hrs_total_reduction_gear_SCRG}}</td>
+                        </tr>
+
+                        <tr>
+                                <td>PBRG</td>
+                                <td>{{users.running_hrs_0_8N_reduction_gear_PBRG}}</td>
+                                <td>{{users.running_hrs_1_0N_reduction_gear_PBRG}}</td>
+                                <td>{{users.running_hrs_1_25N_reduction_gear_PBRG}}</td>
+                                <td>{{users.running_hrs_1_5N_reduction_gear_PBRG}}</td>
+                                <td>{{users.running_hrs_total_reduction_gear_PBRG}}</td>
+                        </tr>
+                        <tr>
+                                <td>SBRG</td>
+                                <td>{{users.running_hrs_0_8N_reduction_gear_SBRG}}</td>
+                                <td>{{users.running_hrs_1_0N_reduction_gear_SBRG}}</td>
+                                <td>{{users.running_hrs_1_25N_reduction_gear_SBRG}}</td>
+                                <td>{{users.running_hrs_1_5N_reduction_gear_SBRG}}</td>
+                                <td>{{users.running_hrs_total_reduction_gear_SBRG}}</td>
+                        </tr>
+        </table>
+
+
+
+
+        <div class="heading-style2 heading-style3" style="display:flex;">
+                <h2>(ii) No. of Starts -&nbsp;&nbsp;</h2> {{users.GT_RG_No_of_starts}}
+        </div><br>
+
+        <div class="heading-style2 heading-style3" style="display:flex;">
+                <h2>(ii) No. of Engagements -&nbsp;&nbsp;</h2> {{users.GT_RG_No_of_engagements}}
+
+        </div><br>
+        <p>Only cumulative running hours of GTA were available prior commissioning.</p>
+
+        <div class="heading-style2 heading-style3 text-center">
+                <h2>PART-III INSPECTION / TRIALS / ROUTINES</h2>
+        </div>
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(A) Maintenance Routines Due and Undertaken</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th width="2%">Ser</th>
+                        <th width="10%">Equipment</th>
+                        <th width="10%">DART NO.</th>
+                        <th width="12%">Description</th>
+                        <th width="10%">Maintop No.</th>
+                        <th width="10%">Remedial Action</th>
+                        <th width="10%">Observation</th>
+
+                </tr>
+                {% for al in dynamic1%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.routine_due_undertaken_eqp}}</td>
+                        <td>{{al.routine_due_undertaken_dartNo}}</td>
+                        <td>{{al.routine_due_undertaken_desc}}</td>
+                        <td>{{al.routine_due_undertaken_mainTopNo}}</td>
+                        <td>{{al.routine_due_undertaken_Obs_remedialAction}}</td>
+                        <td>{{al.routine_due_undertaken_observ}}</td>
+                </tr>
+                {% endfor %}
+        </table>
+
+
+
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(B) Maintenance Routines Due but not Undertaken</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th width="2%">Ser</th>
+                        <th width="10%">Equipment</th>
+                        <th width="8%">DART NO.</th>
+                        <th width="12%">Description</th>
+                        <th width="8%">Maintop No.</th>
+                        <th width="8%">Remedial Action</th>
+                        <th width="10%">Observation</th>
+                </tr>
+
+
+                {% for al in dynamic2%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.routine_due_not_undertaken_eqp}}</td>
+                        <td>{{al.routine_due_not_undertaken_dartNo}}</td>
+                        <td>{{al.routine_due_not_undertaken_desc}}</td>
+                        <td>{{al.routine_due_not_undertaken_mainTopNo}}</td>
+                        <td>{{al.routine_due_not_undertaken_Obs_remedialAction}}</td>
+                        <td>{{al.routine_due_not_undertaken_observ}}</td>
+                </tr>
+                {% endfor %}
+
+        </table>
+
+
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(C) Inspection/Trials/Routines </h2>
+        </div>
+    
+            <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                    <th colspan="2" rowspan="2">Date of</th>
+    
+                    <th>PCGT/PCRG</th>
+                    <th>SCGT/SCRG</th>
+                    <th>CRGA</th>
+                    <th>PBGT/PBRG</th>
+                    <th>SBGT/SBRG</th>
+    
+    
+                </tr>
+    
+    
+                <tbody>
+                    <tr>
+                        <td colspan="2">Last EHM Trials</td>
+    
+                        <td>{{users2.PCGT_PCRG_date_of_Last_EHM_Trials}}</td>
+                        <td>{{users2.SCGT_SCRG_date_of_Last_EHM_Trials}}</td>
+                        <td>{{users2.CRGA_date_of_Last_EHM_Trials}}</td>
+    
+                        <td>{{users2.PBGT_PBRG_date_of_Last_EHM_Trials}}</td>
+                        <td>{{users2.SBGT_SBRG_date_of_Last_EHM_Trials}}</td>
+                    </tr>
+    
+                    <tr>
+                        <td colspan="2">Last Full Power Trials</td>
+    
+                        <td>{{users2.PCGT_PCRG_date_of_Last_Full_power_Trials}}</td>
+                        <td>{{users2.SCGT_SCRG_date_of_Last_Full_power_Trials}}</td>
+                        <td>{{users2.CRGA_date_of_Last_Full_power_Trials}}</td>
+    
+                        <td>{{users2.PBGT_PBRG_date_of_Last_Full_power_Trials}}</td>
+                        <td>{{users2.SBGT_SBRG_date_of_Last_Full_power_Trials}}</td>
+                    </tr>
+    
+    
+                    <tr>
+                        <td colspan="2">Last Annual Routines </td>
+    
+                        <td>{{users2.PCGT_PCRG_date_of_Last_Annual_routines_Trials}}</td>
+                        <td>{{users2.SCGT_SCRG_date_of_Last_Annual_routines_Trials}}</td>
+                        <td>{{users2.CRGA_date_of_Last_Annual_routines_Trials}}</td>
+    
+                        <td>{{users2.PBGT_PBRG_date_of_Last_Annual_routines_Trials}}</td>
+                        <td>{{users2.SBGT_SBRG_date_of_Last_Annual_routines_Trials}}</td>
+                    </tr>
+    
+                    <tr>
+                        <td colspan="2">Last Lub Oil spectrometric Analysis</td>
+    
+                        <td>{{users2.PCGT_PCRG_date_of_Last_Lube_oil_spectrometric_analysis}}</td>
+                        <td>{{users2.SCGT_SCRG_date_of_Last_Lube_oil_spectrometric_analysis}}</td>
+    
+                        <td>{{users2.CRGA_date_of_Last_Lube_oil_spectrometric_analysis}}</td>
+                        <td>{{users2.PBGT_PBRG_date_of_Last_Lube_oil_spectrometric_analysis}}</td>
+                        <td>{{users2.SBGT_SBRG_date_of_Last_Lube_oil_spectrometric_analysis}}</td>
+                    </tr>
+    
+                    <tr>
+                        <td colspan="2">Last Chemical Cleaning</td>
+    
+                        <td>{{users2.PCGT_PCRG_date_of_Last_Chemical_cleaning}}</td>
+                        <td>{{users2.SCGT_SCRG_date_of_Last_Chemical_cleaning}}</td>
+                        <td>{{users2.PBGT_PBRG_date_of_Last_Chemical_cleaning}}</td>
+                        <td>{{users2.SBGT_SBRG_date_of_Last_Chemical_cleaning}}</td>
+                    </tr>
+    
+                    <tr>
+                        <td rowspan="2">Clearance WUM</td>
+                        <td>Date</td>
+                        <td colspan="3" rowspan="2" ></td>
+                        <td>{{users2.PBGT_PBRG_date_of_clearence_WUM_date}}</td>
+                        <td>{{users2.SBGT_SBRG_date_of_clearence_WUM_date}}</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Value</td>
+                        <td>{{users2.PBGT_PBRG_date_of_clearence_WUM_value}}</td>
+                        <td>{{users2.SBGT_SBRG_date_of_clearence_WUM_value}}</td>
+                    </tr>
+                </tbody>
+    
+            </table>
+    
+
+        <div class="page-break"></div>
+        <div class="heading-style2 heading-style3 text-start">
+        <h2 class="text-underline">(D) Replacement of Units/Sub Units</h2>
+        <p class="text-underline font-weight-bold">(i) Main Propulsion Plant</p>
+        </div>
+
+            <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                    <th width="2%">Ser</th>
+                    <th width="10%">Date</th>
+                    <th width="10%">Unit/Sub Unit</th>
+                    <th width="10%">Old Ser</th>
+                    <th width="10%">New Ser</th>
+                    <th width="10%">Reason for Replacement</th>
+                    <th width="15%">Remarks</th>
+    
+                </tr>
+                {% for al in dynamic3%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.main_propulsion_plant_date}}</td>
+                        <td>{{al.main_propulsion_plant_unit_subUnit}}</td>
+                        <td>{{al.main_propulsion_plant_oldSer}}</td>
+                        <td>{{al.main_propulsion_plant_newSer}}</td>
+                        <td>{{al.main_propulsion_plant_reason_for_replacement}}</td>
+                        <td>{{al.main_propulsion_plant_remarks}}</td>
+
+                </tr>
+                {% endfor %}
+
+            </table>
+    
+    
+            <div class="heading-style2 heading-style3 text-start">
+                <p class="text-underline font-weight-bold">(ii) Burya System</p>
+            </div>
+    
+            <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                    <th width="2%">Ser</th>
+                    <th width="10%">Date</th>
+                    <th width="10%">Unit/Sub Unit</th>
+                    <th width="10%">Old Ser</th>
+                    <th width="10%">New Ser</th>
+                    <th width="10%">Reason for Replacement</th>
+                    <th width="15%">Remarks</th>
+    
+                </tr>
+    
+
+                {% for al in dynamic4%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.burya_system_date}}</td>
+                        <td>{{al.burya_system_unit_subUnit}}</td>
+                        <td>{{al.burya_system_oldSer}}</td>
+                        <td>{{al.burya_system_newSer}}</td>
+                        <td>{{al.burya_system_reason_for_replacement}}</td>
+                        <td>{{al.burya_system_remarks}}</td>
+
+                </tr>
+                {% endfor %}
+
+            </table>
+    
+    
+            <div class="heading-style2 heading-style3 text-center">
+                <h2 class="text-underline">(E) GAS TURBINE DEFECTIVE INSTRUMENTATION</h2>
+            </div>
+    
+            <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                    <th width="2%">Ser</th>
+                    <th  width="10%">Main Equipment</th>
+                    <th width="10%">System/Sub System</th>
+                    <th width="10%">Defective Control Unit/Instrument</th>
+                    <th width="8%">Dart Ref</th>
+                    <th width="8%">Part No.</th>
+                    <th width="10%">Demand</th>
+                    <th width="8%">Alternate Readout Available</th>
+                    <th width="10%">Authorized in SPTA</th>
+                    <th width="8%">Balance in SPTA</th>
+                    <th width="10%">Remarks (Impact on System Performance)</th>
+    
+                </tr>
+    
+                {% for al in dynamic5%}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.gas_turbine_def_instrument_main_eqp}}</td>
+                        <td>{{al.gas_turbine_def_instrument_sys_subSys}}</td>
+                        <td>{{al.gas_turbine_def_instrument_def_control_unit_intstrument}}</td>
+                        <td>{{al.gas_turbine_def_instrument_dart_ref}}</td>
+                        <td>{{al.gas_turbine_def_instrument_part_no}}</td>
+                        <td>{{al.gas_turbine_def_instrument_demand}}</td>
+
+                         <td>{{al.gas_turbine_def_instrument_alternate_readout}}</td>
+                         <td>{{al.gas_turbine_def_instrument_authorized_SPTA}}</td>
+                         <td>{{al.gas_turbine_def_instrument_balance_SPTA}}</td>
+                         <td>{{al.gas_turbine_def_instrument_remarks}}</td>
+
+                </tr>
+                {% endfor %}
+    
+            </table>
+
+        <div class="heading-style2 heading-style3 text-center">
+                <h2>PART-IV DEFECTS</h2>
+        </div>
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(A) Defects observed on MPP Quarter</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th width="2%">Ser</th>
+                        <th width="10%">Date</th>
+                        <th width="10%">DART NO</th>
+                        <th width="15%">Equipment</th>
+                        <th width="15%">Description</th>
+                        <th width="10%">Remedial Action</th>
+                </tr>
+
+                {% for al in dynamic6 %}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.defects_on_MPP_date}}</td>
+                        <td>{{al.defects_on_MPP_dartNo}}</td>
+                        <td>{{al.defects_on_MPP_eqp}}</td>
+                        <td>{{al.defects_on_MPP_desc}}</td>
+                        <td>{{al.defects_on_MPP_remedialAction}}</td>
+                </tr>
+                {% endfor %}
+
+        </table>
+
+
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(B) Defects observed on Burya System During Quarter</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th width="2%">Ser</th>
+                        <th width="10%">Date</th>
+                        <th width="10%">DART NO</th>
+                        <th width="15%">Equipment</th>
+                        <th width="15%">Description</th>
+                        <th width="10%">Remedial Action</th>
+                </tr>
+
+                {% for al in dynamic7 %}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.defects_on_burya_date}}</td>
+                        <td>{{al.defects_on_burya_dartNo}}</td>
+                        <td>{{al.defects_on_burya_eqp}}</td>
+                        <td>{{al.defects_on_burya_desc}}</td>
+                        <td>{{al.defects_on_burya_remedialAction}}</td>
+
+                </tr>
+                {% endfor %}
+
+        </table>
+
+
+        <div class="heading-style2 heading-style3 text-center">
+                <h2>PART-V PARAMETERS</h2>
+        </div>
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(A) GT Parameters CGT <span>IVGVA '+' Indication, BGT: 7400 HPC RPM ,</span>
+                        Mode: Independent</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th colspan="3">Parameter</th>
+                        <th>PCGT</th>
+                        <th>SCGT</th>
+
+                        <th>PBGT</th>
+                        <th>SBGT</th>
+
+
+                </tr>
+
+                <tbody>
+                        <tr>
+
+                                <td colspan="3">Date</td>
+                                <td>{{users3.PCGT_date}}</td>
+                                <td>{{users3.SCGT_date}}</td>
+                                <td>{{users3.PBGT_date}}</td>
+                                <td>{{users3.SBGT_date}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">RH as on date of recording</td>
+
+                                <td>{{users3.PCGT_RH_as_on_date_of_recording}}</td>
+                                <td>{{users3.SCGT_RH_as_on_date_of_recording}}</td>
+                                <td>{{users3.PBGT_RH_as_on_date_of_recording}}</td>
+                                <td>{{users3.SBGT_RH_as_on_date_of_recording}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">HPC</td>
+
+                                <td>{{users3.PCGT_HPC_RPM}}</td>
+                                <td>{{users3.SCGT_HPC_RPM}}</td>
+                                <td>{{users3.PBGT_HPC_RPM}}</td>
+                                <td>{{users3.SBGT_HPC_RPM}}</td>
+                        </tr>
+                        <tr>
+                                <td colspan="3">LPC (RPM)</td>
+
+                                <td>{{users3.PCGT_LPC_RPM}}</td>
+                                <td>{{users3.SCGT_LPC_RPM}}</td>
+                                <td>{{users3.PBGT_LPC_RPM}}</td>
+                                <td>{{users3.SBGT_LPC_RPM}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                                <td colspan="3">PT (RPM)</td>
+
+                                <td>{{users3.PCGT_PT_RPM}}</td>
+                                <td>{{users3.SCGT_PT_RPM}}</td>
+                                <td>{{users3.PBGT_PT_RPM}}</td>
+                                <td>{{users3.SBGT_PT_RPM}}</td>
+
+                        </tr>
+
+                        <tr>
+                                <td colspan="3">Shaft (RPM)</td>
+
+                                <td>{{users3.PCGT_shaft_RPM}}</td>
+                                <td>{{users3.SCGT_shaft_RPM}}</td>
+                                <td>{{users3.PBGT_shaft_RPM}}</td>
+                                <td>{{users3.SBGT_shaft_RPM}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                                <td colspan="3">Ship Speed (Knots)</td>
+
+                                <td>{{users3.PCGT_ship_speed_knots}}</td>
+                                <td>{{users3.SCGT_ship_speed_knots}}</td>
+                                <td>{{users3.PBGT_ship_speed_knots}}</td>
+                                <td>{{users3.SBGT_ship_speed_knots}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                                <td colspan="3">Average Exhaust Temp after LPT/HPT</td>
+
+                                <td>{{users3.PCGT_average_exhaust_temp_after_LPT_HPT}}</td>
+                                <td>{{users3.SCGT_average_exhaust_temp_after_LPT_HPT}}</td>
+                                <td>{{users3.PBGT_average_exhaust_temp_after_LPT_HPT}}</td>
+                                <td>{{users3.SBGT_average_exhaust_temp_after_LPT_HPT}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                                <td colspan="3">Off Take Temperature</td>
+
+                                <td>{{users3.PCGT_off_Take_Temprature}}</td>
+                                <td>{{users3.SCGT_off_Take_Temprature}}</td>
+                                <td>{{users3.PBGT_off_Take_Temprature}}</td>
+                                <td>{{users3.SBGT_off_Take_Temprature}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                                <td colspan="3">Casing Air Temperature (℃)</td>
+
+                                <td>{{users3.PCGT_cashing_air_temprature}}</td>
+                                <td>{{users3.SCGT_cashing_air_temprature}}</td>
+                                <td>{{users3.PBGT_cashing_air_temprature}}</td>
+                                <td>{{users3.SBGT_cashing_air_temprature}}</td>
+
+                        </tr>
+
+
+
+                        <tr>
+                                <td colspan="3">Fuel Pressure Before Injector (kgf/cm²)</td>
+
+                                <td>{{users3.PCGT_fuel_pressure_before_injector}}</td>
+                                <td>{{users3.SCGT_fuel_pressure_before_injector}}</td>
+                                <td>{{users3.PBGT_fuel_pressure_before_injector}}</td>
+                                <td>{{users3.SBGT_fuel_pressure_before_injector}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                                <td colspan="3">Starting Fuel Pressure (kgf/cm²)</td>
+
+                                <td>{{users3.PCGT_starting_fuel_pressure}}</td>
+                                <td>{{users3.SCGT_starting_fuel_pressure}}</td>
+                                <td>{{users3.PBGT_starting_fuel_pressure}}</td>
+                                <td>{{users3.SBGT_starting_fuel_pressure}}</td>
+
+                        </tr>
+
+
+                        <tr>
+                                <td colspan="3">Engine Lub Oil Pressure (kgf/cm²)</td>
+
+                                <td>{{users3.PCGT_engine_lub_oil_pressure}}</td>
+                                <td>{{users3.SCGT_engine_lub_oil_pressure}}</td>
+                                <td>{{users3.PBGT_engine_lub_oil_pressure}}</td>
+                                <td>{{users3.SBGT_engine_lub_oil_pressure}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">RG Lub Oil Pressure (kgf/cm²)</td>
+
+                                <td>{{users3.PCGT_RG_lub_oil_pressure}}</td>
+                                <td>{{users3.SCGT_RG_lub_oil_pressure}}</td>
+                                <td>{{users3.PBGT_RG_lub_oil_pressure}}</td>
+                                <td>{{users3.SBGT_RG_lub_oil_pressure}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Oil Temperature at Engine Inlet (℃)</td>
+
+                                <td>{{users3.PCGT_RG_lub_oil_inlet_temp}}</td>
+                                <td>{{users3.SCGT_RG_lub_oil_inlet_temp}}</td>
+                                <td>{{users3.PBGT_RG_lub_oil_inlet_temp}}</td>
+                                <td>{{users3.SBGT_RG_lub_oil_inlet_temp}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Oil Temperature at Engine outlet (℃)</td>
+
+                                <td>{{users3.PCGT_oil_temp_at_engine_outlet}}</td>
+                                <td>{{users3.SCGT_oil_temp_at_engine_outlet}}</td>
+                                <td>{{users3.PBGT_oil_temp_at_engine_outlet}}</td>
+                                <td>{{users3.SBGT_oil_temp_at_engine_outlet}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3"> LPC Front Support Oil Outlet Temp. (℃)</td>
+
+                                <td>{{users3.PCGT_lpc_front_support_oil_outlet_temp}}</td>
+                                <td>{{users3.SCGT_lpc_front_support_oil_outlet_temp}}</td>
+                                <td>{{users3.PBGT_lpc_front_support_oil_outlet_temp}}</td>
+                                <td>{{users3.SBGT_lpc_front_support_oil_outlet_temp}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">HPC Rear Casing Oil Outlet Temperature (℃)</td>
+
+                                <td>{{users3.PCGT_hpc_rear_ceasing_oil_outlet_temprature}}</td>
+                                <td>{{users3.SCGT_hpc_rear_ceasing_oil_outlet_temprature}}</td>
+                                <td>{{users3.PBGT_hpc_rear_ceasing_oil_outlet_temprature}}</td>
+                                <td>{{users3.SBGT_hpc_rear_ceasing_oil_outlet_temprature}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Adapter Outlet LO Temperature (℃)</td>
+                                <td colspan="2" rowspan="2"></td>
+
+                                <td>{{users3.adapter_outlet_lo_temprature}}</td>
+                                <td>{{users3.Pdapter_outlet_lo_temprature}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">HPT Rear Casing Oil Outlet Temperature (℃)</td>
+
+                                <td>{{users3.hpt_rear_casing_outlet_lo_temprature}}</td>
+                                <td>{{users3.Ppt_rear_casing_outlet_lo_temprature}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">LPT Rear Casing Oil Outlet Temperature (℃)</td>
+
+                                <td>{{users3.PCGT_lpt_bearing_outlet_lo_temprature}}</td>
+                                <td>{{users3.SCGT_lpt_bearing_outlet_lo_temprature}}</td>
+
+                                <td>{{users3.PBGT_lpt_bearing_outlet_lo_temprature}}</td>
+                                <td>{{users3.SBGT_lpt_bearing_outlet_lo_temprature}}</td>
+                        </tr>
+                        <tr>
+                                <td colspan="3">PT Rear Casing Oil Outlet Temperature (℃)</td>
+
+                                <td>{{users3.PCGT_pt_bearing_outlet_lo_temprature}}</td>
+                                <td>{{users3.SCGT_pt_bearing_outlet_lo_temprature}}</td>
+                                <td>{{users3.PBGT_pt_bearing_outlet_lo_temprature}}</td>
+                                <td>{{users3.SBGT_pt_bearing_outlet_lo_temprature}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Ambient Air Temperature (℃)</td>
+
+                                <td>{{users3.PCGT_ambient_air_temprature}}</td>
+                                <td>{{users3.SCGT_ambient_air_temprature}}</td>
+                                <td>{{users3.PBGT_ambient_air_temprature}}</td>
+                                <td>{{users3.SBGT_ambient_air_temprature}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Sea Water Temperature (℃)</td>
+
+                                <td>{{users3.PCGT_sea_water_temprature}}</td>
+                                <td>{{users3.SCGT_sea_water_temprature}}</td>
+                                <td>{{users3.PBGT_sea_water_temprature}}</td>
+                                <td>{{users3.SBGT_sea_water_temprature}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Relative Power Rating (N)</td>
+
+                                <td>{{users3.PCGT_relative_power_rating}}</td>
+                                <td>{{users3.SCGT_relative_power_rating}}</td>
+                                <td>{{users3.PBGT_relative_power_rating}}</td>
+                                <td>{{users3.SBGT_relative_power_rating}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Throttle Position in Burya(deg)</td>
+
+                                <td>{{users3.PCGT_throttle_position_in_burya}}</td>
+                                <td>{{users3.SCGT_throttle_position_in_burya}}</td>
+                                <td>{{users3.PBGT_throttle_position_in_burya}}</td>
+                                <td>{{users3.SBGT_throttle_position_in_burya}}</td>
+
+                        </tr>
+
+                        <tr>
+                                <td colspan="3">Air Pressure after HPC (kgf/cm²)</td>
+
+                                <td>{{users3.PCGT_air_pressure_after_hpc}}</td>
+                                <td>{{users3.SCGT_air_pressure_after_hpc}}</td>
+                                <td>{{users3.PBGT_air_pressure_after_hpc}}</td>
+                                <td>{{users3.SBGT_air_pressure_after_hpc}}</td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Angle of IVGVA on GT (deg)</td>
+
+                                <td>{{users3.PCGT_angle_of_IVGVA_on_GT}}</td>
+                                <td>{{users3.SCGT_angle_of_IVGVA_on_GT}}</td>
+                                <td colspan="2"></td>
+
+                        </tr>
+
+                        <tr>
+                                <td colspan="3">HPC Balance Chamber Pressure (kgf/cm²)</td>
+
+                                <td colspan="2" rowspan="2"></td>
+                                <td>{{users3.PBGT_hpc_balance_chamber_pressure}}</td>
+                                <td>{{users3.SBGT_hpc_balance_chamber_pressure}}</td>
+                        </tr>
+
+                        <tr>
+                                <td colspan="3">PT Balance Chamber Pressure (Ahead)(kgf/cm²)</td>
+
+                                <td>{{users3.PBGT_pt_balance_chamber_pressure}}</td>
+                                <td>{{users3.SBGT_pt_balance_chamber_pressure}}</td>
+                        </tr>
+                        <tr>
+                                <td colspan="3">Air Intake Pressure difference ACU (kgf/cm²)</td>
+
+                                <td>{{users3.PCGT_air_intake_pressure_difference_acu}}</td>
+                                <td>{{users3.SCGT_air_intake_pressure_difference_acu}}</td>
+                                <td colspan="2"></td>
+
+                        </tr>
+                        <tr>
+                                <td colspan="3">Air Intake Pressure before GTs (kgf/cm²)</td>
+
+                                <td>{{users3.PCGT_air_intake_presssure_before_gts}}</td>
+                                <td>{{users3.SCGT_air_intake_presssure_before_gts}}</td>
+
+                                <td>{{users3.PBGT_air_intake_presssure_before_gts}}</td>
+                                <td>{{users3.SBGT_air_intake_presssure_before_gts}}</td>
+                        </tr>
+                        <tr>
+                                <td colspan="3">Slip by LPC (RPM)</td>
+
+                                <td>{{users3.PCGT_slip_by_lpc_RPM}}</td>
+                                <td>{{users3.SCGT_slip_by_lpc_RPM}}</td>
+
+                                <td>{{users3.PBGT_slip_by_lpc_RPM}}</td>
+                                <td>{{users3.SBGT_slip_by_lpc_RPM}}</td>
+                        </tr>
+                        <tr>
+                                <td colspan="3">Slip by Exhaust Gas Temperature (℃)</td>
+
+                                <td>{{users3.PCGT_slip_by_exhaust_gas_temprature}}</td>
+                                <td>{{users3.SCGT_slip_by_exhaust_gas_temprature}}</td>
+
+                                <td>{{users3.PBGT_slip_by_exhaust_gas_temprature}}</td>
+                                <td>{{users3.SBGT_slip_by_exhaust_gas_temprature}}</td>
+                        </tr>
+
+                        <tr>
+                                <td colspan="3">Slip by Air Pressure after HPC (kgf/cm²)</td>
+
+                                <td>{{users3.PCGT_slip_by_air_pressure_after_hpc}}</td>
+                                <td>{{users3.SCGT_slip_by_air_pressure_after_hpc}}</td>
+
+                                <td>{{users3.PBGT_slip_by_air_pressure_after_hpc}}</td>
+                                <td>{{users3.SBGT_slip_by_air_pressure_after_hpc}}</td>
+                        </tr>
+                        <tr>
+                                <td rowspan="6">Run Down Time</td>
+                                <td class="" rowspan="3">1500 to 500 RPM</td>
+
+                        </tr>
+
+                        <tr>
+                                <td>LPC</td>
+                                <td>{{users3.SCGT_run_down_time_1500_to_500RPM_LPC}}</td>
+                                <td>{{users3.PCGT_run_down_time_1500_to_500RPM_LPC}}</td>
+
+                                <td>{{users3.PBGT_run_down_time_1500_to_500RPM_LPC}}</td>
+                                <td>{{users3.SBGT_run_down_time_1500_to_500RPM_LPC}}</td>
+
+                        </tr>
+
+                        <tr>
+                                <td>HPC</td>
+                                <td>{{users3.SCGT_run_down_time_1500_to_500RPM_HPC}}</td>
+                                <td>{{users3.PCGT_run_down_time_1500_to_500RPM_HPC}}</td>
+
+                                <td>{{users3.PBGT_run_down_time_1500_to_500RPM_HPC}}</td>
+                                <td>{{users3.SBGT_run_down_time_1500_to_500RPM_HPC}}</td>
+                        </tr>
+
+                        <tr>
+                                <td rowspan="3">Depressing Stop Button to Dead Stop of Rotors</td>
+                        </tr>
+
+
+                        <tr>
+                                <td>LPC</td>
+                                <td>{{users3.SCGT_run_down_time_depressing_stop_button_to_dead_stop_of_rotors_LPC}}</td>
+                                <td>{{users3.PCGT_run_down_time_depressing_stop_button_to_dead_stop_of_rotors_LPC}}</td>
+
+                                <td>{{users3.PBGT_run_down_time_depressing_stop_button_to_dead_stop_of_rotors_LPC}}</td>
+                                <td>{{users3.SBGT_run_down_time_depressing_stop_button_to_dead_stop_of_rotors_LPC}}</td>
+
+                        </tr>
+
+                        <tr>
+                                <td>HPC</td>
+                                <td>{{users3.SCGT_run_down_time_depressing_stop_button_to_dead_stop_of_rotors_HPC}}</td>
+                                <td>{{users3.PCGT_run_down_time_depressing_stop_button_to_dead_stop_of_rotors_HPC}}</td>
+
+                                <td>{{users3.PBGT_run_down_time_depressing_stop_button_to_dead_stop_of_rotors_HPC}}</td>
+                                <td>{{users3.SBGT_run_down_time_depressing_stop_button_to_dead_stop_of_rotors_HPC}}</td>
+                        </tr>
+
+                        <tr>
+                                <td colspan="3">Average Lub Oil Consumption(kg/hr)</td>
+
+                                <td>{{users3.PCGT_average_lub_oil_consumption}}</td>
+                                <td>{{users3.SCGT_average_lub_oil_consumption}}</td>
+
+                                <td>{{users3.PBGT_average_lub_oil_consumption}}</td>
+                                <td>{{users3.SBGT_average_lub_oil_consumption}}</td>
+                        </tr>
+
+
+                        <tr>
+                                <td colspan="3">Average Fuel Consumption at 1.0N/).7N,(TPH)</td>
+
+                                <td>{{users3.PCGT_average_fuel_oil_consumption_at_1_0N_0_7N_TPH}}</td>
+                                <td>{{users3.SCGT_average_fuel_oil_consumption_at_1_0N_0_7N_TPH}}</td>
+
+                                <td>{{users3.PBGT_average_fuel_oil_consumption_at_1_0N_0_7N_TPH}}</td>
+                                <td>{{users3.SBGT_average_fuel_oil_consumption_at_1_0N_0_7N_TPH}}</td></tr>
+                </tbody>
+        </table>
+
+        <div class="heading-style2 heading-style3 text-start row">
+                <h2 class="text-underline col-md-6">(B) Balance Chamber Pressure </h2>
+                <div class="text-underline col-md-6" style="display: flex;">Date Last Checked: {{users3.date_last_checked}}</div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th colspan="2">Parameters</th>
+
+                        <th>PBGT</th>
+                        <th>SBGT</th>
+
+
+                </tr>
+
+
+                <tbody>
+                        <tr>
+                                <td rowspan="2">HPC Balance Chamber</td>
+                                <td>Pressure (kgf/cm²)</td>
+
+                                <td>{{users3.PBGT_HPC_balance_chamber_pressure}}
+                                </td>
+                                <td>{{users3.SBGT_HPC_balance_chamber_pressure}}
+                                </td>
+
+                        </tr>
+
+                        <tr>
+
+                                <td>Date Last Adjusted</td>
+
+                                <td>{{users3.PBGT_HPC_balance_date_last_adjusted}}
+                                </td>
+                                <td>{{users3.SBGT_HPC_balance_date_last_adjusted}}
+                                </td>
+
+                        </tr>
+                        <tr>
+                                <td rowspan="2">PT Balance Chamber in Ahead</td>
+                                <td>Pressure (kgf/cm²)</td>
+
+                                <td>{{users3.PBGT_PT_balance_chamber_in_ahead_pressure}}</td>
+                                <td>{{users3.SBGT_PT_balance_chamber_in_ahead_pressure}}</td>
+
+                        </tr>
+
+                        <tr>
+
+                                <td>Date Last Adjusted</td>
+
+                                <td>{{users3.PBGT_PT_balance_chamber_in_ahead_date_last_adjusted}}
+                                </td>
+                                <td>{{users3.SBGT_PT_balance_chamber_in_ahead_date_last_adjusted}}
+                                </td>
+
+                        </tr>
+
+
+                        <tr>
+                                <td rowspan="2">PT Balance Chamber in Astern</td>
+                                <td>Pressure (kgf/cm²)</td>
+
+                                <td>{{users3.PBGT_PT_balance_chamber_in_astern_pressure}}</td>
+                                <td>{{users3.SBGT_PT_balance_chamber_in_astern_pressure}}</td>
+
+                        </tr>
+
+                        <tr>
+
+                                <td>Date Last Adjusted</td>
+
+                                <td>{{users3.PBGT_PT_balance_chamber_in_astern_date_last_adjusted}}
+                                </td>
+                                <td>{{users3.SBGT_PT_balance_chamber_in_astern_date_last_adjusted}}</td>
+
+                        </tr>
+
+
+
+                </tbody>
+
+        </table>
+
+
+        <div class="note-card">
+                <p><b>Note:</b></p>
+                <ul type="1">
+                        <ol>1. Balance Chamber Pressure to be checked once in every quarter.</ol>
+                        <ol>2. Ahead Balance Chamber Pressure is recorded at Power Rating such that air presure after
+                                HPC =
+                                8.0+0.1 kgf/cm² and GT stabiolzed in that mode for at least 15 Minutes.</ol>
+                        <ol>3. PT Balance Chamber Pressure in astern is recorded at Continuous Astern Mode and GT
+                                stabiolzed in
+                                that mode for at least 30 Minutes.</ol>
+                        <ol>4. Balance chamber pressure checked EHM and found sat.</ol>
+                </ul>
+        </div>
+
+
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(C) Engine Field Temperature</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th rowspan="2">Point</th>
+
+                        <th class="subheader" colspan="2">PCGT</th>
+                        <th class="subheader" colspan="2">SCGT</th>
+                        <th class="subheader" colspan="2">PBGT</th>
+                        <th class="subheader" colspan="2">SBGT</th>
+
+
+                </tr>
+
+                <tr>
+                        <th>Temp (℃)</th>
+                        <th>∆T (℃)</th>
+
+                        <th>Temp (℃)</th>
+                        <th>∆T (℃)</th>
+
+                        <th>Temp (℃)</th>
+                        <th>∆T (℃)</th>
+
+                        <th>Temp (℃)</th>
+                        <th>∆T (℃)</th>
+                </tr>
+
+                <tbody>
+
+                        <tr>
+                                <td>1.</td>
+
+                                <td>{{users3.PCGT_point_1_temp}}</td>
+                                <td>{{users3.PCGT_point_1_Dt}}</td>
+                                <td>{{users3.SCGT_point_1_temp}}</td>
+                                <td>{{users3.SCGT_point_1_Dt}} </td>
+                                <td>{{users3.PBGT_point_1_temp}}</td>
+                                <td>{{users3.PBGT_point_1_Dt}}</td>
+                                <td>{{users3.SBGT_point_1_temp}}</td>
+                                <td>{{users3.SBGT_point_1_Dt}}</td>
+                        </tr>
+                        <tr>
+                                <td>2</td>
+
+                                <td>{{users3.PCGT_point_2_temp}}</td>
+                                <td>{{users3.PCGT_point_2_Dt}}</td>
+                                <td>{{users3.SCGT_point_2_temp}}</td>
+                                <td>{{users3.SCGT_point_2_Dt}}</td>
+                                <td>{{users3.PBGT_point_2_temp}}</td>
+                                <td>{{users3.PBGT_point_2_Dt}}</td>
+                                <td>{{users3.SBGT_point_2_temp}}</td>
+                                <td>{{users3.SBGT_point_2_Dt}}</td>
+
+
+                        </tr>
+                        <tr>
+                                <td>3</td>
+
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_3_temp}}"
+                                                [(ngModel)]="PCGT_point_3_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_3_Dt}}"
+                                                [(ngModel)]="PCGT_point_3_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_3_temp}}"
+                                                [(ngModel)]="SCGT_point_3_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_3_Dt}}"
+                                                [(ngModel)]="SCGT_point_3_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_3_temp}}"
+                                                [(ngModel)]="PBGT_point_3_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_3_Dt}}"
+                                                [(ngModel)]="PBGT_point_3_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_3_temp}}"
+                                                [(ngModel)]="SBGT_point_3_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_3_Dt}}"
+                                                [(ngModel)]="SBGT_point_3_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+
+                        </tr>
+                        <tr>
+                                <td>4</td>
+
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_4_temp}}"
+                                                [(ngModel)]="PCGT_point_4_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_4_Dt}}"
+                                                [(ngModel)]="PCGT_point_4_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_4_temp}}"
+                                                [(ngModel)]="SCGT_point_4_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_4_Dt}}"
+                                                [(ngModel)]="SCGT_point_4_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_4_temp}}"
+                                                [(ngModel)]="PBGT_point_4_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_4_Dt}}"
+                                                [(ngModel)]="PBGT_point_4_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_4_temp}}"
+                                                [(ngModel)]="SBGT_point_4_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_4_Dt}}"
+                                                [(ngModel)]="SBGT_point_4_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                        </tr>
+
+                        <tr>
+                                <td>5</td>
+
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_5_temp}}"
+                                                [(ngModel)]="PCGT_point_5_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_5_Dt}}"
+                                                [(ngModel)]="PCGT_point_5_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_5_temp}}"
+                                                [(ngModel)]="SCGT_point_5_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_5_Dt}}"
+                                                [(ngModel)]="SCGT_point_5_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_5_temp}}"
+                                                [(ngModel)]="PBGT_point_5_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_5_Dt}}"
+                                                [(ngModel)]="PBGT_point_5_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_5_temp}}"
+                                                [(ngModel)]="SBGT_point_5_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_5_Dt}}"
+                                                [(ngModel)]="SBGT_point_5_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                                <td>6</td>
+
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_6_temp}}"
+                                                [(ngModel)]="PCGT_point_6_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_6_Dt}}"
+                                                [(ngModel)]="PCGT_point_6_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_6_temp}}"
+                                                [(ngModel)]="SCGT_point_6_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_6_Dt}}"
+                                                [(ngModel)]="SCGT_point_6_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_6_temp}}"
+                                                [(ngModel)]="PBGT_point_6_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_6_Dt}}"
+                                                [(ngModel)]="PBGT_point_6_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_6_temp}}"
+                                                [(ngModel)]="SBGT_point_6_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_6_Dt}}"
+                                                [(ngModel)]="SBGT_point_6_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                                <td>7</td>
+
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_7_temp}}"
+                                                [(ngModel)]="PCGT_point_7_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_7_Dt}}"
+                                                [(ngModel)]="PCGT_point_7_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_7_temp}}"
+                                                [(ngModel)]="SCGT_point_7_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_7_Dt}}"
+                                                [(ngModel)]="SCGT_point_7_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_7_temp}}"
+                                                [(ngModel)]="PBGT_point_7_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_7_Dt}}"
+                                                [(ngModel)]="PBGT_point_7_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_7_temp}}"
+                                                [(ngModel)]="SBGT_point_7_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_7_Dt}}"
+                                                [(ngModel)]="SBGT_point_7_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                        </tr>
+
+
+
+                        <tr>
+                                <td>8</td>
+
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_8_temp}}"
+                                                [(ngModel)]="PCGT_point_8_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_8_Dt}}"
+                                                [(ngModel)]="PCGT_point_8_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_8_temp}}"
+                                                [(ngModel)]="SCGT_point_8_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_8_Dt}}"
+                                                [(ngModel)]="SCGT_point_8_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_8_temp}}"
+                                                [(ngModel)]="PBGT_point_8_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_8_Dt}}"
+                                                [(ngModel)]="PBGT_point_8_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_8_temp}}"
+                                                [(ngModel)]="SBGT_point_8_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_8_Dt}}"
+                                                [(ngModel)]="SBGT_point_8_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                                <td>9</td>
+
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_9_temp}}"
+                                                [(ngModel)]="PCGT_point_9_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_9_Dt}}"
+                                                [(ngModel)]="PCGT_point_9_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_9_temp}}"
+                                                [(ngModel)]="SCGT_point_9_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_9_Dt}}"
+                                                [(ngModel)]="SCGT_point_9_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_9_temp}}"
+                                                [(ngModel)]="PBGT_point_9_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_9_Dt}}"
+                                                [(ngModel)]="PBGT_point_9_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_9_temp}}"
+                                                [(ngModel)]="SBGT_point_9_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_9_Dt}}"
+                                                [(ngModel)]="SBGT_point_9_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                                <td>10</td>
+
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_10_temp}}"
+                                                [(ngModel)]="PCGT_point_10_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PCGT_point_10_Dt}}"
+                                                [(ngModel)]="PCGT_point_10_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_10_temp}}"
+                                                [(ngModel)]="SCGT_point_10_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSCGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SCGT_point_10_Dt}}"
+                                                [(ngModel)]="SCGT_point_10_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_10_temp}}"
+                                                [(ngModel)]="PBGT_point_10_temp" numberOnly
+                                                (ngModelChange)="avgCalculationPBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.PBGT_point_10_Dt}}"
+                                                [(ngModel)]="PBGT_point_10_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_10_temp}}"
+                                                [(ngModel)]="SBGT_point_10_temp" numberOnly
+                                                (ngModelChange)="avgCalculationSBGT()"></td>
+                                <td><input type="text" class="form-control" value="{{users3.SBGT_point_10_Dt}}"
+                                                [(ngModel)]="SBGT_point_10_Dt" (ngModelChange)="calculate()" numberOnly>
+                                </td>
+
+                        </tr>
+
+
+
+
+
+                        <tr>
+                                <td>T Average: (T Avg)</td>
+
+                                <td><input type="text" numberOnly value="{{users3.PCGT_T_average_temp}}"
+                                                [(ngModel)]="PCGT_T_average_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PCGT_T_average_Dt}}"
+                                                class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SCGT_T_average_temp}}"
+                                                [(ngModel)]="SCGT_T_average_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SCGT_T_average_Dt}}"
+                                                class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PBGT_T_average_temp}}"
+                                                [(ngModel)]="PBGT_T_average_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PBGT_T_average_Dt}}"
+                                                class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SBGT_T_average_temp}}"
+                                                [(ngModel)]="SBGT_T_average_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SBGT_T_average_Dt}}"
+                                                class="form-control" /></td>
+                        </tr>
+
+
+                        <tr>
+                                <td>T High (Point)</td>
+
+                                <td><input type="text" numberOnly value="{{users3.PCGT_T_high_temp}}"
+                                                [(ngModel)]="PCGT_T_high_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PCGT_T_high_Dt}}"
+                                                [(ngModel)]="PCGT_T_high_Dt" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SCGT_T_high_temp}}"
+                                                [(ngModel)]="SCGT_T_high_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SCGT_T_high_Dt}}"
+                                                [(ngModel)]="SCGT_T_high_Dt" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PBGT_T_high_temp}}"
+                                                [(ngModel)]="PBGT_T_high_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PBGT_T_high_Dt}}"
+                                                [(ngModel)]="PBGT_T_high_Dt" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SBGT_T_high_temp}}"
+                                                [(ngModel)]="SBGT_T_high_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SBGT_T_high_Dt}}"
+                                                [(ngModel)]="SBGT_T_high_Dt" class="form-control" /></td>
+                        </tr>
+
+
+                        <tr>
+                                <td>T Low (Point)</td>
+
+                                <td><input type="text" numberOnly value="{{users3.PCGT_T_low_temp}}"
+                                                [(ngModel)]="PCGT_T_low_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PCGT_T_low_Dt}}"
+                                                [(ngModel)]="PCGT_T_low_Dt" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SCGT_T_low_temp}}"
+                                                [(ngModel)]="SCGT_T_low_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SCGT_T_low_Dt}}"
+                                                [(ngModel)]="SCGT_T_low_Dt" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PBGT_T_low_temp}}"
+                                                [(ngModel)]="PBGT_T_low_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.PBGT_T_low_Dt}}"
+                                                [(ngModel)]="PBGT_T_low_Dt" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SBGT_T_low_temp}}"
+                                                [(ngModel)]="SBGT_T_low_temp" class="form-control" /></td>
+                                <td><input type="text" numberOnly value="{{users3.SBGT_T_low_Dt}}"
+                                                [(ngModel)]="SBGT_T_low_Dt" class="form-control" /></td>
+                        </tr>
+                </tbody>
+        </table>
+
+
+
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(D) RG Bearing Oil Temperatures</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th colspan="7">SCRG Bearing Oil Temperatures</th>
+                        <th colspan="6">RG Lub Oil Outlet-Temp:
+                                <input style="width: 10%;height: 20%;margin-right: 26%;" type="text"
+                                        value="{{users3.SCRG_lub_oil_outlet_temp}}" class="form-control float-right" />
+                        </th>
+
+
+
+                </tr>
+
+                <tbody>
+                        <tr>
+
+                                <td>Point</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                        </tr>
+                        <tr>
+                                <td>Temperature</td>
+
+                                <td><input type="text" value="{{users3.SCRG_point_1_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_2_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_3_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_4_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_5_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_6_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                                <td><input type="text" value="{{users3.SCRG_point_7_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_8_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_9_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_10_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_11_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_12_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+
+
+                        </tr>
+                        <tr>
+                                <td>Point</td>
+
+
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td>20</td>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                                <td>24</td>
+
+                        </tr>
+
+                        <tr>
+                                <td>Temperature</td>
+
+                                <td><input type="text" value="{{users3.SCRG_point_13_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_14_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_15_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_16_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                                <td><input type="text" value="{{users3.SCRG_point_17_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_18_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_19_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_20_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_21_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_22_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_23_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SCRG_point_24_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                        </tr>
+
+                </tbody>
+        </table>
+
+
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th colspan="7">PCRG Bearing Oil Temperatures</th>
+                        <th colspan="6">RG Lub Oil Outlet-Temp:
+                                <input style="width: 10%;height: 20%;margin-right: 26%;" type="text"
+                                        value="{{users3.PCRG_lub_oil_outlet_temp}}" numberOnly
+                                        class="form-control float-right" />
+                        </th>
+
+
+
+                </tr>
+
+                <tbody>
+                        <tr>
+
+                                <td>Point</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                        </tr>
+                        <tr>
+                                <td>Temperature</td>
+
+                                <td><input type="text" value="{{users3.PCRG_point_1_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_2_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_3_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_4_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_5_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_6_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                                <td><input type="text" value="{{users3.PCRG_point_7_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_8_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_9_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_10_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_11_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_12_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+
+                        </tr>
+                        <tr>
+                                <td>Point</td>
+
+
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td>20</td>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                                <td>24</td>
+
+                        </tr>
+
+                        <tr>
+                                <td>Temperature</td>
+
+
+                                <td><input type="text" value="{{users3.PCRG_point_13_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_14_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_15_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_16_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                                <td><input type="text" value="{{users3.PCRG_point_17_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_18_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_19_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_20_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_21_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_22_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_23_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PCRG_point_24_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                        </tr>
+
+                </tbody>
+        </table>
+
+
+
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th colspan="7">
+                                SBRG Bearing Oil Temperatures</th>
+                        <th colspan="6">RG Lub Oil Outlet-Temp: <input style="width: 10%;height: 20%;margin-right: 26%;"
+                                        type="text" value="{{users3.SBRG_lub_oil_outlet_temp}}"
+                                        class="form-control float-right" />
+
+
+
+
+                </tr>
+
+                <tbody>
+                        <tr>
+
+                                <td>Point</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                        </tr>
+                        <tr>
+                                <td>Temperature</td>
+
+                                <td><input type="text" value="{{users3.SBRG_point_1_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_2_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_3_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_4_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_5_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_6_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                                <td><input type="text" value="{{users3.SBRG_point_7_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_8_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_9_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_10_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_11_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_12_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+
+                        </tr>
+                        <tr>
+                                <td>Point</td>
+
+
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td colspan="8"></td>
+
+                        </tr>
+
+                        <tr>
+                                <td>Temperature</td>
+
+                                <td><input type="text" value="{{users3.SBRG_point_13_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_14_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_15_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.SBRG_point_16_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                                <td colspan="8"></td>
+
+                        </tr>
+
+                </tbody>
+        </table>
+
+
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th colspan="7">PBRG Bearing Oil Temperatures</th>
+                        <th colspan="6">RG Lub Oil Outlet-Temp: <input style="width: 10%;height: 20%;margin-right: 26%;"
+                                        type="text" value="{{users3.PBRG_lub_oil_outlet_temp}}" numberOnly
+                                        class="form-control float-right" /></th>
+
+
+
+                </tr>
+
+                <tbody>
+                        <tr>
+
+                                <td>Point</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                        </tr>
+                        <tr>
+                                <td>Temperature</td>
+
+                                <td><input type="text" value="{{users3.PBRG_point_1_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_2_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_3_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_4_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_5_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_6_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                                <td><input type="text" value="{{users3.PBRG_point_7_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_8_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_9_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_10_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_11_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_12_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+
+                        </tr>
+                        <tr>
+                                <td>Point</td>
+
+
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td colspan="8"></td>
+
+                        </tr>
+
+                        <tr>
+                                <td>Temperature</td>
+
+                                <td><input type="text" value="{{users3.PBRG_point_13_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_14_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_15_temp}}" numberOnly
+                                                class="form-control" /></td>
+                                <td><input type="text" value="{{users3.PBRG_point_16_temp}}" numberOnly
+                                                class="form-control" /></td>
+
+                                <td colspan="8"></td>
+
+                        </tr>
+
+                </tbody>
+        </table>
+        <!-- End of Page 3 -->
+        <div class="page-break"></div>
+        <div class="heading-style2 heading-style3 text-center" style="margin-top: 10em;">
+                <h2>PART-VI RECORDING OF RUNNING HOURS AND CALIBRATION/REPAIRS DATA HP FUEL PUMPS OF GAS
+                        TURBINES</h2>
+        </div>
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(A) Pump Fitted on Engine</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th width="2%">Ser</th>
+                        <th width="8%">Pump Position</th>
+                        <th width="7%">Pump Serial</th>
+                        <th width="13%">Date of Installation</th>
+                        <th width="13%">Date of Last Calibration</th>
+                        <th width="7%">R/H Qtr</th>
+                        <th width="9%">R/H Total</th>
+                        <th width="15%">Remarks</th>
+                </tr>
+                {% for al in dynamic8 %}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.pump_fitted_on_engine_pump_position}}</td>
+                        <td>{{al.pump_fitted_on_engine_pump_serial}}</td>
+                        <td>{{al.pump_fitted_on_engine_date_of_intstallation}}</td>
+                        <td>{{al.pump_fitted_on_engine_date_of_last_calibration}}</td>
+                        <td>{{al.pump_fitted_on_engine_RH_QTR}}</td>
+                        <td>{{al.pump_fitted_on_engine_RH_total}}</td>
+                        <td>{{al.pump_fitted_on_engine_remarks}}</td>
+                </tr>
+                {% endfor %}
+        </table>
+
+
+
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(B) Pump in SPTA</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th width="2%">Ser</th>
+                        <th width="14%">Pump for CGT/BGT</th>
+                        <th width="12%">Pump Serial</th>
+                        <th width="22%">Last Calibration on</th>
+                        <th width="15%">R/H Total</th>
+                        <th width="17%">R/H Post Calibration</th>
+                        <th width="20%">Remarks</th>
+                </tr>
+
+                {% for al in dynamic9 %}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.pump_for_CGT_BGT}}</td>
+                        <td>{{al.pump_in_SPTA_pump_serial}}</td>
+                        <td>{{al.pump_in_SPTA_date_of_last_calibration}}</td>
+                        <td>{{al.pump_in_SPTA_RH_total}}</td>
+                        <td>{{al.pump_in_SPTA_RH_post_calibration}}</td>
+                        <td>{{al.pump_in_SPTA_remarks}}</td>
+                </tr>
+                {% endfor %}
+        </table>
+
+
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(C)&nbsp;&nbsp;Pumps Surveyed in Quarter</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th width="2%">Ser</th>
+                        <th width="14%">Pump for CGT/BGT</th>
+                        <th width="12%">Pump Serial</th>
+                        <th width="22%">Surveyed on</th>
+                        <th width="15%">Surveyed Reference</th>
+                        <th width="17%">R/H Total</th>
+                        <th width="20%">Reason for Survey (BLR/BER/Excess Stock/Non-Compatible, etc)</th>
+                </tr>
+
+
+                {% for al in dynamic10 %}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.pump_surveyed_for_CGT_BGT}}</td>
+                        <td>{{al.pump_surveyed_in_quarter_pump_serial}}</td>
+                        <td>{{al.pump_surveyed_in_quarter_surveyed_on}}</td>
+                        <td>{{al.pump_surveyed_in_quarter_surveyed_reference}}</td>
+                        <td>{{al.pump_surveyed_in_quarter_RH_total}}</td>
+                        <td>{{al.pump_surveyed_in_quarter_reason_for_survey}}</td>
+                </tr>
+                {% endfor %}
+
+        </table>
+
+        <div class="heading-style2 heading-style3 text-start">
+                <h2 class="text-underline">(D)&nbsp;&nbsp;Pumps Received in Quarter</h2>
+        </div>
+
+        <table class="table table-bordered table-form-color1 tabletd-color">
+                <tr>
+                        <th width="2%">Ser</th>
+                        <th width="14%">Pump for CGT/BGT</th>
+                        <th width="12%">Pump Serial</th>
+                        <th width="22%">Received on</th>
+                        <th width="15%">Against Survey Reference</th>
+                        <th width="17%">R/H Total</th>
+                        <th width="20%">Remarks</th>
+                </tr>
+                {% for al in dynamic11 %}
+                <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{al.pump_received_for_CGT_BGT}}</td>
+                        <td>{{al.pump_received_in_quarter_pump_serial}}</td>
+                        <td>{{al.pump_received_in_quarter_received_on}}</td>
+                        <td>{{al.pump_received_in_quarter_against_surveyed_reference}}</td>
+                        <td>{{al.pump_received_in_quarter_RH_total}}</td>
+                        <td>{{al.pump_received_in_quarter_reason_for_survey}}</td>
+                </tr>
+                {% endfor %}
+        </table>
+
+
+
+        <div class="heading-style2 heading-style3 text-center">
+                <h2>PART-VII Remarks</h2>
+        </div>
+
+        <div class="form-floating">{{users4.remarks | safe}}</div>
+
+        <table cellspacing="0" cellpadding="5" width="100%"
+                style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+                <tr>
+                        <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">
+                                Electronically Signed By: <br> {{history.first_name}} {{history.last_name}},
+                                {{history.login_name}} <br> {{history.designation}} <br> On {{
+                                history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                        <td width="50%" style="margin-left:50px"> <img style="width:130px;height:130px;align-items:right"
+                                        src="http://159.12.45.106:8000/{{qr}}" /></td>
+                </tr>
+        </table>
+
+        <table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+                <tr style="border: 0; border-style:None;">
+                    <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                    <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+                </tr>
+        </table>
+</div>
+
+</body>
+
+</html>

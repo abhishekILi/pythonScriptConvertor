@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Torsionmeter Returns</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+  
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+  
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+        <body>
+            <div class="wrapper">
+                        <div style="float:right">
+                            <p>Report Generated on: {{ history.approved_date_time }}</p>
+                        </div>
+                    <div class="heading-style2 text-center">
+                        <img width="100px" alt="Logo"
+                        style="height: 150px; width: 160px; position: relative; left: 40%;"
+                        src="{{satellite_unit_icon}}">
+                        <h2><U>MONTHLY TORSIONMETER READINGS</U></h2>
+                    </div>
+                    <table class="table table-bordered table-form-color1 tabletd-color">
+                        <tr>
+                            <td width="15%"><strong>Ship :</strong></td>
+                            <td>{{users.Ship}}</td>
+                            <td class="td-bluelight" width="15%" ><strong>Sampling Date:</strong></td>
+                            <td>{{users.Torsion_Sample_Date}}</td>
+                        </tr>
+                    </table>  
+                    <br>
+                <div>
+                <table class="table table-bordered table-form-color1 tabletd-color">
+                    <tr>
+                        <th ><strong>Ser</strong></th>
+                        <th width="15%">Shaft Nomenclature</th>
+                        <th width="15%"><strong>Status of Torsion Meter</strong></th>
+                        <th width="15%"><strong>SRPM (60 % loading) </strong></th>
+                        <th width="15%"><strong>Torsion Meter Reading (kN-m) </strong></th>
+                        <th width="15%"><strong>Max SRPM recorded in the month with max Loading</strong></th>
+                        <th width="15%"><strong>Torsion Meter Reading (KN-m)</strong></th>
+                        <th style="width:500px;"><strong>Remarks</strong></th>
+                    </tr>
+
+                    {% for i in userOne %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.Torsionmeter_shaft_nomenclature}}</td>
+                        <td>{{i.Torsionmeter_status}}</td>
+                        <td>{{i.Torsionmeter_srpm}}</td>
+                        <td>{{i.Torsionmeter_reading}}</td>
+                        <td>{{i.Torsionmeter_max_reading}}</td>
+                        <td>{{i.Torsionmeter_reading_1}}</td>
+                        <td>{{i.Torsionmeter_remarks}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+
+                </table>
+
+                <br>
+                <h4> Final Assessment and Recommendations</h4>
+                <table class="table table-bordered table-form-color tabletd-color">
+                <tr style="height: 40vh !important;">
+                    <td>
+                        <div class="form-floating" style="text-align: left;">
+                        {{users.observation | safe}}
+                        </div>
+                    </td>
+                </tr>
+                </table>
+                </div>
+                                
+                <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif;">
+                <tr>
+                    <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+                    <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+                </tr>
+              </table>
+              <table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+                <tr style="border: 0; border-style:None;">
+                    <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+                    <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+                </tr>
+                </table>
+            </div>
+        </body>
+    </html>
+    
+        

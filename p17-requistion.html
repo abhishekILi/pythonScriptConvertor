@@ -1,0 +1,249 @@
+{% comment %} {% load qr_code %} {% endcomment %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>P17 Acceptance Requisition</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="keywords" content="" />
+      <meta name="pdfkit-page-size" content="Legal"/>
+      <meta name="pdfkit-orientation" content="Portrait"/>
+      <style type="text/css">
+        body{margin:50px 50px; size:landscape;}
+        .wrapper{width: 100%;border-style: double; padding: 8px;}
+            table{border-collapse: collapse;}
+            .clear{padding: 0; margin: 0; width: 100%; clear: both;}
+            .star{color: red;}
+            strong{font-weight: 600;}
+            body{margin:50px;background: #FFF !important;}
+
+            .table{
+                border: 1px solid lightgray;
+                font-size: 12px;
+                padding: 0px;
+                margin: 0px;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .table tr{
+                margin: 0px!important;
+            }
+            .table tr th{
+                background-color: #80808054;
+                padding: 0px;
+                margin: 0px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 2px 2px 2px 2px;
+            }
+            .table tr td{
+            background-color: #80808054;
+            padding: 0px;
+            margin: 0px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 2px 2px 2px 2px;
+        }
+            textarea{
+                width: 100%;
+                min-height: 10px;
+                /* padding: 10px; */
+                font-size: 12px;
+                resize: none;
+                overflow-y: hidden;
+            }
+            h2{
+                text-align: center;
+            }
+            input{
+                border: none;
+            }
+            button{
+                display: none;
+            }
+            .btn{
+                display: none;
+            }
+
+            @media print{
+                button, input[type="button"], input[type="submit"], input[type="reset"]{
+                    display: none !important;
+                }
+            }
+    </style>
+   </head>
+   <body>
+<div class="wrapper">
+    <div style="float:right">
+        <p>Report Generated on: {{ history.approved_date_time }}</p>
+    </div>
+<section class="body-card form-style1 trial-form">
+    <form [formGroup]="form" autocomplete="off">
+
+        <div class="container-fluid">
+            <div class="row mt-1">
+                <div class="col-md-12">
+                    <div class="panel-right">
+                        <app-forms-back-button [passData]="trialDet"></app-forms-back-button>
+                        <div class="panel-row">
+                            <div class="heading-style2 text-center">
+                                <img width="100px" alt="Logo"
+                                    style="height: 150px; width: 160px; position: relative; left: 40%;"
+                                    src="http://159.12.45.106:8000/media/satellite_unit_image/GTTTV_Logo_new.jpg">
+                                <h2 style="text-align: center;">GTTT VIZAG</h2>
+                                <h4><u class="font-weight-bold">EHM/ IFPT REQUISTION</u></h4>
+                            </div>
+                            <table class="table table-bordered table-style-color tabletd-color table-requistion mt-1">
+                                <tr>
+                                    <th>S No</th>
+                                    <th width="20%">Detailed Required</th>
+                                    <th colspan="5" style="text-align: center;">Details</th>
+
+                                </tr>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Name of the Ship</td>
+                                    <td colspan="5">{{users.P17_Name_of_ship}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">2.</td>
+                                    <td colspan="6" style="text-align: center;"> <b>Proposed Date of Trials</b></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td class="whitebackground">Harbour Checks</td>
+                                    <td colspan="5">{{users.P17_Harbour_Checks}}
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td class="whitebackground">Sea Checks</td>
+                                    <td colspan="5">{{users.P17_Sea_Checks}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">3.</td>
+                                    <td colspan="7" style="text-align: center;"> <b>Details of Gas Turbines:</b></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td class="whitebackground">Designation</td>
+                                    <td >Location </td>
+                                    <td >Reason for Trials</td>
+                                    <td colspan="3" class="whitebackground">Date of Last Trial</td>
+                                  
+                                </tr>
+                                <tr>
+
+                                    <td class="whitebackground">Port GT</td>
+                                    <td >{{users.P17_Sea_Checks_Port_GT}}</td>
+                                    <td >{{users.P17_Reason_of_Trial_Port_GT}}</td>
+                                    <td  colspan="3">{{users.P17_Date_of_Last_Trial_Port_GT}}</td>                                   
+                                  
+                                </tr>
+                                <tr>
+
+                                    <td class="whitebackground">Stbd GT</td>
+                                    <td >{{users.P17_Location_Stbd_GT}}</td>
+                                    <td >{{users.P17_Reason_of_Trial_Stbd_GT}}</td>
+                                    <td colspan="3">{{users.P17_Date_of_Last_Trial_Stbd_GT}}</td>                                  
+                                  
+                                </tr>
+
+                                <tr>
+                                    <td rowspan="4">4.</td>
+                                    <td colspan="7" style="text-align: center;"> <b>Details of Running Hours</b></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td class="whitebackground">Designation</td>
+                                    <td>RHs Since Installation </td>
+                                    <td>RHs Since  Last Trials</td>
+                                    <td>Type & Date of Last Major Routines</td>
+                                    <td>RHs Since   Last Major Routines</td>
+                                    <td>Remarks</td>
+                                  
+                                </tr>
+                                <tr>
+
+                                    <td class="whitebackground">Port GT</td>
+                                    <td >{{users.P17_RHs_Since_Installation_Port_GT}}</td>
+                                    <td >{{users.P17_RHs_Since_Last_Trial_Port_GT}}</td>
+                                    <td >{{users.P17_Types_Date_Major_Last_Routines_Port_GT}}</td>
+                                    <td >{{users.P17_RHs_Since_Last_Major_Routines_Port_GT}}</td>
+                                    <td >{{users.P17_Remarks_Port_GT}}</td>                                   
+                                  
+                                </tr>
+                                <tr>
+
+                                    <td class="whitebackground">Stbd GT</td>
+                                    <td >{{users.P17_RHs_Since_Installation_Stbd_GT}}</td>
+                                    <td >{{users.P17_RHs_Since_Last_Trial_Stbd_GT}}</td>
+                                    <td >{{users.P17_Types_Date_Major_Last_Routines_Stbd_GT}}</td> 
+                                    <td >{{users.P17_RHs_Since_Last_Major_Routines_Stbd_GT}}</td>
+                                    <td >{{users.P17_Remarks_Stbd_GT}}</td>                                 
+                                  
+                                </tr>
+                               
+                                
+                                <tr>
+                                    <td>5.</td>
+                                    <td colspan="4">Details of Major Units/ components of GTs / Systems replaced</td>
+                                    <td colspan="2">{{users.P17_Major_Units_components}}</td>
+                                                                                                 
+                                </tr>
+                                <tr>
+                                    <td>6.</td>
+                                    <td colspan="4">Major Defects Encountered since last trials/ major routines</td>
+                                    <td colspan="2">{{users.P17_Major_Defects_Encountered}}</td>
+                                                                                                  
+                                </tr>
+                                <tr>
+                                    <td>7.</td>
+                                    <td colspan="4">Status of pending observations wrt last trials if any</td>
+                                    <td colspan="2">{{users.P17_Status_of_Pending_observation}}</td>
+                                                                                                  
+                                </tr>
+                                <tr>
+                                    <td>8.</td>
+                                    <td colspan="4">Details of major routines due on GTs/ FUSS details</td>
+                                    <td colspan="2">{{users.P17_Details_of_Major_routines}}</td>
+                                                                                                  
+                                </tr>
+                                <tr>
+                                    <td>9.</td>
+                                    <td colspan="4">Outstanding defects if any</td>
+                                    <td colspan="2">{{users.P17_Outstanding_Defects}}</td>
+                                                                                                  
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<table cellspacing="0" cellpadding="5"  width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px;">
+    <tr>
+        <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br> {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication through ITTTM </td>
+        <td width="50%"  style="margin-left:50px">   <img style="width:130px;height:130px;align-items:right" src="http://159.12.45.106:8000/{{qr}}"/></td>
+    </tr>
+</table>
+<table cellspacing="0" cellpadding="5" width="100%" style="font-family: Arial, Helvetica, sans-serif; margin-top: 0px; display:flex; justify-content:center;">
+    <tr style="border: 0; border-style:None;">
+        <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">Report Generated Through ITTTM</td>
+        <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55" style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0" style="cursor: pointer;"></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

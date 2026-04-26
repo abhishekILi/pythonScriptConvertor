@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CBIU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style type="text/css">
+    body {
+      margin: 50px 50px;
+      size: landscape;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .wrapper {
+      width: 100%;
+      border-style: double;
+      padding: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    .clear {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      clear: both;
+    }
+
+    .star {
+      color: red;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    tr,
+    th {
+      text-align: left;
+    }
+
+    tr,
+    th {
+      font-size: 14px;
+    }
+
+    table {
+      border: 1px solid lightgray;
+      font-size: 12px;
+      padding: 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table tr {
+      margin: 0px !important;
+    }
+
+    table tr td {
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      text-align: left;
+      padding: 2px 2px 2px 2px;
+    }
+
+    table tr th {
+      border: 1px solid black;
+    }
+
+    table tr td {
+      background-color: #80808054;
+      padding: 0px;
+      margin: 0px;
+      border: 1px solid black;
+      text-align: left;
+      padding: 2px 2px 2px 2px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 10px;
+      /* padding: 10px; */
+      font-size: 12px;
+      resize: none;
+      overflow-y: hidden;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      border: none;
+    }
+
+    button {
+      display: none;
+    }
+
+    .btn {
+      display: none;
+    }
+
+    @media print {
+
+      button,
+      input[type="button"],
+      input[type="submit"],
+      input[type="reset"] {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div style="float:right">
+      <p>Report Generated on: {{ history.approved_date_time }}</p>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <div class="panel-right">
+
+            <div class="panel-row">
+              <div class="heading-style2 text-center">
+                <img width="100px" alt="Logo" style="height: 150px; width: 160px; position: relative; left: 40%;"
+                  src="http://159.12.45.106:8000/media/satellite_unit_image/IMG-20230717-WA0000_fzzGlE1.jpg">
+                <h2 style="text-align:center">I.N.-586(b)(i)</h2>
+                <h2 style="text-align:center">S – 353 D </h2>
+              </div>
+
+
+              <table class="table table-bordered table-form-color1">
+                <tr>
+                  <td width="10%"><strong>ShipName: </strong></td>
+                  <td>{{users.ShipName}}</td>
+
+                  <td width="12%" style="background:#efedff"><strong>Report Ref No: </strong></td>
+                  <td>{{users.Report_Ref}}</td>
+
+                  <td width="6%" style="background:#efedff"><strong>Date:</strong></td>
+                  <td>
+                    {{users.Date}}
+                  </td>
+                </tr>
+              </table>
+              <div class="heading-style2 heading-style3 text-center">
+                <h2
+                  style="font-size: 16px;font-weight: 500;color: #0b014a;font-family: Roboto, Helvetica Neue, sans-serif;text-decoration: underline;">
+                  REPORT
+                  ON INTERNAL EXAMINATION OF BOILER {{users.Internal_REPORT_INTERNAL_EXAMINATION_BOILER_No}}</h2>
+              </div>
+              <p style="font-size: 16px;"><strong> (Examination to be undertaken in accordance with Article 1250, BR
+                  3000 and
+                  Article 0307, BR 2000 (25) (1). Routine internal examination is to be undertaken at 12 monthly
+                  interval from the
+                  date of first raising steam, following last retubing/internal cleaning/ internal examination, as
+                  applicable.
+                  Report is to be rendered, in quadruplicate to CBIU(MB) soon after completion of the
+                  examination).</strong></p>
+              <div class="heading-style2 text-center">
+                <h2><U>PART - I</U></h2>
+              </div>
+              <table class="table table-bordered table-form-color1">
+                <tr>
+                  <td width="50%">1. <b>Date of opening and closing of boiler for present internal examination.</b></td>
+                  <td colspan="3" width="25%"><label><b>(a)</b> Date Opened:</label>
+                    {{users.Internal_Date_Of_Opening2}}
+
+                  <td colspan="3"><label><b>(b)</b> Date Closed:</label>
+                    {{users.Internal_Date_Of_Closing3}}
+
+                </tr>
+                <tr>
+                  <td>2.&nbsp;&nbsp;<b>(Routine (12/24/36/48 monthly/ after use
+                      of contaminated feed water/before steaming
+                      of boiler remaining idle for more than
+                      03 months/post-refit sea trials/special
+                      examination, if any with brief reason).</b>
+                  </td>
+                  <td colspan="6">{{users.Internal_Occ_present_Remarks_ship}}
+                  </td>
+                </tr>
+                <tr>
+                  <th colspan="8">3. Date of first raising steam on the boiler following the last:</th>
+                </tr>
+
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(a)</b> Major re-tubing/Partial</td>
+                  <td colspan="6">{{users.Internal_Date_first_Major_Retubing_Remarks_ship}}</td>
+
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> ) Internal Chemical Cleaning</td>
+                  <td colspan="6">{{users.Internal_Date_first_Internal_Clean_Remarks_ship}}</td>
+
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b> Internal Examination</td>
+                  <td colspan="6">{{users.Internal_Date_first_IInternal_Exam_Remarks_ship}}</td>
+
+                </tr>
+                <tr colspan="8">
+                  <th colspan="8"><b>4. Running Hours</b></th>
+                </tr>
+                <tr colspan="8">
+                  <th><strong style="font-weight:bold;">Particular</strong></th>
+                  <th colspan="3"><strong style="font-weight:bold;">Date</strong></th>
+                  <th colspan="3"><strong style="font-weight:bold;">Hours in use since</strong></th>
+
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;<strong> </strong><b>(a)</b> Last change of boiler water.</td>
+                  <td colspan="3">
+                    {{users.Internal_Last_Change_of_boiler}}
+                  </td>
+                  <td colspan="3">{{users.Internal_Last_change_boiler_water_Hours_1}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> Last internal examination.</td>
+                  <td colspan="3">
+                    {{users.Internal_Last_internal_examination}}
+                  </td>
+                  <td colspan="3">{{users.Internal_Last_internal_examination_Hours_1}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b> Last internal cleaning</td>
+                  <td colspan="3">
+                    {{users.Internal_last_internal_cleaning}}
+                  </td>
+                  <td colspan="3">{{users.Internal_Last_internal_cleaning_Hours_1}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(d)</b> Present internal cleaning</td>
+                  <td colspan="3">
+                    {{users.Internal_present_internal_cleaning}}
+                  </td>
+                  <td colspan="3">{{users.Internal_Last_major_retubing_Hours_1}}</td>
+                </tr>
+                <tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(e)</b> Since installation</td>
+                  <td colspan="3">
+                    {{users.Internal_Since_installation}}
+                  </td>
+                  <td colspan="3">{{users.Internal_Since_installation1}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(f)</b> Since boiler commissioning</td>
+                  <td colspan="3">
+                    {{users.Internal_since_boiler_comissiong}}
+                  </td>
+                  <td colspan="3">{{users.Internal_Boiler_commissioning_Hours_1}}</td>
+                </tr>
+                <tr>
+                  <th colspan="8">5. Details/Occasion of Examination</th>
+                </tr>
+                <tr>
+                  <td>
+                    &nbsp;&nbsp;&nbsp;<strong> </strong><b>(a)</b> Reason for change of boiler water (other than routine
+                    change at every 2000 steaming
+                    hours).
+                  </td>
+                  <td colspan="6">
+                    {{users.Internal_reason_for_change_of_boiler}}
+                  </td>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> Occasion of last internal examination.</td>
+                  <td colspan="6">
+                    {{users.Internal_ocassion_of_last_internal_ex}}
+                  </td>
+                <tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b> Date and occasion/reason of last boiling out :</td>
+                  <td colspan="6">
+                    {{users.Internal_ocassion_of_last_boiling_out}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(d)</b> Occasion of last Internal chemical cleaning</td>
+                  <td colspan="6">
+                    {{users.Internal_ocassion_of_last_internal_cleaning}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(e)</b> Cleaning method adopted at last internal cleaning
+                    (mechanical/chemical).</td>
+                  <td colspan="6">
+                    {{users.Internal_cleaning_method_adopt}}
+                  </td>
+                <tr>
+                  <td><b>6. Authority for deferment of present internal examination, if applicable</b></td>
+                  <td colspan="6">
+                    {{users.Internal_authority_of_deferment}}
+                  </td>
+              </table>
+              <table class="table table-bordered table-form-color1">
+                <tr>
+                  <th colspan="8"><strong><strong style="font-weight:bold;">7. Boiler Water Test Results since Last
+                        Internal
+                        Examination.</strong></strong> (Indicate in the table
+                    below, details of all occurrences of boiler water alkalinity (NaOH) values of less than 04 Mg/Ltr
+                    boiler
+                    in W/WW state as well as Chlorine content values of more than 10 Mg/Ltr and phosphate content below
+                    10
+                    Mg/Ltr on all occasions. If given space is inadequate, the details on separate sheet be attached
+                    with
+                    this report).</th>
+                </tr>
+
+                <tr>
+                  <th colspan="8" style=" text-align: center;"><u><strong style="font-weight:bold;">(A) ALKALINITY
+                        (NaOH)</strong></u></th>
+
+                </tr>
+
+                <tr>
+                  <th>Sl No</th>
+                  <th> Date(s) of Occurrence</th>
+                  <th>Actual Value Measured</th>
+                  <th>Duration boiler was in the state mentioned in col. 3 (in hours)</th>
+                  <th>Boiler state (W/WW/S) </th>
+                  <th>Brief details of reason and remedial action taken in each case</th>
+                </tr>
+                {% for i in internal_alkalinity_btw %}
+                <tr>
+                  <td> {{forloop.counter}}</td>
+                  <td>{{i.alkalinity_date_of_occurrence}}</td>
+                  <td>{{i.alkalinity_actual_value_measured}}</td>
+                  <td>{{i.alkalinity_duration_boiler}}</td>
+                  <td>{{i.alkalinity_boiler_state}}</td>
+                  <td>{{i.alkalinity_brief_details_reasons}}</td>
+
+                </tr>
+                {% endfor %}
+
+
+                <tr>
+                  <th colspan="7" style=" text-align: center;"><u><strong style="font-weight:bold;">(B)
+                        SALINITY:</strong></u></th>
+                </tr>
+
+                <tr colspan="8" style="text-align:center;font-weight: 600;">
+                  <th>Sl No</th>
+                  <th> Date(s) of Occurrence</th>
+                  <th>Actual Value Measured</th>
+                  <th>Duration boiler was in the state mentioned in col. 3 (in hours)</th>
+                  <th>Boiler state (W/WW/S) </th>
+                  <th>Brief details of reason and remedial action taken in each case</th>
+                </tr>
+                {% for i in internalbtwsalinity%}
+                <tr>
+                  <td> {{forloop.counter}}</td>
+                  <td>{{i.chlorine_date_of_occurrence}}</td>
+                  <td>{{i.chlorine_actual_value_measured}}</td>
+                  <td>{{i.chlorine_duration_boiler}}</td>
+                  <td>{{i.chlorine_boiler_state}}</td>
+                  <td>{{i.chlorine_brief_details_reasons}}</td>
+
+                </tr>
+                {% endfor %}
+              </table>
+              <tr>
+                <td><b>8. Average feed water consumption.</b></td>
+              </tr>
+              <table class="table table-bordered table-form-color1">
+                <tr>
+                  <td width="30%"><strong>(a) Auxiliary steaming </strong></td>
+
+                  <td>
+                    {{users.inter_btw_auxilliary_steaming}}
+                    <label for="fname" style="color: #0b014a;">tons/hr</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>(b) Main steaming</b> </td>
+                  <td>
+                    {{users.inter_btw_main_steaming}}
+                    <label for="fname" style="color:  #0b014a;">tons/hr</label>
+                  </td>
+                </tr>
+              </table>
+              <table class="table table-bordered table-form-color1">
+                <tr colspan="6">
+                  <td width="50%"><strong>9. Details of hand hole doors of water wall/ :
+                      superheater / economiser headers and
+                      internal fittings removed to facilitate
+                      Present internal examination (Different hand
+                      hole doors should be removed at successive examinations. Should the internal condition be found
+                      unsatisfactory
+                      or any tube defect is noticed,the remainder internal fittings must also be removed and all tubes
+                      inspected).</strong>
+                  </td>
+
+                  <td width="50%">{{users.Internal_Details_manhole_doors_2}}</td>
+                </tr>
+                <tr>
+                  <th colspan="6"> 10. If any internal cleaning of boiler other than wash down by feed water was
+                    undertaken before present examination, state:-</th>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<strong>(a)</strong> General condition prior to cleaning</td>
+                  <td>{{users.Internal_Gen_condition_prior_clean_1}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(b)</b> Cleaning method used</td>
+                  <td>{{users.Internal_Clean_method_used_1}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<b>(c)</b> Effectiveness of clean</td>
+                  <td>{{users.Internal_Effectiveness_clean_1}}</td>
+                </tr>
+                <tr>
+                  <td><B>11. Boiler water test kit</B>
+                    (Highlight defects/
+                    deficiency, if any and indicate briefly since
+                    when, reason/holdups and remedial actions
+                    taken ). </td>
+                  <td colspan="2">{{users.Internal_Boiler_Water_Test_Kit_1}}</td>
+                </tr>
+                <tr>
+                  <td><B>12. Boiler tube internal cleaning equipment.</B>
+                    (Highlight deficiency as per authorized range and scale, if any and indicate briefly since when,
+                    reason/holdups and remedial actions taken).
+                  </td>
+                  <td colspan="2">{{users.Internal_Boiler_tube_internal_clean_1}}</td>
+                </tr>
+              </table>
+              <div class="heading-style2 text-center">
+                <h2><U>PART - II</U></h2>
+              </div>
+              <p style="color: #0b014a;">(Brief details of observations made during present internal examination and
+                repairs/remedial actions taken be highlighted in this part.
+                Observations to include nature (soft/hard, tenacious, colour and layer/mounds/scabs etc.) and extent
+                (thin/thick,
+                spread in isolated areas/pockets, scattered all over /uniformly all over etc.)
+                of deposits/ corrosion/scale. Any significant changes since last examination if the boiler was not
+                cleaned in the
+                interim period be highlighted.
+                Presence of traces of boiler compound, oil or grease, foreign body/obstruction besides evidence of
+                overheating,
+                damage and abnormality observed , if any be also highlighted).</p>
+              <table class="table table-bordered table-form-color1">
+                <tr colspan="8">
+                  <td width="50%"><B>13. Steam Drum.</B><br />
+                    <small>(both below and above
+                      water line (W) including joint faces
+                      of manhole door(s) for scoring, pitting
+                      and damage).
+                    </small>
+                  </td>
+                  <td colspan="3" width="40%">{{users.Internal_Steam_Drum_1}}</td>
+                </tr>
+                <tr>
+                  <td><B>14. Water Drum.</B><br />
+                    <small>(Including joint faces of manhole door(s) ).</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_Water_Drum_1}}</td>
+                </tr>
+                <tr>
+                  <td><B>15. Water Wall Headers.</B><br />
+                    <small>(Including joint faces of handhole door(s) for scoring, pitting and damage).</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_Water_wall_headerds_1}}</td>
+                </tr>
+                <tr>
+                  <td><B><strong>16. </strong>(a) Generator, Water Wall and floor tubes.</B><br />
+                    <small>(from both ends)</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_Water_generator_tubes}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp; <B>(b) Tube ends (tube belings).</B><br />
+                    <small>(additionally for damage/cracks).</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_tubes_end}}</td>
+                </tr>
+                <tr>
+                  <td><B>17. Downcomer and Uprisers.</B><br />
+                    <small>(including their ends)</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_downtime_upriser}}</td>
+                </tr>
+                <tr>
+                  <td><B>18. (a) SuperHeater Tubes.</B><br />
+                    <small>(includng their end)</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_superheater_tubes}}</td>
+
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp; <B>(b) Super Heater Headers.</B><br />
+                    <small>(Including joint faces of manhole doors for scoring, pitting and damage).</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_Water_Wall_Headers_1}}</td>
+                </tr>
+                <tr>
+                  <td><B>19. (a) Economiser tube elements.</B><br />
+                    <small>(includng tube end)</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_economiser_tube}}</td>
+
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp; <B>(b) Economiser Headers.</B><br />
+                  </td>
+                  <td colspan="3">{{users.Internal_economiser_headers}}</td>
+                </tr>
+                <tr>
+                  <td><B>20. Various orifices/stub pipes and nozzles.</B><br />
+                    <small>(of steam/water drums and all headers).</small>
+                  </td>
+                  <td colspan="3">{{users.Internal_Water_stub_pipes}}</td>
+                </tr>
+                <tr>
+
+                  <td><B>21. (a)Internal gear</B>
+                    <small>including attemperator and desuperheater coils, as applicable.</small>
+                  </td>
+
+
+                  <td colspan="3">{{users.Internal_Gen_water_wall_floor_tubes_1}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp;<B>(b) Fit of joint faces</B>
+                    <small> of baffle and splash
+                      plates, cyclone separator and internal
+                      steam/water pipes below water level
+                      (W) as far as accessibility permits.</small>
+
+
+                  </td>
+                  <td colspan="3">{{users.Internal_Tube_ends_1}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp; <B>(c) Steam drum internal dry steam pipe
+                      joints above water level</B> (W) (for
+                    leakage by undertaking <B>reverse pressure test).</B>
+
+
+                  </td>
+                  <td colspan="3">{{users.Internal_Tube_ends_2}}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;&nbsp;&nbsp; <B>(d) Security of joints, fastenings and locking arrangement.</B>
+                  </td>
+                  <td colspan="3">{{users.Internal_Tube_ends_3}}</td>
+                </tr>
+                <tr>
+                  <td><B>22. Direct Reading Water Level Indicator Test</B>
+                    <br />(for satisfactory operation of the isolating steam, water and drain cocks/valves and
+                    serviceability of
+                    assembly)
+                  </td>
+                  <td colspan="3">{{users.Internal_Downcomers_Uprisers_1}}</td>
+                </tr>
+
+                <tr>
+                  <td colspan="8"><u><B>Note:-</B></u><br />
+                    1. Items not applicable may be filled with NA.<br />
+                    2. Reasons are to be stated against relevant serials, if any part of the boiler is not examined.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="2"><label><B>23. CERTIFICATE</B><br />
+                      I certify that all tubes and mounting orifices including those of water level indicators were free
+                      from obstruction and that no foreign body including wooden plugs (fitted temporarily during the
+                      examination) were left inside the boiler and that the internal gear was correctly fitted when the
+                      boiler was finally closed after the present internal examination on
+                      {{users.Internal_certificate}}
+                    </label>
+                  </td>
+
+
+                </tr>
+
+              </table>
+              <table class="table table-bordered tabletd-color table-form-color1">
+                <tr>
+                  <td width="15%"><strong>Engineer Officer</strong></td>
+                  <td>
+                    <div class="signature-2">{{users.Internal_CERTIFICATE_Engineer_Officer}}</div>
+                  </td>
+                </tr>
+              </table>
+              <br><br>
+              <div class="heading-style2 text-center">
+                <h2><U>PART - III</U></h2>
+              </div>
+              <table class="table table-bordered tabletd-color table-form-color1">
+                <tr colspan="8">
+                  <td colspan="8"><strong><B>24. <u>General remarks by ship.</u></B></strong> (To include any other
+                    information in
+                    addition to that given earlier
+                    which may be considered necessary to enable a more complete estimate to be formed of the state of
+                    the boiler
+                    e.g.,
+                    abnormal consumption of boiler compound, incidents of boiler priming, requirement of excessive
+                    blowing down of
+                    boiler
+                    and use of substandard feed water in the boiler etc.).</td>
+                </tr>
+                <table class="table table-bordered table-form-color">
+                  <!-- <tr>
+        <th style="text-align: center;">Observation/ Remarks</th>
+      </tr> -->
+                  {{users.Gen_Condition_boiler_Obs_Remarks}}
+
+                  <tr>
+                    <td width="15%"><strong>Engineer Officer</strong></td>
+                    <td>
+                                <p style="font-size:9px">Comment: {{esignature.engg_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.engg_information.first_name}} {{esignature.engg_information.last_name}} ({{esignature.engg_information.loginname}})
+                                <br>
+                                {{esignature.engg_information.designation}}
+                                <br>
+                                On {{esignature.engg_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.engg_sign_path}}"/></td>
+
+                    <td class="td-bluelight" width="15%"><strong>Commanding Officer</strong></td>
+                    <td>
+                                <p style="font-size:9px">Comment: {{esignature.comm_comment}}
+                                <br>
+                                Electronically Signed By:
+                                <br>
+                                {{esignature.comm_information.first_name}} {{esignature.comm_information.last_name}} ({{esignature.comm_information.loginname}})
+                                <br>
+                                {{esignature.comm_information.designation}}
+                                <br>
+                                On {{esignature.comm_sign_time}}
+                                <br>
+                                Using login ID authentication through ITTTM.</p>
+                            </td>
+                            <td><img style="width:80px;height:80px;align-item:right" src="http://159.12.45.106:8000{{esignature.comm_sign_path}}"/></td>
+
+
+                </table>
+
+                </tr>
+              </table>
+              <div class="heading-style2 text-center">
+                <h2><U>PART – IV</U></h2>
+              </div>
+              <h4>
+                21.Remarks by CBIU</h4>
+
+
+
+              <table class="table table-bordered table-form-color1">
+
+                {{users.Internal_General_Remark_By_CBIU_WPT}}
+
+              </table>
+
+              <table class="table table-bordered table-form-color1">
+
+                <tr>
+
+                  <td width="15%"><strong>Officer-in-Charge</strong></td>
+
+                  <td>{{users.Internal_wpt_Officer_in_Charge}}</td>
+
+                  <td>
+
+                    <div class="signature-2"></div>
+
+                  </td>
+
+                </tr>
+
+              </table>
+              <table cellspacing="0" cellpadding="5" class="table grid-tab" width="100%"
+                style="font-family: Arial, Helvetica, sans-serif; margin-top: 8px;">
+                <tr>
+                  <td width="80%" style="margin-left:90px;text-align:right;font-family:Times New Roman;">Electronically
+                    Signed By: <br> {{history.first_name}} {{history.last_name}}, {{history.login_name}} <br>
+                    {{history.designation}} <br> On {{ history.approved_date_time }} <br> Using login ID authentication
+                    through ITTTM </td>
+                  <td width="50%" style="margin-left:50px"> <img style="width:130px;height:130px;align-item:right"
+                      src="http://159.12.45.106:8000/{{qr}}" /></td>
+                </tr>
+              </table>
+
+              <table cellspacing="0" cellpadding="5" width="100%"
+                style="font-family: Arial, Helvetica, sans-serif; margin-top: 7px; display:flex; justify-content:center;">
+                <tr style="border: 0; border-style:None;">
+                  <td width="55%" style="font-family:Times New Roman;text-align:right; border: 0px; border-style:None;">
+                    Report Generated Through ITTTM</td>
+                  <td width="45%" style="border: 0; border-style:None;"><img width="55" height="55"
+                      style="align-items:left;" src="http://159.12.45.106:8000/media/ITTTM_logo.png" alt="" tabindex="0"
+                      style="cursor: pointer;"></td>
+                </tr>
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
